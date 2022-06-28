@@ -37,7 +37,7 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8.14.1. nilearn.reporting.get_clusters_table" href="nilearn.reporting.get_clusters_table.html" />
+    <link rel="next" title="8.14.1. nilearn.reporting.HTMLReport" href="nilearn.reporting.HTMLReport.html" />
     <link rel="prev" title="8.13.16.2. nilearn.glm.second_level.make_second_level_design_matrix" href="nilearn.glm.second_level.make_second_level_design_matrix.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -220,7 +220,7 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="nilearn.reporting.get_clusters_table.html" title="8.14.1. nilearn.reporting.get_clusters_table"
+          <a href="nilearn.reporting.HTMLReport.html" title="8.14.1. nilearn.reporting.HTMLReport"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="nilearn.glm.second_level.make_second_level_design_matrix.html" title="8.13.16.2. nilearn.glm.second_level.make_second_level_design_matrix"
@@ -263,7 +263,7 @@ function signature, and not how to use it. Please refer to the
 <h1><span class="section-number">8.13.16.3. </span>nilearn.glm.second_level.non_parametric_inference<a class="headerlink" href="#nilearn-glm-second-level-non-parametric-inference" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.glm.second_level.non_parametric_inference">
-<span class="sig-prename descclassname"><span class="pre">nilearn.glm.second_level.</span></span><span class="sig-name descname"><span class="pre">non_parametric_inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">second_level_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">design_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_level_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_level_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_sided_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfce</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1dc089e2/nilearn/glm/second_level/second_level.py#L629"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.second_level.non_parametric_inference" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.glm.second_level.</span></span><span class="sig-name descname"><span class="pre">non_parametric_inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">second_level_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">design_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second_level_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_level_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_perm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_sided_test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tfce</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/0863a5b7/nilearn/glm/second_level/second_level.py#L597"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.second_level.non_parametric_inference" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate p-values corresponding to the contrasts provided
 based on permutation testing.</p>
 <p>This function is a light wrapper around
@@ -272,7 +272,7 @@ ensure compatibility with the <a class="reference internal" href="../reference.h
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like             objects</span></dt><dd><p>If a pandas DataFrame, then they have to contain subject_label,
+<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#list" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like             objects</span></dt><dd><p>If a pandas DataFrame, then they have to contain subject_label,
 map_name and effects_map_path. It can contain multiple maps that
 would be selected during contrast estimation with the argument
 first_level_contrast of the compute_contrast function. The
@@ -283,17 +283,18 @@ correspond to the sorted subject_label column.</p>
 <p>If list of Niimg-like objects then this is taken literally as Y
 for the model fit and design_matrix must be provided.</p>
 </dd>
-<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
+<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
 considered as confounds and included in the model. If
-design_matrix is provided then this argument is ignored.
+<code class="docutils literal notranslate"><span class="pre">design_matrix</span></code> is provided then this argument is ignored.
 The resulting second level design matrix uses the same column
-names as in the given DataFrame for confounds. At least two columns
-are expected, “subject_label” and at least one confound.</p>
+names as in the given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> for confounds.
+At least two columns are expected, <code class="docutils literal notranslate"><span class="pre">subject_label</span></code> and at
+least one confound.</p>
 </dd>
-<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, optional</span></dt><dd><p>Design matrix to fit the GLM. The number of rows
+<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.4.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, optional</span></dt><dd><p>Design matrix to fit the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>. The number of rows
 in the design matrix must agree with the number of maps derived
-from second_level_input.
-Ensure that the order of maps given by a second_level_input
+from <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>.
+Ensure that the order of maps given by a <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>
 list of Niimgs matches the order of the rows in the design matrix.</p>
 </dd>
 <dt><strong>second_level_contrast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or array of shape (n_col), optional</span></dt><dd><p>Where <code class="docutils literal notranslate"><span class="pre">n_col</span></code> is the number of columns of the design matrix.
@@ -310,16 +311,16 @@ It has to be a ‘t’ contrast.</p>
 </div>
 </dd>
 <dt><strong>mask</strong><span class="classifier">Niimg-like, <a class="reference internal" href="nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> or             <a class="reference internal" href="nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> object, optional</span></dt><dd><p>Mask to be used on data. If an instance of masker is passed,
-then its mask will be used. If no mask is given,
-it will be computed automatically by a MultiNiftiMasker with default
-parameters. Automatic mask computation assumes first level imgs have
-already been masked.</p>
+then its mask will be used. If no mask is given, it will be computed
+automatically by a <a class="reference internal" href="nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> with
+default parameters. Automatic mask computation assumes first level
+imgs have already been masked.</p>
 </dd>
 <dt><strong>smoothing_fwhm</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, optional.</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">smoothing_fwhm</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it gives
 the <a class="reference internal" href="../../glossary.html#term-FWHM"><span class="xref std std-term">full-width at half maximum</span></a> in millimeters
 of the spatial smoothing to apply to the signal.</p>
 </dd>
-<dt><strong>model_intercept</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>If True, a constant column is added to the confounding variates
+<dt><strong>model_intercept</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a constant column is added to the confounding variates
 unless the tested variate is already the intercept.
 Default=True.</p>
 </dd>
@@ -327,21 +328,24 @@ Default=True.</p>
 Permutations are costly but the more are performed, the more precision
 one gets in the p-values estimation. Default=10000.</p>
 </dd>
-<dt><strong>two_sided_test</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>If True, performs an unsigned t-test. Both positive and negative
-effects are considered; the null hypothesis is that the effect is zero.
-If False, only positive effects are considered as relevant. The null
-hypothesis is that the effect is zero or negative.
-Default=False.</p>
+<dt><strong>two_sided_test</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, performs an unsigned t-test.
+Both positive and negative effects are considered; the null
+hypothesis is that the effect is zero.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">False</span></code>, only positive effects are considered as relevant.
+The null hypothesis is that the effect is zero or negative.</p></li>
+</ul>
+<p>Default=False.</p>
 </dd>
-<dt><strong>random_state</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or None, optional</span></dt><dd><p>Seed for random number generator, to have the same permutations
-in each computing units.</p>
+<dt><strong>random_state</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a> or RandomState, optional</span></dt><dd><p>Pseudo-random number generator state used for random sampling.
+Use this parameter to have the same permutations in each
+computing units.</p>
 </dd>
-<dt><strong>n_jobs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt><dd><p>Number of parallel workers.
-If -1 is provided, all CPUs are used.
-A negative number indicates that all the CPUs except (abs(n_jobs) - 1)
-ones will be used. Default=1.</p>
+<dt><strong>n_jobs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional.</span></dt><dd><p>The number of CPUs to use to do the computation. -1 means ‘all CPUs’.
+Default=1.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt><dd><p>Verbosity level (0 means no message). Default=0.</p>
+<dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.8/library/functions.html#int" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt><dd><p>Verbosity level (0 means no message).
+Default=0.</p>
 </dd>
 <dt><strong>threshold</strong><span class="classifier">None or <a class="reference external" href="https://docs.python.org/3.8/library/functions.html#float" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, optional</span></dt><dd><p>Cluster-forming threshold in p-scale.
 This is only used for cluster-level inference.
@@ -531,8 +535,8 @@ TFCE values from permutations.</p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="nilearn.reporting.get_clusters_table.html"
-                          title="next chapter"><span class="section-number">8.14.1. </span>nilearn.reporting.get_clusters_table</a></p>
+    <p class="topless"><a href="nilearn.reporting.HTMLReport.html"
+                          title="next chapter"><span class="section-number">8.14.1. </span>nilearn.reporting.HTMLReport</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
