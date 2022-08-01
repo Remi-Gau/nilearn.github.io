@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.8.10. Advanced decoding using scikit learn" />
+<meta property="og:title" content="9.8.7.10. Advanced decoding using scikit learn" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.8.11. Beta-Series Modeling for Task-Based Functional Connectivity and Decoding" href="plot_beta_series.html" />
-    <link rel="prev" title="9.8.9. Massively univariate analysis of face vs house recognition" href="plot_haxby_mass_univariate.html" />
+    <link rel="next" title="9.8.7.11. Beta-Series Modeling for Task-Based Functional Connectivity and Decoding" href="plot_beta_series.html" />
+    <link rel="prev" title="9.8.7.9. Massively univariate analysis of face vs house recognition" href="plot_haxby_mass_univariate.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_beta_series.html" title="9.8.11. Beta-Series Modeling for Task-Based Functional Connectivity and Decoding"
+          <a href="plot_beta_series.html" title="9.8.7.11. Beta-Series Modeling for Task-Based Functional Connectivity and Decoding"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_mass_univariate.html" title="9.8.9. Massively univariate analysis of face vs house recognition"
+          <a href="plot_haxby_mass_univariate.html" title="9.8.7.9. Massively univariate analysis of face vs house recognition"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="advanced-decoding-using-scikit-learn">
-<span id="sphx-glr-auto-examples-07-advanced-plot-advanced-decoding-scikit-py"></span><h1><span class="section-number">9.8.10. </span>Advanced decoding using scikit learn<a class="headerlink" href="#advanced-decoding-using-scikit-learn" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-07-advanced-plot-advanced-decoding-scikit-py"></span><h1><span class="section-number">9.8.7.10. </span>Advanced decoding using scikit learn<a class="headerlink" href="#advanced-decoding-using-scikit-learn" title="Permalink to this heading">¶</a></h1>
 <p>This tutorial opens the box of decoding pipelines to bridge integrated
 functionalities provided by the <a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object
 with more advanced usecases. It reproduces basic examples functionalities with
@@ -302,9 +303,9 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="retrieve-and-load-the-fmri-data-from-the-haxby-study">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9.8.10.1. </span>Retrieve and load the fMRI data from the Haxby study</a><a class="headerlink" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9.8.7.10.1. </span>Retrieve and load the fMRI data from the Haxby study</a><a class="headerlink" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study" title="Permalink to this heading">¶</a></h2>
 <section id="first-download-the-data">
-<h3><span class="section-number">9.8.10.1.1. </span>First download the data<a class="headerlink" href="#first-download-the-data" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.1.1. </span>First download the data<a class="headerlink" href="#first-download-the-data" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The :func:`nilearn.datasets.fetch_haxby` function will download the</span>
 <span class="c1"># Haxby dataset composed of fmri images in a Niimg, a spatial mask and a text</span>
 <span class="c1"># document with label of each image</span>
@@ -417,7 +418,7 @@ all occurrences of:</p>
 </section>
 </section>
 <section id="performing-decoding-with-scikit-learn">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.8.10.2. </span>Performing decoding with scikit-learn</a><a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.8.7.10.2. </span>Performing decoding with scikit-learn</a><a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing a classifier</span>
 <span class="c1"># ........................</span>
 <span class="c1"># We can import many predictive models from scikit-learn that can be used in a</span>
@@ -428,7 +429,7 @@ all occurrences of:</p>
 </pre></div>
 </div>
 <section id="masking-the-data">
-<h3><span class="section-number">9.8.10.2.1. </span>Masking the data<a class="headerlink" href="#masking-the-data" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.2.1. </span>Masking the data<a class="headerlink" href="#masking-the-data" title="Permalink to this heading">¶</a></h3>
 <p>To use a scikit-learn estimator on brain images, you should first mask the
 data using a <a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMasker</span></code></a> to extract only the
 voxels inside the mask of interest, and transform 4D input fMRI data to
@@ -440,15 +441,14 @@ voxels inside the mask of interest, and transform 4D input fMRI data to
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_masked</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker.fit_transform" title="nilearn.maskers.NiftiMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 </pre></div>
 </div>
 </section>
 <section id="cross-validation-with-scikit-learn">
-<h3><span class="section-number">9.8.10.2.2. </span>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.2.2. </span>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">¶</a></h3>
 <p>To train and test the model in a meaningful way we use cross-validation with
 the function <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.cross_val_score</span></code></a> that computes
 for you the score for the different folds of cross-validation.</p>
@@ -458,13 +458,12 @@ for you the score for the different folds of cross-validation.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVC accuracy: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv_scores</span></a><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>SVC accuracy: 0.823
 </pre></div>
 </div>
 </section>
 <section id="tuning-cross-validation-parameters">
-<h3><span class="section-number">9.8.10.2.3. </span>Tuning cross-validation parameters<a class="headerlink" href="#tuning-cross-validation-parameters" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.2.3. </span>Tuning cross-validation parameters<a class="headerlink" href="#tuning-cross-validation-parameters" title="Permalink to this heading">¶</a></h3>
 <p>You can change many parameters of the cross_validation here, for example:</p>
 <ul class="simple">
 <li><p>use a different cross - validation scheme, for example LeaveOneGroupOut()</p></li>
@@ -480,20 +479,19 @@ scikit-learn : scoring = ‘roc_auc’</p></li>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SVC accuracy (tuned parameters): </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv_scores</span></a><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>SVC accuracy (tuned parameters): 0.858
 </pre></div>
 </div>
 </section>
 </section>
 <section id="measuring-the-chance-level">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.8.10.3. </span>Measuring the chance level</a><a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.8.7.10.3. </span>Measuring the chance level</a><a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.dummy.DummyClassifier</span></code></a> (purely random) estimators are the
 simplest way to measure prediction performance at chance. A more controlled
 way, but slower, is to do permutation testing on the labels, with
 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.permutation_test_score</span></code></a>.</p>
 <section id="dummy-estimator">
-<h3><span class="section-number">9.8.10.3.1. </span>Dummy estimator<a class="headerlink" href="#dummy-estimator" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.3.1. </span>Dummy estimator<a class="headerlink" href="#dummy-estimator" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="sklearn.dummy.DummyClassifier" class="sphx-glr-backref-module-sklearn-dummy sphx-glr-backref-type-py-class"><span class="n">DummyClassifier</span></a>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">null_cv_scores</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score" title="sklearn.model_selection.cross_val_score" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">cross_val_score</span></a><span class="p">(</span>
     <a href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="sklearn.dummy.DummyClassifier" class="sphx-glr-backref-module-sklearn-dummy sphx-glr-backref-type-py-class"><span class="n">DummyClassifier</span></a><span class="p">(),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_masked</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">conditions</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session_label</span></a><span class="p">)</span>
@@ -501,27 +499,25 @@ way, but slower, is to do permutation testing on the labels, with
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dummy accuracy: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">null_cv_scores</span></a><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dummy accuracy: 0.500
 </pre></div>
 </div>
 </section>
 <section id="permutation-test">
-<h3><span class="section-number">9.8.10.3.2. </span>Permutation test<a class="headerlink" href="#permutation-test" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.3.2. </span>Permutation test<a class="headerlink" href="#permutation-test" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="sklearn.model_selection.permutation_test_score" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">permutation_test_score</span></a>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">null_cv_scores</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="sklearn.model_selection.permutation_test_score" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">permutation_test_score</span></a><span class="p">(</span>
     <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" title="sklearn.svm.SVC" class="sphx-glr-backref-module-sklearn-svm sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">svc</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_masked</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">conditions</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session_label</span></a><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Permutation test score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">null_cv_scores</span></a><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Permutation test score: 0.502
 </pre></div>
 </div>
 </section>
 </section>
 <section id="decoding-without-a-mask-anova-svm-in-scikit-lean">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.8.10.4. </span>Decoding without a mask: Anova-SVM in scikit-lean</a><a class="headerlink" href="#decoding-without-a-mask-anova-svm-in-scikit-lean" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.8.7.10.4. </span>Decoding without a mask: Anova-SVM in scikit-lean</a><a class="headerlink" href="#decoding-without-a-mask-anova-svm-in-scikit-lean" title="Permalink to this heading">¶</a></h2>
 <p>We can also implement feature selection before decoding as a scikit-learn
 <cite>pipeline`(:class:`sklearn.pipeline.Pipeline</cite>). For this, we need to import
 the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="(in scikit-learn v1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.feature_selection</span></code></a> module and use
@@ -544,12 +540,11 @@ based feature selection (a.k.a. <a class="reference external" href="https://en.w
     <span class="s2">&quot;ANOVA+SVC test score: </span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fitted_pipeline</span></a><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ANOVA+SVC test score: 0.801
 </pre></div>
 </div>
 <section id="visualize-the-anova-svc-s-discriminating-weights">
-<h3><span class="section-number">9.8.10.4.1. </span>Visualize the ANOVA + SVC’s discriminating weights<a class="headerlink" href="#visualize-the-anova-svc-s-discriminating-weights" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.4.1. </span>Visualize the ANOVA + SVC’s discriminating weights<a class="headerlink" href="#visualize-the-anova-svc-s-discriminating-weights" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve the pipeline fitted on the first cross-validation fold and its SVC</span>
 <span class="c1"># coefficients</span>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_pipeline</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fitted_pipeline</span></a><span class="p">[</span><span class="s2">&quot;estimator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -569,19 +564,18 @@ based feature selection (a.k.a. <a class="reference external" href="https://en.w
 <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">weight_img</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Anova+SVC weights&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" srcset="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" alt="plot advanced decoding scikit" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>After feature selection, the SVC is trained only on 47 features
+<img src="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" srcset="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" alt="plot advanced decoding scikit" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>After feature selection, the SVC is trained only on 47 features
 After inverting feature selection, we have 464 features back
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8db460100&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a0f832220&gt;
 </pre></div>
 </div>
 </section>
 </section>
 <section id="going-further-with-scikit-learn">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.8.10.5. </span>Going further with scikit-learn</a><a class="headerlink" href="#going-further-with-scikit-learn" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.8.7.10.5. </span>Going further with scikit-learn</a><a class="headerlink" href="#going-further-with-scikit-learn" title="Permalink to this heading">¶</a></h2>
 <section id="changing-the-prediction-engine">
-<h3><span class="section-number">9.8.10.5.1. </span>Changing the prediction engine<a class="headerlink" href="#changing-the-prediction-engine" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.5.1. </span>Changing the prediction engine<a class="headerlink" href="#changing-the-prediction-engine" title="Permalink to this heading">¶</a></h3>
 <p>To change the prediction engine, we just need to import it and use in our
 pipeline instead of the SVC. We can try Fisher’s <a class="reference external" href="http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html">Linear Discriminant Analysis (LDA)</a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct the new estimator object and use it in a new pipeline after anova</span>
@@ -601,7 +595,6 @@ pipeline instead of the SVC. We can try Fisher’s <a class="reference external"
       <span class="p">(</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">classification_accuracy</span></a><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_conditions</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 [Parallel(n_jobs=1)]: Done  12 out of  12 | elapsed:    0.1s finished
 ANOVA + LDA classification accuracy: 0.8009 / Chance Level: 0.5000
@@ -609,7 +602,7 @@ ANOVA + LDA classification accuracy: 0.8009 / Chance Level: 0.5000
 </div>
 </section>
 <section id="changing-the-feature-selection">
-<h3><span class="section-number">9.8.10.5.2. </span>Changing the feature selection<a class="headerlink" href="#changing-the-feature-selection" title="Permalink to this heading">¶</a></h3>
+<h3><span class="section-number">9.8.7.10.5.2. </span>Changing the feature selection<a class="headerlink" href="#changing-the-feature-selection" title="Permalink to this heading">¶</a></h3>
 <p>Let’s say that you want a more sophisticated feature selection, for example a
 Recursive Feature Elimination(RFE) before a svc. We follows the same principle.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import it and define your fancy objects</span>
@@ -626,9 +619,9 @@ Recursive Feature Elimination(RFE) before a svc. We follows the same principle.<
 <span class="c1"># But, be aware that this can take * A WHILE * ...</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.639 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  911 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-advanced-decoding-scikit-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  20.209 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  916 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-advanced-decoding-scikit-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
 </div>
@@ -662,29 +655,29 @@ Recursive Feature Elimination(RFE) before a svc. We follows the same principle.<
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.8.10. Advanced decoding using scikit learn</a><ul>
-<li><a class="reference internal" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study">9.8.10.1. Retrieve and load the fMRI data from the Haxby study</a><ul>
-<li><a class="reference internal" href="#first-download-the-data">9.8.10.1.1. First download the data</a></li>
+<li><a class="reference internal" href="#">9.8.7.10. Advanced decoding using scikit learn</a><ul>
+<li><a class="reference internal" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study">9.8.7.10.1. Retrieve and load the fMRI data from the Haxby study</a><ul>
+<li><a class="reference internal" href="#first-download-the-data">9.8.7.10.1.1. First download the data</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#performing-decoding-with-scikit-learn">9.8.10.2. Performing decoding with scikit-learn</a><ul>
-<li><a class="reference internal" href="#masking-the-data">9.8.10.2.1. Masking the data</a></li>
-<li><a class="reference internal" href="#cross-validation-with-scikit-learn">9.8.10.2.2. Cross-validation with scikit-learn</a></li>
-<li><a class="reference internal" href="#tuning-cross-validation-parameters">9.8.10.2.3. Tuning cross-validation parameters</a></li>
+<li><a class="reference internal" href="#performing-decoding-with-scikit-learn">9.8.7.10.2. Performing decoding with scikit-learn</a><ul>
+<li><a class="reference internal" href="#masking-the-data">9.8.7.10.2.1. Masking the data</a></li>
+<li><a class="reference internal" href="#cross-validation-with-scikit-learn">9.8.7.10.2.2. Cross-validation with scikit-learn</a></li>
+<li><a class="reference internal" href="#tuning-cross-validation-parameters">9.8.7.10.2.3. Tuning cross-validation parameters</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#measuring-the-chance-level">9.8.10.3. Measuring the chance level</a><ul>
-<li><a class="reference internal" href="#dummy-estimator">9.8.10.3.1. Dummy estimator</a></li>
-<li><a class="reference internal" href="#permutation-test">9.8.10.3.2. Permutation test</a></li>
+<li><a class="reference internal" href="#measuring-the-chance-level">9.8.7.10.3. Measuring the chance level</a><ul>
+<li><a class="reference internal" href="#dummy-estimator">9.8.7.10.3.1. Dummy estimator</a></li>
+<li><a class="reference internal" href="#permutation-test">9.8.7.10.3.2. Permutation test</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#decoding-without-a-mask-anova-svm-in-scikit-lean">9.8.10.4. Decoding without a mask: Anova-SVM in scikit-lean</a><ul>
-<li><a class="reference internal" href="#visualize-the-anova-svc-s-discriminating-weights">9.8.10.4.1. Visualize the ANOVA + SVC’s discriminating weights</a></li>
+<li><a class="reference internal" href="#decoding-without-a-mask-anova-svm-in-scikit-lean">9.8.7.10.4. Decoding without a mask: Anova-SVM in scikit-lean</a><ul>
+<li><a class="reference internal" href="#visualize-the-anova-svc-s-discriminating-weights">9.8.7.10.4.1. Visualize the ANOVA + SVC’s discriminating weights</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#going-further-with-scikit-learn">9.8.10.5. Going further with scikit-learn</a><ul>
-<li><a class="reference internal" href="#changing-the-prediction-engine">9.8.10.5.1. Changing the prediction engine</a></li>
-<li><a class="reference internal" href="#changing-the-feature-selection">9.8.10.5.2. Changing the feature selection</a></li>
+<li><a class="reference internal" href="#going-further-with-scikit-learn">9.8.7.10.5. Going further with scikit-learn</a><ul>
+<li><a class="reference internal" href="#changing-the-prediction-engine">9.8.7.10.5.1. Changing the prediction engine</a></li>
+<li><a class="reference internal" href="#changing-the-feature-selection">9.8.7.10.5.2. Changing the feature selection</a></li>
 </ul>
 </li>
 </ul>
@@ -695,12 +688,12 @@ Recursive Feature Elimination(RFE) before a svc. We follows the same principle.<
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_mass_univariate.html"
-                          title="previous chapter"><span class="section-number">9.8.9. </span>Massively univariate analysis of face vs house recognition</a></p>
+                          title="previous chapter"><span class="section-number">9.8.7.9. </span>Massively univariate analysis of face vs house recognition</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_beta_series.html"
-                          title="next chapter"><span class="section-number">9.8.11. </span>Beta-Series Modeling for Task-Based Functional Connectivity and Decoding</a></p>
+                          title="next chapter"><span class="section-number">9.8.7.11. </span>Beta-Series Modeling for Task-Based Functional Connectivity and Decoding</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -719,7 +712,7 @@ Recursive Feature Elimination(RFE) before a svc. We follows the same principle.<
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/07_advanced/plot_advanced_decoding_scikit.rst.txt"
         	 rel="nofollow">Show this page source</a>

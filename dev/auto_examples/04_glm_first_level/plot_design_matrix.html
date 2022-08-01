@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.5.4. Examples of design matrices" />
+<meta property="og:title" content="9.8.4.4. Examples of design matrices" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.5.5. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model" href="plot_fir_model.html" />
-    <link rel="prev" title="9.5.3. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
+    <link rel="next" title="9.8.4.5. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model" href="plot_fir_model.html" />
+    <link rel="prev" title="9.8.4.3. Default Mode Network extraction of AHDH dataset" href="plot_adhd_dmn.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_fir_model.html" title="9.5.5. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model"
+          <a href="plot_fir_model.html" title="9.8.4.5. Analysis of an fMRI dataset with a Finite Impule Response (FIR) model"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_adhd_dmn.html" title="9.5.3. Default Mode Network extraction of AHDH dataset"
+          <a href="plot_adhd_dmn.html" title="9.8.4.3. Default Mode Network extraction of AHDH dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.4. </span>GLM: First level analysis examples</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="examples-of-design-matrices">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-design-matrix-py"></span><h1><span class="section-number">9.5.4. </span>Examples of design matrices<a class="headerlink" href="#examples-of-design-matrices" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-design-matrix-py"></span><h1><span class="section-number">9.8.4.4. </span>Examples of design matrices<a class="headerlink" href="#examples-of-design-matrices" title="Permalink to this heading">¶</a></h1>
 <p>Three examples of design matrices specification and computation for first-level
 fMRI data analysis (event-related design, block design, FIR design).</p>
 <p>This examples requires matplotlib.</p>
@@ -270,7 +271,7 @@ fMRI data analysis (event-related design, block design, FIR design).</p>
 </pre></div>
 </div>
 <section id="define-parameters">
-<h2><span class="section-number">9.5.4.1. </span>Define parameters<a class="headerlink" href="#define-parameters" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.4.1. </span>Define parameters<a class="headerlink" href="#define-parameters" title="Permalink to this heading">¶</a></h2>
 <p>At first, we define parameters related to the images acquisition.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tr</span></a> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># repetition time is 1 second</span>
@@ -293,7 +294,7 @@ fMRI data analysis (event-related design, block design, FIR design).</p>
 </div>
 </section>
 <section id="create-design-matrices">
-<h2><span class="section-number">9.5.4.2. </span>Create design matrices<a class="headerlink" href="#create-design-matrices" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.4.2. </span>Create design matrices<a class="headerlink" href="#create-design-matrices" title="Permalink to this heading">¶</a></h2>
 <p>The same parameters allow us to obtain a variety of design matrices.
 We first create an events object.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -344,8 +345,7 @@ parameter.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="matplotlib.axes.Axes.set_title" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="s1">&#39;FIR design matrix&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_design_matrix_001.png" srcset="../../_images/sphx_glr_plot_design_matrix_001.png" alt="Event-related design matrix, Block design matrix, FIR design matrix" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.1753015208063937, &#39;FIR design matrix&#39;)
+<img src="../../_images/sphx_glr_plot_design_matrix_001.png" srcset="../../_images/sphx_glr_plot_design_matrix_001.png" alt="Event-related design matrix, Block design matrix, FIR design matrix" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.1753015208063937, &#39;FIR design matrix&#39;)
 </pre></div>
 </div>
 <p>Let’s improve the layout and show the result.</p>
@@ -353,9 +353,9 @@ parameter.</p>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_design_matrix_002.png" srcset="../../_images/sphx_glr_plot_design_matrix_002.png" alt="plot design matrix" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.682 seconds)</p>
+<img src="../../_images/sphx_glr_plot_design_matrix_002.png" srcset="../../_images/sphx_glr_plot_design_matrix_002.png" alt="plot design matrix" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.599 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-design-matrix-py">
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-design-matrix-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/04_glm_first_level/plot_design_matrix.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
 </div>
@@ -388,9 +388,9 @@ parameter.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.5.4. Examples of design matrices</a><ul>
-<li><a class="reference internal" href="#define-parameters">9.5.4.1. Define parameters</a></li>
-<li><a class="reference internal" href="#create-design-matrices">9.5.4.2. Create design matrices</a></li>
+<li><a class="reference internal" href="#">9.8.4.4. Examples of design matrices</a><ul>
+<li><a class="reference internal" href="#define-parameters">9.8.4.4.1. Define parameters</a></li>
+<li><a class="reference internal" href="#create-design-matrices">9.8.4.4.2. Create design matrices</a></li>
 </ul>
 </li>
 </ul>
@@ -399,12 +399,12 @@ parameter.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_adhd_dmn.html"
-                          title="previous chapter"><span class="section-number">9.5.3. </span>Default Mode Network extraction of AHDH dataset</a></p>
+                          title="previous chapter"><span class="section-number">9.8.4.3. </span>Default Mode Network extraction of AHDH dataset</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_fir_model.html"
-                          title="next chapter"><span class="section-number">9.5.5. </span>Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></p>
+                          title="next chapter"><span class="section-number">9.8.4.5. </span>Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -423,7 +423,7 @@ parameter.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_glm_first_level/plot_design_matrix.rst.txt"
         	 rel="nofollow">Show this page source</a>

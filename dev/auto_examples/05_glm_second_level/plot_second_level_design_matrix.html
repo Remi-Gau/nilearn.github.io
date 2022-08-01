@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.6.1. Example of second level design matrix" />
+<meta property="og:title" content="9.8.5.1. Example of second level design matrix" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.6.2. Second-level fMRI model: true positive proportion in clusters" href="plot_proportion_activated_voxels.html" />
-    <link rel="prev" title="9.5.12. Understanding parameters of the first-level model" href="../04_glm_first_level/plot_first_level_details.html" />
+    <link rel="next" title="9.8.5.2. Second-level fMRI model: true positive proportion in clusters" href="plot_proportion_activated_voxels.html" />
+    <link rel="prev" title="9.8.5. GLM : Second level analysis examples" href="index.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_proportion_activated_voxels.html" title="9.6.2. Second-level fMRI model: true positive proportion in clusters"
+          <a href="plot_proportion_activated_voxels.html" title="9.8.5.2. Second-level fMRI model: true positive proportion in clusters"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../04_glm_first_level/plot_first_level_details.html" title="9.5.12. Understanding parameters of the first-level model"
+          <a href="index.html" title="9.8.5. GLM : Second level analysis examples"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.5. </span>GLM : Second level analysis examples</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="example-of-second-level-design-matrix">
-<span id="sphx-glr-auto-examples-05-glm-second-level-plot-second-level-design-matrix-py"></span><h1><span class="section-number">9.6.1. </span>Example of second level design matrix<a class="headerlink" href="#example-of-second-level-design-matrix" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-05-glm-second-level-plot-second-level-design-matrix-py"></span><h1><span class="section-number">9.8.5.1. </span>Example of second level design matrix<a class="headerlink" href="#example-of-second-level-design-matrix" title="Permalink to this heading">¶</a></h1>
 <p>This example shows how a second-level design matrix is specified: assuming that
 the data refer to a group of individuals, with one image per subject, the
 design matrix typically holds the characteristics of each individual.</p>
@@ -273,7 +274,7 @@ characteristics on brain signals.</p>
 </pre></div>
 </div>
 <section id="create-a-simple-experimental-paradigm">
-<h2><span class="section-number">9.6.1.1. </span>Create a simple experimental paradigm<a class="headerlink" href="#create-a-simple-experimental-paradigm" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.5.1.1. </span>Create a simple experimental paradigm<a class="headerlink" href="#create-a-simple-experimental-paradigm" title="Permalink to this heading">¶</a></h2>
 <p>We want to get the group result of a contrast for 20 subjects.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">20</span>
 <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subjects_label</span></a> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sub-</span><span class="si">%02d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -289,14 +290,13 @@ Without confounders the design matrix would correspond to a one sample test.</p>
 </div>
 </section>
 <section id="create-a-second-level-design-matrix">
-<h2><span class="section-number">9.6.1.2. </span>Create a second level design matrix<a class="headerlink" href="#create-a-second-level-design-matrix" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.5.1.2. </span>Create a second level design matrix<a class="headerlink" href="#create-a-second-level-design-matrix" title="Permalink to this heading">¶</a></h2>
 <p>With that information we can create the second level design matrix.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.second_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.second_level.make_second_level_design_matrix.html#nilearn.glm.second_level.make_second_level_design_matrix" title="nilearn.glm.second_level.make_second_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-function"><span class="n">make_second_level_design_matrix</span></a>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.second_level.make_second_level_design_matrix.html#nilearn.glm.second_level.make_second_level_design_matrix" title="nilearn.glm.second_level.make_second_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-function"><span class="n">make_second_level_design_matrix</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subjects_label</span></a><span class="p">,</span>
                                                 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">extra_info_subjects</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/first_level/design_matrix.py:476: UserWarning:
 
 Attention: Design matrix is singular. Aberrant estimates are expected.
@@ -311,9 +311,9 @@ Attention: Design matrix is singular. Aberrant estimates are expected.
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" srcset="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" alt="Second level design matrix" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.969 seconds)</p>
+<img src="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" srcset="../../_images/sphx_glr_plot_second_level_design_matrix_001.png" alt="Second level design matrix" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.231 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-second-level-design-matrix-py">
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-second-level-design-matrix-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/05_glm_second_level/plot_second_level_design_matrix.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
@@ -346,9 +346,9 @@ Attention: Design matrix is singular. Aberrant estimates are expected.
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.6.1. Example of second level design matrix</a><ul>
-<li><a class="reference internal" href="#create-a-simple-experimental-paradigm">9.6.1.1. Create a simple experimental paradigm</a></li>
-<li><a class="reference internal" href="#create-a-second-level-design-matrix">9.6.1.2. Create a second level design matrix</a></li>
+<li><a class="reference internal" href="#">9.8.5.1. Example of second level design matrix</a><ul>
+<li><a class="reference internal" href="#create-a-simple-experimental-paradigm">9.8.5.1.1. Create a simple experimental paradigm</a></li>
+<li><a class="reference internal" href="#create-a-second-level-design-matrix">9.8.5.1.2. Create a second level design matrix</a></li>
 </ul>
 </li>
 </ul>
@@ -356,13 +356,13 @@ Attention: Design matrix is singular. Aberrant estimates are expected.
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="../04_glm_first_level/plot_first_level_details.html"
-                          title="previous chapter"><span class="section-number">9.5.12. </span>Understanding parameters of the first-level model</a></p>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter"><span class="section-number">9.8.5. </span>GLM : Second level analysis examples</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_proportion_activated_voxels.html"
-                          title="next chapter"><span class="section-number">9.6.2. </span>Second-level fMRI model: true positive proportion in clusters</a></p>
+                          title="next chapter"><span class="section-number">9.8.5.2. </span>Second-level fMRI model: true positive proportion in clusters</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -381,7 +381,7 @@ Attention: Design matrix is singular. Aberrant estimates are expected.
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/05_glm_second_level/plot_second_level_design_matrix.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.4.9. Classification of age groups using functional connectivity" />
+<meta property="og:title" content="9.8.3.9. Classification of age groups using functional connectivity" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.4.10. Extracting signals from a brain parcellation" href="plot_signal_extraction.html" />
-    <link rel="prev" title="9.4.8. Comparing connectomes on different reference atlases" href="plot_atlas_comparison.html" />
+    <link rel="next" title="9.8.3.10. Extracting signals from a brain parcellation" href="plot_signal_extraction.html" />
+    <link rel="prev" title="9.8.3.8. Comparing connectomes on different reference atlases" href="plot_atlas_comparison.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_signal_extraction.html" title="9.4.10. Extracting signals from a brain parcellation"
+          <a href="plot_signal_extraction.html" title="9.8.3.10. Extracting signals from a brain parcellation"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_atlas_comparison.html" title="9.4.8. Comparing connectomes on different reference atlases"
+          <a href="plot_atlas_comparison.html" title="9.8.3.8. Comparing connectomes on different reference atlases"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.3. </span>Functional connectivity</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="classification-of-age-groups-using-functional-connectivity">
-<span id="sphx-glr-auto-examples-03-connectivity-plot-group-level-connectivity-py"></span><h1><span class="section-number">9.4.9. </span>Classification of age groups using functional connectivity<a class="headerlink" href="#classification-of-age-groups-using-functional-connectivity" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-03-connectivity-plot-group-level-connectivity-py"></span><h1><span class="section-number">9.8.3.9. </span>Classification of age groups using functional connectivity<a class="headerlink" href="#classification-of-age-groups-using-functional-connectivity" title="Permalink to this heading">¶</a></h1>
 <p>This example compares different kinds of functional connectivity between
 regions of interest : correlation, partial correlation, and tangent space
 embedding.</p>
@@ -283,7 +284,7 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="load-brain-development-fmri-dataset-and-msdl-atlas">
-<h2><span class="section-number">9.4.9.1. </span>Load brain development fMRI dataset and MSDL atlas<a class="headerlink" href="#load-brain-development-fmri-dataset-and-msdl-atlas" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.1. </span>Load brain development fMRI dataset and MSDL atlas<a class="headerlink" href="#load-brain-development-fmri-dataset-and-msdl-atlas" title="Permalink to this heading">¶</a></h2>
 <p>We study only 30 subjects from the dataset, to save computation time.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -298,14 +299,13 @@ all occurrences of:</p>
     <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_regions</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_data</span><span class="o">.</span><span class="n">networks</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MSDL has 39 ROIs, part of the following networks :
 [&#39;Aud&#39;, &#39;Aud&#39;, &#39;Striate&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;Occ post&#39;, &#39;Motor&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;Basal&#39;, &#39;L V Att&#39;, &#39;L V Att&#39;, &#39;L V Att&#39;, &#39;D Att&#39;, &#39;D Att&#39;, &#39;Vis Sec&#39;, &#39;Vis Sec&#39;, &#39;Vis Sec&#39;, &#39;Salience&#39;, &#39;Salience&#39;, &#39;Salience&#39;, &#39;Temporal&#39;, &#39;Temporal&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Cereb&#39;, &#39;Dors PCC&#39;, &#39;Cing-Ins&#39;, &#39;Cing-Ins&#39;, &#39;Cing-Ins&#39;, &#39;Ant IPS&#39;, &#39;Ant IPS&#39;].
 </pre></div>
 </div>
 </section>
 <section id="region-signals-extraction">
-<h2><span class="section-number">9.4.9.2. </span>Region signals extraction<a class="headerlink" href="#region-signals-extraction" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.2. </span>Region signals extraction<a class="headerlink" href="#region-signals-extraction" title="Permalink to this heading">¶</a></h2>
 <p>To extract regions time series, we instantiate a
 <a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMapsMasker</span></code></a> object and pass the atlas the
 file name to it, as well as filtering band-width and detrending option.</p>
@@ -333,13 +333,12 @@ file name to it, as well as filtering band-width and detrending option.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data has </span><span class="si">{0}</span><span class="s1"> children.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">children</span></a><span class="p">)))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Data has 24 children.
 </pre></div>
 </div>
 </section>
 <section id="roi-to-roi-correlations-of-children">
-<h2><span class="section-number">9.4.9.3. </span>ROI-to-ROI correlations of children<a class="headerlink" href="#roi-to-roi-correlations-of-children" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.3. </span>ROI-to-ROI correlations of children<a class="headerlink" href="#roi-to-roi-correlations-of-children" title="Permalink to this heading">¶</a></h2>
 <p>The simpler and most commonly used kind of connectivity is correlation. It
 models the full (marginal) connectivity between pairwise ROIs. We can
 estimate it using <a class="reference internal" href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.ConnectivityMeasure</span></code></a>.</p>
@@ -357,7 +356,6 @@ estimate it using <a class="reference internal" href="../../modules/generated/ni
       <span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrices</span><span class="o">.</span><span class="n">shape</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Correlations of children are stacked in an array of shape (24, 39, 39)
 </pre></div>
 </div>
@@ -366,7 +364,6 @@ estimate it using <a class="reference internal" href="../../modules/generated/ni
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean correlation has shape </span><span class="si">{0}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_correlation_matrix</span><span class="o">.</span><span class="n">shape</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Mean correlation has shape (39, 39).
 </pre></div>
 </div>
@@ -386,13 +383,12 @@ estimate it using <a class="reference internal" href="../../modules/generated/ni
                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;mean correlation over all children&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_group_level_connectivity_002.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_002.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fe8d63ebdc0&gt;
+<img src="../../_images/sphx_glr_plot_group_level_connectivity_002.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_002.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f4a1505ae80&gt;
 </pre></div>
 </div>
 </section>
 <section id="studying-partial-correlations">
-<h2><span class="section-number">9.4.9.4. </span>Studying partial correlations<a class="headerlink" href="#studying-partial-correlations" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.4. </span>Studying partial correlations<a class="headerlink" href="#studying-partial-correlations" title="Permalink to this heading">¶</a></h2>
 <p>We can also study <strong>direct connections</strong>, revealed by partial correlation
 coefficients. We just change the <cite>ConnectivityMeasure</cite> kind</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">partial_correlation_measure</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">ConnectivityMeasure</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kind</span></a><span class="o">=</span><span class="s1">&#39;partial correlation&#39;</span><span class="p">)</span>
@@ -412,13 +408,12 @@ coefficients. We just change the <cite>ConnectivityMeasure</cite> kind</p>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;mean partial correlation over all children&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_group_level_connectivity_004.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_004.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fe8db38f040&gt;
+<img src="../../_images/sphx_glr_plot_group_level_connectivity_004.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_004.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f4a137b14f0&gt;
 </pre></div>
 </div>
 </section>
 <section id="extract-subjects-variabilities-around-a-group-connectivity">
-<h2><span class="section-number">9.4.9.5. </span>Extract subjects variabilities around a group connectivity<a class="headerlink" href="#extract-subjects-variabilities-around-a-group-connectivity" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.5. </span>Extract subjects variabilities around a group connectivity<a class="headerlink" href="#extract-subjects-variabilities-around-a-group-connectivity" title="Permalink to this heading">¶</a></h2>
 <p>We can use <strong>both</strong> correlations and partial correlations to capture
 reproducible connectivity patterns at the group-level.
 This is done by the tangent space embedding.</p>
@@ -446,7 +441,7 @@ coefficients can not be interpreted as anticorrelated regions.</p>
 represent deviations from the mean, which is set to 0.</p>
 </section>
 <section id="what-kind-of-connectivity-is-most-powerful-for-classification">
-<h2><span class="section-number">9.4.9.6. </span>What kind of connectivity is most powerful for classification?<a class="headerlink" href="#what-kind-of-connectivity-is-most-powerful-for-classification" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.9.6. </span>What kind of connectivity is most powerful for classification?<a class="headerlink" href="#what-kind-of-connectivity-is-most-powerful-for-classification" title="Permalink to this heading">¶</a></h2>
 <p>We will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.
@@ -506,9 +501,9 @@ kind should be preferred.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  58.858 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  954 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-group-level-connectivity-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.394 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1042 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-group-level-connectivity-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/03_connectivity/plot_group_level_connectivity.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
@@ -541,13 +536,13 @@ kind should be preferred.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.4.9. Classification of age groups using functional connectivity</a><ul>
-<li><a class="reference internal" href="#load-brain-development-fmri-dataset-and-msdl-atlas">9.4.9.1. Load brain development fMRI dataset and MSDL atlas</a></li>
-<li><a class="reference internal" href="#region-signals-extraction">9.4.9.2. Region signals extraction</a></li>
-<li><a class="reference internal" href="#roi-to-roi-correlations-of-children">9.4.9.3. ROI-to-ROI correlations of children</a></li>
-<li><a class="reference internal" href="#studying-partial-correlations">9.4.9.4. Studying partial correlations</a></li>
-<li><a class="reference internal" href="#extract-subjects-variabilities-around-a-group-connectivity">9.4.9.5. Extract subjects variabilities around a group connectivity</a></li>
-<li><a class="reference internal" href="#what-kind-of-connectivity-is-most-powerful-for-classification">9.4.9.6. What kind of connectivity is most powerful for classification?</a></li>
+<li><a class="reference internal" href="#">9.8.3.9. Classification of age groups using functional connectivity</a><ul>
+<li><a class="reference internal" href="#load-brain-development-fmri-dataset-and-msdl-atlas">9.8.3.9.1. Load brain development fMRI dataset and MSDL atlas</a></li>
+<li><a class="reference internal" href="#region-signals-extraction">9.8.3.9.2. Region signals extraction</a></li>
+<li><a class="reference internal" href="#roi-to-roi-correlations-of-children">9.8.3.9.3. ROI-to-ROI correlations of children</a></li>
+<li><a class="reference internal" href="#studying-partial-correlations">9.8.3.9.4. Studying partial correlations</a></li>
+<li><a class="reference internal" href="#extract-subjects-variabilities-around-a-group-connectivity">9.8.3.9.5. Extract subjects variabilities around a group connectivity</a></li>
+<li><a class="reference internal" href="#what-kind-of-connectivity-is-most-powerful-for-classification">9.8.3.9.6. What kind of connectivity is most powerful for classification?</a></li>
 </ul>
 </li>
 </ul>
@@ -556,12 +551,12 @@ kind should be preferred.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_atlas_comparison.html"
-                          title="previous chapter"><span class="section-number">9.4.8. </span>Comparing connectomes on different reference atlases</a></p>
+                          title="previous chapter"><span class="section-number">9.8.3.8. </span>Comparing connectomes on different reference atlases</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_signal_extraction.html"
-                          title="next chapter"><span class="section-number">9.4.10. </span>Extracting signals from a brain parcellation</a></p>
+                          title="next chapter"><span class="section-number">9.8.3.10. </span>Extracting signals from a brain parcellation</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -580,7 +575,7 @@ kind should be preferred.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_connectivity/plot_group_level_connectivity.rst.txt"
         	 rel="nofollow">Show this page source</a>

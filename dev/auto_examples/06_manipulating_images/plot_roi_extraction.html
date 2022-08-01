@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.7.12. Computing a Region of Interest (ROI) mask manually" />
+<meta property="og:title" content="9.8.6.12. Computing a Region of Interest (ROI) mask manually" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.8.1. Multivariate decompositions: Independent component analysis of fMRI" href="../07_advanced/plot_ica_resting_state.html" />
-    <link rel="prev" title="9.7.11. Visualization of affine resamplings" href="plot_affine_transformation.html" />
+    <link rel="next" title="9.8.7. Advanced statistical analysis of brain images" href="../07_advanced/index.html" />
+    <link rel="prev" title="9.8.6.11. Visualization of affine resamplings" href="plot_affine_transformation.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../07_advanced/plot_ica_resting_state.html" title="9.8.1. Multivariate decompositions: Independent component analysis of fMRI"
+          <a href="../07_advanced/index.html" title="9.8.7. Advanced statistical analysis of brain images"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_affine_transformation.html" title="9.7.11. Visualization of affine resamplings"
+          <a href="plot_affine_transformation.html" title="9.8.6.11. Visualization of affine resamplings"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.6. </span>Manipulating brain image volumes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="computing-a-region-of-interest-roi-mask-manually">
-<span id="sphx-glr-auto-examples-06-manipulating-images-plot-roi-extraction-py"></span><h1><span class="section-number">9.7.12. </span>Computing a Region of Interest (ROI) mask manually<a class="headerlink" href="#computing-a-region-of-interest-roi-mask-manually" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-06-manipulating-images-plot-roi-extraction-py"></span><h1><span class="section-number">9.8.6.12. </span>Computing a Region of Interest (ROI) mask manually<a class="headerlink" href="#computing-a-region-of-interest-roi-mask-manually" title="Permalink to this heading">¶</a></h1>
 <p>This example shows manual steps to create and further modify an ROI spatial
 mask. They represent a means for “data folding”, i.e., extracting and then
 analyzing brain data from a subset of voxels rather than whole brain images.
@@ -303,7 +304,7 @@ using them for visualization.</p>
 </pre></div>
 </div>
 <section id="loading-the-data">
-<h2><span class="section-number">9.7.12.1. </span>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.6.12.1. </span>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">¶</a></h2>
 <p>We rely on the Haxby datasets and its experiments to demonstrate the complete
 list of operations. Fetching datasets is easy, shipping with Nilearn using a
 function named as <cite>fetch_haxby</cite>. The data will then be automatically stored
@@ -332,7 +333,6 @@ we process data using paths of the Nifti images.</p>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">haxby_labels</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session_target</span></a><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject anatomical nifti image (3D) located is at: /home/circleci/nilearn_data/haxby2001/subj2/anat.nii.gz
 First subject functional nifti image (4D) is located at: /home/circleci/nilearn_data/haxby2001/subj2/bold.nii.gz
 Labels of haxby dataset (text file) is located at: /home/circleci/nilearn_data/haxby2001/subj2/labels.txt
@@ -343,7 +343,7 @@ simple pre-processing step called as image smoothing on functional images
 and then build a statistical test on smoothed images.</p>
 </section>
 <section id="build-a-statistical-test-to-find-voxels-of-interest">
-<h2><span class="section-number">9.7.12.2. </span>Build a statistical test to find voxels of interest<a class="headerlink" href="#build-a-statistical-test-to-find-voxels-of-interest" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.6.12.2. </span>Build a statistical test to find voxels of interest<a class="headerlink" href="#build-a-statistical-test-to-find-voxels-of-interest" title="Permalink to this heading">¶</a></h2>
 <p><strong>Smoothing</strong>: Functional MRI data have a low signal-to-noise ratio.
 When using methods that are not robust to noise, it is useful to apply a
 spatial filtering kernel on the data. Such data smoothing is usually applied
@@ -374,8 +374,7 @@ also use file names as input parameters.</p>
 <a href="../../modules/generated/nilearn.plotting.plot_epi.html#nilearn.plotting.plot_epi" title="nilearn.plotting.plot_epi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_epi</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Smoothed mean EPI&#39;</span><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_001.png" srcset="../../_images/sphx_glr_plot_roi_extraction_001.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8c8ae6220&gt;
+<img src="../../_images/sphx_glr_plot_roi_extraction_001.png" srcset="../../_images/sphx_glr_plot_roi_extraction_001.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a15315c10&gt;
 </pre></div>
 </div>
 <p>Given the smoothed functional data stored in variable ‘fmri_img’, we then
@@ -395,12 +394,11 @@ statistics can help reducing the number of voxels.</p>
 <a href="https://docs.python.org/3.8/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_data</span><span class="o">.</span><span class="n">shape</span></a>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(40, 64, 64, 1452)
 </pre></div>
 </div>
 <p><strong>Selecting features using T-test</strong>: The Student’s t-test
-(<a class="reference external" href="http://scipy.github.io/devdocs/reference/generated/scipy.stats.ttest_ind.html#scipy.stats.ttest_ind" title="(in SciPy v1.10.0.dev0+1545.7ed8128)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind</span></code></a>) is an established method to determine whether
+(<a class="reference external" href="http://scipy.github.io/devdocs/reference/generated/scipy.stats.ttest_ind.html#scipy.stats.ttest_ind" title="(in SciPy v1.10.0.dev0+1588.ebc21a2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind</span></code></a>) is an established method to determine whether
 two distributions have a different mean value. It can be used to compare voxel
 time-series from two different experimental conditions (e.g., when houses or
 faces are shown to individuals during brain scanning). If the time-series
@@ -442,8 +440,7 @@ interesting to discriminate the condition.</p>
               <span class="n">title</span><span class="o">=</span><span class="s2">&quot;p-values&quot;</span><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_002.png" srcset="../../_images/sphx_glr_plot_roi_extraction_002.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8db9bd400&gt;
+<img src="../../_images/sphx_glr_plot_roi_extraction_002.png" srcset="../../_images/sphx_glr_plot_roi_extraction_002.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a14fb4100&gt;
 </pre></div>
 </div>
 <p><strong>Selecting features using f_classif</strong>: Feature selection method is also
@@ -451,7 +448,7 @@ available in the scikit-learn Python package, where it has been extended to
 several classes, using the <cite>sklearn.feature_selection.f_classif</cite> function.</p>
 </section>
 <section id="build-a-mask-from-this-statistical-map-improving-the-quality-of-the-mask">
-<h2><span class="section-number">9.7.12.3. </span>Build a mask from this statistical map (Improving the quality of the mask)<a class="headerlink" href="#build-a-mask-from-this-statistical-map-improving-the-quality-of-the-mask" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.6.12.3. </span>Build a mask from this statistical map (Improving the quality of the mask)<a class="headerlink" href="#build-a-mask-from-this-statistical-map-improving-the-quality-of-the-mask" title="Permalink to this heading">¶</a></h2>
 <p><strong>Thresholding</strong> - We build the t-map to have better representation of voxels
 of interest and voxels with lower p-values correspond to the most intense
 voxels. This can be done easily by applying a threshold to a t-map data in
@@ -471,8 +468,7 @@ array.</p>
               <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_003.png" srcset="../../_images/sphx_glr_plot_roi_extraction_003.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8d9f08eb0&gt;
+<img src="../../_images/sphx_glr_plot_roi_extraction_003.png" srcset="../../_images/sphx_glr_plot_roi_extraction_003.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a13341c10&gt;
 </pre></div>
 </div>
 <p>We can post-process the results obtained with simple operations such as mask
@@ -513,13 +509,12 @@ intersection of this provided mask with our self-computed mask.</p>
          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Intersection with ventral temporal mask&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_004.png" srcset="../../_images/sphx_glr_plot_roi_extraction_004.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/examples/06_manipulating_images/plot_roi_extraction.py:235: UserWarning:
+<img src="../../_images/sphx_glr_plot_roi_extraction_004.png" srcset="../../_images/sphx_glr_plot_roi_extraction_004.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/examples/06_manipulating_images/plot_roi_extraction.py:235: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8c8ae62b0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a0efe3e80&gt;
 </pre></div>
 </div>
 <p><strong>Dilation</strong> - Thresholded functional brain images often contain scattered
@@ -546,20 +541,19 @@ such operations can fill “holes” in masked voxel representations.</p>
          <span class="n">annotate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_005.png" srcset="../../_images/sphx_glr_plot_roi_extraction_005.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/examples/06_manipulating_images/plot_roi_extraction.py:258: UserWarning:
+<img src="../../_images/sphx_glr_plot_roi_extraction_005.png" srcset="../../_images/sphx_glr_plot_roi_extraction_005.png" alt="plot roi extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/examples/06_manipulating_images/plot_roi_extraction.py:258: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8dd09a5e0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a06c09f70&gt;
 </pre></div>
 </div>
 <p>Finally, we end with splitting the connected ROIs to two hemispheres into two
 separate regions (ROIs). The function <cite>scipy.ndimage.label</cite> from the scipy
 Python library.</p>
 <p><strong>Identification of connected components</strong> - The function
-<a class="reference external" href="http://scipy.github.io/devdocs/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label" title="(in SciPy v1.10.0.dev0+1545.7ed8128)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.ndimage.label</span></code></a> from the scipy Python library identifies
+<a class="reference external" href="http://scipy.github.io/devdocs/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label" title="(in SciPy v1.10.0.dev0+1588.ebc21a2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.ndimage.label</span></code></a> from the scipy Python library identifies
 immediately neighboring voxels in our voxels mask. It assigns a separate
 integer label to each one of them.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <a href="http://scipy.github.io/devdocs/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label" title="scipy.ndimage.label" class="sphx-glr-backref-module-scipy-ndimage sphx-glr-backref-type-py-function"><span class="n">label</span></a>
@@ -586,7 +580,6 @@ integer label to each one of them.</p>
 <li><img src="../../_images/sphx_glr_plot_roi_extraction_006.png" srcset="../../_images/sphx_glr_plot_roi_extraction_006.png" alt="plot roi extraction" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_roi_extraction_007.png" srcset="../../_images/sphx_glr_plot_roi_extraction_007.png" alt="plot roi extraction" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/project/examples/06_manipulating_images/plot_roi_extraction.py:284: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
@@ -596,7 +589,7 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8d69290d0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a1cac3340&gt;
 </pre></div>
 </div>
 <p>Use the new ROIs, to extract data maps in both ROIs</p>
@@ -652,9 +645,9 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_roi_extraction_008.png" srcset="../../_images/sphx_glr_plot_roi_extraction_008.png" alt="Boxplots of data in ROI1 per condition, Boxplots of data in ROI2 per condition" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  24.024 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2250 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-roi-extraction-py">
+<img src="../../_images/sphx_glr_plot_roi_extraction_008.png" srcset="../../_images/sphx_glr_plot_roi_extraction_008.png" alt="Boxplots of data in ROI1 per condition, Boxplots of data in ROI2 per condition" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  28.322 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2252 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-roi-extraction-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/06_manipulating_images/plot_roi_extraction.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo5.svg" width="150px" /></a>
 </div>
@@ -687,10 +680,10 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.7.12. Computing a Region of Interest (ROI) mask manually</a><ul>
-<li><a class="reference internal" href="#loading-the-data">9.7.12.1. Loading the data</a></li>
-<li><a class="reference internal" href="#build-a-statistical-test-to-find-voxels-of-interest">9.7.12.2. Build a statistical test to find voxels of interest</a></li>
-<li><a class="reference internal" href="#build-a-mask-from-this-statistical-map-improving-the-quality-of-the-mask">9.7.12.3. Build a mask from this statistical map (Improving the quality of the mask)</a></li>
+<li><a class="reference internal" href="#">9.8.6.12. Computing a Region of Interest (ROI) mask manually</a><ul>
+<li><a class="reference internal" href="#loading-the-data">9.8.6.12.1. Loading the data</a></li>
+<li><a class="reference internal" href="#build-a-statistical-test-to-find-voxels-of-interest">9.8.6.12.2. Build a statistical test to find voxels of interest</a></li>
+<li><a class="reference internal" href="#build-a-mask-from-this-statistical-map-improving-the-quality-of-the-mask">9.8.6.12.3. Build a mask from this statistical map (Improving the quality of the mask)</a></li>
 </ul>
 </li>
 </ul>
@@ -699,12 +692,12 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_affine_transformation.html"
-                          title="previous chapter"><span class="section-number">9.7.11. </span>Visualization of affine resamplings</a></p>
+                          title="previous chapter"><span class="section-number">9.8.6.11. </span>Visualization of affine resamplings</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="../07_advanced/plot_ica_resting_state.html"
-                          title="next chapter"><span class="section-number">9.8.1. </span>Multivariate decompositions: Independent component analysis of fMRI</a></p>
+    <p class="topless"><a href="../07_advanced/index.html"
+                          title="next chapter"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -723,7 +716,7 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/06_manipulating_images/plot_roi_extraction.rst.txt"
         	 rel="nofollow">Show this page source</a>

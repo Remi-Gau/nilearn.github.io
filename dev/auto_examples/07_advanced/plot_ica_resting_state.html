@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.8.1. Multivariate decompositions: Independent component analysis of fMRI" />
+<meta property="og:title" content="9.8.7.1. Multivariate decompositions: Independent component analysis of fMRI" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.8.2. Massively univariate analysis of a calculation task from the Localizer dataset" href="plot_localizer_simple_analysis.html" />
-    <link rel="prev" title="9.7.12. Computing a Region of Interest (ROI) mask manually" href="../06_manipulating_images/plot_roi_extraction.html" />
+    <link rel="next" title="9.8.7.2. Massively univariate analysis of a calculation task from the Localizer dataset" href="plot_localizer_simple_analysis.html" />
+    <link rel="prev" title="9.8.7. Advanced statistical analysis of brain images" href="index.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_localizer_simple_analysis.html" title="9.8.2. Massively univariate analysis of a calculation task from the Localizer dataset"
+          <a href="plot_localizer_simple_analysis.html" title="9.8.7.2. Massively univariate analysis of a calculation task from the Localizer dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../06_manipulating_images/plot_roi_extraction.html" title="9.7.12. Computing a Region of Interest (ROI) mask manually"
+          <a href="index.html" title="9.8.7. Advanced statistical analysis of brain images"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="multivariate-decompositions-independent-component-analysis-of-fmri">
-<span id="sphx-glr-auto-examples-07-advanced-plot-ica-resting-state-py"></span><h1><span class="section-number">9.8.1. </span>Multivariate decompositions: Independent component analysis of fMRI<a class="headerlink" href="#multivariate-decompositions-independent-component-analysis-of-fmri" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-07-advanced-plot-ica-resting-state-py"></span><h1><span class="section-number">9.8.7.1. </span>Multivariate decompositions: Independent component analysis of fMRI<a class="headerlink" href="#multivariate-decompositions-independent-component-analysis-of-fmri" title="Permalink to this heading">¶</a></h1>
 <p>This example is meant to demonstrate nilearn as a low-level tools used to
 combine feature extraction with a multivariate decomposition algorithm
 for movie-watching.</p>
@@ -298,7 +299,6 @@ all occurrences of:</p>
       <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 4D data</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject functional nifti image (4D) is at: /home/circleci/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 </pre></div>
 </div>
@@ -331,7 +331,6 @@ all occurrences of:</p>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">component_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker.inverse_transform" title="nilearn.maskers.NiftiMasker.inverse_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">inverse_transform</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">components_masked</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/sklearn/decomposition/_fastica.py:488: FutureWarning:
 
 From version 1.3 whiten=&#39;unit-variance&#39; will be used by default.
@@ -360,9 +359,9 @@ FastICA did not converge. Consider increasing tolerance or the maximum number of
 <li><img src="../../_images/sphx_glr_plot_ica_resting_state_001.png" srcset="../../_images/sphx_glr_plot_ica_resting_state_001.png" alt="plot ica resting state" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_ica_resting_state_002.png" srcset="../../_images/sphx_glr_plot_ica_resting_state_002.png" alt="plot ica resting state" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.998 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  321 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-ica-resting-state-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.647 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  312 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-ica-resting-state-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/07_advanced/plot_ica_resting_state.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
 </div>
@@ -393,13 +392,13 @@ FastICA did not converge. Consider increasing tolerance or the maximum number of
 
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="../06_manipulating_images/plot_roi_extraction.html"
-                          title="previous chapter"><span class="section-number">9.7.12. </span>Computing a Region of Interest (ROI) mask manually</a></p>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_localizer_simple_analysis.html"
-                          title="next chapter"><span class="section-number">9.8.2. </span>Massively univariate analysis of a calculation task from the Localizer dataset</a></p>
+                          title="next chapter"><span class="section-number">9.8.7.2. </span>Massively univariate analysis of a calculation task from the Localizer dataset</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -418,7 +417,7 @@ FastICA did not converge. Consider increasing tolerance or the maximum number of
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/07_advanced/plot_ica_resting_state.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<meta property="og:title" content="9.8.1. Visualization of brain images" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://nilearn.github.io/auto_examples/01_plotting/index.html" />
+  
+<meta property="og:site_name" content="Nilearn" />
+  
+<meta property="og:description" content="See Plotting brain images for more details. Glass brain plotting in nilearn Glass brain plotting in nilearn Visualizing Megatrawls Network Matrices from Human Connectome Project Visualizing Megatra..." />
+  
+<meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_demo_glass_brain_thumb.png" />
+  
+<meta property="og:image:alt" content="Glass brain plotting in nilearn" />
+  
+    <title>Nilearn: Statistical Analysis for NeuroImaging in Python &#8212; Machine learning for NeuroImaging</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9.8.1.1. Glass brain plotting in nilearn" href="plot_demo_glass_brain.html" />
+    <link rel="prev" title="9.1.5. Intro to GLM Analysis: a single-session, single-subject fMRI dataset" href="../plot_single_subject_single_run.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
+
+
+<script type="text/javascript">
+function updateTopMenuPosition(height, width) {
+    if($(window).scrollTop() > height && $(window).outerWidth() > 1024) {
+        //begin to scroll
+        $('.related-wrapper').css("z-index", 1000);
+        $('.related-wrapper').css("position", "sticky");
+        $('.related-wrapper').css("top", 0);
+        $('.related-wrapper').css("width", width)
+    } else {
+        //lock it back into place
+        $('.related-wrapper').css("position", "relative");
+        $('.related-wrapper').css("top", 0)
+    }
+}
+
+$(function() {
+    var banner_height = $('#logo-banner').outerHeight();
+    var banner_width = $('#logo-banner').outerWidth();
+    var width = $('.related-wrapper').css("height", $('.related').outerHeight());
+
+    updateTopMenuPosition(banner_height, width);
+
+    $(window).scroll(function(event) {
+        updateTopMenuPosition(banner_height, width)
+    });
+
+    $(window).resize(function(event) {
+        var banner_width = $('#logo-banner').outerWidth();
+        var menu_height = $('.related').outerHeight();
+        $('.related').css("width", banner_width);
+        $('.related-wrapper').css("height", menu_height);
+        updateTopMenuPosition(banner_height, width)
+    })
+});
+</script>
+<script type="text/javascript">
+function updateSideBarPosition(top, offset, sections) {
+    var pos = $(window).scrollTop();
+    // Lock the table of content to a fixed position once we scroll enough
+    var topShift = 2 * offset;
+    if(pos > top + topShift + 1) {
+        // begin to scroll with sticky menu bar
+        var topShift = -topShift + 1;
+        if ($(window).outerWidth() < 1024) {
+            // compensate top menu that disappears
+            topShift -= offset + 1
+        }
+        $('.sphinxsidebarwrapper').css("position", "fixed");
+        $('.sphinxsidebarwrapper').css("top", topShift)
+    }
+    else {
+        //lock it back into place
+        $('.sphinxsidebarwrapper').css("position", "relative");
+        $('.sphinxsidebarwrapper').css("top",0)
+    }
+
+    // Highlight the current section
+    i = 0;
+    current_section = 0;
+    $('a.internal').removeClass('active');
+    for(i in sections) {
+        if(sections[i] > pos) {
+            break
+        }
+        if($('a.internal[href$="' + i + '"]').is(':visible')){
+            current_section = i
+        }
+    }
+    $('a.internal[href$="' + current_section + '"]').addClass('active');
+    $('a.internal[href$="' + current_section + '"]').parent().addClass('active')
+}
+
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var tocOffset = $('.related-wrapper').outerHeight();
+    var marginTop = parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0));
+    var top = $('.sphinxsidebarwrapper').offset().top - marginTop;
+    sections = {};
+    url = document.URL.replace(/#.*$/, "");
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50
+    });
+
+    updateSideBarPosition(top, tocOffset, sections);
+
+    $(window).scroll(function(event) {
+        updateSideBarPosition(top, tocOffset, sections)
+    });
+
+    $(window).resize(function(event) {
+        tocOffset = $('.related-wrapper').outerHeight();
+        updateSideBarPosition(top, tocOffset, sections)
+    });
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nilearn-logo.png" alt="Nilearn logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../decoding/plot_haxby_anova_svm.html">SVM</a></big>
+    </li>
+    <li>
+      <small><a href="../../connectivity/parcellating.html">Ward
+          clustering</a></small>
+    </li>
+    <li>
+      <a href="../../decoding/searchlight.html">Searchlight</a>
+    </li>
+    <li>
+      <big><a href="../../connectivity/resting_state_networks.html">ICA</a></big>
+    </li>
+    <li>
+      <a href="../../manipulating_images/data_preparation.html">Nifti IO</a>
+    </li>
+    <li>
+      <a href="../../modules/reference.html#module-nilearn.datasets">Datasets</a>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nilearn:</h1>
+    <h2>Statistics for NeuroImaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div class="gcse-search" id="cse" style="width: 100%;"></div>
+    <script>
+      (function() {
+        var cx = '017289614950330089114:elrt9qoutrq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+  </div>
+</div>
+
+
+
+<div class=related-wrapper>
+    
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_demo_glass_brain.html" title="9.8.1.1. Glass brain plotting in nilearn"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../plot_single_subject_single_run.html" title="9.1.5. Intro to GLM Analysis: a single-session, single-subject fMRI dataset"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li><a href="../../glossary.html">Glossary</a>|&nbsp;</li>
+<li><a href="../../bibliography.html">Bibliography</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
+      </ul>
+    </div>
+</div>
+
+<div class="devel-alert-banner">
+This is documentation for the <em>unstable development version</em> of Nilearn,
+the current stable version is available <a href="https://nilearn.github.io/stable/index.html">here</a>.
+</div>
+
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="visualization-of-brain-images">
+<span id="sphx-glr-auto-examples-01-plotting"></span><h1><span class="section-number">9.8.1. </span>Visualization of brain images<a class="headerlink" href="#visualization-of-brain-images" title="Permalink to this heading">¶</a></h1>
+<p>See <a class="reference internal" href="../../plotting/index.html#plotting"><span class="std std-ref">Plotting brain images</span></a> for more details.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="See plotting for more plotting functionalities."><img alt="Glass brain plotting in nilearn" src="../../_images/sphx_glr_plot_demo_glass_brain_thumb.png" />
+<p><a class="reference internal" href="plot_demo_glass_brain.html#sphx-glr-auto-examples-01-plotting-plot-demo-glass-brain-py"><span class="std std-ref">Glass brain plotting in nilearn</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Glass brain plotting in nilearn</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to fetch network matrices data from HCP beta-release of the Functional C..."><img alt="Visualizing Megatrawls Network Matrices from Human Connectome Project" src="../../_images/sphx_glr_plot_visualize_megatrawls_netmats_thumb.png" />
+<p><a class="reference internal" href="plot_visualize_megatrawls_netmats.html#sphx-glr-auto-examples-01-plotting-plot-visualize-megatrawls-netmats-py"><span class="std std-ref">Visualizing Megatrawls Network Matrices from Human Connectome Project</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualizing Megatrawls Network Matrices from Human Connectome Project</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot the regions of a reference atlas (Harvard-Oxford and Juelich atlases)."><img alt="Basic Atlas plotting" src="../../_images/sphx_glr_plot_atlas_thumb.png" />
+<p><a class="reference internal" href="plot_atlas.html#sphx-glr-auto-examples-01-plotting-plot-atlas-py"><span class="std std-ref">Basic Atlas plotting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basic Atlas plotting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to download and fetch brain parcellations of multiple networks using nil..."><img alt="Visualizing multiscale functional brain parcellations" src="../../_images/sphx_glr_plot_multiscale_parcellations_thumb.png" />
+<p><a class="reference internal" href="plot_multiscale_parcellations.html#sphx-glr-auto-examples-01-plotting-plot-multiscale-parcellations-py"><span class="std std-ref">Visualizing multiscale functional brain parcellations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualizing multiscale functional brain parcellations</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Visualize HCP connectome workbench color maps shipped with Nilearn which can be used for plotti..."><img alt="Matplotlib colormaps in Nilearn" src="../../_images/sphx_glr_plot_colormaps_thumb.png" />
+<p><a class="reference internal" href="plot_colormaps.html#sphx-glr-auto-examples-01-plotting-plot-colormaps-py"><span class="std std-ref">Matplotlib colormaps in Nilearn</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Matplotlib colormaps in Nilearn</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Visualizing a probabilistic atlas requires visualizing the different maps that compose it."><img alt="Visualizing a probabilistic atlas: the default mode in the MSDL atlas" src="../../_images/sphx_glr_plot_overlay_thumb.png" />
+<p><a class="reference internal" href="plot_overlay.html#sphx-glr-auto-examples-01-plotting-plot-overlay-py"><span class="std std-ref">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The dim argument controls the contrast of the background."><img alt="Controlling the contrast of the background when plotting" src="../../_images/sphx_glr_plot_dim_plotting_thumb.png" />
+<p><a class="reference internal" href="plot_dim_plotting.html#sphx-glr-auto-examples-01-plotting-plot-dim-plotting-py"><span class="std std-ref">Controlling the contrast of the background when plotting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Controlling the contrast of the background when plotting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Simple example to show Nifti data visualization."><img alt="NeuroImaging volumes visualization" src="../../_images/sphx_glr_plot_visualization_thumb.png" />
+<p><a class="reference internal" href="plot_visualization.html#sphx-glr-auto-examples-01-plotting-plot-visualization-py"><span class="std std-ref">NeuroImaging volumes visualization</span></a></p>
+  <div class="sphx-glr-thumbnail-title">NeuroImaging volumes visualization</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A common quality control step for functional MRI data is to visualize the data over time in a c..."><img alt="Visualizing global patterns with a carpet plot" src="../../_images/sphx_glr_plot_carpet_thumb.png" />
+<p><a class="reference internal" href="plot_carpet.html#sphx-glr-auto-examples-01-plotting-plot-carpet-py"><span class="std std-ref">Visualizing global patterns with a carpet plot</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualizing global patterns with a carpet plot</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Small script to plot the masks of the Haxby dataset."><img alt="Plot Haxby masks" src="../../_images/sphx_glr_plot_haxby_masks_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_masks.html#sphx-glr-auto-examples-01-plotting-plot-haxby-masks-py"><span class="std std-ref">Plot Haxby masks</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Haxby masks</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In nilearn, nilearn.surface.vol_to_surf allows us to measure values of a 3d volume at the nodes..."><img alt="Technical point: Illustration of the volume to surface sampling schemes" src="../../_images/sphx_glr_plot_surface_projection_strategies_thumb.png" />
+<p><a class="reference internal" href="plot_surface_projection_strategies.html#sphx-glr-auto-examples-01-plotting-plot-surface-projection-strategies-py"><span class="std std-ref">Technical point: Illustration of the volume to surface sampling schemes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Technical point: Illustration of the volume to surface sampling schemes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Nilearn comes with a set of plotting functions for easy visualization of Nifti-like images such..."><img alt="Plotting tools in nilearn" src="../../_images/sphx_glr_plot_demo_plotting_thumb.png" />
+<p><a class="reference internal" href="plot_demo_plotting.html#sphx-glr-auto-examples-01-plotting-plot-demo-plotting-py"><span class="std std-ref">Plotting tools in nilearn</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotting tools in nilearn</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to visualize probabilistic atlases made of 4D images. There are 3 differ..."><img alt="Visualizing 4D probabilistic atlas maps" src="../../_images/sphx_glr_plot_prob_atlas_thumb.png" />
+<p><a class="reference internal" href="plot_prob_atlas.html#sphx-glr-auto-examples-01-plotting-plot-prob-atlas-py"><span class="std std-ref">Visualizing 4D probabilistic atlas maps</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualizing 4D probabilistic atlas maps</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The dataset that is a subset of the enhanced NKI Rockland sample (http://fcon_1000.projects.nit..."><img alt="Seed-based connectivity on the surface" src="../../_images/sphx_glr_plot_surf_stat_map_thumb.png" />
+<p><a class="reference internal" href="plot_surf_stat_map.html#sphx-glr-auto-examples-01-plotting-plot-surf-stat-map-py"><span class="std std-ref">Seed-based connectivity on the surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Seed-based connectivity on the surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The Destrieux parcellation (Destrieux et al, 2010) in fsaverage5 space as distributed with Free..."><img alt="Loading and plotting of a cortical surface atlas" src="../../_images/sphx_glr_plot_surf_atlas_thumb.png" />
+<p><a class="reference internal" href="plot_surf_atlas.html#sphx-glr-auto-examples-01-plotting-plot-surf-atlas-py"><span class="std std-ref">Loading and plotting of a cortical surface atlas</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Loading and plotting of a cortical surface atlas</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we will project a 3D statistical map onto a cortical mesh using vol_to_surf, d..."><img alt="Making a surface plot of a 3D statistical map" src="../../_images/sphx_glr_plot_3d_map_to_surface_projection_thumb.png" />
+<p><a class="reference internal" href="plot_3d_map_to_surface_projection.html#sphx-glr-auto-examples-01-plotting-plot-3d-map-to-surface-projection-py"><span class="std std-ref">Making a surface plot of a 3D statistical map</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Making a surface plot of a 3D statistical map</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The first part of this example goes through different options of the plot_glass_brain function ..."><img alt="Glass brain plotting in nilearn (all options)" src="../../_images/sphx_glr_plot_demo_glass_brain_extensive_thumb.png" />
+<p><a class="reference internal" href="plot_demo_glass_brain_extensive.html#sphx-glr-auto-examples-01-plotting-plot-demo-glass-brain-extensive-py"><span class="std std-ref">Glass brain plotting in nilearn (all options)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Glass brain plotting in nilearn (all options)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we show how to use some plotting options available with plotting functions of ..."><img alt="More plotting tools from nilearn" src="../../_images/sphx_glr_plot_demo_more_plotting_thumb.png" />
+<p><a class="reference internal" href="plot_demo_more_plotting.html#sphx-glr-auto-examples-01-plotting-plot-demo-more-plotting-py"><span class="std std-ref">More plotting tools from nilearn</span></a></p>
+  <div class="sphx-glr-thumbnail-title">More plotting tools from nilearn</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../plot_single_subject_single_run.html"
+                          title="previous chapter"><span class="section-number">9.1.5. </span>Intro to GLM Analysis: a single-session, single-subject fMRI dataset</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="plot_demo_glass_brain.html"
+                          title="next chapter"><span class="section-number">9.8.1.1. </span>Glass brain plotting in nilearn</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer">
+            &copy; The nilearn developers 2010-2022.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/01_plotting/index.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>

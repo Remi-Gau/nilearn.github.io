@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.4.2. Computing a connectome with sparse inverse covariance" />
+<meta property="og:title" content="9.8.3.2. Computing a connectome with sparse inverse covariance" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.4.3. Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
-    <link rel="prev" title="9.4.1. Extracting signals of a probabilistic atlas of functional regions" href="plot_probabilistic_atlas_extraction.html" />
+    <link rel="next" title="9.8.3.3. Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
+    <link rel="prev" title="9.8.3.1. Extracting signals of a probabilistic atlas of functional regions" href="plot_probabilistic_atlas_extraction.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_simulated_connectome.html" title="9.4.3. Connectivity structure estimation on simulated data"
+          <a href="plot_simulated_connectome.html" title="9.8.3.3. Connectivity structure estimation on simulated data"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_probabilistic_atlas_extraction.html" title="9.4.1. Extracting signals of a probabilistic atlas of functional regions"
+          <a href="plot_probabilistic_atlas_extraction.html" title="9.8.3.1. Extracting signals of a probabilistic atlas of functional regions"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.3. </span>Functional connectivity</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="computing-a-connectome-with-sparse-inverse-covariance">
-<span id="sphx-glr-auto-examples-03-connectivity-plot-inverse-covariance-connectome-py"></span><h1><span class="section-number">9.4.2. </span>Computing a connectome with sparse inverse covariance<a class="headerlink" href="#computing-a-connectome-with-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-03-connectivity-plot-inverse-covariance-connectome-py"></span><h1><span class="section-number">9.8.3.2. </span>Computing a connectome with sparse inverse covariance<a class="headerlink" href="#computing-a-connectome-with-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h1>
 <p>This example constructs a functional connectome using the sparse inverse
 covariance.</p>
 <p>We use the <a class="reference external" href="https://team.inria.fr/parietal/18-2/spatial_patterns/spatial-patterns-in-resting-state/">MSDL atlas</a>
@@ -288,7 +289,7 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="retrieve-the-atlas-and-the-data">
-<h2><span class="section-number">9.4.2.1. </span>Retrieve the atlas and the data<a class="headerlink" href="#retrieve-the-atlas-and-the-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.1. </span>Retrieve the atlas and the data<a class="headerlink" href="#retrieve-the-atlas-and-the-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span></a><span class="p">()</span>
 <span class="c1"># Loading atlas image stored in &#39;maps&#39;</span>
@@ -304,13 +305,12 @@ all occurrences of:</p>
       <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 4D data</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject functional nifti images (4D) are at: /home/circleci/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 </pre></div>
 </div>
 </section>
 <section id="extract-time-series">
-<h2><span class="section-number">9.4.2.2. </span>Extract time series<a class="headerlink" href="#extract-time-series" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.2. </span>Extract time series<a class="headerlink" href="#extract-time-series" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a>
 <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a><span class="p">(</span><span class="n">maps_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_filename</span></a><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                          <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -319,10 +319,9 @@ all occurrences of:</p>
                                    <span class="n">confounds</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">confounds</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiMapsMasker.fit_transform] loading regions from /home/circleci/nilearn_data/msdl_atlas/MSDL_rois/msdl_rois.nii
 Resampling maps
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/_utils/cache_mixin.py:304: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/_utils/cache_mixin.py:307: UserWarning:
 
 memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -334,7 +333,7 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </div>
 </section>
 <section id="compute-the-sparse-inverse-covariance">
-<h2><span class="section-number">9.4.2.3. </span>Compute the sparse inverse covariance<a class="headerlink" href="#compute-the-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.3. </span>Compute the sparse inverse covariance<a class="headerlink" href="#compute-the-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="sklearn.covariance.GraphicalLassoCV" class="sphx-glr-backref-module-sklearn-covariance sphx-glr-backref-type-py-class"><span class="n">GraphicalLassoCV</span></a>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -351,7 +350,7 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 <br />
 <br /></section>
 <section id="display-the-connectome-matrix">
-<h2><span class="section-number">9.4.2.4. </span>Display the connectome matrix<a class="headerlink" href="#display-the-connectome-matrix" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.4. </span>Display the connectome matrix<a class="headerlink" href="#display-the-connectome-matrix" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 <span class="c1"># Display the covariance</span>
 
@@ -361,39 +360,36 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
                      <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Covariance&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_001.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_001.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7fe8d9da0550&gt;
+<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_001.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_001.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f4a150fc370&gt;
 </pre></div>
 </div>
 </section>
 <section id="and-now-display-the-corresponding-graph">
-<h2><span class="section-number">9.4.2.5. </span>And now display the corresponding graph<a class="headerlink" href="#and-now-display-the-corresponding-graph" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.5. </span>And now display the corresponding graph<a class="headerlink" href="#and-now-display-the-corresponding-graph" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas</span><span class="o">.</span><span class="n">region_coords</span></a>
 
 <a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimator</span><span class="o">.</span><span class="n">covariance_</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a><span class="p">,</span>
                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Covariance&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fe8d63307c0&gt;
+<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f4a147d3190&gt;
 </pre></div>
 </div>
 </section>
 <section id="display-the-sparse-inverse-covariance">
-<h2><span class="section-number">9.4.2.6. </span>Display the sparse inverse covariance<a class="headerlink" href="#display-the-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.6. </span>Display the sparse inverse covariance<a class="headerlink" href="#display-the-sparse-inverse-covariance" title="Permalink to this heading">¶</a></h2>
 <p>we negate it to get partial correlations</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_matrix.html#nilearn.plotting.plot_matrix" title="nilearn.plotting.plot_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span></a><span class="p">(</span><span class="o">-</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimator</span><span class="o">.</span><span class="n">precision_</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span>
                      <span class="n">figure</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
                      <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sparse inverse covariance&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7fe8ce630cd0&gt;
+<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f4a036903a0&gt;
 </pre></div>
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">9.4.2.7. </span>And now display the corresponding graph<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.7. </span>And now display the corresponding graph<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span><span class="o">-</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimator</span><span class="o">.</span><span class="n">precision_</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a><span class="p">,</span>
                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sparse inverse covariance&#39;</span><span class="p">)</span>
 
@@ -402,7 +398,7 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </div>
 <img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_004.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_004.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/></section>
 <section id="d-visualization-in-a-web-browser">
-<h2><span class="section-number">9.4.2.8. </span>3D visualization in a web browser<a class="headerlink" href="#d-visualization-in-a-web-browser" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.3.2.8. </span>3D visualization in a web browser<a class="headerlink" href="#d-visualization-in-a-web-browser" title="Permalink to this heading">¶</a></h2>
 <p>An alternative to <a class="reference internal" href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.plot_connectome</span></code></a> is to use
 <a class="reference internal" href="../../modules/generated/nilearn.plotting.view_connectome.html#nilearn.plotting.view_connectome" title="nilearn.plotting.view_connectome"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.view_connectome</span></code></a> that gives more interactive
 visualizations in a web browser. See <a class="reference internal" href="../../plotting/index.html#interactive-connectome-plotting"><span class="std std-ref">3D Plots of connectomes</span></a>
@@ -786,9 +782,9 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
 <span class="c1"># view.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.174 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  214 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-inverse-covariance-connectome-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.559 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  386 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-inverse-covariance-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/03_connectivity/plot_inverse_covariance_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
@@ -821,15 +817,15 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.4.2. Computing a connectome with sparse inverse covariance</a><ul>
-<li><a class="reference internal" href="#retrieve-the-atlas-and-the-data">9.4.2.1. Retrieve the atlas and the data</a></li>
-<li><a class="reference internal" href="#extract-time-series">9.4.2.2. Extract time series</a></li>
-<li><a class="reference internal" href="#compute-the-sparse-inverse-covariance">9.4.2.3. Compute the sparse inverse covariance</a></li>
-<li><a class="reference internal" href="#display-the-connectome-matrix">9.4.2.4. Display the connectome matrix</a></li>
-<li><a class="reference internal" href="#and-now-display-the-corresponding-graph">9.4.2.5. And now display the corresponding graph</a></li>
-<li><a class="reference internal" href="#display-the-sparse-inverse-covariance">9.4.2.6. Display the sparse inverse covariance</a></li>
-<li><a class="reference internal" href="#id1">9.4.2.7. And now display the corresponding graph</a></li>
-<li><a class="reference internal" href="#d-visualization-in-a-web-browser">9.4.2.8. 3D visualization in a web browser</a></li>
+<li><a class="reference internal" href="#">9.8.3.2. Computing a connectome with sparse inverse covariance</a><ul>
+<li><a class="reference internal" href="#retrieve-the-atlas-and-the-data">9.8.3.2.1. Retrieve the atlas and the data</a></li>
+<li><a class="reference internal" href="#extract-time-series">9.8.3.2.2. Extract time series</a></li>
+<li><a class="reference internal" href="#compute-the-sparse-inverse-covariance">9.8.3.2.3. Compute the sparse inverse covariance</a></li>
+<li><a class="reference internal" href="#display-the-connectome-matrix">9.8.3.2.4. Display the connectome matrix</a></li>
+<li><a class="reference internal" href="#and-now-display-the-corresponding-graph">9.8.3.2.5. And now display the corresponding graph</a></li>
+<li><a class="reference internal" href="#display-the-sparse-inverse-covariance">9.8.3.2.6. Display the sparse inverse covariance</a></li>
+<li><a class="reference internal" href="#id1">9.8.3.2.7. And now display the corresponding graph</a></li>
+<li><a class="reference internal" href="#d-visualization-in-a-web-browser">9.8.3.2.8. 3D visualization in a web browser</a></li>
 </ul>
 </li>
 </ul>
@@ -838,12 +834,12 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_probabilistic_atlas_extraction.html"
-                          title="previous chapter"><span class="section-number">9.4.1. </span>Extracting signals of a probabilistic atlas of functional regions</a></p>
+                          title="previous chapter"><span class="section-number">9.8.3.1. </span>Extracting signals of a probabilistic atlas of functional regions</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_simulated_connectome.html"
-                          title="next chapter"><span class="section-number">9.4.3. </span>Connectivity structure estimation on simulated data</a></p>
+                          title="next chapter"><span class="section-number">9.8.3.3. </span>Connectivity structure estimation on simulated data</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -862,7 +858,7 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/03_connectivity/plot_inverse_covariance_connectome.rst.txt"
         	 rel="nofollow">Show this page source</a>

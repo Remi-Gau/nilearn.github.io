@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.8.4. Functional connectivity predicts age group" />
+<meta property="og:title" content="9.8.7.4. Functional connectivity predicts age group" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.8.5. NeuroVault meta-analysis of stop-go paradigm studies." href="plot_neurovault_meta_analysis.html" />
-    <link rel="prev" title="9.8.3. BIDS dataset first and second level analysis" href="plot_bids_analysis.html" />
+    <link rel="next" title="9.8.7.5. NeuroVault meta-analysis of stop-go paradigm studies." href="plot_neurovault_meta_analysis.html" />
+    <link rel="prev" title="9.8.7.3. BIDS dataset first and second level analysis" href="plot_bids_analysis.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_neurovault_meta_analysis.html" title="9.8.5. NeuroVault meta-analysis of stop-go paradigm studies."
+          <a href="plot_neurovault_meta_analysis.html" title="9.8.7.5. NeuroVault meta-analysis of stop-go paradigm studies."
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_bids_analysis.html" title="9.8.3. BIDS dataset first and second level analysis"
+          <a href="plot_bids_analysis.html" title="9.8.7.3. BIDS dataset first and second level analysis"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="functional-connectivity-predicts-age-group">
-<span id="sphx-glr-auto-examples-07-advanced-plot-age-group-prediction-cross-val-py"></span><h1><span class="section-number">9.8.4. </span>Functional connectivity predicts age group<a class="headerlink" href="#functional-connectivity-predicts-age-group" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-07-advanced-plot-age-group-prediction-cross-val-py"></span><h1><span class="section-number">9.8.7.4. </span>Functional connectivity predicts age group<a class="headerlink" href="#functional-connectivity-predicts-age-group" title="Permalink to this heading">¶</a></h1>
 <p>This example compares different kinds of functional connectivity between
 regions of interest : correlation, partial correlation, and tangent space
 embedding.</p>
@@ -283,7 +284,7 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="load-brain-development-fmri-dataset-and-msdl-atlas">
-<h2><span class="section-number">9.8.4.1. </span>Load brain development fMRI dataset and MSDL atlas<a class="headerlink" href="#load-brain-development-fmri-dataset-and-msdl-atlas" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.4.1. </span>Load brain development fMRI dataset and MSDL atlas<a class="headerlink" href="#load-brain-development-fmri-dataset-and-msdl-atlas" title="Permalink to this heading">¶</a></h2>
 <p>We study only 60 subjects from the dataset, to save computation time.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -306,7 +307,7 @@ all occurrences of:</p>
 </div>
 </section>
 <section id="what-kind-of-connectivity-is-most-powerful-for-classification">
-<h2><span class="section-number">9.8.4.2. </span>What kind of connectivity is most powerful for classification?<a class="headerlink" href="#what-kind-of-connectivity-is-most-powerful-for-classification" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.4.2. </span>What kind of connectivity is most powerful for classification?<a class="headerlink" href="#what-kind-of-connectivity-is-most-powerful-for-classification" title="Permalink to this heading">¶</a></h2>
 <p>we will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.</p>
@@ -346,7 +347,6 @@ test set.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores_std</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gs</span><span class="o">.</span><span class="n">cv_results_</span></a><span class="p">[</span><span class="s1">&#39;std_test_score&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Fitting 30 folds for each of 4 candidates, totalling 120 fits
 </pre></div>
 </div>
@@ -374,9 +374,9 @@ kind should be preferred.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  15.754 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  954 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-age-group-prediction-cross-val-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.380 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1062 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-age-group-prediction-cross-val-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/07_advanced/plot_age_group_prediction_cross_val.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
 </div>
@@ -409,9 +409,9 @@ kind should be preferred.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.8.4. Functional connectivity predicts age group</a><ul>
-<li><a class="reference internal" href="#load-brain-development-fmri-dataset-and-msdl-atlas">9.8.4.1. Load brain development fMRI dataset and MSDL atlas</a></li>
-<li><a class="reference internal" href="#what-kind-of-connectivity-is-most-powerful-for-classification">9.8.4.2. What kind of connectivity is most powerful for classification?</a></li>
+<li><a class="reference internal" href="#">9.8.7.4. Functional connectivity predicts age group</a><ul>
+<li><a class="reference internal" href="#load-brain-development-fmri-dataset-and-msdl-atlas">9.8.7.4.1. Load brain development fMRI dataset and MSDL atlas</a></li>
+<li><a class="reference internal" href="#what-kind-of-connectivity-is-most-powerful-for-classification">9.8.7.4.2. What kind of connectivity is most powerful for classification?</a></li>
 </ul>
 </li>
 </ul>
@@ -420,12 +420,12 @@ kind should be preferred.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_bids_analysis.html"
-                          title="previous chapter"><span class="section-number">9.8.3. </span>BIDS dataset first and second level analysis</a></p>
+                          title="previous chapter"><span class="section-number">9.8.7.3. </span>BIDS dataset first and second level analysis</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_neurovault_meta_analysis.html"
-                          title="next chapter"><span class="section-number">9.8.5. </span>NeuroVault meta-analysis of stop-go paradigm studies.</a></p>
+                          title="next chapter"><span class="section-number">9.8.7.5. </span>NeuroVault meta-analysis of stop-go paradigm studies.</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -444,7 +444,7 @@ kind should be preferred.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/07_advanced/plot_age_group_prediction_cross_val.rst.txt"
         	 rel="nofollow">Show this page source</a>

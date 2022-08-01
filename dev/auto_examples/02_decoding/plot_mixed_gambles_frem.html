@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.2. FREM on Jimura et al “mixed gambles” dataset." />
+<meta property="og:title" content="9.8.2.2. FREM on Jimura et al “mixed gambles” dataset." />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.3.3. Decoding with FREM: face vs house object recognition" href="plot_haxby_frem.html" />
-    <link rel="prev" title="9.3.1. Show stimuli of Haxby et al. dataset" href="plot_haxby_stimuli.html" />
+    <link rel="next" title="9.8.2.3. Decoding with FREM: face vs house object recognition" href="plot_haxby_frem.html" />
+    <link rel="prev" title="9.8.2.1. Show stimuli of Haxby et al. dataset" href="plot_haxby_stimuli.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_haxby_frem.html" title="9.3.3. Decoding with FREM: face vs house object recognition"
+          <a href="plot_haxby_frem.html" title="9.8.2.3. Decoding with FREM: face vs house object recognition"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_stimuli.html" title="9.3.1. Show stimuli of Haxby et al. dataset"
+          <a href="plot_haxby_stimuli.html" title="9.8.2.1. Show stimuli of Haxby et al. dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="frem-on-jimura-et-al-mixed-gambles-dataset">
-<span id="sphx-glr-auto-examples-02-decoding-plot-mixed-gambles-frem-py"></span><h1><span class="section-number">9.3.2. </span>FREM on Jimura et al “mixed gambles” dataset.<a class="headerlink" href="#frem-on-jimura-et-al-mixed-gambles-dataset" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-mixed-gambles-frem-py"></span><h1><span class="section-number">9.8.2.2. </span>FREM on Jimura et al “mixed gambles” dataset.<a class="headerlink" href="#frem-on-jimura-et-al-mixed-gambles-dataset" title="Permalink to this heading">¶</a></h1>
 <p>In this example, we use fast ensembling of regularized models (FREM) to
 solve a regression problem, predicting the gain level corresponding to each
 beta maps regressed from mixed gambles experiment. FREM uses an implicit
@@ -269,7 +270,7 @@ a very robust decoder at a lower computational cost than other spatially
 regularized methods.</p>
 <p>To have more details, see: <a class="reference internal" href="../../decoding/frem.html#frem"><span class="std std-ref">FREM: fast ensembling of regularized models for robust decoding</span></a>.</p>
 <section id="load-the-data-from-the-jimura-mixed-gamble-experiment">
-<h2><span class="section-number">9.3.2.1. </span>Load the data from the Jimura mixed-gamble experiment<a class="headerlink" href="#load-the-data-from-the-jimura-mixed-gamble-experiment" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.2.1. </span>Load the data from the Jimura mixed-gamble experiment<a class="headerlink" href="#load-the-data-from-the-jimura-mixed-gamble-experiment" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_mixed_gambles.html#nilearn.datasets.fetch_mixed_gambles" title="nilearn.datasets.fetch_mixed_gambles" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_mixed_gambles</span></a>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_mixed_gambles.html#nilearn.datasets.fetch_mixed_gambles" title="nilearn.datasets.fetch_mixed_gambles" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_mixed_gambles</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
@@ -280,7 +281,7 @@ regularized methods.</p>
 </div>
 </section>
 <section id="fit-frem">
-<h2><span class="section-number">9.3.2.2. </span>Fit FREM<a class="headerlink" href="#fit-frem" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.2.2. </span>Fit FREM<a class="headerlink" href="#fit-frem" title="Permalink to this heading">¶</a></h2>
 <p>We compare both of these models to a pipeline ensembling many models</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMRegressor</span></a>
 <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frem</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMRegressor</span></a><span class="p">(</span><span class="s1">&#39;svr&#39;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -295,8 +296,7 @@ regularized methods.</p>
               <span class="n">cut_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_mixed_gambles_frem_001.png" srcset="../../_images/sphx_glr_plot_mixed_gambles_frem_001.png" alt="plot mixed gambles frem" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/_utils/param_validation.py:197: UserWarning:
+<img src="../../_images/sphx_glr_plot_mixed_gambles_frem_001.png" srcset="../../_images/sphx_glr_plot_mixed_gambles_frem_001.png" alt="plot mixed gambles frem" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/_utils/param_validation.py:197: UserWarning:
 
 Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
 
@@ -421,7 +421,7 @@ Solver terminated early (max_iter=10000).  Consider pre-processing your data wit
 Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7fe8d576b430&gt;
+&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7f4a03a48b20&gt;
 </pre></div>
 </div>
 <p>We can observe that the coefficients map learnt by FREM is structured,
@@ -432,7 +432,7 @@ not sparse (i.e. almost all voxels have non-zero coefficients). See also this
 using FREM, and related <a class="reference internal" href="../../decoding/frem.html#frem"><span class="std std-ref">section of user guide</span></a>.</p>
 </section>
 <section id="example-use-of-tv-l1-spacenet">
-<h2><span class="section-number">9.3.2.3. </span>Example use of TV-L1 SpaceNet<a class="headerlink" href="#example-use-of-tv-l1-spacenet" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.2.3. </span>Example use of TV-L1 SpaceNet<a class="headerlink" href="#example-use-of-tv-l1-spacenet" title="Permalink to this heading">¶</a></h2>
 <p><a class="reference internal" href="../../decoding/space_net.html#space-net"><span class="std std-ref">SpaceNet</span></a> is another method available in Nilearn to decode
 with spatially sparse models. Depending on the penalty that is used,
 it yields either very structured maps (TV-L1) or unstructured maps
@@ -452,9 +452,9 @@ few minutes. Example code is included below.</p>
 <span class="c1">#               cut_coords=[20, -2])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  36.985 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1704 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-mixed-gambles-frem-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  43.854 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1724 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-mixed-gambles-frem-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_mixed_gambles_frem.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -487,10 +487,10 @@ few minutes. Example code is included below.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.2. FREM on Jimura et al “mixed gambles” dataset.</a><ul>
-<li><a class="reference internal" href="#load-the-data-from-the-jimura-mixed-gamble-experiment">9.3.2.1. Load the data from the Jimura mixed-gamble experiment</a></li>
-<li><a class="reference internal" href="#fit-frem">9.3.2.2. Fit FREM</a></li>
-<li><a class="reference internal" href="#example-use-of-tv-l1-spacenet">9.3.2.3. Example use of TV-L1 SpaceNet</a></li>
+<li><a class="reference internal" href="#">9.8.2.2. FREM on Jimura et al “mixed gambles” dataset.</a><ul>
+<li><a class="reference internal" href="#load-the-data-from-the-jimura-mixed-gamble-experiment">9.8.2.2.1. Load the data from the Jimura mixed-gamble experiment</a></li>
+<li><a class="reference internal" href="#fit-frem">9.8.2.2.2. Fit FREM</a></li>
+<li><a class="reference internal" href="#example-use-of-tv-l1-spacenet">9.8.2.2.3. Example use of TV-L1 SpaceNet</a></li>
 </ul>
 </li>
 </ul>
@@ -499,12 +499,12 @@ few minutes. Example code is included below.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_stimuli.html"
-                          title="previous chapter"><span class="section-number">9.3.1. </span>Show stimuli of Haxby et al. dataset</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.1. </span>Show stimuli of Haxby et al. dataset</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_haxby_frem.html"
-                          title="next chapter"><span class="section-number">9.3.3. </span>Decoding with FREM: face vs house object recognition</a></p>
+                          title="next chapter"><span class="section-number">9.8.2.3. </span>Decoding with FREM: face vs house object recognition</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -523,7 +523,7 @@ few minutes. Example code is included below.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_mixed_gambles_frem.rst.txt"
         	 rel="nofollow">Show this page source</a>

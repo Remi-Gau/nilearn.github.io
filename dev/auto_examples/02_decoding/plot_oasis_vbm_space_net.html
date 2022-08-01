@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior" />
+<meta property="og:title" content="9.8.2.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.3.5. Decoding with ANOVA + SVM: face vs house in the Haxby dataset" href="plot_haxby_anova_svm.html" />
-    <link rel="prev" title="9.3.3. Decoding with FREM: face vs house object recognition" href="plot_haxby_frem.html" />
+    <link rel="next" title="9.8.2.5. Decoding with ANOVA + SVM: face vs house in the Haxby dataset" href="plot_haxby_anova_svm.html" />
+    <link rel="prev" title="9.8.2.3. Decoding with FREM: face vs house object recognition" href="plot_haxby_frem.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_haxby_anova_svm.html" title="9.3.5. Decoding with ANOVA + SVM: face vs house in the Haxby dataset"
+          <a href="plot_haxby_anova_svm.html" title="9.8.2.5. Decoding with ANOVA + SVM: face vs house in the Haxby dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_frem.html" title="9.3.3. Decoding with FREM: face vs house object recognition"
+          <a href="plot_haxby_frem.html" title="9.8.2.3. Decoding with FREM: face vs house object recognition"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,13 +260,13 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="voxel-based-morphometry-on-oasis-dataset-with-space-net-prior">
-<span id="sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-space-net-py"></span><h1><span class="section-number">9.3.4. </span>Voxel-Based Morphometry on Oasis dataset with Space-Net prior<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset-with-space-net-prior" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-space-net-py"></span><h1><span class="section-number">9.8.2.4. </span>Voxel-Based Morphometry on Oasis dataset with Space-Net prior<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset-with-space-net-prior" title="Permalink to this heading">¶</a></h1>
 <p>Predicting age from gray-matter concentration maps from OASIS
 dataset. Note that age is a continuous variable, we use the regressor
 here, and not the classification object.</p>
 <p>See also the documentation: <a class="reference internal" href="../../decoding/space_net.html#space-net"><span class="std std-ref">SpaceNet: decoding with spatial structure for better maps</span></a>.</p>
 <section id="load-the-oasis-vbm-dataset">
-<h2><span class="section-number">9.3.4.1. </span>Load the Oasis VBM dataset<a class="headerlink" href="#load-the-oasis-vbm-dataset" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.4.1. </span>Load the Oasis VBM dataset<a class="headerlink" href="#load-the-oasis-vbm-dataset" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># increase this number if you have more RAM on your box</span>
@@ -292,7 +293,7 @@ here, and not the classification object.</p>
 </div>
 </section>
 <section id="fit-the-spacenet-and-predict-with-it">
-<h2><span class="section-number">9.3.4.2. </span>Fit the SpaceNet and predict with it<a class="headerlink" href="#fit-the-spacenet-and-predict-with-it" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.4.2. </span>Fit the SpaceNet and predict with it<a class="headerlink" href="#fit-the-spacenet-and-predict-with-it" title="Permalink to this heading">¶</a></h2>
 <p>To save time (because these are anat images with many voxels), we include
 only the 5-percent voxels most correlated with the age variable to fit.
 Also, we set memory_level=2 so that more of the intermediate computations
@@ -310,7 +311,6 @@ SpaceNetRegressor class, to take advantage of a multi-core system.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean square error (MSE) on the predicted age: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">mse</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiMasker.fit] Loading data from [/home/circleci/nilearn_data/oasis1/OAS1_0003_MR1/mwrc1OAS1_0003_MR1_mpr_anon_fslswapdim_bet.nii.gz,
  /home/circleci/nilearn_data/oasis1/OAS1_0086_MR1/mwrc1OAS1_0086_MR1_mpr_anon_fslswapdim_bet.nii.gz,
  /home/circleci/nilearn_data/oasis1/OAS1_0052_MR1/mwrc1OAS1_0052_MR1_mpr_anon_fslswapdim_bet.nii.gz,
@@ -449,7 +449,7 @@ Brain mask is bigger than the volume of a standard human brain. This object is p
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -471,11 +471,11 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 17.0s, 0.3min
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   19.3s remaining:    0.0s
+_____________________________________________________path_scores - 25.8s, 0.4min
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   28.2s remaining:    0.0s
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -497,10 +497,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 16.5s, 0.3min
+_____________________________________________________path_scores - 24.5s, 0.4min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -514,7 +514,7 @@ path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[
 None, [0.5], array([  0, ..., 119]), array([30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 2), debias=False, verbose=1, screening_percentile=1.2652228933482088)
 ........./home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/joblib/parallel.py:262: UserWarning:
 
-Persisting input arguments took 1.20s to run.
+Persisting input arguments took 1.21s to run.
 If this happens often in your code, it can cause performance problems
 (results will be correct in all cases).
 The reason for this is probably some large input arguments for a wrapped
@@ -522,10 +522,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 17.0s, 0.3min
+_____________________________________________________path_scores - 27.5s, 0.5min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -547,10 +547,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 16.8s, 0.3min
+_____________________________________________________path_scores - 26.3s, 0.4min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -572,10 +572,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 16.8s, 0.3min
+_____________________________________________________path_scores - 25.9s, 0.4min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -597,10 +597,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 17.3s, 0.3min
+_____________________________________________________path_scores - 25.4s, 0.4min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -616,7 +616,7 @@ None, [0.5], array([  0, ..., 119]), array([ 90,  91,  92,  93,  94,  95,  96,  
 {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 6), debias=False, verbose=1, screening_percentile=1.2652228933482088)
 ........./home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/joblib/parallel.py:262: UserWarning:
 
-Persisting input arguments took 1.20s to run.
+Persisting input arguments took 1.21s to run.
 If this happens often in your code, it can cause performance problems
 (results will be correct in all cases).
 The reason for this is probably some large input arguments for a wrapped
@@ -624,10 +624,10 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 17.2s, 0.3min
+_____________________________________________________path_scores - 25.6s, 0.4min
 ________________________________________________________________________________
 [Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fe8d9e0a700&gt;, array([[0., ..., 0.],
+path_scores(&lt;function _graph_net_squared_loss at 0x7f4a1552ef70&gt;, array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
         ...,
@@ -651,9 +651,9 @@ The reason for this is probably some large input arguments for a wrapped
 THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
  example so that they can fix the problem.
 
-_____________________________________________________path_scores - 16.7s, 0.3min
-[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:  2.6min finished
-Time Elapsed: 163.894 seconds, 2 minutes.
+_____________________________________________________path_scores - 26.0s, 0.4min
+[Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:  3.8min finished
+Time Elapsed: 237.537 seconds, 3 minutes.
 [NiftiMasker.transform_single_imgs] Loading data from Nifti1Image(
 shape=(91, 109, 91, 80),
 affine=array([[  -2.,    0.,    0.,   90.],
@@ -668,7 +668,7 @@ Mean square error (MSE) on the predicted age: 12.33
 </div>
 </section>
 <section id="visualize-the-decoding-maps-and-quality-of-predictions">
-<h2><span class="section-number">9.3.4.3. </span>Visualize the decoding maps and quality of predictions<a class="headerlink" href="#visualize-the-decoding-maps-and-quality-of-predictions" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.4.3. </span>Visualize the decoding maps and quality of predictions<a class="headerlink" href="#visualize-the-decoding-maps-and-quality-of-predictions" title="Permalink to this heading">¶</a></h2>
 <p>Visualize the resulting maps</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
 <span class="c1"># weights map</span>
@@ -699,9 +699,9 @@ Mean square error (MSE) on the predicted age: 12.33
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" alt="plot oasis vbm space net" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" alt="graph-net: Mean Absolute Error 12.33 years" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  48.704 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 4 minutes  3.760 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  2075 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-space-net-py">
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-space-net-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_oasis_vbm_space_net.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -734,10 +734,10 @@ Mean square error (MSE) on the predicted age: 12.33
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior</a><ul>
-<li><a class="reference internal" href="#load-the-oasis-vbm-dataset">9.3.4.1. Load the Oasis VBM dataset</a></li>
-<li><a class="reference internal" href="#fit-the-spacenet-and-predict-with-it">9.3.4.2. Fit the SpaceNet and predict with it</a></li>
-<li><a class="reference internal" href="#visualize-the-decoding-maps-and-quality-of-predictions">9.3.4.3. Visualize the decoding maps and quality of predictions</a></li>
+<li><a class="reference internal" href="#">9.8.2.4. Voxel-Based Morphometry on Oasis dataset with Space-Net prior</a><ul>
+<li><a class="reference internal" href="#load-the-oasis-vbm-dataset">9.8.2.4.1. Load the Oasis VBM dataset</a></li>
+<li><a class="reference internal" href="#fit-the-spacenet-and-predict-with-it">9.8.2.4.2. Fit the SpaceNet and predict with it</a></li>
+<li><a class="reference internal" href="#visualize-the-decoding-maps-and-quality-of-predictions">9.8.2.4.3. Visualize the decoding maps and quality of predictions</a></li>
 </ul>
 </li>
 </ul>
@@ -746,12 +746,12 @@ Mean square error (MSE) on the predicted age: 12.33
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_frem.html"
-                          title="previous chapter"><span class="section-number">9.3.3. </span>Decoding with FREM: face vs house object recognition</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.3. </span>Decoding with FREM: face vs house object recognition</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_haxby_anova_svm.html"
-                          title="next chapter"><span class="section-number">9.3.5. </span>Decoding with ANOVA + SVM: face vs house in the Haxby dataset</a></p>
+                          title="next chapter"><span class="section-number">9.8.2.5. </span>Decoding with ANOVA + SVM: face vs house in the Haxby dataset</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -770,7 +770,7 @@ Mean square error (MSE) on the predicted age: 12.33
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_oasis_vbm_space_net.rst.txt"
         	 rel="nofollow">Show this page source</a>

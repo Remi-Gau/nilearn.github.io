@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.13. Voxel-Based Morphometry on Oasis dataset" />
+<meta property="og:title" content="9.8.2.13. Voxel-Based Morphometry on Oasis dataset" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.3.14. Example of pattern recognition on simulated data" href="plot_simulated_data.html" />
-    <link rel="prev" title="9.3.12. Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
+    <link rel="next" title="9.8.2.14. Example of pattern recognition on simulated data" href="plot_simulated_data.html" />
+    <link rel="prev" title="9.8.2.12. Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_simulated_data.html" title="9.3.14. Example of pattern recognition on simulated data"
+          <a href="plot_simulated_data.html" title="9.8.2.14. Example of pattern recognition on simulated data"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_different_estimators.html" title="9.3.12. Different classifiers in decoding the Haxby dataset"
+          <a href="plot_haxby_different_estimators.html" title="9.8.2.12. Different classifiers in decoding the Haxby dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="voxel-based-morphometry-on-oasis-dataset">
-<span id="sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-py"></span><h1><span class="section-number">9.3.13. </span>Voxel-Based Morphometry on Oasis dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-py"></span><h1><span class="section-number">9.8.2.13. </span>Voxel-Based Morphometry on Oasis dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Permalink to this heading">¶</a></h1>
 <p>This example uses Voxel-Based Morphometry (VBM) to study the relationship
 between aging and gray matter density.</p>
 <p>The data come from the <a class="reference external" href="http://www.oasis-brains.org/">OASIS</a> project.
@@ -268,7 +269,7 @@ on the website.</p>
 <p>It has been run through a standard VBM pipeline (using SPM8 and
 NewSegment) to create VBM maps, which we study here.</p>
 <section id="predictive-modeling-analysis-vbm-bio-markers-of-aging">
-<h2><span class="section-number">9.3.13.1. </span>Predictive modeling analysis: VBM bio-markers of aging?<a class="headerlink" href="#predictive-modeling-analysis-vbm-bio-markers-of-aging" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.1. </span>Predictive modeling analysis: VBM bio-markers of aging?<a class="headerlink" href="#predictive-modeling-analysis-vbm-bio-markers-of-aging" title="Permalink to this heading">¶</a></h2>
 <p>We run a standard SVM-ANOVA nilearn pipeline to predict age from the VBM
 data. We use only 100 subjects from the OASIS dataset to limit the memory
 usage.</p>
@@ -282,7 +283,7 @@ number of features selected by the ANOVA step should be set by nested
 cross-validation, as they impact significantly the prediction score.</p>
 </section>
 <section id="brain-mapping-with-mass-univariate">
-<h2><span class="section-number">9.3.13.2. </span>Brain mapping with mass univariate<a class="headerlink" href="#brain-mapping-with-mass-univariate" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.2. </span>Brain mapping with mass univariate<a class="headerlink" href="#brain-mapping-with-mass-univariate" title="Permalink to this heading">¶</a></h2>
 <p>SVM weights are very noisy, partly because heavy smoothing is detrimental
 for the prediction here. A standard analysis using mass-univariate GLM
 (here permuted to have exact correction for multiple comparisons) gives a
@@ -318,7 +319,7 @@ all occurrences of:</p>
 </div>
 </section>
 <section id="load-oasis-dataset">
-<h2><span class="section-number">9.3.13.3. </span>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.3. </span>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">oasis_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_oasis_vbm.html#nilearn.datasets.fetch_oasis_vbm" title="nilearn.datasets.fetch_oasis_vbm" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_oasis_vbm</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a><span class="p">,</span> <span class="n">legacy_format</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
@@ -337,14 +338,13 @@ all occurrences of:</p>
       <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">oasis_dataset</span><span class="o">.</span><span class="n">white_matter_maps</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 3D data</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First gray-matter anatomy image (3D) is located at: /home/circleci/nilearn_data/oasis1/OAS1_0001_MR1/mwrc1OAS1_0001_MR1_mpr_anon_fslswapdim_bet.nii.gz
 First white-matter anatomy image (3D) is located at: /home/circleci/nilearn_data/oasis1/OAS1_0001_MR1/mwrc2OAS1_0001_MR1_mpr_anon_fslswapdim_bet.nii.gz
 </pre></div>
 </div>
 </section>
 <section id="preprocess-data">
-<h2><span class="section-number">9.3.13.4. </span>Preprocess data<a class="headerlink" href="#preprocess-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.4. </span>Preprocess data<a class="headerlink" href="#preprocess-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nifti_masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a><span class="p">(</span>
     <span class="n">standardize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -394,14 +394,13 @@ First white-matter anatomy image (3D) is located at: /home/circleci/nilearn_data
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>=== DECODER ===
 explained variance for the cross-validation: 10.670598
 </pre></div>
 </div>
 </section>
 <section id="visualization">
-<h2><span class="section-number">9.3.13.5. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.5. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">weight_img</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">coef_img_</span></a><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span>
 
 <span class="c1"># Create the figure</span>
@@ -416,7 +415,7 @@ explained variance for the cross-validation: 10.670598
 </div>
 <img src="../../_images/sphx_glr_plot_oasis_vbm_001.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_001.png" alt="plot oasis vbm" class = "sphx-glr-single-img"/></section>
 <section id="visualize-the-quality-of-predictions">
-<h2><span class="section-number">9.3.13.6. </span>Visualize the quality of predictions<a class="headerlink" href="#visualize-the-quality-of-predictions" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.6. </span>Visualize the quality of predictions<a class="headerlink" href="#visualize-the-quality-of-predictions" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">))</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.suptitle.html#matplotlib.pyplot.suptitle" title="matplotlib.pyplot.suptitle" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span></a><span class="p">(</span><span class="s2">&quot;Decoder: Mean Absolute Error </span><span class="si">%.2f</span><span class="s2"> years&quot;</span> <span class="o">%</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">prediction_score</span></a><span class="p">)</span>
 <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">linewidth</span></a> <span class="o">=</span> <span class="mi">3</span>
@@ -436,13 +435,12 @@ explained variance for the cross-validation: 10.670598
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_002.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_002.png" alt="Decoder: Mean Absolute Error 10.67 years" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_003.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_003.png" alt="plot oasis vbm" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7fe8dbeb8b50&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f4a147706a0&gt;
 </pre></div>
 </div>
 </section>
 <section id="inference-with-massively-univariate-model">
-<h2><span class="section-number">9.3.13.7. </span>Inference with massively univariate model<a class="headerlink" href="#inference-with-massively-univariate-model" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.13.7. </span>Inference with massively univariate model<a class="headerlink" href="#inference-with-massively-univariate-model" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Massively univariate model&quot;</span><span class="p">)</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gm_maps_masked</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gray_matter_map_filenames</span></a><span class="p">)</span>
@@ -478,217 +476,216 @@ explained variance for the cross-validation: 10.670598
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_oasis_vbm_004.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_004.png" alt="plot oasis vbm" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Massively univariate model
+<img src="../../_images/sphx_glr_plot_oasis_vbm_004.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_004.png" alt="plot oasis vbm" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Massively univariate model
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-Job #1, processed 0/2000 permutations (0.00%, 213.93299102783203 seconds remaining)
-Job #1, processed 10/2000 permutations (0.50%, 40.52914881706238 seconds remaining)
-Job #1, processed 20/2000 permutations (1.00%, 37.997689962387085 seconds remaining)
-Job #1, processed 30/2000 permutations (1.50%, 37.2575117746989 seconds remaining)
-Job #1, processed 40/2000 permutations (2.00%, 36.75275707244873 seconds remaining)
-Job #1, processed 50/2000 permutations (2.50%, 36.549389362335205 seconds remaining)
-Job #1, processed 60/2000 permutations (3.00%, 36.23584723472595 seconds remaining)
-Job #1, processed 70/2000 permutations (3.50%, 35.854188612529214 seconds remaining)
-Job #1, processed 80/2000 permutations (4.00%, 35.582679748535156 seconds remaining)
-Job #1, processed 90/2000 permutations (4.50%, 35.3440359433492 seconds remaining)
-Job #1, processed 100/2000 permutations (5.00%, 35.124046087265015 seconds remaining)
-Job #1, processed 110/2000 permutations (5.50%, 34.95362968878313 seconds remaining)
-Job #1, processed 120/2000 permutations (6.00%, 34.694467544555664 seconds remaining)
-Job #1, processed 130/2000 permutations (6.50%, 34.462642596318176 seconds remaining)
-Job #1, processed 140/2000 permutations (7.00%, 34.24252673557827 seconds remaining)
-Job #1, processed 150/2000 permutations (7.50%, 34.037859201431274 seconds remaining)
-Job #1, processed 160/2000 permutations (8.00%, 33.82351779937744 seconds remaining)
-Job #1, processed 170/2000 permutations (8.50%, 33.62446597043206 seconds remaining)
-Job #1, processed 180/2000 permutations (9.00%, 33.433620320426094 seconds remaining)
-Job #1, processed 190/2000 permutations (9.50%, 33.22443403695759 seconds remaining)
-Job #1, processed 200/2000 permutations (10.00%, 33.010714530944824 seconds remaining)
-Job #1, processed 210/2000 permutations (10.50%, 32.823229971386134 seconds remaining)
-Job #1, processed 220/2000 permutations (11.00%, 32.61495913158764 seconds remaining)
-Job #1, processed 230/2000 permutations (11.50%, 32.4055580470873 seconds remaining)
-Job #1, processed 240/2000 permutations (12.00%, 32.20413223902384 seconds remaining)
-Job #1, processed 250/2000 permutations (12.50%, 32.00080585479736 seconds remaining)
-Job #1, processed 260/2000 permutations (13.00%, 31.806560094539936 seconds remaining)
-Job #1, processed 270/2000 permutations (13.50%, 31.622527378576773 seconds remaining)
-Job #1, processed 280/2000 permutations (14.00%, 31.435365915298465 seconds remaining)
-Job #1, processed 290/2000 permutations (14.50%, 31.248903726709298 seconds remaining)
-Job #1, processed 300/2000 permutations (15.00%, 31.05516274770101 seconds remaining)
-Job #1, processed 310/2000 permutations (15.50%, 30.87153432446141 seconds remaining)
-Job #1, processed 320/2000 permutations (16.00%, 30.690359473228455 seconds remaining)
-Job #1, processed 330/2000 permutations (16.50%, 30.50922019553907 seconds remaining)
-Job #1, processed 340/2000 permutations (17.00%, 30.311406822765576 seconds remaining)
-Job #1, processed 350/2000 permutations (17.50%, 30.117515393665858 seconds remaining)
-Job #1, processed 360/2000 permutations (18.00%, 29.923338466220432 seconds remaining)
-Job #1, processed 370/2000 permutations (18.50%, 29.727757189724894 seconds remaining)
-Job #1, processed 380/2000 permutations (19.00%, 29.53471970558167 seconds remaining)
-Job #1, processed 390/2000 permutations (19.50%, 29.341886563178825 seconds remaining)
-Job #1, processed 400/2000 permutations (20.00%, 29.14798927307129 seconds remaining)
-Job #1, processed 410/2000 permutations (20.50%, 28.96126064440099 seconds remaining)
-Job #1, processed 420/2000 permutations (21.00%, 28.76763309751238 seconds remaining)
-Job #1, processed 430/2000 permutations (21.50%, 28.575013177339418 seconds remaining)
-Job #1, processed 440/2000 permutations (22.00%, 28.388300592249088 seconds remaining)
-Job #1, processed 450/2000 permutations (22.50%, 28.198928515116375 seconds remaining)
-Job #1, processed 460/2000 permutations (23.00%, 28.011730546536654 seconds remaining)
-Job #1, processed 470/2000 permutations (23.50%, 27.83228393311196 seconds remaining)
-Job #1, processed 480/2000 permutations (24.00%, 27.642587860425312 seconds remaining)
-Job #1, processed 490/2000 permutations (24.50%, 27.454966715403966 seconds remaining)
-Job #1, processed 500/2000 permutations (25.00%, 27.267905473709106 seconds remaining)
-Job #1, processed 510/2000 permutations (25.50%, 27.084463096132463 seconds remaining)
-Job #1, processed 520/2000 permutations (26.00%, 26.89992007842431 seconds remaining)
-Job #1, processed 530/2000 permutations (26.50%, 26.71282418718878 seconds remaining)
-Job #1, processed 540/2000 permutations (27.00%, 26.52899932861328 seconds remaining)
-Job #1, processed 550/2000 permutations (27.50%, 26.363544594157826 seconds remaining)
-Job #1, processed 560/2000 permutations (28.00%, 26.18162706920079 seconds remaining)
-Job #1, processed 570/2000 permutations (28.50%, 26.01350448424356 seconds remaining)
-Job #1, processed 580/2000 permutations (29.00%, 25.837849970521596 seconds remaining)
-Job #1, processed 590/2000 permutations (29.50%, 25.659734354180802 seconds remaining)
-Job #1, processed 600/2000 permutations (30.00%, 25.481826543807983 seconds remaining)
-Job #1, processed 610/2000 permutations (30.50%, 25.2976327372379 seconds remaining)
-Job #1, processed 620/2000 permutations (31.00%, 25.11095523834228 seconds remaining)
-Job #1, processed 630/2000 permutations (31.50%, 24.92712687310718 seconds remaining)
-Job #1, processed 640/2000 permutations (32.00%, 24.741444170475006 seconds remaining)
-Job #1, processed 650/2000 permutations (32.50%, 24.55463400253883 seconds remaining)
-Job #1, processed 660/2000 permutations (33.00%, 24.36973990093578 seconds remaining)
-Job #1, processed 670/2000 permutations (33.50%, 24.184574212600936 seconds remaining)
-Job #1, processed 680/2000 permutations (34.00%, 24.00553873006035 seconds remaining)
-Job #1, processed 690/2000 permutations (34.50%, 23.820136730221734 seconds remaining)
-Job #1, processed 700/2000 permutations (35.00%, 23.633885894502914 seconds remaining)
-Job #1, processed 710/2000 permutations (35.50%, 23.45232901438861 seconds remaining)
-Job #1, processed 720/2000 permutations (36.00%, 23.268330891927082 seconds remaining)
-Job #1, processed 730/2000 permutations (36.50%, 23.08263869481544 seconds remaining)
-Job #1, processed 740/2000 permutations (37.00%, 22.896790111387098 seconds remaining)
-Job #1, processed 750/2000 permutations (37.50%, 22.71417299906413 seconds remaining)
-Job #1, processed 760/2000 permutations (38.00%, 22.536454175647936 seconds remaining)
-Job #1, processed 770/2000 permutations (38.50%, 22.3646654215726 seconds remaining)
-Job #1, processed 780/2000 permutations (39.00%, 22.182744967631805 seconds remaining)
-Job #1, processed 790/2000 permutations (39.50%, 22.004556094543844 seconds remaining)
-Job #1, processed 800/2000 permutations (40.00%, 21.8246351480484 seconds remaining)
-Job #1, processed 810/2000 permutations (40.50%, 21.63995322769071 seconds remaining)
-Job #1, processed 820/2000 permutations (41.00%, 21.456166680266218 seconds remaining)
-Job #1, processed 830/2000 permutations (41.50%, 21.27104437782104 seconds remaining)
-Job #1, processed 840/2000 permutations (42.00%, 21.086907750084286 seconds remaining)
-Job #1, processed 850/2000 permutations (42.50%, 20.904324082767264 seconds remaining)
-Job #1, processed 860/2000 permutations (43.00%, 20.72342283226723 seconds remaining)
-Job #1, processed 870/2000 permutations (43.50%, 20.53966177194968 seconds remaining)
-Job #1, processed 880/2000 permutations (44.00%, 20.357511086897418 seconds remaining)
-Job #1, processed 890/2000 permutations (44.50%, 20.176536075184853 seconds remaining)
-Job #1, processed 900/2000 permutations (45.00%, 19.993408679962158 seconds remaining)
-Job #1, processed 910/2000 permutations (45.50%, 19.810451732887017 seconds remaining)
-Job #1, processed 920/2000 permutations (46.00%, 19.626942810804948 seconds remaining)
-Job #1, processed 930/2000 permutations (46.50%, 19.44321245531882 seconds remaining)
-Job #1, processed 940/2000 permutations (47.00%, 19.259485528824175 seconds remaining)
-Job #1, processed 950/2000 permutations (47.50%, 19.07576642538372 seconds remaining)
-Job #1, processed 960/2000 permutations (48.00%, 18.893021126588184 seconds remaining)
-Job #1, processed 970/2000 permutations (48.50%, 18.708727158222 seconds remaining)
-Job #1, processed 980/2000 permutations (49.00%, 18.52486001715368 seconds remaining)
-Job #1, processed 990/2000 permutations (49.50%, 18.344334684237083 seconds remaining)
-Job #1, processed 1000/2000 permutations (50.00%, 18.159757375717163 seconds remaining)
-Job #1, processed 1010/2000 permutations (50.50%, 17.97637705755706 seconds remaining)
-Job #1, processed 1020/2000 permutations (51.00%, 17.795573370129453 seconds remaining)
-Job #1, processed 1030/2000 permutations (51.50%, 17.614064223558 seconds remaining)
-Job #1, processed 1040/2000 permutations (52.00%, 17.43091942713811 seconds remaining)
-Job #1, processed 1050/2000 permutations (52.50%, 17.24823416982378 seconds remaining)
-Job #1, processed 1060/2000 permutations (53.00%, 17.068000235647524 seconds remaining)
-Job #1, processed 1070/2000 permutations (53.50%, 16.887174768982646 seconds remaining)
-Job #1, processed 1080/2000 permutations (54.00%, 16.705530440365827 seconds remaining)
-Job #1, processed 1090/2000 permutations (54.50%, 16.52328387312933 seconds remaining)
-Job #1, processed 1100/2000 permutations (55.00%, 16.342613501982257 seconds remaining)
-Job #1, processed 1110/2000 permutations (55.50%, 16.159825529064143 seconds remaining)
-Job #1, processed 1120/2000 permutations (56.00%, 15.978984798703875 seconds remaining)
-Job #1, processed 1130/2000 permutations (56.50%, 15.79795444117183 seconds remaining)
-Job #1, processed 1140/2000 permutations (57.00%, 15.616672080859804 seconds remaining)
-Job #1, processed 1150/2000 permutations (57.50%, 15.436365708060885 seconds remaining)
-Job #1, processed 1160/2000 permutations (58.00%, 15.256111054584897 seconds remaining)
-Job #1, processed 1170/2000 permutations (58.50%, 15.075000618258095 seconds remaining)
-Job #1, processed 1180/2000 permutations (59.00%, 14.894488173016049 seconds remaining)
-Job #1, processed 1190/2000 permutations (59.50%, 14.713997408121575 seconds remaining)
-Job #1, processed 1200/2000 permutations (60.00%, 14.532968044281006 seconds remaining)
-Job #1, processed 1210/2000 permutations (60.50%, 14.351650411432441 seconds remaining)
-Job #1, processed 1220/2000 permutations (61.00%, 14.170763125185108 seconds remaining)
-Job #1, processed 1230/2000 permutations (61.50%, 13.990914996077374 seconds remaining)
-Job #1, processed 1240/2000 permutations (62.00%, 13.81224916058202 seconds remaining)
-Job #1, processed 1250/2000 permutations (62.50%, 13.632458066940307 seconds remaining)
-Job #1, processed 1260/2000 permutations (63.00%, 13.451997215785678 seconds remaining)
-Job #1, processed 1270/2000 permutations (63.50%, 13.270609348777711 seconds remaining)
-Job #1, processed 1280/2000 permutations (64.00%, 13.088988482952118 seconds remaining)
-Job #1, processed 1290/2000 permutations (64.50%, 12.907574130583178 seconds remaining)
-Job #1, processed 1300/2000 permutations (65.00%, 12.725858688354492 seconds remaining)
-Job #1, processed 1310/2000 permutations (65.50%, 12.544747123281464 seconds remaining)
-Job #1, processed 1320/2000 permutations (66.00%, 12.363393422329064 seconds remaining)
-Job #1, processed 1330/2000 permutations (66.50%, 12.181957657175854 seconds remaining)
-Job #1, processed 1340/2000 permutations (67.00%, 12.001798035493538 seconds remaining)
-Job #1, processed 1350/2000 permutations (67.50%, 11.820795774459839 seconds remaining)
-Job #1, processed 1360/2000 permutations (68.00%, 11.640037200030159 seconds remaining)
-Job #1, processed 1370/2000 permutations (68.50%, 11.458674671006028 seconds remaining)
-Job #1, processed 1380/2000 permutations (69.00%, 11.276937733525815 seconds remaining)
-Job #1, processed 1390/2000 permutations (69.50%, 11.094997592967191 seconds remaining)
-Job #1, processed 1400/2000 permutations (70.00%, 10.913211107254028 seconds remaining)
-Job #1, processed 1410/2000 permutations (70.50%, 10.73148210674313 seconds remaining)
-Job #1, processed 1420/2000 permutations (71.00%, 10.549424987443736 seconds remaining)
-Job #1, processed 1430/2000 permutations (71.50%, 10.367626935452014 seconds remaining)
-Job #1, processed 1440/2000 permutations (72.00%, 10.185810936821833 seconds remaining)
-Job #1, processed 1450/2000 permutations (72.50%, 10.004142407713264 seconds remaining)
-Job #1, processed 1460/2000 permutations (73.00%, 9.82285448949631 seconds remaining)
-Job #1, processed 1470/2000 permutations (73.50%, 9.641309721940228 seconds remaining)
-Job #1, processed 1480/2000 permutations (74.00%, 9.459709489667738 seconds remaining)
-Job #1, processed 1490/2000 permutations (74.50%, 9.277855386670003 seconds remaining)
-Job #1, processed 1500/2000 permutations (75.00%, 9.095912853876749 seconds remaining)
-Job #1, processed 1510/2000 permutations (75.50%, 8.91441636843397 seconds remaining)
-Job #1, processed 1520/2000 permutations (76.00%, 8.732778875451338 seconds remaining)
-Job #1, processed 1530/2000 permutations (76.50%, 8.551208455578175 seconds remaining)
-Job #1, processed 1540/2000 permutations (77.00%, 8.369284286127462 seconds remaining)
-Job #1, processed 1550/2000 permutations (77.50%, 8.187542692307504 seconds remaining)
-Job #1, processed 1560/2000 permutations (78.00%, 8.006069953625019 seconds remaining)
-Job #1, processed 1570/2000 permutations (78.50%, 7.824388640701391 seconds remaining)
-Job #1, processed 1580/2000 permutations (79.00%, 7.642512233951423 seconds remaining)
-Job #1, processed 1590/2000 permutations (79.50%, 7.460814552487068 seconds remaining)
-Job #1, processed 1600/2000 permutations (80.00%, 7.278873145580292 seconds remaining)
-Job #1, processed 1610/2000 permutations (80.50%, 7.0969509175105125 seconds remaining)
-Job #1, processed 1620/2000 permutations (81.00%, 6.915202273262871 seconds remaining)
-Job #1, processed 1630/2000 permutations (81.50%, 6.733377112932732 seconds remaining)
-Job #1, processed 1640/2000 permutations (82.00%, 6.551720328447296 seconds remaining)
-Job #1, processed 1650/2000 permutations (82.50%, 6.369750514174953 seconds remaining)
-Job #1, processed 1660/2000 permutations (83.00%, 6.18799470418907 seconds remaining)
-Job #1, processed 1670/2000 permutations (83.50%, 6.006122220776039 seconds remaining)
-Job #1, processed 1680/2000 permutations (84.00%, 5.823897089276994 seconds remaining)
-Job #1, processed 1690/2000 permutations (84.50%, 5.642412126416991 seconds remaining)
-Job #1, processed 1700/2000 permutations (85.00%, 5.4604339599609375 seconds remaining)
-Job #1, processed 1710/2000 permutations (85.50%, 5.278419049859743 seconds remaining)
-Job #1, processed 1720/2000 permutations (86.00%, 5.096732256024383 seconds remaining)
-Job #1, processed 1730/2000 permutations (86.50%, 4.914868896407199 seconds remaining)
-Job #1, processed 1740/2000 permutations (87.00%, 4.73294917468367 seconds remaining)
-Job #1, processed 1750/2000 permutations (87.50%, 4.551064150674002 seconds remaining)
-Job #1, processed 1760/2000 permutations (88.00%, 4.369218349456787 seconds remaining)
-Job #1, processed 1770/2000 permutations (88.50%, 4.187148430926651 seconds remaining)
-Job #1, processed 1780/2000 permutations (89.00%, 4.005323460932528 seconds remaining)
-Job #1, processed 1790/2000 permutations (89.50%, 3.8238539189599745 seconds remaining)
-Job #1, processed 1800/2000 permutations (90.00%, 3.6416498555077443 seconds remaining)
-Job #1, processed 1810/2000 permutations (90.50%, 3.4594536552113064 seconds remaining)
-Job #1, processed 1820/2000 permutations (91.00%, 3.277718601646004 seconds remaining)
-Job #1, processed 1830/2000 permutations (91.50%, 3.095505743078847 seconds remaining)
-Job #1, processed 1840/2000 permutations (92.00%, 2.9132566866667373 seconds remaining)
-Job #1, processed 1850/2000 permutations (92.50%, 2.7310922403593323 seconds remaining)
-Job #1, processed 1860/2000 permutations (93.00%, 2.5488544202619985 seconds remaining)
-Job #1, processed 1870/2000 permutations (93.50%, 2.3670762796452975 seconds remaining)
-Job #1, processed 1880/2000 permutations (94.00%, 2.1848746411343836 seconds remaining)
-Job #1, processed 1890/2000 permutations (94.50%, 2.0028028917060325 seconds remaining)
-Job #1, processed 1900/2000 permutations (95.00%, 1.8206249914671244 seconds remaining)
-Job #1, processed 1910/2000 permutations (95.50%, 1.6385037087645207 seconds remaining)
-Job #1, processed 1920/2000 permutations (96.00%, 1.4563853840033212 seconds remaining)
-Job #1, processed 1930/2000 permutations (96.50%, 1.2742670953582604 seconds remaining)
-Job #1, processed 1940/2000 permutations (97.00%, 1.0921461508446133 seconds remaining)
-Job #1, processed 1950/2000 permutations (97.50%, 0.9100994574717985 seconds remaining)
-Job #1, processed 1960/2000 permutations (98.00%, 0.7280412206844407 seconds remaining)
-Job #1, processed 1970/2000 permutations (98.50%, 0.5460014064905002 seconds remaining)
-Job #1, processed 1980/2000 permutations (99.00%, 0.3639774539253929 seconds remaining)
-Job #1, processed 1990/2000 permutations (99.50%, 0.18201997531718345 seconds remaining)
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   36.4s finished
+Job #1, processed 0/2000 permutations (0.00%, 245.78332901000977 seconds remaining)
+Job #1, processed 10/2000 permutations (0.50%, 48.673513650894165 seconds remaining)
+Job #1, processed 20/2000 permutations (1.00%, 45.9604754447937 seconds remaining)
+Job #1, processed 30/2000 permutations (1.50%, 44.864241758982345 seconds remaining)
+Job #1, processed 40/2000 permutations (2.00%, 44.618486166000366 seconds remaining)
+Job #1, processed 50/2000 permutations (2.50%, 44.2750883102417 seconds remaining)
+Job #1, processed 60/2000 permutations (3.00%, 44.054088036219284 seconds remaining)
+Job #1, processed 70/2000 permutations (3.50%, 43.82811055864607 seconds remaining)
+Job #1, processed 80/2000 permutations (4.00%, 43.66527557373047 seconds remaining)
+Job #1, processed 90/2000 permutations (4.50%, 43.365763160917496 seconds remaining)
+Job #1, processed 100/2000 permutations (5.00%, 43.10093545913696 seconds remaining)
+Job #1, processed 110/2000 permutations (5.50%, 43.08525954593312 seconds remaining)
+Job #1, processed 120/2000 permutations (6.00%, 42.78099306424458 seconds remaining)
+Job #1, processed 130/2000 permutations (6.50%, 42.542962716175964 seconds remaining)
+Job #1, processed 140/2000 permutations (7.00%, 42.36642459460668 seconds remaining)
+Job #1, processed 150/2000 permutations (7.50%, 42.17616947491964 seconds remaining)
+Job #1, processed 160/2000 permutations (8.00%, 41.96655356884003 seconds remaining)
+Job #1, processed 170/2000 permutations (8.50%, 41.6650003825917 seconds remaining)
+Job #1, processed 180/2000 permutations (9.00%, 41.36922102504306 seconds remaining)
+Job #1, processed 190/2000 permutations (9.50%, 41.130489562687124 seconds remaining)
+Job #1, processed 200/2000 permutations (10.00%, 40.89679956436157 seconds remaining)
+Job #1, processed 210/2000 permutations (10.50%, 40.66855766659691 seconds remaining)
+Job #1, processed 220/2000 permutations (11.00%, 40.42668457464739 seconds remaining)
+Job #1, processed 230/2000 permutations (11.50%, 40.21696139418561 seconds remaining)
+Job #1, processed 240/2000 permutations (12.00%, 40.02770376205444 seconds remaining)
+Job #1, processed 250/2000 permutations (12.50%, 39.821240186691284 seconds remaining)
+Job #1, processed 260/2000 permutations (13.00%, 39.59304620669438 seconds remaining)
+Job #1, processed 270/2000 permutations (13.50%, 39.38459382233796 seconds remaining)
+Job #1, processed 280/2000 permutations (14.00%, 39.123697246823994 seconds remaining)
+Job #1, processed 290/2000 permutations (14.50%, 38.90503384327066 seconds remaining)
+Job #1, processed 300/2000 permutations (15.00%, 38.67906149228414 seconds remaining)
+Job #1, processed 310/2000 permutations (15.50%, 38.4371981082424 seconds remaining)
+Job #1, processed 320/2000 permutations (16.00%, 38.230118572711945 seconds remaining)
+Job #1, processed 330/2000 permutations (16.50%, 37.99436618342544 seconds remaining)
+Job #1, processed 340/2000 permutations (17.00%, 37.76722164715038 seconds remaining)
+Job #1, processed 350/2000 permutations (17.50%, 37.54707220622471 seconds remaining)
+Job #1, processed 360/2000 permutations (18.00%, 37.299612522125244 seconds remaining)
+Job #1, processed 370/2000 permutations (18.50%, 37.073243521355295 seconds remaining)
+Job #1, processed 380/2000 permutations (19.00%, 36.85060188644811 seconds remaining)
+Job #1, processed 390/2000 permutations (19.50%, 36.611859193215004 seconds remaining)
+Job #1, processed 400/2000 permutations (20.00%, 36.3938512802124 seconds remaining)
+Job #1, processed 410/2000 permutations (20.50%, 36.17370515916406 seconds remaining)
+Job #1, processed 420/2000 permutations (21.00%, 35.99074524924868 seconds remaining)
+Job #1, processed 430/2000 permutations (21.50%, 35.77579869780429 seconds remaining)
+Job #1, processed 440/2000 permutations (22.00%, 35.53876460682262 seconds remaining)
+Job #1, processed 450/2000 permutations (22.50%, 35.29947442478604 seconds remaining)
+Job #1, processed 460/2000 permutations (23.00%, 35.05262201765309 seconds remaining)
+Job #1, processed 470/2000 permutations (23.50%, 34.82759278885862 seconds remaining)
+Job #1, processed 480/2000 permutations (24.00%, 34.60635475317637 seconds remaining)
+Job #1, processed 490/2000 permutations (24.50%, 34.383328170192485 seconds remaining)
+Job #1, processed 500/2000 permutations (25.00%, 34.15496563911438 seconds remaining)
+Job #1, processed 510/2000 permutations (25.50%, 33.92482578988169 seconds remaining)
+Job #1, processed 520/2000 permutations (26.00%, 33.689268625699555 seconds remaining)
+Job #1, processed 530/2000 permutations (26.50%, 33.45672567385547 seconds remaining)
+Job #1, processed 540/2000 permutations (27.00%, 33.21750713277746 seconds remaining)
+Job #1, processed 550/2000 permutations (27.50%, 32.980496731671415 seconds remaining)
+Job #1, processed 560/2000 permutations (28.00%, 32.73895004817418 seconds remaining)
+Job #1, processed 570/2000 permutations (28.50%, 32.49624141057332 seconds remaining)
+Job #1, processed 580/2000 permutations (29.00%, 32.2574072624075 seconds remaining)
+Job #1, processed 590/2000 permutations (29.50%, 32.01116710194086 seconds remaining)
+Job #1, processed 600/2000 permutations (30.00%, 31.780749638875328 seconds remaining)
+Job #1, processed 610/2000 permutations (30.50%, 31.543864453425176 seconds remaining)
+Job #1, processed 620/2000 permutations (31.00%, 31.31668376153515 seconds remaining)
+Job #1, processed 630/2000 permutations (31.50%, 31.09065606858995 seconds remaining)
+Job #1, processed 640/2000 permutations (32.00%, 30.869243621826172 seconds remaining)
+Job #1, processed 650/2000 permutations (32.50%, 30.64417279683627 seconds remaining)
+Job #1, processed 660/2000 permutations (33.00%, 30.41742467880249 seconds remaining)
+Job #1, processed 670/2000 permutations (33.50%, 30.196047263358956 seconds remaining)
+Job #1, processed 680/2000 permutations (34.00%, 29.974999876583322 seconds remaining)
+Job #1, processed 690/2000 permutations (34.50%, 29.744027590406112 seconds remaining)
+Job #1, processed 700/2000 permutations (35.00%, 29.514680351529805 seconds remaining)
+Job #1, processed 710/2000 permutations (35.50%, 29.28145935501851 seconds remaining)
+Job #1, processed 720/2000 permutations (36.00%, 29.04805713229709 seconds remaining)
+Job #1, processed 730/2000 permutations (36.50%, 28.81207827019365 seconds remaining)
+Job #1, processed 740/2000 permutations (37.00%, 28.586265718614733 seconds remaining)
+Job #1, processed 750/2000 permutations (37.50%, 28.375606536865234 seconds remaining)
+Job #1, processed 760/2000 permutations (38.00%, 28.139242623981676 seconds remaining)
+Job #1, processed 770/2000 permutations (38.50%, 27.915431350856633 seconds remaining)
+Job #1, processed 780/2000 permutations (39.00%, 27.685057358864025 seconds remaining)
+Job #1, processed 790/2000 permutations (39.50%, 27.44875646844695 seconds remaining)
+Job #1, processed 800/2000 permutations (40.00%, 27.22494149208069 seconds remaining)
+Job #1, processed 810/2000 permutations (40.50%, 26.993817626694103 seconds remaining)
+Job #1, processed 820/2000 permutations (41.00%, 26.765226695595718 seconds remaining)
+Job #1, processed 830/2000 permutations (41.50%, 26.53503665004868 seconds remaining)
+Job #1, processed 840/2000 permutations (42.00%, 26.31566858291626 seconds remaining)
+Job #1, processed 850/2000 permutations (42.50%, 26.08315817047568 seconds remaining)
+Job #1, processed 860/2000 permutations (43.00%, 25.8557158902634 seconds remaining)
+Job #1, processed 870/2000 permutations (43.50%, 25.624153244084326 seconds remaining)
+Job #1, processed 880/2000 permutations (44.00%, 25.401657061143354 seconds remaining)
+Job #1, processed 890/2000 permutations (44.50%, 25.178675080953017 seconds remaining)
+Job #1, processed 900/2000 permutations (45.00%, 24.95425629615784 seconds remaining)
+Job #1, processed 910/2000 permutations (45.50%, 24.720479944250084 seconds remaining)
+Job #1, processed 920/2000 permutations (46.00%, 24.497444971748024 seconds remaining)
+Job #1, processed 930/2000 permutations (46.50%, 24.267800056806177 seconds remaining)
+Job #1, processed 940/2000 permutations (47.00%, 24.03742403172432 seconds remaining)
+Job #1, processed 950/2000 permutations (47.50%, 23.811141654064784 seconds remaining)
+Job #1, processed 960/2000 permutations (48.00%, 23.580869356791176 seconds remaining)
+Job #1, processed 970/2000 permutations (48.50%, 23.354120903408404 seconds remaining)
+Job #1, processed 980/2000 permutations (49.00%, 23.12781551906041 seconds remaining)
+Job #1, processed 990/2000 permutations (49.50%, 22.90247951854359 seconds remaining)
+Job #1, processed 1000/2000 permutations (50.00%, 22.675946950912476 seconds remaining)
+Job #1, processed 1010/2000 permutations (50.50%, 22.443649284910446 seconds remaining)
+Job #1, processed 1020/2000 permutations (51.00%, 22.213373539494533 seconds remaining)
+Job #1, processed 1030/2000 permutations (51.50%, 21.984024758477812 seconds remaining)
+Job #1, processed 1040/2000 permutations (52.00%, 21.756470753596382 seconds remaining)
+Job #1, processed 1050/2000 permutations (52.50%, 21.526047184353782 seconds remaining)
+Job #1, processed 1060/2000 permutations (53.00%, 21.2957434384328 seconds remaining)
+Job #1, processed 1070/2000 permutations (53.50%, 21.079338332202948 seconds remaining)
+Job #1, processed 1080/2000 permutations (54.00%, 20.85026597093653 seconds remaining)
+Job #1, processed 1090/2000 permutations (54.50%, 20.619613282177426 seconds remaining)
+Job #1, processed 1100/2000 permutations (55.00%, 20.39388481053439 seconds remaining)
+Job #1, processed 1110/2000 permutations (55.50%, 20.16067449251811 seconds remaining)
+Job #1, processed 1120/2000 permutations (56.00%, 19.93138595989772 seconds remaining)
+Job #1, processed 1130/2000 permutations (56.50%, 19.70525811625793 seconds remaining)
+Job #1, processed 1140/2000 permutations (57.00%, 19.478453661266126 seconds remaining)
+Job #1, processed 1150/2000 permutations (57.50%, 19.247575562933214 seconds remaining)
+Job #1, processed 1160/2000 permutations (58.00%, 19.023731009713536 seconds remaining)
+Job #1, processed 1170/2000 permutations (58.50%, 18.79761818331531 seconds remaining)
+Job #1, processed 1180/2000 permutations (59.00%, 18.568070334903265 seconds remaining)
+Job #1, processed 1190/2000 permutations (59.50%, 18.33977217634185 seconds remaining)
+Job #1, processed 1200/2000 permutations (60.00%, 18.115746815999348 seconds remaining)
+Job #1, processed 1210/2000 permutations (60.50%, 17.890244712514328 seconds remaining)
+Job #1, processed 1220/2000 permutations (61.00%, 17.660039909550402 seconds remaining)
+Job #1, processed 1230/2000 permutations (61.50%, 17.431022035397163 seconds remaining)
+Job #1, processed 1240/2000 permutations (62.00%, 17.203021418663763 seconds remaining)
+Job #1, processed 1250/2000 permutations (62.50%, 16.97797393798828 seconds remaining)
+Job #1, processed 1260/2000 permutations (63.00%, 16.752271788460867 seconds remaining)
+Job #1, processed 1270/2000 permutations (63.50%, 16.52356531864076 seconds remaining)
+Job #1, processed 1280/2000 permutations (64.00%, 16.29458163678646 seconds remaining)
+Job #1, processed 1290/2000 permutations (64.50%, 16.066128394400426 seconds remaining)
+Job #1, processed 1300/2000 permutations (65.00%, 15.838087925544151 seconds remaining)
+Job #1, processed 1310/2000 permutations (65.50%, 15.608140949074548 seconds remaining)
+Job #1, processed 1320/2000 permutations (66.00%, 15.381856506521052 seconds remaining)
+Job #1, processed 1330/2000 permutations (66.50%, 15.153387256134723 seconds remaining)
+Job #1, processed 1340/2000 permutations (67.00%, 14.925478209310503 seconds remaining)
+Job #1, processed 1350/2000 permutations (67.50%, 14.698380655712551 seconds remaining)
+Job #1, processed 1360/2000 permutations (68.00%, 14.46862647112678 seconds remaining)
+Job #1, processed 1370/2000 permutations (68.50%, 14.241156092525399 seconds remaining)
+Job #1, processed 1380/2000 permutations (69.00%, 14.017219833705736 seconds remaining)
+Job #1, processed 1390/2000 permutations (69.50%, 13.79299304811217 seconds remaining)
+Job #1, processed 1400/2000 permutations (70.00%, 13.57132795878819 seconds remaining)
+Job #1, processed 1410/2000 permutations (70.50%, 13.34537594030935 seconds remaining)
+Job #1, processed 1420/2000 permutations (71.00%, 13.120436299015099 seconds remaining)
+Job #1, processed 1430/2000 permutations (71.50%, 12.893318673113843 seconds remaining)
+Job #1, processed 1440/2000 permutations (72.00%, 12.667366769578722 seconds remaining)
+Job #1, processed 1450/2000 permutations (72.50%, 12.442585238094987 seconds remaining)
+Job #1, processed 1460/2000 permutations (73.00%, 12.214289648892128 seconds remaining)
+Job #1, processed 1470/2000 permutations (73.50%, 11.987411680675688 seconds remaining)
+Job #1, processed 1480/2000 permutations (74.00%, 11.761770261300578 seconds remaining)
+Job #1, processed 1490/2000 permutations (74.50%, 11.535820436157636 seconds remaining)
+Job #1, processed 1500/2000 permutations (75.00%, 11.30803656578064 seconds remaining)
+Job #1, processed 1510/2000 permutations (75.50%, 11.082318542808887 seconds remaining)
+Job #1, processed 1520/2000 permutations (76.00%, 10.856192990353232 seconds remaining)
+Job #1, processed 1530/2000 permutations (76.50%, 10.629838499368406 seconds remaining)
+Job #1, processed 1540/2000 permutations (77.00%, 10.401698100102411 seconds remaining)
+Job #1, processed 1550/2000 permutations (77.50%, 10.175699426281838 seconds remaining)
+Job #1, processed 1560/2000 permutations (78.00%, 9.948681158897204 seconds remaining)
+Job #1, processed 1570/2000 permutations (78.50%, 9.724035258505754 seconds remaining)
+Job #1, processed 1580/2000 permutations (79.00%, 9.497196209581592 seconds remaining)
+Job #1, processed 1590/2000 permutations (79.50%, 9.271423804685005 seconds remaining)
+Job #1, processed 1600/2000 permutations (80.00%, 9.043784141540527 seconds remaining)
+Job #1, processed 1610/2000 permutations (80.50%, 8.817236490131165 seconds remaining)
+Job #1, processed 1620/2000 permutations (81.00%, 8.590497455479186 seconds remaining)
+Job #1, processed 1630/2000 permutations (81.50%, 8.3649834621172 seconds remaining)
+Job #1, processed 1640/2000 permutations (82.00%, 8.139180421829224 seconds remaining)
+Job #1, processed 1650/2000 permutations (82.50%, 7.912781744292288 seconds remaining)
+Job #1, processed 1660/2000 permutations (83.00%, 7.685813751565404 seconds remaining)
+Job #1, processed 1670/2000 permutations (83.50%, 7.4597951537834675 seconds remaining)
+Job #1, processed 1680/2000 permutations (84.00%, 7.234031313941592 seconds remaining)
+Job #1, processed 1690/2000 permutations (84.50%, 7.007591859828791 seconds remaining)
+Job #1, processed 1700/2000 permutations (85.00%, 6.78210088785957 seconds remaining)
+Job #1, processed 1710/2000 permutations (85.50%, 6.557245626784207 seconds remaining)
+Job #1, processed 1720/2000 permutations (86.00%, 6.331182646196942 seconds remaining)
+Job #1, processed 1730/2000 permutations (86.50%, 6.104166252764664 seconds remaining)
+Job #1, processed 1740/2000 permutations (87.00%, 5.877275491582937 seconds remaining)
+Job #1, processed 1750/2000 permutations (87.50%, 5.6505142620631625 seconds remaining)
+Job #1, processed 1760/2000 permutations (88.00%, 5.424938093532215 seconds remaining)
+Job #1, processed 1770/2000 permutations (88.50%, 5.198252413905946 seconds remaining)
+Job #1, processed 1780/2000 permutations (89.00%, 4.972821543725689 seconds remaining)
+Job #1, processed 1790/2000 permutations (89.50%, 4.746092051767104 seconds remaining)
+Job #1, processed 1800/2000 permutations (90.00%, 4.5198714468214245 seconds remaining)
+Job #1, processed 1810/2000 permutations (90.50%, 4.293776495022009 seconds remaining)
+Job #1, processed 1820/2000 permutations (91.00%, 4.067338864881914 seconds remaining)
+Job #1, processed 1830/2000 permutations (91.50%, 3.841027100880941 seconds remaining)
+Job #1, processed 1840/2000 permutations (92.00%, 3.6147521682407544 seconds remaining)
+Job #1, processed 1850/2000 permutations (92.50%, 3.3888706645450077 seconds remaining)
+Job #1, processed 1860/2000 permutations (93.00%, 3.162693372336767 seconds remaining)
+Job #1, processed 1870/2000 permutations (93.50%, 2.9367279917161095 seconds remaining)
+Job #1, processed 1880/2000 permutations (94.00%, 2.710526004750678 seconds remaining)
+Job #1, processed 1890/2000 permutations (94.50%, 2.4846940116276817 seconds remaining)
+Job #1, processed 1900/2000 permutations (95.00%, 2.2585662540636564 seconds remaining)
+Job #1, processed 1910/2000 permutations (95.50%, 2.032755674492002 seconds remaining)
+Job #1, processed 1920/2000 permutations (96.00%, 1.8067807455857594 seconds remaining)
+Job #1, processed 1930/2000 permutations (96.50%, 1.580889029824054 seconds remaining)
+Job #1, processed 1940/2000 permutations (97.00%, 1.3552506731957505 seconds remaining)
+Job #1, processed 1950/2000 permutations (97.50%, 1.1293519460237942 seconds remaining)
+Job #1, processed 1960/2000 permutations (98.00%, 0.9034970877121905 seconds remaining)
+Job #1, processed 1970/2000 permutations (98.50%, 0.6775598066107271 seconds remaining)
+Job #1, processed 1980/2000 permutations (99.00%, 0.45165735543376273 seconds remaining)
+Job #1, processed 1990/2000 permutations (99.50%, 0.2258238744496101 seconds remaining)
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   45.1s finished
 
-1987 detections
+1999 detections
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.509 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1943 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.011 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1893 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_oasis_vbm.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -721,14 +718,14 @@ Job #1, processed 1990/2000 permutations (99.50%, 0.18201997531718345 seconds re
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.13. Voxel-Based Morphometry on Oasis dataset</a><ul>
-<li><a class="reference internal" href="#predictive-modeling-analysis-vbm-bio-markers-of-aging">9.3.13.1. Predictive modeling analysis: VBM bio-markers of aging?</a></li>
-<li><a class="reference internal" href="#brain-mapping-with-mass-univariate">9.3.13.2. Brain mapping with mass univariate</a></li>
-<li><a class="reference internal" href="#load-oasis-dataset">9.3.13.3. Load Oasis dataset</a></li>
-<li><a class="reference internal" href="#preprocess-data">9.3.13.4. Preprocess data</a></li>
-<li><a class="reference internal" href="#visualization">9.3.13.5. Visualization</a></li>
-<li><a class="reference internal" href="#visualize-the-quality-of-predictions">9.3.13.6. Visualize the quality of predictions</a></li>
-<li><a class="reference internal" href="#inference-with-massively-univariate-model">9.3.13.7. Inference with massively univariate model</a></li>
+<li><a class="reference internal" href="#">9.8.2.13. Voxel-Based Morphometry on Oasis dataset</a><ul>
+<li><a class="reference internal" href="#predictive-modeling-analysis-vbm-bio-markers-of-aging">9.8.2.13.1. Predictive modeling analysis: VBM bio-markers of aging?</a></li>
+<li><a class="reference internal" href="#brain-mapping-with-mass-univariate">9.8.2.13.2. Brain mapping with mass univariate</a></li>
+<li><a class="reference internal" href="#load-oasis-dataset">9.8.2.13.3. Load Oasis dataset</a></li>
+<li><a class="reference internal" href="#preprocess-data">9.8.2.13.4. Preprocess data</a></li>
+<li><a class="reference internal" href="#visualization">9.8.2.13.5. Visualization</a></li>
+<li><a class="reference internal" href="#visualize-the-quality-of-predictions">9.8.2.13.6. Visualize the quality of predictions</a></li>
+<li><a class="reference internal" href="#inference-with-massively-univariate-model">9.8.2.13.7. Inference with massively univariate model</a></li>
 </ul>
 </li>
 </ul>
@@ -737,12 +734,12 @@ Job #1, processed 1990/2000 permutations (99.50%, 0.18201997531718345 seconds re
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_different_estimators.html"
-                          title="previous chapter"><span class="section-number">9.3.12. </span>Different classifiers in decoding the Haxby dataset</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.12. </span>Different classifiers in decoding the Haxby dataset</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_simulated_data.html"
-                          title="next chapter"><span class="section-number">9.3.14. </span>Example of pattern recognition on simulated data</a></p>
+                          title="next chapter"><span class="section-number">9.8.2.14. </span>Example of pattern recognition on simulated data</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -761,7 +758,7 @@ Job #1, processed 1990/2000 permutations (99.50%, 0.18201997531718345 seconds re
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_oasis_vbm.rst.txt"
         	 rel="nofollow">Show this page source</a>

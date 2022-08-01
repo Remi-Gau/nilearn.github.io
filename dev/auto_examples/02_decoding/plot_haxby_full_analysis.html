@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.11. ROI-based decoding analysis in Haxby et al. dataset" />
+<meta property="og:title" content="9.8.2.11. ROI-based decoding analysis in Haxby et al. dataset" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.3.12. Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
-    <link rel="prev" title="9.3.10. Setting a parameter by cross-validation" href="plot_haxby_grid_search.html" />
+    <link rel="next" title="9.8.2.12. Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
+    <link rel="prev" title="9.8.2.10. Setting a parameter by cross-validation" href="plot_haxby_grid_search.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_haxby_different_estimators.html" title="9.3.12. Different classifiers in decoding the Haxby dataset"
+          <a href="plot_haxby_different_estimators.html" title="9.8.2.12. Different classifiers in decoding the Haxby dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_grid_search.html" title="9.3.10. Setting a parameter by cross-validation"
+          <a href="plot_haxby_grid_search.html" title="9.8.2.10. Setting a parameter by cross-validation"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="roi-based-decoding-analysis-in-haxby-et-al-dataset">
-<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-full-analysis-py"></span><h1><span class="section-number">9.3.11. </span>ROI-based decoding analysis in Haxby et al. dataset<a class="headerlink" href="#roi-based-decoding-analysis-in-haxby-et-al-dataset" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-full-analysis-py"></span><h1><span class="section-number">9.8.2.11. </span>ROI-based decoding analysis in Haxby et al. dataset<a class="headerlink" href="#roi-based-decoding-analysis-in-haxby-et-al-dataset" title="Permalink to this heading">¶</a></h1>
 <p>In this script we reproduce the data analysis conducted by
 Haxby et al. in “Distributed and Overlapping Representations of Faces and
 Objects in Ventral Temporal Cortex”.</p>
@@ -283,7 +284,7 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="load-and-prepare-the-data">
-<h2><span class="section-number">9.3.11.1. </span>Load and prepare the data<a class="headerlink" href="#load-and-prepare-the-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.11.1. </span>Load and prepare the data<a class="headerlink" href="#load-and-prepare-the-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch data using nilearn dataset fetcher</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="c1"># by default we fetch 2nd subject data for analysis</span>
@@ -317,14 +318,13 @@ all occurrences of:</p>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">task_data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filename</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">task_mask</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject anatomical nifti image (3D) located is at: /home/circleci/nilearn_data/haxby2001/subj2/anat.nii.gz
 First subject functional nifti image (4D) is located at: /home/circleci/nilearn_data/haxby2001/subj2/bold.nii.gz
 </pre></div>
 </div>
 </section>
 <section id="decoding-on-the-different-masks">
-<h2><span class="section-number">9.3.11.2. </span>Decoding on the different masks<a class="headerlink" href="#decoding-on-the-different-masks" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.11.2. </span>Decoding on the different masks<a class="headerlink" href="#decoding-on-the-different-masks" title="Permalink to this heading">¶</a></h2>
 <p>The classifier used here is a support vector classifier (svc). We use
 class:<cite>nilearn.decoding.Decoder</cite> and specify the classifier.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -370,91 +370,90 @@ class:<cite>nilearn.decoding.Decoder</cite> and specify the classifier.</p>
         <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_chance_scores</span></a><span class="p">[</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_name</span></a><span class="p">][</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">category</span></a><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dummy_classifier</span><span class="o">.</span><span class="n">cv_scores_</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Working on mask_vt
 Processing mask_vt scissors
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.92 +- 0.05
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt face
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.98 +- 0.03
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt cat
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.96 +- 0.04
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt shoe
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.92 +- 0.07
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt house
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 1.00 +- 0.00
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt scrambledpix
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.99 +- 0.01
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt bottle
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.89 +- 0.08
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Processing mask_vt chair
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Scores: 0.93 +- 0.04
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Working on mask_face
 Processing mask_face scissors
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -467,7 +466,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.70 +- 0.16
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -480,7 +479,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face face
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -493,7 +492,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.90 +- 0.06
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -506,7 +505,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face cat
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -519,7 +518,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.76 +- 0.12
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -532,7 +531,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face shoe
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -545,7 +544,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.73 +- 0.17
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -558,7 +557,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face house
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -571,7 +570,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.71 +- 0.16
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -584,7 +583,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face scrambledpix
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -597,7 +596,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.87 +- 0.09
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -610,7 +609,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face bottle
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -622,8 +621,8 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
-Scores: 0.68 +- 0.17
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+Scores: 0.67 +- 0.17
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -636,7 +635,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Processing mask_face chair
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -649,7 +648,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters
 
 Scores: 0.63 +- 0.10
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -663,7 +662,7 @@ After clustering and screening, the decoding model will be trained only on 30 fe
 
 Working on mask_house
 Processing mask_house scissors
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -672,7 +671,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.83 +- 0.08
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -681,7 +680,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house face
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -690,7 +689,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.90 +- 0.07
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -699,7 +698,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house cat
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -708,7 +707,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.86 +- 0.09
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -717,7 +716,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house shoe
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -726,7 +725,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.82 +- 0.12
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -735,7 +734,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house house
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -744,7 +743,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 1.00 +- 0.00
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -753,7 +752,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house scrambledpix
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -762,7 +761,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.96 +- 0.05
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -771,7 +770,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house bottle
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -780,7 +779,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.86 +- 0.10
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -789,7 +788,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Processing mask_house chair
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -798,7 +797,7 @@ The provided image has no sform in its header. Please check the provided file. R
 Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned tobe used on such data.
 
 Scores: 0.90 +- 0.10
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -809,7 +808,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 </div>
 </section>
 <section id="we-make-a-simple-bar-plot-to-summarize-the-results">
-<h2><span class="section-number">9.3.11.3. </span>We make a simple bar plot to summarize the results<a class="headerlink" href="#we-make-a-simple-bar-plot-to-summarize-the-results" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.11.3. </span>We make a simple bar plot to summarize the results<a class="headerlink" href="#we-make-a-simple-bar-plot-to-summarize-the-results" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
 
@@ -842,9 +841,9 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" srcset="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" alt="Category-specific classification accuracy for different masks" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  18.076 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1338 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-full-analysis-py">
+<img src="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" srcset="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" alt="Category-specific classification accuracy for different masks" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  39.154 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1343 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-full-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_haxby_full_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -877,10 +876,10 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.11. ROI-based decoding analysis in Haxby et al. dataset</a><ul>
-<li><a class="reference internal" href="#load-and-prepare-the-data">9.3.11.1. Load and prepare the data</a></li>
-<li><a class="reference internal" href="#decoding-on-the-different-masks">9.3.11.2. Decoding on the different masks</a></li>
-<li><a class="reference internal" href="#we-make-a-simple-bar-plot-to-summarize-the-results">9.3.11.3. We make a simple bar plot to summarize the results</a></li>
+<li><a class="reference internal" href="#">9.8.2.11. ROI-based decoding analysis in Haxby et al. dataset</a><ul>
+<li><a class="reference internal" href="#load-and-prepare-the-data">9.8.2.11.1. Load and prepare the data</a></li>
+<li><a class="reference internal" href="#decoding-on-the-different-masks">9.8.2.11.2. Decoding on the different masks</a></li>
+<li><a class="reference internal" href="#we-make-a-simple-bar-plot-to-summarize-the-results">9.8.2.11.3. We make a simple bar plot to summarize the results</a></li>
 </ul>
 </li>
 </ul>
@@ -889,12 +888,12 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_grid_search.html"
-                          title="previous chapter"><span class="section-number">9.3.10. </span>Setting a parameter by cross-validation</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.10. </span>Setting a parameter by cross-validation</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_haxby_different_estimators.html"
-                          title="next chapter"><span class="section-number">9.3.12. </span>Different classifiers in decoding the Haxby dataset</a></p>
+                          title="next chapter"><span class="section-number">9.8.2.12. </span>Different classifiers in decoding the Haxby dataset</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -913,7 +912,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_haxby_full_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

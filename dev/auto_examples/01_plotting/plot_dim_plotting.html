@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.2.8. Controlling the contrast of the background when plotting" />
+<meta property="og:title" content="9.8.1.8. Controlling the contrast of the background when plotting" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.2.9. NeuroImaging volumes visualization" href="plot_visualization.html" />
-    <link rel="prev" title="9.2.6. Visualizing a probabilistic atlas: the default mode in the MSDL atlas" href="plot_overlay.html" />
+    <link rel="next" title="9.8.1.9. NeuroImaging volumes visualization" href="plot_visualization.html" />
+    <link rel="prev" title="9.8.1.6. Visualizing a probabilistic atlas: the default mode in the MSDL atlas" href="plot_overlay.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_visualization.html" title="9.2.9. NeuroImaging volumes visualization"
+          <a href="plot_visualization.html" title="9.8.1.9. NeuroImaging volumes visualization"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_overlay.html" title="9.2.6. Visualizing a probabilistic atlas: the default mode in the MSDL atlas"
+          <a href="plot_overlay.html" title="9.8.1.6. Visualizing a probabilistic atlas: the default mode in the MSDL atlas"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.1. </span>Visualization of brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="controlling-the-contrast-of-the-background-when-plotting">
-<span id="sphx-glr-auto-examples-01-plotting-plot-dim-plotting-py"></span><h1><span class="section-number">9.2.8. </span>Controlling the contrast of the background when plotting<a class="headerlink" href="#controlling-the-contrast-of-the-background-when-plotting" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-01-plotting-plot-dim-plotting-py"></span><h1><span class="section-number">9.8.1.8. </span>Controlling the contrast of the background when plotting<a class="headerlink" href="#controlling-the-contrast-of-the-background-when-plotting" title="Permalink to this heading">¶</a></h1>
 <p>The <cite>dim</cite> argument controls the contrast of the background.</p>
 <p><em>dim</em> modifies the contrast of this image: dim=0 leaves the image
 unchanged, negative values of <em>dim</em> enhance it, and positive values
@@ -267,7 +268,7 @@ decrease it (dim the background).</p>
 <p>This <em>dim</em> argument may also be useful for the plot_roi function used to
 display ROIs on top of a background image.</p>
 <section id="retrieve-the-data-the-localizer-dataset-with-contrast-maps">
-<h2><span class="section-number">9.2.8.1. </span>Retrieve the data: the localizer dataset with contrast maps<a class="headerlink" href="#retrieve-the-data-the-localizer-dataset-with-contrast-maps" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.1.8.1. </span>Retrieve the data: the localizer dataset with contrast maps<a class="headerlink" href="#retrieve-the-data-the-localizer-dataset-with-contrast-maps" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_localizer_button_task.html#nilearn.datasets.fetch_localizer_button_task" title="nilearn.datasets.fetch_localizer_button_task" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_localizer_button_task</span></a><span class="p">(</span><span class="n">legacy_format</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -279,7 +280,7 @@ display ROIs on top of a background image.</p>
 </div>
 </section>
 <section id="plotting-with-enhancement-of-background-image-with-dim-5">
-<h2><span class="section-number">9.2.8.2. </span>Plotting with enhancement of background image with dim=-.5<a class="headerlink" href="#plotting-with-enhancement-of-background-image-with-dim-5" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.1.8.2. </span>Plotting with enhancement of background image with dim=-.5<a class="headerlink" href="#plotting-with-enhancement-of-background-image-with-dim-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
                        <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
@@ -288,13 +289,12 @@ display ROIs on top of a background image.</p>
                        <span class="n">dim</span><span class="o">=-</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_001.png" srcset="../../_images/sphx_glr_plot_dim_plotting_001.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8dbedd6d0&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_001.png" srcset="../../_images/sphx_glr_plot_dim_plotting_001.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a1514adf0&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-no-change-of-contrast-in-background-image-with-dim-0">
-<h2><span class="section-number">9.2.8.3. </span>Plotting with no change of contrast in background image with dim=0<a class="headerlink" href="#plotting-with-no-change-of-contrast-in-background-image-with-dim-0" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.1.8.3. </span>Plotting with no change of contrast in background image with dim=0<a class="headerlink" href="#plotting-with-no-change-of-contrast-in-background-image-with-dim-0" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
                        <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
                        <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
@@ -302,13 +302,12 @@ display ROIs on top of a background image.</p>
                        <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_002.png" srcset="../../_images/sphx_glr_plot_dim_plotting_002.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8dbdfd520&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_002.png" srcset="../../_images/sphx_glr_plot_dim_plotting_002.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a132f80a0&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-decrease-of-contrast-in-background-image-with-dim-5">
-<h2><span class="section-number">9.2.8.4. </span>Plotting with decrease of contrast in background image with dim=.5<a class="headerlink" href="#plotting-with-decrease-of-contrast-in-background-image-with-dim-5" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.1.8.4. </span>Plotting with decrease of contrast in background image with dim=.5<a class="headerlink" href="#plotting-with-decrease-of-contrast-in-background-image-with-dim-5" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
                        <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
                        <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
@@ -316,13 +315,12 @@ display ROIs on top of a background image.</p>
                        <span class="n">dim</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_003.png" srcset="../../_images/sphx_glr_plot_dim_plotting_003.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe8dbbda310&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_003.png" srcset="../../_images/sphx_glr_plot_dim_plotting_003.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4a1538e580&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-more-decrease-in-contrast-with-dim-1">
-<h2><span class="section-number">9.2.8.5. </span>Plotting with more decrease in contrast with dim=1<a class="headerlink" href="#plotting-with-more-decrease-in-contrast-with-dim-1" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.1.8.5. </span>Plotting with more decrease in contrast with dim=1<a class="headerlink" href="#plotting-with-more-decrease-in-contrast-with-dim-1" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
                        <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
                        <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
@@ -332,9 +330,9 @@ display ROIs on top of a background image.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_004.png" srcset="../../_images/sphx_glr_plot_dim_plotting_004.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.089 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  12 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-dim-plotting-py">
+<img src="../../_images/sphx_glr_plot_dim_plotting_004.png" srcset="../../_images/sphx_glr_plot_dim_plotting_004.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.694 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  32 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-dim-plotting-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/01_plotting/plot_dim_plotting.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>
 </div>
@@ -367,12 +365,12 @@ display ROIs on top of a background image.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.2.8. Controlling the contrast of the background when plotting</a><ul>
-<li><a class="reference internal" href="#retrieve-the-data-the-localizer-dataset-with-contrast-maps">9.2.8.1. Retrieve the data: the localizer dataset with contrast maps</a></li>
-<li><a class="reference internal" href="#plotting-with-enhancement-of-background-image-with-dim-5">9.2.8.2. Plotting with enhancement of background image with dim=-.5</a></li>
-<li><a class="reference internal" href="#plotting-with-no-change-of-contrast-in-background-image-with-dim-0">9.2.8.3. Plotting with no change of contrast in background image with dim=0</a></li>
-<li><a class="reference internal" href="#plotting-with-decrease-of-contrast-in-background-image-with-dim-5">9.2.8.4. Plotting with decrease of contrast in background image with dim=.5</a></li>
-<li><a class="reference internal" href="#plotting-with-more-decrease-in-contrast-with-dim-1">9.2.8.5. Plotting with more decrease in contrast with dim=1</a></li>
+<li><a class="reference internal" href="#">9.8.1.8. Controlling the contrast of the background when plotting</a><ul>
+<li><a class="reference internal" href="#retrieve-the-data-the-localizer-dataset-with-contrast-maps">9.8.1.8.1. Retrieve the data: the localizer dataset with contrast maps</a></li>
+<li><a class="reference internal" href="#plotting-with-enhancement-of-background-image-with-dim-5">9.8.1.8.2. Plotting with enhancement of background image with dim=-.5</a></li>
+<li><a class="reference internal" href="#plotting-with-no-change-of-contrast-in-background-image-with-dim-0">9.8.1.8.3. Plotting with no change of contrast in background image with dim=0</a></li>
+<li><a class="reference internal" href="#plotting-with-decrease-of-contrast-in-background-image-with-dim-5">9.8.1.8.4. Plotting with decrease of contrast in background image with dim=.5</a></li>
+<li><a class="reference internal" href="#plotting-with-more-decrease-in-contrast-with-dim-1">9.8.1.8.5. Plotting with more decrease in contrast with dim=1</a></li>
 </ul>
 </li>
 </ul>
@@ -381,12 +379,12 @@ display ROIs on top of a background image.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_overlay.html"
-                          title="previous chapter"><span class="section-number">9.2.6. </span>Visualizing a probabilistic atlas: the default mode in the MSDL atlas</a></p>
+                          title="previous chapter"><span class="section-number">9.8.1.6. </span>Visualizing a probabilistic atlas: the default mode in the MSDL atlas</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_visualization.html"
-                          title="next chapter"><span class="section-number">9.2.9. </span>NeuroImaging volumes visualization</a></p>
+                          title="next chapter"><span class="section-number">9.8.1.9. </span>NeuroImaging volumes visualization</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -405,7 +403,7 @@ display ROIs on top of a background image.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/01_plotting/plot_dim_plotting.rst.txt"
         	 rel="nofollow">Show this page source</a>

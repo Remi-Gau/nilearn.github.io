@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.6.6. Second-level fMRI model: two-sample test, unpaired and paired" />
+<meta property="og:title" content="9.8.5.6. Second-level fMRI model: two-sample test, unpaired and paired" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.6.7. Example of generic design in second-level models" href="plot_second_level_association_test.html" />
-    <link rel="prev" title="9.6.5. Second-level fMRI model: one sample test" href="plot_second_level_one_sample_test.html" />
+    <link rel="next" title="9.8.5.7. Example of generic design in second-level models" href="plot_second_level_association_test.html" />
+    <link rel="prev" title="9.8.5.5. Second-level fMRI model: one sample test" href="plot_second_level_one_sample_test.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_second_level_association_test.html" title="9.6.7. Example of generic design in second-level models"
+          <a href="plot_second_level_association_test.html" title="9.8.5.7. Example of generic design in second-level models"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_second_level_one_sample_test.html" title="9.6.5. Second-level fMRI model: one sample test"
+          <a href="plot_second_level_one_sample_test.html" title="9.8.5.5. Second-level fMRI model: one sample test"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.5. </span>GLM : Second level analysis examples</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="second-level-fmri-model-two-sample-test-unpaired-and-paired">
-<span id="sphx-glr-auto-examples-05-glm-second-level-plot-second-level-two-sample-test-py"></span><h1><span class="section-number">9.6.6. </span>Second-level fMRI model: two-sample test, unpaired and paired<a class="headerlink" href="#second-level-fmri-model-two-sample-test-unpaired-and-paired" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-05-glm-second-level-plot-second-level-two-sample-test-py"></span><h1><span class="section-number">9.8.5.6. </span>Second-level fMRI model: two-sample test, unpaired and paired<a class="headerlink" href="#second-level-fmri-model-two-sample-test-unpaired-and-paired" title="Permalink to this heading">¶</a></h1>
 <p>Full step-by-step example of fitting a GLM to perform a second level analysis
 in experimental data and visualizing the results</p>
 <p>More specifically:</p>
@@ -282,7 +283,7 @@ observe some significant effects in these areas.</p>
 </pre></div>
 </div>
 <section id="fetch-dataset">
-<h2><span class="section-number">9.6.6.1. </span>Fetch dataset<a class="headerlink" href="#fetch-dataset" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.5.6.1. </span>Fetch dataset<a class="headerlink" href="#fetch-dataset" title="Permalink to this heading">¶</a></h2>
 <p>We download a list of left vs right button press contrasts from a
 localizer dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">16</span>
@@ -301,7 +302,7 @@ localizer dataset.</p>
 </div>
 </section>
 <section id="estimate-second-level-models">
-<h2><span class="section-number">9.6.6.2. </span>Estimate second level models<a class="headerlink" href="#estimate-second-level-models" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.5.6.2. </span>Estimate second level models<a class="headerlink" href="#estimate-second-level-models" title="Permalink to this heading">¶</a></h2>
 <p>We define the input maps and the design matrix for the second level model
 and fit it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">second_level_input</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sample_vertical</span></a><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span> <span class="o">+</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sample_horizontal</span></a><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span>
@@ -364,13 +365,12 @@ variance, and z-score.</p>
 </div>
 </section>
 <section id="plot-the-results">
-<h2><span class="section-number">9.6.6.3. </span>Plot the results<a class="headerlink" href="#plot-the-results" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.5.6.3. </span>Plot the results<a class="headerlink" href="#plot-the-results" title="Permalink to this heading">¶</a></h2>
 <p>The two effect_size images are essentially identical</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_maps_unpaired</span></a><span class="p">[</span><span class="s1">&#39;effect_size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
     <span class="o">-</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_maps_paired</span></a><span class="p">[</span><span class="s1">&#39;effect_size&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">())</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>9.992007221626409e-16
 </pre></div>
 </div>
@@ -410,9 +410,9 @@ We threshold the second level contrast and plot it.</p>
 </ul>
 <p>Unsurprisingly, we see activity in the primary visual cortex, both positive
 and negative.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.154 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.425 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-second-level-two-sample-test-py">
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-second-level-two-sample-test-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
 </div>
@@ -445,10 +445,10 @@ and negative.</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.6.6. Second-level fMRI model: two-sample test, unpaired and paired</a><ul>
-<li><a class="reference internal" href="#fetch-dataset">9.6.6.1. Fetch dataset</a></li>
-<li><a class="reference internal" href="#estimate-second-level-models">9.6.6.2. Estimate second level models</a></li>
-<li><a class="reference internal" href="#plot-the-results">9.6.6.3. Plot the results</a></li>
+<li><a class="reference internal" href="#">9.8.5.6. Second-level fMRI model: two-sample test, unpaired and paired</a><ul>
+<li><a class="reference internal" href="#fetch-dataset">9.8.5.6.1. Fetch dataset</a></li>
+<li><a class="reference internal" href="#estimate-second-level-models">9.8.5.6.2. Estimate second level models</a></li>
+<li><a class="reference internal" href="#plot-the-results">9.8.5.6.3. Plot the results</a></li>
 </ul>
 </li>
 </ul>
@@ -457,12 +457,12 @@ and negative.</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_second_level_one_sample_test.html"
-                          title="previous chapter"><span class="section-number">9.6.5. </span>Second-level fMRI model: one sample test</a></p>
+                          title="previous chapter"><span class="section-number">9.8.5.5. </span>Second-level fMRI model: one sample test</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_second_level_association_test.html"
-                          title="next chapter"><span class="section-number">9.6.7. </span>Example of generic design in second-level models</a></p>
+                          title="next chapter"><span class="section-number">9.8.5.7. </span>Example of generic design in second-level models</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -481,7 +481,7 @@ and negative.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.rst.txt"
         	 rel="nofollow">Show this page source</a>

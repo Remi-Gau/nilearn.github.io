@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.12. Different classifiers in decoding the Haxby dataset" />
+<meta property="og:title" content="9.8.2.12. Different classifiers in decoding the Haxby dataset" />
   
 <meta property="og:type" content="website" />
   
@@ -14,7 +14,7 @@
   
 <meta property="og:site_name" content="Nilearn" />
   
-<meta property="og:description" content="Here we compare different classifiers on a visual object recognition decoding task. Loading the data: Out: Training the decoder: Out: Visualization: We can see that for a fixed penalty the results ..." />
+<meta property="og:description" content="Here we compare different classifiers on a visual object recognition decoding task. Loading the data: Training the decoder: Visualization: We can see that for a fixed penalty the results are simila..." />
   
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.3.13. Voxel-Based Morphometry on Oasis dataset" href="plot_oasis_vbm.html" />
-    <link rel="prev" title="9.3.11. ROI-based decoding analysis in Haxby et al. dataset" href="plot_haxby_full_analysis.html" />
+    <link rel="next" title="9.8.2.13. Voxel-Based Morphometry on Oasis dataset" href="plot_oasis_vbm.html" />
+    <link rel="prev" title="9.8.2.11. ROI-based decoding analysis in Haxby et al. dataset" href="plot_haxby_full_analysis.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_oasis_vbm.html" title="9.3.13. Voxel-Based Morphometry on Oasis dataset"
+          <a href="plot_oasis_vbm.html" title="9.8.2.13. Voxel-Based Morphometry on Oasis dataset"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_haxby_full_analysis.html" title="9.3.11. ROI-based decoding analysis in Haxby et al. dataset"
+          <a href="plot_haxby_full_analysis.html" title="9.8.2.11. ROI-based decoding analysis in Haxby et al. dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,11 +260,11 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="different-classifiers-in-decoding-the-haxby-dataset">
-<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-different-estimators-py"></span><h1><span class="section-number">9.3.12. </span>Different classifiers in decoding the Haxby dataset<a class="headerlink" href="#different-classifiers-in-decoding-the-haxby-dataset" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-different-estimators-py"></span><h1><span class="section-number">9.8.2.12. </span>Different classifiers in decoding the Haxby dataset<a class="headerlink" href="#different-classifiers-in-decoding-the-haxby-dataset" title="Permalink to this heading">¶</a></h1>
 <p>Here we compare different classifiers on a visual object recognition
 decoding task.</p>
 <section id="loading-the-data">
-<h2><span class="section-number">9.3.12.1. </span>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.12.1. </span>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We start by loading data using nilearn dataset fetcher</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a>
@@ -308,14 +309,13 @@ decoding task.</p>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classification_target</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a><span class="p">[</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">task_mask</span></a><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject anatomical nifti image (3D) located is at: /home/circleci/nilearn_data/haxby2001/subj2/anat.nii.gz
 First subject functional nifti image (4D) is located at: /home/circleci/nilearn_data/haxby2001/subj2/bold.nii.gz
 </pre></div>
 </div>
 </section>
 <section id="training-the-decoder">
-<h2><span class="section-number">9.3.12.2. </span>Training the decoder<a class="headerlink" href="#training-the-decoder" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.12.2. </span>Training the decoder<a class="headerlink" href="#training-the-decoder" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we define the various classifiers that we use</span>
 <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifiers</span></a> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;svc_l2&#39;</span><span class="p">,</span> <span class="s1">&#39;svc_l1&#39;</span><span class="p">,</span> <span class="s1">&#39;logistic_l1&#39;</span><span class="p">,</span>
                <span class="s1">&#39;logistic_l2&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge_classifier&#39;</span><span class="p">]</span>
@@ -355,13 +355,12 @@ First subject functional nifti image (4D) is located at: /home/circleci/nilearn_
     <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifiers_data</span></a><span class="p">[</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifier_name</span></a><span class="p">][</span><span class="s1">&#39;score&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>______________________________________________________________________
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-logistic_l1: 13.92s
+logistic_l1: 16.28s
           scissors vs all -- AUC: 0.92 +- 0.05
               face vs all -- AUC: 0.98 +- 0.02
                cat vs all -- AUC: 0.96 +- 0.04
@@ -371,11 +370,11 @@ logistic_l1: 13.92s
             bottle vs all -- AUC: 0.90 +- 0.08
              chair vs all -- AUC: 0.91 +- 0.06
 ______________________________________________________________________
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-logistic_l2: 45.20s
+logistic_l2: 47.34s
           scissors vs all -- AUC: 0.91 +- 0.08
               face vs all -- AUC: 0.97 +- 0.04
                cat vs all -- AUC: 0.97 +- 0.03
@@ -385,11 +384,11 @@ logistic_l2: 45.20s
             bottle vs all -- AUC: 0.82 +- 0.18
              chair vs all -- AUC: 0.89 +- 0.18
 ______________________________________________________________________
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-ridge_classifier: 16.26s
+ridge_classifier: 19.39s
           scissors vs all -- AUC: 0.91 +- 0.08
               face vs all -- AUC: 0.96 +- 0.03
                cat vs all -- AUC: 0.91 +- 0.07
@@ -399,11 +398,11 @@ ridge_classifier: 16.26s
             bottle vs all -- AUC: 0.85 +- 0.10
              chair vs all -- AUC: 0.91 +- 0.06
 ______________________________________________________________________
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l1: 26.31s
+    svc_l1: 29.13s
           scissors vs all -- AUC: 0.92 +- 0.05
               face vs all -- AUC: 0.98 +- 0.03
                cat vs all -- AUC: 0.96 +- 0.04
@@ -413,11 +412,11 @@ The provided image has no sform in its header. Please check the provided file. R
             bottle vs all -- AUC: 0.89 +- 0.08
              chair vs all -- AUC: 0.93 +- 0.04
 ______________________________________________________________________
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l2: 67.01s
+    svc_l2: 71.08s
           scissors vs all -- AUC: 0.90 +- 0.09
               face vs all -- AUC: 0.96 +- 0.05
                cat vs all -- AUC: 0.96 +- 0.04
@@ -430,7 +429,7 @@ The provided image has no sform in its header. Please check the provided file. R
 </div>
 </section>
 <section id="visualization">
-<h2><span class="section-number">9.3.12.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.12.3. </span>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we make a rudimentary diagram</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -467,7 +466,7 @@ and the logistic regression. The main difference relies on the penalty
 an intra-subject setting.</p>
 </section>
 <section id="visualizing-the-face-vs-house-map">
-<h2><span class="section-number">9.3.12.4. </span>Visualizing the face vs house map<a class="headerlink" href="#visualizing-the-face-vs-house-map" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.12.4. </span>Visualizing the face vs house map<a class="headerlink" href="#visualizing-the-face-vs-house-map" title="Permalink to this heading">¶</a></h2>
 <p>Restrict the decoding to face vs house</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition_mask</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span></a><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">==</span> <span class="s1">&#39;face&#39;</span><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">==</span> <span class="s1">&#39;house&#39;</span><span class="p">)</span>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a><span class="p">[</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition_mask</span></a><span class="p">]</span>
@@ -486,24 +485,23 @@ an intra-subject setting.</p>
     <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifiers_data</span></a><span class="p">[</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifier_name</span></a><span class="p">][</span><span class="s1">&#39;map&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">coef_img_</span></a><span class="p">[</span><span class="s1">&#39;face&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:452: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/image/resampling.py:453: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 </pre></div>
@@ -532,9 +530,9 @@ Use the average EPI as a background</p>
 <li><img src="../../_images/sphx_glr_plot_haxby_different_estimators_005.png" srcset="../../_images/sphx_glr_plot_haxby_different_estimators_005.png" alt="plot haxby different estimators" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_haxby_different_estimators_006.png" srcset="../../_images/sphx_glr_plot_haxby_different_estimators_006.png" alt="plot haxby different estimators" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  6.902 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1335 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-different-estimators-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  26.319 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1314 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-different-estimators-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_haxby_different_estimators.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -567,11 +565,11 @@ Use the average EPI as a background</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.12. Different classifiers in decoding the Haxby dataset</a><ul>
-<li><a class="reference internal" href="#loading-the-data">9.3.12.1. Loading the data</a></li>
-<li><a class="reference internal" href="#training-the-decoder">9.3.12.2. Training the decoder</a></li>
-<li><a class="reference internal" href="#visualization">9.3.12.3. Visualization</a></li>
-<li><a class="reference internal" href="#visualizing-the-face-vs-house-map">9.3.12.4. Visualizing the face vs house map</a></li>
+<li><a class="reference internal" href="#">9.8.2.12. Different classifiers in decoding the Haxby dataset</a><ul>
+<li><a class="reference internal" href="#loading-the-data">9.8.2.12.1. Loading the data</a></li>
+<li><a class="reference internal" href="#training-the-decoder">9.8.2.12.2. Training the decoder</a></li>
+<li><a class="reference internal" href="#visualization">9.8.2.12.3. Visualization</a></li>
+<li><a class="reference internal" href="#visualizing-the-face-vs-house-map">9.8.2.12.4. Visualizing the face vs house map</a></li>
 </ul>
 </li>
 </ul>
@@ -580,12 +578,12 @@ Use the average EPI as a background</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_haxby_full_analysis.html"
-                          title="previous chapter"><span class="section-number">9.3.11. </span>ROI-based decoding analysis in Haxby et al. dataset</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.11. </span>ROI-based decoding analysis in Haxby et al. dataset</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_oasis_vbm.html"
-                          title="next chapter"><span class="section-number">9.3.13. </span>Voxel-Based Morphometry on Oasis dataset</a></p>
+                          title="next chapter"><span class="section-number">9.8.2.13. </span>Voxel-Based Morphometry on Oasis dataset</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -604,7 +602,7 @@ Use the average EPI as a background</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_haxby_different_estimators.rst.txt"
         	 rel="nofollow">Show this page source</a>

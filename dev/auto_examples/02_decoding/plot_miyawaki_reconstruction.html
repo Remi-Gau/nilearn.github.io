@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.3.16. Reconstruction of visual stimuli from Miyawaki et al. 2008" />
+<meta property="og:title" content="9.8.2.16. Reconstruction of visual stimuli from Miyawaki et al. 2008" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.4.1. Extracting signals of a probabilistic atlas of functional regions" href="../03_connectivity/plot_probabilistic_atlas_extraction.html" />
-    <link rel="prev" title="9.3.15. Encoding models for visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_encoding.html" />
+    <link rel="next" title="9.8.3. Functional connectivity" href="../03_connectivity/index.html" />
+    <link rel="prev" title="9.8.2.15. Encoding models for visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_encoding.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="../03_connectivity/plot_probabilistic_atlas_extraction.html" title="9.4.1. Extracting signals of a probabilistic atlas of functional regions"
+          <a href="../03_connectivity/index.html" title="9.8.3. Functional connectivity"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_miyawaki_encoding.html" title="9.3.15. Encoding models for visual stimuli from Miyawaki et al. 2008"
+          <a href="plot_miyawaki_encoding.html" title="9.8.2.15. Encoding models for visual stimuli from Miyawaki et al. 2008"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.2. </span>Decoding and predicting from brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="reconstruction-of-visual-stimuli-from-miyawaki-et-al-2008">
-<span id="sphx-glr-auto-examples-02-decoding-plot-miyawaki-reconstruction-py"></span><h1><span class="section-number">9.3.16. </span>Reconstruction of visual stimuli from Miyawaki et al. 2008<a class="headerlink" href="#reconstruction-of-visual-stimuli-from-miyawaki-et-al-2008" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-miyawaki-reconstruction-py"></span><h1><span class="section-number">9.8.2.16. </span>Reconstruction of visual stimuli from Miyawaki et al. 2008<a class="headerlink" href="#reconstruction-of-visual-stimuli-from-miyawaki-et-al-2008" title="Permalink to this heading">¶</a></h1>
 <dl class="simple">
 <dt>This example reproduces the experiment presented in</dt><dd><p><a class="reference external" href="http://www.cell.com/neuron/abstract/S0896-6273%2808%2900958-6">Visual image reconstruction from human brain activity
 using a combination of multiscale local image decoders</a>,
@@ -296,7 +297,7 @@ all occurrences of:</p>
 </pre></div>
 </div>
 <section id="first-we-load-the-miyawaki-dataset">
-<h2><span class="section-number">9.3.16.1. </span>First we load the Miyawaki dataset<a class="headerlink" href="#first-we-load-the-miyawaki-dataset" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.16.1. </span>First we load the Miyawaki dataset<a class="headerlink" href="#first-we-load-the-miyawaki-dataset" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Fetching dataset...&quot;</span><span class="p">)</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
@@ -316,14 +317,13 @@ all occurrences of:</p>
 <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; Done (</span><span class="si">%.2f</span><span class="s2">s).</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span> <span class="o">-</span> <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Fetching dataset...First functional nifti image (4D) is located at: /home/circleci/nilearn_data/miyawaki2008/func/data_figure_run01.nii.gz
- Done (0.10s).
+ Done (0.17s).
 </pre></div>
 </div>
 </section>
 <section id="then-we-prepare-and-mask-the-data">
-<h2><span class="section-number">9.3.16.2. </span>Then we prepare and mask the data<a class="headerlink" href="#then-we-prepare-and-mask-the-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.16.2. </span>Then we prepare and mask the data<a class="headerlink" href="#then-we-prepare-and-mask-the-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMasker</span></a>
 
@@ -409,13 +409,12 @@ all occurrences of:</p>
 <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; Done (</span><span class="si">%.2f</span><span class="s2">s).</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span> <span class="o">-</span> <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Preprocessing data... Done (19.72s).
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Preprocessing data... Done (23.41s).
 </pre></div>
 </div>
 </section>
 <section id="we-define-our-prediction-function">
-<h2><span class="section-number">9.3.16.3. </span>We define our prediction function<a class="headerlink" href="#we-define-our-prediction-function" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.16.3. </span>We define our prediction function<a class="headerlink" href="#we-define-our-prediction-function" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Training classifiers... </span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">)</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 
@@ -441,7 +440,6 @@ all occurrences of:</p>
     <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_clfs</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_clfs</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span> <span class="o">-</span> <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Training classifiers...
 Training classifiers 001/361...
 Training classifiers 002/361...
@@ -804,12 +802,12 @@ Training classifiers 358/361...
 Training classifiers 359/361...
 Training classifiers 360/361...
 Training classifiers 361/361...
-Training classifiers 361/361... Done (27.78s).
+Training classifiers 361/361... Done (38.07s).
 </pre></div>
 </div>
 </section>
 <section id="here-we-run-the-prediction-the-decoding-itself">
-<h2><span class="section-number">9.3.16.4. </span>Here we run the prediction: the decoding itself<a class="headerlink" href="#here-we-run-the-prediction-the-decoding-itself" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.16.4. </span>Here we run the prediction: the decoding itself<a class="headerlink" href="#here-we-run-the-prediction-the-decoding-itself" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Calculating scores and outputs...&quot;</span><span class="p">)</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 
@@ -878,13 +876,12 @@ Training classifiers 361/361... Done (27.78s).
 <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot; Done (</span><span class="si">%.2f</span><span class="s2">s).</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><a href="https://docs.python.org/3.8/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span> <span class="o">-</span> <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t0</span></a><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating scores and outputs... Done (2.21s).
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating scores and outputs... Done (3.43s).
 </pre></div>
 </div>
 </section>
 <section id="let-us-quantify-our-prediction-error">
-<h2><span class="section-number">9.3.16.5. </span>Let us quantify our prediction error<a class="headerlink" href="#let-us-quantify-our-prediction-error" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.2.16.5. </span>Let us quantify our prediction error<a class="headerlink" href="#let-us-quantify-our-prediction-error" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score" title="sklearn.metrics.accuracy_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">accuracy_score</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score" title="sklearn.metrics.precision_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">precision_score</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score" title="sklearn.metrics.recall_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">recall_score</span></a><span class="p">,</span>
                              <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">f1_score</span></a><span class="p">)</span>
 
@@ -901,7 +898,6 @@ Training classifiers 361/361... Done (27.78s).
     <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">f1_score</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">[:,</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a><span class="p">[:,</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">.5</span><span class="p">)</span> <span class="k">for</span> <a href="https://docs.python.org/3.8/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Scores
 ------
   - Accuracy (percent): 0.801208
@@ -946,9 +942,9 @@ ground truth</p>
 <li><img src="../../_images/sphx_glr_plot_miyawaki_reconstruction_005.png" srcset="../../_images/sphx_glr_plot_miyawaki_reconstruction_005.png" alt="Stimulus, Reconstruction, Binarized" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_miyawaki_reconstruction_006.png" srcset="../../_images/sphx_glr_plot_miyawaki_reconstruction_006.png" alt="Stimulus, Reconstruction, Binarized" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  51.259 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  7.065 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  417 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-reconstruction-py">
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-reconstruction-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/02_decoding/plot_miyawaki_reconstruction.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
 </div>
@@ -981,12 +977,12 @@ ground truth</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.3.16. Reconstruction of visual stimuli from Miyawaki et al. 2008</a><ul>
-<li><a class="reference internal" href="#first-we-load-the-miyawaki-dataset">9.3.16.1. First we load the Miyawaki dataset</a></li>
-<li><a class="reference internal" href="#then-we-prepare-and-mask-the-data">9.3.16.2. Then we prepare and mask the data</a></li>
-<li><a class="reference internal" href="#we-define-our-prediction-function">9.3.16.3. We define our prediction function</a></li>
-<li><a class="reference internal" href="#here-we-run-the-prediction-the-decoding-itself">9.3.16.4. Here we run the prediction: the decoding itself</a></li>
-<li><a class="reference internal" href="#let-us-quantify-our-prediction-error">9.3.16.5. Let us quantify our prediction error</a></li>
+<li><a class="reference internal" href="#">9.8.2.16. Reconstruction of visual stimuli from Miyawaki et al. 2008</a><ul>
+<li><a class="reference internal" href="#first-we-load-the-miyawaki-dataset">9.8.2.16.1. First we load the Miyawaki dataset</a></li>
+<li><a class="reference internal" href="#then-we-prepare-and-mask-the-data">9.8.2.16.2. Then we prepare and mask the data</a></li>
+<li><a class="reference internal" href="#we-define-our-prediction-function">9.8.2.16.3. We define our prediction function</a></li>
+<li><a class="reference internal" href="#here-we-run-the-prediction-the-decoding-itself">9.8.2.16.4. Here we run the prediction: the decoding itself</a></li>
+<li><a class="reference internal" href="#let-us-quantify-our-prediction-error">9.8.2.16.5. Let us quantify our prediction error</a></li>
 </ul>
 </li>
 </ul>
@@ -995,12 +991,12 @@ ground truth</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_miyawaki_encoding.html"
-                          title="previous chapter"><span class="section-number">9.3.15. </span>Encoding models for visual stimuli from Miyawaki et al. 2008</a></p>
+                          title="previous chapter"><span class="section-number">9.8.2.15. </span>Encoding models for visual stimuli from Miyawaki et al. 2008</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="../03_connectivity/plot_probabilistic_atlas_extraction.html"
-                          title="next chapter"><span class="section-number">9.4.1. </span>Extracting signals of a probabilistic atlas of functional regions</a></p>
+    <p class="topless"><a href="../03_connectivity/index.html"
+                          title="next chapter"><span class="section-number">9.8.3. </span>Functional connectivity</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -1019,7 +1015,7 @@ ground truth</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/02_decoding/plot_miyawaki_reconstruction.rst.txt"
         	 rel="nofollow">Show this page source</a>

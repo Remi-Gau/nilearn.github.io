@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.5.11. Example of surface-based first-level analysis" />
+<meta property="og:title" content="9.8.4.11. Example of surface-based first-level analysis" />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.5.12. Understanding parameters of the first-level model" href="plot_first_level_details.html" />
-    <link rel="prev" title="9.5.10. First level analysis of a complete BIDS dataset from openneuro" href="plot_bids_features.html" />
+    <link rel="next" title="9.8.4.12. Understanding parameters of the first-level model" href="plot_first_level_details.html" />
+    <link rel="prev" title="9.8.4.10. First level analysis of a complete BIDS dataset from openneuro" href="plot_bids_features.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_first_level_details.html" title="9.5.12. Understanding parameters of the first-level model"
+          <a href="plot_first_level_details.html" title="9.8.4.12. Understanding parameters of the first-level model"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_bids_features.html" title="9.5.10. First level analysis of a complete BIDS dataset from openneuro"
+          <a href="plot_bids_features.html" title="9.8.4.10. First level analysis of a complete BIDS dataset from openneuro"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.4. </span>GLM: First level analysis examples</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="example-of-surface-based-first-level-analysis">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py"></span><h1><span class="section-number">9.5.11. </span>Example of surface-based first-level analysis<a class="headerlink" href="#example-of-surface-based-first-level-analysis" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py"></span><h1><span class="section-number">9.8.4.11. </span>Example of surface-based first-level analysis<a class="headerlink" href="#example-of-surface-based-first-level-analysis" title="Permalink to this heading">¶</a></h1>
 <p>A full step-by-step example of fitting a GLM to experimental data sampled on
 the cortical surface and visualizing the results.</p>
 <p>More specifically:</p>
@@ -284,7 +285,7 @@ MNI-coregistered mesh, such as fsaverage.</p></li>
 second-level analyses on the surface. On the other hand, it is obviously less
 accurate than using a subject-tailored mesh.</p>
 <section id="prepare-data-and-analysis-parameters">
-<h2><span class="section-number">9.5.11.1. </span>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.11.1. </span>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this heading">¶</a></h2>
 <p>Prepare the timing parameters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a> <span class="o">=</span> <span class="mf">2.4</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">slice_time_ref</span></a> <span class="o">=</span> <span class="mf">0.5</span>
@@ -305,7 +306,7 @@ First, the volume-based fMRI data.</p>
 </div>
 </section>
 <section id="project-the-fmri-image-to-the-surface">
-<h2><span class="section-number">9.5.11.2. </span>Project the fMRI image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.11.2. </span>Project the fMRI image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Permalink to this heading">¶</a></h2>
 <p>For this we need to get a mesh representing the geometry of the surface. We
 could use an individual mesh, but we first resort to a standard mesh, the
 so-called fsaverage5 template from the FreeSurfer software.</p>
@@ -321,7 +322,7 @@ Note that those correspond spatially, are they are both in MNI space.</p>
 </div>
 </section>
 <section id="perform-first-level-analysis">
-<h2><span class="section-number">9.5.11.3. </span>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.11.3. </span>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Permalink to this heading">¶</a></h2>
 <p>This involves computing the design matrix and fitting the model.
 We start by specifying the timing of fMRI frames.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -350,7 +351,7 @@ We keep them for later contrast computation.</p>
 </div>
 </section>
 <section id="estimate-contrasts">
-<h2><span class="section-number">9.5.11.4. </span>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.11.4. </span>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Permalink to this heading">¶</a></h2>
 <p>Specify the contrasts.</p>
 <p>For practical purpose, we first generate an identity matrix whose size is
 the number of columns of the design matrix.</p>
@@ -433,7 +434,6 @@ one contrast adding all conditions with some auditory parts.</p>
 <li><img src="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" srcset="../../_images/sphx_glr_plot_localizer_surface_analysis_002.png" alt="audio - visual" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" srcset="../../_images/sphx_glr_plot_localizer_surface_analysis_003.png" alt="computation - sentences" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 3: left - right button press, right hemisphere
 Contrast  2 out of 3: audio - visual, right hemisphere
 Contrast  3 out of 3: computation - sentences, right hemisphere
@@ -441,7 +441,7 @@ Contrast  3 out of 3: computation - sentences, right hemisphere
 </div>
 </section>
 <section id="analysing-the-left-hemisphere">
-<h2><span class="section-number">9.5.11.5. </span>Analysing the left hemisphere<a class="headerlink" href="#analysing-the-left-hemisphere" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.4.11.5. </span>Analysing the left hemisphere<a class="headerlink" href="#analysing-the-left-hemisphere" title="Permalink to this heading">¶</a></h2>
 <p>Note that re-creating the above analysis for the left hemisphere requires
 little additional code!</p>
 <p>We project the fMRI data to the mesh.</p>
@@ -474,15 +474,14 @@ little additional code!</p>
 <li><img src="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" srcset="../../_images/sphx_glr_plot_localizer_surface_analysis_005.png" alt="audio - visual" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" srcset="../../_images/sphx_glr_plot_localizer_surface_analysis_006.png" alt="computation - sentences" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Contrast  1 out of 3: left - right button press, left hemisphere
 Contrast  2 out of 3: audio - visual, left hemisphere
 Contrast  3 out of 3: computation - sentences, left hemisphere
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.997 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  134 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.470 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  224 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
 </div>
@@ -515,12 +514,12 @@ Contrast  3 out of 3: computation - sentences, left hemisphere
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.5.11. Example of surface-based first-level analysis</a><ul>
-<li><a class="reference internal" href="#prepare-data-and-analysis-parameters">9.5.11.1. Prepare data and analysis parameters</a></li>
-<li><a class="reference internal" href="#project-the-fmri-image-to-the-surface">9.5.11.2. Project the fMRI image to the surface</a></li>
-<li><a class="reference internal" href="#perform-first-level-analysis">9.5.11.3. Perform first level analysis</a></li>
-<li><a class="reference internal" href="#estimate-contrasts">9.5.11.4. Estimate contrasts</a></li>
-<li><a class="reference internal" href="#analysing-the-left-hemisphere">9.5.11.5. Analysing the left hemisphere</a></li>
+<li><a class="reference internal" href="#">9.8.4.11. Example of surface-based first-level analysis</a><ul>
+<li><a class="reference internal" href="#prepare-data-and-analysis-parameters">9.8.4.11.1. Prepare data and analysis parameters</a></li>
+<li><a class="reference internal" href="#project-the-fmri-image-to-the-surface">9.8.4.11.2. Project the fMRI image to the surface</a></li>
+<li><a class="reference internal" href="#perform-first-level-analysis">9.8.4.11.3. Perform first level analysis</a></li>
+<li><a class="reference internal" href="#estimate-contrasts">9.8.4.11.4. Estimate contrasts</a></li>
+<li><a class="reference internal" href="#analysing-the-left-hemisphere">9.8.4.11.5. Analysing the left hemisphere</a></li>
 </ul>
 </li>
 </ul>
@@ -529,12 +528,12 @@ Contrast  3 out of 3: computation - sentences, left hemisphere
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_bids_features.html"
-                          title="previous chapter"><span class="section-number">9.5.10. </span>First level analysis of a complete BIDS dataset from openneuro</a></p>
+                          title="previous chapter"><span class="section-number">9.8.4.10. </span>First level analysis of a complete BIDS dataset from openneuro</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_first_level_details.html"
-                          title="next chapter"><span class="section-number">9.5.12. </span>Understanding parameters of the first-level model</a></p>
+                          title="next chapter"><span class="section-number">9.8.4.12. </span>Understanding parameters of the first-level model</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -553,7 +552,7 @@ Contrast  3 out of 3: computation - sentences, left hemisphere
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.rst.txt"
         	 rel="nofollow">Show this page source</a>

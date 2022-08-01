@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-<meta property="og:title" content="9.8.8. NeuroVault cross-study ICA maps." />
+<meta property="og:title" content="9.8.7.8. NeuroVault cross-study ICA maps." />
   
 <meta property="og:type" content="website" />
   
@@ -37,8 +37,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="9.8.9. Massively univariate analysis of face vs house recognition" href="plot_haxby_mass_univariate.html" />
-    <link rel="prev" title="9.8.7. Surface-based dataset first and second level analysis of a dataset" href="plot_surface_bids_analysis.html" />
+    <link rel="next" title="9.8.7.9. Massively univariate analysis of face vs house recognition" href="plot_haxby_mass_univariate.html" />
+    <link rel="prev" title="9.8.7.7. Surface-based dataset first and second level analysis of a dataset" href="plot_surface_bids_analysis.html" />
 <meta content="True" name="HandheldFriendly">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
@@ -220,10 +220,10 @@ $(function () {
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a></li>
         <li class="right" >
-          <a href="plot_haxby_mass_univariate.html" title="9.8.9. Massively univariate analysis of face vs house recognition"
+          <a href="plot_haxby_mass_univariate.html" title="9.8.7.9. Massively univariate analysis of face vs house recognition"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="plot_surface_bids_analysis.html" title="9.8.7. Surface-based dataset first and second level analysis of a dataset"
+          <a href="plot_surface_bids_analysis.html" title="9.8.7.7. Surface-based dataset first and second level analysis of a dataset"
              accesskey="P">previous</a> |</li>
 <li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
 <li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
@@ -235,7 +235,8 @@ $(function () {
 <li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
 
           <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" ><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="index.html" accesskey="U"><span class="section-number">9.8.7. </span>Advanced statistical analysis of brain images</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
       </ul>
     </div>
@@ -259,7 +260,7 @@ the current stable version is available <a href="https://nilearn.github.io/stabl
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="neurovault-cross-study-ica-maps">
-<span id="sphx-glr-auto-examples-07-advanced-plot-ica-neurovault-py"></span><h1><span class="section-number">9.8.8. </span>NeuroVault cross-study ICA maps.<a class="headerlink" href="#neurovault-cross-study-ica-maps" title="Permalink to this heading">¶</a></h1>
+<span id="sphx-glr-auto-examples-07-advanced-plot-ica-neurovault-py"></span><h1><span class="section-number">9.8.7.8. </span>NeuroVault cross-study ICA maps.<a class="headerlink" href="#neurovault-cross-study-ica-maps" title="Permalink to this heading">¶</a></h1>
 <p>This example shows how to download statistical maps from
 NeuroVault, label them with NeuroSynth terms,
 and compute <a class="reference internal" href="../../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> components across all the maps.</p>
@@ -300,7 +301,7 @@ all occurrences of:</p>
 </pre></div>
 </div>
 <section id="get-image-and-term-data">
-<h2><span class="section-number">9.8.8.1. </span>Get image and term data<a class="headerlink" href="#get-image-and-term-data" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.8.1. </span>Get image and term data<a class="headerlink" href="#get-image-and-term-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download images</span>
 <span class="c1"># Here by default we only download 80 images to save time,</span>
 <span class="c1"># but for better results I recommend using at least 200.</span>
@@ -327,7 +328,6 @@ all occurrences of:</p>
     <span class="nb">print</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vocabulary</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">term_idx</span></a><span class="p">])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Fetching Neurovault images; if you haven&#39;t downloaded any Neurovault data before this will take several minutes.
 Reading local neurovault data.
 Already fetched 1 image
@@ -380,7 +380,7 @@ posterior superior
 </div>
 </section>
 <section id="reshape-and-mask-images">
-<h2><span class="section-number">9.8.8.2. </span>Reshape and mask images<a class="headerlink" href="#reshape-and-mask-images" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.8.2. </span>Reshape and mask images<a class="headerlink" href="#reshape-and-mask-images" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Reshaping and masking images.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">with</span> <a href="https://docs.python.org/3.8/library/warnings.html#warnings.catch_warnings" title="warnings.catch_warnings" class="sphx-glr-backref-module-warnings sphx-glr-backref-type-py-class"><span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span></a><span class="p">():</span>
@@ -417,13 +417,12 @@ posterior superior
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">term_weights</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">term_weights</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">is_usable</span></a><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Reshaping and masking images.
 </pre></div>
 </div>
 </section>
 <section id="run-ica-and-map-components-to-terms">
-<h2><span class="section-number">9.8.8.3. </span>Run ICA and map components to terms<a class="headerlink" href="#run-ica-and-map-components-to-terms" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.8.3. </span>Run ICA and map components to terms<a class="headerlink" href="#run-ica-and-map-components-to-terms" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running ICA; may take time...&quot;</span><span class="p">)</span>
 <span class="c1"># We use a very small number of components as we have downloaded only 80</span>
 <span class="c1"># images. For better results, increase the number of images downloaded</span>
@@ -436,7 +435,6 @@ posterior superior
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Done, plotting results.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Running ICA; may take time...
 /home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/sklearn/decomposition/_fastica.py:488: FutureWarning:
 
@@ -447,7 +445,7 @@ Done, plotting results.
 </div>
 </section>
 <section id="generate-figures">
-<h2><span class="section-number">9.8.8.4. </span>Generate figures<a class="headerlink" href="#generate-figures" title="Permalink to this heading">¶</a></h2>
+<h2><span class="section-number">9.8.7.8.4. </span>Generate figures<a class="headerlink" href="#generate-figures" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <a href="https://docs.python.org/3.8/library/warnings.html#warnings.catch_warnings" title="warnings.catch_warnings" class="sphx-glr-backref-module-warnings sphx-glr-backref-type-py-class"><span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span></a><span class="p">():</span>
     <a href="https://docs.python.org/3.8/library/warnings.html#warnings.simplefilter" title="warnings.simplefilter" class="sphx-glr-backref-module-warnings sphx-glr-backref-type-py-function"><span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span></a><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
 
@@ -485,9 +483,9 @@ filtering, and better cognitive labels would give better maps</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.326 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  9 MB</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-ica-neurovault-py">
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  30.043 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  224 MB</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-ica-neurovault-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/07_advanced/plot_ica_neurovault.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
 </div>
@@ -520,11 +518,11 @@ filtering, and better cognitive labels would give better maps</p>
   <div>
     <h3><a href="../../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">9.8.8. NeuroVault cross-study ICA maps.</a><ul>
-<li><a class="reference internal" href="#get-image-and-term-data">9.8.8.1. Get image and term data</a></li>
-<li><a class="reference internal" href="#reshape-and-mask-images">9.8.8.2. Reshape and mask images</a></li>
-<li><a class="reference internal" href="#run-ica-and-map-components-to-terms">9.8.8.3. Run ICA and map components to terms</a></li>
-<li><a class="reference internal" href="#generate-figures">9.8.8.4. Generate figures</a></li>
+<li><a class="reference internal" href="#">9.8.7.8. NeuroVault cross-study ICA maps.</a><ul>
+<li><a class="reference internal" href="#get-image-and-term-data">9.8.7.8.1. Get image and term data</a></li>
+<li><a class="reference internal" href="#reshape-and-mask-images">9.8.7.8.2. Reshape and mask images</a></li>
+<li><a class="reference internal" href="#run-ica-and-map-components-to-terms">9.8.7.8.3. Run ICA and map components to terms</a></li>
+<li><a class="reference internal" href="#generate-figures">9.8.7.8.4. Generate figures</a></li>
 </ul>
 </li>
 </ul>
@@ -533,12 +531,12 @@ filtering, and better cognitive labels would give better maps</p>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="plot_surface_bids_analysis.html"
-                          title="previous chapter"><span class="section-number">9.8.7. </span>Surface-based dataset first and second level analysis of a dataset</a></p>
+                          title="previous chapter"><span class="section-number">9.8.7.7. </span>Surface-based dataset first and second level analysis of a dataset</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
     <p class="topless"><a href="plot_haxby_mass_univariate.html"
-                          title="next chapter"><span class="section-number">9.8.9. </span>Massively univariate analysis of face vs house recognition</a></p>
+                          title="next chapter"><span class="section-number">9.8.7.9. </span>Massively univariate analysis of face vs house recognition</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -557,7 +555,7 @@ filtering, and better cognitive labels would give better maps</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/auto_examples/07_advanced/plot_ica_neurovault.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -14,7 +14,7 @@
   
 <meta property="og:site_name" content="Nilearn" />
   
-<meta property="og:description" content="Examples using nilearn.image.smooth_img: Basic nilearn example: manipulating and looking at data Basic nilearn example: manipulating and looking at data, Predicted time series and residuals Predict..." />
+<meta property="og:description" content="Examples using nilearn.image.smooth_img: Basic nilearn example: manipulating and looking at data Basic nilearn example: manipulating and looking at data Predicted time series and residuals Predicte..." />
   
 <meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_nilearn_101_thumb.png" />
   
@@ -263,14 +263,15 @@ function signature, and not how to use it. Please refer to the
 <h1><span class="section-number">8.5.19. </span>nilearn.image.smooth_img<a class="headerlink" href="#nilearn-image-smooth-img" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.image.smooth_img">
-<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">smooth_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/bd28810b/nilearn/image/image.py#L241"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.smooth_img" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">smooth_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwhm</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/456da45a/nilearn/image/image.py#L241"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.smooth_img" title="Permalink to this definition">¶</a></dt>
 <dd><p>Smooth images by applying a Gaussian filter.</p>
 <p>Apply a Gaussian filter along the three first dimensions of <cite>arr</cite>.
 In all cases, non-finite values in input image are replaced by zeros.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>imgs</strong><span class="classifier">Niimg-like object or iterable of Niimg-like objects</span></dt><dd><p>Image(s) to smooth (see
+<dt><strong>imgs</strong><span class="classifier">Niimg-like object or iterable of Niimg-like objects, str, or</span></dt><dd><p>os.PathLike
+Image(s) to smooth (see
 <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">http://nilearn.github.io/manipulating_images/input_output.html</a>
 for a detailed description of the valid input types).</p>
 </dd>
@@ -310,37 +311,22 @@ list.</p>
 
 <section id="examples-using-nilearn-image-smooth-img">
 <h2><span class="section-number">8.5.19.1. </span>Examples using <code class="docutils literal notranslate"><span class="pre">nilearn.image.smooth_img</span></code><a class="headerlink" href="#examples-using-nilearn-image-smooth-img" title="Permalink to this heading">¶</a></h2>
-<div class="sphx-glr-thumbcontainer" tooltip="A simple example showing how to load an existing Nifti file and use basic nilearn functionaliti..."><figure class="align-default" id="id1">
-<img alt="Basic nilearn example: manipulating and looking at data" src="../../_images/sphx_glr_plot_nilearn_101_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../../auto_examples/plot_nilearn_101.html#sphx-glr-auto-examples-plot-nilearn-101-py"><span class="std std-ref">Basic nilearn example: manipulating and looking at data</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we fit a First Level GLM with the minimize_memory-argument set to False. By doing so, the ..."><figure class="align-default" id="id2">
-<img alt="Predicted time series and residuals" src="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../../auto_examples/04_glm_first_level/plot_predictions_residuals.html#sphx-glr-auto-examples-04-glm-first-level-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="Here we smooth a mean EPI image and plot the result"><figure class="align-default" id="id3">
-<img alt="Smoothing an image" src="../../_images/sphx_glr_plot_smooth_mean_image_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../../auto_examples/06_manipulating_images/plot_smooth_mean_image.html#sphx-glr-auto-examples-06-manipulating-images-plot-smooth-mean-image-py"><span class="std std-ref">Smoothing an image</span></a></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows manual steps to create and further modify an ROI spatial mask. They represen..."><figure class="align-default" id="id4">
-<img alt="Computing a Region of Interest (ROI) mask manually" src="../../_images/sphx_glr_plot_roi_extraction_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../../auto_examples/06_manipulating_images/plot_roi_extraction.html#sphx-glr-auto-examples-06-manipulating-images-plot-roi-extraction-py"><span class="std std-ref">Computing a Region of Interest (ROI) mask manually</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to download statistical maps from NeuroVault, label them with NeuroSynth..."><figure class="align-default" id="id5">
-<img alt="NeuroVault cross-study ICA maps." src="../../_images/sphx_glr_plot_ica_neurovault_thumb.png" />
-<figcaption>
-<p><span class="caption-text"><a class="reference internal" href="../../auto_examples/07_advanced/plot_ica_neurovault.html#sphx-glr-auto-examples-07-advanced-plot-ica-neurovault-py"><span class="std std-ref">NeuroVault cross-study ICA maps.</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</div><div style='clear:both'></div></section>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A simple example showing how to load an existing Nifti file and use basic nilearn functionaliti..."><img alt="Basic nilearn example: manipulating and looking at data" src="../../_images/sphx_glr_plot_nilearn_101_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/plot_nilearn_101.html#sphx-glr-auto-examples-plot-nilearn-101-py"><span class="std std-ref">Basic nilearn example: manipulating and looking at data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Basic nilearn example: manipulating and looking at data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we fit a First Level GLM with the minimize_memory-argument set to False. By doing so, the ..."><img alt="Predicted time series and residuals" src="../../_images/sphx_glr_plot_predictions_residuals_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/04_glm_first_level/plot_predictions_residuals.html#sphx-glr-auto-examples-04-glm-first-level-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Predicted time series and residuals</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we smooth a mean EPI image and plot the result"><img alt="Smoothing an image" src="../../_images/sphx_glr_plot_smooth_mean_image_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/06_manipulating_images/plot_smooth_mean_image.html#sphx-glr-auto-examples-06-manipulating-images-plot-smooth-mean-image-py"><span class="std std-ref">Smoothing an image</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smoothing an image</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows manual steps to create and further modify an ROI spatial mask. They represen..."><img alt="Computing a Region of Interest (ROI) mask manually" src="../../_images/sphx_glr_plot_roi_extraction_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/06_manipulating_images/plot_roi_extraction.html#sphx-glr-auto-examples-06-manipulating-images-plot-roi-extraction-py"><span class="std std-ref">Computing a Region of Interest (ROI) mask manually</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Computing a Region of Interest (ROI) mask manually</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to download statistical maps from NeuroVault, label them with NeuroSynth..."><img alt="NeuroVault cross-study ICA maps." src="../../_images/sphx_glr_plot_ica_neurovault_thumb.png" />
+<p><a class="reference internal" href="../../auto_examples/07_advanced/plot_ica_neurovault.html#sphx-glr-auto-examples-07-advanced-plot-ica-neurovault-py"><span class="std std-ref">NeuroVault cross-study ICA maps.</span></a></p>
+  <div class="sphx-glr-thumbnail-title">NeuroVault cross-study ICA maps.</div>
+</div></div><div style='clear:both'></div></section>
 </section>
 
 
@@ -395,7 +381,7 @@ list.</p>
 
     <div class="footer">
             &copy; The nilearn developers 2010-2022.
-          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.0.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
         <span style="padding-left: 5ex;">
           <a href="../../_sources/modules/generated/nilearn.image.smooth_img.rst.txt"
         	 rel="nofollow">Show this page source</a>

@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<meta property="og:title" content="9.8.2. Decoding and predicting from brain images" />
+  
+<meta property="og:type" content="website" />
+  
+<meta property="og:url" content="https://nilearn.github.io/auto_examples/02_decoding/index.html" />
+  
+<meta property="og:site_name" content="Nilearn" />
+  
+<meta property="og:description" content="See Decoding and MVPA: predicting from brain images for more details. Show stimuli of Haxby et al. dataset Show stimuli of Haxby et al. dataset FREM on Jimura et al &quot;mixed gambles&quot; dataset. FREM on..." />
+  
+<meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_haxby_stimuli_thumb.png" />
+  
+<meta property="og:image:alt" content="Show stimuli of Haxby et al. dataset" />
+  
+    <title>Nilearn: Statistical Analysis for NeuroImaging in Python &#8212; Machine learning for NeuroImaging</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nature.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9.8.2.1. Show stimuli of Haxby et al. dataset" href="plot_haxby_stimuli.html" />
+    <link rel="prev" title="9.8.1.19. More plotting tools from nilearn" href="../01_plotting/plot_demo_more_plotting.html" />
+<meta content="True" name="HandheldFriendly">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="keywords" content="nilearn, neuroimaging, python, neuroscience, machinelearning">
+
+
+<script type="text/javascript">
+function updateTopMenuPosition(height, width) {
+    if($(window).scrollTop() > height && $(window).outerWidth() > 1024) {
+        //begin to scroll
+        $('.related-wrapper').css("z-index", 1000);
+        $('.related-wrapper').css("position", "sticky");
+        $('.related-wrapper').css("top", 0);
+        $('.related-wrapper').css("width", width)
+    } else {
+        //lock it back into place
+        $('.related-wrapper').css("position", "relative");
+        $('.related-wrapper').css("top", 0)
+    }
+}
+
+$(function() {
+    var banner_height = $('#logo-banner').outerHeight();
+    var banner_width = $('#logo-banner').outerWidth();
+    var width = $('.related-wrapper').css("height", $('.related').outerHeight());
+
+    updateTopMenuPosition(banner_height, width);
+
+    $(window).scroll(function(event) {
+        updateTopMenuPosition(banner_height, width)
+    });
+
+    $(window).resize(function(event) {
+        var banner_width = $('#logo-banner').outerWidth();
+        var menu_height = $('.related').outerHeight();
+        $('.related').css("width", banner_width);
+        $('.related-wrapper').css("height", menu_height);
+        updateTopMenuPosition(banner_height, width)
+    })
+});
+</script>
+<script type="text/javascript">
+function updateSideBarPosition(top, offset, sections) {
+    var pos = $(window).scrollTop();
+    // Lock the table of content to a fixed position once we scroll enough
+    var topShift = 2 * offset;
+    if(pos > top + topShift + 1) {
+        // begin to scroll with sticky menu bar
+        var topShift = -topShift + 1;
+        if ($(window).outerWidth() < 1024) {
+            // compensate top menu that disappears
+            topShift -= offset + 1
+        }
+        $('.sphinxsidebarwrapper').css("position", "fixed");
+        $('.sphinxsidebarwrapper').css("top", topShift)
+    }
+    else {
+        //lock it back into place
+        $('.sphinxsidebarwrapper').css("position", "relative");
+        $('.sphinxsidebarwrapper').css("top",0)
+    }
+
+    // Highlight the current section
+    i = 0;
+    current_section = 0;
+    $('a.internal').removeClass('active');
+    for(i in sections) {
+        if(sections[i] > pos) {
+            break
+        }
+        if($('a.internal[href$="' + i + '"]').is(':visible')){
+            current_section = i
+        }
+    }
+    $('a.internal[href$="' + current_section + '"]').addClass('active');
+    $('a.internal[href$="' + current_section + '"]').parent().addClass('active')
+}
+
+$(function () {
+    // Lock the table of content to a fixed position once we scroll enough
+    var tocOffset = $('.related-wrapper').outerHeight();
+    var marginTop = parseFloat($('.sphinxsidebarwrapper').css('margin-top').replace(/auto/, 0));
+    var top = $('.sphinxsidebarwrapper').offset().top - marginTop;
+    sections = {};
+    url = document.URL.replace(/#.*$/, "");
+
+    // Grab positions of our sections
+    $('.headerlink').each(function(){
+        sections[this.href.replace(url, '')] = $(this).offset().top - 50
+    });
+
+    updateSideBarPosition(top, tocOffset, sections);
+
+    $(window).scroll(function(event) {
+        updateSideBarPosition(top, tocOffset, sections)
+    });
+
+    $(window).resize(function(event) {
+        tocOffset = $('.related-wrapper').outerHeight();
+        updateSideBarPosition(top, tocOffset, sections)
+    });
+});
+</script>
+
+
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-41920728-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+  </head><body>
+<div id="logo-banner">
+  <div class="logo">
+    <a href="../../index.html">
+      <img src="../../_static/nilearn-logo.png" alt="Nilearn logo"  border="0" />
+    </a>
+  </div>
+  <!-- A tag cloud to make it easy for people to find what they are
+                         looking for -->
+ <div class="tags">
+  <ul>
+    <li>
+      <big><a href="../decoding/plot_haxby_anova_svm.html">SVM</a></big>
+    </li>
+    <li>
+      <small><a href="../../connectivity/parcellating.html">Ward
+          clustering</a></small>
+    </li>
+    <li>
+      <a href="../../decoding/searchlight.html">Searchlight</a>
+    </li>
+    <li>
+      <big><a href="../../connectivity/resting_state_networks.html">ICA</a></big>
+    </li>
+    <li>
+      <a href="../../manipulating_images/data_preparation.html">Nifti IO</a>
+    </li>
+    <li>
+      <a href="../../modules/reference.html#module-nilearn.datasets">Datasets</a>
+    </li>
+  </ul>
+ </div>
+
+  <div class="banner">
+    <h1>Nilearn:</h1>
+    <h2>Statistics for NeuroImaging in Python</h2>
+  </div>
+  <div class="search_form">
+    <div class="gcse-search" id="cse" style="width: 100%;"></div>
+    <script>
+      (function() {
+        var cx = '017289614950330089114:elrt9qoutrq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+  </div>
+</div>
+
+
+
+<div class=related-wrapper>
+    
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a></li>
+        <li class="right" >
+          <a href="plot_haxby_stimuli.html" title="9.8.2.1. Show stimuli of Haxby et al. dataset"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../01_plotting/plot_demo_more_plotting.html" title="9.8.1.19. More plotting tools from nilearn"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html">Nilearn Home</a> |&nbsp;</li>
+<li><a href="../../user_guide.html">User Guide</a> |&nbsp;</li>
+<li><a href="../index.html">Examples</a> |&nbsp;</li>
+<li><a href="../../modules/reference.html">Reference</a> |&nbsp;</li>
+<li id="navbar-about"><a href="../../authors.html">About</a>|&nbsp;</li>
+<li><a href="../../glossary.html">Glossary</a>|&nbsp;</li>
+<li><a href="../../bibliography.html">Bibliography</a>|&nbsp;</li>
+<li id="navbar-ecosystem"><a href="http://www.nipy.org/">Nipy ecosystem</a></li>
+
+          <li class="nav-item nav-item-1"><a href="../../user_guide.html" >User guide: table of contents</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" accesskey="U"><span class="section-number">9. </span>Nilearn usage examples</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Nilearn: Statistical Analysis for NeuroImaging in Python</a></li> 
+      </ul>
+    </div>
+</div>
+
+<div class="devel-alert-banner">
+This is documentation for the <em>unstable development version</em> of Nilearn,
+the current stable version is available <a href="https://nilearn.github.io/stable/index.html">here</a>.
+</div>
+
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="decoding-and-predicting-from-brain-images">
+<span id="sphx-glr-auto-examples-02-decoding"></span><h1><span class="section-number">9.8.2. </span>Decoding and predicting from brain images<a class="headerlink" href="#decoding-and-predicting-from-brain-images" title="Permalink to this heading">¶</a></h1>
+<p>See <a class="reference internal" href="../../decoding/index.html#decoding"><span class="std std-ref">Decoding and MVPA: predicting from brain images</span></a> for more details.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In this script we plot an overview of the stimuli used in &quot;Distributed and Overlapping Represen..."><img alt="Show stimuli of Haxby et al. dataset" src="../../_images/sphx_glr_plot_haxby_stimuli_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_stimuli.html#sphx-glr-auto-examples-02-decoding-plot-haxby-stimuli-py"><span class="std std-ref">Show stimuli of Haxby et al. dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Show stimuli of Haxby et al. dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this example, we use fast ensembling of regularized models (FREM) to solve a regression prob..."><img alt="FREM on Jimura et al &quot;mixed gambles&quot; dataset." src="../../_images/sphx_glr_plot_mixed_gambles_frem_thumb.png" />
+<p><a class="reference internal" href="plot_mixed_gambles_frem.html#sphx-glr-auto-examples-02-decoding-plot-mixed-gambles-frem-py"><span class="std std-ref">FREM on Jimura et al “mixed gambles” dataset.</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FREM on Jimura et al "mixed gambles" dataset.</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example uses fast ensembling of regularized models (FREM) to decode a face vs house discri..."><img alt="Decoding with FREM: face vs house object recognition" src="../../_images/sphx_glr_plot_haxby_frem_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_frem.html#sphx-glr-auto-examples-02-decoding-plot-haxby-frem-py"><span class="std std-ref">Decoding with FREM: face vs house object recognition</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decoding with FREM: face vs house object recognition</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Predicting age from gray-matter concentration maps from OASIS dataset. Note that age is a conti..."><img alt="Voxel-Based Morphometry on Oasis dataset with Space-Net prior" src="../../_images/sphx_glr_plot_oasis_vbm_space_net_thumb.png" />
+<p><a class="reference internal" href="plot_oasis_vbm_space_net.html#sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-space-net-py"><span class="std std-ref">Voxel-Based Morphometry on Oasis dataset with Space-Net prior</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voxel-Based Morphometry on Oasis dataset with Space-Net prior</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example does a simple but efficient decoding on the Haxby dataset: using a feature selecti..."><img alt="Decoding with ANOVA + SVM: face vs house in the Haxby dataset" src="../../_images/sphx_glr_plot_haxby_anova_svm_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_anova_svm.html#sphx-glr-auto-examples-02-decoding-plot-haxby-anova-svm-py"><span class="std std-ref">Decoding with ANOVA + SVM: face vs house in the Haxby dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decoding with ANOVA + SVM: face vs house in the Haxby dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This is a demo for surface-based searchlight decoding, as described in: Chen, Y., Namburi, P., ..."><img alt="Cortical surface-based searchlight decoding" src="../../_images/sphx_glr_plot_haxby_searchlight_surface_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_searchlight_surface.html#sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-surface-py"><span class="std std-ref">Cortical surface-based searchlight decoding</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cortical surface-based searchlight decoding</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="We compare one vs all and one vs one multi-class strategies: the overall cross-validated accura..."><img alt="The haxby dataset: different multi-class strategies" src="../../_images/sphx_glr_plot_haxby_multiclass_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_multiclass.html#sphx-glr-auto-examples-02-decoding-plot-haxby-multiclass-py"><span class="std std-ref">The haxby dataset: different multi-class strategies</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The haxby dataset: different multi-class strategies</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Searchlight analysis requires fitting a classifier a large amount of times. As a result, it is ..."><img alt="Searchlight analysis of face vs house recognition" src="../../_images/sphx_glr_plot_haxby_searchlight_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_searchlight.html#sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-py"><span class="std std-ref">Searchlight analysis of face vs house recognition</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Searchlight analysis of face vs house recognition</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Full step-by-step example of fitting a GLM to perform a decoding experiment. We use the data fr..."><img alt="Decoding of a dataset after GLM fit for signal extraction" src="../../_images/sphx_glr_plot_haxby_glm_decoding_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_glm_decoding.html#sphx-glr-auto-examples-02-decoding-plot-haxby-glm-decoding-py"><span class="std std-ref">Decoding of a dataset after GLM fit for signal extraction</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decoding of a dataset after GLM fit for signal extraction</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we set the number of features selected in an Anova-SVC approach to maximize the cross-vali..."><img alt="Setting a parameter by cross-validation" src="../../_images/sphx_glr_plot_haxby_grid_search_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_grid_search.html#sphx-glr-auto-examples-02-decoding-plot-haxby-grid-search-py"><span class="std std-ref">Setting a parameter by cross-validation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Setting a parameter by cross-validation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In this script we reproduce the data analysis conducted by Haxby et al. in &quot;Distributed and Ove..."><img alt="ROI-based decoding analysis in Haxby et al. dataset" src="../../_images/sphx_glr_plot_haxby_full_analysis_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_full_analysis.html#sphx-glr-auto-examples-02-decoding-plot-haxby-full-analysis-py"><span class="std std-ref">ROI-based decoding analysis in Haxby et al. dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">ROI-based decoding analysis in Haxby et al. dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we compare different classifiers on a visual object recognition decoding task."><img alt="Different classifiers in decoding the Haxby dataset" src="../../_images/sphx_glr_plot_haxby_different_estimators_thumb.png" />
+<p><a class="reference internal" href="plot_haxby_different_estimators.html#sphx-glr-auto-examples-02-decoding-plot-haxby-different-estimators-py"><span class="std std-ref">Different classifiers in decoding the Haxby dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Different classifiers in decoding the Haxby dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example uses Voxel-Based Morphometry (VBM) to study the relationship between aging and gra..."><img alt="Voxel-Based Morphometry on Oasis dataset" src="../../_images/sphx_glr_plot_oasis_vbm_thumb.png" />
+<p><a class="reference internal" href="plot_oasis_vbm.html#sphx-glr-auto-examples-02-decoding-plot-oasis-vbm-py"><span class="std std-ref">Voxel-Based Morphometry on Oasis dataset</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voxel-Based Morphometry on Oasis dataset</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example simulates data according to a very simple sketch of brain imaging data and applies..."><img alt="Example of pattern recognition on simulated data" src="../../_images/sphx_glr_plot_simulated_data_thumb.png" />
+<p><a class="reference internal" href="plot_simulated_data.html#sphx-glr-auto-examples-02-decoding-plot-simulated-data-py"><span class="std std-ref">Example of pattern recognition on simulated data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Example of pattern recognition on simulated data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example partly reproduces the encoding model presented in     `Visual image reconstruction..."><img alt="Encoding models for visual stimuli from Miyawaki et al. 2008" src="../../_images/sphx_glr_plot_miyawaki_encoding_thumb.png" />
+<p><a class="reference internal" href="plot_miyawaki_encoding.html#sphx-glr-auto-examples-02-decoding-plot-miyawaki-encoding-py"><span class="std std-ref">Encoding models for visual stimuli from Miyawaki et al. 2008</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Encoding models for visual stimuli from Miyawaki et al. 2008</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example reproduces the experiment presented in     `Visual image reconstruction from human..."><img alt="Reconstruction of visual stimuli from Miyawaki et al. 2008" src="../../_images/sphx_glr_plot_miyawaki_reconstruction_thumb.png" />
+<p><a class="reference internal" href="plot_miyawaki_reconstruction.html#sphx-glr-auto-examples-02-decoding-plot-miyawaki-reconstruction-py"><span class="std std-ref">Reconstruction of visual stimuli from Miyawaki et al. 2008</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reconstruction of visual stimuli from Miyawaki et al. 2008</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+
+<h4> Giving credit </h4>
+  <ul class="simple">
+    <li><p>Please consider <a href="../../authors.html#citing">citing the
+                    papers</a>.</p></li>
+  </ul>
+
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../01_plotting/plot_demo_more_plotting.html"
+                          title="previous chapter"><span class="section-number">9.8.1.19. </span>More plotting tools from nilearn</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="plot_haxby_stimuli.html"
+                          title="next chapter"><span class="section-number">9.8.2.1. </span>Show stimuli of Haxby et al. dataset</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <div class="footer">
+            &copy; The nilearn developers 2010-2022.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 5.1.1.
+        <span style="padding-left: 5ex;">
+          <a href="../../_sources/auto_examples/02_decoding/index.rst.txt"
+        	 rel="nofollow">Show this page source</a>
+        </span>
+    </div>
+  </body>
+</html>
