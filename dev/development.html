@@ -649,7 +649,23 @@ The installed version will also reflect any changes you make to your code.</p>
 </pre></div>
 </div>
 </li>
-<li><p>implement and commit your changes on this branch (don’t forget to write tests!)</p></li>
+<li><p>implement changes and (optional but highly recommended) lint:</p></li>
+</ol>
+<div class="admonition-recommendation admonition">
+<p class="admonition-title">Recommendation</p>
+<p>To lint your code and verify PEP8 compliance, you can run
+<a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> locally on the
+changes you have made in your branch compared to the main branch.
+To do this, find the latest common ancestor (commit) of your branch with
+main and then get the diff between your working directory and this commit
+and pipe it to flake8 by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>git merge-base main @<span class="k">)</span>
+git diff <span class="nv">$COMMIT</span> <span class="p">|</span> flake8 --diff
+</pre></div>
+</div>
+</div>
+<ol class="arabic" start="4">
+<li><p>commit your changes on this branch (don’t forget to write tests!)</p></li>
 <li><p>run the tests locally (to go faster, only run tests which are relevant to what
 you work on with, for example):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">-</span><span class="n">v</span> <span class="n">nilearn</span><span class="o">/</span><span class="n">plotting</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">test_surf_plotting</span><span class="o">.</span><span class="n">py</span>
