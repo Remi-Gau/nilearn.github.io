@@ -263,7 +263,7 @@ signature, and not how to use it. Please refer to the
 <h1><span class="section-number">8.7.1. </span>nilearn.maskers.BaseMasker<a class="headerlink" href="#nilearn-maskers-basemasker" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nilearn.maskers.</span></span><span class="sig-name descname"><span class="pre">BaseMasker</span></span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6559e118/nilearn/maskers/base_masker.py#L126"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nilearn.maskers.</span></span><span class="sig-name descname"><span class="pre">BaseMasker</span></span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/3edfea8b/nilearn/maskers/base_masker.py#L126"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for NiftiMaskers.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker.__init__">
@@ -272,14 +272,15 @@ signature, and not how to use it. Please refer to the
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker.transform_single_imgs">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform_single_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6559e118/nilearn/maskers/base_masker.py#L129"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.transform_single_imgs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform_single_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/3edfea8b/nilearn/maskers/base_masker.py#L129"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.transform_single_imgs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract signals from a single 4D niimg.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>imgs</strong><span class="classifier">3D/4D Niimg-like object</span></dt><dd><p>See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">http://nilearn.github.io/manipulating_images/input_output.html</a>
-Images to process. It must boil down to a 4D image with scans
-number as last dimension.</p>
+Images to process.
+If a 3D niimg is provided, a singleton dimension will be added to
+the output to represent the single scan in the niimg.</p>
 </dd>
 <dt><strong>confounds</strong><span class="classifier">CSV file or array-like, optional</span></dt><dd><p>This parameter is passed to signal.clean. Please see the related
 documentation for details.
@@ -311,14 +312,15 @@ shape: (number of scans, number of elements)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker.transform">
-<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6559e118/nilearn/maskers/base_masker.py#L166"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.transform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/3edfea8b/nilearn/maskers/base_masker.py#L167"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply mask, spatial and temporal preprocessing</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>imgs</strong><span class="classifier">3D/4D Niimg-like object</span></dt><dd><p>See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">http://nilearn.github.io/manipulating_images/input_output.html</a>
-Images to process. It must boil down to a 4D image with scans
-number as last dimension.</p>
+Images to process.
+If a 3D niimg is provided, a singleton dimension will be added to
+the output to represent the single scan in the niimg.</p>
 </dd>
 <dt><strong>confounds</strong><span class="classifier">CSV file or array-like, optional</span></dt><dd><p>This parameter is passed to signal.clean. Please see the related
 documentation for details.
@@ -348,7 +350,7 @@ shape: (number of scans, number of elements)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker.fit_transform">
-<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6559e118/nilearn/maskers/base_masker.py#L218"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.fit_transform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fit_params</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/3edfea8b/nilearn/maskers/base_masker.py#L220"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit to data, then transform it</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -381,12 +383,14 @@ Must be of same length than imgs_list.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.maskers.BaseMasker.inverse_transform">
-<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6559e118/nilearn/maskers/base_masker.py#L274"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inverse_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/3edfea8b/nilearn/maskers/base_masker.py#L276"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.maskers.BaseMasker.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform the 2D data matrix back to an image in brain space.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>X</strong><span class="classifier">Niimg-like object</span></dt><dd><p>See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">http://nilearn.github.io/manipulating_images/input_output.html</a></p>
+<dd class="field-odd"><dl>
+<dt><strong>X</strong><span class="classifier">2D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>Signal for each element in the mask.
+shape: (number of scans, number of elements)
+See <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">http://nilearn.github.io/manipulating_images/input_output.html</a></p>
 </dd>
 </dl>
 </dd>
