@@ -692,8 +692,8 @@ In LSS, each trial of each condition of interest has its own <a class="reference
 in which the targeted trial receives its own column within the design matrix,
 but everything else remains the same as the standard model.
 Trials are then looped across, and many GLMs are fitted,
-with the parameter estimate map extracted from each GLM to build the LSS beta
-series.</p>
+with the <a class="reference internal" href="../../glossary.html#term-Parameter-estimate"><span class="xref std std-term">Parameter Estimate</span></a> map extracted from each GLM to build the
+LSS beta series.</p>
 <aside class="topic">
 <p class="topic-title">Choosing the right model for your analysis</p>
 <p>We have chosen not to reproduce analyses systematically comparing beta
@@ -765,7 +765,7 @@ and create a standard <a class="reference internal" href="../../modules/generate
 <a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">glm_parameters</span></a><span class="p">[</span><span class="s1">&#39;signal_scaling&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.scaling_axis" title="nilearn.glm.first_level.FirstLevelModel.scaling_axis" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-property"><span class="n">standard_glm</span><span class="o">.</span><span class="n">scaling_axis</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/first_level/first_level.py:939: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/first_level/first_level.py:940: UserWarning:
 
 SliceTimingRef not found in file /home/circleci/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json. It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models
 </pre></div>
@@ -818,7 +818,7 @@ beta maps into condition-wise beta series.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_beta_series_002.png" srcset="../../_images/sphx_glr_plot_beta_series_002.png" alt="plot beta series" class = "sphx-glr-single-img"/><section id="aggregate-beta-maps-from-the-lsa-model-based-on-condition">
 <h3>Aggregate beta maps from the LSA model based on condition<a class="headerlink" href="#aggregate-beta-maps-from-the-lsa-model-based-on-condition" title="Permalink to this heading">#</a></h3>
-<p>Collect the parameter estimate maps</p>
+<p>Collect the <a class="reference internal" href="../../glossary.html#term-Parameter-estimate"><span class="xref std std-term">Parameter Estimate</span></a> maps</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lsa_beta_maps</span></a> <span class="o">=</span> <span class="p">{</span><span class="n">cond</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">cond</span> <span class="ow">in</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">events_df</span></a><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()}</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">trialwise_conditions</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lsa_events_df</span></a><span class="p">[</span><span class="s1">&#39;trial_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="k">for</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition</span></a> <span class="ow">in</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">trialwise_conditions</span></a><span class="p">:</span>
@@ -1090,8 +1090,8 @@ analyses.</p>
 </aside>
 </div>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  20.233 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  188 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  17.634 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  229 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-beta-series-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn.github.io/main?filepath=examples/auto_examples/07_advanced/plot_beta_series.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
