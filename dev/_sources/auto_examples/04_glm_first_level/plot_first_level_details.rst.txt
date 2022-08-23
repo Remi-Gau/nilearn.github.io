@@ -952,7 +952,7 @@ This noise model arguably reduces the amount of spurious activity.
 However, as the difference is not obvious you may wish to stick to the
 ar(1) model, which is computationally more efficient.
 
-.. GENERATED FROM PYTHON SOURCE LINES 395-411
+.. GENERATED FROM PYTHON SOURCE LINES 395-409
 
 Removing confounds
 ------------------
@@ -966,12 +966,10 @@ effects. Here we don't have access to those.  What we can do instead
 is to estimate confounding effects from the data themselves, using
 the CompCor approach, and take those into account in the model.
 
-For this we rely on the so-called `high_variance_confounds`_
-routine of Nilearn.
+For this we rely on the so-called
+:func:`~nilearn.image.high_variance_confounds` routine of Nilearn.
 
-.. _high_variance_confounds: https://nilearn.github.io/modules/generated/nilearn.image.high_variance_confounds.html
-
-.. GENERATED FROM PYTHON SOURCE LINES 411-424
+.. GENERATED FROM PYTHON SOURCE LINES 409-422
 
 .. code-block:: default
 
@@ -1012,7 +1010,7 @@ routine of Nilearn.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 425-431
+.. GENERATED FROM PYTHON SOURCE LINES 423-429
 
 Note the five additional columns in the design matrix.
 
@@ -1021,7 +1019,7 @@ killed, probably because they were somewhat colinear to the confounds. On the
 other hand, some of the maps become cleaner (horizontal-vertical,
 computation) after this addition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 433-446
+.. GENERATED FROM PYTHON SOURCE LINES 431-444
 
 Volume censoring
 ------------------
@@ -1037,7 +1035,7 @@ For non-fMRIPrep output, we can still define a sample mask. Here we apply a
 sample mask that removes the first 50 volumes.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 446-456
+.. GENERATED FROM PYTHON SOURCE LINES 444-454
 
 .. code-block:: default
 
@@ -1063,12 +1061,12 @@ sample mask that removes the first 50 volumes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 457-459
+.. GENERATED FROM PYTHON SOURCE LINES 455-457
 
 Note the significantly shorter design matrix compared to the previous
 examples.
 
-.. GENERATED FROM PYTHON SOURCE LINES 461-470
+.. GENERATED FROM PYTHON SOURCE LINES 459-468
 
 Smoothing
 ---------
@@ -1080,7 +1078,7 @@ position of activation. Here, we simply illustrate the statistical
 gains.  We use a mild smoothing of 5mm
 :term:`full-width at half maximum<FWHM>` (:term:`FWHM`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 470-479
+.. GENERATED FROM PYTHON SOURCE LINES 468-477
 
 .. code-block:: default
 
@@ -1117,12 +1115,12 @@ gains.  We use a mild smoothing of 5mm
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 480-482
+.. GENERATED FROM PYTHON SOURCE LINES 478-480
 
 The design is unchanged but the maps are smoother and more contrasted.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 484-498
+.. GENERATED FROM PYTHON SOURCE LINES 482-496
 
 Masking
 -------
@@ -1139,7 +1137,7 @@ non-grey matter regions, in which no BOLD signal is expected.  The
 downside is that the mask may not fit very well this particular
 data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 498-511
+.. GENERATED FROM PYTHON SOURCE LINES 496-509
 
 .. code-block:: default
 
@@ -1168,13 +1166,13 @@ data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 512-515
+.. GENERATED FROM PYTHON SOURCE LINES 510-513
 
 For the sake of time saving, we resample icbm_mask to our data.
 For this we call the resample_to_img routine of Nilearn.
 We use interpolation = 'nearest' to keep the mask as a binary image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 515-519
+.. GENERATED FROM PYTHON SOURCE LINES 513-517
 
 .. code-block:: default
 
@@ -1189,11 +1187,11 @@ We use interpolation = 'nearest' to keep the mask as a binary image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 520-521
+.. GENERATED FROM PYTHON SOURCE LINES 518-519
 
 Impact on the first-level model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 521-530
+.. GENERATED FROM PYTHON SOURCE LINES 519-528
 
 .. code-block:: default
 
@@ -1230,11 +1228,11 @@ Impact on the first-level model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 531-532
+.. GENERATED FROM PYTHON SOURCE LINES 529-530
 
 Note that it removed spurious spots in the white matter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 534-542
+.. GENERATED FROM PYTHON SOURCE LINES 532-540
 
 Conclusion
 ----------
@@ -1248,9 +1246,9 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  15.709 seconds)
+   **Total running time of the script:** ( 2 minutes  18.216 seconds)
 
-**Estimated memory usage:**  310 MB
+**Estimated memory usage:**  276 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_first_level_details.py:
