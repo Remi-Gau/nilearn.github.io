@@ -678,6 +678,13 @@ pre-specified networks (e.g., look at data from all voxels of a set of
 network nodes). Think of masker objects as swiss-army knives for shaping
 the raw neuroimaging data in 3D space into the units of observation
 relevant for the research questions at hand.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Masker objects can transform both 3D and 4D image objects.
+Transforming a 4D image produces a 2D (samples x features) matrix.
+Currently, transforming a 3D image also produces a 2D (1 x features) matrix,
+but starting in version 0.12, it will produce a 1D (features) array.</p>
+</div>
 <p class="centered">
 <strong><a class="reference internal" href="../_images/niimgs.jpg"><img alt="niimgs" src="../_images/niimgs.jpg" style="width: 367.0px; height: 163.5px;" /></a>  <span style="padding: .5em; font-size: 400%">&rarr;</span>  <a class="reference internal" href="../_images/feature_array.jpg"><img alt="arrays" src="../_images/feature_array.jpg" style="width: 115.14999999999999px; height: 167.29999999999998px;" /></a></strong></p><p>“masker” objects (found in module <a class="reference internal" href="../modules/maskers.html#module-nilearn.maskers" title="nilearn.maskers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.maskers</span></code></a>)
 simplify these “data folding” steps that often precede the
@@ -939,7 +946,7 @@ is explained in details in <a class="reference internal" href="manipulating_imag
 images after unmasking (masked-reduced data transformed back into
 the original whole-brain space). This step is present in many
 <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html#examples-index" title="(in Matplotlib v3.5.3)"><span class="xref std std-ref">examples</span></a> provided in nilearn. Below you will find
-an excerpt of <a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_anova_svm.html#sphx-glr-auto-examples-02-decoding-plot-haxby-anova-svm-py"><span class="std std-ref">the example performing Anova-SVM on the Haxby data</span></a>):</p>
+an excerpt of <a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_anova_svm.html#sphx-glr-auto-examples-02-decoding-plot-haxby-anova-svm-py"><span class="std std-ref">the example performing Anova-SVM on the Haxby data</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># :class:`nilearn.plotting.plot_stat_map`</span>
 <span class="n">weight_img</span> <span class="o">=</span> <span class="n">decoder</span><span class="o">.</span><span class="n">coef_img_</span><span class="p">[</span><span class="s1">&#39;face&#39;</span><span class="p">]</span>
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span><span class="p">,</span> <span class="n">show</span>
@@ -951,6 +958,12 @@ an excerpt of <a class="reference internal" href="../auto_examples/02_decoding/p
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Masker objects can inverse-transform both 1D and 2D arrays.
+Inverse-transforming a 2D array produces a 4D (X x Y x Z x samples) image,
+while inverse-transforming a 1D array produces a 3D (X x Y x Z) image.</p>
 </div>
 <aside class="topic">
 <p class="topic-title"><strong>Examples to better understand the NiftiMasker</strong></p>
