@@ -592,6 +592,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.signals_to_img_labels.html">nilearn.regions.signals_to_img_labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.img_to_signals_maps.html">nilearn.regions.img_to_signals_maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.signals_to_img_maps.html">nilearn.regions.signals_to_img_maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.recursive_neighbor_agglomeration.html">nilearn.regions.recursive_neighbor_agglomeration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.RegionExtractor.html">nilearn.regions.RegionExtractor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.Parcellations.html">nilearn.regions.Parcellations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.regions.ReNA.html">nilearn.regions.ReNA</a></li>
@@ -776,27 +777,27 @@ A column-vector y was passed when a 1d array was expected. Please change the sha
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-Job #1, processed 0/200 permutations (0.00%, 6420.307159423828 seconds remaining)
-Job #1, processed 10/200 permutations (5.00%, 129.69221472740173 seconds remaining)
-Job #1, processed 20/200 permutations (10.00%, 117.0635404586792 seconds remaining)
-Job #1, processed 30/200 permutations (15.00%, 109.11972761154175 seconds remaining)
-Job #1, processed 40/200 permutations (20.00%, 102.76377391815186 seconds remaining)
-Job #1, processed 50/200 permutations (25.00%, 96.14865303039551 seconds remaining)
-Job #1, processed 60/200 permutations (30.00%, 89.43399453163147 seconds remaining)
-Job #1, processed 70/200 permutations (35.00%, 82.91608486856734 seconds remaining)
-Job #1, processed 80/200 permutations (40.00%, 76.2311099767685 seconds remaining)
-Job #1, processed 90/200 permutations (45.00%, 69.70584633615283 seconds remaining)
-Job #1, processed 100/200 permutations (50.00%, 63.25508642196655 seconds remaining)
-Job #1, processed 110/200 permutations (55.00%, 56.867391066117726 seconds remaining)
-Job #1, processed 120/200 permutations (60.00%, 50.47944974899292 seconds remaining)
-Job #1, processed 130/200 permutations (65.00%, 44.23343678621145 seconds remaining)
-Job #1, processed 140/200 permutations (70.00%, 37.90854917253767 seconds remaining)
-Job #1, processed 150/200 permutations (75.00%, 31.549809455871582 seconds remaining)
-Job #1, processed 160/200 permutations (80.00%, 25.22186052799225 seconds remaining)
-Job #1, processed 170/200 permutations (85.00%, 18.953701762592093 seconds remaining)
-Job #1, processed 180/200 permutations (90.00%, 12.642612907621595 seconds remaining)
-Job #1, processed 190/200 permutations (95.00%, 6.321654495440031 seconds remaining)
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  2.1min finished
+Job #1, processed 0/200 permutations (0.00%, 5392.920970916748 seconds remaining)
+Job #1, processed 10/200 permutations (5.00%, 112.69852185249329 seconds remaining)
+Job #1, processed 20/200 permutations (10.00%, 101.9018132686615 seconds remaining)
+Job #1, processed 30/200 permutations (15.00%, 94.52081640561423 seconds remaining)
+Job #1, processed 40/200 permutations (20.00%, 88.28586006164551 seconds remaining)
+Job #1, processed 50/200 permutations (25.00%, 82.33378100395203 seconds remaining)
+Job #1, processed 60/200 permutations (30.00%, 76.7118558883667 seconds remaining)
+Job #1, processed 70/200 permutations (35.00%, 71.08189020838057 seconds remaining)
+Job #1, processed 80/200 permutations (40.00%, 65.46179974079132 seconds remaining)
+Job #1, processed 90/200 permutations (45.00%, 59.9410670598348 seconds remaining)
+Job #1, processed 100/200 permutations (50.00%, 54.42907738685608 seconds remaining)
+Job #1, processed 110/200 permutations (55.00%, 48.979171774604104 seconds remaining)
+Job #1, processed 120/200 permutations (60.00%, 43.51352755228678 seconds remaining)
+Job #1, processed 130/200 permutations (65.00%, 38.05631533035865 seconds remaining)
+Job #1, processed 140/200 permutations (70.00%, 32.60323619842529 seconds remaining)
+Job #1, processed 150/200 permutations (75.00%, 27.15207783381144 seconds remaining)
+Job #1, processed 160/200 permutations (80.00%, 21.725780308246613 seconds remaining)
+Job #1, processed 170/200 permutations (85.00%, 16.297684907913208 seconds remaining)
+Job #1, processed 180/200 permutations (90.00%, 10.863819466696844 seconds remaining)
+Job #1, processed 190/200 permutations (95.00%, 5.429785050843891 seconds remaining)
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  1.8min finished
 </pre></div>
 </div>
 <p>Visualization</p>
@@ -847,10 +848,10 @@ Job #1, processed 190/200 permutations (95.00%, 6.321654495440031 seconds remain
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_localizer_mass_univariate_methods_001.png" srcset="../../_images/sphx_glr_plot_localizer_mass_univariate_methods_001.png" alt="Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 19 sig. voxels, Permutation Test (Max TFCE FWE) 1145 sig. voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.3, &#39;Group left button press ($-\\log_{10}$ p-values)&#39;)
+<img src="../../_images/sphx_glr_plot_localizer_mass_univariate_methods_001.png" srcset="../../_images/sphx_glr_plot_localizer_mass_univariate_methods_001.png" alt="Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 15 sig. voxels, Permutation Test (Max TFCE FWE) 635 sig. voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.3, &#39;Group left button press ($-\\log_{10}$ p-values)&#39;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  12.525 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  53.647 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  165 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-localizer-mass-univariate-methods-py">
 <div class="binder-badge docutils container">
