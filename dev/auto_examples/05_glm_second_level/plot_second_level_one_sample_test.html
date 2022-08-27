@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
   
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Second-level fMRI model: two-sample test, unpaired and paired" href="plot_second_level_two_sample_test.html" /><link rel="prev" title="Voxel-Based Morphometry on OASIS dataset" href="plot_oasis.html" />
+  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of generic design in second-level models" href="plot_second_level_association_test.html" /><link rel="prev" title="Second-level fMRI model: two-sample test, unpaired and paired" href="plot_second_level_two_sample_test.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>Second-level fMRI model: one sample test - Nilearn</title>
@@ -268,8 +268,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
 </li>
@@ -294,8 +294,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_bids_analysis.html">BIDS dataset first and second level analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_age_group_prediction_cross_val.html">Functional connectivity predicts age group</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_neurovault_meta_analysis.html">NeuroVault meta-analysis of stop-go paradigm studies.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_localizer_mass_univariate_methods.html">Massively univariate analysis of a motor task from the Localizer dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_surface_bids_analysis.html">Surface-based dataset first and second level analysis of a dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_localizer_mass_univariate_methods.html">Massively univariate analysis of a motor task from the Localizer dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_ica_neurovault.html">NeuroVault cross-study ICA maps.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_haxby_mass_univariate.html">Massively univariate analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_advanced_decoding_scikit.html">Advanced decoding using scikit learn</a></li>
@@ -726,8 +726,11 @@ subjects.</p>
 <img src="../../_images/sphx_glr_plot_second_level_one_sample_test_001.png" srcset="../../_images/sphx_glr_plot_second_level_one_sample_test_001.png" alt="subjects t_map left-right button press" class = "sphx-glr-single-img"/></section>
 <section id="estimate-second-level-model">
 <h2>Estimate second level model<a class="headerlink" href="#estimate-second-level-model" title="Permalink to this heading">#</a></h2>
-<p>We define the input maps and the design matrix for the second level model
-and fit it.</p>
+<p>We wish to perform a one-sample test.
+In order to do so, we need to create a design matrix that determines how
+the analysis will be performed.
+For a one-sample test, all we need to include in the design matrix is a
+single column of ones, corresponding to the model intercept.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">second_level_input</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">[</span><span class="s1">&#39;cmaps&#39;</span><span class="p">]</span>
@@ -737,7 +740,7 @@ and fit it.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Model specification and fit.</p>
+<p>Next, we specify the model and fit it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.second_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class"><span class="n">SecondLevelModel</span></a>
 
 <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">second_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class"><span class="n">SecondLevelModel</span></a><span class="p">(</span><span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">8.0</span><span class="p">)</span>
@@ -749,7 +752,10 @@ and fit it.</p>
 </div>
 <p>To estimate the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> is very simple. We can just provide the
 column name of the design matrix.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel.compute_contrast" title="nilearn.glm.second_level.SecondLevelModel.compute_contrast" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-method"><span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span></a><span class="p">(</span><span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_map</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel.compute_contrast" title="nilearn.glm.second_level.SecondLevelModel.compute_contrast" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-method"><span class="n">second_level_model</span><span class="o">.</span><span class="n">compute_contrast</span></a><span class="p">(</span>
+    <span class="n">second_level_contrast</span><span class="o">=</span><span class="s1">&#39;intercept&#39;</span><span class="p">,</span>
+    <span class="n">output_type</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <p>We threshold the second level contrast at uncorrected p &lt; 0.001 and plot it.</p>
@@ -789,6 +795,20 @@ divide by zero encountered in log10
 </pre></div>
 </div>
 <p>Now, we compute the (corrected) p-values with a permutation test.</p>
+<p>We will use <a class="reference internal" href="../../modules/generated/nilearn.glm.second_level.non_parametric_inference.html#nilearn.glm.second_level.non_parametric_inference" title="nilearn.glm.second_level.non_parametric_inference"><code class="xref py py-func docutils literal notranslate"><span class="pre">non_parametric_inference</span></code></a> for
+this step, although <a class="reference internal" href="../../modules/generated/nilearn.mass_univariate.permuted_ols.html#nilearn.mass_univariate.permuted_ols" title="nilearn.mass_univariate.permuted_ols"><code class="xref py py-func docutils literal notranslate"><span class="pre">permuted_ols</span></code></a> could be
+used as well (pending additional steps to mask and reformat the inputs).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>One key difference between
+<a class="reference internal" href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SecondLevelModel</span></code></a> and
+<a class="reference internal" href="../../modules/generated/nilearn.glm.second_level.non_parametric_inference.html#nilearn.glm.second_level.non_parametric_inference" title="nilearn.glm.second_level.non_parametric_inference"><code class="xref py py-func docutils literal notranslate"><span class="pre">non_parametric_inference</span></code></a>/
+<a class="reference internal" href="../../modules/generated/nilearn.mass_univariate.permuted_ols.html#nilearn.mass_univariate.permuted_ols" title="nilearn.mass_univariate.permuted_ols"><code class="xref py py-func docutils literal notranslate"><span class="pre">permuted_ols</span></code></a>
+is that the one-sample test in non_parametric_inference/permuted_ols
+assumes that the distribution is symmetric about 0,
+which is is weaker than the SecondLevelModel’s assumption that
+the null distribution is Gaussian and centered about 0.</p>
+</div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>In this example, <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is set to 0.001, which enables
@@ -888,8 +908,8 @@ Even within the nonparametric test, the different correction metrics produce
 different results.
 The voxel-level correction is more conservative than the cluster-size or
 cluster-mass corrections, which are very similar to one another.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  49.183 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  26 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  17.408 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  27 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-second-level-one-sample-test-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo5.svg" width="150px" /></a>
@@ -910,23 +930,23 @@ cluster-mass corrections, which are very similar to one another.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_second_level_two_sample_test.html">
+          <a class="next-page" href="plot_second_level_association_test.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Second-level fMRI model: two-sample test, unpaired and paired</div>
+                <div class="title">Example of generic design in second-level models</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_oasis.html">
+          <a class="prev-page" href="plot_second_level_two_sample_test.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Voxel-Based Morphometry on OASIS dataset</div>
+                <div class="title">Second-level fMRI model: two-sample test, unpaired and paired</div>
                 
               </div>
             </a>

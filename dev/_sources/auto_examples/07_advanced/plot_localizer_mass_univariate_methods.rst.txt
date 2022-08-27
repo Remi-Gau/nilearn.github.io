@@ -123,11 +123,12 @@ Mask data
 
 Anova (parametric F-scores)
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-72
+.. GENERATED FROM PYTHON SOURCE LINES 62-73
 
 .. code-block:: default
 
     from sklearn.feature_selection import f_regression
+
     _, pvals_anova = f_regression(fmri_masked, tested_var, center=True)
     pvals_anova *= fmri_masked.shape[1]
     pvals_anova[np.isnan(pvals_anova)] = 1
@@ -153,19 +154,25 @@ Anova (parametric F-scores)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-77
+.. GENERATED FROM PYTHON SOURCE LINES 74-84
 
 Perform massively univariate analysis with permuted OLS
 
 This method will produce both voxel-level FWE-corrected -log10 p-values and
 :term:`TFCE`-based FWE-corrected -log10 p-values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-96
+.. note::
+  :func:`~nilearn.mass_univariate.permuted_ols` can support a wide range
+  of analysis designs, depending on the ``tested_var``.
+  For example, if you wished to perform a one-sample test, you could
+  simply provide an array of ones (e.g., ``np.ones(n_samples)``).
+
+.. GENERATED FROM PYTHON SOURCE LINES 84-103
 
 .. code-block:: default
 
     ols_outputs = permuted_ols(
-        tested_var,
+        tested_var,  # this is equivalent to the design matrix, in array form
         fmri_masked,
         model_intercept=True,
         masker=nifti_masker,
@@ -192,16 +199,16 @@ This method will produce both voxel-level FWE-corrected -log10 p-values and
  .. code-block:: none
 
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    Job #1, processed 0/200 permutations (0.00%, 5576.126575469971 seconds remaining)    Job #1, processed 10/200 permutations (5.00%, 115.27804470062256 seconds remaining)    Job #1, processed 20/200 permutations (10.00%, 104.29552602767944 seconds remaining)    Job #1, processed 30/200 permutations (15.00%, 96.7351740996043 seconds remaining)    Job #1, processed 40/200 permutations (20.00%, 90.25314140319824 seconds remaining)    Job #1, processed 50/200 permutations (25.00%, 84.19591784477234 seconds remaining)    Job #1, processed 60/200 permutations (30.00%, 78.29281942049663 seconds remaining)    Job #1, processed 70/200 permutations (35.00%, 72.50833821296692 seconds remaining)    Job #1, processed 80/200 permutations (40.00%, 66.77373719215393 seconds remaining)    Job #1, processed 90/200 permutations (45.00%, 61.13127340210809 seconds remaining)    Job #1, processed 100/200 permutations (50.00%, 55.504579305648804 seconds remaining)    Job #1, processed 110/200 permutations (55.00%, 49.9187086278742 seconds remaining)    Job #1, processed 120/200 permutations (60.00%, 44.31711641947428 seconds remaining)    Job #1, processed 130/200 permutations (65.00%, 38.76947225057162 seconds remaining)    Job #1, processed 140/200 permutations (70.00%, 33.209365367889404 seconds remaining)    Job #1, processed 150/200 permutations (75.00%, 27.65230623881022 seconds remaining)    Job #1, processed 160/200 permutations (80.00%, 22.11746919155121 seconds remaining)    Job #1, processed 170/200 permutations (85.00%, 16.576725104275873 seconds remaining)    Job #1, processed 180/200 permutations (90.00%, 11.043194082048204 seconds remaining)    Job #1, processed 190/200 permutations (95.00%, 5.5192732936457585 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  1.8min finished
+    Job #1, processed 0/200 permutations (0.00%, 5330.824851989746 seconds remaining)    Job #1, processed 10/200 permutations (5.00%, 112.2827627658844 seconds remaining)    Job #1, processed 20/200 permutations (10.00%, 101.36502170562744 seconds remaining)    Job #1, processed 30/200 permutations (15.00%, 95.03198456764221 seconds remaining)    Job #1, processed 40/200 permutations (20.00%, 88.63798999786377 seconds remaining)    Job #1, processed 50/200 permutations (25.00%, 82.52184891700745 seconds remaining)    Job #1, processed 60/200 permutations (30.00%, 76.64083568255107 seconds remaining)    Job #1, processed 70/200 permutations (35.00%, 70.91010764666966 seconds remaining)    Job #1, processed 80/200 permutations (40.00%, 65.27619051933289 seconds remaining)    Job #1, processed 90/200 permutations (45.00%, 59.75081605381436 seconds remaining)    Job #1, processed 100/200 permutations (50.00%, 54.26102256774902 seconds remaining)    Job #1, processed 110/200 permutations (55.00%, 48.77954363822937 seconds remaining)    Job #1, processed 120/200 permutations (60.00%, 43.31166458129883 seconds remaining)    Job #1, processed 130/200 permutations (65.00%, 37.858237725037796 seconds remaining)    Job #1, processed 140/200 permutations (70.00%, 32.43119726862226 seconds remaining)    Job #1, processed 150/200 permutations (75.00%, 27.004957675933838 seconds remaining)    Job #1, processed 160/200 permutations (80.00%, 21.59359061717987 seconds remaining)    Job #1, processed 170/200 permutations (85.00%, 16.188668531530045 seconds remaining)    Job #1, processed 180/200 permutations (90.00%, 10.786427047517565 seconds remaining)    Job #1, processed 190/200 permutations (95.00%, 5.391147663718775 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:  1.8min finished
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-98
+.. GENERATED FROM PYTHON SOURCE LINES 104-105
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-143
+.. GENERATED FROM PYTHON SOURCE LINES 105-150
 
 .. code-block:: default
 
@@ -254,7 +261,7 @@ Visualization
 
 
 .. image-sg:: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
-   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 23 sig. voxels, Permutation Test (Max TFCE FWE) 1133 sig. voxels
+   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 8 sig. voxels, Permutation Test (Max TFCE FWE) 409 sig. voxels
    :srcset: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
    :class: sphx-glr-single-img
 
@@ -271,7 +278,7 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  55.726 seconds)
+   **Total running time of the script:** ( 1 minutes  52.593 seconds)
 
 **Estimated memory usage:**  165 MB
 
