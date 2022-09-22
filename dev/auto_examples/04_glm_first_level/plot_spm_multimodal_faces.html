@@ -19,10 +19,10 @@
 <meta property="og:image:alt" content="Nilearn" />
   <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of MRI response functions" href="plot_hrf.html" /><link rel="prev" title="Analysis of an fMRI dataset with a Finite Impule Response (FIR) model" href="plot_fir_model.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
         <title>Single-subject data (two sessions) in native space - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -690,6 +690,25 @@ sampled in different positions (encoded by different affine functions).</p>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_spm_multimodal_fmri.html#nilearn.datasets.fetch_spm_multimodal_fmri" title="nilearn.datasets.fetch_spm_multimodal_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_spm_multimodal_fmri</span></a><span class="p">()</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/circleci/nilearn_data/spm_multimodal_fmri
+
+Missing 390 functional scans for session 1.
+Data absent, downloading...
+Downloading data from http://www.fil.ion.ucl.ac.uk/spm/download/data/mmfaces/multimodal_fmri.zip ...
+
+Downloaded 9224192 of 134263085 bytes (6.9%,   13.6s remaining)
+Downloaded 24977408 of 134263085 bytes (18.6%,    8.8s remaining)
+Downloaded 42139648 of 134263085 bytes (31.4%,    6.6s remaining)
+Downloaded 60637184 of 134263085 bytes (45.2%,    4.9s remaining)
+Downloaded 78987264 of 134263085 bytes (58.8%,    3.5s remaining)
+Downloaded 98574336 of 134263085 bytes (73.4%,    2.2s remaining)
+Downloaded 118554624 of 134263085 bytes (88.3%,    0.9s remaining) ...done. (9 seconds, 0 min)
+Extracting data from /home/circleci/nilearn_data/spm_multimodal_fmri/sub001/multimodal_fmri.zip..... done.
+Downloading data from http://www.fil.ion.ucl.ac.uk/spm/download/data/mmfaces/multimodal_smri.zip ...
+ ...done. (1 seconds, 0 min)
+Extracting data from /home/circleci/nilearn_data/spm_multimodal_fmri/sub001/multimodal_smri.zip..... done.
+</pre></div>
+</div>
 <p>Specfiy timing and design matrix parameters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tr</span></a> <span class="o">=</span> <span class="mf">2.</span>  <span class="c1"># repetition time, in seconds</span>
 <a href="https://docs.python.org/3.8/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">slice_time_ref</span></a> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># Sample at the beginning of each acquisition.</span>
@@ -831,8 +850,8 @@ implications of large portions of the visual cortex in the
 conditions. By contrast, the differential effect between “faces” and
 “scrambled” involves sparser, more anterior and lateral regions. It
 also displays some responses in the frontal lobe.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.328 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  906 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  27.466 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1012 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-spm-multimodal-faces-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_spm_multimodal_faces.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
@@ -859,10 +878,10 @@ also displays some responses in the frontal lobe.</p>
                 </div>
                 <div class="title">Example of MRI response functions</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="plot_fir_model.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
