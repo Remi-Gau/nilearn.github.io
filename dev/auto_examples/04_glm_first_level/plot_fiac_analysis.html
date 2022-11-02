@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="Simple example of two-session fMRI model fitting" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/04_glm_first_level/plot_fiac_analysis.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
 <meta property="og:description" content="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and visualizing the results. This is done on two runs of one subject of the FIAC dataset. For details on t..." />
-  
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Predicted time series and residuals" href="plot_predictions_residuals.html" /><link rel="prev" title="Example of MRI response functions" href="plot_hrf.html" />
+<meta name="description" content="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and visualizing the results. This is done on two runs of one subject of the FIAC dataset. For details on t..." />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Predicted time series and residuals" href="plot_predictions_residuals.html" /><link rel="prev" title="Example of MRI response functions" href="plot_hrf.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>Simple example of two-session fMRI model fitting - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -779,7 +786,7 @@ One contrast given, assuming it for all 2 runs
   Contrast  6 out of 8: DSp_minus_SSp_for_DSt
   Contrast  7 out of 8: Deactivation
   Contrast  8 out of 8: Effects_of_interest
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:353: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:361: UserWarning:
 
 Running approximate fixed effects on F statistics.
 </pre></div>
@@ -799,7 +806,7 @@ then the fixed effects version.</p>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, first session&#39;</span> <span class="o">%</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">contrast_id</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_fiac_analysis_001.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_001.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f81c28fce20&gt;
+<img src="../../_images/sphx_glr_plot_fiac_analysis_001.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_001.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8096db1970&gt;
 </pre></div>
 </div>
 <p>Compute the statistics for the second session.</p>
@@ -811,7 +818,7 @@ then the fixed effects version.</p>
     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">, second session&#39;</span> <span class="o">%</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">contrast_id</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_fiac_analysis_002.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_002.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f81c035c4c0&gt;
+<img src="../../_images/sphx_glr_plot_fiac_analysis_002.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_002.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f809728bfa0&gt;
 </pre></div>
 </div>
 <p>Compute the Fixed effects statistics.</p>
@@ -829,7 +836,7 @@ then the fixed effects version.</p>
 
 One contrast given, assuming it for all 2 runs
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:353: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:361: UserWarning:
 
 Running approximate fixed effects on F statistics.
 </pre></div>
@@ -854,7 +861,7 @@ and have the contrast, we can quickly create a summary report.</p>
 
 One contrast given, assuming it for all 2 runs
 
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:353: UserWarning:
+/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/glm/contrasts.py:361: UserWarning:
 
 Running approximate fixed effects on F statistics.
 </pre></div>
@@ -865,8 +872,8 @@ Running approximate fixed effects on F statistics.
 <span class="c1"># report.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.232 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  367 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  39.080 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  366 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-fiac-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fiac_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
@@ -959,6 +966,7 @@ Running approximate fixed effects on F statistics.
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>

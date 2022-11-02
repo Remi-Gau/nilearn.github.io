@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="Basic nilearn example: manipulating and looking at data" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/00_tutorials/plot_nilearn_101.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
 <meta property="og:description" content="A simple example showing how to load an existing Nifti file and use basic nilearn functionalities. A first step: looking at our data: Let’s quickly plot this file: This is not a very pretty plot. W..." />
-  
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="3D and 4D niimgs: handling and visualizing" href="plot_3d_and_4d_niimg.html" /><link rel="prev" title="Basic numerics and plotting with Python" href="plot_python_101.html" />
+<meta name="description" content="A simple example showing how to load an existing Nifti file and use basic nilearn functionalities. A first step: looking at our data: Let’s quickly plot this file: This is not a very pretty plot. W..." />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="3D and 4D niimgs: handling and visualizing" href="plot_3d_and_4d_niimg.html" /><link rel="prev" title="Basic numerics and plotting with Python" href="plot_python_101.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>Basic nilearn example: manipulating and looking at data - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -688,7 +695,7 @@ basic nilearn functionalities.</p>
 <a href="../../modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="nilearn.plotting.plot_img" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">MNI152_FILE_PATH</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_nilearn_101_001.png" srcset="../../_images/sphx_glr_plot_nilearn_101_001.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f81c4ba2d00&gt;
+<img src="../../_images/sphx_glr_plot_nilearn_101_001.png" srcset="../../_images/sphx_glr_plot_nilearn_101_001.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f80978a7a90&gt;
 </pre></div>
 </div>
 <p>This is not a very pretty plot. We just used the simplest possible
@@ -713,7 +720,7 @@ your disk. Note that it should be a 3D volume, and not a 4D volume.</p>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smooth_anat_img</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nibabel.nifti1.Nifti1Image object at 0x7f81d3324f10&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nibabel.nifti1.Nifti1Image object at 0x7f80a5fe2310&gt;
 </pre></div>
 </div>
 <p>This is an in-memory object. We can pass it to nilearn function, for
@@ -721,7 +728,7 @@ instance to look at it</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="nilearn.plotting.plot_img" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smooth_anat_img</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_nilearn_101_002.png" srcset="../../_images/sphx_glr_plot_nilearn_101_002.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f81c4ae0f40&gt;
+<img src="../../_images/sphx_glr_plot_nilearn_101_002.png" srcset="../../_images/sphx_glr_plot_nilearn_101_002.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f80978c82e0&gt;
 </pre></div>
 </div>
 <p>We could also pass it to the smoothing function</p>
@@ -729,7 +736,7 @@ instance to look at it</p>
 <a href="../../modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="nilearn.plotting.plot_img" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">more_smooth_anat_img</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_nilearn_101_003.png" srcset="../../_images/sphx_glr_plot_nilearn_101_003.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f81c4b0d460&gt;
+<img src="../../_images/sphx_glr_plot_nilearn_101_003.png" srcset="../../_images/sphx_glr_plot_nilearn_101_003.png" alt="plot nilearn 101" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8097829d60&gt;
 </pre></div>
 </div>
 </section>
@@ -751,7 +758,7 @@ when running as a script outside IPython</p>
 <p>To recap, all the nilearn tools can take data as filenames or in-memory
 objects, and return brain volumes as in-memory objects. These can be
 passed on to other nilearn tools, or saved to disk.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.464 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.237 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  227 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-00-tutorials-plot-nilearn-101-py">
 <div class="binder-badge docutils container">
@@ -845,6 +852,7 @@ passed on to other nilearn tools, or saved to disk.</p>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>

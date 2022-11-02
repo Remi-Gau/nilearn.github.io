@@ -2,25 +2,19 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="nilearn.connectome.GroupSparseCovariance" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/modules/generated/nilearn.connectome.GroupSparseCovariance.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="nilearn.connectome.GroupSparseCovarianceCV" href="nilearn.connectome.GroupSparseCovarianceCV.html" /><link rel="prev" title="nilearn.connectome.ConnectivityMeasure" href="nilearn.connectome.ConnectivityMeasure.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="nilearn.connectome.GroupSparseCovarianceCV" href="nilearn.connectome.GroupSparseCovarianceCV.html" /><link rel="prev" title="nilearn.connectome.ConnectivityMeasure" href="nilearn.connectome.ConnectivityMeasure.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>nilearn.connectome.GroupSparseCovariance - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -40,18 +34,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -134,7 +134,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -156,7 +160,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -500,7 +504,9 @@
 <li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -646,7 +652,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -654,7 +661,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -670,7 +677,7 @@ signature, and not how to use it. Please refer to the
 <h1>nilearn.connectome.GroupSparseCovariance<a class="headerlink" href="#nilearn-connectome-groupsparsecovariance" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="nilearn.connectome.GroupSparseCovariance">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nilearn.connectome.</span></span><span class="sig-name descname"><span class="pre">GroupSparseCovariance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/d628bf6b/nilearn/connectome/group_sparse_cov.py#L452"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">nilearn.connectome.</span></span><span class="sig-name descname"><span class="pre">GroupSparseCovariance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/b095a3dc/nilearn/connectome/group_sparse_cov.py#L452"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance" title="Permalink to this definition">#</a></dt>
 <dd><p>Covariance and precision matrix estimator.</p>
 <p>The model used has been introduced in <a class="footnote-reference brackets" href="#footcite-varoquaux2010a" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, and the
 algorithm used is based on what is described in <a class="footnote-reference brackets" href="#footcite-honorio2015" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
@@ -724,12 +731,12 @@ Default=0.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.connectome.GroupSparseCovariance.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/d628bf6b/nilearn/connectome/group_sparse_cov.py#L500"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance.__init__" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/b095a3dc/nilearn/connectome/group_sparse_cov.py#L500"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="nilearn.connectome.GroupSparseCovariance.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/d628bf6b/nilearn/connectome/group_sparse_cov.py#L510"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance.fit" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subjects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/b095a3dc/nilearn/connectome/group_sparse_cov.py#L510"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.connectome.GroupSparseCovariance.fit" title="Permalink to this definition">#</a></dt>
 <dd><p>Fits the group sparse precision model according to the given
 training data and parameters.</p>
 <dl class="field-list simple">
@@ -844,8 +851,33 @@ possible to update each component of a nested object.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">nilearn.connectome.GroupSparseCovariance</a><ul>
+<li><a class="reference internal" href="#nilearn.connectome.GroupSparseCovariance"><code class="docutils literal notranslate"><span class="pre">GroupSparseCovariance</span></code></a><ul>
+<li><a class="reference internal" href="#nilearn.connectome.GroupSparseCovariance.__init__"><code class="docutils literal notranslate"><span class="pre">GroupSparseCovariance.__init__</span></code></a></li>
+<li><a class="reference internal" href="#nilearn.connectome.GroupSparseCovariance.fit"><code class="docutils literal notranslate"><span class="pre">GroupSparseCovariance.fit</span></code></a></li>
+<li><a class="reference internal" href="#nilearn.connectome.GroupSparseCovariance.get_params"><code class="docutils literal notranslate"><span class="pre">GroupSparseCovariance.get_params</span></code></a></li>
+<li><a class="reference internal" href="#nilearn.connectome.GroupSparseCovariance.set_params"><code class="docutils literal notranslate"><span class="pre">GroupSparseCovariance.set_params</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -855,6 +887,7 @@ possible to update each component of a nested object.</p>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>

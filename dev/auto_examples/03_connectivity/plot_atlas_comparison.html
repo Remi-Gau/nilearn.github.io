@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="Comparing connectomes on different reference atlases" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/03_connectivity/plot_atlas_comparison.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
 <meta property="og:description" content="This examples shows how to turn a parcellation into connectome for visualization. This requires choosing centers for each parcel or network, via nilearn.plotting.find_parcellation_cut_coords for pa..." />
-  
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Classification of age groups using functional connectivity" href="plot_group_level_connectivity.html" /><link rel="prev" title="Regions extraction using dictionary learning and functional connectomes" href="plot_extract_regions_dictlearning_maps.html" />
+<meta name="description" content="This examples shows how to turn a parcellation into connectome for visualization. This requires choosing centers for each parcel or network, via nilearn.plotting.find_parcellation_cut_coords for pa..." />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Classification of age groups using functional connectivity" href="plot_group_level_connectivity.html" /><link rel="prev" title="Regions extraction using dictionary learning and functional connectomes" href="plot_extract_regions_dictlearning_maps.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>Comparing connectomes on different reference atlases - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -676,12 +683,13 @@ parcellation based on labels and
 <a class="reference internal" href="../../modules/generated/nilearn.plotting.find_probabilistic_atlas_cut_coords.html#nilearn.plotting.find_probabilistic_atlas_cut_coords" title="nilearn.plotting.find_probabilistic_atlas_cut_coords"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.find_probabilistic_atlas_cut_coords</span></code></a> for
 parcellation based on probabilistic values.</p>
 <p>In the intermediary steps, we make use of
-<a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiLabelsMasker</span></code></a> and
-<a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMapsMasker</span></code></a> to extract time series from nifti
-objects using different parcellation atlases.</p>
-<p>The time series of all subjects of the brain development dataset are concatenated and
-given directly to <a class="reference internal" href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.ConnectivityMeasure</span></code></a> for
-computing parcel-wise correlation matrices for each atlas across all subjects.</p>
+<a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.MultiNiftiLabelsMasker</span></code></a> and
+<a class="reference internal" href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.MultiNiftiMapsMasker</span></code></a> to extract time series from nifti
+objects from multiple subjects using different parcellation atlases.</p>
+<p>The time series of all subjects of the brain development dataset are
+concatenated and given directly to
+<a class="reference internal" href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.ConnectivityMeasure</span></code></a> for computing parcel-wise
+correlation matrices for each atlas across all subjects.</p>
 <p>Mean correlation matrix is displayed on glass brain on extracted coordinates.</p>
 <p># author: Amadeus Kanaan</p>
 <div class="admonition note">
@@ -734,7 +742,7 @@ Counfound csv files (of same subject) are located at : &#39;/home/circleci/nilea
 </section>
 <section id="extract-coordinates-on-yeo-atlas-parcellations">
 <h2>Extract coordinates on Yeo atlas - parcellations<a class="headerlink" href="#extract-coordinates-on-yeo-atlas-parcellations" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiLabelsMasker</span></a>
 <span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">ConnectivityMeasure</span></a>
 
 <span class="c1"># ConenctivityMeasure from Nilearn uses simple &#39;correlation&#39; to compute</span>
@@ -744,14 +752,14 @@ Counfound csv files (of same subject) are located at : &#39;/home/circleci/nilea
 <span class="c1"># useful for plotting connectivity interactions on glass brain</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
-<span class="c1"># create masker to extract functional data within atlas parcels</span>
-<a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a><span class="p">(</span><span class="n">labels_img</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yeo</span></a><span class="p">[</span><span class="s1">&#39;thick_17&#39;</span><span class="p">],</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                           <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">)</span>
+<span class="c1"># create masker using MultiNiftiLabelsMasker to extract functional data within</span>
+<span class="c1"># atlas parcels from multiple subjects using parallelization to speed up the</span>
+<span class="c1"># computation</span>
+<a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiLabelsMasker</span></a><span class="p">(</span><span class="n">labels_img</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yeo</span></a><span class="p">[</span><span class="s1">&#39;thick_17&#39;</span><span class="p">],</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># extract time series from all subjects and concatenate them</span>
-<a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">confounds</span></a><span class="p">):</span>
-    <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker.fit_transform" title="nilearn.maskers.NiftiMapsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="p">))</span>
+<span class="c1"># extract time series from all subjects</span>
+<a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker.fit_transform" title="nilearn.maskers.MultiNiftiMapsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">func</span></a><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">confounds</span></a><span class="p">)</span>
 
 <span class="c1"># calculate correlation matrices across subjects and display</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrices</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure.fit_transform" title="nilearn.connectome.ConnectivityMeasure.fit_transform" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-method"><span class="n">connectome_measure</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a><span class="p">)</span>
@@ -769,7 +777,7 @@ Counfound csv files (of same subject) are located at : &#39;/home/circleci/nilea
                          <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Yeo Atlas 17 thick (func)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_atlas_comparison_001.png" srcset="../../_images/sphx_glr_plot_atlas_comparison_001.png" alt="plot atlas comparison" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f81bfa7ddf0&gt;
+<img src="../../_images/sphx_glr_plot_atlas_comparison_001.png" srcset="../../_images/sphx_glr_plot_atlas_comparison_001.png" alt="plot atlas comparison" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f8085d96c10&gt;
 </pre></div>
 </div>
 </section>
@@ -827,16 +835,16 @@ matrices, but plot the latter as a directed graph.</p>
 </section>
 <section id="iterate-over-fetched-atlases-to-extract-coordinates-probabilistic">
 <h2>Iterate over fetched atlases to extract coordinates - probabilistic<a class="headerlink" href="#iterate-over-fetched-atlases-to-extract-coordinates-probabilistic" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMapsMasker</span></a>
 
-<span class="c1"># create masker to extract functional data within atlas parcels</span>
-<a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a><span class="p">(</span><span class="n">maps_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">difumo</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                         <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">)</span>
+<span class="c1"># create masker using MultiNiftiMapsMasker to extract functional data within</span>
+<span class="c1"># atlas parcels from multiple subjects using parallelization to speed up the</span>
+<span class="c1"># # computation</span>
+<a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMapsMasker</span></a><span class="p">(</span><span class="n">maps_img</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">difumo</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">memory</span><span class="o">=</span><span class="s1">&#39;nilearn_cache&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># extract time series from all subjects and concatenate them</span>
-<a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">confounds</span></a><span class="p">):</span>
-    <a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker.fit_transform" title="nilearn.maskers.NiftiMapsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func</span></a><span class="p">,</span> <a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="p">))</span>
+<span class="c1"># extract time series from all subjects</span>
+<a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker.fit_transform" title="nilearn.maskers.MultiNiftiMapsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">func</span></a><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span><span class="o">.</span><span class="n">confounds</span></a><span class="p">)</span>
 
 <span class="c1"># calculate correlation matrices across subjects and display</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrices</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure.fit_transform" title="nilearn.connectome.ConnectivityMeasure.fit_transform" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-method"><span class="n">connectome_measure</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.8/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a><span class="p">)</span>
@@ -858,20 +866,10 @@ matrices, but plot the latter as a directed graph.</p>
 <img src="../../_images/sphx_glr_plot_atlas_comparison_004.png" srcset="../../_images/sphx_glr_plot_atlas_comparison_004.png" alt="plot atlas comparison" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/_utils/cache_mixin.py:307: UserWarning:
 
 memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
-
-/home/circleci/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/maskers/nifti_maps_masker.py:534: UserWarning:
-
-Persisting input arguments took 1.50s to run.
-If this happens often in your code, it can cause performance problems
-(results will be correct in all cases).
-The reason for this is probably some large input arguments for a wrapped
- function (e.g. large strings).
-THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
- example so that they can fix the problem.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  27.235 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1614 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  54.667 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1716 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-atlas-comparison-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_atlas_comparison.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -967,6 +965,7 @@ THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib&#39;s team with an
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/scripts/furo.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>

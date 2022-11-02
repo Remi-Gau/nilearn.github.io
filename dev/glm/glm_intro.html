@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="An introduction to GLMs in fMRI statistical analysis" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/glm/glm_intro.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
 <meta property="og:description" content="A primer on BOLD-fMRI data analysis: What is fMRI ?: Functional magnetic resonance imaging ( fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood ..." />
-  
 <meta property="og:image" content="https://nilearn.github.io/_images/stimulation-time-diagram.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../search.html" /><link rel="next" title="First level models" href="first_level_model.html" /><link rel="prev" title="Analyzing fMRI using GLMs" href="index.html" />
+<meta name="description" content="A primer on BOLD-fMRI data analysis: What is fMRI ?: Functional magnetic resonance imaging ( fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood ..." />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="First level models" href="first_level_model.html" /><link rel="prev" title="Analyzing fMRI using GLMs" href="index.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>An introduction to GLMs in fMRI statistical analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -715,32 +722,32 @@
 <p>It can be shown that this is equivalent to studying whether the estimated contrast effect is large with respect to the uncertainty about its exact value. Concretely, we compute the effect size estimate and the uncertainty about its value and divide the two. The resulting number has no physical dimension, it is a statistic – a Student or t-statistic, which we denote by <cite>t</cite>. Next, based on <cite>t</cite>, we want to decide whether the true effect was indeed greater than zero or not.</p>
 <p><cite>t</cite> would not necessarily be 0 if the true effect were zero: by chance, noise in the data may be partly explained by the contrast of interest. However, if we assume that the noise is Gaussian and that the model is correctly specified, then we know that <cite>t</cite> should follow a Student distribution with <cite>dof</cite> degrees of freedom, where <cite>dof</cite> is the number of free parameters in the model: in practice, the number of observations (i.e. the number of time points), <cite>n_scans</cite> minus the number of effects modelled (i.e. the number of columns <cite>n_columns</cite>) of the design matrix:</p>
 <blockquote>
-<div><p><img class="math" src="../_images/math/499002493613ac62a752d5f805fbb1f9e893facd.png" alt="dof = n\_scans - n\_columns"/></p>
+<div><p><img class="math" src="_images/math/499002493613ac62a752d5f805fbb1f9e893facd.png" alt="dof = n\_scans - n\_columns"/></p>
 </div></blockquote>
-<p>With this we can do statistical inference. Given a pre-defined error rate <img class="math" src="../_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>, we compare the observed <cite>t</cite> to the <img class="math" src="../_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If <cite>t</cite> is greater than this number we can reject the null hypothesis with a <em>p-value</em> <img class="math" src="../_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>; meaning, if there were no effect, the probability of observing an effect as large as <cite>t</cite> would be less than <img class="math" src="../_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>.</p>
+<p>With this we can do statistical inference. Given a pre-defined error rate <img class="math" src="_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>, we compare the observed <cite>t</cite> to the <img class="math" src="_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/> quantile of the Student distribution with <cite>dof</cite> degrees of freedom. If <cite>t</cite> is greater than this number we can reject the null hypothesis with a <em>p-value</em> <img class="math" src="_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>; meaning, if there were no effect, the probability of observing an effect as large as <cite>t</cite> would be less than <img class="math" src="_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>.</p>
 <figure class="align-default">
 <img alt="../_images/student.png" src="../_images/student.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A frequent misconception consists in interpreting <img class="math" src="../_images/math/70e890167882143be3c8d9371e4b427448601348.png" alt="1- \alpha"/> as the probability that there is indeed an effect: this is not true! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
+<p>A frequent misconception consists in interpreting <img class="math" src="_images/math/70e890167882143be3c8d9371e4b427448601348.png" alt="1- \alpha"/> as the probability that there is indeed an effect: this is not true! Here we rely on a frequentist approach, that does not support Bayesian interpretation. See e.g. <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_inference">https://en.wikipedia.org/wiki/Frequentist_inference</a></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is cumbersome to work with Student distributions, since these always require to specify the degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this the z-transform of <cite>t</cite>. We call the <img class="math" src="../_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
+<p>It is cumbersome to work with Student distributions, since these always require to specify the degrees of freedom. To avoid this, we can transform <cite>t</cite> to another variable <cite>z</cite> such that comparing <cite>t</cite> to the Student distribution with <cite>dof</cite> degrees of freedom is equivalent to comparing <cite>z</cite> to a standard normal distribution. We call this the z-transform of <cite>t</cite>. We call the <img class="math" src="_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/> quantile of the normal distribution the <em>threshold</em>, since we use this value to declare voxels active or not.</p>
 </div>
 </section>
 <section id="multiple-comparisons">
 <span id="id1"></span><h3>Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this heading">#</a></h3>
 <dl class="simple">
-<dt>A well-known issue that arises here is that of multiple comparisons:</dt><dd><p>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect, the number of detections – false detections since there is no effect – will be roughly <img class="math" src="../_images/math/84e4cbe974a8f43192aa21fee564a713f5d1b1df.png" alt="n\_voxels*\alpha"/>. If <img class="math" src="../_images/math/befff685f3ad4a25fe6d0faf8a48e18183d470f6.png" alt="\alpha=.001"/> and <img class="math" src="../_images/math/3b29057dd09798d2669a9a5782924b36b16b6d91.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="../_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</p>
+<dt>A well-known issue that arises here is that of multiple comparisons:</dt><dd><p>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect, the number of detections – false detections since there is no effect – will be roughly <img class="math" src="_images/math/84e4cbe974a8f43192aa21fee564a713f5d1b1df.png" alt="n\_voxels*\alpha"/>. If <img class="math" src="_images/math/befff685f3ad4a25fe6d0faf8a48e18183d470f6.png" alt="\alpha=.001"/> and <img class="math" src="_images/math/3b29057dd09798d2669a9a5782924b36b16b6d91.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</p>
 </dd>
 </dl>
-<p>The first idea that one might think of is to take a much smaller <img class="math" src="../_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>: for instance, if we take, <img class="math" src="../_images/math/36526f645a36a408b0caf685b136abf903267333.png" alt="\alpha=\frac{0.05}{n\_voxels}"/> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance that a truly inactive voxel is declared active. This correction on the significance is known as Bonferroni procedure. It is fairly accurate when the different tests are independent or close to independent, but becomes conservative if not. The problem with this approach is that a truly activate voxel may not surpass the corresponding threshold, which is typically very high because <cite>n_voxels</cite> is large.</p>
+<p>The first idea that one might think of is to take a much smaller <img class="math" src="_images/math/2f5aa019312e1bbc969deab8dca8b00f76025404.png" alt="\alpha"/>: for instance, if we take, <img class="math" src="_images/math/36526f645a36a408b0caf685b136abf903267333.png" alt="\alpha=\frac{0.05}{n\_voxels}"/> then the expected number of false discoveries is only about 0.05, meaning that there is a 5% chance that a truly inactive voxel is declared active. This correction on the significance is known as Bonferroni procedure. It is fairly accurate when the different tests are independent or close to independent, but becomes conservative if not. The problem with this approach is that a truly activate voxel may not surpass the corresponding threshold, which is typically very high because <cite>n_voxels</cite> is large.</p>
 <p>A second possibility is to choose a threshold so that the proportion of true discoveries among the discoveries reaches a certain proportion <cite>0&lt;q&lt;1</cite>; typically <cite>q=0.05</cite>. This means that after statistical inference, one can trust the proportionate <cite>1-q</cite> of the discoveries made. The number <cite>q</cite> is the expected proportion of false discoveries and is known as the <em>false discovery rate</em>. Controlling the false discovery rate is a reasonable compromise in practice. The thresholding that yields this level of control is typically obtained using the so-called <a class="reference external" href="http://www.math.tau.ac.il/~ybenja/MyPapers/benjamini_hochberg1995.pdf">Benjamini-Hochberg</a> procedure.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended to not rely on low values, otherwise the inference is meaningless. Ideally one should use <img class="math" src="../_images/math/36526f645a36a408b0caf685b136abf903267333.png" alt="\alpha=\frac{0.05}{n\_voxels}"/>, or <cite>q=0.05</cite>.</p>
+<p>Note that <cite>q</cite> (as well as <cite>alpha</cite>) are <em>arbitrary</em>. It is recommended to not rely on low values, otherwise the inference is meaningless. Ideally one should use <img class="math" src="_images/math/36526f645a36a408b0caf685b136abf903267333.png" alt="\alpha=\frac{0.05}{n\_voxels}"/>, or <cite>q=0.05</cite>.</p>
 </div>
 <p>Note also that supra-threshold sets of voxels are often gathered into connected components (aka <em>clusters</em>), so that only large connected components are retained and isolated supra-threshold voxels are discarded. The rationale is that isolated voxels are unlikely to represent extended brain areas, and are most likely noise. Hence, discarding them most often improves the quality and the reliability of the results.</p>
 </section>
@@ -828,6 +835,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>

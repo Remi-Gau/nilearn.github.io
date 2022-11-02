@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="0.9.3.dev" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/changes/latest.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
-<meta property="og:description" content="NEW: Fixes: Enhancements: Changes: Private functions nilearn.regions.rena_clustering.weighted_connectivity_graph and nilearn.regions.rena_clustering.nearest_neighbor_grouping have been renamed with..." />
-  
+<meta property="og:description" content="NEW: New classes MultiNiftiLabelsMasker and MultiNiftiMapsMasker create maskers to extract signals from a list of subjects with 4D images using parallelization (#3237 by Yasmin Mzayek).. Fixes: Reg..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../search.html" />
+<meta name="description" content="NEW: New classes MultiNiftiLabelsMasker and MultiNiftiMapsMasker create maskers to extract signals from a list of subjects with 4D images using parallelization (#3237 by Yasmin Mzayek).. Fixes: Reg..." />
+<link rel="search" title="Search" href="../search.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>0.9.3.dev - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -666,9 +673,16 @@
 <h1>0.9.3.dev<a class="headerlink" href="#dev" title="Permalink to this heading">#</a></h1>
 <section id="new">
 <h2>NEW<a class="headerlink" href="#new" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New classes <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> create maskers to extract signals from a list of subjects with 4D images using parallelization (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/3237">#3237</a> by <a class="reference external" href="https://github.com/ymzayek">Yasmin Mzayek</a>).</p></li>
+</ul>
 </section>
 <section id="fixes">
 <h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Regressor names can now be invalid identifiers but will raise an error with <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compute_contrast</span></code></a> if combined to make an invalid expression (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/3374">#3374</a> by <a class="reference external" href="https://github.com/ymzayek">Yasmin Mzayek</a>).</p></li>
+<li><p>Fix <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_connectome</span></code></a> which was raising a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> when <code class="docutils literal notranslate"><span class="pre">vmax</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/3390">#3390</a> by <a class="reference external" href="https://github.com/paulcbogdan">Paul Bogdan</a>).</p></li>
+</ul>
 </section>
 <section id="enhancements">
 <h2>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this heading">#</a></h2>
@@ -741,6 +755,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>

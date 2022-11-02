@@ -2,27 +2,21 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <meta property="og:title" content="Contributing" />
-  
 <meta property="og:type" content="website" />
-  
 <meta property="og:url" content="https://nilearn.github.io/development.html" />
-  
 <meta property="og:site_name" content="Nilearn" />
-  
-<meta property="og:description" content="How to get help?: If you have issues when using Nilearn, or if you have questions on how to use it, please don’t hesitate to reach out! There are currently three ways to interact with the Nilearn t..." />
-  
+<meta property="og:description" content="Code of Conduct: By participating in Nilearn, you agree to abide by the NIPY Code of Conduct How to get help?: If you have issues when using Nilearn, or if you have questions on how to use it, plea..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
-  
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="search.html" /><link rel="next" title="Maintenance" href="maintenance.html" /><link rel="prev" title="Migrating from Nistats" href="nistats_migration.html" />
+<meta name="description" content="Code of Conduct: By participating in Nilearn, you agree to abide by the NIPY Code of Conduct How to get help?: If you have issues when using Nilearn, or if you have questions on how to use it, plea..." />
+<link rel="search" title="Search" href="search.html" /><link rel="next" title="Maintenance" href="maintenance.html" /><link rel="prev" title="Migrating from Nistats" href="nistats_migration.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.09.15"/>
+    <link rel="shortcut icon" href="_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
         <title>Contributing - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=9ec31e2665bf879c1d47d93a8ec4893870ee1e45" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css" />
@@ -42,18 +36,24 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -136,7 +136,11 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
-
+<div class="announcement">
+  <aside class="announcement-content">
+     <p>This is the development documentation of nilearn (0.9.3.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.9.2)</span></a></p> 
+  </aside>
+</div>
 
 <div class="page">
   <header class="mobile-header">
@@ -502,7 +506,9 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -648,7 +654,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+          
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -664,8 +671,12 @@
         <article role="main">
           <section id="contributing">
 <span id="development-process"></span><h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">#</a></h1>
+<section id="code-of-conduct">
+<span id="id1"></span><h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this heading">#</a></h2>
+<p>By participating in Nilearn, you agree to abide by the <a class="reference external" href="https://nipy.org/conduct.html">NIPY Code of Conduct</a></p>
+</section>
 <section id="how-to-get-help">
-<span id="id1"></span><h2>How to get help?<a class="headerlink" href="#how-to-get-help" title="Permalink to this heading">#</a></h2>
+<h2>How to get help?<a class="headerlink" href="#how-to-get-help" title="Permalink to this heading">#</a></h2>
 <p>If you have issues when using Nilearn, or if you have questions on how to use it, please don’t hesitate to reach out!</p>
 <p>There are currently three ways to interact with the Nilearn team: through the <a class="reference external" href="https://neurostars.org/tag/nilearn/">neurostars</a> forum, our <a class="reference external" href="https://github.com/nilearn/nilearn/">github</a> issues, and through our weekly <a class="reference external" href="https://github.com/nilearn/nilearn/issues/2882">office hours</a>, usually <strong>every Friday from 4pm to 5pm UTC</strong>.</p>
 <p>If you have a <em>usage question</em>, that is if you need help troubleshooting scripts using Nilearn, we would appreciate it if you either ask it during office hours or create a topic on <a class="reference external" href="https://neurostars.org/tag/nilearn/">neurostars</a> with the “nilearn” tag.
@@ -701,15 +712,6 @@ community member.
 We do not expect community members to be experts in all changes included in
 <a class="reference external" href="https://github.com/nilearn/nilearn/pulls">pull requests</a>, and we encourage you to concentrate on those code changes that you feel comfortable with.
 As always, more eyes on a code change means that the code is more likely to work in a wide variety of contexts!</p>
-</section>
-<section id="join-the-triage-team">
-<h3>Join the triage team<a class="headerlink" href="#join-the-triage-team" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference internal" href="authors.html#triage"><span class="std std-ref">Triage team</span></a> is composed of community members who have permission on
-<a class="reference external" href="https://github.com/nilearn/nilearn/">github</a> to label and close <a class="reference external" href="https://github.com/nilearn/nilearn/issues">issues</a>.
-Their work is crucial to improve the communication in the project and limit the crowding of the issue tracker.
-The <a class="reference internal" href="maintenance.html#issue-labels"><span class="std std-ref">Labels</span></a> and <a class="reference internal" href="maintenance.html#closing-policy"><span class="std std-ref">Closing policy</span></a> of the project is defined in more details in the <a class="reference internal" href="maintenance.html#maintenance-process"><span class="std std-ref">Maintenance</span></a> page.</p>
-<p>Any community member may become a member of the Nilearn <a class="reference internal" href="authors.html#triage"><span class="std std-ref">Triage team</span></a>.
-If you are interested in joining the <a class="reference internal" href="authors.html#triage"><span class="std std-ref">Triage team</span></a>, please read the <a class="reference internal" href="maintenance.html#maintenance-process"><span class="std std-ref">Maintenance</span></a> page and contact one of the <a class="reference internal" href="authors.html#core-devs"><span class="std std-ref">Core developers</span></a> to express your interest!</p>
 </section>
 <section id="contribute-code">
 <h3>Contribute code<a class="headerlink" href="#contribute-code" title="Permalink to this heading">#</a></h3>
@@ -1222,12 +1224,12 @@ process can be found there : <a class="reference internal" href="maintenance.htm
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
 <li><a class="reference internal" href="#how-to-get-help">How to get help?</a></li>
 <li><a class="reference internal" href="#how-to-help-the-project">How to help the project?</a><ul>
 <li><a class="reference internal" href="#report-bugs-or-discuss-enhancement-ideas">Report bugs or discuss enhancement ideas</a></li>
 <li><a class="reference internal" href="#answer-questions">Answer questions</a></li>
 <li><a class="reference internal" href="#review-pull-requests">Review Pull Requests</a></li>
-<li><a class="reference internal" href="#join-the-triage-team">Join the triage team</a></li>
 <li><a class="reference internal" href="#contribute-code">Contribute code</a></li>
 </ul>
 </li>
@@ -1272,6 +1274,7 @@ process can be found there : <a class="reference internal" href="maintenance.htm
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
