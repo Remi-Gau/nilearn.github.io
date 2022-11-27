@@ -810,6 +810,57 @@ Download succeeded, downloaded to: /home/runner/work/nilearn/nilearn/nilearn_dat
 Already fetched 12 images
 On neurovault.org: 2 images matched query in collection 79
 Scroll images from collection 1257: getting new batch: https://neurovault.org/api/collections/1257/images/?limit=100&amp;offset=0
+Could not get batch from https://neurovault.org/api/collections/1257/images/?limit=100&amp;offset=0
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 449, in _make_request
+    six.raise_from(e, None)
+  File &quot;&lt;string&gt;&quot;, line 3, in raise_from
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/http/client.py&quot;, line 1348, in getresponse
+    response.begin()
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/http/client.py&quot;, line 316, in begin
+    version, status, reason = self._read_status()
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/http/client.py&quot;, line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/socket.py&quot;, line 669, in readinto
+    return self._sock.recv_into(b)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/ssl.py&quot;, line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/ssl.py&quot;, line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/requests/adapters.py&quot;, line 489, in send
+    resp = conn.urlopen(
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 787, in urlopen
+    retries = retries.increment(
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/util/retry.py&quot;, line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/packages/six.py&quot;, line 770, in reraise
+    raise value
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 703, in urlopen
+    httplib_response = self._make_request(
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/urllib3/connectionpool.py&quot;, line 340, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Read timed out. (read timeout=10.0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/nilearn/datasets/neurovault.py&quot;, line 974, in _get_batch
+    resp = session.send(prepped, timeout=timeout)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/requests/sessions.py&quot;, line 701, in send
+    r = adapter.send(request, **kwargs)
+  File &quot;/usr/share/miniconda3/envs/testenv/lib/python3.8/site-packages/requests/adapters.py&quot;, line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Read timed out. (read timeout=10.0)
+Scroll images from collection 1257: getting new batch: https://neurovault.org/api/collections/1257/images/?limit=100&amp;offset=0
 Scroll images from collection 1257: batch size: 100
 Downloading file: https://neurovault.org/media/images/1257/abstract_knowledge_regparam.nii.gz
 Download succeeded, downloaded to: /home/runner/work/nilearn/nilearn/nilearn_data/neurovault/collection_1257/image_17327.nii.gz
@@ -1023,8 +1074,8 @@ filtering, and better cognitive labels would give better maps</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  16.142 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  116 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  48.782 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  62 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-ica-neurovault-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_ica_neurovault.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
