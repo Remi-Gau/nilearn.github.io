@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Decoding and MVPA: predicting from brain images" />
+<meta property="og:title" content="2. Decoding and MVPA: predicting from brain images" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/decoding/index.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Decoding consists in predicting external variables such as behavioral or phenotypic variables from brain image. It can be useful for diagnostic of prognosis, or to probe the information content of ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="An introduction to decoding" href="decoding_intro.html" /><link rel="prev" title="Introduction" href="../introduction.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="2.1. An introduction to decoding" href="decoding_intro.html" /><link rel="prev" title="1. Introduction" href="../introduction.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Decoding and MVPA: predicting from brain images - Nilearn</title>
+        <title>2. Decoding and MVPA: predicting from brain images - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">2. Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,7 +672,7 @@
         </div>
         <article role="main">
           <section id="decoding-and-mvpa-predicting-from-brain-images">
-<span id="decoding"></span><h1>Decoding and MVPA: predicting from brain images<a class="headerlink" href="#decoding-and-mvpa-predicting-from-brain-images" title="Permalink to this heading">#</a></h1>
+<span id="decoding"></span><h1><span class="section-number">2. </span>Decoding and MVPA: predicting from brain images<a class="headerlink" href="#decoding-and-mvpa-predicting-from-brain-images" title="Permalink to this heading">#</a></h1>
 <p>Decoding consists in predicting external variables such as behavioral or
 phenotypic variables from brain image. It can be useful for diagnostic of
 prognosis, or to probe the information content of brain activity images.</p>
@@ -681,95 +683,95 @@ predicting an output value.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="decoding_intro.html">An introduction to decoding</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#loading-and-preparing-the-data">Loading and preparing the data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#the-haxby-2001-experiment">The Haxby 2001 experiment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#loading-the-data-into-nilearn">Loading the data into nilearn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decoding_intro.html">2.1. An introduction to decoding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#loading-and-preparing-the-data">2.1.1. Loading and preparing the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#the-haxby-2001-experiment">2.1.1.1. The Haxby 2001 experiment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#loading-the-data-into-nilearn">2.1.1.2. Loading the data into nilearn</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#performing-a-simple-decoding-analysis">Performing a simple decoding analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#a-few-definitions">A few definitions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#a-first-estimator">A first estimator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#decoding-made-easy">Decoding made easy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#measuring-prediction-performance">Measuring prediction performance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#cross-validation">Cross-validation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#choosing-a-good-cross-validation-strategy">Choosing a good cross-validation strategy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#choice-of-the-prediction-accuracy-measure">Choice of the prediction accuracy measure</a></li>
-<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#prediction-accuracy-at-chance-using-simple-strategies">Prediction accuracy at chance using simple strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#performing-a-simple-decoding-analysis">2.1.2. Performing a simple decoding analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#a-few-definitions">2.1.2.1. A few definitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#a-first-estimator">2.1.2.2. A first estimator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#decoding-made-easy">2.1.2.3. Decoding made easy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#measuring-prediction-performance">2.1.2.4. Measuring prediction performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#cross-validation">2.1.2.4.1. Cross-validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#choosing-a-good-cross-validation-strategy">2.1.2.4.2. Choosing a good cross-validation strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#choice-of-the-prediction-accuracy-measure">2.1.2.4.3. Choice of the prediction accuracy measure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decoding_intro.html#prediction-accuracy-at-chance-using-simple-strategies">2.1.2.4.4. Prediction accuracy at chance using simple strategies</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#visualizing-the-decoder-s-weights">Visualizing the decoder’s weights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#visualizing-the-decoder-s-weights">2.1.2.5. Visualizing the decoder’s weights</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#decoding-without-a-mask-anova-svm">Decoding without a mask: Anova-SVM</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#dimension-reduction-with-feature-selection">Dimension reduction with feature selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#visualizing-the-results">Visualizing the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="decoding_intro.html#decoding-without-a-mask-anova-svm">2.1.3. Decoding without a mask: Anova-SVM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#dimension-reduction-with-feature-selection">2.1.3.1. Dimension reduction with feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html#visualizing-the-results">2.1.3.2. Visualizing the results</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="estimator_choice.html">Choosing the right predictive model for neuroimaging</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#predictions-regression-classification-and-multi-class">Predictions: regression, classification and multi-class</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html#regression">Regression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html#classification-two-classes-or-multi-class">Classification: two classes or multi-class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#predictions-regression-classification-and-multi-class">2.2.1. Predictions: regression, classification and multi-class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html#regression">2.2.1.1. Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html#classification-two-classes-or-multi-class">2.2.1.2. Classification: two classes or multi-class</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#different-linear-models">Different linear models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#setting-estimator-parameters">Setting estimator parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#bagging-several-models">Bagging several models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#different-linear-models">2.2.2. Different linear models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#setting-estimator-parameters">2.2.3. Setting estimator parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#bagging-several-models">2.2.4. Bagging several models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estimator_choice.html#references">2.2.5. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="frem.html">FREM: fast ensembling of regularized models for robust decoding</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="frem.html#frem-pipeline">FREM pipeline</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frem.html#empirical-comparisons">Empirical comparisons</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="frem.html#decoding-performance-increase-on-haxby-dataset">Decoding performance increase on Haxby dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="frem.html#spatial-regularization-of-decoding-maps-on-mixed-gambles-study">Spatial regularization of decoding maps on mixed gambles study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frem.html#frem-pipeline">2.3.1. FREM pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frem.html#empirical-comparisons">2.3.2. Empirical comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="frem.html#decoding-performance-increase-on-haxby-dataset">2.3.2.1. Decoding performance increase on Haxby dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frem.html#spatial-regularization-of-decoding-maps-on-mixed-gambles-study">2.3.2.2. Spatial regularization of decoding maps on mixed gambles study</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="frem.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frem.html#references">2.3.3. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="space_net.html">SpaceNet: decoding with spatial structure for better maps</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="space_net.html#the-spacenet-decoder">The SpaceNet decoder</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space_net.html#related-example">Related example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="space_net.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="space_net.html#the-spacenet-decoder">2.4.1. The SpaceNet decoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space_net.html#related-example">2.4.2. Related example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="space_net.html#references">2.4.3. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="searchlight.html">Searchlight : finding voxels containing information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="searchlight.html#principle-of-the-searchlight">Principle of the Searchlight</a></li>
-<li class="toctree-l2"><a class="reference internal" href="searchlight.html#preparing-the-data">Preparing the data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#masking">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="searchlight.html">2.5. Searchlight : finding voxels containing information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="searchlight.html#principle-of-the-searchlight">2.5.1. Principle of the Searchlight</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchlight.html#preparing-the-data">2.5.2. Preparing the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#masking">2.5.2.1. Masking</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="searchlight.html#setting-up-the-searchlight">Setting up the searchlight</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#classifier">Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#score-function">Score function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#cross-validation">Cross validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#sphere-radius">Sphere radius</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchlight.html#setting-up-the-searchlight">2.5.3. Setting up the searchlight</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#classifier">2.5.3.1. Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#score-function">2.5.3.2. Score function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#cross-validation">2.5.3.3. Cross validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#sphere-radius">2.5.3.4. Sphere radius</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="searchlight.html#visualization">Visualization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#id6">Searchlight</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html#comparing-to-massively-univariate-analysis-f-score-or-spm">Comparing to massively univariate analysis: F_score or SPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchlight.html#visualization">2.5.4. Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#id6">2.5.4.1. Searchlight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html#comparing-to-massively-univariate-analysis-f-score-or-spm">2.5.4.2. Comparing to massively univariate analysis: F_score or SPM</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="searchlight.html#references">References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="searchlight.html#references">2.5.5. References</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="going_further.html">Running scikit-learn functions for more control on the analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="going_further.html#performing-decoding-with-scikit-learn">Performing decoding with scikit-learn</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html#using-scikit-learn-estimators">Using scikit-learn estimators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html#cross-validation-with-scikit-learn">Cross-validation with scikit-learn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html#measuring-the-chance-level">Measuring the chance level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="going_further.html#performing-decoding-with-scikit-learn">2.6.1. Performing decoding with scikit-learn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html#using-scikit-learn-estimators">2.6.1.1. Using scikit-learn estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html#cross-validation-with-scikit-learn">2.6.1.2. Cross-validation with scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html#measuring-the-chance-level">2.6.1.3. Measuring the chance level</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="going_further.html#going-further-with-scikit-learn">Going further with scikit-learn</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html#decoding-without-a-mask-anova-svm-using-scikit-learn">Decoding without a mask: Anova-SVM using scikit-learn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html#using-any-other-model-in-the-pipeline">Using any other model in the pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="going_further.html#going-further-with-scikit-learn">2.6.2. Going further with scikit-learn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html#decoding-without-a-mask-anova-svm-using-scikit-learn">2.6.2.1. Decoding without a mask: Anova-SVM using scikit-learn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html#using-any-other-model-in-the-pipeline">2.6.2.2. Using any other model in the pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="going_further.html#setting-estimator-parameters">Setting estimator parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="going_further.html#setting-estimator-parameters">2.6.3. Setting estimator parameters</a></li>
 </ul>
 </li>
 </ul>
@@ -786,7 +788,7 @@ predicting an output value.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">An introduction to decoding</div>
+                <div class="title"><span class="section-number">2.1. </span>An introduction to decoding</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -797,7 +799,7 @@ predicting an output value.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Introduction</div>
+                <div class="title"><span class="section-number">1. </span>Introduction</div>
                 
               </div>
             </a>

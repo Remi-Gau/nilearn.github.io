@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Choosing the right predictive model for neuroimaging" />
+<meta property="og:title" content="2.2. Choosing the right predictive model for neuroimaging" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/decoding/estimator_choice.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_haxby_multiclass_001.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This page gives a few simple considerations on the choice of an estimator to tackle your decoding application, that is the prediction of external variables such as behavior or clinical traits from ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="FREM: fast ensembling of regularized models for robust decoding" href="frem.html" /><link rel="prev" title="An introduction to decoding" href="decoding_intro.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="2.3. FREM: fast ensembling of regularized models for robust decoding" href="frem.html" /><link rel="prev" title="2.1. An introduction to decoding" href="decoding_intro.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Choosing the right predictive model for neuroimaging - Nilearn</title>
+        <title>2.2. Choosing the right predictive model for neuroimaging - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">2. Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,7 +672,7 @@
         </div>
         <article role="main">
           <section id="choosing-the-right-predictive-model-for-neuroimaging">
-<span id="estimator-choice"></span><h1>Choosing the right predictive model for neuroimaging<a class="headerlink" href="#choosing-the-right-predictive-model-for-neuroimaging" title="Permalink to this heading">#</a></h1>
+<span id="estimator-choice"></span><h1><span class="section-number">2.2. </span>Choosing the right predictive model for neuroimaging<a class="headerlink" href="#choosing-the-right-predictive-model-for-neuroimaging" title="Permalink to this heading">#</a></h1>
 <p>This page gives a few simple considerations on the choice of an estimator to
 tackle your <em>decoding</em> application, that is the prediction of external
 variables such as behavior or clinical traits from brain images. It is
@@ -679,13 +681,13 @@ is well suited to your problem and how to implement it easily with Nilearn.
 This builds on concepts introduced in this <a class="reference internal" href="decoding_intro.html#decoding-intro"><span class="std std-ref">didactic
 introduction to decoding with nilearn</span></a>.</p>
 <section id="predictions-regression-classification-and-multi-class">
-<h2>Predictions: regression, classification and multi-class<a class="headerlink" href="#predictions-regression-classification-and-multi-class" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.1. </span>Predictions: regression, classification and multi-class<a class="headerlink" href="#predictions-regression-classification-and-multi-class" title="Permalink to this heading">#</a></h2>
 <p>As seen in the previous section, high-level objects in Nilearn help you decode
 easily your dataset using a <strong>mask</strong> and/or <strong>feature selection</strong>. You can tune
 the <strong>cross-validation</strong> and <strong>scoring</strong> schemes of your model. Those objects
 come in two kinds, depending on your usecase : <a class="reference internal" href="../glossary.html#term-regression"><span class="xref std std-term">Regression</span></a> or <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">Classification</span></a>.</p>
 <section id="regression">
-<h3>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.1. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-regression"><span class="xref std std-term">regression</span></a> problem is a learning task in which the variable to predict
 –that we often call <strong>y</strong> – is a continuous value, such as an age.
 Encoding models [Naselaris <em>et al.</em><a class="footnote-reference brackets" href="#footcite-naselaris2011" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>] typically call for regressions.
@@ -701,7 +703,7 @@ neuroimaging at a reasonable computational cost.</p></li>
 </div>
 </section>
 <section id="classification-two-classes-or-multi-class">
-<h3>Classification: two classes or multi-class<a class="headerlink" href="#classification-two-classes-or-multi-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.2.1.2. </span>Classification: two classes or multi-class<a class="headerlink" href="#classification-two-classes-or-multi-class" title="Permalink to this heading">#</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a> task consists in predicting a <em>class</em> label for each
 observation. In other words, the variable to predict is categorical.</p>
 <p>Often <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a> is performed between two classes, but it may well be
@@ -753,7 +755,7 @@ understand the classifier’s errors in a multiclass problem.</p>
 </section>
 </section>
 <section id="different-linear-models">
-<h2>Different linear models<a class="headerlink" href="#different-linear-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.2. </span>Different linear models<a class="headerlink" href="#different-linear-models" title="Permalink to this heading">#</a></h2>
 <p>Using Nilearn high-level objects, several estimators are easily available
 to model the relations between your images and the target to predict.
 For <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> let you choose them
@@ -808,7 +810,7 @@ little guarantee on the brain maps.</p>
 <a class="reference external image-reference" href="../auto_examples/02_decoding/plot_haxby_different_estimators.html"><img alt="../_images/sphx_glr_plot_haxby_different_estimators_003.png" src="../_images/sphx_glr_plot_haxby_different_estimators_003.png" style="width: 203.0px; height: 160.29999999999998px;" /></a>
 </section>
 <section id="setting-estimator-parameters">
-<h2>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
 <p>Most estimators have parameters (called “hyper-parameters”) that can be set
 to optimize their performance to a given problem. By default, the Decoder
 objects in Nilearn already try several values to roughly adapt to your problem.</p>
@@ -836,7 +838,7 @@ due to this noise.</p>
 </div>
 </section>
 <section id="bagging-several-models">
-<h2>Bagging several models<a class="headerlink" href="#bagging-several-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.4. </span>Bagging several models<a class="headerlink" href="#bagging-several-models" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator">Bagging</a>
 is a classical machine learning method to create ensemble of models that usually
 generalize to new data better than single model. The easiest way is to average
@@ -863,7 +865,7 @@ is important.</p></li>
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <div class="docutils container" id="id3">
 <aside class="footnote brackets" id="footcite-naselaris2011" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
@@ -884,7 +886,7 @@ is important.</p></li>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">FREM: fast ensembling of regularized models for robust decoding</div>
+                <div class="title"><span class="section-number">2.3. </span>FREM: fast ensembling of regularized models for robust decoding</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -895,7 +897,7 @@ is important.</p></li>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">An introduction to decoding</div>
+                <div class="title"><span class="section-number">2.1. </span>An introduction to decoding</div>
                 
               </div>
             </a>
@@ -931,16 +933,16 @@ is important.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Choosing the right predictive model for neuroimaging</a><ul>
-<li><a class="reference internal" href="#predictions-regression-classification-and-multi-class">Predictions: regression, classification and multi-class</a><ul>
-<li><a class="reference internal" href="#regression">Regression</a></li>
-<li><a class="reference internal" href="#classification-two-classes-or-multi-class">Classification: two classes or multi-class</a></li>
+<li><a class="reference internal" href="#">2.2. Choosing the right predictive model for neuroimaging</a><ul>
+<li><a class="reference internal" href="#predictions-regression-classification-and-multi-class">2.2.1. Predictions: regression, classification and multi-class</a><ul>
+<li><a class="reference internal" href="#regression">2.2.1.1. Regression</a></li>
+<li><a class="reference internal" href="#classification-two-classes-or-multi-class">2.2.1.2. Classification: two classes or multi-class</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#different-linear-models">Different linear models</a></li>
-<li><a class="reference internal" href="#setting-estimator-parameters">Setting estimator parameters</a></li>
-<li><a class="reference internal" href="#bagging-several-models">Bagging several models</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#different-linear-models">2.2.2. Different linear models</a></li>
+<li><a class="reference internal" href="#setting-estimator-parameters">2.2.3. Setting estimator parameters</a></li>
+<li><a class="reference internal" href="#bagging-several-models">2.2.4. Bagging several models</a></li>
+<li><a class="reference internal" href="#references">2.2.5. References</a></li>
 </ul>
 </li>
 </ul>

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Group-sparse covariance estimation" />
+<meta property="og:title" content="3.2.3.1. Group-sparse covariance estimation" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/developers/group_sparse_covariance.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This page gives technical information on the group_sparse_covariance function and related. This is mainly useful for developers or people that want to know more about implementation. Description: g..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="Extracting functional brain networks: ICA and related" href="../connectivity/resting_state_networks.html" /><link rel="prev" title="Connectome extraction: inverse covariance for direct connections" href="../connectivity/connectome_extraction.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="3.3. Extracting functional brain networks: ICA and related" href="../connectivity/resting_state_networks.html" /><link rel="prev" title="3.2. Connectome extraction: inverse covariance for direct connections" href="../connectivity/connectome_extraction.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Group-sparse covariance estimation - Nilearn</title>
+        <title>3.2.3.1. Group-sparse covariance estimation - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,13 +672,13 @@
         </div>
         <article role="main">
           <section id="group-sparse-covariance-estimation">
-<h1>Group-sparse covariance estimation<a class="headerlink" href="#group-sparse-covariance-estimation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3.2.3.1. </span>Group-sparse covariance estimation<a class="headerlink" href="#group-sparse-covariance-estimation" title="Permalink to this heading">#</a></h1>
 <p>This page gives technical information on the
 <a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a> function and related. This is mainly
 useful for developers or people that want to know more about
 implementation.</p>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a>, and <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovariance.html#nilearn.connectome.GroupSparseCovariance" title="nilearn.connectome.GroupSparseCovariance"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupSparseCovariance</span></code></a> are
 two different interfaces to an implementation of the algorithm described
 in this article:</p>
@@ -705,7 +707,7 @@ additions were implemented:</p>
 choices and the history of the development is also given.</p>
 </section>
 <section id="numerical-stability">
-<h2>Numerical stability<a class="headerlink" href="#numerical-stability" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.2. </span>Numerical stability<a class="headerlink" href="#numerical-stability" title="Permalink to this heading">#</a></h2>
 <p>The algorithm proved to be rather numerically stable for a wide range
 of inputs. It turned out that the condition numbers of the input
 matrices do not have any significant effect on numerical stability.
@@ -738,7 +740,7 @@ of numerical consistency checks (mainly that matrices are s.p.d.) that
 can be useful to track down numerical instability problems.</p>
 </section>
 <section id="execution-time">
-<h2>Execution time<a class="headerlink" href="#execution-time" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.3. </span>Execution time<a class="headerlink" href="#execution-time" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="http://pythonhosted.org/line_profiler/">line profiler</a> from
 Robert Kern was used to locate execution time bottlenecks. Its
 overhead proved not to be negligible (around 50% more execution time
@@ -782,7 +784,7 @@ process covariance matrices only, that are quite small compared to the
 signals from which they are generated.</p>
 </section>
 <section id="synthetic-dataset">
-<h2>Synthetic dataset<a class="headerlink" href="#synthetic-dataset" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.4. </span>Synthetic dataset<a class="headerlink" href="#synthetic-dataset" title="Permalink to this heading">#</a></h2>
 <p>For testing purposes, a function for synthesis of signals based on
 sparse precision matrices has been written:
 <cite>nilearn._utils.data_gen.generate_group_sparse_gaussian_graphs</cite>.
@@ -827,12 +829,12 @@ perfectly white spectrum (any two samples are decorrelated), and there
 is no global additive noise (no confounds whatsoever).</p>
 </section>
 <section id="stopping-criteria">
-<h2>Stopping criteria<a class="headerlink" href="#stopping-criteria" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.5. </span>Stopping criteria<a class="headerlink" href="#stopping-criteria" title="Permalink to this heading">#</a></h2>
 <p>As with any iterative algorithm, iteration should be stopped at some
 point, which is still mostly an open problem. Several heuristic
 techniques have been tested and implemented.</p>
 <section id="maximum-number-of-iterations">
-<h3>Maximum number of iterations<a class="headerlink" href="#maximum-number-of-iterations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.5.1. </span>Maximum number of iterations<a class="headerlink" href="#maximum-number-of-iterations" title="Permalink to this heading">#</a></h3>
 <p>The simplest way of stopping optimization is to always execute a fixed
 number of iterations. This is simple but most of the time gives slow
 or bad results. The convergence rate highly depends on the number of
@@ -844,7 +846,7 @@ the other hand, if the requested iteration number is too large, a lot
 of time is wasted for almost no gain.</p>
 </section>
 <section id="duality-gap">
-<h3>Duality gap<a class="headerlink" href="#duality-gap" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.5.2. </span>Duality gap<a class="headerlink" href="#duality-gap" title="Permalink to this heading">#</a></h3>
 <p>A better way to stop iteration is to use an upper bound on the duality
 gap value, since the problem is convex. This is performed in
 <cite>group_sparse_covariance_costs</cite>. The article by Honorio &amp;
@@ -877,7 +879,7 @@ as an absolute uncertainty on an objective whose value highly depends
 on input data.</p>
 </section>
 <section id="variation-of-norm-of-estimate">
-<h3>Variation of norm of estimate<a class="headerlink" href="#variation-of-norm-of-estimate" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.5.3. </span>Variation of norm of estimate<a class="headerlink" href="#variation-of-norm-of-estimate" title="Permalink to this heading">#</a></h3>
 <p>Depending on the application at hand, giving an uncertainty on the
 precision matrices instead of the objective can be useful. This is
 partly achieved by computing the change of the precision estimate
@@ -899,7 +901,7 @@ depend significantly on the input data. Matrix coefficients can be
 requested to change less than e.g. 0.1 for any size of the input.</p>
 </section>
 <section id="initial-estimate-value">
-<h3>Initial estimate value<a class="headerlink" href="#initial-estimate-value" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.5.4. </span>Initial estimate value<a class="headerlink" href="#initial-estimate-value" title="Permalink to this heading">#</a></h3>
 <p>One of the possible way to reduce the computation time of an iterating
 algorithm is to start with a initial guess that is as close as
 possible to the optimum. In the present case, two initializations were
@@ -913,7 +915,7 @@ in practice.</p>
 in the original paper, has been implemented.</p>
 </section>
 <section id="modifying-the-stopping-criterion">
-<h3>Modifying the stopping criterion<a class="headerlink" href="#modifying-the-stopping-criterion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.5.5. </span>Modifying the stopping criterion<a class="headerlink" href="#modifying-the-stopping-criterion" title="Permalink to this heading">#</a></h3>
 <p>Modifying the stopping criterion is more complicated than specifying
 the initial estimate, since it requires to gain access to the
 algorithm internals. This is achieved by a technique close to
@@ -928,7 +930,7 @@ cross-validation object.</p>
 </section>
 </section>
 <section id="cross-validation-algorithm">
-<h2>Cross-validation algorithm<a class="headerlink" href="#cross-validation-algorithm" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2.3.1.6. </span>Cross-validation algorithm<a class="headerlink" href="#cross-validation-algorithm" title="Permalink to this heading">#</a></h2>
 <p>An ad-hoc cross-validation scheme has been implemented in the
 <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupSparseCovarianceCV</span></code></a> class. This implementation is
 significantly faster than the “naive” cross-validation scheme.</p>
@@ -938,7 +940,7 @@ fitting the precision matrices for the selected parameter. The latter
 is identical to what has been described in the previous parts, we thus
 focus only on the former.</p>
 <section id="principle-of-cross-validation">
-<h3>Principle of cross-validation<a class="headerlink" href="#principle-of-cross-validation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.6.1. </span>Principle of cross-validation<a class="headerlink" href="#principle-of-cross-validation" title="Permalink to this heading">#</a></h3>
 <p>Cross-validation consists in splitting the input samples into two
 different sets: train and test. For several values of the
 regularization parameter, a model is fit on the train set, and the
@@ -954,7 +956,7 @@ is used, that is very close to that used in the graph lasso
 implementation in Scikit-Learn.</p>
 </section>
 <section id="bounds-on-alpha">
-<h3>Bounds on alpha<a class="headerlink" href="#bounds-on-alpha" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.6.2. </span>Bounds on alpha<a class="headerlink" href="#bounds-on-alpha" title="Permalink to this heading">#</a></h3>
 <p>The simplest and fastest thing is to get bounds for the value of
 alpha. Above a critical value, the optimal precision matrices are
 fully sparse (i.e. diagonal). This critical value depends on the input
@@ -975,7 +977,7 @@ coefficients <em>that can be non-zero</em> are non-zero in the optimal
 precision matrices.</p>
 </section>
 <section id="iterative-grid-search">
-<h3>Iterative grid search<a class="headerlink" href="#iterative-grid-search" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.6.3. </span>Iterative grid search<a class="headerlink" href="#iterative-grid-search" title="Permalink to this heading">#</a></h3>
 <p>Getting the regularization parameter optimal value is equivalent to
 finding the location of the maximum on the curve log-likelihood vs
 regularization parameter. In practice this curve is rather smooth,
@@ -990,7 +992,7 @@ is very close to what is done in
 <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.covariance.GraphicalLassoCV</span></code></a>.</p>
 </section>
 <section id="warm-restart">
-<h3>Warm restart<a class="headerlink" href="#warm-restart" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.6.4. </span>Warm restart<a class="headerlink" href="#warm-restart" title="Permalink to this heading">#</a></h3>
 <p>During each step of the grid search, a set of regularization
 parameters has to been tested. The straightforward strategy consists of
 running independently each fit, each optimization being started with
@@ -1029,7 +1031,7 @@ memory) will probably be available in future years, these schemes
 could be removed easily.</p>
 </section>
 <section id="stopping-criterion">
-<h3>Stopping criterion<a class="headerlink" href="#stopping-criterion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.2.3.1.6.5. </span>Stopping criterion<a class="headerlink" href="#stopping-criterion" title="Permalink to this heading">#</a></h3>
 <p>Finding the regularization parameter optimal value is equivalent to
 finding a maximum. But since only the location of the maximum (not its
 value) is of interest, any curve that peaks at the same location than
@@ -1072,7 +1074,7 @@ test for the validity of the heuristic.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Extracting functional brain networks: ICA and related</div>
+                <div class="title"><span class="section-number">3.3. </span>Extracting functional brain networks: ICA and related</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -1083,7 +1085,7 @@ test for the validity of the heuristic.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Connectome extraction: inverse covariance for direct connections</div>
+                <div class="title"><span class="section-number">3.2. </span>Connectome extraction: inverse covariance for direct connections</div>
                 
               </div>
             </a>
@@ -1119,25 +1121,25 @@ test for the validity of the heuristic.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Group-sparse covariance estimation</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#numerical-stability">Numerical stability</a></li>
-<li><a class="reference internal" href="#execution-time">Execution time</a></li>
-<li><a class="reference internal" href="#synthetic-dataset">Synthetic dataset</a></li>
-<li><a class="reference internal" href="#stopping-criteria">Stopping criteria</a><ul>
-<li><a class="reference internal" href="#maximum-number-of-iterations">Maximum number of iterations</a></li>
-<li><a class="reference internal" href="#duality-gap">Duality gap</a></li>
-<li><a class="reference internal" href="#variation-of-norm-of-estimate">Variation of norm of estimate</a></li>
-<li><a class="reference internal" href="#initial-estimate-value">Initial estimate value</a></li>
-<li><a class="reference internal" href="#modifying-the-stopping-criterion">Modifying the stopping criterion</a></li>
+<li><a class="reference internal" href="#">3.2.3.1. Group-sparse covariance estimation</a><ul>
+<li><a class="reference internal" href="#description">3.2.3.1.1. Description</a></li>
+<li><a class="reference internal" href="#numerical-stability">3.2.3.1.2. Numerical stability</a></li>
+<li><a class="reference internal" href="#execution-time">3.2.3.1.3. Execution time</a></li>
+<li><a class="reference internal" href="#synthetic-dataset">3.2.3.1.4. Synthetic dataset</a></li>
+<li><a class="reference internal" href="#stopping-criteria">3.2.3.1.5. Stopping criteria</a><ul>
+<li><a class="reference internal" href="#maximum-number-of-iterations">3.2.3.1.5.1. Maximum number of iterations</a></li>
+<li><a class="reference internal" href="#duality-gap">3.2.3.1.5.2. Duality gap</a></li>
+<li><a class="reference internal" href="#variation-of-norm-of-estimate">3.2.3.1.5.3. Variation of norm of estimate</a></li>
+<li><a class="reference internal" href="#initial-estimate-value">3.2.3.1.5.4. Initial estimate value</a></li>
+<li><a class="reference internal" href="#modifying-the-stopping-criterion">3.2.3.1.5.5. Modifying the stopping criterion</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cross-validation-algorithm">Cross-validation algorithm</a><ul>
-<li><a class="reference internal" href="#principle-of-cross-validation">Principle of cross-validation</a></li>
-<li><a class="reference internal" href="#bounds-on-alpha">Bounds on alpha</a></li>
-<li><a class="reference internal" href="#iterative-grid-search">Iterative grid search</a></li>
-<li><a class="reference internal" href="#warm-restart">Warm restart</a></li>
-<li><a class="reference internal" href="#stopping-criterion">Stopping criterion</a></li>
+<li><a class="reference internal" href="#cross-validation-algorithm">3.2.3.1.6. Cross-validation algorithm</a><ul>
+<li><a class="reference internal" href="#principle-of-cross-validation">3.2.3.1.6.1. Principle of cross-validation</a></li>
+<li><a class="reference internal" href="#bounds-on-alpha">3.2.3.1.6.2. Bounds on alpha</a></li>
+<li><a class="reference internal" href="#iterative-grid-search">3.2.3.1.6.3. Iterative grid search</a></li>
+<li><a class="reference internal" href="#warm-restart">3.2.3.1.6.4. Warm restart</a></li>
+<li><a class="reference internal" href="#stopping-criterion">3.2.3.1.6.5. Stopping criterion</a></li>
 </ul>
 </li>
 </ul>

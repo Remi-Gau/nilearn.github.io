@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="From neuroimaging volumes to data matrices: the masker objects" />
+<meta property="og:title" content="6.3. From neuroimaging volumes to data matrices: the masker objects" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/manipulating_images/masker_objects.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/manipulating_images/images/niimgs.jpg" />
 <meta property="og:image:alt" content="niimgs" />
 <meta name="description" content="This chapter introduces the maskers: objects that go from neuroimaging volumes, on the disk or in memory, to data matrices, eg of time series. The concept of “masker” objects: In any analysis, the ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="Advanced usage: manual pipelines and scaling up" href="../building_blocks/index.html" /><link rel="prev" title="Manipulating images: resampling, smoothing, masking, ROIs…" href="manipulating_images.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="7. Advanced usage: manual pipelines and scaling up" href="../building_blocks/index.html" /><link rel="prev" title="6.2. Manipulating images: resampling, smoothing, masking, ROIs…" href="manipulating_images.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>From neuroimaging volumes to data matrices: the masker objects - Nilearn</title>
+        <title>6.3. From neuroimaging volumes to data matrices: the masker objects - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">6. Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,12 +672,12 @@
         </div>
         <article role="main">
           <section id="from-neuroimaging-volumes-to-data-matrices-the-masker-objects">
-<span id="masker-objects"></span><h1>From neuroimaging volumes to data matrices: the masker objects<a class="headerlink" href="#from-neuroimaging-volumes-to-data-matrices-the-masker-objects" title="Permalink to this heading">#</a></h1>
+<span id="masker-objects"></span><h1><span class="section-number">6.3. </span>From neuroimaging volumes to data matrices: the masker objects<a class="headerlink" href="#from-neuroimaging-volumes-to-data-matrices-the-masker-objects" title="Permalink to this heading">#</a></h1>
 <p>This chapter introduces the maskers: objects that go from
 neuroimaging volumes, on the disk or in memory, to data matrices, eg of
 time series.</p>
 <section id="the-concept-of-masker-objects">
-<h2>The concept of “masker” objects<a class="headerlink" href="#the-concept-of-masker-objects" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3.1. </span>The concept of “masker” objects<a class="headerlink" href="#the-concept-of-masker-objects" title="Permalink to this heading">#</a></h2>
 <p>In any analysis, the first step is to load the data.
 It is often convenient to apply some basic data
 transformations and to turn the data in a 2D (samples x features) matrix,
@@ -717,7 +719,7 @@ data themselves (e.g., extracting time series from images).</p>
 </aside>
 </section>
 <section id="niftimasker-applying-a-mask-to-load-time-series">
-<span id="nifti-masker"></span><h2><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>: applying a mask to load time-series<a class="headerlink" href="#niftimasker-applying-a-mask-to-load-time-series" title="Permalink to this heading">#</a></h2>
+<span id="nifti-masker"></span><h2><span class="section-number">6.3.2. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>: applying a mask to load time-series<a class="headerlink" href="#niftimasker-applying-a-mask-to-load-time-series" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> is a powerful tool to load images and
 extract voxel signals in the area defined by the mask.
 It applies some basic preprocessing
@@ -731,7 +733,7 @@ transformer so that you can directly plug it into a <a class="reference external
 pipeline</a>.</p>
 </aside>
 <section id="custom-data-loading-loading-only-the-first-100-time-points">
-<h3>Custom data loading: loading only the first 100 time points<a class="headerlink" href="#custom-data-loading-loading-only-the-first-100-time-points" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.2.1. </span>Custom data loading: loading only the first 100 time points<a class="headerlink" href="#custom-data-loading-loading-only-the-first-100-time-points" title="Permalink to this heading">#</a></h3>
 <p>Suppose we want to restrict a dataset to the first 100 frames. Below, we load
 a movie-watching dataset with <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_development_fmri()</span></code></a>, restrict it to 100 frames and
 build a new niimg object that we can give to the masker. Although
@@ -749,7 +751,7 @@ slice and create a <a class="reference internal" href="input_output.html#niimg">
 </div>
 </section>
 <section id="controlling-how-the-mask-is-computed-from-the-data">
-<h3>Controlling how the mask is computed from the data<a class="headerlink" href="#controlling-how-the-mask-is-computed-from-the-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.2.2. </span>Controlling how the mask is computed from the data<a class="headerlink" href="#controlling-how-the-mask-is-computed-from-the-data" title="Permalink to this heading">#</a></h3>
 <p>In this section, we show how the masker object can compute a mask
 automatically for subsequent statistical analysis.
 On some datasets, the default algorithm may however perform poorly.
@@ -764,7 +766,7 @@ It is also related to this example:
 <a class="reference internal" href="../auto_examples/06_manipulating_images/plot_nifti_simple.html"><span class="doc">plot_nifti_simple.py</span></a>.</p>
 </div>
 <section id="visualizing-the-computed-mask">
-<h4>Visualizing the computed mask<a class="headerlink" href="#visualizing-the-computed-mask" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">6.3.2.2.1. </span>Visualizing the computed mask<a class="headerlink" href="#visualizing-the-computed-mask" title="Permalink to this heading">#</a></h4>
 <p>If a mask is not specified as an argument, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> will try to
 compute one from the provided neuroimaging data.
 It is <em>very important</em> to verify the quality of the generated mask by visualization.
@@ -804,7 +806,7 @@ or saved as a portable HTML file <cite>report.save_as_html(output_filepath)</cit
 </figure>
 </section>
 <section id="different-masking-strategies">
-<h4>Different masking strategies<a class="headerlink" href="#different-masking-strategies" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">6.3.2.2.2. </span>Different masking strategies<a class="headerlink" href="#different-masking-strategies" title="Permalink to this heading">#</a></h4>
 <p>The <cite>mask_strategy</cite> argument controls how the mask is computed:</p>
 <ul class="simple">
 <li><p><cite>background</cite>: detects a continuous background</p></li>
@@ -815,7 +817,7 @@ or saved as a portable HTML file <cite>report.save_as_html(output_filepath)</cit
 </ul>
 </section>
 <section id="extra-mask-parameters-opening-cutoff">
-<h4>Extra mask parameters: opening, cutoff…<a class="headerlink" href="#extra-mask-parameters-opening-cutoff" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">6.3.2.2.3. </span>Extra mask parameters: opening, cutoff…<a class="headerlink" href="#extra-mask-parameters-opening-cutoff" title="Permalink to this heading">#</a></h4>
 <p>The underlying function is <a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a>
 called using the <cite>mask_args</cite> argument of the <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>.
 Controlling these arguments set the fine aspects of the mask. See the
@@ -826,7 +828,7 @@ functions documentation, or <a class="reference internal" href="../auto_examples
 </section>
 </section>
 <section id="common-data-preparation-steps-smoothing-filtering-resampling">
-<span id="masker-preprocessing-steps"></span><h3>Common data preparation steps: smoothing, filtering, resampling<a class="headerlink" href="#common-data-preparation-steps-smoothing-filtering-resampling" title="Permalink to this heading">#</a></h3>
+<span id="masker-preprocessing-steps"></span><h3><span class="section-number">6.3.2.3. </span>Common data preparation steps: smoothing, filtering, resampling<a class="headerlink" href="#common-data-preparation-steps-smoothing-filtering-resampling" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> comes with many parameters that enable data
 preparation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sklearn</span><span class="p">;</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">set_config</span><span class="p">(</span><span class="n">print_changed_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -860,7 +862,7 @@ accessed in nilearn such as in
 <a class="reference internal" href="manipulating_images.html#preprocessing-functions"><span class="std std-ref">corresponding functions</span></a>.</p>
 </div>
 <section id="smoothing">
-<h4>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">6.3.2.3.1. </span>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this heading">#</a></h4>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> can apply Gaussian spatial smoothing to the
 neuroimaging data, useful to fight noise or for inter-individual
 differences in neuroanatomy. It is achieved by specifying the
@@ -876,7 +878,7 @@ by scaling the given widths appropriately.</p>
 </div>
 </section>
 <section id="temporal-filtering-and-confound-removal">
-<span id="temporal-filtering"></span><h4>Temporal Filtering and confound removal<a class="headerlink" href="#temporal-filtering-and-confound-removal" title="Permalink to this heading">#</a></h4>
+<span id="temporal-filtering"></span><h4><span class="section-number">6.3.2.3.2. </span>Temporal Filtering and confound removal<a class="headerlink" href="#temporal-filtering-and-confound-removal" title="Permalink to this heading">#</a></h4>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> can also improve aspects of temporal data
 properties, before conversion to voxel signals.</p>
 <ul class="simple">
@@ -928,7 +930,7 @@ does it have a big impact on the result?</p>
 </div>
 </section>
 <section id="resampling-resizing-and-changing-resolutions-of-images">
-<h4>Resampling: resizing and changing resolutions of images<a class="headerlink" href="#resampling-resizing-and-changing-resolutions-of-images" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">6.3.2.3.3. </span>Resampling: resizing and changing resolutions of images<a class="headerlink" href="#resampling-resizing-and-changing-resolutions-of-images" title="Permalink to this heading">#</a></h4>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> and many similar classes enable resampling
 (recasting of images into different resolutions and transformations of
 brain voxel data). Two parameters control resampling:</p>
@@ -949,7 +951,7 @@ is explained in details in <a class="reference internal" href="manipulating_imag
 </section>
 </section>
 <section id="inverse-transform-unmasking-data">
-<span id="unmasking-step"></span><h3>Inverse transform: unmasking data<a class="headerlink" href="#inverse-transform-unmasking-data" title="Permalink to this heading">#</a></h3>
+<span id="unmasking-step"></span><h3><span class="section-number">6.3.2.4. </span>Inverse transform: unmasking data<a class="headerlink" href="#inverse-transform-unmasking-data" title="Permalink to this heading">#</a></h3>
 <p>Once voxel signals have been processed, the result can be visualized as
 images after unmasking (masked-reduced data transformed back into
 the original whole-brain space). This step is present in many
@@ -986,12 +988,12 @@ while inverse-transforming a 1D array produces a 3D (X x Y x Z) image.</p>
 </section>
 </section>
 <section id="extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker">
-<span id="region"></span><h2>Extraction of signals from regions: <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker" title="Permalink to this heading">#</a></h2>
+<span id="region"></span><h2><span class="section-number">6.3.3. </span>Extraction of signals from regions: <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker" title="Permalink to this heading">#</a></h2>
 <p>The purpose of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> is to
 compute signals from regions containing many voxels. They make it easy to get
 these signals once you have an atlas or a parcellation into brain regions.</p>
 <section id="regions-definition">
-<h3>Regions definition<a class="headerlink" href="#regions-definition" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.3.1. </span>Regions definition<a class="headerlink" href="#regions-definition" title="Permalink to this heading">#</a></h3>
 <p>Nilearn understands two different ways of defining regions, which are called
 labels and maps, handled by <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>, respectively.</p>
@@ -1022,7 +1024,7 @@ whole-brain voxel data into weighted region-wise data.</p></li>
 </div>
 </section>
 <section id="niftilabelsmasker-usage">
-<h3><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> Usage<a class="headerlink" href="#niftilabelsmasker-usage" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.3.2. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> Usage<a class="headerlink" href="#niftilabelsmasker-usage" title="Permalink to this heading">#</a></h3>
 <p>Usage of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> is similar to that of
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>. The main difference is that it requires a labels image
 instead of a set of maps as input.</p>
@@ -1042,7 +1044,7 @@ to change the background value with the <cite>background_label</cite> keyword.</
 </aside>
 </section>
 <section id="niftimapsmasker-usage">
-<h3><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> Usage<a class="headerlink" href="#niftimapsmasker-usage" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.3.3. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> Usage<a class="headerlink" href="#niftimapsmasker-usage" title="Permalink to this heading">#</a></h3>
 <p>This atlas defines its regions using maps. The path to the corresponding
 file is given in the <cite>maps_img</cite> argument.</p>
 <p>One important thing that happens transparently during the execution of
@@ -1062,7 +1064,7 @@ possible option.</p>
 </section>
 </section>
 <section id="extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker">
-<h2>Extraction of signals from regions for multiple subjects: <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3.4. </span>Extraction of signals from regions for multiple subjects: <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker" title="Permalink to this heading">#</a></h2>
 <p>The purpose of <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> and
 <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> is to extend the capabilities of
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>
@@ -1073,7 +1075,7 @@ While <a class="reference internal" href="../modules/generated/nilearn.maskers.N
 <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> expect 5D
 inputs (list of sequences of brain volumes).</p>
 <section id="multiniftimasker-usage">
-<h3><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> Usage<a class="headerlink" href="#multiniftimasker-usage" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.4.1. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> Usage<a class="headerlink" href="#multiniftimasker-usage" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> extracts voxel signals for each subject in the areas defined by the
 masks.</p>
 <aside class="topic">
@@ -1085,7 +1087,7 @@ masks.</p>
 </aside>
 </section>
 <section id="multiniftilabelsmasker-usage">
-<h3><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> Usage<a class="headerlink" href="#multiniftilabelsmasker-usage" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.4.2. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> Usage<a class="headerlink" href="#multiniftilabelsmasker-usage" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> extracts signals from regions defined by labels
 for each subject.</p>
 <aside class="topic">
@@ -1096,7 +1098,7 @@ for each subject.</p>
 </aside>
 </section>
 <section id="multiniftimapsmasker-usage">
-<h3><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> Usage<a class="headerlink" href="#multiniftimapsmasker-usage" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.4.3. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> Usage<a class="headerlink" href="#multiniftimapsmasker-usage" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> extracts signals regions defined by maps
 for each subject.</p>
 <aside class="topic">
@@ -1108,7 +1110,7 @@ for each subject.</p>
 </section>
 </section>
 <section id="extraction-of-signals-from-seeds-niftispheresmasker">
-<h2>Extraction of signals from seeds: <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-seeds-niftispheresmasker" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3.5. </span>Extraction of signals from seeds: <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-seeds-niftispheresmasker" title="Permalink to this heading">#</a></h2>
 <p>The purpose of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a> is to compute signals from
 seeds containing voxels in spheres. It makes it easy to get these signals once
 you have a list of coordinates.
@@ -1145,7 +1147,7 @@ seed position is used.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Advanced usage: manual pipelines and scaling up</div>
+                <div class="title"><span class="section-number">7. </span>Advanced usage: manual pipelines and scaling up</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -1156,7 +1158,7 @@ seed position is used.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Manipulating images: resampling, smoothing, masking, ROIs…</div>
+                <div class="title"><span class="section-number">6.2. </span>Manipulating images: resampling, smoothing, masking, ROIs…</div>
                 
               </div>
             </a>
@@ -1192,38 +1194,38 @@ seed position is used.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">From neuroimaging volumes to data matrices: the masker objects</a><ul>
-<li><a class="reference internal" href="#the-concept-of-masker-objects">The concept of “masker” objects</a></li>
-<li><a class="reference internal" href="#niftimasker-applying-a-mask-to-load-time-series"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code>: applying a mask to load time-series</a><ul>
-<li><a class="reference internal" href="#custom-data-loading-loading-only-the-first-100-time-points">Custom data loading: loading only the first 100 time points</a></li>
-<li><a class="reference internal" href="#controlling-how-the-mask-is-computed-from-the-data">Controlling how the mask is computed from the data</a><ul>
-<li><a class="reference internal" href="#visualizing-the-computed-mask">Visualizing the computed mask</a></li>
-<li><a class="reference internal" href="#different-masking-strategies">Different masking strategies</a></li>
-<li><a class="reference internal" href="#extra-mask-parameters-opening-cutoff">Extra mask parameters: opening, cutoff…</a></li>
+<li><a class="reference internal" href="#">6.3. From neuroimaging volumes to data matrices: the masker objects</a><ul>
+<li><a class="reference internal" href="#the-concept-of-masker-objects">6.3.1. The concept of “masker” objects</a></li>
+<li><a class="reference internal" href="#niftimasker-applying-a-mask-to-load-time-series">6.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code>: applying a mask to load time-series</a><ul>
+<li><a class="reference internal" href="#custom-data-loading-loading-only-the-first-100-time-points">6.3.2.1. Custom data loading: loading only the first 100 time points</a></li>
+<li><a class="reference internal" href="#controlling-how-the-mask-is-computed-from-the-data">6.3.2.2. Controlling how the mask is computed from the data</a><ul>
+<li><a class="reference internal" href="#visualizing-the-computed-mask">6.3.2.2.1. Visualizing the computed mask</a></li>
+<li><a class="reference internal" href="#different-masking-strategies">6.3.2.2.2. Different masking strategies</a></li>
+<li><a class="reference internal" href="#extra-mask-parameters-opening-cutoff">6.3.2.2.3. Extra mask parameters: opening, cutoff…</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#common-data-preparation-steps-smoothing-filtering-resampling">Common data preparation steps: smoothing, filtering, resampling</a><ul>
-<li><a class="reference internal" href="#smoothing">Smoothing</a></li>
-<li><a class="reference internal" href="#temporal-filtering-and-confound-removal">Temporal Filtering and confound removal</a></li>
-<li><a class="reference internal" href="#resampling-resizing-and-changing-resolutions-of-images">Resampling: resizing and changing resolutions of images</a></li>
+<li><a class="reference internal" href="#common-data-preparation-steps-smoothing-filtering-resampling">6.3.2.3. Common data preparation steps: smoothing, filtering, resampling</a><ul>
+<li><a class="reference internal" href="#smoothing">6.3.2.3.1. Smoothing</a></li>
+<li><a class="reference internal" href="#temporal-filtering-and-confound-removal">6.3.2.3.2. Temporal Filtering and confound removal</a></li>
+<li><a class="reference internal" href="#resampling-resizing-and-changing-resolutions-of-images">6.3.2.3.3. Resampling: resizing and changing resolutions of images</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#inverse-transform-unmasking-data">Inverse transform: unmasking data</a></li>
+<li><a class="reference internal" href="#inverse-transform-unmasking-data">6.3.2.4. Inverse transform: unmasking data</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker">Extraction of signals from regions: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><ul>
-<li><a class="reference internal" href="#regions-definition">Regions definition</a></li>
-<li><a class="reference internal" href="#niftilabelsmasker-usage"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code> Usage</a></li>
-<li><a class="reference internal" href="#niftimapsmasker-usage"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code> Usage</a></li>
+<li><a class="reference internal" href="#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker">6.3.3. Extraction of signals from regions: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><ul>
+<li><a class="reference internal" href="#regions-definition">6.3.3.1. Regions definition</a></li>
+<li><a class="reference internal" href="#niftilabelsmasker-usage">6.3.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code> Usage</a></li>
+<li><a class="reference internal" href="#niftimapsmasker-usage">6.3.3.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code> Usage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker">Extraction of signals from regions for multiple subjects: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><ul>
-<li><a class="reference internal" href="#multiniftimasker-usage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code> Usage</a></li>
-<li><a class="reference internal" href="#multiniftilabelsmasker-usage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code> Usage</a></li>
-<li><a class="reference internal" href="#multiniftimapsmasker-usage"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code> Usage</a></li>
+<li><a class="reference internal" href="#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker">6.3.4. Extraction of signals from regions for multiple subjects: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><ul>
+<li><a class="reference internal" href="#multiniftimasker-usage">6.3.4.1. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code> Usage</a></li>
+<li><a class="reference internal" href="#multiniftilabelsmasker-usage">6.3.4.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code> Usage</a></li>
+<li><a class="reference internal" href="#multiniftimapsmasker-usage">6.3.4.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code> Usage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extraction-of-signals-from-seeds-niftispheresmasker">Extraction of signals from seeds: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a></li>
+<li><a class="reference internal" href="#extraction-of-signals-from-seeds-niftispheresmasker">6.3.5. Extraction of signals from seeds: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a></li>
 </ul>
 </li>
 </ul>

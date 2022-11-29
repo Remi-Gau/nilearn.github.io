@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Second level models" />
+<meta property="og:title" content="5.3. Second level models" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/glm/second_level_model.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Page summary: Second level models in Nilearn are used to perform group-level analyses on fMRI data. Once individual subjects have been processed in a common space (e.g. MNI, Talairach, or subject a..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="Manipulation brain volumes with nilearn" href="../manipulating_images/index.html" /><link rel="prev" title="First level models" href="first_level_model.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="6. Manipulation brain volumes with nilearn" href="../manipulating_images/index.html" /><link rel="prev" title="5.2. First level models" href="first_level_model.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Second level models - Nilearn</title>
+        <title>5.3. Second level models - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_level_model.html">First level models</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">5. Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,7 +672,7 @@
         </div>
         <article role="main">
           <section id="second-level-models">
-<span id="second-level-model"></span><h1>Second level models<a class="headerlink" href="#second-level-models" title="Permalink to this heading">#</a></h1>
+<span id="second-level-model"></span><h1><span class="section-number">5.3. </span>Second level models<a class="headerlink" href="#second-level-models" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>Second level models in Nilearn are used to perform group-level analyses on fMRI data. Once individual
@@ -679,7 +681,7 @@ be grouped and statistical tests  performed to make broader inferences on fMRI a
 second level models are one-sample (unpaired or paired) and two-sample t-tests.</p>
 </aside>
 <section id="fitting-a-second-level-model">
-<h2>Fitting a second level model<a class="headerlink" href="#fitting-a-second-level-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3.1. </span>Fitting a second level model<a class="headerlink" href="#fitting-a-second-level-model" title="Permalink to this heading">#</a></h2>
 <p>As with first level models, a design matrix needs to be defined before fitting a second level model.
 Again, similar to first level models, Nilearn provides a function
 <a class="reference internal" href="../modules/generated/nilearn.glm.second_level.make_second_level_design_matrix.html#nilearn.glm.second_level.make_second_level_design_matrix" title="nilearn.glm.second_level.make_second_level_design_matrix"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.second_level.make_second_level_design_matrix</span></code></a> for this purpose. Once
@@ -700,7 +702,7 @@ fits the model is <a class="reference internal" href="../modules/generated/nilea
 </dl>
 </section>
 <section id="thresholding-statistical-maps">
-<h2>Thresholding statistical maps<a class="headerlink" href="#thresholding-statistical-maps" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3.2. </span>Thresholding statistical maps<a class="headerlink" href="#thresholding-statistical-maps" title="Permalink to this heading">#</a></h2>
 <p>Nilearn’s statistical plotting functions provide simple thresholding functionality. For instance, functions
 like <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.plot_stat_map</span></code></a> or <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="nilearn.plotting.plot_glass_brain"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.plot_glass_brain</span></code></a> have an argument
 called <cite>threshold</cite> that, when set, will only show voxels with a value that is over the threshold provided.</p>
@@ -708,7 +710,7 @@ called <cite>threshold</cite> that, when set, will only show voxels with a value
 and <a class="reference internal" href="../auto_examples/05_glm_second_level/plot_thresholding.html#sphx-glr-auto-examples-05-glm-second-level-plot-thresholding-py"><span class="std std-ref">Statistical testing of a second-level analysis</span></a>.</p>
 </section>
 <section id="multiple-comparisons-correction">
-<h2>Multiple comparisons correction<a class="headerlink" href="#multiple-comparisons-correction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3.3. </span>Multiple comparisons correction<a class="headerlink" href="#multiple-comparisons-correction" title="Permalink to this heading">#</a></h2>
 <p>As discussed in the <a class="reference internal" href="glm_intro.html#multiple-comparisons"><span class="std std-ref">Multiple Comparisons</span></a> section of the introduction, the issue of multiple comparisons is
 important to address with statistical analysis of fMRI data. Nilearn provides parametric and non-parametric tools
 to address this issue.</p>
@@ -724,7 +726,7 @@ Nilearn provides the <a class="reference internal" href="../modules/generated/ni
 here: <a class="reference internal" href="../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html#sphx-glr-auto-examples-05-glm-second-level-plot-proportion-activated-voxels-py"><span class="std std-ref">Second-level fMRI model: true positive proportion in clusters</span></a>.</p>
 </section>
 <section id="voxel-based-morphometry">
-<h2>Voxel based morphometry<a class="headerlink" href="#voxel-based-morphometry" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.3.4. </span>Voxel based morphometry<a class="headerlink" href="#voxel-based-morphometry" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.second_level.SecondLevelModel</span></code></a> and its associated functions can also be used
 to perform voxel based morphometry. An example using the <a class="reference external" href="http://www.oasis-brains.org/">OASIS</a> dataset to
 identify the relationship between aging, sex and gray matter density is available here
@@ -742,7 +744,7 @@ identify the relationship between aging, sex and gray matter density is availabl
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Manipulation brain volumes with nilearn</div>
+                <div class="title"><span class="section-number">6. </span>Manipulation brain volumes with nilearn</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -753,7 +755,7 @@ identify the relationship between aging, sex and gray matter density is availabl
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">First level models</div>
+                <div class="title"><span class="section-number">5.2. </span>First level models</div>
                 
               </div>
             </a>
@@ -789,11 +791,11 @@ identify the relationship between aging, sex and gray matter density is availabl
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Second level models</a><ul>
-<li><a class="reference internal" href="#fitting-a-second-level-model">Fitting a second level model</a></li>
-<li><a class="reference internal" href="#thresholding-statistical-maps">Thresholding statistical maps</a></li>
-<li><a class="reference internal" href="#multiple-comparisons-correction">Multiple comparisons correction</a></li>
-<li><a class="reference internal" href="#voxel-based-morphometry">Voxel based morphometry</a></li>
+<li><a class="reference internal" href="#">5.3. Second level models</a><ul>
+<li><a class="reference internal" href="#fitting-a-second-level-model">5.3.1. Fitting a second level model</a></li>
+<li><a class="reference internal" href="#thresholding-statistical-maps">5.3.2. Thresholding statistical maps</a></li>
+<li><a class="reference internal" href="#multiple-comparisons-correction">5.3.3. Multiple comparisons correction</a></li>
+<li><a class="reference internal" href="#voxel-based-morphometry">5.3.4. Voxel based morphometry</a></li>
 </ul>
 </li>
 </ul>

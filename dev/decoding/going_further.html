@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="Running scikit-learn functions for more control on the analysis" />
+<meta property="og:title" content="2.6. Running scikit-learn functions for more control on the analysis" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/decoding/going_further.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This section gives pointers to design your own decoding pipelines with scikit-learn. This builds on the didactic introduction to decoding. Performing decoding with scikit-learn: Using scikit-learn ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="Functional connectivity and resting state" href="../connectivity/index.html" /><link rel="prev" title="Searchlight : finding voxels containing information" href="searchlight.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="3. Functional connectivity and resting state" href="../connectivity/index.html" /><link rel="prev" title="2.5. Searchlight : finding voxels containing information" href="searchlight.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
-        <title>Running scikit-learn functions for more control on the analysis - Nilearn</title>
+        <title>2.6. Running scikit-learn functions for more control on the analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -38,6 +38,8 @@
   --admonition-title-font-size: 100%;
   --color-announcement-background: #FBB360;
   --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
@@ -309,43 +311,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">2. Decoding and MVPA: predicting from brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -670,7 +672,7 @@
         </div>
         <article role="main">
           <section id="running-scikit-learn-functions-for-more-control-on-the-analysis">
-<span id="going-further"></span><h1>Running scikit-learn functions for more control on the analysis<a class="headerlink" href="#running-scikit-learn-functions-for-more-control-on-the-analysis" title="Permalink to this heading">#</a></h1>
+<span id="going-further"></span><h1><span class="section-number">2.6. </span>Running scikit-learn functions for more control on the analysis<a class="headerlink" href="#running-scikit-learn-functions-for-more-control-on-the-analysis" title="Permalink to this heading">#</a></h1>
 <p>This section gives pointers to design your own decoding pipelines with
 scikit-learn. This builds on the <a class="reference internal" href="decoding_intro.html#decoding-intro"><span class="std std-ref">didactic introduction to decoding</span></a>.</p>
 <div class="admonition note">
@@ -679,15 +681,15 @@ scikit-learn. This builds on the <a class="reference internal" href="decoding_in
 correctly with scikit-learn. For a full code example, please check out: <a class="reference internal" href="../auto_examples/07_advanced/plot_advanced_decoding_scikit.html#sphx-glr-auto-examples-07-advanced-plot-advanced-decoding-scikit-py"><span class="std std-ref">Advanced decoding using scikit learn</span></a></p>
 </div>
 <section id="performing-decoding-with-scikit-learn">
-<h2>Performing decoding with scikit-learn<a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.6.1. </span>Performing decoding with scikit-learn<a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Permalink to this heading">#</a></h2>
 <section id="using-scikit-learn-estimators">
-<h3>Using scikit-learn estimators<a class="headerlink" href="#using-scikit-learn-estimators" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.1.1. </span>Using scikit-learn estimators<a class="headerlink" href="#using-scikit-learn-estimators" title="Permalink to this heading">#</a></h3>
 <p>You can easily import estimators from the <a class="reference external" href="http://scikit-learn.org">scikit-learn</a> machine-learning library, those available in the <cite>Decoder</cite> object and many others.
 They all have the <cite>fit</cite> and <cite>predict</cite> functions. For example you can directly import the versatile <a class="reference external" href="http://scikit-learn.org/stable/modules/svm.html">Support Vector Classifier</a> (or SVC).</p>
 <p>To learn more about the variety of classifiers available in scikit-learn, see the <a class="reference external" href="http://scikit-learn.org/stable/supervised_learning.html">scikit-learn documentation on supervised learning</a>.</p>
 </section>
 <section id="cross-validation-with-scikit-learn">
-<h3>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.1.2. </span>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">#</a></h3>
 <p>To perform cross-validation using a scikit-learn estimator, you should first
 mask the data using a <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMasker</span></code></a>: to extract
 only the <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxels</span></a> inside the mask of interest, and transform 4D input <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a>
@@ -717,7 +719,7 @@ see <a class="reference external" href="https://scikit-learn.org/stable/modules/
 </div>
 </section>
 <section id="measuring-the-chance-level">
-<h3>Measuring the chance level<a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.1.3. </span>Measuring the chance level<a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">#</a></h3>
 <p><strong>Dummy estimators</strong>: The simplest way to measure prediction performance at chance is to use a <em>“dummy”</em> classifier: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.dummy.DummyClassifier</span></code></a>.</p>
 <p><strong>Permutation testing</strong>: A more controlled way, but slower, is to do permutation testing on the labels, with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.permutation_test_score</span></code></a>.</p>
 <aside class="topic">
@@ -734,7 +736,7 @@ the simulations.</p>
 </section>
 </section>
 <section id="going-further-with-scikit-learn">
-<h2>Going further with scikit-learn<a class="headerlink" href="#going-further-with-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.6.2. </span>Going further with scikit-learn<a class="headerlink" href="#going-further-with-scikit-learn" title="Permalink to this heading">#</a></h2>
 <p>We have seen a very simple analysis with scikit-learn, but your can easily add
 intermediate processing steps if your analysis requires it. Some common
 examples are :</p>
@@ -744,12 +746,12 @@ examples are :</p>
 <li><p>add more intermediate steps such as clustering</p></li>
 </ul>
 <section id="decoding-without-a-mask-anova-svm-using-scikit-learn">
-<h3>Decoding without a mask: Anova-SVM using scikit-learn<a class="headerlink" href="#decoding-without-a-mask-anova-svm-using-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.2.1. </span>Decoding without a mask: Anova-SVM using scikit-learn<a class="headerlink" href="#decoding-without-a-mask-anova-svm-using-scikit-learn" title="Permalink to this heading">#</a></h3>
 <p>We can also implement feature selection before decoding as a scikit-learn pipeline (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.pipeline.Pipeline</span></code></a>).
 For this, we need to import the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="(in scikit-learn v1.1)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.feature_selection</span></code></a> module and use <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html#sklearn.feature_selection.f_classif" title="(in scikit-learn v1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.feature_selection.f_classif</span></code></a>, a simple F-score based feature selection (a.k.a. <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test">Anova</a>),</p>
 </section>
 <section id="using-any-other-model-in-the-pipeline">
-<h3>Using any other model in the pipeline<a class="headerlink" href="#using-any-other-model-in-the-pipeline" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">2.6.2.2. </span>Using any other model in the pipeline<a class="headerlink" href="#using-any-other-model-in-the-pipeline" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../glossary.html#term-ANOVA"><span class="xref std std-term">Anova</span></a> - <a class="reference internal" href="../glossary.html#term-SVM"><span class="xref std std-term">SVM</span></a> is a good baseline that will give reasonable results
 in common settings. However it may be interesting for you to explore the
 <a class="reference external" href="http://scikit-learn.org/stable/supervised_learning.html">wide variety of supervised learning algorithms in the scikit-learn</a>. These can readily
@@ -774,7 +776,7 @@ To become better at decoding, you need to study it.</p></li>
 </section>
 </section>
 <section id="setting-estimator-parameters">
-<h2>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">2.6.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
 <p>Most estimators have parameters that can be set to optimize their
 performance. Importantly, this must be done via <strong>nested</strong>
 cross-validation.</p>
@@ -805,7 +807,7 @@ selection</a></p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Functional connectivity and resting state</div>
+                <div class="title"><span class="section-number">3. </span>Functional connectivity and resting state</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -816,7 +818,7 @@ selection</a></p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Searchlight : finding voxels containing information</div>
+                <div class="title"><span class="section-number">2.5. </span>Searchlight : finding voxels containing information</div>
                 
               </div>
             </a>
@@ -852,19 +854,19 @@ selection</a></p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Running scikit-learn functions for more control on the analysis</a><ul>
-<li><a class="reference internal" href="#performing-decoding-with-scikit-learn">Performing decoding with scikit-learn</a><ul>
-<li><a class="reference internal" href="#using-scikit-learn-estimators">Using scikit-learn estimators</a></li>
-<li><a class="reference internal" href="#cross-validation-with-scikit-learn">Cross-validation with scikit-learn</a></li>
-<li><a class="reference internal" href="#measuring-the-chance-level">Measuring the chance level</a></li>
+<li><a class="reference internal" href="#">2.6. Running scikit-learn functions for more control on the analysis</a><ul>
+<li><a class="reference internal" href="#performing-decoding-with-scikit-learn">2.6.1. Performing decoding with scikit-learn</a><ul>
+<li><a class="reference internal" href="#using-scikit-learn-estimators">2.6.1.1. Using scikit-learn estimators</a></li>
+<li><a class="reference internal" href="#cross-validation-with-scikit-learn">2.6.1.2. Cross-validation with scikit-learn</a></li>
+<li><a class="reference internal" href="#measuring-the-chance-level">2.6.1.3. Measuring the chance level</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#going-further-with-scikit-learn">Going further with scikit-learn</a><ul>
-<li><a class="reference internal" href="#decoding-without-a-mask-anova-svm-using-scikit-learn">Decoding without a mask: Anova-SVM using scikit-learn</a></li>
-<li><a class="reference internal" href="#using-any-other-model-in-the-pipeline">Using any other model in the pipeline</a></li>
+<li><a class="reference internal" href="#going-further-with-scikit-learn">2.6.2. Going further with scikit-learn</a><ul>
+<li><a class="reference internal" href="#decoding-without-a-mask-anova-svm-using-scikit-learn">2.6.2.1. Decoding without a mask: Anova-SVM using scikit-learn</a></li>
+<li><a class="reference internal" href="#using-any-other-model-in-the-pipeline">2.6.2.2. Using any other model in the pipeline</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#setting-estimator-parameters">Setting estimator parameters</a></li>
+<li><a class="reference internal" href="#setting-estimator-parameters">2.6.3. Setting estimator parameters</a></li>
 </ul>
 </li>
 </ul>
