@@ -884,6 +884,34 @@ git push upstream --tags
 </section>
 <section id="build-and-deploy-the-documentation">
 <h3>Build and deploy the documentation<a class="headerlink" href="#build-and-deploy-the-documentation" title="Permalink to this heading">#</a></h3>
+<p>Before building the documentation, make sure that the following LaTeX
+dependencies are installed on your system:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ctan.org/pkg/dvipng">dvipng</a></p></li>
+<li><p><a class="reference external" href="https://ctan.org/pkg/latex-base">texlive-latex-base</a></p></li>
+<li><p><a class="reference external" href="https://packages.debian.org/sid/texlive-latex-extra">texlive-latex-extra</a></p></li>
+</ul>
+<p>You can check if each package is installed by using
+<code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">-v</span> <span class="pre">&lt;command-name&gt;</span></code> as in:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">command</span> -v dvipng
+</pre></div>
+</div>
+<p>If the package is installed, then the path to its location on your system will
+be returned. Otherwise, you can install using your system’s package manager or
+from source, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://mirrors.ctan.org/dviware/dvipng.zip
+unzip dvipng.zip
+<span class="nb">cd</span> dvipng
+./configure
+make
+make install
+</pre></div>
+</div>
+<p>See available linux distributions of texlive-latex-base and texlive-latex-extra:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pkgs.org/search/?q=texlive-latex-base">https://pkgs.org/search/?q=texlive-latex-base</a></p></li>
+<li><p><a class="reference external" href="https://pkgs.org/search/?q=texlive-latex-extra">https://pkgs.org/search/?q=texlive-latex-extra</a></p></li>
+</ul>
 <p>We now need to update the documentation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
 make install
