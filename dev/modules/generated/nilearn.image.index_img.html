@@ -681,7 +681,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.image.index_img<a class="headerlink" href="#nilearn-image-index-img" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.image.index_img">
-<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">index_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/d75d3ce6/nilearn/image/image.py#L601"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.index_img" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">index_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/ca20d16a/nilearn/image/image.py#L601"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.index_img" title="Permalink to this definition">#</a></dt>
 <dd><p>Indexes into a 4D Niimg-like object in the fourth dimension.</p>
 <p>Common use cases include extracting a 3D image out of <cite>img</cite> or
 creating a 4D image whose data is a subset of <cite>img</cite> data.</p>
@@ -715,24 +715,24 @@ creating a 4D image whose data is a subset of <cite>img</cite> data.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">joint_mni_image</span> <span class="o">=</span> <span class="n">concat_imgs</span><span class="p">([</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_mni152_template</span><span class="p">(),</span>
 <span class="gp">... </span>                               <span class="n">datasets</span><span class="o">.</span><span class="n">load_mni152_template</span><span class="p">()])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">joint_mni_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(99, 117, 95, 2)</span>
+<span class="go">(197, 233, 189, 2)</span>
 </pre></div>
 </div>
 <p>We can now select one slice from the last dimension of this 4D-image:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">single_mni_image</span> <span class="o">=</span> <span class="n">index_img</span><span class="p">(</span><span class="n">joint_mni_image</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">single_mni_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(99, 117, 95)</span>
+<span class="go">(197, 233, 189)</span>
 </pre></div>
 </div>
 <p>We can also select multiple frames using the <cite>slice</cite> constructor:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">five_mni_images</span> <span class="o">=</span> <span class="n">concat_imgs</span><span class="p">([</span><span class="n">datasets</span><span class="o">.</span><span class="n">load_mni152_template</span><span class="p">()]</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">five_mni_images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(99, 117, 95, 5)</span>
+<span class="go">(197, 233, 189, 5)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">first_three_images</span> <span class="o">=</span> <span class="n">index_img</span><span class="p">(</span><span class="n">five_mni_images</span><span class="p">,</span>
 <span class="gp">... </span>                               <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">first_three_images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="go">(99, 117, 95, 3)</span>
+<span class="go">(197, 233, 189, 3)</span>
 </pre></div>
 </div>
 </dd></dl>
