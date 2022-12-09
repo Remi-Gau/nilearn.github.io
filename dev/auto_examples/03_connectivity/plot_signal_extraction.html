@@ -798,7 +798,7 @@ magic           : b&#39;n+1&#39;
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker.fit_transform" title="nilearn.maskers.NiftiLabelsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">reduced_confounds</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
@@ -809,14 +809,14 @@ Resampling labels
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fd0844ac760&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f510227bbe0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
   &#39;high_pass&#39;: None,
   &#39;high_variance_confounds&#39;: False,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fd084521dc0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f5102276c10&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -830,7 +830,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.5s, 0.0min
+_______________________________________________filter_and_extract - 0.9s, 0.0min
 </pre></div>
 </div>
 </section>
@@ -854,7 +854,7 @@ _______________________________________________filter_and_extract - 1.5s, 0.0min
                      <span class="n">reorder</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_signal_extraction_001.png" srcset="../../_images/sphx_glr_plot_signal_extraction_001.png" alt="plot signal extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7fd084581df0&gt;
+<img src="../../_images/sphx_glr_plot_signal_extraction_001.png" srcset="../../_images/sphx_glr_plot_signal_extraction_001.png" alt="plot signal extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f510236cee0&gt;
 </pre></div>
 </div>
 </section>
@@ -875,7 +875,7 @@ connectivity matrix looks like without confound removal.</p>
                      <span class="n">vmax</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;No confounds&#39;</span><span class="p">,</span> <span class="n">reorder</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_signal_extraction_002.png" srcset="../../_images/sphx_glr_plot_signal_extraction_002.png" alt="plot signal extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+<img src="../../_images/sphx_glr_plot_signal_extraction_002.png" srcset="../../_images/sphx_glr_plot_signal_extraction_002.png" alt="plot signal extraction" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
@@ -885,14 +885,14 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fd08edc4070&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f51148d4730&gt;,
 { &#39;background_label&#39;: 0,
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
   &#39;high_pass&#39;: None,
   &#39;high_variance_confounds&#39;: False,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fd084521dc0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f5102276c10&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -906,9 +906,9 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.6s, 0.0min
+_______________________________________________filter_and_extract - 0.9s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7fd08e099970&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f5103b1a0d0&gt;
 </pre></div>
 </div>
 </section>
@@ -951,7 +951,7 @@ cerebrospinal fluid signal with high-pass filtering.</p>
 Index([&#39;cosine00&#39;, &#39;cosine01&#39;, &#39;cosine02&#39;, &#39;cosine03&#39;, &#39;csf&#39;, &#39;rot_x&#39;, &#39;rot_y&#39;,
        &#39;rot_z&#39;, &#39;trans_x&#39;, &#39;trans_y&#39;, &#39;trans_z&#39;, &#39;white_matter&#39;],
       dtype=&#39;object&#39;)
-[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
@@ -961,14 +961,14 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fd085c976d0&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f50f8d74fd0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
   &#39;high_pass&#39;: None,
   &#39;high_variance_confounds&#39;: False,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fd084521dc0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f5102276c10&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -995,9 +995,9 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.6s, 0.0min
+_______________________________________________filter_and_extract - 1.0s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7fd08e49fdc0&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f510b867b20&gt;
 </pre></div>
 </div>
 </section>
@@ -1042,7 +1042,7 @@ The shape of the confounds matrix is: (168, 12)
 Index([&#39;cosine00&#39;, &#39;cosine01&#39;, &#39;cosine02&#39;, &#39;cosine03&#39;, &#39;csf&#39;, &#39;rot_x&#39;, &#39;rot_y&#39;,
        &#39;rot_z&#39;, &#39;trans_x&#39;, &#39;trans_y&#39;, &#39;trans_z&#39;, &#39;white_matter&#39;],
       dtype=&#39;object&#39;)
-[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
@@ -1052,14 +1052,14 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fd08d9c7520&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f50fff59a30&gt;,
 { &#39;background_label&#39;: 0,
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
   &#39;high_pass&#39;: None,
   &#39;high_variance_confounds&#39;: False,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fd084521dc0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f5102276c10&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -1086,9 +1086,9 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.6s, 0.0min
+_______________________________________________filter_and_extract - 1.0s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7fd07f7a9130&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f5101cfd310&gt;
 </pre></div>
 </div>
 </section>
@@ -1126,7 +1126,7 @@ Index([&#39;cosine00&#39;, &#39;cosine01&#39;, &#39;cosine02&#39;, &#39;cosine03
        &#39;rot_x&#39;, &#39;rot_y&#39;, &#39;rot_z&#39;, &#39;trans_x&#39;, &#39;trans_y&#39;, &#39;trans_z&#39;,
        &#39;white_matter&#39;],
       dtype=&#39;object&#39;)
-[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
@@ -1136,14 +1136,14 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fd096d06dc0&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f510c5ad640&gt;,
 { &#39;background_label&#39;: 0,
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
   &#39;high_pass&#39;: None,
   &#39;high_variance_confounds&#39;: False,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fd084521dc0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f5102276c10&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -1170,9 +1170,9 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.6s, 0.0min
+_______________________________________________filter_and_extract - 1.0s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7fd085c97a00&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f51028384f0&gt;
 </pre></div>
 </div>
 </section>
@@ -1230,23 +1230,23 @@ the motion default to basic.</p>
 <li><img src="../../_images/sphx_glr_plot_signal_extraction_006.png" srcset="../../_images/sphx_glr_plot_signal_extraction_006.png" alt="plot signal extraction" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_signal_extraction_007.png" srcset="../../_images/sphx_glr_plot_signal_extraction_007.png" alt="plot signal extraction" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]14.4s, 0.2min   : Loading _filter_and_extract...
+[Memory]9.4s, 0.2min    : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
-[NiftiLabelsMasker.fit_transform] loading data from Nifti1Image(
+[NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
 affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    2.,    0., -126.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]15.1s, 0.3min   : Loading _filter_and_extract...
+[Memory]9.9s, 0.2min    : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </pre></div>
 </div>
@@ -1264,8 +1264,8 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </aside>
 </aside>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.354 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  576 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.379 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  519 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-signal-extraction-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_signal_extraction.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
