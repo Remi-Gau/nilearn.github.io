@@ -789,7 +789,7 @@ Finally, make sure the documentation can be built correctly.</p>
 <section id="prepare-the-release">
 <h3>Prepare the release<a class="headerlink" href="#prepare-the-release" title="Permalink to this heading">#</a></h3>
 <p>Switch to a new branch locally:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout -b REL-x.y.z
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>REL-x.y.z
 </pre></div>
 </div>
 <p>First we need to prepare the release by updating the file <code class="docutils literal notranslate"><span class="pre">nilearn/doc/changes/latest.rst</span></code> to make sure all the new features, enhancements, and bug fixes are included in their respective sections.</p>
@@ -831,39 +831,39 @@ Finally, make sure the documentation can be built correctly.</p>
 </div>
 <p>In addition, we can have a look at <cite>MANIFEST.in</cite> to check that all additional files that we want to be included or excluded from the release are indicated. Normally we shouldn’t have to touch this file.</p>
 <p>Add these changes and submit a PR:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add doc/whats_new.rst nilearn/version.py
-git commit -m <span class="s2">&quot;REL x.y.z&quot;</span>
-git push origin REL-x.y.z
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>doc/whats_new.rst<span class="w"> </span>nilearn/version.py
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;REL x.y.z&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>REL-x.y.z
 </pre></div>
 </div>
 <p>Once the PR has been reviewed and merged, pull from master and tag the merge commit:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout master
-git pull upstream master
-git tag x.y.z
-git push upstream --tags
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>master
+git<span class="w"> </span>tag<span class="w"> </span>x.y.z
+git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>--tags
 </pre></div>
 </div>
 </section>
 <section id="build-the-distributions-and-upload-them-to-pypi">
 <h3>Build the distributions and upload them to Pypi<a class="headerlink" href="#build-the-distributions-and-upload-them-to-pypi" title="Permalink to this heading">#</a></h3>
 <p>First of all we should make sure we don’t include files that shouldn’t be present:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout x.y.z
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>x.y.z
 </pre></div>
 </div>
 <p>If the workspace contains a <cite>dist</cite> folder, make sure to clean it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm -r dist
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>dist
 </pre></div>
 </div>
 <p>In order to build the binary wheel files, we need to install <a class="reference external" href="https://pypi.org/project/wheel/">wheel</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install wheel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>wheel
 </pre></div>
 </div>
 <p>And, in order to upload to <cite>Pypi</cite>, we will use <a class="reference external" href="https://pypi.org/project/twine/">twine</a> that you can also install with <cite>pip</cite>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install twine
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>twine
 </pre></div>
 </div>
 <p>Build the source and binary distributions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py sdist bdist_wheel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
 </pre></div>
 </div>
 <p>This should add two files to the <cite>dist</cite> subfolder:</p>
@@ -872,11 +872,11 @@ git push upstream --tags
 <li><p>one for the built distribution that should look like <cite>PACKAGENAME-PACKAGEVERSION-PYTHONVERSION-PYTHONCVERSION-PLATFORM.whl</cite></p></li>
 </ul>
 <p>Optionally, we can run some basic checks with <cite>twine</cite>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine check dist/*
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>check<span class="w"> </span>dist/*
 </pre></div>
 </div>
 <p>We are now ready to upload to <cite>Pypi</cite>. Note that you will need to have an <a class="reference external" href="https://pypi.org/account/register/">account on Pypi</a>, and be added to the maintainers of <a class="reference external" href="https://pypi.org/project/nilearn/">Nilearn</a>. If you satisfy these conditions, you should be able to run:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine upload dist/*
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </pre></div>
 </div>
 <p>Once the upload is completed, make sure everything looks good on <a class="reference external" href="https://pypi.org/project/nilearn/">Pypi</a>. Otherwise you will probably have to fix the issue and start over a new release with the patch number incremented.</p>
@@ -893,18 +893,18 @@ dependencies are installed on your system:</p>
 </ul>
 <p>You can check if each package is installed by using
 <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">-v</span> <span class="pre">&lt;command-name&gt;</span></code> as in:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">command</span> -v dvipng
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>dvipng
 </pre></div>
 </div>
 <p>If the package is installed, then the path to its location on your system will
 be returned. Otherwise, you can install using your system’s package manager or
 from source, for example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://mirrors.ctan.org/dviware/dvipng.zip
-unzip dvipng.zip
-<span class="nb">cd</span> dvipng
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://mirrors.ctan.org/dviware/dvipng.zip
+unzip<span class="w"> </span>dvipng.zip
+<span class="nb">cd</span><span class="w"> </span>dvipng
 ./configure
 make
-make install
+make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>See available linux distributions of texlive-latex-base and texlive-latex-extra:</p>
@@ -913,8 +913,8 @@ make install
 <li><p><a class="reference external" href="https://pkgs.org/search/?q=texlive-latex-extra">https://pkgs.org/search/?q=texlive-latex-extra</a></p></li>
 </ul>
 <p>We now need to update the documentation:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> doc
-make install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc
+make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>This will build the documentation (beware, this is time consuming…) and push it to the <a class="reference external" href="https://github.com/nilearn/nilearn.github.io">GitHub pages repo</a>.</p>
