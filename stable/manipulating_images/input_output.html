@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<meta property="og:title" content="Input and output: neuroimaging data representation" />
+<meta property="og:title" content="6.1. Input and output: neuroimaging data representation" />
   
 <meta property="og:type" content="website" />
   
@@ -17,10 +17,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
   
 <meta property="og:image:alt" content="Nilearn" />
-  <link rel="search" title="Search" href="../search.html" /><link rel="next" title="Manipulating images: resampling, smoothing, masking, ROIs…" href="manipulating_images.html" /><link rel="prev" title="Manipulation brain volumes with nilearn" href="index.html" />
+  <link rel="search" title="Search" href="../search.html" /><link rel="next" title="6.2. Manipulating images: resampling, smoothing, masking, ROIs…" href="manipulating_images.html" /><link rel="prev" title="6. Manipulation brain volumes with nilearn" href="index.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>Input and output: neuroimaging data representation - Nilearn</title>
+        <title>6.1. Input and output: neuroimaging data representation - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -42,18 +42,26 @@
   --color-code-foreground: black;
   --admonition-font-size: 100%;
   --admonition-title-font-size: 100%;
+  --color-announcement-background: #FBB360;
+  --color-announcement-text: #111418;
+  --color-admonition-title--note: #448aff;
+  --color-admonition-title-background--note: #448aff10;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #232629;
   --color-code-foreground: #cccccc;
+  --color-announcement-background: #935610;
+  --color-announcement-text: #FFFFFF;
   
       }
     }
@@ -268,8 +276,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
 </li>
@@ -294,8 +302,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_bids_analysis.html">BIDS dataset first and second level analysis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_age_group_prediction_cross_val.html">Functional connectivity predicts age group</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_neurovault_meta_analysis.html">NeuroVault meta-analysis of stop-go paradigm studies.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_localizer_mass_univariate_methods.html">Massively univariate analysis of a motor task from the Localizer dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_surface_bids_analysis.html">Surface-based dataset first and second level analysis of a dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_localizer_mass_univariate_methods.html">Massively univariate analysis of a motor task from the Localizer dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_ica_neurovault.html">NeuroVault cross-study ICA maps.</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_haxby_mass_univariate.html">Massively univariate analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/07_advanced/plot_advanced_decoding_scikit.html">Advanced decoding using scikit learn</a></li>
@@ -305,43 +313,43 @@
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html">From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">6. Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -502,7 +510,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html">nilearn.maskers.NiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html">nilearn.maskers.MultiNiftiMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html">nilearn.maskers.NiftiLabelsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html">nilearn.maskers.MultiNiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html">nilearn.maskers.NiftiMapsMasker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html">nilearn.maskers.MultiNiftiMapsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html">nilearn.maskers.NiftiSpheresMasker</a></li>
 </ul>
 </li>
@@ -592,6 +602,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.signals_to_img_labels.html">nilearn.regions.signals_to_img_labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.img_to_signals_maps.html">nilearn.regions.img_to_signals_maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.signals_to_img_maps.html">nilearn.regions.signals_to_img_maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.recursive_neighbor_agglomeration.html">nilearn.regions.recursive_neighbor_agglomeration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.RegionExtractor.html">nilearn.regions.RegionExtractor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html">nilearn.regions.Parcellations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../modules/generated/nilearn.regions.ReNA.html">nilearn.regions.ReNA</a></li>
@@ -622,7 +633,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../nistats_migration.html">Migrating from Nistats</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../maintenance.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../changes/whats_new.html">What’s new</a></li>
@@ -662,14 +672,14 @@
         </div>
         <article role="main">
           <section id="input-and-output-neuroimaging-data-representation">
-<span id="extracting-data"></span><h1>Input and output: neuroimaging data representation<a class="headerlink" href="#input-and-output-neuroimaging-data-representation" title="Permalink to this heading">#</a></h1>
+<span id="extracting-data"></span><h1><span class="section-number">6.1. </span>Input and output: neuroimaging data representation<a class="headerlink" href="#input-and-output-neuroimaging-data-representation" title="Permalink to this heading">#</a></h1>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <section id="inputing-data-file-names-or-image-objects">
-<span id="loading-data"></span><h2>Inputing data: file names or image objects<a class="headerlink" href="#inputing-data-file-names-or-image-objects" title="Permalink to this heading">#</a></h2>
+<span id="loading-data"></span><h2><span class="section-number">6.1.1. </span>Inputing data: file names or image objects<a class="headerlink" href="#inputing-data-file-names-or-image-objects" title="Permalink to this heading">#</a></h2>
 <section id="file-names-and-objects-3d-and-4d-images">
-<h3>File names and objects, 3D and 4D images<a class="headerlink" href="#file-names-and-objects-3d-and-4d-images" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.1.1. </span>File names and objects, 3D and 4D images<a class="headerlink" href="#file-names-and-objects-3d-and-4d-images" title="Permalink to this heading">#</a></h3>
 <p>All Nilearn functions accept file names as arguments:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">smoothed_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">smooth_img</span><span class="p">(</span><span class="s1">&#39;/home/user/t_map001.nii&#39;</span><span class="p">)</span>  
@@ -693,7 +703,7 @@ series of 3D images. It can be <strong>a list of file names</strong>, if these c
 subjects.</p>
 </section>
 <section id="file-name-matching-globbing-and-user-path-expansion">
-<span id="filename-matching"></span><h3>File name matching: “globbing” and user path expansion<a class="headerlink" href="#file-name-matching-globbing-and-user-path-expansion" title="Permalink to this heading">#</a></h3>
+<span id="filename-matching"></span><h3><span class="section-number">6.1.1.2. </span>File name matching: “globbing” and user path expansion<a class="headerlink" href="#file-name-matching-globbing-and-user-path-expansion" title="Permalink to this heading">#</a></h3>
 <p>You can specify files with <em>wildcard</em> matching patterns (as in Unix
 shell):</p>
 <blockquote>
@@ -722,10 +732,10 @@ different computers.</p>
 <div class="topic">
 <p class="topic-title"><strong>Python globbing</strong></p>
 <p>For more complicated use cases, Python also provides functions to work
-with file paths, in particular, <a class="reference external" href="https://docs.python.org/3.8/library/glob.html#glob.glob" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob</span></code></a>.</p>
+with file paths, in particular, <a class="reference external" href="https://docs.python.org/3.9/library/glob.html#glob.glob" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob</span></code></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Unlike nilearn’s path expansion, the result of <a class="reference external" href="https://docs.python.org/3.8/library/glob.html#glob.glob" title="(in Python v3.8)"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob</span></code></a> is
+<p>Unlike nilearn’s path expansion, the result of <a class="reference external" href="https://docs.python.org/3.9/library/glob.html#glob.glob" title="(in Python v3.9)"><code class="xref py py-func docutils literal notranslate"><span class="pre">glob.glob</span></code></a> is
 not sorted and, depending on the computer you are running, they
 might not be in alphabetic order. We advise you to rely on
 nilearn’s path expansion.</p>
@@ -736,7 +746,7 @@ nilearn’s path expansion.</p>
 </section>
 </section>
 <section id="fetching-open-datasets-from-internet">
-<span id="datasets"></span><h2>Fetching open datasets from Internet<a class="headerlink" href="#fetching-open-datasets-from-internet" title="Permalink to this heading">#</a></h2>
+<span id="datasets"></span><h2><span class="section-number">6.1.2. </span>Fetching open datasets from Internet<a class="headerlink" href="#fetching-open-datasets-from-internet" title="Permalink to this heading">#</a></h2>
 <p>Nilearn provides dataset fetching function that
 automatically downloads reference
 datasets and atlases. They can be imported from
@@ -805,9 +815,9 @@ function <a class="reference internal" href="../modules/generated/nilearn.datase
 </div>
 </section>
 <section id="understanding-neuroimaging-data">
-<h2>Understanding neuroimaging data<a class="headerlink" href="#understanding-neuroimaging-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.1.3. </span>Understanding neuroimaging data<a class="headerlink" href="#understanding-neuroimaging-data" title="Permalink to this heading">#</a></h2>
 <section id="nifti-and-analyze-data">
-<h3>Nifti and Analyze data<a class="headerlink" href="#nifti-and-analyze-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.3.1. </span>Nifti and Analyze data<a class="headerlink" href="#nifti-and-analyze-data" title="Permalink to this heading">#</a></h3>
 <p>For volumetric data, nilearn works with data stored as in the Nifti
 structure (via the <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a> package).</p>
 <p>The <a class="reference external" href="http://nifti.nimh.nih.gov/">NifTi</a> data structure (also used in
@@ -861,7 +871,7 @@ to prefer this format.</p></li>
 </div>
 </section>
 <section id="niimg-like-objects">
-<span id="niimg"></span><h3>Niimg-like objects<a class="headerlink" href="#niimg-like-objects" title="Permalink to this heading">#</a></h3>
+<span id="niimg"></span><h3><span class="section-number">6.1.3.2. </span>Niimg-like objects<a class="headerlink" href="#niimg-like-objects" title="Permalink to this heading">#</a></h3>
 <p>Nilearn functions take as input argument what we call “Niimg-like
 objects”:</p>
 <p><strong>Niimg:</strong> A Niimg-like object can be one of the following:</p>
@@ -899,7 +909,7 @@ be to <a class="reference external" href="https://nipy.org/nibabel/images_and_me
 </div>
 </section>
 <section id="text-files-phenotype-or-behavior">
-<h3>Text files: phenotype or behavior<a class="headerlink" href="#text-files-phenotype-or-behavior" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.1.3.3. </span>Text files: phenotype or behavior<a class="headerlink" href="#text-files-phenotype-or-behavior" title="Permalink to this heading">#</a></h3>
 <p>Phenotypic or behavioral data are often provided as text or CSV
 (Comma Separated Values) file. They
 can be loaded with <cite>pd.read_csv</cite> but you may have to specify some options
@@ -938,7 +948,7 @@ data from CSV files and manipulate them.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Manipulating images: resampling, smoothing, masking, ROIs…</div>
+                <div class="title"><span class="section-number">6.2. </span>Manipulating images: resampling, smoothing, masking, ROIs…</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -949,7 +959,7 @@ data from CSV files and manipulate them.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Manipulation brain volumes with nilearn</div>
+                <div class="title"><span class="section-number">6. </span>Manipulation brain volumes with nilearn</div>
                 
               </div>
             </a>
@@ -985,17 +995,17 @@ data from CSV files and manipulate them.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Input and output: neuroimaging data representation</a><ul>
-<li><a class="reference internal" href="#inputing-data-file-names-or-image-objects">Inputing data: file names or image objects</a><ul>
-<li><a class="reference internal" href="#file-names-and-objects-3d-and-4d-images">File names and objects, 3D and 4D images</a></li>
-<li><a class="reference internal" href="#file-name-matching-globbing-and-user-path-expansion">File name matching: “globbing” and user path expansion</a></li>
+<li><a class="reference internal" href="#">6.1. Input and output: neuroimaging data representation</a><ul>
+<li><a class="reference internal" href="#inputing-data-file-names-or-image-objects">6.1.1. Inputing data: file names or image objects</a><ul>
+<li><a class="reference internal" href="#file-names-and-objects-3d-and-4d-images">6.1.1.1. File names and objects, 3D and 4D images</a></li>
+<li><a class="reference internal" href="#file-name-matching-globbing-and-user-path-expansion">6.1.1.2. File name matching: “globbing” and user path expansion</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#fetching-open-datasets-from-internet">Fetching open datasets from Internet</a></li>
-<li><a class="reference internal" href="#understanding-neuroimaging-data">Understanding neuroimaging data</a><ul>
-<li><a class="reference internal" href="#nifti-and-analyze-data">Nifti and Analyze data</a></li>
-<li><a class="reference internal" href="#niimg-like-objects">Niimg-like objects</a></li>
-<li><a class="reference internal" href="#text-files-phenotype-or-behavior">Text files: phenotype or behavior</a></li>
+<li><a class="reference internal" href="#fetching-open-datasets-from-internet">6.1.2. Fetching open datasets from Internet</a></li>
+<li><a class="reference internal" href="#understanding-neuroimaging-data">6.1.3. Understanding neuroimaging data</a><ul>
+<li><a class="reference internal" href="#nifti-and-analyze-data">6.1.3.1. Nifti and Analyze data</a></li>
+<li><a class="reference internal" href="#niimg-like-objects">6.1.3.2. Niimg-like objects</a></li>
+<li><a class="reference internal" href="#text-files-phenotype-or-behavior">6.1.3.3. Text files: phenotype or behavior</a></li>
 </ul>
 </li>
 </ul>

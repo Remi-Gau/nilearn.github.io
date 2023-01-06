@@ -72,7 +72,7 @@ connectivity dataset.
 
  .. code-block:: none
 
-    First subject functional nifti image (4D) is at: /home/yasmin/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+    First subject functional nifti image (4D) is at: /home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 
 
 
@@ -143,8 +143,8 @@ band-pass filtered and **standardized to 1 variance**.
 
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract('/home/yasmin/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7f125de47400>, 
+    _filter_and_extract('/home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
+    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7fc1ef1d8580>, 
     { 'allow_overlap': False,
       'detrend': True,
       'dtype': None,
@@ -157,11 +157,11 @@ band-pass filtered and **standardized to 1 variance**.
       'smoothing_fwhm': None,
       'standardize': True,
       'standardize_confounds': True,
-      't_r': 2}, confounds=[ '/home/yasmin/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_desc-reducedConfounds_regressors.tsv'], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-    [NiftiSpheresMasker.transform_single_imgs] Loading data from /home/yasmin/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+      't_r': 2}, confounds=[ '/home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_desc-reducedConfounds_regressors.tsv'], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+    [NiftiSpheresMasker.transform_single_imgs] Loading data from /home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiSpheresMasker.transform_single_imgs] Extracting region signals
     [NiftiSpheresMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 2.3s, 0.0min
+    _______________________________________________filter_and_extract - 2.4s, 0.0min
 
 
 
@@ -258,7 +258,7 @@ We display the graph of connections with
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f123c23fe20>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc1aac40070>
 
 
 
@@ -874,18 +874,18 @@ We just fit our regions signals into the `GraphicalLassoCV` object
  .. code-block:: none
 
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    8.4s finished
-    [GraphicalLassoCV] Done refinement  1 out of 4:   8s
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   23.6s finished
+    [GraphicalLassoCV] Done refinement  1 out of 4:  23s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   19.9s finished
-    [GraphicalLassoCV] Done refinement  2 out of 4:  28s
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   50.6s finished
+    [GraphicalLassoCV] Done refinement  2 out of 4:  74s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   23.8s finished
-    [GraphicalLassoCV] Done refinement  3 out of 4:  52s
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   53.5s finished
+    [GraphicalLassoCV] Done refinement  3 out of 4:  127s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   21.7s finished
-    [GraphicalLassoCV] Done refinement  4 out of 4:  73s
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:232: RuntimeWarning:
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   52.9s finished
+    [GraphicalLassoCV] Done refinement  4 out of 4:  180s
+    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:233: RuntimeWarning:
 
     invalid value encountered in subtract
 
@@ -972,7 +972,7 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f123e7e70d0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc1ab83b7c0>
 
 
 
@@ -1020,7 +1020,7 @@ aggregating edge strength from the graph would help. Use the function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f124f51e170>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc1a8046230>
 
 
 
@@ -1091,7 +1091,7 @@ the negative structure.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f123f01aa40>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc1a8f34d60>
 
 
 
@@ -1214,12 +1214,12 @@ We repeat the same steps for Dosenbach's atlas.
 
  .. code-block:: none
 
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:232: RuntimeWarning:
+    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:233: RuntimeWarning:
 
     invalid value encountered in subtract
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f126af53b20>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc1a5a6a020>
 
 
 
@@ -1266,9 +1266,9 @@ See also
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  15.501 seconds)
+   **Total running time of the script:** ( 5 minutes  47.491 seconds)
 
-**Estimated memory usage:**  578 MB
+**Estimated memory usage:**  577 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_sphere_based_connectome.py:
@@ -1281,7 +1281,7 @@ See also
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.9.2?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_sphere_based_connectome.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_sphere_based_connectome.ipynb
         :alt: Launch binder
         :width: 150 px
 

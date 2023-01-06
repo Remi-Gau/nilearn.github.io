@@ -107,14 +107,17 @@ subjects.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-67
+.. GENERATED FROM PYTHON SOURCE LINES 63-70
 
 Estimate second level model
 ---------------------------
-We define the input maps and the design matrix for the second level model
-and fit it.
+We wish to perform a one-sample test.
+In order to do so, we need to create a design matrix that determines how
+the analysis will be performed.
+For a one-sample test, all we need to include in the design matrix is a
+single column of ones, corresponding to the model intercept.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-75
+.. GENERATED FROM PYTHON SOURCE LINES 70-78
 
 .. code-block:: default
 
@@ -133,11 +136,11 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 79-80
 
-Model specification and fit.
+Next, we specify the model and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-85
+.. GENERATED FROM PYTHON SOURCE LINES 80-88
 
 .. code-block:: default
 
@@ -156,16 +159,19 @@ Model specification and fit.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 89-91
 
 To estimate the :term:`contrast` is very simple. We can just provide the
 column name of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-90
+.. GENERATED FROM PYTHON SOURCE LINES 91-96
 
 .. code-block:: default
 
-    z_map = second_level_model.compute_contrast(output_type='z_score')
+    z_map = second_level_model.compute_contrast(
+        second_level_contrast='intercept',
+        output_type='z_score',
+    )
 
 
 
@@ -174,11 +180,11 @@ column name of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-92
+.. GENERATED FROM PYTHON SOURCE LINES 97-98
 
 We threshold the second level contrast at uncorrected p < 0.001 and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-106
+.. GENERATED FROM PYTHON SOURCE LINES 98-112
 
 .. code-block:: default
 
@@ -208,16 +214,16 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-108
+.. GENERATED FROM PYTHON SOURCE LINES 113-114
 
 As expected, we find the motor cortex.
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-112
+.. GENERATED FROM PYTHON SOURCE LINES 116-118
 
 Next, we compute the (corrected) p-values with a parametric test to compare
 them with the results from a nonparametric test.
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-123
+.. GENERATED FROM PYTHON SOURCE LINES 118-129
 
 .. code-block:: default
 
@@ -248,9 +254,23 @@ them with the results from a nonparametric test.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-137
+.. GENERATED FROM PYTHON SOURCE LINES 130-157
 
 Now, we compute the (corrected) p-values with a permutation test.
+
+We will use :func:`~nilearn.glm.second_level.non_parametric_inference` for
+this step, although :func:`~nilearn.mass_univariate.permuted_ols` could be
+used as well (pending additional steps to mask and reformat the inputs).
+
+.. important::
+  One key difference between
+  :obj:`~nilearn.glm.second_level.SecondLevelModel` and
+  :func:`~nilearn.glm.second_level.non_parametric_inference`/
+  :func:`~nilearn.mass_univariate.permuted_ols`
+  is that the one-sample test in non_parametric_inference/permuted_ols
+  assumes that the distribution is symmetric about 0,
+  which is is weaker than the SecondLevelModel's assumption that
+  the null distribution is Gaussian and centered about 0.
 
 .. important::
   In this example, ``threshold`` is set to 0.001, which enables
@@ -264,7 +284,7 @@ Now, we compute the (corrected) p-values with a permutation test.
   If you wish to only run voxel-level correction, set ``threshold`` to None
   (the default).
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-150
+.. GENERATED FROM PYTHON SOURCE LINES 157-170
 
 .. code-block:: default
 
@@ -289,11 +309,11 @@ Now, we compute the (corrected) p-values with a permutation test.
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/mass_univariate/permuted_least_squares.py:960: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/mass_univariate/permuted_least_squares.py:958: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    /home/yasmin/nilearn/nilearn/nilearn/masking.py:916: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/masking.py:858: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -301,7 +321,7 @@ Now, we compute the (corrected) p-values with a permutation test.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-163
+.. GENERATED FROM PYTHON SOURCE LINES 171-183
 
 Let us plot the (corrected) negative log p-values for the both tests.
 
@@ -316,7 +336,7 @@ We will also cap the negative log10 p-values at 2.69, because this is the
 maximum observable value for the nonparametric tests, which were run with
 only 500 permutations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-203
+.. GENERATED FROM PYTHON SOURCE LINES 183-223
 
 .. code-block:: default
 
@@ -381,7 +401,7 @@ only 500 permutations.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 204-210
+.. GENERATED FROM PYTHON SOURCE LINES 224-230
 
 The nonparametric test yields many more discoveries and is more powerful than
 the usual parametric procedure.
@@ -393,9 +413,9 @@ cluster-mass corrections, which are very similar to one another.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 5 minutes  54.046 seconds)
+   **Total running time of the script:** ( 5 minutes  18.267 seconds)
 
-**Estimated memory usage:**  51 MB
+**Estimated memory usage:**  45 MB
 
 
 .. _sphx_glr_download_auto_examples_05_glm_second_level_plot_second_level_one_sample_test.py:
@@ -408,7 +428,7 @@ cluster-mass corrections, which are very similar to one another.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.9.2?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.ipynb
         :alt: Launch binder
         :width: 150 px
 
