@@ -689,7 +689,7 @@ ensure compatibility with the <a class="reference internal" href="../glm.html#mo
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like             objects</span></dt><dd><p>If a pandas DataFrame, then they have to contain subject_label,
+<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like             objects</span></dt><dd><p>If a pandas DataFrame, then they have to contain subject_label,
 map_name and effects_map_path. It can contain multiple maps that
 would be selected during contrast estimation with the argument
 first_level_contrast of the compute_contrast function. The
@@ -700,15 +700,15 @@ correspond to the sorted subject_label column.</p>
 <p>If list of Niimg-like objects then this is taken literally as Y
 for the model fit and design_matrix must be provided.</p>
 </dd>
-<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
+<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
 considered as confounds and included in the model. If
 <code class="docutils literal notranslate"><span class="pre">design_matrix</span></code> is provided then this argument is ignored.
 The resulting second level design matrix uses the same column
-names as in the given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code></a> for confounds.
+names as in the given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code></a> for confounds.
 At least two columns are expected, <code class="docutils literal notranslate"><span class="pre">subject_label</span></code> and at
 least one confound.</p>
 </dd>
-<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Design matrix to fit the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>. The number of rows
+<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Design matrix to fit the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>. The number of rows
 in the design matrix must agree with the number of maps derived
 from <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>.
 Ensure that the order of maps given by a <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>
