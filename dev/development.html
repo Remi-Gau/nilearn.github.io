@@ -932,6 +932,20 @@ The main conventions we enforce are :</p>
 <li><p>classes in CamelCase</p></li>
 <li><p>2 empty lines between functions or classes</p></li>
 </ul>
+<p>You can check that any code you may have edited follows these conventions
+by running <a class="reference external" href="https://flake8.pycqa.org/en/latest/user/invocation.html#invoking-flake8">flake8</a>.</p>
+<p>Additionally, we recommend using <a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">Black</a>
+to format your code.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We are gradually transitioning to use <a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">Black</a>
+to format the codebase.
+Only certain modules have been formatted so far,
+and running <cite>black</cite> may not affect the files you are working on,
+because of how black is currently configured.
+See <a class="reference external" href="https://github.com/nilearn/nilearn/issues/2528">issue #2528</a>
+for more details.</p>
+</div>
 <p>Each function and class must come with a “docstring” at the top of the function code,
 using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc</a> formatting.
 The docstring must summarize what the function does and document every parameter.</p>
@@ -940,6 +954,21 @@ i.e., functions should preferably be relatively short and do <em>one</em> thing.
 This is also useful for writing unit tests.</p>
 <p>Writing small functions is not always possible, and we do not recommend trying to reorganize larger,
 but well-tested, older functions in the codebase, unless there is a strong reason to do so (e.g., when adding a new feature).</p>
+</section>
+<section id="pre-commit">
+<h3>Pre-commit<a class="headerlink" href="#pre-commit" title="Permalink to this heading">#</a></h3>
+<p>We use <a class="reference external" href="https://pre-commit.com/">pre-commit</a>
+to run a set of linters and autoformatters on the codebase.</p>
+<p>To install pre-commit, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pre-commit
+</pre></div>
+</div>
+<p>Then run the following to install the pre-commit hooks:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Pre-commit will then run all those hooks on the files you have staged for commit.
+Note that if some of those hooks fail you may have to edit some files and stage them again.</p>
 </section>
 <section id="tests">
 <h3>Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h3>
@@ -1028,10 +1057,16 @@ The installed version will also reflect any changes you make to your code.</p>
 </pre></div>
 </div>
 </li>
+<li><p>(optional) install <a class="reference external" href="https://pre-commit.com/#usage">pre-commit</a> hooks
+to run the linter and other checks before each commit:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="o">-</span><span class="n">commit</span> <span class="n">install</span>
+</pre></div>
+</div>
+</li>
 </ol>
 </section>
-<section id="id3">
-<h3>Contributing<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>Contributing<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Here are the key steps you need to go through to contribute code to <cite>nilearn</cite>:</p>
 <ol class="arabic">
 <li><p>open or join an already existing issue explaining what you want to work on</p></li>
@@ -1040,20 +1075,24 @@ The installed version will also reflect any changes you make to your code.</p>
 </pre></div>
 </div>
 </li>
-<li><p>implement changes and (optional but highly recommended) lint:</p></li>
+<li><p>implement changes, lint and format</p></li>
 </ol>
 <div class="admonition-recommendation admonition">
 <p class="admonition-title">Recommendation</p>
 <p>To lint your code and verify PEP8 compliance, you can run
 <a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> locally on the
-changes you have made in your branch compared to the main branch.
-To do this, find the latest common ancestor (commit) of your branch with
-main and then get the diff between your working directory and this commit
-and pipe it to flake8 by running:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">COMMIT</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>merge-base<span class="w"> </span>main<span class="w"> </span>@<span class="k">)</span>
-git<span class="w"> </span>diff<span class="w"> </span><span class="nv">$COMMIT</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>flake8<span class="w"> </span>--diff
+changes you have made.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8<span class="w"> </span>&lt;path_to_edited_file&gt;
 </pre></div>
 </div>
+<p>To automatically format your code, you can run
+<a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">Black</a>
+locally on the changes you have made.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>black<span class="w"> </span>&lt;path_to_edited_file&gt;
+</pre></div>
+</div>
+<p>Note that if you installed pre-commit and the pre-commit hooks,
+those 2 commands will be run automatically before each commit.</p>
 </div>
 <ol class="arabic" start="4">
 <li><p>commit your changes on this branch (don’t forget to write tests!)</p></li>
@@ -1257,13 +1296,14 @@ process can be found there : <a class="reference internal" href="maintenance.htm
 <li><a class="reference internal" href="#contribution-guidelines">Contribution Guidelines</a></li>
 <li><a class="reference internal" href="#pr-structure">PR Structure</a></li>
 <li><a class="reference internal" href="#coding-style">Coding Style</a></li>
+<li><a class="reference internal" href="#pre-commit">Pre-commit</a></li>
 <li><a class="reference internal" href="#tests">Tests</a></li>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#setting-up-your-environment">Setting up your environment</a><ul>
 <li><a class="reference internal" href="#installing">Installing</a></li>
-<li><a class="reference internal" href="#id3">Contributing</a></li>
+<li><a class="reference internal" href="#id4">Contributing</a></li>
 <li><a class="reference internal" href="#building-documentation">Building documentation</a></li>
 </ul>
 </li>
