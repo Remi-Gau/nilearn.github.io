@@ -37,7 +37,7 @@ First we load the required datasets using the nilearn datasets module.
     from nilearn.datasets import fetch_neurovault_motor_task
     from nilearn.datasets import load_mni152_template
 
-    template = load_mni152_template()
+    template = load_mni152_template(resolution=2)
 
     motor_images = fetch_neurovault_motor_task()
     stat_img = motor_images.images[0]
@@ -112,8 +112,8 @@ Let's check the shape and affine have been correctly updated.
 
     Shape comparison:
     - Original t-map image shape : (53, 63, 46)
-    - Resampled t-map image shape: (197, 233, 189)
-    - Template image shape       : (197, 233, 189)
+    - Resampled t-map image shape: (99, 117, 95)
+    - Template image shape       : (99, 117, 95)
 
     Affine comparison:
     - Original t-map image affine :
@@ -122,14 +122,14 @@ Let's check the shape and affine have been correctly updated.
      [   0.    0.    3.  -50.]
      [   0.    0.    0.    1.]]
     - Resampled t-map image affine:
-     [[   1.    0.    0.  -98.]
-     [   0.    1.    0. -134.]
-     [   0.    0.    1.  -72.]
+     [[   2.    0.    0.  -98.]
+     [   0.    2.    0. -134.]
+     [   0.    0.    2.  -72.]
      [   0.    0.    0.    1.]]
     - Template image affine       :
-     [[   1.    0.    0.  -98.]
-     [   0.    1.    0. -134.]
-     [   0.    0.    1.  -72.]
+     [[   2.    0.    0.  -98.]
+     [   0.    2.    0. -134.]
+     [   0.    0.    2.  -72.]
      [   0.    0.    0.    1.]]
 
 
@@ -184,9 +184,9 @@ Finally, result images are displayed using nilearn plotting module.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  7.793 seconds)
+   **Total running time of the script:** ( 0 minutes  2.800 seconds)
 
-**Estimated memory usage:**  21 MB
+**Estimated memory usage:**  8 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_resample_to_template.py:
