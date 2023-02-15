@@ -128,7 +128,7 @@ Calculate and plot contrast
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6684ab5790>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fe9bc75ad30>
 
 
 
@@ -137,7 +137,7 @@ Calculate and plot contrast
 Extract the largest clusters
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-88
+.. GENERATED FROM PYTHON SOURCE LINES 72-89
 
 .. code-block:: default
 
@@ -145,7 +145,8 @@ Extract the largest clusters
     from nilearn.maskers import NiftiSpheresMasker
 
     table = get_clusters_table(z_map, stat_threshold=3.1,
-                               cluster_threshold=20).set_index('Cluster ID', drop=True)
+                               cluster_threshold=20)
+    table.set_index('Cluster ID', drop=True)
     table.head()
 
     # get the 6 largest clusters' max x, y, and z coordinates
@@ -164,12 +165,12 @@ Extract the largest clusters
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-91
+.. GENERATED FROM PYTHON SOURCE LINES 90-92
 
 Plot predicted and actual time series for 6 most significant clusters
 ---------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-112
+.. GENERATED FROM PYTHON SOURCE LINES 92-113
 
 .. code-block:: default
 
@@ -198,7 +199,7 @@ Plot predicted and actual time series for 6 most significant clusters
 
 
 .. image-sg:: /auto_examples/04_glm_first_level/images/sphx_glr_plot_predictions_residuals_002.png
-   :alt: Cluster peak [-60.  -6.  42.] , Cluster peak [60.  0. 36.] , Cluster peak [30. -6. 12.] , Cluster peak [57. 21. 75.] , Cluster peak [-27.  -3.  15.] , Cluster peak [39. 33. 51.] 
+   :alt: Cluster peak [-51. -12.  39.] , Cluster peak [-63.   6.  36.] , Cluster peak [-42. -12.  39.] , Cluster peak [60.  0. 36.] , Cluster peak [66. 12. 27.] , Cluster peak [54.  9. 30.] 
    :srcset: /auto_examples/04_glm_first_level/images/sphx_glr_plot_predictions_residuals_002.png
    :class: sphx-glr-single-img
 
@@ -206,12 +207,12 @@ Plot predicted and actual time series for 6 most significant clusters
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-115
+.. GENERATED FROM PYTHON SOURCE LINES 114-116
 
 Get residuals
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-118
+.. GENERATED FROM PYTHON SOURCE LINES 116-119
 
 .. code-block:: default
 
@@ -225,13 +226,13 @@ Get residuals
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-122
+.. GENERATED FROM PYTHON SOURCE LINES 120-123
 
 Plot distribution of residuals
 ------------------------------
 Note that residuals are not really distributed normally.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-133
+.. GENERATED FROM PYTHON SOURCE LINES 123-134
 
 .. code-block:: default
 
@@ -250,7 +251,7 @@ Note that residuals are not really distributed normally.
 
 
 .. image-sg:: /auto_examples/04_glm_first_level/images/sphx_glr_plot_predictions_residuals_003.png
-   :alt: Cluster peak [-60.  -6.  42.] , Cluster peak [60.  0. 36.] , Cluster peak [30. -6. 12.] , Cluster peak [57. 21. 75.] , Cluster peak [-27.  -3.  15.] , Cluster peak [39. 33. 51.] 
+   :alt: Cluster peak [-51. -12.  39.] , Cluster peak [-63.   6.  36.] , Cluster peak [-42. -12.  39.] , Cluster peak [60.  0. 36.] , Cluster peak [66. 12. 27.] , Cluster peak [54.  9. 30.] 
    :srcset: /auto_examples/04_glm_first_level/images/sphx_glr_plot_predictions_residuals_003.png
    :class: sphx-glr-single-img
 
@@ -259,17 +260,17 @@ Note that residuals are not really distributed normally.
 
  .. code-block:: none
 
-    Mean residuals: -0.006256025894389561
+    Mean residuals: 0.002374945330088011
+    Mean residuals: 0.0016934773463647506
+    Mean residuals: -0.01850990756587893
     Mean residuals: -0.07049870657347272
-    Mean residuals: 0.0034931346633929974
-    Mean residuals: 0.0008347353074654359
-    Mean residuals: 0.01560692294143525
-    Mean residuals: -0.005982784657046168
+    Mean residuals: -0.031008074173812943
+    Mean residuals: 6.587323279442596e-15
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-148
+.. GENERATED FROM PYTHON SOURCE LINES 135-149
 
 Plot R-squared
 --------------
@@ -286,7 +287,7 @@ because the voxel/region fits the noise factors (such as drift or motion)
 that could be present in the GLM. To isolate the influence of the experiment,
 we can use an F-test as shown in the next section.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-152
+.. GENERATED FROM PYTHON SOURCE LINES 149-153
 
 .. code-block:: default
 
@@ -308,11 +309,11 @@ we can use an F-test as shown in the next section.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f66827ea6a0>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fe9bc7038e0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-159
+.. GENERATED FROM PYTHON SOURCE LINES 154-160
 
 Calculate and Plot F-test
 -------------------------
@@ -321,7 +322,7 @@ active and rest conditions together. This is different from R-squared, which
 tells you how well the overall GLM fits the data, including active, rest and
 all the other columns in the design matrix such as drift and motion.
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-178
+.. GENERATED FROM PYTHON SOURCE LINES 160-179
 
 .. code-block:: default
 
@@ -358,16 +359,16 @@ all the other columns in the design matrix such as drift and motion.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f668209cbb0>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fe9bb248bb0>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  23.962 seconds)
+   **Total running time of the script:** ( 0 minutes  24.473 seconds)
 
-**Estimated memory usage:**  644 MB
+**Estimated memory usage:**  619 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_predictions_residuals.py:

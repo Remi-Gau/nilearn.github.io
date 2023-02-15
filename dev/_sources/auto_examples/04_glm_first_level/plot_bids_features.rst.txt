@@ -321,12 +321,13 @@ We display the contrast plot and table with cluster information
 We can get a latex table from a Pandas Dataframe for display and publication
 purposes
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-145
+.. GENERATED FROM PYTHON SOURCE LINES 142-146
 
 .. code-block:: default
 
     from nilearn.reporting import get_clusters_table
-    print(get_clusters_table(z_map, norm.isf(0.001), 10).to_latex())
+    table = get_clusters_table(z_map, norm.isf(0.001), 10)
+    print(table.to_latex())
 
 
 
@@ -336,7 +337,7 @@ purposes
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:143: FutureWarning:
+    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:144: FutureWarning:
 
     In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
 
@@ -381,14 +382,14 @@ purposes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-150
+.. GENERATED FROM PYTHON SOURCE LINES 147-151
 
 Generating a report
 -------------------
 Using the computed FirstLevelModel and contrast information,
 we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-157
+.. GENERATED FROM PYTHON SOURCE LINES 151-158
 
 .. code-block:: default
 
@@ -406,11 +407,11 @@ we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-159
+.. GENERATED FROM PYTHON SOURCE LINES 159-160
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-164
+.. GENERATED FROM PYTHON SOURCE LINES 160-165
 
 .. code-block:: default
 
@@ -426,12 +427,12 @@ We have several ways to access the report:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-167
+.. GENERATED FROM PYTHON SOURCE LINES 166-168
 
 Saving model outputs to disk
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-177
+.. GENERATED FROM PYTHON SOURCE LINES 168-178
 
 .. code-block:: default
 
@@ -488,11 +489,11 @@ Saving model outputs to disk
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-179
+.. GENERATED FROM PYTHON SOURCE LINES 179-180
 
 View the generated files
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-182
+.. GENERATED FROM PYTHON SOURCE LINES 180-183
 
 .. code-block:: default
 
@@ -526,9 +527,9 @@ View the generated files
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  41.751 seconds)
+   **Total running time of the script:** ( 0 minutes  41.192 seconds)
 
-**Estimated memory usage:**  353 MB
+**Estimated memory usage:**  380 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_bids_features.py:
