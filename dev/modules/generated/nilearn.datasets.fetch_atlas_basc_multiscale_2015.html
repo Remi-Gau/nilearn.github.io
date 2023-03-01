@@ -680,17 +680,17 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.datasets.fetch_atlas_basc_multiscale_2015<a class="headerlink" href="#nilearn-datasets-fetch-atlas-basc-multiscale-2015" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.datasets.fetch_atlas_basc_multiscale_2015">
-<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_atlas_basc_multiscale_2015</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sym'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/e1e40d82/nilearn/datasets/atlas.py#L1141"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_atlas_basc_multiscale_2015" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_atlas_basc_multiscale_2015</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sym'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/586e9ccc/nilearn/datasets/atlas.py#L1202"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_atlas_basc_multiscale_2015" title="Permalink to this definition">#</a></dt>
 <dd><p>Downloads and loads multiscale functional brain parcellations.</p>
 <p>This <a class="reference internal" href="../../glossary.html#term-Deterministic-atlas"><span class="xref std std-term">Deterministic atlas</span></a> includes group brain parcellations
 generated from resting-state
 <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">functional magnetic resonance images</span></a> from about 200 young
 healthy subjects.</p>
-<p>Multiple scales (number of networks) are available, among
+<p>Multiple resolutions (number of networks) are available, among
 7, 12, 20, 36, 64, 122, 197, 325, 444. The brain parcellations
 have been generated using a method called bootstrap analysis of
 stable clusters called as BASC <a class="footnote-reference brackets" href="#footcite-bellec2010" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>,
-and the scales have been selected using a data-driven method
+and the resolutions have been selected using a data-driven method
 called MSTEPS <a class="footnote-reference brackets" href="#footcite-bellec2013" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>Note that two versions of the template are available, ‘sym’ or ‘asym’.
 The ‘asym’ type contains brain images that have been registered in the
@@ -707,10 +707,6 @@ x-axis of the template.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>version</strong><span class="classifier">{‘sym’, ‘asym’}, optional</span></dt><dd><p>Available versions are ‘sym’ or ‘asym’. By default all scales of
-brain parcellations of version ‘sym’ will be returned.
-Default=’sym’.</p>
-</dd>
 <dt><strong>data_dir</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>Path where data should be downloaded. By default,
 files are downloaded in home directory.</p>
 </dd>
@@ -725,6 +721,13 @@ Default=True.</p>
 <dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</span></dt><dd><p>Verbosity level (0 means no message).
 Default=1.</p>
 </dd>
+<dt><strong>resolution: :ob:`int`, optional</strong></dt><dd><p>Number of networks in the dictionary. Valid resolutions
+available are {7, 12, 20, 36, 64, 122, 197, 325, 444}</p>
+</dd>
+<dt><strong>version</strong><span class="classifier">{‘sym’, ‘asym’}, optional</span></dt><dd><p>Available versions are ‘sym’ or ‘asym’. By default all scales of
+brain parcellations of version ‘sym’ will be returned.
+Default=’sym’.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -738,6 +741,15 @@ Images have shape <code class="docutils literal notranslate"><span class="pre">(
 values from 0 to the selected number of networks (scale).</p></li>
 <li><p>“description”: <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, details about the data release.</p></li>
 </ul>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Warns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>FutureWarning</dt><dd><p>If a resolution input is provided, the current behavior
+(returning multiple maps) is deprecated.
+Starting in version 0.13, one map will be returned depending on
+the resolution value.</p>
 </dd>
 </dl>
 </dd>
