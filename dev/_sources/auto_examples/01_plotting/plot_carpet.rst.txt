@@ -27,12 +27,12 @@ over time in a carpet plot (also known as a Power plot or a grayplot).
 The :func:`nilearn.plotting.plot_carpet()` function generates a carpet plot
 from a 4D functional image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
+.. GENERATED FROM PYTHON SOURCE LINES 14-16
 
 Fetching data from ADHD dataset
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-27
+.. GENERATED FROM PYTHON SOURCE LINES 16-29
 
 .. code-block:: default
 
@@ -42,11 +42,12 @@ Fetching data from ADHD dataset
 
     # plot_carpet can infer TR from the image header, but preprocessing can often
     # overwrite that particular header field, so we will be explicit.
-    t_r = 2.
+    t_r = 2.0
 
     # Print basic information on the dataset
-    print('First subject functional nifti image (4D) is at: %s' %
-          adhd_dataset.func[0])  # 4D data
+    print(
+        f"First subject functional nifti image (4D) is at: {adhd_dataset.func[0]}"
+    )
 
 
 
@@ -61,12 +62,12 @@ Fetching data from ADHD dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 Deriving a mask
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-35
+.. GENERATED FROM PYTHON SOURCE LINES 32-37
 
 .. code-block:: default
 
@@ -82,12 +83,12 @@ Deriving a mask
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Visualizing global patterns over time
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-46
+.. GENERATED FROM PYTHON SOURCE LINES 40-48
 
 .. code-block:: default
 
@@ -111,18 +112,19 @@ Visualizing global patterns over time
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-51
+.. GENERATED FROM PYTHON SOURCE LINES 49-53
 
 Deriving a label-based mask
 ---------------------------
 Create a gray matter/white matter/cerebrospinal fluid mask from
 ICBM152 tissue probability maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-64
+.. GENERATED FROM PYTHON SOURCE LINES 53-67
 
 .. code-block:: default
 
     import numpy as np
+
     from nilearn import image
 
     atlas = datasets.fetch_icbm152_2009()
@@ -143,22 +145,20 @@ ICBM152 tissue probability maps.
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_carpet.py:61: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
+    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_carpet.py:64: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
       discrete_atlas_img = image.new_img_like(atlas_img, discrete_version)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 Visualizing global patterns, separated by tissue type
 -----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-83
+.. GENERATED FROM PYTHON SOURCE LINES 70-84
 
 .. code-block:: default
-
-    import matplotlib.pyplot as plt
 
     from nilearn.plotting import plot_carpet
 
@@ -197,9 +197,9 @@ Visualizing global patterns, separated by tissue type
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  9.506 seconds)
+   **Total running time of the script:** ( 0 minutes  7.483 seconds)
 
-**Estimated memory usage:**  946 MB
+**Estimated memory usage:**  982 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_carpet.py:

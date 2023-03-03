@@ -35,14 +35,14 @@ Retrieving the atlas data
 
     from nilearn import datasets
 
-    dataset_ho = datasets.fetch_atlas_harvard_oxford('cort-maxprob-thr25-2mm')
-    dataset_ju = datasets.fetch_atlas_juelich('maxprob-thr0-1mm')
+    dataset_ho = datasets.fetch_atlas_harvard_oxford("cort-maxprob-thr25-2mm")
+    dataset_ju = datasets.fetch_atlas_juelich("maxprob-thr0-1mm")
 
     atlas_ho_filename = dataset_ho.filename
     atlas_ju_filename = dataset_ju.filename
 
-    print('Atlas ROIs are located at: %s' % atlas_ho_filename)
-    print('Atlas ROIs are located at: %s' % atlas_ju_filename)
+    print(f"Atlas ROIs are located at: {atlas_ho_filename}")
+    print(f"Atlas ROIs are located at: {atlas_ju_filename}")
 
 
 
@@ -86,7 +86,7 @@ Visualizing the Harvard-Oxford atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f9801eb0850>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f89ec694e20>
 
 
 
@@ -116,7 +116,7 @@ Visualizing the Juelich atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f98016cac40>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f89e5d9ebe0>
 
 
 
@@ -125,12 +125,15 @@ Visualizing the Juelich atlas
 Visualizing the Harvard-Oxford atlas with contours
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-44
+.. GENERATED FROM PYTHON SOURCE LINES 40-47
 
 .. code-block:: default
 
-    plotting.plot_roi(atlas_ho_filename, view_type='contours',
-                      title="Harvard Oxford atlas in contours")
+    plotting.plot_roi(
+        atlas_ho_filename,
+        view_type="contours",
+        title="Harvard Oxford atlas in contours",
+    )
     plotting.show()
 
 
@@ -152,17 +155,18 @@ Visualizing the Harvard-Oxford atlas with contours
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-47
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Visualizing the Juelich atlas with contours
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-50
+.. GENERATED FROM PYTHON SOURCE LINES 50-54
 
 .. code-block:: default
 
-    plotting.plot_roi(atlas_ju_filename, view_type='contours',
-                      title="Juelich atlas in contours")
+    plotting.plot_roi(
+        atlas_ju_filename, view_type="contours", title="Juelich atlas in contours"
+    )
     plotting.show()
 
 
@@ -186,9 +190,9 @@ Visualizing the Juelich atlas with contours
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  30.816 seconds)
+   **Total running time of the script:** ( 1 minutes  3.714 seconds)
 
-**Estimated memory usage:**  79 MB
+**Estimated memory usage:**  119 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_atlas.py:

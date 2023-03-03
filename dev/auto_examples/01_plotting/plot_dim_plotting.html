@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="The dim argument controls the contrast of the background. dim modifies the contrast of this image: dim=0 leaves the image unchanged, negative values of dim enhance it, and positive values decrease ..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NeuroImaging volumes visualization" href="plot_visualization.html" /><link rel="prev" title="Visualizing a probabilistic atlas: the default mode in the MSDL atlas" href="plot_overlay.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Matplotlib colormaps in Nilearn" href="plot_colormaps.html" /><link rel="prev" title="Visualizing multiscale functional brain parcellations" href="plot_multiscale_parcellations.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Controlling the contrast of the background when plotting - Nilearn</title>
@@ -199,22 +199,22 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Visualization of brain images</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain.html">Glass brain plotting in nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_visualize_megatrawls_netmats.html">Visualizing Megatrawls Network Matrices from Human Connectome Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain.html">Glass brain plotting in nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas.html">Basic Atlas plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_multiscale_parcellations.html">Visualizing multiscale functional brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_colormaps.html">Matplotlib colormaps in Nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_overlay.html">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_overlay.html#visualizing-a-probabilistic-atlas-with-plot-prob-atlas">Visualizing a probabilistic atlas with plot_prob_atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_multiscale_parcellations.html">Visualizing multiscale functional brain parcellations</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Controlling the contrast of the background when plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_colormaps.html">Matplotlib colormaps in Nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_visualization.html">NeuroImaging volumes visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_carpet.html">Visualizing global patterns with a carpet plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_masks.html">Plot Haxby masks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_prob_atlas.html">Visualizing 4D probabilistic atlas maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surface_projection_strategies.html">Technical point: Illustration of the volume to surface sampling schemes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_plotting.html">Plotting tools in nilearn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_prob_atlas.html">Visualizing 4D probabilistic atlas maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_surf_stat_map.html">Seed-based connectivity on the surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surf_atlas.html">Loading and plotting of a cortical surface atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_surf_stat_map.html">Seed-based connectivity on the surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_3d_map_to_surface_projection.html">Making a surface plot of a 3D statistical map</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain_extensive.html">Glass brain plotting in nilearn (all options)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_more_plotting.html">More plotting tools from nilearn</a></li>
@@ -698,55 +698,68 @@ display ROIs on top of a background image.</p>
 <section id="plotting-with-enhancement-of-background-image-with-dim-5">
 <h2>Plotting with enhancement of background image with dim=-.5<a class="headerlink" href="#plotting-with-enhancement-of-background-image-with-dim-5" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
-<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
-                       <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
-                       <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
-                       <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=-.5&quot;</span><span class="p">,</span>
-                       <span class="n">dim</span><span class="o">=-</span><span class="mf">.5</span><span class="p">)</span>
+
+<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
+    <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=-.5&quot;</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_001.png" srcset="../../_images/sphx_glr_plot_dim_plotting_001.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f9801eff340&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_001.png" srcset="../../_images/sphx_glr_plot_dim_plotting_001.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f89ec4458b0&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-no-change-of-contrast-in-background-image-with-dim-0">
 <h2>Plotting with no change of contrast in background image with dim=0<a class="headerlink" href="#plotting-with-no-change-of-contrast-in-background-image-with-dim-0" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
-                       <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
-                       <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
-                       <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=0&quot;</span><span class="p">,</span>
-                       <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
+    <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=0&quot;</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_002.png" srcset="../../_images/sphx_glr_plot_dim_plotting_002.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f9800d981c0&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_002.png" srcset="../../_images/sphx_glr_plot_dim_plotting_002.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f89ef4fffd0&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-decrease-of-contrast-in-background-image-with-dim-5">
 <h2>Plotting with decrease of contrast in background image with dim=.5<a class="headerlink" href="#plotting-with-decrease-of-contrast-in-background-image-with-dim-5" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
-                       <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
-                       <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
-                       <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=.5&quot;</span><span class="p">,</span>
-                       <span class="n">dim</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
+    <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=.5&quot;</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_003.png" srcset="../../_images/sphx_glr_plot_dim_plotting_003.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f9800e69c10&gt;
+<img src="../../_images/sphx_glr_plot_dim_plotting_003.png" srcset="../../_images/sphx_glr_plot_dim_plotting_003.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f89f4170e80&gt;
 </pre></div>
 </div>
 </section>
 <section id="plotting-with-more-decrease-in-contrast-with-dim-1">
 <h2>Plotting with more decrease in contrast with dim=1<a class="headerlink" href="#plotting-with-more-decrease-in-contrast-with-dim-1" title="Permalink to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
-                       <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
-                       <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
-                       <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=1&quot;</span><span class="p">,</span>
-                       <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_tmap_filename</span></a><span class="p">,</span>
+    <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer_anat_filename</span></a><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="o">-</span><span class="mi">27</span><span class="p">,</span> <span class="mi">66</span><span class="p">),</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;dim=1&quot;</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_dim_plotting_004.png" srcset="../../_images/sphx_glr_plot_dim_plotting_004.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.113 seconds)</p>
+<img src="../../_images/sphx_glr_plot_dim_plotting_004.png" srcset="../../_images/sphx_glr_plot_dim_plotting_004.png" alt="plot dim plotting" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.194 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-dim-plotting-py">
 <div class="binder-badge docutils container">
@@ -768,23 +781,23 @@ display ROIs on top of a background image.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_visualization.html">
+          <a class="next-page" href="plot_colormaps.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">NeuroImaging volumes visualization</div>
+                <div class="title">Matplotlib colormaps in Nilearn</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_overlay.html">
+          <a class="prev-page" href="plot_multiscale_parcellations.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</div>
+                <div class="title">Visualizing multiscale functional brain parcellations</div>
                 
               </div>
             </a>
