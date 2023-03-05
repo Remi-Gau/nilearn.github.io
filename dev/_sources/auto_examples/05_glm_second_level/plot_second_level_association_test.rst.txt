@@ -46,15 +46,17 @@ is included in the model.
 
 At first, we need to load the Localizer contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-26
+.. GENERATED FROM PYTHON SOURCE LINES 19-28
 
 .. code-block:: default
 
     from nilearn import datasets
+
     n_samples = 94
     localizer_dataset = datasets.fetch_localizer_contrasts(
-        ['left button press (auditory cue)'],
-        n_subjects=n_samples, legacy_format=False
+        ["left button press (auditory cue)"],
+        n_subjects=n_samples,
+        legacy_format=False,
     )
 
 
@@ -64,16 +66,18 @@ At first, we need to load the Localizer contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-28
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 Let's print basic information on the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-31
+.. GENERATED FROM PYTHON SOURCE LINES 30-35
 
 .. code-block:: default
 
-    print('First contrast nifti image (3D) is located at: %s' %
-          localizer_dataset.cmaps[0])
+    print(
+        "First contrast nifti image (3D) is located "
+        f"at: {localizer_dataset.cmaps[0]}"
+    )
 
 
 
@@ -88,15 +92,15 @@ Let's print basic information on the dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
 
 we also need to load the behavioral variable.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-36
+.. GENERATED FROM PYTHON SOURCE LINES 37-40
 
 .. code-block:: default
 
-    tested_var = localizer_dataset.ext_vars['pseudo']
+    tested_var = localizer_dataset.ext_vars["pseudo"]
     print(tested_var)
 
 
@@ -123,23 +127,23 @@ we also need to load the behavioral variable.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-38
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 It is worth to do a auality check and remove subjects with missing values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-48
+.. GENERATED FROM PYTHON SOURCE LINES 42-52
 
 .. code-block:: default
 
     import numpy as np
-    mask_quality_check = np.where(
-        np.logical_not(np.isnan(tested_var))
-    )[0]
+
+    mask_quality_check = np.where(np.logical_not(np.isnan(tested_var)))[0]
     n_samples = mask_quality_check.size
-    contrast_map_filenames = [localizer_dataset.cmaps[i]
-                              for i in mask_quality_check]
+    contrast_map_filenames = [
+        localizer_dataset.cmaps[i] for i in mask_quality_check
+    ]
     tested_var = tested_var[mask_quality_check].values.reshape((-1, 1))
-    print("Actual number of subjects after quality check: %d" % n_samples)
+    print(f"Actual number of subjects after quality check: {int(n_samples)}")
 
 
 
@@ -154,21 +158,23 @@ It is worth to do a auality check and remove subjects with missing values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-53
+.. GENERATED FROM PYTHON SOURCE LINES 53-57
 
 Estimate second level model
 ---------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-58
+.. GENERATED FROM PYTHON SOURCE LINES 57-64
 
 .. code-block:: default
 
     import pandas as pd
+
     design_matrix = pd.DataFrame(
         np.hstack((tested_var, np.ones_like(tested_var))),
-        columns=['fluency', 'intercept'])
+        columns=["fluency", "intercept"],
+    )
 
 
 
@@ -177,15 +183,16 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-60
+.. GENERATED FROM PYTHON SOURCE LINES 65-66
 
 Fit of the second-level model
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 66-71
 
 .. code-block:: default
 
     from nilearn.glm.second_level import SecondLevelModel
+
     model = SecondLevelModel(smoothing_fwhm=5.0)
     model.fit(contrast_map_filenames, design_matrix=design_matrix)
 
@@ -202,16 +209,16 @@ Fit of the second-level model
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 72-74
 
 To estimate the contrast is very simple. We can just provide the column
 name of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-69
+.. GENERATED FROM PYTHON SOURCE LINES 74-76
 
 .. code-block:: default
 
-    z_map = model.compute_contrast('fluency', output_type='z_score')
+    z_map = model.compute_contrast("fluency", output_type="z_score")
 
 
 
@@ -220,16 +227,17 @@ name of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-71
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 We compute the fdr-corrected p = 0.05 threshold for these data
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-74
+.. GENERATED FROM PYTHON SOURCE LINES 78-82
 
 .. code-block:: default
 
     from nilearn.glm import threshold_stats_img
-    _, threshold = threshold_stats_img(z_map, alpha=.05, height_control='fdr')
+
+    _, threshold = threshold_stats_img(z_map, alpha=0.05, height_control="fdr")
 
 
 
@@ -238,19 +246,23 @@ We compute the fdr-corrected p = 0.05 threshold for these data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-76
+.. GENERATED FROM PYTHON SOURCE LINES 83-84
 
 Let us plot the second level contrast at the computed thresholds
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-84
+.. GENERATED FROM PYTHON SOURCE LINES 84-96
 
 .. code-block:: default
 
     from nilearn import plotting
+
     plotting.plot_stat_map(
-        z_map, threshold=threshold, colorbar=True,
-        title='Group-level association between motor activity \n'
-        'and reading fluency (fdr=0.05)')
+        z_map,
+        threshold=threshold,
+        colorbar=True,
+        title="Group-level association between motor activity \n"
+        "and reading fluency (fdr=0.05)",
+    )
 
     plotting.show()
 
@@ -266,24 +278,23 @@ Let us plot the second level contrast at the computed thresholds
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-87
+.. GENERATED FROM PYTHON SOURCE LINES 97-99
 
 Computing the (corrected) p-values with parametric test to compare with
 non parametric test
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-97
+.. GENERATED FROM PYTHON SOURCE LINES 99-108
 
 .. code-block:: default
 
-    from nilearn.image import math_img
-    from nilearn.image import get_data
+    from nilearn.image import get_data, math_img
 
-    p_val = model.compute_contrast('fluency', output_type='p_value')
+    p_val = model.compute_contrast("fluency", output_type="p_value")
     n_voxels = np.sum(get_data(model.masker_.mask_img_))
     # Correcting the p-values for multiple testing and taking negative logarithm
-    neg_log_pval = math_img("-np.log10(np.minimum(1, img * {}))"
-                            .format(str(n_voxels)),
-                            img=p_val)
+    neg_log_pval = math_img(
+        f"-np.log10(np.minimum(1, img * {str(n_voxels)}))", img=p_val
+    )
 
 
 
@@ -301,11 +312,11 @@ non parametric test
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 109-110
 
 Let us plot the (corrected) negative log  p-values for the parametric test
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-112
+.. GENERATED FROM PYTHON SOURCE LINES 110-130
 
 .. code-block:: default
 
@@ -316,10 +327,17 @@ Let us plot the (corrected) negative log  p-values for the parametric test
     # (90% chance that we make no false discoveries at all).
     # This threshold is much more conservative than the previous one.
     threshold = 1
-    title = ('Group-level association between motor activity and reading: \n'
-             'neg-log of parametric corrected p-values (FWER < 10%)')
-    plotting.plot_stat_map(neg_log_pval, colorbar=True, cut_coords=cut_coords,
-                           threshold=threshold, title=title)
+    title = (
+        "Group-level association between motor activity and reading: \n"
+        "neg-log of parametric corrected p-values (FWER < 10%)"
+    )
+    plotting.plot_stat_map(
+        neg_log_pval,
+        colorbar=True,
+        cut_coords=cut_coords,
+        threshold=threshold,
+        title=title,
+    )
     plotting.show()
 
 
@@ -343,22 +361,27 @@ Let us plot the (corrected) negative log  p-values for the parametric test
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-114
+.. GENERATED FROM PYTHON SOURCE LINES 131-132
 
 Computing the (corrected) negative log p-values with permutation test
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-123
+.. GENERATED FROM PYTHON SOURCE LINES 132-146
 
 .. code-block:: default
 
     from nilearn.glm.second_level import non_parametric_inference
-    neg_log_pvals_permuted_ols_unmasked = \
-        non_parametric_inference(contrast_map_filenames,
-                                 design_matrix=design_matrix,
-                                 second_level_contrast='fluency',
-                                 model_intercept=True, n_perm=1000,
-                                 two_sided_test=False, mask=None,
-                                 smoothing_fwhm=5.0, n_jobs=1)
+
+    neg_log_pvals_permuted_ols_unmasked = non_parametric_inference(
+        contrast_map_filenames,
+        design_matrix=design_matrix,
+        second_level_contrast="fluency",
+        model_intercept=True,
+        n_perm=1000,
+        two_sided_test=False,
+        mask=None,
+        smoothing_fwhm=5.0,
+        n_jobs=1,
+    )
 
 
 
@@ -367,19 +390,25 @@ Computing the (corrected) negative log p-values with permutation test
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-125
+.. GENERATED FROM PYTHON SOURCE LINES 147-148
 
 Let us plot the (corrected) negative log  p-values
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-136
+.. GENERATED FROM PYTHON SOURCE LINES 148-165
 
 .. code-block:: default
 
-    title = ('Group-level association between motor activity and reading: \n'
-             'neg-log of non-parametric corrected p-values (FWER < 10%)')
-    plotting.plot_stat_map(neg_log_pvals_permuted_ols_unmasked, colorbar=True,
-                           cut_coords=cut_coords, threshold=threshold,
-                           title=title)
+    title = (
+        "Group-level association between motor activity and reading: \n"
+        "neg-log of non-parametric corrected p-values (FWER < 10%)"
+    )
+    plotting.plot_stat_map(
+        neg_log_pvals_permuted_ols_unmasked,
+        colorbar=True,
+        cut_coords=cut_coords,
+        threshold=threshold,
+        title=title,
+    )
     plotting.show()
 
     # The neg-log p-values obtained with non parametric testing are capped at 3
@@ -401,9 +430,9 @@ Let us plot the (corrected) negative log  p-values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  40.406 seconds)
+   **Total running time of the script:** ( 0 minutes  44.817 seconds)
 
-**Estimated memory usage:**  127 MB
+**Estimated memory usage:**  61 MB
 
 
 .. _sphx_glr_download_auto_examples_05_glm_second_level_plot_second_level_association_test.py:
