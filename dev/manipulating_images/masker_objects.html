@@ -283,9 +283,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_negate_image.html">Negating an image with math_img</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_compare_mean_image.html">Comparing the means of 2 images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_smooth_mean_image.html">Smoothing an image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_extract_rois_smith_atlas.html">Regions Extraction of Default Mode Networks using Smith Atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_extract_regions_labels_image.html">Breaking an atlas of labels in separated regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_resample_to_template.html">Resample an image to a template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_extract_rois_smith_atlas.html">Regions Extraction of Default Mode Networks using Smith Atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_nifti_simple.html">Simple example of NiftiMasker use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_nifti_labels_simple.html">Extracting signals from brain regions using the NiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/06_manipulating_images/plot_extract_rois_statistical_maps.html">Region Extraction using a t-statistical map (3D)</a></li>
@@ -744,6 +744,7 @@ slice and create a <a class="reference internal" href="input_output.html#niimg">
 
 <span class="c1"># Restrict to 100 frames to speed up computation</span>
 <span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">index_img</span>
+
 <span class="n">epi_img</span> <span class="o">=</span> <span class="n">index_img</span><span class="p">(</span><span class="n">epi_filename</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 
 </pre></div>
@@ -779,8 +780,9 @@ of the masker:</p>
 <span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">miyawaki_filename</span><span class="p">)</span>
 
 <span class="c1"># Plot the generated mask using the mask_img_ attribute</span>
-<span class="n">plot_roi</span><span class="p">(</span><span class="n">masker</span><span class="o">.</span><span class="n">mask_img_</span><span class="p">,</span> <span class="n">miyawaki_mean_img</span><span class="p">,</span>
-         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mask from already masked data&quot;</span><span class="p">)</span>
+<span class="n">plot_roi</span><span class="p">(</span>
+    <span class="n">masker</span><span class="o">.</span><span class="n">mask_img_</span><span class="p">,</span> <span class="n">miyawaki_mean_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Mask from already masked data&quot;</span>
+<span class="p">)</span>
 
 <span class="c1">###############################################################################</span>
 </pre></div>
@@ -792,7 +794,7 @@ of the masker:</p>
 method of the masker. The generated report can be viewed in a Jupyter notebook,
 opened in a new browser tab using <cite>report.open_in_browser()</cite>,
 or saved as a portable HTML file <cite>report.save_as_html(output_filepath)</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">(</span><span class="n">mask_strategy</span><span class="o">=</span><span class="s1">&#39;epi&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">(</span><span class="n">mask_strategy</span><span class="o">=</span><span class="s2">&quot;epi&quot;</span><span class="p">)</span>
 <span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">epi_img</span><span class="p">)</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">generate_report</span><span class="p">()</span>
 <span class="n">report</span>

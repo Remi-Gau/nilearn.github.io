@@ -30,11 +30,12 @@ could have been computed with nilearn :func:`nilearn.image.mean_img` function.
 
 Fetching 2 subject movie watching brain development fmri datasets.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-18
+.. GENERATED FROM PYTHON SOURCE LINES 14-19
 
 .. code-block:: default
 
     from nilearn import datasets
+
     dataset = datasets.fetch_development_fmri(n_subjects=2)
 
 
@@ -45,16 +46,16 @@ Fetching 2 subject movie watching brain development fmri datasets.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-20
+.. GENERATED FROM PYTHON SOURCE LINES 20-21
 
 Print basic information on the adhd subjects resting state datasets.
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-24
+.. GENERATED FROM PYTHON SOURCE LINES 21-25
 
 .. code-block:: default
 
-    print('Subject 1 resting state dataset at: %s' % dataset.func[0])
-    print('Subject 2 resting state dataset at: %s' % dataset.func[1])
+    print(f"Subject 1 resting state dataset at: {dataset.func[0]}")
+    print(f"Subject 2 resting state dataset at: {dataset.func[1]}")
 
 
 
@@ -71,22 +72,25 @@ Print basic information on the adhd subjects resting state datasets.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-26
+.. GENERATED FROM PYTHON SOURCE LINES 26-27
 
 Comparing the means of the 2 movie watching datasets.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-35
+.. GENERATED FROM PYTHON SOURCE LINES 27-39
 
 .. code-block:: default
 
-    from nilearn import plotting, image
+    from nilearn import image, plotting
 
-    result_img = image.math_img("np.mean(img1, axis=-1) - np.mean(img2, axis=-1)",
-                                img1=dataset.func[0],
-                                img2=dataset.func[1])
+    result_img = image.math_img(
+        "np.mean(img1, axis=-1) - np.mean(img2, axis=-1)",
+        img1=dataset.func[0],
+        img2=dataset.func[1],
+    )
 
-    plotting.plot_stat_map(result_img,
-                           title="Comparing means of 2 resting state 4D images.")
+    plotting.plot_stat_map(
+        result_img, title="Comparing means of 2 resting state 4D images."
+    )
     plotting.show()
 
 
@@ -103,9 +107,9 @@ Comparing the means of the 2 movie watching datasets.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.834 seconds)
+   **Total running time of the script:** ( 0 minutes  3.351 seconds)
 
-**Estimated memory usage:**  765 MB
+**Estimated memory usage:**  810 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_compare_mean_image.py:

@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This simple example shows how to extract regions from Smith atlas resting state networks. In particular, we show how Default Mode Network regions are extracted using nilearn.regions.RegionExtractor..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Breaking an atlas of labels in separated regions" href="plot_extract_regions_labels_image.html" /><link rel="prev" title="Smoothing an image" href="plot_smooth_mean_image.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Simple example of NiftiMasker use" href="plot_nifti_simple.html" /><link rel="prev" title="Resample an image to a template" href="plot_resample_to_template.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Regions Extraction of Default Mode Networks using Smith Atlas - Nilearn</title>
@@ -283,9 +283,9 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_negate_image.html">Negating an image with math_img</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_mean_image.html">Comparing the means of 2 images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_smooth_mean_image.html">Smoothing an image</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Regions Extraction of Default Mode Networks using Smith Atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_labels_image.html">Breaking an atlas of labels in separated regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_resample_to_template.html">Resample an image to a template</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Regions Extraction of Default Mode Networks using Smith Atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_nifti_simple.html">Simple example of NiftiMasker use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_nifti_labels_simple.html">Extracting signals from brain regions using the NiftiLabelsMasker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_rois_statistical_maps.html">Region Extraction using a t-statistical map (3D)</a></li>
@@ -697,8 +697,12 @@ The default behavior of the function will be deprecated and replaced in release 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.regions</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor" title="nilearn.regions.RegionExtractor" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">RegionExtractor</span></a>
 
 <span class="c1"># min_region_size in voxel volume mm^3</span>
-<a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor" title="nilearn.regions.RegionExtractor" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">extraction</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor" title="nilearn.regions.RegionExtractor" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">RegionExtractor</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_networks</span></a><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
-                             <span class="n">threshold</span><span class="o">=</span><span class="mi">98</span><span class="p">,</span> <span class="n">thresholding_strategy</span><span class="o">=</span><span class="s1">&#39;percentile&#39;</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor" title="nilearn.regions.RegionExtractor" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">extraction</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor" title="nilearn.regions.RegionExtractor" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">RegionExtractor</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_networks</span></a><span class="p">,</span>
+    <span class="n">min_region_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">98</span><span class="p">,</span>
+    <span class="n">thresholding_strategy</span><span class="o">=</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="c1"># Just call fit() to execute region extraction procedure</span>
 <a href="../../modules/generated/nilearn.regions.RegionExtractor.html#nilearn.regions.RegionExtractor.fit" title="nilearn.regions.RegionExtractor.fit" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-method"><span class="n">extraction</span><span class="o">.</span><span class="n">fit</span></a><span class="p">()</span>
@@ -712,23 +716,38 @@ Show region extraction results by importing image &amp; plotting utilities</p>
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.find_xyz_cut_coords.html#nilearn.plotting.find_xyz_cut_coords" title="nilearn.plotting.find_xyz_cut_coords" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">find_xyz_cut_coords</span></a>
 
 <span class="c1"># Showing region extraction results using 4D maps visualization tool</span>
-<a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_prob_atlas</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_img</span></a><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                         <span class="n">view_type</span><span class="o">=</span><span class="s1">&#39;contours&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Regions extracted.&quot;</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_prob_atlas</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_img</span></a><span class="p">,</span>
+    <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">view_type</span><span class="o">=</span><span class="s2">&quot;contours&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Regions extracted.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="c1"># To reduce the complexity, we choose to display all the regions</span>
 <span class="c1"># extracted from network 3</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">DMN_network</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_networks</span></a><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">DMN_network</span></a><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                       <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Network 3&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">DMN_network</span></a><span class="p">,</span>
+    <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
+    <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Network 3&quot;</span><span class="p">,</span>
+    <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
 
 <a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_indices_network3</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">extraction</span><span class="o">.</span><span class="n">index_</span></a><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">for</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">index</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_indices_network3</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
     <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">extraction</span><span class="o">.</span><span class="n">regions_img_</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">index</span></a><span class="p">)</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.plotting.find_xyz_cut_coords.html#nilearn.plotting.find_xyz_cut_coords" title="nilearn.plotting.find_xyz_cut_coords" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">find_xyz_cut_coords</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a><span class="p">)</span>
-    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
-                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Blob of network3&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a><span class="p">,</span>
+        <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
+        <span class="n">cut_coords</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Blob of network3&quot;</span><span class="p">,</span>
+        <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
@@ -743,8 +762,8 @@ Show region extraction results by importing image &amp; plotting utilities</p>
 <li><img src="../../_images/sphx_glr_plot_extract_rois_smith_atlas_007.png" srcset="../../_images/sphx_glr_plot_extract_rois_smith_atlas_007.png" alt="plot extract rois smith atlas" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_extract_rois_smith_atlas_008.png" srcset="../../_images/sphx_glr_plot_extract_rois_smith_atlas_008.png" alt="plot extract rois smith atlas" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  29.893 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  423 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  34.320 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  528 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-extract-rois-smith-atlas-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_extract_rois_smith_atlas.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
@@ -764,23 +783,23 @@ Show region extraction results by importing image &amp; plotting utilities</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_extract_regions_labels_image.html">
+          <a class="next-page" href="plot_nifti_simple.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Breaking an atlas of labels in separated regions</div>
+                <div class="title">Simple example of NiftiMasker use</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_smooth_mean_image.html">
+          <a class="prev-page" href="plot_resample_to_template.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Smoothing an image</div>
+                <div class="title">Resample an image to a template</div>
                 
               </div>
             </a>
