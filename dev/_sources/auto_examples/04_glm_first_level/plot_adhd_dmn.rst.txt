@@ -27,22 +27,24 @@ More specifically:
 
 1. A sequence of fMRI volumes are loaded.
 2. A design matrix with the Posterior Cingulate Cortex seed is defined.
-3. A GLM is applied to the dataset (effect/covariance, then contrast estimation).
+3. A GLM is applied to the dataset (effect/covariance,
+   then contrast estimation).
 4. The Default Mode Network is displayed.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-25
+.. GENERATED FROM PYTHON SOURCE LINES 18-26
 
 .. code-block:: default
 
     import numpy as np
-
     from nilearn import datasets, plotting
+    from nilearn.glm.first_level import (
+        FirstLevelModel,
+        make_first_level_design_matrix,
+    )
     from nilearn.maskers import NiftiSpheresMasker
 
-    from nilearn.glm.first_level import FirstLevelModel
-    from nilearn.glm.first_level import make_first_level_design_matrix
 
 
 
@@ -50,22 +52,21 @@ More specifically:
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-30
 
 Prepare data and analysis parameters
 -------------------------------------
 Prepare the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-39
+.. GENERATED FROM PYTHON SOURCE LINES 30-40
 
 .. code-block:: default
 
     adhd_dataset = datasets.fetch_adhd(n_subjects=1)
 
     # Prepare timing
-    t_r = 2.
-    slice_time_ref = 0.
+    t_r = 2.0
+    slice_time_ref = 0.0
     n_scans = 176
 
     # Prepare seed
@@ -78,28 +79,38 @@ Prepare the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-43
+.. GENERATED FROM PYTHON SOURCE LINES 41-44
 
 Estimate contrasts
 ------------------
 Specify the contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-56
+.. GENERATED FROM PYTHON SOURCE LINES 44-67
 
 .. code-block:: default
 
-    seed_masker = NiftiSpheresMasker([pcc_coords], radius=10, detrend=True,
-                                     standardize=True, low_pass=0.1,
-                                     high_pass=0.01, t_r=2.,
-                                     memory='nilearn_cache',
-                                     memory_level=1, verbose=0)
+    seed_masker = NiftiSpheresMasker(
+        [pcc_coords],
+        radius=10,
+        detrend=True,
+        standardize=True,
+        low_pass=0.1,
+        high_pass=0.01,
+        t_r=2.0,
+        memory="nilearn_cache",
+        memory_level=1,
+        verbose=0,
+    )
     seed_time_series = seed_masker.fit_transform(adhd_dataset.func[0])
     frametimes = np.linspace(0, (n_scans - 1) * t_r, n_scans)
-    design_matrix = make_first_level_design_matrix(frametimes, hrf_model='spm',
-                                                   add_regs=seed_time_series,
-                                                   add_reg_names=["pcc_seed"])
+    design_matrix = make_first_level_design_matrix(
+        frametimes,
+        hrf_model="spm",
+        add_regs=seed_time_series,
+        add_reg_names=["pcc_seed"],
+    )
     dmn_contrast = np.array([1] + [0] * (design_matrix.shape[1] - 1))
-    contrasts = {'seed_based_glm': dmn_contrast}
+    contrasts = {"seed_based_glm": dmn_contrast}
 
 
 
@@ -108,19 +119,20 @@ Specify the contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-60
+.. GENERATED FROM PYTHON SOURCE LINES 68-71
 
 Perform first level analysis
 ----------------------------
 Setup and fit GLM.
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 71-76
 
 .. code-block:: default
 
     first_level_model = FirstLevelModel(t_r=t_r, slice_time_ref=slice_time_ref)
-    first_level_model = first_level_model.fit(run_imgs=adhd_dataset.func[0],
-                                        design_matrices=design_matrix)
+    first_level_model = first_level_model.fit(
+        run_imgs=adhd_dataset.func[0], design_matrices=design_matrix
+    )
 
 
 
@@ -138,26 +150,29 @@ Setup and fit GLM.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-66
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Estimate the contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-79
+.. GENERATED FROM PYTHON SOURCE LINES 78-94
 
 .. code-block:: default
 
-    print('Contrast seed_based_glm computed.')
-    z_map = first_level_model.compute_contrast(contrasts['seed_based_glm'],
-                                               output_type='z_score')
+    print("Contrast seed_based_glm computed.")
+    z_map = first_level_model.compute_contrast(
+        contrasts["seed_based_glm"], output_type="z_score"
+    )
 
     # Saving snapshots of the contrasts
-    filename = 'dmn_z_map.png'
-    display = plotting.plot_stat_map(z_map, threshold=3.0, title='Seed based GLM',
-                                     cut_coords=pcc_coords)
-    display.add_markers(marker_coords=[pcc_coords], marker_color='g',
-                        marker_size=300)
+    filename = "dmn_z_map.png"
+    display = plotting.plot_stat_map(
+        z_map, threshold=3.0, title="Seed based GLM", cut_coords=pcc_coords
+    )
+    display.add_markers(
+        marker_coords=[pcc_coords], marker_color="g", marker_size=300
+    )
     display.savefig(filename)
-    print("Save z-map in '{0}'.".format(filename))
+    print(f"Save z-map in '{filename}'.")
 
 
 
@@ -178,7 +193,7 @@ Estimate the contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-86
+.. GENERATED FROM PYTHON SOURCE LINES 95-101
 
 Generating a report
 -------------------
@@ -187,20 +202,20 @@ portable, ready-to-view report with most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
 which we do here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-97
+.. GENERATED FROM PYTHON SOURCE LINES 101-112
 
 .. code-block:: default
 
-
     from nilearn.reporting import make_glm_report
 
-    report = make_glm_report(first_level_model,
-                             contrasts=contrasts,
-                             title='ADHD DMN Report',
-                             cluster_threshold=15,
-                             min_distance=8.,
-                             plot_type='glass',
-                             )
+    report = make_glm_report(
+        first_level_model,
+        contrasts=contrasts,
+        title="ADHD DMN Report",
+        cluster_threshold=15,
+        min_distance=8.0,
+        plot_type="glass",
+    )
 
 
 
@@ -209,11 +224,11 @@ which we do here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 113-114
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-103
+.. GENERATED FROM PYTHON SOURCE LINES 114-118
 
 .. code-block:: default
 
@@ -231,7 +246,7 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.269 seconds)
+   **Total running time of the script:** ( 0 minutes  15.740 seconds)
 
 **Estimated memory usage:**  589 MB
 

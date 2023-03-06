@@ -42,11 +42,12 @@ We use a so-called localizer dataset, which consists in a 5-minutes
 acquisition of a fast event-related dataset.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-29
+.. GENERATED FROM PYTHON SOURCE LINES 25-30
 
 .. code-block:: default
 
     from nilearn.datasets import func
+
     data = func.fetch_localizer_first_level()
     fmri_img = data.epi_img
 
@@ -57,7 +58,7 @@ acquisition of a fast event-related dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-59
+.. GENERATED FROM PYTHON SOURCE LINES 31-64
 
 Define the paradigm that will be used. Here, we just need to get the provided
 file.
@@ -77,10 +78,14 @@ that the experimental tasks were understood and followed correctly.
 
 This task comprises 10 conditions:
 
-* audio_left_hand_button_press: Left-hand three-times button press, indicated by auditory instruction
-* audio_right_hand_button_press: Right-hand three-times button press, indicated by auditory instruction
-* visual_left_hand_button_press: Left-hand three-times button press, indicated by visual instruction
-* visual_right_hand_button_press:  Right-hand three-times button press, indicated by visual instruction
+* audio_left_hand_button_press: Left-hand three-times button press,
+  indicated by auditory instruction
+* audio_right_hand_button_press: Right-hand three-times button press,
+  indicated by auditory instruction
+* visual_left_hand_button_press: Left-hand three-times button press,
+  indicated by visual instruction
+* visual_right_hand_button_press:  Right-hand three-times button press,
+  indicated by visual instruction
 * horizontal_checkerboard: Visualization of flashing horizontal checkerboards
 * vertical_checkerboard: Visualization of flashing vertical checkerboards
 * sentence_listening: Listen to narrative sentences
@@ -89,14 +94,14 @@ This task comprises 10 conditions:
 * visual_computation: Mental subtraction, indicated by visual instruction
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-66
+.. GENERATED FROM PYTHON SOURCE LINES 64-71
 
 .. code-block:: default
 
+    import pandas as pd
 
     t_r = 2.4
-    events_file = data['events']
-    import pandas as pd
+    events_file = data["events"]
     events = pd.read_table(events_file)
     events
 
@@ -206,7 +211,7 @@ This task comprises 10 conditions:
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-74
+.. GENERATED FROM PYTHON SOURCE LINES 72-79
 
 Running a basic model
 ---------------------
@@ -216,11 +221,12 @@ The .fit() functionality of FirstLevelModel function creates the design
 matrix and the beta maps.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 79-85
 
 .. code-block:: default
 
     from nilearn.glm.first_level import FirstLevelModel
+
     first_level_model = FirstLevelModel(t_r)
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
@@ -232,19 +238,21 @@ matrix and the beta maps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-83
+.. GENERATED FROM PYTHON SOURCE LINES 86-89
 
 Let us take a look at the design matrix: it has 10 main columns corresponding
 to 10 experimental conditions, followed by 3 columns describing low-frequency
 signals (drifts) and a constant regressor.
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-88
+.. GENERATED FROM PYTHON SOURCE LINES 89-96
 
 .. code-block:: default
 
     from nilearn.plotting import plot_design_matrix
+
     plot_design_matrix(design_matrix)
     import matplotlib.pyplot as plt
+
     plt.show()
 
 
@@ -259,7 +267,7 @@ signals (drifts) and a constant regressor.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-94
+.. GENERATED FROM PYTHON SOURCE LINES 97-102
 
 Specification of the contrasts.
 
@@ -267,55 +275,63 @@ For this, let's create a function that, given the design matrix, generates
 the corresponding contrasts.  This will be useful to repeat contrast
 specification when we change the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-142
+.. GENERATED FROM PYTHON SOURCE LINES 102-159
 
 .. code-block:: default
 
     import numpy as np
 
-    def make_localizer_contrasts(design_matrix):
-        """ returns a dictionary of four contrasts, given the design matrix"""
 
+    def make_localizer_contrasts(design_matrix):
+        """Return a dictionary of four contrasts, given the design matrix."""
         # first generate canonical contrasts
         contrast_matrix = np.eye(design_matrix.shape[1])
-        contrasts = dict([(column, contrast_matrix[i])
-                          for i, column in enumerate(design_matrix.columns)])
+        contrasts = {
+            column: contrast_matrix[i]
+            for i, column in enumerate(design_matrix.columns)
+        }
 
-        contrasts['audio'] = (
-            contrasts['audio_left_hand_button_press']
-            + contrasts['audio_right_hand_button_press']
-            + contrasts['audio_computation']
-            + contrasts['sentence_listening'])
+        contrasts["audio"] = (
+            contrasts["audio_left_hand_button_press"]
+            + contrasts["audio_right_hand_button_press"]
+            + contrasts["audio_computation"]
+            + contrasts["sentence_listening"]
+        )
 
         # one contrast adding all conditions involving instructions reading
-        contrasts['visual'] = (
-            contrasts['visual_left_hand_button_press']
-            + contrasts['visual_right_hand_button_press']
-            + contrasts['visual_computation']
-            + contrasts['sentence_reading'])
+        contrasts["visual"] = (
+            contrasts["visual_left_hand_button_press"]
+            + contrasts["visual_right_hand_button_press"]
+            + contrasts["visual_computation"]
+            + contrasts["sentence_reading"]
+        )
 
         # one contrast adding all conditions involving computation
-        contrasts['computation'] = (contrasts['visual_computation']
-                                    + contrasts['audio_computation'])
+        contrasts["computation"] = (
+            contrasts["visual_computation"] + contrasts["audio_computation"]
+        )
 
         # one contrast adding all conditions involving sentences
-        contrasts['sentences'] = (contrasts['sentence_listening']
-                                  + contrasts['sentence_reading'])
+        contrasts["sentences"] = (
+            contrasts["sentence_listening"] + contrasts["sentence_reading"]
+        )
 
         # Short dictionary of more relevant contrasts
         contrasts = {
-            'left - right button press': (
-                contrasts['audio_left_hand_button_press']
-                - contrasts['audio_right_hand_button_press']
-                + contrasts['visual_left_hand_button_press']
-                - contrasts['visual_right_hand_button_press']
+            "left - right button press": (
+                contrasts["audio_left_hand_button_press"]
+                - contrasts["audio_right_hand_button_press"]
+                + contrasts["visual_left_hand_button_press"]
+                - contrasts["visual_right_hand_button_press"]
             ),
-            'audio - visual': contrasts['audio'] - contrasts['visual'],
-            'computation - sentences': (contrasts['computation'] -
-                                        contrasts['sentences']
+            "audio - visual": contrasts["audio"] - contrasts["visual"],
+            "computation - sentences": (
+                contrasts["computation"] - contrasts["sentences"]
             ),
-            'horizontal-vertical': (contrasts['horizontal_checkerboard'] -
-                                    contrasts['vertical_checkerboard'])
+            "horizontal-vertical": (
+                contrasts["horizontal_checkerboard"]
+                - contrasts["vertical_checkerboard"]
+            ),
         }
         return contrasts
 
@@ -326,22 +342,31 @@ specification when we change the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-150
+
+.. GENERATED FROM PYTHON SOURCE LINES 160-173
 
 Let's look at these computed contrasts:
 
-* 'left - right button press': probes motor activity in left versus right button presses
-* 'horizontal-vertical': probes the differential activity in viewing a horizontal vs vertical checkerboard
-* 'audio - visual': probes the difference of activity between listening to some content or reading the same type of content (instructions, stories)
-* 'computation - sentences': looks at the activity when performing a mental comptation task  versus simply reading sentences.
+* 'left - right button press': probes motor activity
+  in left versus right button presses
+* 'horizontal-vertical': probes the differential activity
+  in viewing a horizontal vs vertical checkerboard
+* 'audio - visual': probes the difference of activity
+  between listening to some content or reading
+  the same type of content (instructions, stories)
+* 'computation - sentences': looks at the activity
+  when performing a mental comptation task
+  versus simply reading sentences.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-158
+.. GENERATED FROM PYTHON SOURCE LINES 173-183
 
 .. code-block:: default
 
-    contrasts = make_localizer_contrasts(design_matrix)
     from nilearn.plotting import plot_contrast_matrix
+
+    contrasts = make_localizer_contrasts(design_matrix)
+
     for key, values in contrasts.items():
         plot_contrast_matrix(values, design_matrix=design_matrix)
         plt.suptitle(key)
@@ -386,7 +411,7 @@ Let's look at these computed contrasts:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-165
+.. GENERATED FROM PYTHON SOURCE LINES 184-190
 
 A first contrast estimation and plotting
 ----------------------------------------
@@ -395,26 +420,35 @@ As this script will be repeated several times, we encapsulate model
 fitting and plotting in a function that we call when needed.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-182
+.. GENERATED FROM PYTHON SOURCE LINES 190-217
 
 .. code-block:: default
 
     from nilearn import plotting
 
+
     def plot_contrast(first_level_model):
-        """ Given a first model, specify, estimate and plot the main contrasts"""
+        """Specify, estimate and plot the main contrasts for given a first model.
+
+        """
         design_matrix = first_level_model.design_matrices_[0]
         # Call the contrast specification within the function
         contrasts = make_localizer_contrasts(design_matrix)
-        fig = plt.figure(figsize=(11, 3))
+        plt.figure(figsize=(11, 3))
         # compute the per-contrast z-map
         for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
             ax = plt.subplot(1, len(contrasts), 1 + index)
             z_map = first_level_model.compute_contrast(
-                contrast_val, output_type='z_score')
+                contrast_val, output_type="z_score"
+            )
             plotting.plot_stat_map(
-                z_map, display_mode='z', threshold=3.0, title=contrast_id,
-                axes=ax, cut_coords=1)
+                z_map,
+                display_mode="z",
+                threshold=3.0,
+                title=contrast_id,
+                axes=ax,
+                cut_coords=1,
+            )
 
 
 
@@ -423,11 +457,12 @@ fitting and plotting in a function that we call when needed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-184
+
+.. GENERATED FROM PYTHON SOURCE LINES 218-219
 
 Let's run the model and look at the outcome.
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-188
+.. GENERATED FROM PYTHON SOURCE LINES 219-223
 
 .. code-block:: default
 
@@ -447,7 +482,7 @@ Let's run the model and look at the outcome.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-203
+.. GENERATED FROM PYTHON SOURCE LINES 224-238
 
 Changing the drift model
 ------------------------
@@ -464,12 +499,12 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
 1/64 Hz ~ 0.016 Hz. Note that the design matrix has more columns to model
 drifts in the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-209
+.. GENERATED FROM PYTHON SOURCE LINES 238-244
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, high_pass=.016)
+    first_level_model = FirstLevelModel(t_r, high_pass=0.016)
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -492,11 +527,11 @@ drifts in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 210-211
+.. GENERATED FROM PYTHON SOURCE LINES 245-246
 
 Does the model perform worse or better ?
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-215
+.. GENERATED FROM PYTHON SOURCE LINES 246-250
 
 .. code-block:: default
 
@@ -516,14 +551,14 @@ Does the model perform worse or better ?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 216-220
+.. GENERATED FROM PYTHON SOURCE LINES 251-255
 
 We notice however that this model performs rather poorly.
 
 Another solution is to remove these drift terms. Maybe they're simply
 useless. This is done by setting drift_model to None.
 
-.. GENERATED FROM PYTHON SOURCE LINES 220-228
+.. GENERATED FROM PYTHON SOURCE LINES 255-263
 
 .. code-block:: default
 
@@ -559,7 +594,7 @@ useless. This is done by setting drift_model to None.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-236
+.. GENERATED FROM PYTHON SOURCE LINES 264-271
 
 Is it better than the original? No!
 
@@ -569,13 +604,14 @@ the event columns, on the other hand, haven't changed.
 Another alternative to get a drift model is to specify a set of polynomials.
 Let's take a basis of 5 polynomials.
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-245
+.. GENERATED FROM PYTHON SOURCE LINES 271-281
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, drift_model='polynomial',
-                                        drift_order=5)
+    first_level_model = FirstLevelModel(
+        t_r, drift_model="polynomial", drift_order=5
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -606,11 +642,11 @@ Let's take a basis of 5 polynomials.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-247
+.. GENERATED FROM PYTHON SOURCE LINES 282-283
 
 Is it good? No better, no worse. Let's turn to another parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 249-258
+.. GENERATED FROM PYTHON SOURCE LINES 285-294
 
 Changing the hemodynamic response model
 ---------------------------------------
@@ -622,12 +658,12 @@ The first thing that we can do is to change the default model (the
 so-called Glover hrf) for the so-called canonical model of SPM
 --which has a slightly weaker undershoot component.
 
-.. GENERATED FROM PYTHON SOURCE LINES 258-266
+.. GENERATED FROM PYTHON SOURCE LINES 294-302
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm')
+    first_level_model = FirstLevelModel(t_r, hrf_model="spm")
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -658,11 +694,11 @@ so-called Glover hrf) for the so-called canonical model of SPM
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 267-268
+.. GENERATED FROM PYTHON SOURCE LINES 303-304
 
 No strong --positive or negative-- effect.
 
-.. GENERATED FROM PYTHON SOURCE LINES 270-281
+.. GENERATED FROM PYTHON SOURCE LINES 306-317
 
 Adding a time derivative to the design
 ......................................
@@ -676,12 +712,12 @@ of discounting timing misspecification from the error term, which would
 decrease the estimated variance and enhance the statistical significance of
 the effect. Is that the case?
 
-.. GENERATED FROM PYTHON SOURCE LINES 281-289
+.. GENERATED FROM PYTHON SOURCE LINES 317-325
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative')
+    first_level_model = FirstLevelModel(t_r, hrf_model="spm + derivative")
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -712,7 +748,7 @@ the effect. Is that the case?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 290-296
+.. GENERATED FROM PYTHON SOURCE LINES 326-332
 
 Not a huge effect, but rather positive overall. We could keep that one.
 
@@ -721,7 +757,7 @@ well explained by the derivative term, hinting at misfit regions, a
 possibly valuable information. This is implemented by an F-test on
 the time derivative regressors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 296-306
+.. GENERATED FROM PYTHON SOURCE LINES 332-342
 
 .. code-block:: default
 
@@ -729,10 +765,10 @@ the time derivative regressors.
     contrast_val = np.eye(design_matrix.shape[1])[1:21:2]
     plot_contrast_matrix(contrast_val, design_matrix)
 
-    z_map = first_level_model.compute_contrast(
-        contrast_val, output_type='z_score')
+    z_map = first_level_model.compute_contrast(contrast_val, output_type="z_score")
     plotting.plot_stat_map(
-        z_map, display_mode='z', threshold=3.0, title='effect of time derivatives')
+        z_map, display_mode="z", threshold=3.0, title="effect of time derivatives"
+    )
     plt.show()
 
 
@@ -759,26 +795,31 @@ the time derivative regressors.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 307-311
+.. GENERATED FROM PYTHON SOURCE LINES 343-347
 
 There seems to be something here. Maybe we could adjust the
 timing, by increasing the slice_time_ref parameter from 0 to 0.5. Now the
 reference for model sampling is not the beginning of the volume
 acquisition, but the middle of it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 311-320
+.. GENERATED FROM PYTHON SOURCE LINES 347-361
 
 .. code-block:: default
 
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative',
-                                        slice_time_ref=0.5)
+
+    first_level_model = FirstLevelModel(
+        t_r, hrf_model="spm + derivative", slice_time_ref=0.5
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
-    z_map = first_level_model.compute_contrast(
-        contrast_val, output_type='z_score')
+    z_map = first_level_model.compute_contrast(contrast_val, output_type="z_score")
     plotting.plot_stat_map(
-        z_map, display_mode='z', threshold=3.0,
-        title='effect of time derivatives after model shift')
+        z_map,
+        display_mode="z",
+        threshold=3.0,
+        title="effect of time derivatives after model shift",
+    )
     plt.show()
+
 
 
 
@@ -791,11 +832,11 @@ acquisition, but the middle of it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 321-322
+.. GENERATED FROM PYTHON SOURCE LINES 362-363
 
 The time derivatives regressors capture less signal: it's better like that.
 
-.. GENERATED FROM PYTHON SOURCE LINES 324-329
+.. GENERATED FROM PYTHON SOURCE LINES 365-370
 
 We can also consider adding the so-called dispersion derivative to
 capture some mis-specification in the shape of the hrf.
@@ -803,12 +844,14 @@ capture some mis-specification in the shape of the hrf.
 This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 329-337
+.. GENERATED FROM PYTHON SOURCE LINES 370-380
 
 .. code-block:: default
 
-    first_level_model = FirstLevelModel(t_r, slice_time_ref=0.5,
-                                        hrf_model='spm + derivative + dispersion')
+
+    first_level_model = FirstLevelModel(
+        t_r, slice_time_ref=0.5, hrf_model="spm + derivative + dispersion"
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
@@ -839,12 +882,12 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 338-340
+.. GENERATED FROM PYTHON SOURCE LINES 381-383
 
 Not a huge effect. For the sake of simplicity and readability, we
 can drop that one.
 
-.. GENERATED FROM PYTHON SOURCE LINES 342-355
+.. GENERATED FROM PYTHON SOURCE LINES 385-398
 
 The noise model: ar(1), ols, or higher order ar?
 ------------------------------------------------
@@ -860,14 +903,14 @@ First we recompute using the `spm + derivative` hrf model, the
 slice_time_ref parameter chosen above, and explicitly set
 the noise model to be ar(1).
 
-.. GENERATED FROM PYTHON SOURCE LINES 355-364
+.. GENERATED FROM PYTHON SOURCE LINES 398-407
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, slice_time_ref=0.5,
-                                        hrf_model='spm + derivative',
-                                        noise_model='ar1')
+    first_level_model = FirstLevelModel(
+        t_r, slice_time_ref=0.5, hrf_model="spm + derivative", noise_model="ar1"
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
     plot_contrast(first_level_model)
     plt.show()
@@ -885,19 +928,19 @@ the noise model to be ar(1).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 365-367
+.. GENERATED FROM PYTHON SOURCE LINES 408-410
 
 Next we change the noise model to ols and observe the difference
 relative to the ar(1) model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 367-375
+.. GENERATED FROM PYTHON SOURCE LINES 410-418
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, slice_time_ref=0.5,
-                                        hrf_model='spm + derivative',
-                                        noise_model='ols')
+    first_level_model = FirstLevelModel(
+        t_r, slice_time_ref=0.5, hrf_model="spm + derivative", noise_model="ols"
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
     plot_contrast(first_level_model)
     plt.show()
@@ -914,7 +957,7 @@ relative to the ar(1) model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 376-381
+.. GENERATED FROM PYTHON SOURCE LINES 419-424
 
 While the difference is not obvious you should rather stick to the
 ar(1) model, which is arguably more accurate.
@@ -922,14 +965,14 @@ ar(1) model, which is arguably more accurate.
 Alternatively we can include more terms in the autoregressive model to
 account for greater temporal complexity in the noise structure.
 
-.. GENERATED FROM PYTHON SOURCE LINES 381-389
+.. GENERATED FROM PYTHON SOURCE LINES 424-432
 
 .. code-block:: default
 
 
-    first_level_model = FirstLevelModel(t_r, slice_time_ref=0.5,
-                                        hrf_model='spm + derivative',
-                                        noise_model='ar3')
+    first_level_model = FirstLevelModel(
+        t_r, slice_time_ref=0.5, hrf_model="spm + derivative", noise_model="ar3"
+    )
     first_level_model = first_level_model.fit(fmri_img, events=events)
     plot_contrast(first_level_model)
     plt.show()
@@ -955,13 +998,13 @@ account for greater temporal complexity in the noise structure.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 390-393
+.. GENERATED FROM PYTHON SOURCE LINES 433-436
 
 This noise model arguably reduces the amount of spurious activity.
 However, as the difference is not obvious you may wish to stick to the
 ar(1) model, which is computationally more efficient.
 
-.. GENERATED FROM PYTHON SOURCE LINES 395-409
+.. GENERATED FROM PYTHON SOURCE LINES 438-452
 
 Removing confounds
 ------------------
@@ -978,18 +1021,19 @@ the CompCor approach, and take those into account in the model.
 For this we rely on the so-called
 :func:`~nilearn.image.high_variance_confounds` routine of Nilearn.
 
-.. GENERATED FROM PYTHON SOURCE LINES 409-422
+.. GENERATED FROM PYTHON SOURCE LINES 452-466
 
 .. code-block:: default
 
-
-
     from nilearn.image import high_variance_confounds
+
     confounds = pd.DataFrame(high_variance_confounds(fmri_img, percentile=1))
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative',
-                                        slice_time_ref=0.5)
-    first_level_model = first_level_model.fit(fmri_img, events=events,
-                                              confounds=confounds)
+    first_level_model = FirstLevelModel(
+        t_r, hrf_model="spm + derivative", slice_time_ref=0.5
+    )
+    first_level_model = first_level_model.fit(
+        fmri_img, events=events, confounds=confounds
+    )
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
     plot_contrast(first_level_model)
@@ -1019,7 +1063,7 @@ For this we rely on the so-called
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 423-429
+.. GENERATED FROM PYTHON SOURCE LINES 467-473
 
 Note the five additional columns in the design matrix.
 
@@ -1028,7 +1072,7 @@ killed, probably because they were somewhat colinear to the confounds. On the
 other hand, some of the maps become cleaner (horizontal-vertical,
 computation) after this addition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 431-444
+.. GENERATED FROM PYTHON SOURCE LINES 475-488
 
 Volume censoring
 ------------------
@@ -1044,16 +1088,18 @@ For non-fMRIPrep output, we can still define a sample mask. Here we apply a
 sample mask that removes the first 50 volumes.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 444-454
+.. GENERATED FROM PYTHON SOURCE LINES 488-500
 
 .. code-block:: default
 
 
     sample_masks = np.arange(events.shape[0])[50:]
-    first_level_model = FirstLevelModel(t_r, hrf_model='spm + derivative',
-                                        slice_time_ref=0.5)
-    first_level_model = first_level_model.fit(fmri_img, events=events,
-                                              sample_masks=sample_masks)
+    first_level_model = FirstLevelModel(
+        t_r, hrf_model="spm + derivative", slice_time_ref=0.5
+    )
+    first_level_model = first_level_model.fit(
+        fmri_img, events=events, sample_masks=sample_masks
+    )
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
     plt.show()
@@ -1070,12 +1116,12 @@ sample mask that removes the first 50 volumes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 455-457
+.. GENERATED FROM PYTHON SOURCE LINES 501-503
 
 Note the significantly shorter design matrix compared to the previous
 examples.
 
-.. GENERATED FROM PYTHON SOURCE LINES 459-468
+.. GENERATED FROM PYTHON SOURCE LINES 505-514
 
 Smoothing
 ---------
@@ -1087,14 +1133,14 @@ position of activation. Here, we simply illustrate the statistical
 gains.  We use a mild smoothing of 5mm
 :term:`full-width at half maximum<FWHM>` (:term:`FWHM`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 468-477
+.. GENERATED FROM PYTHON SOURCE LINES 514-523
 
 .. code-block:: default
 
 
     first_level_model = FirstLevelModel(
-        t_r, hrf_model='spm + derivative', smoothing_fwhm=5,
-        slice_time_ref=0.5).fit(fmri_img, events=events, confounds=confounds)
+        t_r, hrf_model="spm + derivative", smoothing_fwhm=5, slice_time_ref=0.5
+    ).fit(fmri_img, events=events, confounds=confounds)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
     plot_contrast(first_level_model)
@@ -1124,12 +1170,12 @@ gains.  We use a mild smoothing of 5mm
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 478-480
+.. GENERATED FROM PYTHON SOURCE LINES 524-526
 
 The design is unchanged but the maps are smoother and more contrasted.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 482-496
+.. GENERATED FROM PYTHON SOURCE LINES 528-542
 
 Masking
 -------
@@ -1146,21 +1192,22 @@ non-grey matter regions, in which no BOLD signal is expected.  The
 downside is that the mask may not fit very well this particular
 data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 496-509
+.. GENERATED FROM PYTHON SOURCE LINES 542-556
 
 .. code-block:: default
 
+    from nilearn.datasets import fetch_icbm152_brain_gm_mask
+    from nilearn.plotting import plot_roi
 
     data_mask = first_level_model.masker_.mask_img_
-    from nilearn.datasets import fetch_icbm152_brain_gm_mask
+
     icbm_mask = fetch_icbm152_brain_gm_mask()
 
-    from nilearn.plotting import plot_roi
     plt.figure(figsize=(16, 4))
     ax = plt.subplot(121)
-    plot_roi(icbm_mask, title='ICBM mask', axes=ax)
+    plot_roi(icbm_mask, title="ICBM mask", axes=ax)
     ax = plt.subplot(122)
-    plot_roi(data_mask, title='Data-driven mask', axes=ax)
+    plot_roi(data_mask, title="Data-driven mask", axes=ax)
     plt.show()
 
 
@@ -1175,19 +1222,21 @@ data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 510-513
+.. GENERATED FROM PYTHON SOURCE LINES 557-560
 
 For the sake of time saving, we resample icbm_mask to our data.
 For this we call the resample_to_img routine of Nilearn.
 We use interpolation = 'nearest' to keep the mask as a binary image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 513-517
+.. GENERATED FROM PYTHON SOURCE LINES 560-566
 
 .. code-block:: default
 
     from nilearn.image import resample_to_img
-    resampled_icbm_mask = resample_to_img(icbm_mask, data_mask,
-                                          interpolation='nearest')
+
+    resampled_icbm_mask = resample_to_img(
+        icbm_mask, data_mask, interpolation="nearest"
+    )
 
 
 
@@ -1196,18 +1245,21 @@ We use interpolation = 'nearest' to keep the mask as a binary image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 518-519
+.. GENERATED FROM PYTHON SOURCE LINES 567-568
 
 Impact on the first-level model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 519-528
+.. GENERATED FROM PYTHON SOURCE LINES 568-580
 
 .. code-block:: default
 
     first_level_model = FirstLevelModel(
-        t_r, hrf_model='spm + derivative', smoothing_fwhm=5, slice_time_ref=0.5,
-        mask_img=resampled_icbm_mask).fit(
-            fmri_img, events=events, confounds=confounds)
+        t_r,
+        hrf_model="spm + derivative",
+        smoothing_fwhm=5,
+        slice_time_ref=0.5,
+        mask_img=resampled_icbm_mask,
+    ).fit(fmri_img, events=events, confounds=confounds)
     design_matrix = first_level_model.design_matrices_[0]
     plot_design_matrix(design_matrix)
     plot_contrast(first_level_model)
@@ -1237,11 +1289,11 @@ Impact on the first-level model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 529-530
+.. GENERATED FROM PYTHON SOURCE LINES 581-582
 
 Note that it removed spurious spots in the white matter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 532-540
+.. GENERATED FROM PYTHON SOURCE LINES 584-592
 
 Conclusion
 ----------
@@ -1255,9 +1307,9 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  47.556 seconds)
+   **Total running time of the script:** ( 2 minutes  26.124 seconds)
 
-**Estimated memory usage:**  223 MB
+**Estimated memory usage:**  133 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_first_level_details.py:
