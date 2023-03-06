@@ -61,7 +61,7 @@ ____
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-58
+.. GENERATED FROM PYTHON SOURCE LINES 46-59
 
 .. code-block:: default
 
@@ -69,11 +69,12 @@ ____
     #          Virgile Fritsch, <virgile.fritsch@inria.fr>, Apr 2014
     #          Gael Varoquaux, Apr 2014
     #          Andres Hoyos-Idrobo, Apr 2017
-    import numpy as np
+
     import matplotlib.pyplot as plt
+    import numpy as np
     from nilearn import datasets
-    from nilearn.maskers import NiftiMasker
     from nilearn.image import get_data
+    from nilearn.maskers import NiftiMasker
 
     n_subjects = 100  # more subjects requires more memory
 
@@ -84,12 +85,12 @@ ____
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 60-62
 
 Load Oasis dataset
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-78
+.. GENERATED FROM PYTHON SOURCE LINES 62-85
 
 .. code-block:: default
 
@@ -97,18 +98,24 @@ Load Oasis dataset
         n_subjects=n_subjects, legacy_format=False
     )
     gray_matter_map_filenames = oasis_dataset.gray_matter_maps
-    age = oasis_dataset.ext_vars['age'].values
+    age = oasis_dataset.ext_vars["age"].values
 
     # Split data into training set and test set
     from sklearn.model_selection import train_test_split
+
     gm_imgs_train, gm_imgs_test, age_train, age_test = train_test_split(
-        gray_matter_map_filenames, age, train_size=.6, random_state=0)
+        gray_matter_map_filenames, age, train_size=0.6, random_state=0
+    )
 
     # print basic information on the dataset
-    print('First gray-matter anatomy image (3D) is located at: %s' %
-          oasis_dataset.gray_matter_maps[0])  # 3D data
-    print('First white-matter anatomy image (3D) is located at: %s' %
-          oasis_dataset.white_matter_maps[0])  # 3D data
+    print(
+        "First gray-matter anatomy image (3D) is located at: "
+        f"{oasis_dataset.gray_matter_maps[0]}"
+    )
+    print(
+        "First white-matter anatomy image (3D) is located at: "
+        f"{oasis_dataset.white_matter_maps[0]}"
+    )
 
 
 
@@ -124,25 +131,25 @@ Load Oasis dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-81
+.. GENERATED FROM PYTHON SOURCE LINES 86-88
 
 Preprocess data
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-97
+.. GENERATED FROM PYTHON SOURCE LINES 88-104
 
 .. code-block:: default
 
     nifti_masker = NiftiMasker(
-        standardize=False,
-        smoothing_fwhm=2,
-        memory='nilearn_cache')  # cache options
+        standardize=False, smoothing_fwhm=2, memory="nilearn_cache"
+    )  # cache options
     gm_maps_masked = nifti_masker.fit_transform(gm_imgs_train)
 
     # The features with too low between-subject variance are removed using
     # :class:`sklearn.feature_selection.VarianceThreshold`.
     from sklearn.feature_selection import VarianceThreshold
-    variance_threshold = VarianceThreshold(threshold=.01)
+
+    variance_threshold = VarianceThreshold(threshold=0.01)
     gm_maps_thresholded = variance_threshold.fit_transform(gm_maps_masked)
 
     # Then we convert the data back to the mask image in order to use it for
@@ -156,12 +163,12 @@ Preprocess data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 105-107
 
 Prediction pipeline with ANOVA and SVR using
 :class:`nilearn.decoding.DecoderRegressor` Object
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-130
+.. GENERATED FROM PYTHON SOURCE LINES 107-141
 
 .. code-block:: default
 
@@ -176,10 +183,14 @@ Prediction pipeline with ANOVA and SVR using
     # also want to set mask hyperparameter to be the mask we just obtained above.
 
     from nilearn.decoding import DecoderRegressor
-    decoder = DecoderRegressor(estimator='svr', mask=mask,
-                               scoring='neg_mean_absolute_error',
-                               screening_percentile=1,
-                               n_jobs=1)
+
+    decoder = DecoderRegressor(
+        estimator="svr",
+        mask=mask,
+        scoring="neg_mean_absolute_error",
+        screening_percentile=1,
+        n_jobs=1,
+    )
     # Fit and predict with the decoder
     decoder.fit(gm_imgs_train, age_train)
 
@@ -189,10 +200,10 @@ Prediction pipeline with ANOVA and SVR using
     gm_imgs_test = np.array(gm_imgs_test)[perm]
     age_pred = decoder.predict(gm_imgs_test)
 
-    prediction_score = -np.mean(decoder.cv_scores_['beta'])
+    prediction_score = -np.mean(decoder.cv_scores_["beta"])
 
     print("=== DECODER ===")
-    print("explained variance for the cross-validation: %f" % prediction_score)
+    print(f"explained variance for the cross-validation: {prediction_score:f}")
     print()
 
 
@@ -210,23 +221,25 @@ Prediction pipeline with ANOVA and SVR using
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-133
+.. GENERATED FROM PYTHON SOURCE LINES 142-144
 
 Visualization
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-144
+.. GENERATED FROM PYTHON SOURCE LINES 144-157
 
 .. code-block:: default
 
-    weight_img = decoder.coef_img_['beta']
+    weight_img = decoder.coef_img_["beta"]
 
     # Create the figure
     from nilearn.plotting import plot_stat_map, show
+
     bg_filename = gray_matter_map_filenames[0]
     z_slice = 0
-    display = plot_stat_map(weight_img, bg_img=bg_filename,
-                            display_mode='z', cut_coords=[z_slice])
+    display = plot_stat_map(
+        weight_img, bg_img=bg_filename, display_mode="z", cut_coords=[z_slice]
+    )
     display.title("SVM weights")
     show()
 
@@ -242,26 +255,27 @@ Visualization
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-147
+.. GENERATED FROM PYTHON SOURCE LINES 158-160
 
 Visualize the quality of predictions
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-161
+.. GENERATED FROM PYTHON SOURCE LINES 160-175
 
 .. code-block:: default
 
     plt.figure(figsize=(6, 4.5))
-    plt.suptitle("Decoder: Mean Absolute Error %.2f years" % prediction_score)
+    plt.suptitle(f"Decoder: Mean Absolute Error {prediction_score:.2f} years")
     linewidth = 3
     plt.plot(age_test, label="True age", linewidth=linewidth)
-    plt.plot(age_pred, '--', c="g", label="Predicted age", linewidth=linewidth)
+    plt.plot(age_pred, "--", c="g", label="Predicted age", linewidth=linewidth)
     plt.ylabel("age")
     plt.xlabel("subject")
     plt.legend(loc="best")
     plt.figure(figsize=(6, 4.5))
-    plt.plot(age_test - age_pred, label="True age - predicted age",
-             linewidth=linewidth)
+    plt.plot(
+        age_test - age_pred, label="True age - predicted age", linewidth=linewidth
+    )
     plt.xlabel("subject")
     plt.legend(loc="best")
 
@@ -291,16 +305,16 @@ Visualize the quality of predictions
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7fa4bb162d30>
+    <matplotlib.legend.Legend object at 0x7f5d994be580>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-164
+.. GENERATED FROM PYTHON SOURCE LINES 176-178
 
 Inference with massively univariate model
 -----------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-197
+.. GENERATED FROM PYTHON SOURCE LINES 178-222
 
 .. code-block:: default
 
@@ -311,30 +325,41 @@ Inference with massively univariate model
 
     # Statistical inference
     from nilearn.mass_univariate import permuted_ols
+
+    # This can be changed to use more CPUs.
     neg_log_pvals, t_scores_original_data, _ = permuted_ols(
-        age, data,  # + intercept as a covariate by default
+        age,
+        data,  # + intercept as a covariate by default
         n_perm=2000,  # 1,000 in the interest of time; 10000 would be better
-        verbose=1, # display progress bar
-        n_jobs=1)  # can be changed to use more CPUs
+        verbose=1,  # display progress bar
+        n_jobs=1,
+    )  
     signed_neg_log_pvals = neg_log_pvals * np.sign(t_scores_original_data)
     signed_neg_log_pvals_unmasked = nifti_masker.inverse_transform(
-        variance_threshold.inverse_transform(signed_neg_log_pvals))
+        variance_threshold.inverse_transform(signed_neg_log_pvals)
+    )
 
     # Show results
     threshold = -np.log10(0.1)  # 10% corrected
 
-    fig = plt.figure(figsize=(5.5, 7.5), facecolor='k')
+    fig = plt.figure(figsize=(5.5, 7.5), facecolor="k")
 
-    display = plot_stat_map(signed_neg_log_pvals_unmasked, bg_img=bg_filename,
-                            threshold=threshold, cmap=plt.cm.RdBu_r,
-                            display_mode='z', cut_coords=[z_slice],
-                            figure=fig)
-    title = ('Negative $\\log_{10}$ p-values'
-             '\n(Non-parametric + max-type correction)')
+    display = plot_stat_map(
+        signed_neg_log_pvals_unmasked,
+        bg_img=bg_filename,
+        threshold=threshold,
+        cmap=plt.cm.RdBu_r,
+        display_mode="z",
+        cut_coords=[z_slice],
+        figure=fig,
+    )
+    title = (
+        "Negative $\\log_{10}$ p-values" "\n(Non-parametric + max-type correction)"
+    )
     display.title(title, y=1.2)
 
     n_detections = (get_data(signed_neg_log_pvals_unmasked) > threshold).sum()
-    print('\n%d detections' % n_detections)
+    print(f"\n{int(n_detections)} detections")
 
     show()
 
@@ -352,9 +377,9 @@ Inference with massively univariate model
 
     Massively univariate model
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    Job #1, processed 0/2000 permutations (0.00%, 186.65552139282227 seconds remaining)    Job #1, processed 10/2000 permutations (0.50%, 32.54500675201416 seconds remaining)    Job #1, processed 20/2000 permutations (1.00%, 30.362709045410156 seconds remaining)    Job #1, processed 30/2000 permutations (1.50%, 29.61408376693726 seconds remaining)    Job #1, processed 40/2000 permutations (2.00%, 29.116647720336914 seconds remaining)    Job #1, processed 50/2000 permutations (2.50%, 28.763344287872314 seconds remaining)    Job #1, processed 60/2000 permutations (3.00%, 28.50893338521322 seconds remaining)    Job #1, processed 70/2000 permutations (3.50%, 28.38569964681353 seconds remaining)    Job #1, processed 80/2000 permutations (4.00%, 28.249889373779297 seconds remaining)    Job #1, processed 90/2000 permutations (4.50%, 28.038828108045788 seconds remaining)    Job #1, processed 100/2000 permutations (5.00%, 27.837276935577393 seconds remaining)    Job #1, processed 110/2000 permutations (5.50%, 27.674154606732458 seconds remaining)    Job #1, processed 120/2000 permutations (6.00%, 27.480893850326538 seconds remaining)    Job #1, processed 130/2000 permutations (6.50%, 27.380797587908233 seconds remaining)    Job #1, processed 140/2000 permutations (7.00%, 27.75414838109698 seconds remaining)    Job #1, processed 150/2000 permutations (7.50%, 27.641566276550293 seconds remaining)    Job #1, processed 160/2000 permutations (8.00%, 27.48302161693573 seconds remaining)    Job #1, processed 170/2000 permutations (8.50%, 27.3299434746013 seconds remaining)    Job #1, processed 180/2000 permutations (9.00%, 27.148113383187187 seconds remaining)    Job #1, processed 190/2000 permutations (9.50%, 26.992412905944022 seconds remaining)    Job #1, processed 200/2000 permutations (10.00%, 26.845433950424194 seconds remaining)    Job #1, processed 210/2000 permutations (10.50%, 26.696918680554344 seconds remaining)    Job #1, processed 220/2000 permutations (11.00%, 26.52207038619302 seconds remaining)    Job #1, processed 230/2000 permutations (11.50%, 26.366668504217397 seconds remaining)    Job #1, processed 240/2000 permutations (12.00%, 26.217758019765217 seconds remaining)    Job #1, processed 250/2000 permutations (12.50%, 26.053001165390015 seconds remaining)    Job #1, processed 260/2000 permutations (13.00%, 25.898794412612915 seconds remaining)    Job #1, processed 270/2000 permutations (13.50%, 25.740402221679688 seconds remaining)    Job #1, processed 280/2000 permutations (14.00%, 25.59999111720494 seconds remaining)    Job #1, processed 290/2000 permutations (14.50%, 25.43911528587341 seconds remaining)    Job #1, processed 300/2000 permutations (15.00%, 25.28389326731364 seconds remaining)    Job #1, processed 310/2000 permutations (15.50%, 25.128088904965306 seconds remaining)    Job #1, processed 320/2000 permutations (16.00%, 24.974125921726227 seconds remaining)    Job #1, processed 330/2000 permutations (16.50%, 24.82575466416099 seconds remaining)    Job #1, processed 340/2000 permutations (17.00%, 24.682877456440647 seconds remaining)    Job #1, processed 350/2000 permutations (17.50%, 24.51026099068778 seconds remaining)    Job #1, processed 360/2000 permutations (18.00%, 24.35044815805223 seconds remaining)    Job #1, processed 370/2000 permutations (18.50%, 24.194906022097612 seconds remaining)    Job #1, processed 380/2000 permutations (19.00%, 24.066242807789855 seconds remaining)    Job #1, processed 390/2000 permutations (19.50%, 23.903319334372497 seconds remaining)    Job #1, processed 400/2000 permutations (20.00%, 23.742213249206543 seconds remaining)    Job #1, processed 410/2000 permutations (20.50%, 23.593997431964407 seconds remaining)    Job #1, processed 420/2000 permutations (21.00%, 23.43791971887861 seconds remaining)    Job #1, processed 430/2000 permutations (21.50%, 23.281888972881227 seconds remaining)    Job #1, processed 440/2000 permutations (22.00%, 23.131695660677824 seconds remaining)    Job #1, processed 450/2000 permutations (22.50%, 22.978005515204536 seconds remaining)    Job #1, processed 460/2000 permutations (23.00%, 22.815256180970568 seconds remaining)    Job #1, processed 470/2000 permutations (23.50%, 22.662555197451976 seconds remaining)    Job #1, processed 480/2000 permutations (24.00%, 22.50133204460144 seconds remaining)    Job #1, processed 490/2000 permutations (24.50%, 22.360709448249974 seconds remaining)    Job #1, processed 500/2000 permutations (25.00%, 22.206268072128296 seconds remaining)    Job #1, processed 510/2000 permutations (25.50%, 22.05019411386228 seconds remaining)    Job #1, processed 520/2000 permutations (26.00%, 21.89792092029865 seconds remaining)    Job #1, processed 530/2000 permutations (26.50%, 21.73936592857793 seconds remaining)    Job #1, processed 540/2000 permutations (27.00%, 21.596376613334375 seconds remaining)    Job #1, processed 550/2000 permutations (27.50%, 21.44986163486134 seconds remaining)    Job #1, processed 560/2000 permutations (28.00%, 21.299717903137207 seconds remaining)    Job #1, processed 570/2000 permutations (28.50%, 21.146364776711714 seconds remaining)    Job #1, processed 580/2000 permutations (29.00%, 21.000358474665674 seconds remaining)    Job #1, processed 590/2000 permutations (29.50%, 20.84992969642251 seconds remaining)    Job #1, processed 600/2000 permutations (30.00%, 20.703544060389202 seconds remaining)    Job #1, processed 610/2000 permutations (30.50%, 20.55202488430211 seconds remaining)    Job #1, processed 620/2000 permutations (31.00%, 20.399960217937345 seconds remaining)    Job #1, processed 630/2000 permutations (31.50%, 20.247060537338257 seconds remaining)    Job #1, processed 640/2000 permutations (32.00%, 20.099650740623474 seconds remaining)    Job #1, processed 650/2000 permutations (32.50%, 19.952853166140045 seconds remaining)    Job #1, processed 660/2000 permutations (33.00%, 19.803033019557144 seconds remaining)    Job #1, processed 670/2000 permutations (33.50%, 19.649082699818397 seconds remaining)    Job #1, processed 680/2000 permutations (34.00%, 19.500714035595163 seconds remaining)    Job #1, processed 690/2000 permutations (34.50%, 19.347783676092174 seconds remaining)    Job #1, processed 700/2000 permutations (35.00%, 19.19566982133048 seconds remaining)    Job #1, processed 710/2000 permutations (35.50%, 19.047401451728714 seconds remaining)    Job #1, processed 720/2000 permutations (36.00%, 18.897543589274086 seconds remaining)    Job #1, processed 730/2000 permutations (36.50%, 18.747077830850262 seconds remaining)    Job #1, processed 740/2000 permutations (37.00%, 18.598181730992085 seconds remaining)    Job #1, processed 750/2000 permutations (37.50%, 18.458269834518433 seconds remaining)    Job #1, processed 760/2000 permutations (38.00%, 18.31330653240806 seconds remaining)    Job #1, processed 770/2000 permutations (38.50%, 18.165135207114282 seconds remaining)    Job #1, processed 780/2000 permutations (39.00%, 18.01994047409449 seconds remaining)    Job #1, processed 790/2000 permutations (39.50%, 17.872141361236572 seconds remaining)    Job #1, processed 800/2000 permutations (40.00%, 17.722074151039124 seconds remaining)    Job #1, processed 810/2000 permutations (40.50%, 17.573689175240787 seconds remaining)    Job #1, processed 820/2000 permutations (41.00%, 17.42487010723207 seconds remaining)    Job #1, processed 830/2000 permutations (41.50%, 17.275527640997645 seconds remaining)    Job #1, processed 840/2000 permutations (42.00%, 17.12716235433306 seconds remaining)    Job #1, processed 850/2000 permutations (42.50%, 16.97658730955685 seconds remaining)    Job #1, processed 860/2000 permutations (43.00%, 16.82984226248985 seconds remaining)    Job #1, processed 870/2000 permutations (43.50%, 16.682137461914415 seconds remaining)    Job #1, processed 880/2000 permutations (44.00%, 16.538288766687565 seconds remaining)    Job #1, processed 890/2000 permutations (44.50%, 16.393173574061876 seconds remaining)    Job #1, processed 900/2000 permutations (45.00%, 16.252964364157783 seconds remaining)    Job #1, processed 910/2000 permutations (45.50%, 16.107740331482102 seconds remaining)    Job #1, processed 920/2000 permutations (46.00%, 15.96232665103415 seconds remaining)    Job #1, processed 930/2000 permutations (46.50%, 15.817515032265778 seconds remaining)    Job #1, processed 940/2000 permutations (47.00%, 15.674552881971318 seconds remaining)    Job #1, processed 950/2000 permutations (47.50%, 15.530551860207007 seconds remaining)    Job #1, processed 960/2000 permutations (48.00%, 15.385634720325468 seconds remaining)    Job #1, processed 970/2000 permutations (48.50%, 15.235705461698709 seconds remaining)    Job #1, processed 980/2000 permutations (49.00%, 15.087406761792241 seconds remaining)    Job #1, processed 990/2000 permutations (49.50%, 14.942136280464402 seconds remaining)    Job #1, processed 1000/2000 permutations (50.00%, 14.792716264724731 seconds remaining)    Job #1, processed 1010/2000 permutations (50.50%, 14.643544081414099 seconds remaining)    Job #1, processed 1020/2000 permutations (51.00%, 14.495807540182975 seconds remaining)    Job #1, processed 1030/2000 permutations (51.50%, 14.346470453206775 seconds remaining)    Job #1, processed 1040/2000 permutations (52.00%, 14.194767731886644 seconds remaining)    Job #1, processed 1050/2000 permutations (52.50%, 14.051173028491792 seconds remaining)    Job #1, processed 1060/2000 permutations (53.00%, 13.901568966091805 seconds remaining)    Job #1, processed 1070/2000 permutations (53.50%, 13.749751688163972 seconds remaining)    Job #1, processed 1080/2000 permutations (54.00%, 13.59672278828091 seconds remaining)    Job #1, processed 1090/2000 permutations (54.50%, 13.44727801839146 seconds remaining)    Job #1, processed 1100/2000 permutations (55.00%, 13.298612919720737 seconds remaining)    Job #1, processed 1110/2000 permutations (55.50%, 13.14885187578631 seconds remaining)    Job #1, processed 1120/2000 permutations (56.00%, 13.00070788179125 seconds remaining)    Job #1, processed 1130/2000 permutations (56.50%, 12.852055891425207 seconds remaining)    Job #1, processed 1140/2000 permutations (57.00%, 12.702074117827834 seconds remaining)    Job #1, processed 1150/2000 permutations (57.50%, 12.55464069739632 seconds remaining)    Job #1, processed 1160/2000 permutations (58.00%, 12.404344377846554 seconds remaining)    Job #1, processed 1170/2000 permutations (58.50%, 12.253726596506233 seconds remaining)    Job #1, processed 1180/2000 permutations (59.00%, 12.108260732586102 seconds remaining)    Job #1, processed 1190/2000 permutations (59.50%, 11.961829602217474 seconds remaining)    Job #1, processed 1200/2000 permutations (60.00%, 11.81516695022583 seconds remaining)    Job #1, processed 1210/2000 permutations (60.50%, 11.668244149074082 seconds remaining)    Job #1, processed 1220/2000 permutations (61.00%, 11.521979429682748 seconds remaining)    Job #1, processed 1230/2000 permutations (61.50%, 11.375091913269786 seconds remaining)    Job #1, processed 1240/2000 permutations (62.00%, 11.227500354090045 seconds remaining)    Job #1, processed 1250/2000 permutations (62.50%, 11.078519725799561 seconds remaining)    Job #1, processed 1260/2000 permutations (63.00%, 10.930170320329212 seconds remaining)    Job #1, processed 1270/2000 permutations (63.50%, 10.780313497453223 seconds remaining)    Job #1, processed 1280/2000 permutations (64.00%, 10.633364170789719 seconds remaining)    Job #1, processed 1290/2000 permutations (64.50%, 10.48745460842931 seconds remaining)    Job #1, processed 1300/2000 permutations (65.00%, 10.341397853998037 seconds remaining)    Job #1, processed 1310/2000 permutations (65.50%, 10.192882699820832 seconds remaining)    Job #1, processed 1320/2000 permutations (66.00%, 10.045007597316395 seconds remaining)    Job #1, processed 1330/2000 permutations (66.50%, 9.897347728112587 seconds remaining)    Job #1, processed 1340/2000 permutations (67.00%, 9.749194408530618 seconds remaining)    Job #1, processed 1350/2000 permutations (67.50%, 9.601071834564209 seconds remaining)    Job #1, processed 1360/2000 permutations (68.00%, 9.453979828778435 seconds remaining)    Job #1, processed 1370/2000 permutations (68.50%, 9.306847734172848 seconds remaining)    Job #1, processed 1380/2000 permutations (69.00%, 9.159173329671225 seconds remaining)    Job #1, processed 1390/2000 permutations (69.50%, 9.011349130877488 seconds remaining)    Job #1, processed 1400/2000 permutations (70.00%, 8.862717185701642 seconds remaining)    Job #1, processed 1410/2000 permutations (70.50%, 8.715325690330342 seconds remaining)    Job #1, processed 1420/2000 permutations (71.00%, 8.567850143137113 seconds remaining)    Job #1, processed 1430/2000 permutations (71.50%, 8.421060101969259 seconds remaining)    Job #1, processed 1440/2000 permutations (72.00%, 8.272913813591003 seconds remaining)    Job #1, processed 1450/2000 permutations (72.50%, 8.125097019919034 seconds remaining)    Job #1, processed 1460/2000 permutations (73.00%, 7.977375523684776 seconds remaining)    Job #1, processed 1470/2000 permutations (73.50%, 7.828719945180984 seconds remaining)    Job #1, processed 1480/2000 permutations (74.00%, 7.679973724726085 seconds remaining)    Job #1, processed 1490/2000 permutations (74.50%, 7.531314942660748 seconds remaining)    Job #1, processed 1500/2000 permutations (75.00%, 7.383686065673828 seconds remaining)    Job #1, processed 1510/2000 permutations (75.50%, 7.234951442440614 seconds remaining)    Job #1, processed 1520/2000 permutations (76.00%, 7.0871612398247965 seconds remaining)    Job #1, processed 1530/2000 permutations (76.50%, 6.93906985544691 seconds remaining)    Job #1, processed 1540/2000 permutations (77.00%, 6.790823159279761 seconds remaining)    Job #1, processed 1550/2000 permutations (77.50%, 6.642581439787342 seconds remaining)    Job #1, processed 1560/2000 permutations (78.00%, 6.494860960887029 seconds remaining)    Job #1, processed 1570/2000 permutations (78.50%, 6.346205158598104 seconds remaining)    Job #1, processed 1580/2000 permutations (79.00%, 6.1989076590236225 seconds remaining)    Job #1, processed 1590/2000 permutations (79.50%, 6.051479132670276 seconds remaining)    Job #1, processed 1600/2000 permutations (80.00%, 5.903462707996368 seconds remaining)    Job #1, processed 1610/2000 permutations (80.50%, 5.755274467586731 seconds remaining)    Job #1, processed 1620/2000 permutations (81.00%, 5.607293214327023 seconds remaining)    Job #1, processed 1630/2000 permutations (81.50%, 5.459639675046769 seconds remaining)    Job #1, processed 1640/2000 permutations (82.00%, 5.311613995854447 seconds remaining)    Job #1, processed 1650/2000 permutations (82.50%, 5.164010250207149 seconds remaining)    Job #1, processed 1660/2000 permutations (83.00%, 5.016538209225758 seconds remaining)    Job #1, processed 1670/2000 permutations (83.50%, 4.873900429217401 seconds remaining)    Job #1, processed 1680/2000 permutations (84.00%, 4.726098560151599 seconds remaining)    Job #1, processed 1690/2000 permutations (84.50%, 4.578669542391625 seconds remaining)    Job #1, processed 1700/2000 permutations (85.00%, 4.4309015414294075 seconds remaining)    Job #1, processed 1710/2000 permutations (85.50%, 4.28398693235297 seconds remaining)    Job #1, processed 1720/2000 permutations (86.00%, 4.136576342028241 seconds remaining)    Job #1, processed 1730/2000 permutations (86.50%, 3.98947366951518 seconds remaining)    Job #1, processed 1740/2000 permutations (87.00%, 3.8419244673060278 seconds remaining)    Job #1, processed 1750/2000 permutations (87.50%, 3.6939918654305592 seconds remaining)    Job #1, processed 1760/2000 permutations (88.00%, 3.545960556377064 seconds remaining)    Job #1, processed 1770/2000 permutations (88.50%, 3.3986974691940564 seconds remaining)    Job #1, processed 1780/2000 permutations (89.00%, 3.2506888555676747 seconds remaining)    Job #1, processed 1790/2000 permutations (89.50%, 3.1026129296372056 seconds remaining)    Job #1, processed 1800/2000 permutations (90.00%, 2.9545601209004717 seconds remaining)    Job #1, processed 1810/2000 permutations (90.50%, 2.806637623033471 seconds remaining)    Job #1, processed 1820/2000 permutations (91.00%, 2.6587428810832265 seconds remaining)    Job #1, processed 1830/2000 permutations (91.50%, 2.511014079787041 seconds remaining)    Job #1, processed 1840/2000 permutations (92.00%, 2.3629966818768047 seconds remaining)    Job #1, processed 1850/2000 permutations (92.50%, 2.215165035144703 seconds remaining)    Job #1, processed 1860/2000 permutations (93.00%, 2.0673556814911547 seconds remaining)    Job #1, processed 1870/2000 permutations (93.50%, 1.9195287074634735 seconds remaining)    Job #1, processed 1880/2000 permutations (94.00%, 1.7718599096257635 seconds remaining)    Job #1, processed 1890/2000 permutations (94.50%, 1.6240146336732086 seconds remaining)    Job #1, processed 1900/2000 permutations (95.00%, 1.4763312716233101 seconds remaining)    Job #1, processed 1910/2000 permutations (95.50%, 1.328554544149269 seconds remaining)    Job #1, processed 1920/2000 permutations (96.00%, 1.1808221836884816 seconds remaining)    Job #1, processed 1930/2000 permutations (96.50%, 1.0332754461258804 seconds remaining)    Job #1, processed 1940/2000 permutations (97.00%, 0.8857509450814159 seconds remaining)    Job #1, processed 1950/2000 permutations (97.50%, 0.7381969965421237 seconds remaining)    Job #1, processed 1960/2000 permutations (98.00%, 0.5906111756149602 seconds remaining)    Job #1, processed 1970/2000 permutations (98.50%, 0.4429699539533121 seconds remaining)    Job #1, processed 1980/2000 permutations (99.00%, 0.29532945276510836 seconds remaining)    Job #1, processed 1990/2000 permutations (99.50%, 0.147667780593412 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   29.5s finished
+    Job #1, processed 0/2000 permutations (0.00%, 189.03255462646484 seconds remaining)    Job #1, processed 10/2000 permutations (0.50%, 32.836747884750366 seconds remaining)    Job #1, processed 20/2000 permutations (1.00%, 30.469915866851807 seconds remaining)    Job #1, processed 30/2000 permutations (1.50%, 29.624385515848797 seconds remaining)    Job #1, processed 40/2000 permutations (2.00%, 29.053059816360474 seconds remaining)    Job #1, processed 50/2000 permutations (2.50%, 28.76352095603943 seconds remaining)    Job #1, processed 60/2000 permutations (3.00%, 28.489036798477176 seconds remaining)    Job #1, processed 70/2000 permutations (3.50%, 28.196552583149504 seconds remaining)    Job #1, processed 80/2000 permutations (4.00%, 27.974355697631836 seconds remaining)    Job #1, processed 90/2000 permutations (4.50%, 27.736951986948647 seconds remaining)    Job #1, processed 100/2000 permutations (5.00%, 27.559119701385498 seconds remaining)    Job #1, processed 110/2000 permutations (5.50%, 27.361971226605505 seconds remaining)    Job #1, processed 120/2000 permutations (6.00%, 27.18507901827494 seconds remaining)    Job #1, processed 130/2000 permutations (6.50%, 27.034117130132824 seconds remaining)    Job #1, processed 140/2000 permutations (7.00%, 26.857079233442036 seconds remaining)    Job #1, processed 150/2000 permutations (7.50%, 26.69216839472453 seconds remaining)    Job #1, processed 160/2000 permutations (8.00%, 26.579421281814575 seconds remaining)    Job #1, processed 170/2000 permutations (8.50%, 26.65554529077867 seconds remaining)    Job #1, processed 180/2000 permutations (9.00%, 26.57073460684882 seconds remaining)    Job #1, processed 190/2000 permutations (9.50%, 26.455957124107766 seconds remaining)    Job #1, processed 200/2000 permutations (10.00%, 26.30888056755066 seconds remaining)    Job #1, processed 210/2000 permutations (10.50%, 26.146372113909038 seconds remaining)    Job #1, processed 220/2000 permutations (11.00%, 25.975452769886367 seconds remaining)    Job #1, processed 230/2000 permutations (11.50%, 25.801321257715642 seconds remaining)    Job #1, processed 240/2000 permutations (12.00%, 25.63255182902018 seconds remaining)    Job #1, processed 250/2000 permutations (12.50%, 25.475252628326416 seconds remaining)    Job #1, processed 260/2000 permutations (13.00%, 25.314357684208797 seconds remaining)    Job #1, processed 270/2000 permutations (13.50%, 25.15209086736043 seconds remaining)    Job #1, processed 280/2000 permutations (14.00%, 24.987995113645283 seconds remaining)    Job #1, processed 290/2000 permutations (14.50%, 24.84361516196152 seconds remaining)    Job #1, processed 300/2000 permutations (15.00%, 24.706629594167076 seconds remaining)    Job #1, processed 310/2000 permutations (15.50%, 24.538092713202197 seconds remaining)    Job #1, processed 320/2000 permutations (16.00%, 24.377136290073395 seconds remaining)    Job #1, processed 330/2000 permutations (16.50%, 24.22249426986232 seconds remaining)    Job #1, processed 340/2000 permutations (17.00%, 24.075707631952625 seconds remaining)    Job #1, processed 350/2000 permutations (17.50%, 23.922935485839844 seconds remaining)    Job #1, processed 360/2000 permutations (18.00%, 23.77698829438951 seconds remaining)    Job #1, processed 370/2000 permutations (18.50%, 23.634868750701077 seconds remaining)    Job #1, processed 380/2000 permutations (19.00%, 23.484596691633527 seconds remaining)    Job #1, processed 390/2000 permutations (19.50%, 23.32826089859009 seconds remaining)    Job #1, processed 400/2000 permutations (20.00%, 23.18000030517578 seconds remaining)    Job #1, processed 410/2000 permutations (20.50%, 23.029961603443798 seconds remaining)    Job #1, processed 420/2000 permutations (21.00%, 22.882317508969987 seconds remaining)    Job #1, processed 430/2000 permutations (21.50%, 22.729568320651385 seconds remaining)    Job #1, processed 440/2000 permutations (22.00%, 22.578995639627628 seconds remaining)    Job #1, processed 450/2000 permutations (22.50%, 22.426302009158665 seconds remaining)    Job #1, processed 460/2000 permutations (23.00%, 22.27256852647533 seconds remaining)    Job #1, processed 470/2000 permutations (23.50%, 22.124347291094193 seconds remaining)    Job #1, processed 480/2000 permutations (24.00%, 21.975159128506977 seconds remaining)    Job #1, processed 490/2000 permutations (24.50%, 21.8242767927598 seconds remaining)    Job #1, processed 500/2000 permutations (25.00%, 21.675402402877808 seconds remaining)    Job #1, processed 510/2000 permutations (25.50%, 21.533495659921684 seconds remaining)    Job #1, processed 520/2000 permutations (26.00%, 21.384953462160553 seconds remaining)    Job #1, processed 530/2000 permutations (26.50%, 21.240575417032783 seconds remaining)    Job #1, processed 540/2000 permutations (27.00%, 21.08901768260532 seconds remaining)    Job #1, processed 550/2000 permutations (27.50%, 20.942795038223267 seconds remaining)    Job #1, processed 560/2000 permutations (28.00%, 20.796062197004048 seconds remaining)    Job #1, processed 570/2000 permutations (28.50%, 20.65299197665432 seconds remaining)    Job #1, processed 580/2000 permutations (29.00%, 20.5065891660493 seconds remaining)    Job #1, processed 590/2000 permutations (29.50%, 20.358911530446196 seconds remaining)    Job #1, processed 600/2000 permutations (30.00%, 20.211498975753784 seconds remaining)    Job #1, processed 610/2000 permutations (30.50%, 20.0649820937485 seconds remaining)    Job #1, processed 620/2000 permutations (31.00%, 19.91891732523518 seconds remaining)    Job #1, processed 630/2000 permutations (31.50%, 19.770996945244924 seconds remaining)    Job #1, processed 640/2000 permutations (32.00%, 19.62491688132286 seconds remaining)    Job #1, processed 650/2000 permutations (32.50%, 19.483462957235485 seconds remaining)    Job #1, processed 660/2000 permutations (33.00%, 19.33958338246201 seconds remaining)    Job #1, processed 670/2000 permutations (33.50%, 19.194827464089464 seconds remaining)    Job #1, processed 680/2000 permutations (34.00%, 19.06354686793159 seconds remaining)    Job #1, processed 690/2000 permutations (34.50%, 18.92327152473339 seconds remaining)    Job #1, processed 700/2000 permutations (35.00%, 18.786881378718785 seconds remaining)    Job #1, processed 710/2000 permutations (35.50%, 18.64138027647851 seconds remaining)    Job #1, processed 720/2000 permutations (36.00%, 18.508380889892578 seconds remaining)    Job #1, processed 730/2000 permutations (36.50%, 18.36543930393376 seconds remaining)    Job #1, processed 740/2000 permutations (37.00%, 18.221933223105765 seconds remaining)    Job #1, processed 750/2000 permutations (37.50%, 18.076504866282146 seconds remaining)    Job #1, processed 760/2000 permutations (38.00%, 17.93060024161088 seconds remaining)    Job #1, processed 770/2000 permutations (38.50%, 17.783228270419233 seconds remaining)    Job #1, processed 780/2000 permutations (39.00%, 17.643092540594246 seconds remaining)    Job #1, processed 790/2000 permutations (39.50%, 17.500339254548276 seconds remaining)    Job #1, processed 800/2000 permutations (40.00%, 17.353933453559875 seconds remaining)    Job #1, processed 810/2000 permutations (40.50%, 17.210142948009352 seconds remaining)    Job #1, processed 820/2000 permutations (41.00%, 17.06558404317716 seconds remaining)    Job #1, processed 830/2000 permutations (41.50%, 16.918141942426384 seconds remaining)    Job #1, processed 840/2000 permutations (42.00%, 16.77073849950518 seconds remaining)    Job #1, processed 850/2000 permutations (42.50%, 16.625056799720316 seconds remaining)    Job #1, processed 860/2000 permutations (43.00%, 16.478623733964078 seconds remaining)    Job #1, processed 870/2000 permutations (43.50%, 16.332091635671155 seconds remaining)    Job #1, processed 880/2000 permutations (44.00%, 16.188853350552645 seconds remaining)    Job #1, processed 890/2000 permutations (44.50%, 16.046094530084158 seconds remaining)    Job #1, processed 900/2000 permutations (45.00%, 15.899414565828113 seconds remaining)    Job #1, processed 910/2000 permutations (45.50%, 15.753991637911115 seconds remaining)    Job #1, processed 920/2000 permutations (46.00%, 15.607347529867422 seconds remaining)    Job #1, processed 930/2000 permutations (46.50%, 15.461950058578164 seconds remaining)    Job #1, processed 940/2000 permutations (47.00%, 15.314583737799461 seconds remaining)    Job #1, processed 950/2000 permutations (47.50%, 15.170449545508939 seconds remaining)    Job #1, processed 960/2000 permutations (48.00%, 15.025465408960978 seconds remaining)    Job #1, processed 970/2000 permutations (48.50%, 14.879032120262226 seconds remaining)    Job #1, processed 980/2000 permutations (49.00%, 14.732416099431564 seconds remaining)    Job #1, processed 990/2000 permutations (49.50%, 14.586326601529361 seconds remaining)    Job #1, processed 1000/2000 permutations (50.00%, 14.44176197052002 seconds remaining)    Job #1, processed 1010/2000 permutations (50.50%, 14.295310622394675 seconds remaining)    Job #1, processed 1020/2000 permutations (51.00%, 14.150269578484929 seconds remaining)    Job #1, processed 1030/2000 permutations (51.50%, 14.005247092941433 seconds remaining)    Job #1, processed 1040/2000 permutations (52.00%, 13.860662533686712 seconds remaining)    Job #1, processed 1050/2000 permutations (52.50%, 13.715726988656181 seconds remaining)    Job #1, processed 1060/2000 permutations (53.00%, 13.570874115206161 seconds remaining)    Job #1, processed 1070/2000 permutations (53.50%, 13.426776883758118 seconds remaining)    Job #1, processed 1080/2000 permutations (54.00%, 13.281378066098249 seconds remaining)    Job #1, processed 1090/2000 permutations (54.50%, 13.1367952167441 seconds remaining)    Job #1, processed 1100/2000 permutations (55.00%, 12.992813782258468 seconds remaining)    Job #1, processed 1110/2000 permutations (55.50%, 12.847258419603916 seconds remaining)    Job #1, processed 1120/2000 permutations (56.00%, 12.701761143548147 seconds remaining)    Job #1, processed 1130/2000 permutations (56.50%, 12.556384310258172 seconds remaining)    Job #1, processed 1140/2000 permutations (57.00%, 12.415818703802008 seconds remaining)    Job #1, processed 1150/2000 permutations (57.50%, 12.270989200343255 seconds remaining)    Job #1, processed 1160/2000 permutations (58.00%, 12.12599964799552 seconds remaining)    Job #1, processed 1170/2000 permutations (58.50%, 11.981556297367455 seconds remaining)    Job #1, processed 1180/2000 permutations (59.00%, 11.836418786291349 seconds remaining)    Job #1, processed 1190/2000 permutations (59.50%, 11.690682343074254 seconds remaining)    Job #1, processed 1200/2000 permutations (60.00%, 11.54577922821045 seconds remaining)    Job #1, processed 1210/2000 permutations (60.50%, 11.401137204209636 seconds remaining)    Job #1, processed 1220/2000 permutations (61.00%, 11.255907109526339 seconds remaining)    Job #1, processed 1230/2000 permutations (61.50%, 11.110499064127604 seconds remaining)    Job #1, processed 1240/2000 permutations (62.00%, 10.969107743232481 seconds remaining)    Job #1, processed 1250/2000 permutations (62.50%, 10.824454307556152 seconds remaining)    Job #1, processed 1260/2000 permutations (63.00%, 10.67926131354438 seconds remaining)    Job #1, processed 1270/2000 permutations (63.50%, 10.533764390494879 seconds remaining)    Job #1, processed 1280/2000 permutations (64.00%, 10.388804644346237 seconds remaining)    Job #1, processed 1290/2000 permutations (64.50%, 10.243940445803856 seconds remaining)    Job #1, processed 1300/2000 permutations (65.00%, 10.09996773646428 seconds remaining)    Job #1, processed 1310/2000 permutations (65.50%, 9.955257998168014 seconds remaining)    Job #1, processed 1320/2000 permutations (66.00%, 9.81765518766461 seconds remaining)    Job #1, processed 1330/2000 permutations (66.50%, 9.67310805069773 seconds remaining)    Job #1, processed 1340/2000 permutations (67.00%, 9.528136338760604 seconds remaining)    Job #1, processed 1350/2000 permutations (67.50%, 9.383978340360853 seconds remaining)    Job #1, processed 1360/2000 permutations (68.00%, 9.23898483725155 seconds remaining)    Job #1, processed 1370/2000 permutations (68.50%, 9.094649917017804 seconds remaining)    Job #1, processed 1380/2000 permutations (69.00%, 8.950927547786547 seconds remaining)    Job #1, processed 1390/2000 permutations (69.50%, 8.809523392066682 seconds remaining)    Job #1, processed 1400/2000 permutations (70.00%, 8.665264095578875 seconds remaining)    Job #1, processed 1410/2000 permutations (70.50%, 8.52102391263272 seconds remaining)    Job #1, processed 1420/2000 permutations (71.00%, 8.37635060431252 seconds remaining)    Job #1, processed 1430/2000 permutations (71.50%, 8.231298153217022 seconds remaining)    Job #1, processed 1440/2000 permutations (72.00%, 8.08734863334232 seconds remaining)    Job #1, processed 1450/2000 permutations (72.50%, 7.942683581648201 seconds remaining)    Job #1, processed 1460/2000 permutations (73.00%, 7.797941736979027 seconds remaining)    Job #1, processed 1470/2000 permutations (73.50%, 7.653114370748299 seconds remaining)    Job #1, processed 1480/2000 permutations (74.00%, 7.50866935059831 seconds remaining)    Job #1, processed 1490/2000 permutations (74.50%, 7.363599838026418 seconds remaining)    Job #1, processed 1500/2000 permutations (75.00%, 7.218857526779175 seconds remaining)    Job #1, processed 1510/2000 permutations (75.50%, 7.0747148264322846 seconds remaining)    Job #1, processed 1520/2000 permutations (76.00%, 6.93000148472033 seconds remaining)    Job #1, processed 1530/2000 permutations (76.50%, 6.785060694015105 seconds remaining)    Job #1, processed 1540/2000 permutations (77.00%, 6.640561586850649 seconds remaining)    Job #1, processed 1550/2000 permutations (77.50%, 6.496060771326865 seconds remaining)    Job #1, processed 1560/2000 permutations (78.00%, 6.352497522647564 seconds remaining)    Job #1, processed 1570/2000 permutations (78.50%, 6.207498486634273 seconds remaining)    Job #1, processed 1580/2000 permutations (79.00%, 6.063122559197341 seconds remaining)    Job #1, processed 1590/2000 permutations (79.50%, 5.918754199765763 seconds remaining)    Job #1, processed 1600/2000 permutations (80.00%, 5.774566173553467 seconds remaining)    Job #1, processed 1610/2000 permutations (80.50%, 5.629817256275912 seconds remaining)    Job #1, processed 1620/2000 permutations (81.00%, 5.48531589684663 seconds remaining)    Job #1, processed 1630/2000 permutations (81.50%, 5.340381391209327 seconds remaining)    Job #1, processed 1640/2000 permutations (82.00%, 5.195441792650921 seconds remaining)    Job #1, processed 1650/2000 permutations (82.50%, 5.0512917258522725 seconds remaining)    Job #1, processed 1660/2000 permutations (83.00%, 4.906588945044092 seconds remaining)    Job #1, processed 1670/2000 permutations (83.50%, 4.762032705866648 seconds remaining)    Job #1, processed 1680/2000 permutations (84.00%, 4.617499714805966 seconds remaining)    Job #1, processed 1690/2000 permutations (84.50%, 4.473450996466642 seconds remaining)    Job #1, processed 1700/2000 permutations (85.00%, 4.328830087886137 seconds remaining)    Job #1, processed 1710/2000 permutations (85.50%, 4.1844489281637625 seconds remaining)    Job #1, processed 1720/2000 permutations (86.00%, 4.040661418160727 seconds remaining)    Job #1, processed 1730/2000 permutations (86.50%, 3.8963399429541794 seconds remaining)    Job #1, processed 1740/2000 permutations (87.00%, 3.751638982487821 seconds remaining)    Job #1, processed 1750/2000 permutations (87.50%, 3.607227461678641 seconds remaining)    Job #1, processed 1760/2000 permutations (88.00%, 3.4627090475775977 seconds remaining)    Job #1, processed 1770/2000 permutations (88.50%, 3.318513082245649 seconds remaining)    Job #1, processed 1780/2000 permutations (89.00%, 3.174254848715964 seconds remaining)    Job #1, processed 1790/2000 permutations (89.50%, 3.0299317064232 seconds remaining)    Job #1, processed 1800/2000 permutations (90.00%, 2.885460058848063 seconds remaining)    Job #1, processed 1810/2000 permutations (90.50%, 2.740921845093616 seconds remaining)    Job #1, processed 1820/2000 permutations (91.00%, 2.5964913682623223 seconds remaining)    Job #1, processed 1830/2000 permutations (91.50%, 2.4521021517248105 seconds remaining)    Job #1, processed 1840/2000 permutations (92.00%, 2.30778227681699 seconds remaining)    Job #1, processed 1850/2000 permutations (92.50%, 2.1635077966226115 seconds remaining)    Job #1, processed 1860/2000 permutations (93.00%, 2.0191704227078344 seconds remaining)    Job #1, processed 1870/2000 permutations (93.50%, 1.8749280090638023 seconds remaining)    Job #1, processed 1880/2000 permutations (94.00%, 1.7305806291864272 seconds remaining)    Job #1, processed 1890/2000 permutations (94.50%, 1.5863547981100738 seconds remaining)    Job #1, processed 1900/2000 permutations (95.00%, 1.4431279207530774 seconds remaining)    Job #1, processed 1910/2000 permutations (95.50%, 1.2988947611204618 seconds remaining)    Job #1, processed 1920/2000 permutations (96.00%, 1.1545169949531555 seconds remaining)    Job #1, processed 1930/2000 permutations (96.50%, 1.0101784572700143 seconds remaining)    Job #1, processed 1940/2000 permutations (97.00%, 0.8657890349319302 seconds remaining)    Job #1, processed 1950/2000 permutations (97.50%, 0.7214549871591421 seconds remaining)    Job #1, processed 1960/2000 permutations (98.00%, 0.5771961698726732 seconds remaining)    Job #1, processed 1970/2000 permutations (98.50%, 0.4329784993592858 seconds remaining)    Job #1, processed 1980/2000 permutations (99.00%, 0.2886481164681791 seconds remaining)    Job #1, processed 1990/2000 permutations (99.50%, 0.144323374158773 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   28.9s finished
 
-    1952 detections
+    1965 detections
 
 
 
@@ -362,9 +387,9 @@ Inference with massively univariate model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  11.539 seconds)
+   **Total running time of the script:** ( 1 minutes  10.759 seconds)
 
-**Estimated memory usage:**  1950 MB
+**Estimated memory usage:**  1854 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_oasis_vbm.py:

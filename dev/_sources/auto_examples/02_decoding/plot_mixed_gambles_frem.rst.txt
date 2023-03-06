@@ -36,11 +36,12 @@ To have more details, see: :ref:`frem`.
 Load the data from the Jimura mixed-gamble experiment
 ---------------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-26
+.. GENERATED FROM PYTHON SOURCE LINES 19-27
 
 .. code-block:: default
 
     from nilearn.datasets import fetch_mixed_gambles
+
     data = fetch_mixed_gambles(n_subjects=16)
 
     zmap_filenames = data.zmaps
@@ -54,19 +55,20 @@ Load the data from the Jimura mixed-gamble experiment
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-31
+.. GENERATED FROM PYTHON SOURCE LINES 28-32
 
 Fit FREM
 ---------------------------------------------------------------------------
 We compare both of these models to a pipeline ensembling many models
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-43
+.. GENERATED FROM PYTHON SOURCE LINES 32-51
 
 .. code-block:: default
 
     from nilearn.decoding import FREMRegressor
-    frem = FREMRegressor('svr', cv=10)
+
+    frem = FREMRegressor("svr", cv=10)
 
     frem.fit(zmap_filenames, behavioral_target)
 
@@ -74,8 +76,14 @@ We compare both of these models to a pipeline ensembling many models
     # ---------------------------------------------------------------------------
 
     from nilearn.plotting import plot_stat_map
-    plot_stat_map(frem.coef_img_['beta'], title="FREM", display_mode="yz",
-                  cut_coords=[20, -2], threshold=.2)
+
+    plot_stat_map(
+        frem.coef_img_["beta"],
+        title="FREM",
+        display_mode="yz",
+        cut_coords=[20, -2],
+        threshold=0.2,
+    )
 
 
 
@@ -215,11 +223,11 @@ We compare both of these models to a pipeline ensembling many models
     Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7fa4ca2a7370>
+    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7f5d9817eac0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-51
+.. GENERATED FROM PYTHON SOURCE LINES 52-59
 
 We can observe that the coefficients map learnt by FREM is structured,
 due to the spatial regularity imposed by working on clusters and model
@@ -229,7 +237,7 @@ not sparse (i.e. almost all voxels have non-zero coefficients). See also this
 using FREM, and related :ref:`section of user guide <frem>`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-62
+.. GENERATED FROM PYTHON SOURCE LINES 61-70
 
 Example use of TV-L1 SpaceNet
 ---------------------------------------------------------------------------
@@ -241,7 +249,7 @@ not demonstrated on this example but you can try them easily if you have a
 few minutes. Example code is included below.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-74
+.. GENERATED FROM PYTHON SOURCE LINES 70-85
 
 .. code-block:: default
 
@@ -251,9 +259,12 @@ few minutes. Example code is included below.
     # We use the regressor object since the task is to predict a continuous
     # variable (gain of the gamble).
 
-    tv_l1 = SpaceNetRegressor(mask=mask_filename, penalty="tv-l1",
-                              eps=1e-1,  # prefer large alphas
-                              memory="nilearn_cache")
+    tv_l1 = SpaceNetRegressor(
+        mask=mask_filename,
+        penalty="tv-l1",
+        eps=1e-1,  # prefer large alphas
+        memory="nilearn_cache",
+    )
     # tv_l1.fit(zmap_filenames, behavioral_target)
     # plot_stat_map(tv_l1.coef_img_, title="TV-L1", display_mode="yz",
     #               cut_coords=[20, -2])
@@ -267,9 +278,9 @@ few minutes. Example code is included below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  51.254 seconds)
+   **Total running time of the script:** ( 0 minutes  55.876 seconds)
 
-**Estimated memory usage:**  1794 MB
+**Estimated memory usage:**  1850 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_mixed_gambles_frem.py:

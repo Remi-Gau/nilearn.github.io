@@ -32,27 +32,30 @@ See also the documentation: :ref:`space_net`.
 Load the Oasis VBM dataset
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-40
+.. GENERATED FROM PYTHON SOURCE LINES 16-43
 
 .. code-block:: default
 
     import numpy as np
     from nilearn import datasets
+
     n_subjects = 200  # increase this number if you have more RAM on your box
     dataset_files = datasets.fetch_oasis_vbm(
         n_subjects=n_subjects, legacy_format=False
     )
-    age = dataset_files.ext_vars['age'].astype(float)
+    age = dataset_files.ext_vars["age"].astype(float)
     age = np.array(age)
     gm_imgs = np.array(dataset_files.gray_matter_maps)
 
 
     # Split data into training set and test set
-    from sklearn.utils import check_random_state
     from sklearn.model_selection import train_test_split
+    from sklearn.utils import check_random_state
+
     rng = check_random_state(42)
     gm_imgs_train, gm_imgs_test, age_train, age_test = train_test_split(
-        gm_imgs, age, train_size=.6, random_state=rng)
+        gm_imgs, age, train_size=0.6, random_state=rng
+    )
 
     # Sort test data for better visualization (trend, etc.)
     perm = np.argsort(age_test)[::-1]
@@ -67,7 +70,7 @@ Load the Oasis VBM dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-51
+.. GENERATED FROM PYTHON SOURCE LINES 44-54
 
 Fit the SpaceNet and predict with it
 -------------------------------------
@@ -80,18 +83,23 @@ Also, you may pass and n_jobs=<some_high_value> to the
 SpaceNetRegressor class, to take advantage of a multi-core system.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-61
+.. GENERATED FROM PYTHON SOURCE LINES 54-69
 
 .. code-block:: default
 
     from nilearn.decoding import SpaceNetRegressor
-    decoder = SpaceNetRegressor(memory="nilearn_cache", penalty="graph-net",
-                                screening_percentile=5., memory_level=2)
+
+    decoder = SpaceNetRegressor(
+        memory="nilearn_cache",
+        penalty="graph-net",
+        screening_percentile=5.0,
+        memory_level=2,
+    )
     decoder.fit(gm_imgs_train, age_train)  # fit
     coef_img = decoder.coef_img_
     y_pred = decoder.predict(gm_imgs_test).ravel()  # predict
     mse = np.mean(np.abs(age_test - y_pred))
-    print('Mean square error (MSE) on the predicted age: %.2f' % mse)
+    print(f"Mean square error (MSE) on the predicted age: {mse:.2f}")
 
 
 
@@ -240,7 +248,7 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -262,11 +270,11 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 22.3s, 0.4min
-    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   25.2s remaining:    0.0s
+    _____________________________________________________path_scores - 20.4s, 0.3min
+    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   23.3s remaining:    0.0s
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -288,10 +296,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 20.6s, 0.3min
+    _____________________________________________________path_scores - 20.4s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -313,10 +321,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 21.4s, 0.4min
+    _____________________________________________________path_scores - 20.7s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -338,10 +346,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 21.9s, 0.4min
+    _____________________________________________________path_scores - 20.0s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -363,10 +371,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 21.0s, 0.4min
+    _____________________________________________________path_scores - 19.9s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -388,10 +396,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 21.3s, 0.4min
+    _____________________________________________________path_scores - 19.9s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -415,10 +423,10 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 20.5s, 0.3min
+    _____________________________________________________path_scores - 20.0s, 0.3min
     ________________________________________________________________________________
     [Memory] Calling nilearn.decoding.space_net.path_scores...
-    path_scores(<function _graph_net_squared_loss at 0x7fa4bc806040>, array([[0., ..., 0.],
+    path_scores(<function _graph_net_squared_loss at 0x7f5d995224c0>, array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
             ...,
@@ -442,9 +450,9 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
     THIS IS A JOBLIB ISSUE. If you can, kindly provide the joblib's team with an
      example so that they can fix the problem.
 
-    _____________________________________________________path_scores - 20.7s, 0.3min
-    [Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:  3.2min finished
-    Time Elapsed: 212.381 seconds, 3 minutes.
+    _____________________________________________________path_scores - 19.8s, 0.3min
+    [Parallel(n_jobs=1)]: Done   8 out of   8 | elapsed:  3.1min finished
+    Time Elapsed: 204.189 seconds, 3 minutes.
     [NiftiMasker.transform_single_imgs] Loading data from Nifti1Image(
     shape=(91, 109, 91, 80),
     affine=array([[  -2.,    0.,    0.,   90.],
@@ -459,35 +467,43 @@ SpaceNetRegressor class, to take advantage of a multi-core system.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-65
+.. GENERATED FROM PYTHON SOURCE LINES 70-73
 
 Visualize the decoding maps and quality of predictions
 -------------------------------------------------------
 Visualize the resulting maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-88
+.. GENERATED FROM PYTHON SOURCE LINES 73-104
 
 .. code-block:: default
 
     from nilearn.plotting import plot_stat_map, show
+
     # weights map
     background_img = gm_imgs[0]
-    plot_stat_map(coef_img, background_img, title="graph-net weights",
-                  display_mode="z", cut_coords=1)
+    plot_stat_map(
+        coef_img,
+        background_img,
+        title="graph-net weights",
+        display_mode="z",
+        cut_coords=1,
+    )
 
     # Plot the prediction errors.
     import matplotlib.pyplot as plt
+
     plt.figure()
-    plt.suptitle("graph-net: Mean Absolute Error %.2f years" % mse)
+    plt.suptitle(f"graph-net: Mean Absolute Error {mse:.2f} years")
     linewidth = 3
     ax1 = plt.subplot(211)
     ax1.plot(age_test, label="True age", linewidth=linewidth)
-    ax1.plot(y_pred, '--', c="g", label="Predicted age", linewidth=linewidth)
+    ax1.plot(y_pred, "--", c="g", label="Predicted age", linewidth=linewidth)
     ax1.set_ylabel("age")
     plt.legend(loc="best")
     ax2 = plt.subplot(212)
-    ax2.plot(age_test - y_pred, label="True age - predicted age",
-             linewidth=linewidth)
+    ax2.plot(
+        age_test - y_pred, label="True age - predicted age", linewidth=linewidth
+    )
     ax2.set_xlabel("subject")
     plt.legend(loc="best")
 
@@ -519,9 +535,9 @@ Visualize the resulting maps
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  43.031 seconds)
+   **Total running time of the script:** ( 3 minutes  34.950 seconds)
 
-**Estimated memory usage:**  2488 MB
+**Estimated memory usage:**  2486 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_oasis_vbm_space_net.py:
