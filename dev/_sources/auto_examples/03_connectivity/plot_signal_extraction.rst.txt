@@ -47,23 +47,24 @@ documentation <parcellation_time_series>` for more.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Retrieve the atlas and the data
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-50
+.. GENERATED FROM PYTHON SOURCE LINES 37-52
 
 .. code-block:: default
 
     from nilearn import datasets
 
-    dataset = datasets.fetch_atlas_harvard_oxford('cort-maxprob-thr25-2mm')
+    dataset = datasets.fetch_atlas_harvard_oxford("cort-maxprob-thr25-2mm")
     atlas_filename = dataset.maps
     labels = dataset.labels
 
-    print('Atlas ROIs are located in nifti image (4D) at: %s' %
-          atlas_filename)  # 4D data
+    print(
+        f"Atlas ROIs are located in nifti image (4D) at: {atlas_filename}"
+    )
 
     # One subject of brain development fmri data
     data = datasets.fetch_development_fmri(n_subjects=1, reduce_confounds=True)
@@ -136,19 +137,24 @@ Retrieve the atlas and the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-54
+.. GENERATED FROM PYTHON SOURCE LINES 53-56
 
 Extract signals on a parcellation defined by labels
 ---------------------------------------------------
 Using the NiftiLabelsMasker
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-63
+.. GENERATED FROM PYTHON SOURCE LINES 56-70
 
 .. code-block:: default
 
     from nilearn.maskers import NiftiLabelsMasker
-    masker = NiftiLabelsMasker(labels_img=atlas_filename, standardize=True,
-                               memory='nilearn_cache', verbose=5)
+
+    masker = NiftiLabelsMasker(
+        labels_img=atlas_filename,
+        standardize=True,
+        memory="nilearn_cache",
+        verbose=5,
+    )
 
     # Here we go from nifti files to the signal time series in a numpy
     # array. Note how we give confounds to be regressed out during signal
@@ -174,7 +180,7 @@ Using the NiftiLabelsMasker
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5d94dab8b0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f86383e33d0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -182,7 +188,7 @@ Using the NiftiLabelsMasker
       'high_pass': None,
       'high_variance_confounds': False,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5d94da5160>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f86383d9e20>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -196,36 +202,45 @@ Using the NiftiLabelsMasker
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.1s, 0.0min
+    _______________________________________________filter_and_extract - 0.9s, 0.0min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 71-73
 
 Compute and display a correlation matrix
 ----------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-83
+.. GENERATED FROM PYTHON SOURCE LINES 73-99
 
 .. code-block:: default
 
     from nilearn.connectome import ConnectivityMeasure
-    correlation_measure = ConnectivityMeasure(kind='correlation')
+
+    correlation_measure = ConnectivityMeasure(kind="correlation")
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     # Plot the correlation matrix
     import numpy as np
+
     from nilearn import plotting
+
     # Make a large figure
     # Mask the main diagonal for visualization:
     np.fill_diagonal(correlation_matrix, 0)
     # The labels we have start with the background (0), hence we skip the
     # first label
     # matrices are ordered for block-like representation
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8, title="Confounds",
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="Confounds",
+        reorder=True,
+    )
 
 
 
@@ -241,11 +256,11 @@ Compute and display a correlation matrix
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x7f5d94e25340>
+    <matplotlib.image.AxesImage object at 0x7f86384b5400>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-90
+.. GENERATED FROM PYTHON SOURCE LINES 100-106
 
 Extract signals and compute a connectivity matrix without confounds removal
 ---------------------------------------------------------------------------
@@ -254,7 +269,7 @@ matrix presentation, let's look into the impact of confounds to :term:`fMRI`
 signal and functional connectivity. Firstly let's find out what a functional
 connectivity matrix looks like without confound removal.
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-101
+.. GENERATED FROM PYTHON SOURCE LINES 106-124
 
 .. code-block:: default
 
@@ -266,8 +281,15 @@ connectivity matrix looks like without confound removal.
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8, title='No confounds', reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="No confounds",
+        reorder=True,
+    )
 
 
 
@@ -292,7 +314,7 @@ connectivity matrix looks like without confound removal.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5d94dff8e0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f863cb38d90>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -300,7 +322,7 @@ connectivity matrix looks like without confound removal.
       'high_pass': None,
       'high_variance_confounds': False,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5d94da5160>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f86383d9e20>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -314,13 +336,13 @@ connectivity matrix looks like without confound removal.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.1s, 0.0min
+    _______________________________________________filter_and_extract - 1.0s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5d8c52ff10>
+    <matplotlib.image.AxesImage object at 0x7f863b5983d0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-116
+.. GENERATED FROM PYTHON SOURCE LINES 125-139
 
 Load confounds from file using a flexible strategy with fmriprep interface
 --------------------------------------------------------------------------
@@ -337,31 +359,40 @@ generated by :term:`fMRIPrep`.
 Let's try a simple strategy removing motion, white matter signal,
 cerebrospinal fluid signal with high-pass filtering.
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-138
+.. GENERATED FROM PYTHON SOURCE LINES 139-170
 
 .. code-block:: default
 
 
     from nilearn.interfaces.fmriprep import load_confounds
+
     confounds_simple, sample_mask = load_confounds(
         fmri_filenames,
         strategy=["high_pass", "motion", "wm_csf"],
-        motion="basic", wm_csf="basic")
+        motion="basic",
+        wm_csf="basic",
+    )
 
     print("The shape of the confounds matrix is:", confounds_simple.shape)
     print(confounds_simple.columns)
 
-    time_series = masker.fit_transform(fmri_filenames,
-                                       confounds=confounds_simple,
-                                       sample_mask=sample_mask)
+    time_series = masker.fit_transform(
+        fmri_filenames, confounds=confounds_simple, sample_mask=sample_mask
+    )
 
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8, title='Motion, WM, CSF',
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="Motion, WM, CSF",
+        reorder=True,
+    )
 
 
 
@@ -390,7 +421,7 @@ cerebrospinal fluid signal with high-pass filtering.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5d8ec881f0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f86360d2430>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -398,7 +429,7 @@ cerebrospinal fluid signal with high-pass filtering.
       'high_pass': None,
       'high_variance_confounds': False,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5d94da5160>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f86383d9e20>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -425,13 +456,13 @@ cerebrospinal fluid signal with high-pass filtering.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.2s, 0.0min
+    _______________________________________________filter_and_extract - 1.0s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5d97ce52b0>
+    <matplotlib.image.AxesImage object at 0x7f863c67f4c0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-150
+.. GENERATED FROM PYTHON SOURCE LINES 171-182
 
 Motion-based scrubbing
 ----------------------
@@ -445,7 +476,7 @@ datasets with too many high motion subjects.
 On top of the simple strategy above, let's add scrubbing to our
 strategy.
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-175
+.. GENERATED FROM PYTHON SOURCE LINES 182-218
 
 .. code-block:: default
 
@@ -453,26 +484,37 @@ strategy.
     confounds_scrub, sample_mask = load_confounds(
         fmri_filenames,
         strategy=["high_pass", "motion", "wm_csf", "scrub"],
-        motion="basic", wm_csf="basic",
-        scrub=5, fd_threshold=0.2, std_dvars_threshold=3)
+        motion="basic",
+        wm_csf="basic",
+        scrub=5,
+        fd_threshold=0.2,
+        std_dvars_threshold=3,
+    )
 
-    print("After scrubbing, {} out of {} volumes remains".format(
-        sample_mask.shape[0], confounds_scrub.shape[0]))
+    print(
+        f"After scrubbing, {sample_mask.shape[0]} "
+        f"out of {confounds_scrub.shape[0]} volumes remains"
+    )
     print("The shape of the confounds matrix is:", confounds_simple.shape)
     print(confounds_scrub.columns)
 
-    time_series = masker.fit_transform(fmri_filenames,
-                                       confounds=confounds_scrub,
-                                       sample_mask=sample_mask)
+    time_series = masker.fit_transform(
+        fmri_filenames, confounds=confounds_scrub, sample_mask=sample_mask
+    )
 
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8,
-                         title='Motion, WM, CSF, Scrubbing',
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="Motion, WM, CSF, Scrubbing",
+        reorder=True,
+    )
 
 
 
@@ -502,7 +544,7 @@ strategy.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5d993ef7c0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f863caaff10>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -510,7 +552,7 @@ strategy.
       'high_pass': None,
       'high_variance_confounds': False,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5d94da5160>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f86383d9e20>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -537,13 +579,13 @@ strategy.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.2s, 0.0min
+    _______________________________________________filter_and_extract - 1.0s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5d97cf0490>
+    <matplotlib.image.AxesImage object at 0x7f863a9ec760>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-183
+.. GENERATED FROM PYTHON SOURCE LINES 219-226
 
 The impact of global signal removal
 -----------------------------------
@@ -553,7 +595,7 @@ degrees of freedom. The downside is that one cannot get insight into variance
 explained by certain sources of noise. Now let's add global signal to the
 simple strategy and see its impact.
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-205
+.. GENERATED FROM PYTHON SOURCE LINES 226-255
 
 .. code-block:: default
 
@@ -561,23 +603,30 @@ simple strategy and see its impact.
     confounds_minimal_no_gsr, sample_mask = load_confounds(
         fmri_filenames,
         strategy=["high_pass", "motion", "wm_csf", "global_signal"],
-        motion="basic", wm_csf="basic", global_signal="basic")
-    print("The shape of the confounds matrix is:",
-          confounds_minimal_no_gsr.shape)
+        motion="basic",
+        wm_csf="basic",
+        global_signal="basic",
+    )
+    print("The shape of the confounds matrix is:", confounds_minimal_no_gsr.shape)
     print(confounds_minimal_no_gsr.columns)
 
-    time_series = masker.fit_transform(fmri_filenames,
-                                       confounds=confounds_minimal_no_gsr,
-                                       sample_mask=sample_mask)
+    time_series = masker.fit_transform(
+        fmri_filenames, confounds=confounds_minimal_no_gsr, sample_mask=sample_mask
+    )
 
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8,
-                         title='Motion, WM, CSF, GSR',
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="Motion, WM, CSF, GSR",
+        reorder=True,
+    )
 
 
 
@@ -607,7 +656,7 @@ simple strategy and see its impact.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5d945979a0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f86388a7880>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -615,7 +664,7 @@ simple strategy and see its impact.
       'high_pass': None,
       'high_variance_confounds': False,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5d94da5160>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f86383d9e20>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -642,13 +691,13 @@ simple strategy and see its impact.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.2s, 0.0min
+    _______________________________________________filter_and_extract - 1.0s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5d947f7550>
+    <matplotlib.image.AxesImage object at 0x7f864a677b50>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-216
+.. GENERATED FROM PYTHON SOURCE LINES 256-266
 
 Using predefined strategies
 ---------------------------
@@ -661,7 +710,7 @@ benchmarks studies (:footcite:`Ciric2017`, :footcite:`Parker2018`): `simple`,
 The following examples shows how to use the `simple` strategy and overwrite
 the motion default to basic.
 
-.. GENERATED FROM PYTHON SOURCE LINES 216-256
+.. GENERATED FROM PYTHON SOURCE LINES 266-318
 
 .. code-block:: default
 
@@ -672,36 +721,48 @@ the motion default to basic.
     confounds, sample_mask = load_confounds_strategy(
         fmri_filenames, denoise_strategy="simple", motion="basic"
     )
-    time_series = masker.fit_transform(fmri_filenames,
-                                       confounds=confounds,
-                                       sample_mask=sample_mask)
+    time_series = masker.fit_transform(
+        fmri_filenames, confounds=confounds, sample_mask=sample_mask
+    )
 
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8,
-                         title='simple',
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="simple",
+        reorder=True,
+    )
 
     # add optional parameter global signal
     confounds, sample_mask = load_confounds_strategy(
-        fmri_filenames, denoise_strategy="simple",
-        motion="basic", global_signal="basic"
+        fmri_filenames,
+        denoise_strategy="simple",
+        motion="basic",
+        global_signal="basic",
     )
-    time_series = masker.fit_transform(fmri_filenames,
-                                       confounds=confounds,
-                                       sample_mask=sample_mask)
+    time_series = masker.fit_transform(
+        fmri_filenames, confounds=confounds, sample_mask=sample_mask
+    )
 
     correlation_matrix = correlation_measure.fit_transform([time_series])[0]
 
     np.fill_diagonal(correlation_matrix, 0)
 
-    plotting.plot_matrix(correlation_matrix, figure=(10, 8), labels=labels[1:],
-                         vmax=0.8, vmin=-0.8,
-                         title='simple with global signal',
-                         reorder=True)
+    plotting.plot_matrix(
+        correlation_matrix,
+        figure=(10, 8),
+        labels=labels[1:],
+        vmax=0.8,
+        vmin=-0.8,
+        title="simple with global signal",
+        reorder=True,
+    )
 
     plotting.show()
 
@@ -737,7 +798,7 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]11.2s, 0.2min   : Loading _filter_and_extract...
+    [Memory]9.8s, 0.2min    : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
     [NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
     shape=(91, 109, 91),
@@ -746,13 +807,13 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]11.8s, 0.2min   : Loading _filter_and_extract...
+    [Memory]10.3s, 0.2min   : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 257-261
+.. GENERATED FROM PYTHON SOURCE LINES 319-323
 
 References
 ----------
@@ -762,9 +823,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.488 seconds)
+   **Total running time of the script:** ( 0 minutes  11.871 seconds)
 
-**Estimated memory usage:**  609 MB
+**Estimated memory usage:**  560 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_signal_extraction.py:

@@ -26,7 +26,7 @@ using the group sparse inverse covariance estimate.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-38
+.. GENERATED FROM PYTHON SOURCE LINES 11-47
 
 .. code-block:: default
 
@@ -38,8 +38,7 @@ using the group sparse inverse covariance estimate.
 
 
     def plot_matrices(cov, prec, title, labels):
-        """Plot covariance and precision matrices, for a given processing. """
-
+        """Plot covariance and precision matrices, for a given processing."""
         prec = prec.copy()  # avoid side effects
 
         # Put zeros on the diagonal, for graph clarity.
@@ -48,13 +47,23 @@ using the group sparse inverse covariance estimate.
         span = max(abs(prec.min()), abs(prec.max()))
 
         # Display covariance matrix
-        plotting.plot_matrix(cov, cmap=plotting.cm.bwr,
-                             vmin=-1, vmax=1, title="%s / covariance" % title,
-                             labels=labels)
+        plotting.plot_matrix(
+            cov,
+            cmap=plotting.cm.bwr,
+            vmin=-1,
+            vmax=1,
+            title=f"{title} / covariance",
+            labels=labels,
+        )
         # Display precision matrix
-        plotting.plot_matrix(prec, cmap=plotting.cm.bwr,
-                             vmin=-span, vmax=span, title="%s / precision" % title,
-                             labels=labels)
+        plotting.plot_matrix(
+            prec,
+            cmap=plotting.cm.bwr,
+            vmin=-span,
+            vmax=span,
+            title=f"{title} / precision",
+            labels=labels,
+        )
 
 
 
@@ -64,22 +73,24 @@ using the group sparse inverse covariance estimate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Fetching datasets
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-50
+.. GENERATED FROM PYTHON SOURCE LINES 50-61
 
 .. code-block:: default
 
     from nilearn import datasets
+
     msdl_atlas_dataset = datasets.fetch_atlas_msdl()
     rest_dataset = datasets.fetch_development_fmri(n_subjects=n_subjects)
 
     # print basic information on the dataset
-    print('First subject functional nifti image (4D) is at: %s' %
-          rest_dataset.func[0])  # 4D data
+    print(
+        f"First subject functional nifti image (4D) is at: {rest_dataset.func[0]}"
+    )
 
 
 
@@ -95,37 +106,41 @@ Fetching datasets
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 62-64
 
 Extracting region signals
 --------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-78
+.. GENERATED FROM PYTHON SOURCE LINES 64-93
 
 .. code-block:: default
 
     from nilearn.maskers import NiftiMapsMasker
 
-    # A "memory" to avoid recomputation
-    from joblib import Memory
-    mem = Memory('nilearn_cache')
-
     masker = NiftiMapsMasker(
-        msdl_atlas_dataset.maps, resampling_target="maps", detrend=True,
-        high_variance_confounds=True, low_pass=None, high_pass=0.01,
-        t_r=2, standardize=True, memory='nilearn_cache', memory_level=1,
-        verbose=2)
+        msdl_atlas_dataset.maps,
+        resampling_target="maps",
+        detrend=True,
+        high_variance_confounds=True,
+        low_pass=None,
+        high_pass=0.01,
+        t_r=2,
+        standardize=True,
+        memory="nilearn_cache",
+        memory_level=1,
+        verbose=2,
+    )
     masker.fit()
 
     subject_time_series = []
     func_filenames = rest_dataset.func
     confound_filenames = rest_dataset.confounds
-    for func_filename, confound_filename in zip(func_filenames,
-                                                confound_filenames):
-        print("Processing file %s" % func_filename)
+    for func_filename, confound_filename in zip(
+        func_filenames, confound_filenames
+    ):
+        print(f"Processing file {func_filename}")
 
-        region_ts = masker.transform(func_filename,
-                                     confounds=confound_filename)
+        region_ts = masker.transform(func_filename, confounds=confound_filename)
         subject_time_series.append(region_ts)
 
 
@@ -142,11 +157,11 @@ Extracting region signals
     ________________________________________________________________________________
     [Memory] Calling nilearn.image.image.high_variance_confounds...
     high_variance_confounds('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')
-    __________________________________________high_variance_confounds - 1.4s, 0.0min
+    __________________________________________high_variance_confounds - 0.7s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f5d97dd5ac0>, { 'allow_overlap': True,
+    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f8636069fa0>, { 'allow_overlap': True,
       'clean_kwargs': {},
       'detrend': True,
       'dtype': None,
@@ -172,16 +187,16 @@ Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Resampling images
     [NiftiMapsMasker.transform_single_imgs] Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 7.0s, 0.1min
+    _______________________________________________filter_and_extract - 7.3s, 0.1min
     Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     ________________________________________________________________________________
     [Memory] Calling nilearn.image.image.high_variance_confounds...
     high_variance_confounds('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')
-    __________________________________________high_variance_confounds - 1.2s, 0.0min
+    __________________________________________high_variance_confounds - 0.6s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f5d98fe79a0>, { 'allow_overlap': True,
+    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f863c4a2bb0>, { 'allow_overlap': True,
       'clean_kwargs': {},
       'detrend': True,
       'dtype': None,
@@ -207,16 +222,16 @@ Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Resampling images
     [NiftiMapsMasker.transform_single_imgs] Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 7.1s, 0.1min
+    _______________________________________________filter_and_extract - 7.3s, 0.1min
     Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     ________________________________________________________________________________
     [Memory] Calling nilearn.image.image.high_variance_confounds...
     high_variance_confounds('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')
-    __________________________________________high_variance_confounds - 1.2s, 0.0min
+    __________________________________________high_variance_confounds - 0.6s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f5d98fe7e80>, { 'allow_overlap': True,
+    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f863c4a2670>, { 'allow_overlap': True,
       'clean_kwargs': {},
       'detrend': True,
       'dtype': None,
@@ -242,16 +257,16 @@ Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Resampling images
     [NiftiMapsMasker.transform_single_imgs] Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 7.1s, 0.1min
+    _______________________________________________filter_and_extract - 7.3s, 0.1min
     Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     ________________________________________________________________________________
     [Memory] Calling nilearn.image.image.high_variance_confounds...
     high_variance_confounds('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')
-    __________________________________________high_variance_confounds - 1.3s, 0.0min
+    __________________________________________high_variance_confounds - 0.6s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f5d98fe79a0>, { 'allow_overlap': True,
+    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f863c4a2220>, { 'allow_overlap': True,
       'clean_kwargs': {},
       'detrend': True,
       'dtype': None,
@@ -277,21 +292,22 @@ Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Resampling images
     [NiftiMapsMasker.transform_single_imgs] Extracting region signals
     [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 7.1s, 0.1min
+    _______________________________________________filter_and_extract - 7.3s, 0.1min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-81
+.. GENERATED FROM PYTHON SOURCE LINES 94-96
 
 Computing group-sparse precision matrices
 ------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-95
+.. GENERATED FROM PYTHON SOURCE LINES 96-111
 
 .. code-block:: default
 
     from nilearn.connectome import GroupSparseCovarianceCV
+
     gsc = GroupSparseCovarianceCV(verbose=2)
     gsc.fit(subject_time_series)
 
@@ -327,14 +343,14 @@ Computing group-sparse precision matrices
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 2
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    8.1s finished
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    8.4s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  1 out of 4
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 3
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 1
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
-    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    1.7s remaining:    0.0s
+    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    1.8s remaining:    0.0s
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 4
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 3
@@ -343,7 +359,7 @@ Computing group-sparse precision matrices
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 3
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   13.9s finished
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   14.4s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  2 out of 4
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 5
@@ -356,7 +372,7 @@ Computing group-sparse precision matrices
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 5
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   15.7s finished
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   16.1s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  3 out of 4
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 6
@@ -368,17 +384,17 @@ Computing group-sparse precision matrices
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 5
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
     [GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 0
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   12.7s finished
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:   13.2s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  4 out of 4
     [GroupSparseCovarianceCV.fit] Final optimization
     [GroupSparseCovarianceCV.fit] tolerance reached at iteration number 19: 8.789e-04
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    ....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.1s remaining:    0.0s
+    ....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.0s remaining:    0.0s
     ................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.3s finished
     [GraphicalLassoCV] Done refinement  1 out of 4:   0s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     ....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.1s remaining:    0.0s
-    ................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.3s finished
+    ................[Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.4s finished
     [GraphicalLassoCV] Done refinement  2 out of 4:   0s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     ....[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    0.1s remaining:    0.0s
@@ -407,12 +423,12 @@ Computing group-sparse precision matrices
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-98
+.. GENERATED FROM PYTHON SOURCE LINES 112-114
 
 Displaying results
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-123
+.. GENERATED FROM PYTHON SOURCE LINES 114-149
 
 .. code-block:: default
 
@@ -420,25 +436,35 @@ Displaying results
     atlas_region_coords = plotting.find_probabilistic_atlas_cut_coords(atlas_img)
     labels = msdl_atlas_dataset.labels
 
-    plotting.plot_connectome(gl.covariance_,
-                             atlas_region_coords, edge_threshold='90%',
-                             title="Covariance",
-                             display_mode="lzr")
-    plotting.plot_connectome(-gl.precision_, atlas_region_coords,
-                             edge_threshold='90%',
-                             title="Sparse inverse covariance (GraphicalLasso)",
-                             display_mode="lzr",
-                             edge_vmax=.5, edge_vmin=-.5)
+    plotting.plot_connectome(
+        gl.covariance_,
+        atlas_region_coords,
+        edge_threshold="90%",
+        title="Covariance",
+        display_mode="lzr",
+    )
+    plotting.plot_connectome(
+        -gl.precision_,
+        atlas_region_coords,
+        edge_threshold="90%",
+        title="Sparse inverse covariance (GraphicalLasso)",
+        display_mode="lzr",
+        edge_vmax=0.5,
+        edge_vmin=-0.5,
+    )
     plot_matrices(gl.covariance_, gl.precision_, "GraphicalLasso", labels)
 
     title = "GroupSparseCovariance"
-    plotting.plot_connectome(-gsc.precisions_[..., 0],
-                             atlas_region_coords, edge_threshold='90%',
-                             title=title,
-                             display_mode="lzr",
-                             edge_vmax=.5, edge_vmin=-.5)
-    plot_matrices(gsc.covariances_[..., 0],
-                  gsc.precisions_[..., 0], title, labels)
+    plotting.plot_connectome(
+        -gsc.precisions_[..., 0],
+        atlas_region_coords,
+        edge_threshold="90%",
+        title=title,
+        display_mode="lzr",
+        edge_vmax=0.5,
+        edge_vmin=-0.5,
+    )
+    plot_matrices(gsc.covariances_[..., 0], gsc.precisions_[..., 0], title, labels)
 
     plotting.show()
 
@@ -503,9 +529,9 @@ Displaying results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  37.161 seconds)
+   **Total running time of the script:** ( 1 minutes  35.342 seconds)
 
-**Estimated memory usage:**  578 MB
+**Estimated memory usage:**  560 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_multi_subject_connectome.py:
