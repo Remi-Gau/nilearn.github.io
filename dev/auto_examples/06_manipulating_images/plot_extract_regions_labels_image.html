@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example shows how to use nilearn.regions.connected_label_regions to assign each spatially-separated region of the atlas a unique label. Indeed, often in a given atlas of labels, the same label..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Resample an image to a template" href="plot_resample_to_template.html" /><link rel="prev" title="Smoothing an image" href="plot_smooth_mean_image.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Regions Extraction of Default Mode Networks using Smith Atlas" href="plot_extract_rois_smith_atlas.html" /><link rel="prev" title="Resample an image to a template" href="plot_resample_to_template.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
         <title>Breaking an atlas of labels in separated regions - Nilearn</title>
@@ -199,8 +199,8 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../01_plotting/index.html">Visualization of brain images</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_visualize_megatrawls_netmats.html">Visualizing Megatrawls Network Matrices from Human Connectome Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_demo_glass_brain.html">Glass brain plotting in nilearn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_visualize_megatrawls_netmats.html">Visualizing Megatrawls Network Matrices from Human Connectome Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_atlas.html">Basic Atlas plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_overlay.html">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_overlay.html#visualizing-a-probabilistic-atlas-with-plot-prob-atlas">Visualizing a probabilistic atlas with plot_prob_atlas</a></li>
@@ -211,8 +211,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_carpet.html">Visualizing global patterns with a carpet plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_haxby_masks.html">Plot Haxby masks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_prob_atlas.html">Visualizing 4D probabilistic atlas maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_surface_projection_strategies.html">Technical point: Illustration of the volume to surface sampling schemes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_demo_plotting.html">Plotting tools in nilearn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_surface_projection_strategies.html">Technical point: Illustration of the volume to surface sampling schemes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_surf_atlas.html">Loading and plotting of a cortical surface atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_surf_stat_map.html">Seed-based connectivity on the surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../01_plotting/plot_demo_glass_brain_extensive.html">Glass brain plotting in nilearn (all options)</a></li>
@@ -223,10 +223,10 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../02_decoding/index.html">Decoding and predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_stimuli.html">Show stimuli of Haxby et al. dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_mixed_gambles_frem.html">FREM on Jimura et al “mixed gambles” dataset.</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_frem.html">Decoding with FREM: face vs house object recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_oasis_vbm_space_net.html">Voxel-Based Morphometry on Oasis dataset with Space-Net prior</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_anova_svm.html">Decoding with ANOVA + SVM: face vs house in the Haxby dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_searchlight_surface.html">Cortical surface-based searchlight decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_frem.html">Decoding with FREM: face vs house vs chair object recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_multiclass.html">The haxby dataset: different multi-class strategies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_searchlight.html">Searchlight analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../02_decoding/plot_haxby_glm_decoding.html">Decoding of a dataset after GLM fit for signal extraction</a></li>
@@ -283,8 +283,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_negate_image.html">Negating an image with math_img</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_mean_image.html">Comparing the means of 2 images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_smooth_mean_image.html">Smoothing an image</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Breaking an atlas of labels in separated regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_resample_to_template.html">Resample an image to a template</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Breaking an atlas of labels in separated regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_rois_smith_atlas.html">Regions Extraction of Default Mode Networks using Smith Atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_nifti_simple.html">Simple example of NiftiMasker use</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_nifti_labels_simple.html">Extracting signals from brain regions using the NiftiLabelsMasker</a></li>
@@ -420,6 +420,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.datasets.get_data_dirs.html">nilearn.datasets.get_data_dirs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.datasets.patch_openneuro_dataset.html">nilearn.datasets.patch_openneuro_dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.datasets.select_from_index.html">nilearn.datasets.select_from_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/generated/nilearn.datasets.load_sample_motor_activation_image.html">nilearn.datasets.load_sample_motor_activation_image</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../modules/decoding.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.decoding</span></code>: Decoding</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -672,7 +673,7 @@
         <article role="main">
           <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-06-manipulating-images-plot-extract-regions-labels-image-py"><span class="std std-ref">here</span></a>
+<p><a class="reference internal" href="#sphx-glr-download-auto-examples-06-manipulating-images-plot-extract-regions-labels-image-py"><span class="std std-ref">Go to the end</span></a>
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="breaking-an-atlas-of-labels-in-separated-regions">
@@ -708,7 +709,7 @@ but each one points to a single region.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_extract_regions_labels_image_001.png" srcset="../../_images/sphx_glr_plot_extract_regions_labels_image_001.png" alt="plot extract regions labels image" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fedfee63b80&gt;
+<img src="../../_images/sphx_glr_plot_extract_regions_labels_image_001.png" srcset="../../_images/sphx_glr_plot_extract_regions_labels_image_001.png" alt="plot extract regions labels image" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fde097be670&gt;
 </pre></div>
 </div>
 <p>The original Yeo atlas has 7 labels, that is indicated in the colorbar.
@@ -740,7 +741,7 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_extract_regions_labels_image_002.png" srcset="../../_images/sphx_glr_plot_extract_regions_labels_image_002.png" alt="plot extract regions labels image" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fedff661160&gt;
+<img src="../../_images/sphx_glr_plot_extract_regions_labels_image_002.png" srcset="../../_images/sphx_glr_plot_extract_regions_labels_image_002.png" alt="plot extract regions labels image" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fde0871c430&gt;
 </pre></div>
 </div>
 <p>Note that the same cluster in original and labeled atlas could have
@@ -783,7 +784,7 @@ that are connected only along the diagonal.</p>
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fedf9be07f0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fde10871f70&gt;
 </pre></div>
 </div>
 <p>A consequence of using connect_diag=False is that we can get a lot of
@@ -815,8 +816,8 @@ regions larger than 100mm^3.</p>
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  41.313 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  829 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  42.869 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  694 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-extract-regions-labels-image-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_extract_regions_labels_image.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo6.svg" width="150px" /></a>
@@ -837,23 +838,23 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_resample_to_template.html">
+          <a class="next-page" href="plot_extract_rois_smith_atlas.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Resample an image to a template</div>
+                <div class="title">Regions Extraction of Default Mode Networks using Smith Atlas</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_smooth_mean_image.html">
+          <a class="prev-page" href="plot_resample_to_template.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Smoothing an image</div>
+                <div class="title">Resample an image to a template</div>
                 
               </div>
             </a>
