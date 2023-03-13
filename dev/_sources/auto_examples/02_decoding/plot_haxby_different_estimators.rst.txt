@@ -19,17 +19,17 @@
 
 
 Different classifiers in decoding the Haxby dataset
-=====================================================
+===================================================
 
 Here we compare different classifiers on a visual object recognition
 decoding task.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-14
+.. GENERATED FROM PYTHON SOURCE LINES 10-12
 
 Loading the data
------------------
+----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-65
+.. GENERATED FROM PYTHON SOURCE LINES 12-63
 
 .. code-block:: default
 
@@ -98,12 +98,12 @@ Loading the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-68
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 Training the decoder
----------------------
+--------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-110
+.. GENERATED FROM PYTHON SOURCE LINES 66-108
 
 .. code-block:: default
 
@@ -140,8 +140,8 @@ Training the decoder
         classifiers_data[classifier_name] = {"score": decoder.cv_scores_}
         print(f"{classifier_name:10}: {time.time() - t0:.2f}s")
         for category in categories:
-            mean = np.mean(classifiers_data[classifier_name]['score'][category])
-            std = np.std(classifiers_data[classifier_name]['score'][category])
+            mean = np.mean(classifiers_data[classifier_name]["score"][category])
+            std = np.std(classifiers_data[classifier_name]["score"][category])
             print(f"    {category:14} vs all -- AUC: {mean:1.2f} +- {std:1.2f}")
 
         # Adding the average performance per estimator
@@ -162,7 +162,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l1: 13.74s
+    logistic_l1: 13.70s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.02
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -176,7 +176,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l2: 43.85s
+    logistic_l2: 48.39s
         scissors       vs all -- AUC: 0.91 +- 0.08
         face           vs all -- AUC: 0.97 +- 0.04
         cat            vs all -- AUC: 0.97 +- 0.03
@@ -190,7 +190,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    ridge_classifier: 16.41s
+    ridge_classifier: 15.04s
         scissors       vs all -- AUC: 0.91 +- 0.08
         face           vs all -- AUC: 0.96 +- 0.03
         cat            vs all -- AUC: 0.91 +- 0.07
@@ -204,7 +204,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l1    : 29.06s
+    svc_l1    : 29.04s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.03
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -218,7 +218,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l2    : 74.72s
+    svc_l2    : 89.34s
         scissors       vs all -- AUC: 0.90 +- 0.09
         face           vs all -- AUC: 0.96 +- 0.05
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -231,12 +231,12 @@ Training the decoder
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-113
+.. GENERATED FROM PYTHON SOURCE LINES 109-111
 
 Visualization
---------------
+-------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-148
+.. GENERATED FROM PYTHON SOURCE LINES 111-146
 
 .. code-block:: default
 
@@ -287,21 +287,21 @@ Visualization
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-153
+.. GENERATED FROM PYTHON SOURCE LINES 147-151
 
 We can see that for a fixed penalty the results are similar between the svc
 and the logistic regression. The main difference relies on the penalty
 ($\ell_1$ and $\ell_2$). The sparse penalty works better because we are in
 an intra-subject setting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-159
+.. GENERATED FROM PYTHON SOURCE LINES 153-157
 
 Visualizing the face vs house map
 ---------------------------------
 
 Restrict the decoding to face vs house
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-177
+.. GENERATED FROM PYTHON SOURCE LINES 157-175
 
 .. code-block:: default
 
@@ -355,12 +355,12 @@ Restrict the decoding to face vs house
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-180
+.. GENERATED FROM PYTHON SOURCE LINES 176-178
 
 Finally, we plot the face vs house map for the different classifiers
 Use the average EPI as a background
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-199
+.. GENERATED FROM PYTHON SOURCE LINES 178-197
 
 .. code-block:: default
 
@@ -431,9 +431,9 @@ Use the average EPI as a background
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  23.734 seconds)
+   **Total running time of the script:** ( 3 minutes  41.389 seconds)
 
-**Estimated memory usage:**  1354 MB
+**Estimated memory usage:**  1314 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_different_estimators.py:

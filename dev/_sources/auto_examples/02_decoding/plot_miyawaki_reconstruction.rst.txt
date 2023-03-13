@@ -57,7 +57,7 @@ For an encoding approach for the same dataset, see also
 .. GENERATED FROM PYTHON SOURCE LINES 29-31
 
 First we load the Miyawaki dataset
------------------------------------
+----------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-52
 
@@ -93,7 +93,7 @@ First we load the Miyawaki dataset
  .. code-block:: none
 
     Fetching dataset...First functional nifti image (4D) is located at: /home/runner/work/nilearn/nilearn/nilearn_data/miyawaki2008/func/data_figure_run01.nii.gz
-     Done (0.13s).
+     Done (0.17s).
 
 
 
@@ -101,9 +101,9 @@ First we load the Miyawaki dataset
 .. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 Then we prepare and mask the data
-----------------------------------
+---------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-141
+.. GENERATED FROM PYTHON SOURCE LINES 55-139
 
 .. code-block:: default
 
@@ -138,7 +138,6 @@ Then we prepare and mask the data
     X_test = np.vstack([x[2:] for x in X_test])
     y_test = np.vstack([y[:-2] for y in y_test]).astype(float)
 
-    n_pixels = y_train.shape[1]
     n_features = X_train.shape[1]
 
 
@@ -153,7 +152,6 @@ Then we prepare and mask the data
 
     # Original data
     design_matrix = np.eye(100)
-
 
     # Example of matrix used for multiscale (sum pixels vertically)
     #
@@ -201,17 +199,17 @@ Then we prepare and mask the data
 
  .. code-block:: none
 
-    Preprocessing data... Done (30.25s).
+    Preprocessing data... Done (22.93s).
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-144
+.. GENERATED FROM PYTHON SOURCE LINES 140-142
 
 We define our prediction function
------------------------------------
+---------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-173
+.. GENERATED FROM PYTHON SOURCE LINES 142-173
 
 .. code-block:: default
 
@@ -227,7 +225,9 @@ We define our prediction function
     clfs = []
     n_clfs = y_train.shape[1]
     for i in range(y_train.shape[1]):
-        sys.stderr.write(f"Training classifiers {int(i + 1):03}/{int(n_clfs)}... \r")
+        sys.stderr.write(
+            f"Training classifiers {int(i + 1):03}/{int(n_clfs)}... \r"
+        )
 
         clf = Pipeline(
             [
@@ -240,9 +240,9 @@ We define our prediction function
         clfs.append(clf)
 
     sys.stderr.write(
-        f"Training classifiers {n_clfs:03d}/{n_clfs:d}... Done ({(time.time() - t0):.2f}s).\n"
+        f"Training classifiers {n_clfs:03d}/{n_clfs:d}... "
+        f"Done ({(time.time() - t0):.2f}s).\n"
     )
-
 
 
 
@@ -1696,7 +1696,7 @@ We define our prediction function
 
     'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
 
-    Training classifiers 361/361... Done (42.99s).
+    Training classifiers 361/361... Done (34.41s).
 
 
 
@@ -1704,9 +1704,9 @@ We define our prediction function
 .. GENERATED FROM PYTHON SOURCE LINES 174-176
 
 Here we run the prediction: the decoding itself
-------------------------------------------------
+-----------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-255
+.. GENERATED FROM PYTHON SOURCE LINES 176-254
 
 .. code-block:: default
 
@@ -1792,22 +1792,21 @@ Here we run the prediction: the decoding itself
 
 
 
-
 .. rst-class:: sphx-glr-script-out
 
  .. code-block:: none
 
-    Calculating scores and outputs... Done (2.80s).
+    Calculating scores and outputs... Done (2.47s).
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-258
+.. GENERATED FROM PYTHON SOURCE LINES 255-257
 
 Let us quantify our prediction error
--------------------------------------
+------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 258-294
+.. GENERATED FROM PYTHON SOURCE LINES 257-293
 
 .. code-block:: default
 
@@ -1865,12 +1864,12 @@ Let us quantify our prediction error
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 295-297
+.. GENERATED FROM PYTHON SOURCE LINES 294-296
 
 And finally, we plot six reconstructed images, to compare with
 ground truth
 
-.. GENERATED FROM PYTHON SOURCE LINES 297-331
+.. GENERATED FROM PYTHON SOURCE LINES 296-330
 
 .. code-block:: default
 
@@ -1963,7 +1962,7 @@ ground truth
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  18.608 seconds)
+   **Total running time of the script:** ( 1 minutes  2.300 seconds)
 
 **Estimated memory usage:**  416 MB
 

@@ -19,23 +19,24 @@
 
 
 Decoding with FREM: face vs house vs chair object recognition
-===============================================================
+=============================================================
 
 This example uses fast ensembling of regularized models (FREM) to decode
-a face vs house vs chair discrimination task from Haxby 2001 study. FREM uses an
-implicit spatial regularization through fast clustering and aggregates a
-high number of estimators trained on various splits of the training set,
-thus returning a very robust decoder at a lower computational cost than
-other spatially regularized methods.
+a face vs house vs chair discrimination task from Haxby 2001 study.
+FREM uses an implicit spatial regularization
+through fast clustering and aggregates a high number of estimators
+trained on various splits of the training set,
+thus returning a very robust decoder
+at a lower computational cost than other spatially regularized methods.
 
 To have more details, see: :ref:`frem`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-18
+.. GENERATED FROM PYTHON SOURCE LINES 17-19
 
 Load the Haxby dataset
-------------------------
+----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-52
+.. GENERATED FROM PYTHON SOURCE LINES 19-53
 
 .. code-block:: default
 
@@ -80,12 +81,12 @@ Load the Haxby dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 Fit FREM
---------------------------------------
+--------
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-64
+.. GENERATED FROM PYTHON SOURCE LINES 56-65
 
 .. code-block:: default
 
@@ -115,25 +116,25 @@ Fit FREM
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 66-68
 
 Plot confusion matrix
 ------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-97
+.. GENERATED FROM PYTHON SOURCE LINES 68-98
 
 .. code-block:: default
 
 
     import numpy as np
-    from sklearn.metrics import confusion_matrix
     from nilearn import plotting
+    from sklearn.metrics import confusion_matrix
 
     # Calculate the confusion matrix
     matrix = confusion_matrix(
-        y_test, 
-        y_pred, 
-        normalize='true',
+        y_test,
+        y_pred,
+        normalize="true",
     )
 
     # Plot the confusion matrix
@@ -141,13 +142,13 @@ Plot confusion matrix
         matrix,
         labels=sorted(np.unique(y_test)),
         vmin=0,
-        cmap='hot_r',
+        cmap="hot_r",
     )
 
     # Add x/y-axis labels
     ax = im.axes
-    ax.set_ylabel('True label')
-    ax.set_xlabel('Predicted label')
+    ax.set_ylabel("True label")
+    ax.set_xlabel("Predicted label")
 
     # Adjust figure to make labels fit
     ax.get_figure().tight_layout()
@@ -166,17 +167,16 @@ Plot confusion matrix
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 99-101
 
 Visualization of FREM weights
-------------------------------------
+-----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-111
+.. GENERATED FROM PYTHON SOURCE LINES 101-111
 
 .. code-block:: default
 
     from nilearn import plotting
-
 
     plotting.plot_stat_map(
         decoder.coef_img_["face"],
@@ -210,9 +210,9 @@ FREMRegressor object is also available to solve regression problems.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 8 minutes  21.043 seconds)
+   **Total running time of the script:** ( 9 minutes  26.738 seconds)
 
-**Estimated memory usage:**  2083 MB
+**Estimated memory usage:**  2052 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_frem.py:

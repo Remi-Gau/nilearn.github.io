@@ -43,7 +43,7 @@ covariance** and **partial_correlation**, to recover the functional brain
 We'll start by extracting signals from Default Mode Network regions and
 computing a connectome from them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-36
+.. GENERATED FROM PYTHON SOURCE LINES 30-35
 
 Retrieve the brain development fmri dataset
 -------------------------------------------
@@ -51,7 +51,7 @@ Retrieve the brain development fmri dataset
 We are going to use a subject from the development functional
 connectivity dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-47
+.. GENERATED FROM PYTHON SOURCE LINES 35-43
 
 .. code-block:: default
 
@@ -61,10 +61,7 @@ connectivity dataset.
     dataset = datasets.fetch_development_fmri(n_subjects=10)
 
     # print basic information on the dataset
-    print(
-        f"First subject functional nifti image (4D) is at: {dataset.func[0]}"
-    )
-
+    print(f"First subject functional nifti image (4D) is at: {dataset.func[0]}")
 
 
 
@@ -79,12 +76,12 @@ connectivity dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 Coordinates of Default Mode Network
 ------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-58
+.. GENERATED FROM PYTHON SOURCE LINES 46-54
 
 .. code-block:: default
 
@@ -103,7 +100,7 @@ Coordinates of Default Mode Network
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-67
+.. GENERATED FROM PYTHON SOURCE LINES 55-63
 
 Extracts signal from sphere around DMN seeds
 ----------------------------------------------
@@ -114,7 +111,7 @@ around a sequence of (x, y, z) coordinates with the object
 The resulting signal is then prepared by the masker object: Detrended,
 band-pass filtered and **standardized to 1 variance**.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-94
+.. GENERATED FROM PYTHON SOURCE LINES 63-90
 
 .. code-block:: default
 
@@ -156,7 +153,7 @@ band-pass filtered and **standardized to 1 variance**.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7fb028532040>, 
+    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7f729fdf2610>, 
     { 'allow_overlap': False,
       'clean_kwargs': {'butterworth__padtype': 'even'},
       'detrend': True,
@@ -174,17 +171,17 @@ band-pass filtered and **standardized to 1 variance**.
     [NiftiSpheresMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiSpheresMasker.transform_single_imgs] Extracting region signals
     [NiftiSpheresMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 2.6s, 0.0min
+    _______________________________________________filter_and_extract - 1.9s, 0.0min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-97
+.. GENERATED FROM PYTHON SOURCE LINES 91-93
 
 Display time series
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-109
+.. GENERATED FROM PYTHON SOURCE LINES 93-104
 
 .. code-block:: default
 
@@ -202,7 +199,6 @@ Display time series
 
 
 
-
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_001.png
    :alt: Default Mode Network Time Series
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_001.png
@@ -212,7 +208,7 @@ Display time series
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-115
+.. GENERATED FROM PYTHON SOURCE LINES 105-110
 
 Compute partial correlation matrix
 -----------------------------------
@@ -220,7 +216,7 @@ Using object :class:`nilearn.connectome.ConnectivityMeasure`: Its
 default covariance estimator is Ledoit-Wolf, allowing to obtain accurate
 partial correlations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-124
+.. GENERATED FROM PYTHON SOURCE LINES 110-118
 
 .. code-block:: default
 
@@ -239,16 +235,15 @@ partial correlations.
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 125-130
+.. GENERATED FROM PYTHON SOURCE LINES 119-124
 
 Display connectome
--------------------
+------------------
 
 We display the graph of connections with
 `:func: nilearn.plotting.plot_connectome`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-140
+.. GENERATED FROM PYTHON SOURCE LINES 124-133
 
 .. code-block:: default
 
@@ -264,7 +259,6 @@ We display the graph of connections with
 
 
 
-
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_002.png
    :alt: plot sphere based connectome
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_002.png
@@ -276,16 +270,16 @@ We display the graph of connections with
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb028532c10>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f72a05f6b50>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-143
+.. GENERATED FROM PYTHON SOURCE LINES 134-136
 
 Display connectome with hemispheric projections.
 Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-153
+.. GENERATED FROM PYTHON SOURCE LINES 136-145
 
 .. code-block:: default
 
@@ -301,7 +295,6 @@ Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
 
 
-
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_003.png
    :alt: plot sphere based connectome
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_003.png
@@ -311,7 +304,7 @@ Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-160
+.. GENERATED FROM PYTHON SOURCE LINES 146-152
 
 3D visualization in a web browser
 ---------------------------------
@@ -320,7 +313,7 @@ An alternative to :func:`nilearn.plotting.plot_connectome` is to use
 visualizations in a web browser. See :ref:`interactive-connectome-plotting`
 for more details.
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-168
+.. GENERATED FROM PYTHON SOURCE LINES 152-160
 
 .. code-block:: default
 
@@ -709,7 +702,7 @@ for more details.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-174
+.. GENERATED FROM PYTHON SOURCE LINES 161-165
 
 .. code-block:: default
 
@@ -724,8 +717,7 @@ for more details.
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 175-183
+.. GENERATED FROM PYTHON SOURCE LINES 166-174
 
 Extract signals on spheres from an atlas
 ----------------------------------------
@@ -736,14 +728,13 @@ This time, we'll use a different correlation measure.
 
 First we fetch the coordinates of the Power atlas
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-188
+.. GENERATED FROM PYTHON SOURCE LINES 174-178
 
 .. code-block:: default
 
 
     power = datasets.fetch_coords_power_2011(legacy_format=False)
     print(f"Power atlas comes with {power.keys()}.")
-
 
 
 
@@ -758,7 +749,7 @@ First we fetch the coordinates of the Power atlas
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-195
+.. GENERATED FROM PYTHON SOURCE LINES 179-185
 
 .. note::
 
@@ -767,14 +758,14 @@ First we fetch the coordinates of the Power atlas
     not included in nilearn, using
     :func:`nilearn.plotting.find_parcellation_cut_coords`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-202
+.. GENERATED FROM PYTHON SOURCE LINES 187-191
 
 Compute within spheres averaged time-series
 -------------------------------------------
 
 We collect the regions coordinates in a numpy array
 
-.. GENERATED FROM PYTHON SOURCE LINES 202-209
+.. GENERATED FROM PYTHON SOURCE LINES 191-197
 
 .. code-block:: default
 
@@ -783,7 +774,6 @@ We collect the regions coordinates in a numpy array
     coords = np.vstack((power.rois["x"], power.rois["y"], power.rois["z"])).T
 
     print(f"Stacked power coordinates in array of shape {coords.shape}.")
-
 
 
 
@@ -798,11 +788,11 @@ We collect the regions coordinates in a numpy array
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 210-211
+.. GENERATED FROM PYTHON SOURCE LINES 198-199
 
 and define spheres masker, with small enough radius to avoid regions overlap.
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-228
+.. GENERATED FROM PYTHON SOURCE LINES 199-215
 
 .. code-block:: default
 
@@ -829,8 +819,7 @@ and define spheres masker, with small enough radius to avoid regions overlap.
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 229-234
+.. GENERATED FROM PYTHON SOURCE LINES 216-221
 
 Estimate correlations
 ---------------------
@@ -838,12 +827,11 @@ Estimate correlations
 We start by estimating the signal **covariance** matrix. Here the
 number of ROIs exceeds the number of samples,
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-237
+.. GENERATED FROM PYTHON SOURCE LINES 221-223
 
 .. code-block:: default
 
     print(f"time series has {timeseries.shape[0]} samples")
-
 
 
 
@@ -858,12 +846,12 @@ number of ROIs exceeds the number of samples,
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-240
+.. GENERATED FROM PYTHON SOURCE LINES 224-226
 
 in which situation the graphical lasso **sparse inverse covariance**
 estimator captures well the covariance **structure**.
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-249
+.. GENERATED FROM PYTHON SOURCE LINES 226-234
 
 .. code-block:: default
 
@@ -882,17 +870,15 @@ estimator captures well the covariance **structure**.
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 250-251
+.. GENERATED FROM PYTHON SOURCE LINES 235-236
 
 We just fit our regions signals into the `GraphicalLassoCV` object
 
-.. GENERATED FROM PYTHON SOURCE LINES 251-254
+.. GENERATED FROM PYTHON SOURCE LINES 236-238
 
 .. code-block:: default
 
     covariance_estimator.fit(timeseries)
-
 
 
 
@@ -909,10 +895,10 @@ We just fit our regions signals into the `GraphicalLassoCV` object
     [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    3.6s finished
     [GraphicalLassoCV] Done refinement  2 out of 4:   5s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    4.8s finished
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.3s finished
     [GraphicalLassoCV] Done refinement  3 out of 4:  10s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.0s finished
+    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.1s finished
     [GraphicalLassoCV] Done refinement  4 out of 4:  15s
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/numpy/core/_methods.py:236: RuntimeWarning:
 
@@ -928,17 +914,16 @@ We just fit our regions signals into the `GraphicalLassoCV` object
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-256
+.. GENERATED FROM PYTHON SOURCE LINES 239-240
 
 and get the ROI-to-ROI covariance matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-260
+.. GENERATED FROM PYTHON SOURCE LINES 240-243
 
 .. code-block:: default
 
     matrix = covariance_estimator.covariance_
     print(f"Covariance matrix has shape {matrix.shape}.")
-
 
 
 
@@ -953,7 +938,7 @@ and get the ROI-to-ROI covariance matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 261-267
+.. GENERATED FROM PYTHON SOURCE LINES 244-250
 
 Plot matrix, graph, and strength
 --------------------------------
@@ -962,7 +947,7 @@ We use `:func: nilearn.plotting.plot_matrix`
 to visualize our correlation matrix
 and display the graph of connections with `nilearn.plotting.plot_connectome`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 267-288
+.. GENERATED FROM PYTHON SOURCE LINES 250-270
 
 .. code-block:: default
 
@@ -985,7 +970,6 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
         node_size=20,
         colorbar=True,
     )
-
 
 
 
@@ -1013,11 +997,11 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb038781880>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f72a04f20a0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 289-294
+.. GENERATED FROM PYTHON SOURCE LINES 271-276
 
 .. note::
 
@@ -1025,13 +1009,13 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
     to 1. by the `spheres_masker`. Hence the covariance of the signal is a
     correlation matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 297-300
+.. GENERATED FROM PYTHON SOURCE LINES 278-281
 
 Sometimes, the information in the correlation matrix is overwhelming and
 aggregating edge strength from the graph would help. Use the function
 `nilearn.plotting.plot_markers` to visualize this information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 300-312
+.. GENERATED FROM PYTHON SOURCE LINES 281-292
 
 .. code-block:: default
 
@@ -1049,7 +1033,6 @@ aggregating edge strength from the graph would help. Use the function
 
 
 
-
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_006.png
    :alt: plot sphere based connectome
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_006.png
@@ -1061,17 +1044,17 @@ aggregating edge strength from the graph would help. Use the function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb038d7bbe0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f72a0266ca0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 313-316
+.. GENERATED FROM PYTHON SOURCE LINES 293-296
 
 From the correlation matrix, we observe that there is a positive and negative
 structure. We could make two different plots,
 one for the positive and one for the negative structure.
 
-.. GENERATED FROM PYTHON SOURCE LINES 316-347
+.. GENERATED FROM PYTHON SOURCE LINES 296-327
 
 .. code-block:: default
 
@@ -1132,18 +1115,18 @@ one for the positive and one for the negative structure.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb03643a5b0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f729f96c7c0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 348-352
+.. GENERATED FROM PYTHON SOURCE LINES 328-332
 
 Connectome extracted from Dosenbach's atlas
 -------------------------------------------
 
 We repeat the same steps for Dosenbach's atlas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 352-435
+.. GENERATED FROM PYTHON SOURCE LINES 332-415
 
 .. code-block:: default
 
@@ -1281,15 +1264,15 @@ We repeat the same steps for Dosenbach's atlas.
     invalid value encountered in subtract
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb0334fb9a0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f729d692bb0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 436-437
+.. GENERATED FROM PYTHON SOURCE LINES 416-417
 
 We can easily identify the Dosenbach's networks from the matrix blocks.
 
-.. GENERATED FROM PYTHON SOURCE LINES 437-441
+.. GENERATED FROM PYTHON SOURCE LINES 417-421
 
 .. code-block:: default
 
@@ -1311,7 +1294,7 @@ We can easily identify the Dosenbach's networks from the matrix blocks.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 442-453
+.. GENERATED FROM PYTHON SOURCE LINES 422-433
 
 References
 ----------
@@ -1323,14 +1306,14 @@ See Also
 
   * :ref:`sphx_glr_auto_examples_03_connectivity_plot_atlas_comparison.py`
 
-  * :ref:`sphx_glr_auto_examples_03_connectivity_plot_multi_subject_connectome.py`
+  * :ref:`sphx_glr_auto_examples_03_connectivity_plot_multi_subject_connectome.py` # noqa
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  58.114 seconds)
+   **Total running time of the script:** ( 0 minutes  53.685 seconds)
 
-**Estimated memory usage:**  577 MB
+**Estimated memory usage:**  579 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_sphere_based_connectome.py:

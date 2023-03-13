@@ -19,7 +19,7 @@
 
 
 First level analysis of a complete BIDS dataset from openneuro
-===============================================================
+==============================================================
 
 
 Full step-by-step example of fitting a GLM to perform a first level analysis
@@ -43,7 +43,7 @@ More specifically:
 .. GENERATED FROM PYTHON SOURCE LINES 27-34
 
 Fetch openneuro BIDS dataset
------------------------------
+----------------------------
 We download one subject from the stopsignal task
 in the ds000030 V4 :term:`BIDS` dataset available in openneuro.
 This dataset contains the necessary information to run a statistical analysis
@@ -93,7 +93,7 @@ FSL analysis that we can employ for comparison with the Nilearn estimation.
 .. GENERATED FROM PYTHON SOURCE LINES 64-76
 
 Obtain FirstLevelModel objects automatically and fit arguments
----------------------------------------------------------------
+--------------------------------------------------------------
 From the dataset directory we automatically obtain FirstLevelModel objects
 with their subject_id filled from the :term:`BIDS` dataset.
 Moreover we obtain,
@@ -185,11 +185,13 @@ We identify the columns of the Go and StopSuccess conditions of the
 design matrix inferred from the FSL file, to use them later for contrast
 definition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-126
+.. GENERATED FROM PYTHON SOURCE LINES 121-128
 
 .. code-block:: default
 
-    design_columns = [f"cond_{int(i):02}" for i in range(len(design_matrix.columns))]
+    design_columns = [
+        f"cond_{int(i):02}" for i in range(len(design_matrix.columns))
+    ]
     design_columns[0] = "Go"
     design_columns[4] = "StopSuccess"
     design_matrix.columns = design_columns
@@ -201,13 +203,13 @@ definition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-130
+.. GENERATED FROM PYTHON SOURCE LINES 129-132
 
 First level model estimation (one subject)
--------------------------------------------
+------------------------------------------
 We fit the first level model for one subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-132
+.. GENERATED FROM PYTHON SOURCE LINES 132-134
 
 .. code-block:: default
 
@@ -228,12 +230,12 @@ We fit the first level model for one subject.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-135
+.. GENERATED FROM PYTHON SOURCE LINES 135-137
 
 Then we compute the StopSuccess - Go contrast. We can use the column names
 of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-137
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
 
 .. code-block:: default
 
@@ -246,12 +248,12 @@ of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-140
+.. GENERATED FROM PYTHON SOURCE LINES 140-142
 
 We show the agreement between the Nilearn estimation and the FSL estimation
 available in the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-183
+.. GENERATED FROM PYTHON SOURCE LINES 142-185
 
 .. code-block:: default
 
@@ -329,13 +331,13 @@ available in the dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-187
+.. GENERATED FROM PYTHON SOURCE LINES 186-189
 
 Simple statistical report of thresholded contrast
------------------------------------------------------
+-------------------------------------------------
 We display the contrast plot and table with cluster information
 
-.. GENERATED FROM PYTHON SOURCE LINES 187-200
+.. GENERATED FROM PYTHON SOURCE LINES 189-202
 
 .. code-block:: default
 
@@ -376,12 +378,12 @@ We display the contrast plot and table with cluster information
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-203
+.. GENERATED FROM PYTHON SOURCE LINES 203-205
 
 We can get a latex table from a Pandas Dataframe for display and publication
 purposes
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-208
+.. GENERATED FROM PYTHON SOURCE LINES 205-210
 
 .. code-block:: default
 
@@ -398,7 +400,7 @@ purposes
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:206: FutureWarning:
+    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:208: FutureWarning:
 
     In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
 
@@ -443,14 +445,14 @@ purposes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-213
+.. GENERATED FROM PYTHON SOURCE LINES 211-215
 
 Generating a report
 -------------------
 Using the computed FirstLevelModel and contrast information,
 we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 213-220
+.. GENERATED FROM PYTHON SOURCE LINES 215-222
 
 .. code-block:: default
 
@@ -468,11 +470,11 @@ we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-222
+.. GENERATED FROM PYTHON SOURCE LINES 223-224
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-227
+.. GENERATED FROM PYTHON SOURCE LINES 224-229
 
 .. code-block:: default
 
@@ -488,12 +490,12 @@ We have several ways to access the report:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-230
+.. GENERATED FROM PYTHON SOURCE LINES 230-232
 
 Saving model outputs to disk
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-240
+.. GENERATED FROM PYTHON SOURCE LINES 232-242
 
 .. code-block:: default
 
@@ -546,11 +548,11 @@ Saving model outputs to disk
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 241-242
+.. GENERATED FROM PYTHON SOURCE LINES 243-244
 
 View the generated files
 
-.. GENERATED FROM PYTHON SOURCE LINES 242-245
+.. GENERATED FROM PYTHON SOURCE LINES 244-247
 
 .. code-block:: default
 
@@ -584,9 +586,9 @@ View the generated files
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  45.742 seconds)
+   **Total running time of the script:** ( 0 minutes  41.608 seconds)
 
-**Estimated memory usage:**  375 MB
+**Estimated memory usage:**  492 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_bids_features.py:

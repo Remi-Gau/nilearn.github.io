@@ -17,6 +17,7 @@
 
 .. _sphx_glr_auto_examples_04_glm_first_level_plot_fiac_analysis.py:
 
+
 Simple example of two-session fMRI model fitting
 ================================================
 
@@ -69,7 +70,7 @@ it will be a 'results' subdirectory of the current directory.
 .. GENERATED FROM PYTHON SOURCE LINES 41-45
 
 Prepare data and analysis parameters
---------------------------------------
+------------------------------------
 
 Note that there are two sessions.
 
@@ -130,13 +131,14 @@ DataFrames.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-69
+.. GENERATED FROM PYTHON SOURCE LINES 66-70
 
 GLM estimation
-----------------------------------
-GLM specification. Note that the mask was provided in the dataset. So we use it.
+--------------
+GLM specification. Note that the mask was provided in the dataset.
+So we use it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 70-74
 
 .. code-block:: default
 
@@ -151,11 +153,11 @@ GLM specification. Note that the mask was provided in the dataset. So we use it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-75
+.. GENERATED FROM PYTHON SOURCE LINES 75-76
 
 Let's fit the GLM.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-77
+.. GENERATED FROM PYTHON SOURCE LINES 76-78
 
 .. code-block:: default
 
@@ -168,20 +170,21 @@ Let's fit the GLM.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-80
+.. GENERATED FROM PYTHON SOURCE LINES 79-81
 
 Compute fixed effects of the two runs and compute related images.
 For this, we first define the contrasts as we would do for a single session.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-87
+.. GENERATED FROM PYTHON SOURCE LINES 81-90
 
 .. code-block:: default
 
 
     n_columns = design_matrices[0].shape[1]
 
+
     def pad_vector(contrast_, n_columns):
-        """A small routine to append zeros in contrast vectors"""
+        """Append zeros in contrast vectors."""
         return np.hstack((contrast_, np.zeros(n_columns - len(contrast_))))
 
 
@@ -191,11 +194,12 @@ For this, we first define the contrasts as we would do for a single session.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-89
+
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
 
 Contrast specification
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-99
+.. GENERATED FROM PYTHON SOURCE LINES 92-102
 
 .. code-block:: default
 
@@ -216,11 +220,11 @@ Contrast specification
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-101
+.. GENERATED FROM PYTHON SOURCE LINES 103-104
 
 Next, we compute and plot the statistics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-116
+.. GENERATED FROM PYTHON SOURCE LINES 104-119
 
 .. code-block:: default
 
@@ -268,13 +272,13 @@ Next, we compute and plot the statistics.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-120
+.. GENERATED FROM PYTHON SOURCE LINES 120-123
 
 We can then compare session-specific and fixed effects.
 Here, we compare the activation mas produced from each session separately and
 then the fixed effects version.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-123
+.. GENERATED FROM PYTHON SOURCE LINES 123-126
 
 .. code-block:: default
 
@@ -288,11 +292,11 @@ then the fixed effects version.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-125
+.. GENERATED FROM PYTHON SOURCE LINES 127-128
 
 Compute the statistics for the first session.
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-133
+.. GENERATED FROM PYTHON SOURCE LINES 128-136
 
 .. code-block:: default
 
@@ -318,15 +322,15 @@ Compute the statistics for the first session.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb04015e520>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f72a086f070>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-135
+.. GENERATED FROM PYTHON SOURCE LINES 137-138
 
 Compute the statistics for the second session.
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-143
+.. GENERATED FROM PYTHON SOURCE LINES 138-146
 
 .. code-block:: default
 
@@ -352,15 +356,15 @@ Compute the statistics for the second session.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb02c6cd910>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f72a09665b0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-145
+.. GENERATED FROM PYTHON SOURCE LINES 147-148
 
 Compute the Fixed effects statistics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-155
+.. GENERATED FROM PYTHON SOURCE LINES 148-158
 
 .. code-block:: default
 
@@ -399,20 +403,20 @@ Compute the Fixed effects statistics.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 156-159
+.. GENERATED FROM PYTHON SOURCE LINES 159-162
 
 Not unexpectedly, the fixed effects version displays higher peaks than the
 input sessions. Computing fixed effects enhances the signal-to-noise ratio of
 the resulting brain maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-166
+.. GENERATED FROM PYTHON SOURCE LINES 165-169
 
 Generating a report
 -------------------
 Since we have already computed the FirstLevelModel and
 and have the contrast, we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-173
+.. GENERATED FROM PYTHON SOURCE LINES 169-176
 
 .. code-block:: default
 
@@ -443,11 +447,11 @@ and have the contrast, we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-175
+.. GENERATED FROM PYTHON SOURCE LINES 177-178
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 175-179
+.. GENERATED FROM PYTHON SOURCE LINES 178-182
 
 .. code-block:: default
 
@@ -465,9 +469,9 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  59.464 seconds)
+   **Total running time of the script:** ( 0 minutes  50.778 seconds)
 
-**Estimated memory usage:**  233 MB
+**Estimated memory usage:**  367 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_fiac_analysis.py:
