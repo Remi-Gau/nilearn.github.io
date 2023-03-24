@@ -13,10 +13,10 @@
 <meta name="description" content="This example shows how to extract signals from spherical regions. We show how to build spheres around user-defined coordinates, as well as centered on coordinates from the Power-264 atlas [1], and ..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Clustering methods to learn a brain parcellation from fMRI" href="plot_data_driven_parcellations.html" /><link rel="prev" title="Extracting signals from a brain parcellation" href="plot_signal_extraction.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2023.03.23 -->
         <title>Extract signals on spheres and plot a connectome - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
@@ -772,7 +772,7 @@ band-pass filtered and <strong>standardized to 1 variance</strong>.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7f3dccade1c0&gt;,
+&lt;nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7fba813218e0&gt;,
 { &#39;allow_overlap&#39;: False,
   &#39;clean_kwargs&#39;: {&#39;butterworth__padtype&#39;: &#39;even&#39;},
   &#39;detrend&#39;: True,
@@ -794,7 +794,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
-_______________________________________________filter_and_extract - 2.4s, 0.0min
+_______________________________________________filter_and_extract - 2.8s, 0.0min
 </pre></div>
 </div>
 </section>
@@ -840,7 +840,7 @@ partial correlations.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_sphere_based_connectome_002.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_002.png" alt="plot sphere based connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f3dcd9e4d30&gt;
+<img src="../../_images/sphx_glr_plot_sphere_based_connectome_002.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_002.png" alt="plot sphere based connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fba8529b7f0&gt;
 </pre></div>
 </div>
 <p>Display connectome with hemispheric projections.
@@ -1324,17 +1324,17 @@ estimator captures well the covariance <strong>structure</strong>.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    1.7s finished
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    1.9s finished
 [GraphicalLassoCV] Done refinement  1 out of 4:   1s
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    3.6s finished
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    3.9s finished
 [GraphicalLassoCV] Done refinement  2 out of 4:   5s
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.0s finished
-[GraphicalLassoCV] Done refinement  3 out of 4:  10s
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.5s finished
+[GraphicalLassoCV] Done refinement  3 out of 4:  11s
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.0s finished
-[GraphicalLassoCV] Done refinement  4 out of 4:  15s
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    5.5s finished
+[GraphicalLassoCV] Done refinement  4 out of 4:  16s
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/numpy/core/_methods.py:236: RuntimeWarning:
 
 invalid value encountered in subtract
@@ -1383,7 +1383,7 @@ and display the graph of connections with <cite>nilearn.plotting.plot_connectome
 <li><img src="../../_images/sphx_glr_plot_sphere_based_connectome_004.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_004.png" alt="plot sphere based connectome" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_sphere_based_connectome_005.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_005.png" alt="plot sphere based connectome" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f3dc9db6100&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fba83c442e0&gt;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1406,7 +1406,7 @@ aggregating edge strength from the graph would help. Use the function
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_sphere_based_connectome_006.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_006.png" alt="plot sphere based connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f3dcdc46b20&gt;
+<img src="../../_images/sphx_glr_plot_sphere_based_connectome_006.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_006.png" alt="plot sphere based connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fba854249d0&gt;
 </pre></div>
 </div>
 <p>From the correlation matrix, we observe that there is a positive and negative
@@ -1447,7 +1447,7 @@ one for the positive and one for the negative structure.</p>
 <li><img src="../../_images/sphx_glr_plot_sphere_based_connectome_007.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_007.png" alt="plot sphere based connectome" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_sphere_based_connectome_008.png" srcset="../../_images/sphx_glr_plot_sphere_based_connectome_008.png" alt="plot sphere based connectome" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f3dcb4a2460&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fba83e93be0&gt;
 </pre></div>
 </div>
 </section>
@@ -1554,7 +1554,7 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 invalid value encountered in subtract
 
 
-&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f3dccbb5850&gt;
+&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fba76034430&gt;
 </pre></div>
 </div>
 <p>We can easily identify the Dosenbach’s networks from the matrix blocks.</p>
@@ -1579,8 +1579,8 @@ invalid value encountered in subtract
 <li><p><a class="reference internal" href="plot_multi_subject_connectome.html#sphx-glr-auto-examples-03-connectivity-plot-multi-subject-connectome-py"><span class="std std-ref">Group Sparse inverse covariance for multi-subject connectome</span></a> # noqa</p></li>
 </ul>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.356 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  577 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  3.420 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  578 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-sphere-based-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_sphere_based_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
