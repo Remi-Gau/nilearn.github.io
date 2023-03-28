@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="The dataset that is a subset of the enhanced NKI Rockland sample ( http://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012) Resting state fMRI scans (TR=645ms) of 102 subjects were p..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Glass brain plotting in nilearn (all options)" href="plot_demo_glass_brain_extensive.html" /><link rel="prev" title="Loading and plotting of a cortical surface atlas" href="plot_surf_atlas.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="More plotting tools from nilearn" href="plot_demo_more_plotting.html" /><link rel="prev" title="Making a surface plot of a 3D statistical map" href="plot_3d_map_to_surface_projection.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 5.3.0 and Furo 2023.03.27 -->
         <title>Seed-based connectivity on the surface - Nilearn</title>
@@ -214,9 +214,9 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_plotting.html">Plotting tools in nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surface_projection_strategies.html">Technical point: Illustration of the volume to surface sampling schemes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surf_atlas.html">Loading and plotting of a cortical surface atlas</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Seed-based connectivity on the surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain_extensive.html">Glass brain plotting in nilearn (all options)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_3d_map_to_surface_projection.html">Making a surface plot of a 3D statistical map</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Seed-based connectivity on the surface</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_more_plotting.html">More plotting tools from nilearn</a></li>
 </ul>
 </li>
@@ -734,16 +734,22 @@ URL <a class="reference external" href="http://dx.doi.org/10.1016/j.neuroimage.2
 <span class="c1"># the file locations</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fsaverage5 pial surface of left hemisphere is at: &#39;</span>
       <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;pial_left&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fsaverage5 flatten pial surface of left hemisphere is at: &#39;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;flat_left&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fsaverage5 inflated surface of left hemisphere is at: &#39;</span>
       <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;infl_left&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fsaverage5 sulcal depth map of left hemisphere is at: &#39;</span>
       <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Fsaverage5 curvature map of left hemisphere is at: &#39;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;curv_left&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Resting state data of the first subjects on the fsaverag5 surface left hemisphere is at: /home/runner/work/nilearn/nilearn/nilearn_data/nki_enhanced_surface/A00028185/A00028185_left_preprocessed_fwhm6.gii
 Fsaverage5 pial surface of left hemisphere is at: /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/data/fsaverage5/pial_left.gii.gz
+Fsaverage5 flatten pial surface of left hemisphere is at: /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/data/fsaverage5/flat_left.gii.gz
 Fsaverage5 inflated surface of left hemisphere is at: /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/data/fsaverage5/infl_left.gii.gz
 Fsaverage5 sulcal depth map of left hemisphere is at: /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/data/fsaverage5/sulc_left.gii.gz
+Fsaverage5 curvature map of left hemisphere is at: /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/data/fsaverage5/curv_left.gii.gz
 </pre></div>
 </div>
 </section>
@@ -780,8 +786,9 @@ Fsaverage5 sulcal depth map of left hemisphere is at: /usr/share/miniconda3/envs
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">timeseries</span></a><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/scipy/stats/_stats_py.py:4424: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
-  warnings.warn(stats.ConstantInputWarning(msg))
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/scipy/stats/_stats_py.py:4424: ConstantInputWarning:
+
+An input array is constant; the correlation coefficient is not defined.
 </pre></div>
 </div>
 <p>Display ROI on surface</p>
@@ -791,35 +798,62 @@ Fsaverage5 sulcal depth map of left hemisphere is at: /usr/share/miniconda3/envs
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
-<a href="../../modules/generated/nilearn.plotting.plot_surf_roi.html#nilearn.plotting.plot_surf_roi" title="nilearn.plotting.plot_surf_roi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_roi</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;pial_left&#39;</span><span class="p">],</span> <span class="n">roi_map</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_map</span></a><span class="p">,</span>
-                       <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;medial&#39;</span><span class="p">,</span>
-                       <span class="n">bg_map</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span> <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                       <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCC Seed&#39;</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.plotting.plot_surf_roi.html#nilearn.plotting.plot_surf_roi" title="nilearn.plotting.plot_surf_roi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_roi</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;pial_left&#39;</span><span class="p">],</span>
+    <span class="n">roi_map</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_map</span></a><span class="p">,</span>
+    <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="s1">&#39;medial&#39;</span><span class="p">,</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span>
+    <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCC Seed&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_surf_stat_map_001.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_001.png" alt="PCC Seed" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 400x400 with 1 Axes&gt;
 </pre></div>
 </div>
+<p>Using a flat mesh can be useful in order to easily locate the area
+of interest on the cortex. To make this plot easier to read,
+we use the mesh curvature as a background map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">sign</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.surface.load_surf_data.html#nilearn.surface.load_surf_data" title="nilearn.surface.load_surf_data" class="sphx-glr-backref-module-nilearn-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">load_surf_data</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;curv_left&#39;</span><span class="p">]))</span>
+<span class="c1"># np.sign yields values in [-1, 1]. We rescale the background map</span>
+<span class="c1"># such that values are in [0.25, 0.75], resulting in a nicer looking plot.</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map_rescaled</span></a> <span class="o">=</span> <span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">+</span> <span class="mf">0.25</span>
+
+<a href="../../modules/generated/nilearn.plotting.plot_surf_roi.html#nilearn.plotting.plot_surf_roi" title="nilearn.plotting.plot_surf_roi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_roi</span></a><span class="p">(</span>
+    <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;flat_left&#39;</span><span class="p">],</span>
+    <span class="n">roi_map</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_map</span></a><span class="p">,</span>
+    <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">view</span><span class="o">=</span><span class="s1">&#39;dorsal&#39;</span><span class="p">,</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map_rescaled</span></a><span class="p">,</span>
+    <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PCC Seed&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_surf_stat_map_002.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_002.png" alt="PCC Seed" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 400x400 with 1 Axes&gt;
+</pre></div>
+</div>
 <p>Display unthresholded stat map with a slightly dimmed background</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="nilearn.plotting.plot_surf_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_stat_map</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;pial_left&#39;</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="p">,</span>
                             <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;medial&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                            <span class="n">bg_map</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span> <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span> <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                             <span class="n">darkness</span><span class="o">=</span><span class="mf">.3</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Correlation map&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surf_stat_map_002.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_002.png" alt="Correlation map" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
+<img src="../../_images/sphx_glr_plot_surf_stat_map_003.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_003.png" alt="Correlation map" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
 </pre></div>
 </div>
 <p>Many different options are available for plotting, for example thresholding,
 or using custom colormaps</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="nilearn.plotting.plot_surf_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_stat_map</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;pial_left&#39;</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="p">,</span>
                             <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">view</span><span class="o">=</span><span class="s1">&#39;medial&#39;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                            <span class="n">bg_map</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span> <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span> <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                             <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
                             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Threshold and colormap&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surf_stat_map_003.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_003.png" alt="Threshold and colormap" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
+<img src="../../_images/sphx_glr_plot_surf_stat_map_004.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_004.png" alt="Threshold and colormap" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
 </pre></div>
 </div>
 <p>Here the surface is plotted in a lateral view without a background map.
@@ -833,21 +867,21 @@ the alpha parameter.</p>
                             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Plotting without background&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surf_stat_map_004.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_004.png" alt="Plotting without background" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
+<img src="../../_images/sphx_glr_plot_surf_stat_map_005.png" srcset="../../_images/sphx_glr_plot_surf_stat_map_005.png" alt="Plotting without background" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 470x400 with 2 Axes&gt;
 </pre></div>
 </div>
 <p>The plots can be saved to file, in which case the display is closed after
 creating the figure</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="nilearn.plotting.plot_surf_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_surf_stat_map</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;infl_left&#39;</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="p">,</span>
-                            <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">bg_map</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span>
+                            <span class="n">hemi</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bg_map</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a><span class="p">[</span><span class="s1">&#39;sulc_left&#39;</span><span class="p">],</span>
                             <span class="n">bg_on_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                             <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;plot_surf_stat_map.png&#39;</span><span class="p">)</span>
 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.362 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  26 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.840 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  14 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-surf-stat-map-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_surf_stat_map.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
@@ -868,23 +902,23 @@ creating the figure</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_demo_glass_brain_extensive.html">
+          <a class="next-page" href="plot_demo_more_plotting.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Glass brain plotting in nilearn (all options)</div>
+                <div class="title">More plotting tools from nilearn</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_surf_atlas.html">
+          <a class="prev-page" href="plot_3d_map_to_surface_projection.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Loading and plotting of a cortical surface atlas</div>
+                <div class="title">Making a surface plot of a 3D statistical map</div>
                 
               </div>
             </a>
