@@ -689,19 +689,19 @@ ensure compatibility with the <a class="reference internal" href="../glm.html#mo
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FirstLevelModel</span></code></a> objects or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like objects.</span></dt><dd><ul class="simple">
+<dt><strong>second_level_input</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference internal" href="nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FirstLevelModel</span></code></a> objects or <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of Niimg-like objects.</span></dt><dd><ul class="simple">
 <li><p>Giving <a class="reference internal" href="nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FirstLevelModel</span></code></a> objects
 will allow to easily compute the second level contrast of arbitrary first
 level contrasts thanks to the <code class="docutils literal notranslate"><span class="pre">first_level_contrast</span></code> argument of
 <a class="reference internal" href="nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compute_contrast</span></code></a>.
 Effect size images will be computed for each model to contrast at
 the second level.</p></li>
-<li><p>If a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>, then it has to contain
+<li><p>If a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a>, then it has to contain
 <code class="docutils literal notranslate"><span class="pre">subject_label</span></code>, <code class="docutils literal notranslate"><span class="pre">map_name</span></code> and <code class="docutils literal notranslate"><span class="pre">effects_map_path</span></code>. It can
 contain multiple maps that would be selected during contrast estimation
 with the argument <code class="docutils literal notranslate"><span class="pre">first_level_contrast</span></code> of
 <a class="reference internal" href="nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compute_contrast</span></code></a>.
-The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> will be sorted based on
+The <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a> will be sorted based on
 the <code class="docutils literal notranslate"><span class="pre">subject_label</span></code> column to avoid order inconsistencies when
 extracting the maps. So the rows of the automatically computed
 design matrix, if not provided, will correspond to the sorted
@@ -711,22 +711,22 @@ literally as Y for the model fit and <code class="docutils literal notranslate">
 provided.</p></li>
 </ul>
 </dd>
-<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
+<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Must contain a subject_label column. All other columns are
 considered as confounds and included in the model. If
 <code class="docutils literal notranslate"><span class="pre">design_matrix</span></code> is provided then this argument is ignored.
 The resulting second level design matrix uses the same column
-names as in the given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code></a> for confounds.
+names as in the given <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataFrame</span></code></a> for confounds.
 At least two columns are expected, <code class="docutils literal notranslate"><span class="pre">subject_label</span></code> and at
 least one confound.</p>
 </dd>
-<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v1.5.3)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Design matrix to fit the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>. The number of rows
+<dt><strong>design_matrix</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a> or None, optional</span></dt><dd><p>Design matrix to fit the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>. The number of rows
 in the design matrix must agree with the number of maps derived
 from <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>.
 Ensure that the order of maps given by a <code class="docutils literal notranslate"><span class="pre">second_level_input</span></code>
 list of Niimgs matches the order of the rows in the design matrix.</p>
 </dd>
 <dt><strong>second_level_contrast</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> of shape(n_col), optional</span></dt><dd><p>Where <code class="docutils literal notranslate"><span class="pre">n_col</span></code> is the number of columns of the design matrix.
-The string can be a formula compatible with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.eval.html#pandas.DataFrame.eval" title="(in pandas v1.5.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.eval</span></code></a>.
+The string can be a formula compatible with <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.eval.html#pandas.DataFrame.eval" title="(in pandas v2.0.0)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pandas.DataFrame.eval</span></code></a>.
 Basically one can use the name of the conditions as they appear in the
 design matrix of the fitted model combined with operators +- and combined
 with numbers with operators +-<cite>*</cite>/. The default (None) is accepted if the
@@ -812,7 +812,7 @@ parallel.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>neg_log10_vfwe_pvals_img</strong><span class="classifier"><a class="reference external" href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="(in NiBabel v5.0.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Nifti1Image</span></code></a></span></dt><dd><p>The image which contains negative logarithm of the
+<dt><strong>neg_log10_vfwe_pvals_img</strong><span class="classifier"><a class="reference external" href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="(in NiBabel v5.1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Nifti1Image</span></code></a></span></dt><dd><p>The image which contains negative logarithm of the
 voxel-level FWER-corrected p-values.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
