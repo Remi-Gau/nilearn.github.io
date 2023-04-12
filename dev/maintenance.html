@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1.dev) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev71+g0df241e0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -775,7 +775,8 @@ details on their process are available
 </section>
 <section id="how-to-make-a-release">
 <h2>How to make a release?<a class="headerlink" href="#how-to-make-a-release" title="Permalink to this heading">#</a></h2>
-<p>This section describes how to make a new release of Nilearn. It is targeted to the specific case of Nilearn although it contains generic steps for packaging and distributing projects. More detailed information can be found on <a class="reference external" href="https://packaging.python.org/guides/distributing-packages-using-setuptools/#id70">packaging.python.org</a>.</p>
+<p>This section describes how to make a new release of Nilearn. It is targeted to the specific case of Nilearn although it contains generic steps for packaging and distributing projects. More detailed information can be found on <a class="reference external" href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">packaging.python.org</a>.</p>
+<p>The packaging specification is contained in <a class="reference external" href="https://github.com/nilearn/nilearn/blob/main/pyproject.toml">pyproject.toml</a>. We use <code class="docutils literal notranslate"><span class="pre">hatchling</span></code> and <code class="docutils literal notranslate"><span class="pre">hatch-vcs</span></code> as described in these <a class="reference external" href="https://effigies.gitlab.io/posts/python-packaging-2023/">guidelines</a> to build the sdist, wheel, and extract version number from the git tag.</p>
 <p>We assume that we are in a clean state where all the Pull Requests (PR) that we wish to include in the new release have been merged.</p>
 <section id="prepare-code-for-the-release">
 <h3>Prepare code for the release<a class="headerlink" href="#prepare-code-for-the-release" title="Permalink to this heading">#</a></h3>
@@ -821,15 +822,6 @@ Finally, make sure the documentation can be built correctly.</p>
 <span class="p">..</span> <span class="ow">include</span><span class="p">::</span> x.y.z.rst
 </pre></div>
 </div>
-<p>Next, we need to bump the version number of Nilearn by updating the file <code class="docutils literal notranslate"><span class="pre">nilearn/version.py</span></code> with the new version number, that is edit the line:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">z</span><span class="o">.</span><span class="n">dev</span>
-</pre></div>
-</div>
-<p>to be:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">z</span>
-</pre></div>
-</div>
-<p>In addition, we can have a look at <cite>MANIFEST.in</cite> to check that all additional files that we want to be included or excluded from the release are indicated. Normally we shouldn’t have to touch this file.</p>
 <p>Add these changes and submit a PR:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>doc/whats_new.rst<span class="w"> </span>nilearn/version.py
 git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;REL x.y.z&quot;</span>
@@ -843,6 +835,10 @@ git<span class="w"> </span>tag<span class="w"> </span>x.y.z
 git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>--tags
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When building the distribution as described below, <code class="docutils literal notranslate"><span class="pre">hatch-vcs</span></code>, defined in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, extracts the version number using this tag and writes it to a <code class="docutils literal notranslate"><span class="pre">_version.py</span></code> file.</p>
+</div>
 </section>
 <section id="build-the-distributions-and-upload-them-to-pypi">
 <h3>Build the distributions and upload them to Pypi<a class="headerlink" href="#build-the-distributions-and-upload-them-to-pypi" title="Permalink to this heading">#</a></h3>
@@ -854,8 +850,8 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>dist
 </pre></div>
 </div>
-<p>In order to build the binary wheel files, we need to install <a class="reference external" href="https://pypi.org/project/wheel/">wheel</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>wheel
+<p>In order to build the binary wheel files, we need to install <a class="reference external" href="https://pypi.org/project/build/">build</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>build
 </pre></div>
 </div>
 <p>And, in order to upload to <cite>Pypi</cite>, we will use <a class="reference external" href="https://pypi.org/project/twine/">twine</a> that you can also install with <cite>pip</cite>:</p>
@@ -863,7 +859,7 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 </pre></div>
 </div>
 <p>Build the source and binary distributions:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>bdist_wheel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>build
 </pre></div>
 </div>
 <p>This should add two files to the <cite>dist</cite> subfolder:</p>
@@ -871,6 +867,7 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 <li><p>one for the source distribution that should look like <cite>PACKAGENAME-VERSION.tar.gz</cite></p></li>
 <li><p>one for the built distribution that should look like <cite>PACKAGENAME-PACKAGEVERSION-PYTHONVERSION-PYTHONCVERSION-PLATFORM.whl</cite></p></li>
 </ul>
+<p>This will also update <code class="docutils literal notranslate"><span class="pre">_version.py</span></code>.</p>
 <p>Optionally, we can run some basic checks with <cite>twine</cite>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>check<span class="w"> </span>dist/*
 </pre></div>
