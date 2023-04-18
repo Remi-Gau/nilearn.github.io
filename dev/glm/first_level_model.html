@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="5.2. First level models" />
+<meta property="og:title" content="8.2. First level models" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/glm/first_level_model.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_design_matrix_001.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Page summary: First level models are, in essence, linear regression models run at the level of a single session or single subject. The model is applied on a voxel-wise basis, either on the whole br..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="5.3. Second level models" href="second_level_model.html" /><link rel="prev" title="5.1. An introduction to GLMs in fMRI statistical analysis" href="glm_intro.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="8.3. Second level models" href="second_level_model.html" /><link rel="prev" title="8.1. An introduction to GLMs in fMRI statistical analysis" href="glm_intro.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>5.2. First level models - Nilearn</title>
+        <title>8.2. First level models - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">6. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">6.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">5. Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">8. Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="glm_intro.html">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">9. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -672,7 +675,7 @@
         </div>
         <article role="main">
           <section id="first-level-models">
-<span id="first-level-model"></span><h1><span class="section-number">5.2. </span>First level models<a class="headerlink" href="#first-level-models" title="Permalink to this heading">#</a></h1>
+<span id="first-level-model"></span><h1><span class="section-number">8.2. </span>First level models<a class="headerlink" href="#first-level-models" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>First level models are, in essence, linear regression models run at the level of a single
@@ -682,7 +685,7 @@ predicted BOLD response created by convolving the haemodynamic response function
 a set of predictors defined within the design matrix.</p>
 </aside>
 <section id="hrf-models">
-<h2><span class="section-number">5.2.1. </span>HRF models<a class="headerlink" href="#hrf-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.1. </span>HRF models<a class="headerlink" href="#hrf-models" title="Permalink to this heading">#</a></h2>
 <p>Nilearn offers a few different HRF models including the commonly used double-gamma SPM model (‘spm’)
 and the model shape proposed by G. Glover (‘glover’), both allowing the option of adding time and
 dispersion derivatives. The addition of these derivatives allows to better model any uncertainty in
@@ -692,9 +695,9 @@ function <a class="reference internal" href="../modules/generated/nilearn.glm.fi
 example <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_hrf.html#sphx-glr-auto-examples-04-glm-first-level-plot-hrf-py"><span class="std std-ref">Example of MRI response functions</span></a>.</p>
 </section>
 <section id="design-matrix-event-based-and-time-series-based">
-<h2><span class="section-number">5.2.2. </span>Design matrix: event-based and time series-based<a class="headerlink" href="#design-matrix-event-based-and-time-series-based" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.2. </span>Design matrix: event-based and time series-based<a class="headerlink" href="#design-matrix-event-based-and-time-series-based" title="Permalink to this heading">#</a></h2>
 <section id="event-based">
-<h3><span class="section-number">5.2.2.1. </span>Event-based<a class="headerlink" href="#event-based" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2.1. </span>Event-based<a class="headerlink" href="#event-based" title="Permalink to this heading">#</a></h3>
 <p>To create an event-based design matrix, information about the trial type, onset time and duration of the
 events in the experiment are necessary. This can be provided by the user, or be part of the dataset if
 using a <a class="reference internal" href="../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a>-compatible dataset or one of the nilearn dataset fetcher functions like
@@ -732,7 +735,7 @@ This is generally a good practice to follow before proceeding with the analysis:
 <a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_design_matrix.html#sphx-glr-auto-examples-04-glm-first-level-models-plot-design-matrix-py"><img alt="../_images/sphx_glr_plot_design_matrix_001.png" src="../_images/sphx_glr_plot_design_matrix_001.png" /></a>
 </section>
 <section id="time-series-based">
-<h3><span class="section-number">5.2.2.2. </span>Time series-based<a class="headerlink" href="#time-series-based" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2.2. </span>Time series-based<a class="headerlink" href="#time-series-based" title="Permalink to this heading">#</a></h3>
 <p>The time series of a seed region can also be used as the predictor for a first level model. This approach would help
 identify brain areas co-activating with the seed region. The time series is extracted using
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiSpheresMasker</span></code></a>. For instance, if the seed region is the posterior
@@ -747,7 +750,7 @@ above. Code for this approach is in <a class="reference internal" href="../auto_
 </section>
 </section>
 <section id="fitting-a-first-level-model">
-<h2><span class="section-number">5.2.3. </span>Fitting a first level model<a class="headerlink" href="#fitting-a-first-level-model" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.3. </span>Fitting a first level model<a class="headerlink" href="#fitting-a-first-level-model" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel</span></code></a> class provides the tools to fit the linear model to
 the fMRI data. The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.fit</span></code></a> function takes the fMRI data
 and design matrix as input and fits the GLM. Like other Nilearn functions,
@@ -760,7 +763,7 @@ input formats is available <a class="reference internal" href="../manipulating_i
 </pre></div>
 </div>
 <section id="computing-contrasts">
-<h3><span class="section-number">5.2.3.1. </span>Computing contrasts<a class="headerlink" href="#computing-contrasts" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.2.3.1. </span>Computing contrasts<a class="headerlink" href="#computing-contrasts" title="Permalink to this heading">#</a></h3>
 <p>To get more interesting results out of the GLM model, contrasts can be computed between regressors of interest.
 The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.compute_contrast</span></code></a> function can be used for that. First,
 the contrasts of interest must be defined. In the spm_multimodal_fmri dataset referenced above, subjects are
@@ -781,7 +784,7 @@ Refer to <a class="reference internal" href="../auto_examples/04_glm_first_level
 </section>
 </section>
 <section id="extracting-predicted-time-series-and-residuals">
-<h2><span class="section-number">5.2.4. </span>Extracting predicted time series and residuals<a class="headerlink" href="#extracting-predicted-time-series-and-residuals" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.4. </span>Extracting predicted time series and residuals<a class="headerlink" href="#extracting-predicted-time-series-and-residuals" title="Permalink to this heading">#</a></h2>
 <p>One way to assess the quality of the fit is to compare the observed and predicted time series of voxels.
 Nilearn makes the predicted time series easily accessible via a parameter called <cite>predicted</cite> that is part
 of the <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel</span></code></a>. This parameter is populated when
@@ -798,7 +801,7 @@ useful to calculate the F and R-squared statistic. For more information refer to
 <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_predictions_residuals.html#sphx-glr-auto-examples-04-glm-first-level-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></p>
 </section>
 <section id="surface-based-analysis">
-<h2><span class="section-number">5.2.5. </span>Surface-based analysis<a class="headerlink" href="#surface-based-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.2.5. </span>Surface-based analysis<a class="headerlink" href="#surface-based-analysis" title="Permalink to this heading">#</a></h2>
 <p>fMRI analyses can also be performed on the cortical surface instead of a volumetric brain. Nilearn
 provides functions to map subject brains on to a cortical mesh, which can be either a standard surface as
 provided by, for e.g. Freesurfer, or a user-defined one. Freesurfer meshes can be accessed using
@@ -819,7 +822,7 @@ and <a class="reference internal" href="../modules/generated/nilearn.plotting.pl
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">5.3. </span>Second level models</div>
+                <div class="title"><span class="section-number">8.3. </span>Second level models</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -830,7 +833,7 @@ and <a class="reference internal" href="../modules/generated/nilearn.plotting.pl
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5.1. </span>An introduction to GLMs in fMRI statistical analysis</div>
+                <div class="title"><span class="section-number">8.1. </span>An introduction to GLMs in fMRI statistical analysis</div>
                 
               </div>
             </a>
@@ -864,19 +867,19 @@ and <a class="reference internal" href="../modules/generated/nilearn.plotting.pl
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">5.2. First level models</a><ul>
-<li><a class="reference internal" href="#hrf-models">5.2.1. HRF models</a></li>
-<li><a class="reference internal" href="#design-matrix-event-based-and-time-series-based">5.2.2. Design matrix: event-based and time series-based</a><ul>
-<li><a class="reference internal" href="#event-based">5.2.2.1. Event-based</a></li>
-<li><a class="reference internal" href="#time-series-based">5.2.2.2. Time series-based</a></li>
+<li><a class="reference internal" href="#">8.2. First level models</a><ul>
+<li><a class="reference internal" href="#hrf-models">8.2.1. HRF models</a></li>
+<li><a class="reference internal" href="#design-matrix-event-based-and-time-series-based">8.2.2. Design matrix: event-based and time series-based</a><ul>
+<li><a class="reference internal" href="#event-based">8.2.2.1. Event-based</a></li>
+<li><a class="reference internal" href="#time-series-based">8.2.2.2. Time series-based</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#fitting-a-first-level-model">5.2.3. Fitting a first level model</a><ul>
-<li><a class="reference internal" href="#computing-contrasts">5.2.3.1. Computing contrasts</a></li>
+<li><a class="reference internal" href="#fitting-a-first-level-model">8.2.3. Fitting a first level model</a><ul>
+<li><a class="reference internal" href="#computing-contrasts">8.2.3.1. Computing contrasts</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#extracting-predicted-time-series-and-residuals">5.2.4. Extracting predicted time series and residuals</a></li>
-<li><a class="reference internal" href="#surface-based-analysis">5.2.5. Surface-based analysis</a></li>
+<li><a class="reference internal" href="#extracting-predicted-time-series-and-residuals">8.2.4. Extracting predicted time series and residuals</a></li>
+<li><a class="reference internal" href="#surface-based-analysis">8.2.5. Surface-based analysis</a></li>
 </ul>
 </li>
 </ul>

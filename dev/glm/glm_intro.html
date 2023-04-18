@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="5.1. An introduction to GLMs in fMRI statistical analysis" />
+<meta property="og:title" content="8.1. An introduction to GLMs in fMRI statistical analysis" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/glm/glm_intro.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_images/stimulation-time-diagram.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="A primer on BOLD-fMRI data analysis: What is fMRI ?: Functional magnetic resonance imaging ( fMRI) is based on the fact that when local neural activity increases, increases in metabolism and blood ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="5.2. First level models" href="first_level_model.html" /><link rel="prev" title="5. Analyzing fMRI using GLMs" href="index.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="8.2. First level models" href="first_level_model.html" /><link rel="prev" title="8. Analyzing fMRI using GLMs" href="index.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>5.1. An introduction to GLMs in fMRI statistical analysis - Nilearn</title>
+        <title>8.1. An introduction to GLMs in fMRI statistical analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">6. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">6.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">5. Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="first_level_model.html">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">8. Analyzing fMRI using GLMs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="first_level_model.html">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">9. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -672,11 +675,11 @@
         </div>
         <article role="main">
           <section id="an-introduction-to-glms-in-fmri-statistical-analysis">
-<span id="glm-intro"></span><h1><span class="section-number">5.1. </span>An introduction to GLMs in fMRI statistical analysis<a class="headerlink" href="#an-introduction-to-glms-in-fmri-statistical-analysis" title="Permalink to this heading">#</a></h1>
+<span id="glm-intro"></span><h1><span class="section-number">8.1. </span>An introduction to GLMs in fMRI statistical analysis<a class="headerlink" href="#an-introduction-to-glms-in-fmri-statistical-analysis" title="Permalink to this heading">#</a></h1>
 <section id="a-primer-on-bold-fmri-data-analysis">
-<h2><span class="section-number">5.1.1. </span>A primer on BOLD-fMRI data analysis<a class="headerlink" href="#a-primer-on-bold-fmri-data-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">8.1.1. </span>A primer on BOLD-fMRI data analysis<a class="headerlink" href="#a-primer-on-bold-fmri-data-analysis" title="Permalink to this heading">#</a></h2>
 <section id="what-is-fmri">
-<h3><span class="section-number">5.1.1.1. </span>What is fMRI ?<a class="headerlink" href="#what-is-fmri" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.1.1.1. </span>What is fMRI ?<a class="headerlink" href="#what-is-fmri" title="Permalink to this heading">#</a></h3>
 <p>Functional magnetic resonance imaging (<a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a>) is based on the fact that when local neural activity increases, increases in metabolism and blood flow lead to fluctuations of the relative concentrations of oxyhaemoglobin (the red cells in the blood that carry oxygen) and deoxyhaemoglobin (the same red cells after they have delivered the oxygen). Oxyhaemoglobin and deoxyhaemoglobin have different magnetic properties (diamagnetic and paramagnetic, respectively), and they affect the local magnetic field in different ways. The signal picked up by the MRI scanner is sensitive to these modifications of the local magnetic field. To record cerebral activity during functional sessions, the scanner is tuned to detect this “Blood Oxygen Level Dependent” (<a class="reference internal" href="../glossary.html#term-BOLD"><span class="xref std std-term">BOLD</span></a>) signal.</p>
 <p>Brain activity is measured in sessions that span several minutes, during which the participant performs some cognitive task and the scanner acquires brain images, typically every 2 or 3 seconds (the time between two successive image acquisition is called the Repetition time, or <a class="reference internal" href="../glossary.html#term-TR"><span class="xref std std-term">TR</span></a>).</p>
 <p>A cerebral MR image provides a 3D image of the brain that can be decomposed into <a class="reference external" href="https://en.wikipedia.org/wiki/Voxel">voxels</a> (the equivalent of pixels, but in 3 dimensions). The series of images acquired during a functional session provides, in each voxel, a time series of positive real number representing the MRI signal, sampled at the <a class="reference internal" href="../glossary.html#term-TR"><span class="xref std std-term">TR</span></a>.</p>
@@ -686,7 +689,7 @@
 </div>
 </section>
 <section id="fmri-data-modelling">
-<h3><span class="section-number">5.1.1.2. </span>fMRI data modelling<a class="headerlink" href="#fmri-data-modelling" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.1.1.2. </span>fMRI data modelling<a class="headerlink" href="#fmri-data-modelling" title="Permalink to this heading">#</a></h3>
 <p>One way to analyze times series consists in comparing them to a <em>model</em> built from our knowledge of the events that occurred during the functional session. Events can correspond to actions of the participant (e.g. button presses), presentations of sensory stimui (e.g. sound, images), or hypothesized internal processes (e.g. memorization of a stimulus), …</p>
 <figure class="align-default">
 <img alt="../_images/stimulation-time-diagram.png" src="../_images/stimulation-time-diagram.png" />
@@ -719,7 +722,7 @@
 </ol>
 </section>
 <section id="fmri-statistical-analysis">
-<h3><span class="section-number">5.1.1.3. </span>fMRI statistical analysis<a class="headerlink" href="#fmri-statistical-analysis" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">8.1.1.3. </span>fMRI statistical analysis<a class="headerlink" href="#fmri-statistical-analysis" title="Permalink to this heading">#</a></h3>
 <p>As explained in the previous section, the basic statistical analysis of fMRI is conceptually a correlation analysis, where one identifies whether a certain combination (contrast) of columns of the design matrix fits a significant proportion of the fMRI signal at a given location.</p>
 <p>It can be shown that this is equivalent to studying whether the estimated contrast effect is large with respect to the uncertainty about its exact value. Concretely, we compute the effect size estimate and the uncertainty about its value and divide the two. The resulting number has no physical dimension, it is a statistic – a Student or t-statistic, which we denote by <cite>t</cite>. Next, based on <cite>t</cite>, we want to decide whether the true effect was indeed greater than zero or not.</p>
 <p><cite>t</cite> would not necessarily be 0 if the true effect were zero: by chance, noise in the data may be partly explained by the contrast of interest. However, if we assume that the noise is Gaussian and that the model is correctly specified, then we know that <cite>t</cite> should follow a Student distribution with <cite>dof</cite> degrees of freedom, where <cite>dof</cite> is the number of free parameters in the model: in practice, the number of observations (i.e. the number of time points), <cite>n_scans</cite> minus the number of effects modelled (i.e. the number of columns <cite>n_columns</cite>) of the design matrix:</p>
@@ -740,7 +743,7 @@
 </div>
 </section>
 <section id="multiple-comparisons">
-<span id="id1"></span><h3><span class="section-number">5.1.1.4. </span>Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this heading">#</a></h3>
+<span id="id1"></span><h3><span class="section-number">8.1.1.4. </span>Multiple Comparisons<a class="headerlink" href="#multiple-comparisons" title="Permalink to this heading">#</a></h3>
 <dl class="simple">
 <dt>A well-known issue that arises here is that of multiple comparisons:</dt><dd><p>when a statistical tests is repeated a large number times, say one for each voxel, i.e. <cite>n_voxels</cite> times, then one can expect that, in the absence of any effect, the number of detections – false detections since there is no effect – will be roughly <img class="math" src="../_images/math/84e4cbe974a8f43192aa21fee564a713f5d1b1df.png" alt="n\_voxels*\alpha"/>. If <img class="math" src="../_images/math/befff685f3ad4a25fe6d0faf8a48e18183d470f6.png" alt="\alpha=.001"/> and <img class="math" src="../_images/math/3b29057dd09798d2669a9a5782924b36b16b6d91.png" alt="n=10^5"/>, the number of false detections will be about 100. The danger is that one may no longer trust the detections, i.e. values of <cite>z</cite> larger than the <img class="math" src="../_images/math/c87d80a9ca1dd2540182b6d20843ecc568241c87.png" alt="(1-\alpha)"/>-quantile of the standard normal distribution.</p>
 </dd>
@@ -766,7 +769,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">5.2. </span>First level models</div>
+                <div class="title"><span class="section-number">8.2. </span>First level models</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -777,7 +780,7 @@
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5. </span>Analyzing fMRI using GLMs</div>
+                <div class="title"><span class="section-number">8. </span>Analyzing fMRI using GLMs</div>
                 
               </div>
             </a>
@@ -811,12 +814,12 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">5.1. An introduction to GLMs in fMRI statistical analysis</a><ul>
-<li><a class="reference internal" href="#a-primer-on-bold-fmri-data-analysis">5.1.1. A primer on BOLD-fMRI data analysis</a><ul>
-<li><a class="reference internal" href="#what-is-fmri">5.1.1.1. What is fMRI ?</a></li>
-<li><a class="reference internal" href="#fmri-data-modelling">5.1.1.2. fMRI data modelling</a></li>
-<li><a class="reference internal" href="#fmri-statistical-analysis">5.1.1.3. fMRI statistical analysis</a></li>
-<li><a class="reference internal" href="#multiple-comparisons">5.1.1.4. Multiple Comparisons</a></li>
+<li><a class="reference internal" href="#">8.1. An introduction to GLMs in fMRI statistical analysis</a><ul>
+<li><a class="reference internal" href="#a-primer-on-bold-fmri-data-analysis">8.1.1. A primer on BOLD-fMRI data analysis</a><ul>
+<li><a class="reference internal" href="#what-is-fmri">8.1.1.1. What is fMRI ?</a></li>
+<li><a class="reference internal" href="#fmri-data-modelling">8.1.1.2. fMRI data modelling</a></li>
+<li><a class="reference internal" href="#fmri-statistical-analysis">8.1.1.3. fMRI statistical analysis</a></li>
+<li><a class="reference internal" href="#multiple-comparisons">8.1.1.4. Multiple Comparisons</a></li>
 </ul>
 </li>
 </ul>

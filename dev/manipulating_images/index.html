@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="6. Manipulation brain volumes with nilearn" />
+<meta property="og:title" content="9. Manipulation brain volumes with nilearn" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/manipulating_images/index.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="In this section, we detail the general tools to manipulate of brain images with nilearn., Input and output: neuroimaging data representation- Inputing data: file names or image objects- File names ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="6.1. Input and output: neuroimaging data representation" href="input_output.html" /><link rel="prev" title="5.3. Second level models" href="../glm/second_level_model.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="9.1. Input and output: neuroimaging data representation" href="input_output.html" /><link rel="prev" title="8.3. Second level models" href="../glm/second_level_model.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>6. Manipulation brain volumes with nilearn - Nilearn</title>
+        <title>9. Manipulation brain volumes with nilearn - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../connectivity/index.html">6. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../connectivity/connectome_extraction.html">6.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/resting_state_networks.html">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../connectivity/parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">8. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">6. Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 current has-children current-page"><a class="current reference internal" href="#">9. Manipulation brain volumes with nilearn</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -672,7 +675,7 @@
         </div>
         <article role="main">
           <section id="manipulation-brain-volumes-with-nilearn">
-<span id="image-manipulation"></span><h1><span class="section-number">6. </span>Manipulation brain volumes with nilearn<a class="headerlink" href="#manipulation-brain-volumes-with-nilearn" title="Permalink to this heading">#</a></h1>
+<span id="image-manipulation"></span><h1><span class="section-number">9. </span>Manipulation brain volumes with nilearn<a class="headerlink" href="#manipulation-brain-volumes-with-nilearn" title="Permalink to this heading">#</a></h1>
 <p>In this section, we detail the general tools to manipulate of
 brain images with nilearn.</p>
 <div class="line-block">
@@ -680,69 +683,69 @@ brain images with nilearn.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="input_output.html">6.1. Input and output: neuroimaging data representation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="input_output.html#inputing-data-file-names-or-image-objects">6.1.1. Inputing data: file names or image objects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html#file-names-and-objects-3d-and-4d-images">6.1.1.1. File names and objects, 3D and 4D images</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html#file-name-matching-globbing-and-user-path-expansion">6.1.1.2. File name matching: “globbing” and user path expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_output.html">9.1. Input and output: neuroimaging data representation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_output.html#inputing-data-file-names-or-image-objects">9.1.1. Inputing data: file names or image objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html#file-names-and-objects-3d-and-4d-images">9.1.1.1. File names and objects, 3D and 4D images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html#file-name-matching-globbing-and-user-path-expansion">9.1.1.2. File name matching: “globbing” and user path expansion</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="input_output.html#fetching-open-datasets-from-internet">6.1.2. Fetching open datasets from Internet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="input_output.html#understanding-neuroimaging-data">6.1.3. Understanding neuroimaging data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html#nifti-and-analyze-data">6.1.3.1. Nifti and Analyze data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html#niimg-like-objects">6.1.3.2. Niimg-like objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="input_output.html#text-files-phenotype-or-behavior">6.1.3.3. Text files: phenotype or behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_output.html#fetching-open-datasets-from-internet">9.1.2. Fetching open datasets from Internet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_output.html#understanding-neuroimaging-data">9.1.3. Understanding neuroimaging data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html#nifti-and-analyze-data">9.1.3.1. Nifti and Analyze data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html#niimg-like-objects">9.1.3.2. Niimg-like objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_output.html#text-files-phenotype-or-behavior">9.1.3.3. Text files: phenotype or behavior</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#functions-for-data-preparation-and-image-transformation">6.2.1. Functions for data preparation and image transformation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#resampling-images">6.2.2. Resampling images</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#resampling-one-image-to-match-another-one">6.2.2.1. Resampling one image to match another one</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#resampling-to-a-specific-target-affine-shape-or-resolution">6.2.2.2. Resampling to a specific target affine, shape, or resolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#functions-for-data-preparation-and-image-transformation">9.2.1. Functions for data preparation and image transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#resampling-images">9.2.2. Resampling images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#resampling-one-image-to-match-another-one">9.2.2.1. Resampling one image to match another one</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#resampling-to-a-specific-target-affine-shape-or-resolution">9.2.2.2. Resampling to a specific target affine, shape, or resolution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#accessing-individual-volumes-in-4d-images">6.2.3. Accessing individual volumes in 4D images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#computing-and-applying-spatial-masks">6.2.4. Computing and applying spatial masks</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#extracting-a-brain-mask">6.2.4.1. Extracting a brain mask</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#masking-data-from-4d-nifti-images-to-2d-data-arrays">6.2.4.2. Masking data: from 4D Nifti images to 2D data arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#accessing-individual-volumes-in-4d-images">9.2.3. Accessing individual volumes in 4D images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#computing-and-applying-spatial-masks">9.2.4. Computing and applying spatial masks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#extracting-a-brain-mask">9.2.4.1. Extracting a brain mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images.html#masking-data-from-4d-nifti-images-to-2d-data-arrays">9.2.4.2. Masking data: from 4D Nifti images to 2D data arrays</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#image-operations-creating-a-roi-mask-manually">6.2.5. Image operations: creating a ROI mask manually</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating_images.html#image-operations-creating-a-roi-mask-manually">9.2.5. Image operations: creating a ROI mask manually</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#the-concept-of-masker-objects">6.3.1. The concept of “masker” objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#niftimasker-applying-a-mask-to-load-time-series">6.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code>: applying a mask to load time-series</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#custom-data-loading-loading-only-the-first-100-time-points">6.3.2.1. Custom data loading: loading only the first 100 time points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#controlling-how-the-mask-is-computed-from-the-data">6.3.2.2. Controlling how the mask is computed from the data</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#visualizing-the-computed-mask">6.3.2.2.1. Visualizing the computed mask</a></li>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#different-masking-strategies">6.3.2.2.2. Different masking strategies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#extra-mask-parameters-opening-cutoff">6.3.2.2.3. Extra mask parameters: opening, cutoff…</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#the-concept-of-masker-objects">9.3.1. The concept of “masker” objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#niftimasker-applying-a-mask-to-load-time-series">9.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code>: applying a mask to load time-series</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#custom-data-loading-loading-only-the-first-100-time-points">9.3.2.1. Custom data loading: loading only the first 100 time points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#controlling-how-the-mask-is-computed-from-the-data">9.3.2.2. Controlling how the mask is computed from the data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#visualizing-the-computed-mask">9.3.2.2.1. Visualizing the computed mask</a></li>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#different-masking-strategies">9.3.2.2.2. Different masking strategies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#extra-mask-parameters-opening-cutoff">9.3.2.2.3. Extra mask parameters: opening, cutoff…</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#common-data-preparation-steps-smoothing-filtering-resampling">6.3.2.3. Common data preparation steps: smoothing, filtering, resampling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#smoothing">6.3.2.3.1. Smoothing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#temporal-filtering-and-confound-removal">6.3.2.3.2. Temporal Filtering and confound removal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#resampling-resizing-and-changing-resolutions-of-images">6.3.2.3.3. Resampling: resizing and changing resolutions of images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#common-data-preparation-steps-smoothing-filtering-resampling">9.3.2.3. Common data preparation steps: smoothing, filtering, resampling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#smoothing">9.3.2.3.1. Smoothing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#temporal-filtering-and-confound-removal">9.3.2.3.2. Temporal Filtering and confound removal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="masker_objects.html#resampling-resizing-and-changing-resolutions-of-images">9.3.2.3.3. Resampling: resizing and changing resolutions of images</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#inverse-transform-unmasking-data">6.3.2.4. Inverse transform: unmasking data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#inverse-transform-unmasking-data">9.3.2.4. Inverse transform: unmasking data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker">6.3.3. Extraction of signals from regions: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#regions-definition">6.3.3.1. Regions definition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#niftilabelsmasker-usage">6.3.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code> Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#niftimapsmasker-usage">6.3.3.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code> Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker">9.3.3. Extraction of signals from regions: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#regions-definition">9.3.3.1. Regions definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#niftilabelsmasker-usage">9.3.3.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code> Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#niftimapsmasker-usage">9.3.3.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code> Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker">6.3.4. Extraction of signals from regions for multiple subjects: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftimasker-usage">6.3.4.1. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code> Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftilabelsmasker-usage">6.3.4.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code> Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftimapsmasker-usage">6.3.4.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code> Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-regions-for-multiple-subjects-multiniftimasker-multiniftilabelsmasker-multiniftimapsmasker">9.3.4. Extraction of signals from regions for multiple subjects: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftimasker-usage">9.3.4.1. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code> Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftilabelsmasker-usage">9.3.4.2. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code> Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="masker_objects.html#multiniftimapsmasker-usage">9.3.4.3. <code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code> Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-seeds-niftispheresmasker">6.3.5. Extraction of signals from seeds: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="masker_objects.html#extraction-of-signals-from-seeds-niftispheresmasker">9.3.5. Extraction of signals from seeds: <code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -759,7 +762,7 @@ brain images with nilearn.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">6.1. </span>Input and output: neuroimaging data representation</div>
+                <div class="title"><span class="section-number">9.1. </span>Input and output: neuroimaging data representation</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -770,7 +773,7 @@ brain images with nilearn.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">5.3. </span>Second level models</div>
+                <div class="title"><span class="section-number">8.3. </span>Second level models</div>
                 
               </div>
             </a>

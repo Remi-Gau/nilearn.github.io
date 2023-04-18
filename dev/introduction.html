@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_demo_glass_brain_001.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="What is nilearn?: nilearn is a package that makes it easy to use advanced machine learning techniques to analyze data acquired with MRI machines. In particular, underlying machine learning problems..." />
-<link rel="search" title="Search" href="search.html" /><link rel="next" title="2. Decoding and MVPA: predicting from brain images" href="decoding/index.html" /><link rel="prev" title="User guide" href="user_guide.html" />
+<link rel="search" title="Search" href="search.html" /><link rel="next" title="5. Decoding and MVPA: predicting from brain images" href="decoding/index.html" /><link rel="prev" title="User guide" href="user_guide.html" />
 
     <link rel="shortcut icon" href="_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>1. Introduction - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -164,7 +164,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="connectivity/index.html">3. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="connectivity/functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="connectivity/connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="connectivity/index.html">6. Functional connectivity and resting state</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="connectivity/functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="connectivity/connectome_extraction.html">6.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="connectivity/resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connectivity/region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connectivity/parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connectivity/resting_state_networks.html">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connectivity/region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connectivity/parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="glm/first_level_model.html">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="glm/second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="glm/index.html">8. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="glm/glm_intro.html">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glm/first_level_model.html">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="glm/second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="manipulating_images/index.html">9. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images/input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images/manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manipulating_images/masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -665,7 +668,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -673,8 +676,9 @@
         <article role="main">
           <section id="introduction">
 <h1><span class="section-number">1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+</section>
 <section id="what-is-nilearn">
-<h2><span class="section-number">1.1. </span>What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?<a class="headerlink" href="#what-is-nilearn" title="Permalink to this heading">#</a></h2>
+<h1><span class="section-number">2. </span>What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?<a class="headerlink" href="#what-is-nilearn" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">nilearn</span></code> is a package that makes it easy to use advanced machine learning techniques to analyze data acquired with MRI machines.
 In particular, underlying machine learning problems include
 <a class="reference internal" href="decoding/index.html#decoding"><span class="std std-ref">decoding brain data</span></a>,
@@ -694,12 +698,12 @@ this guide will walk you through them in a comprehensive manner.</p>
 </div>
 </section>
 <section id="using-nilearn-for-the-first-time">
-<span id="quick-start"></span><h2><span class="section-number">1.2. </span>Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time<a class="headerlink" href="#using-nilearn-for-the-first-time" title="Permalink to this heading">#</a></h2>
+<span id="quick-start"></span><h1><span class="section-number">3. </span>Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time<a class="headerlink" href="#using-nilearn-for-the-first-time" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">nilearn</span></code> is a Python library. If you have never used Python before,
 you should probably have a look at a <a class="reference external" href="http://www.learnpython.org/">general introduction about Python</a>
 as well as to an <a class="reference external" href="http://scipy-lectures.github.io/">introduction to using Python for science</a> before diving into <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>.</p>
 <section id="first-steps-with-nilearn">
-<h3><span class="section-number">1.2.1. </span>First steps with nilearn<a class="headerlink" href="#first-steps-with-nilearn" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.1. </span>First steps with nilearn<a class="headerlink" href="#first-steps-with-nilearn" title="Permalink to this heading">#</a></h2>
 <p>At this stage, you should have <a class="reference internal" href="quickstart.html#quickstart"><span class="std std-ref">installed</span></a> <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> and opened a Jupyter notebook
 or an IPython / Python session.  First, load <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nilearn</span>
@@ -721,7 +725,7 @@ For instance, it comes with volumic template images of brains such as MNI:</p>
 <a class="reference external image-reference" href="auto_examples/00_tutorials/images/sphx_glr_plot_nilearn_101_001.png"><img alt="_images/sphx_glr_plot_demo_glass_brain_001.png" class="align-center" src="_images/sphx_glr_plot_demo_glass_brain_001.png" style="width: 396.0px; height: 156.0px;" /></a>
 </section>
 <section id="learning-with-the-api-references">
-<h3><span class="section-number">1.2.2. </span>Learning with the API references<a class="headerlink" href="#learning-with-the-api-references" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.2. </span>Learning with the API references<a class="headerlink" href="#learning-with-the-api-references" title="Permalink to this heading">#</a></h2>
 <p>In the last command, you just made use of 2 <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> modules: <a class="reference internal" href="modules/datasets.html#module-nilearn.datasets" title="nilearn.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.datasets</span></code></a>
 and <a class="reference internal" href="modules/plotting.html#module-nilearn.plotting" title="nilearn.plotting"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.plotting</span></code></a>.
 All modules are described in the <a class="reference internal" href="modules/index.html#modules"><span class="std std-ref">API references</span></a>.</p>
@@ -744,7 +748,7 @@ smooth it with an <a class="reference internal" href="glossary.html#term-FWHM"><
 </div>
 </section>
 <section id="learning-with-examples">
-<h3><span class="section-number">1.2.3. </span>Learning with examples<a class="headerlink" href="#learning-with-examples" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.3. </span>Learning with examples<a class="headerlink" href="#learning-with-examples" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">nilearn</span></code> comes with a lot of <a class="reference internal" href="auto_examples/00_tutorials/index.html#tutorial-examples"><span class="std std-ref">examples/tutorials</span></a>.
 Going through them should give you a precise overview of what you can achieve with this package.</p>
 <p>For new-comers, we recommend going through the following examples in the suggested order:</p>
@@ -774,7 +778,7 @@ Going through them should give you a precise overview of what you can achieve wi
   <div class="sphx-glr-thumbnail-title">Classification of age groups using functional connectivity</div>
 </div></div></section>
 <section id="finding-help">
-<h3><span class="section-number">1.2.4. </span>Finding help<a class="headerlink" href="#finding-help" title="Permalink to this heading">#</a></h3>
+<h2><span class="section-number">3.4. </span>Finding help<a class="headerlink" href="#finding-help" title="Permalink to this heading">#</a></h2>
 <p>On top of this guide, there is a lot of content available outside of <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>
 that could be of interest to new-comers:</p>
 <ol class="arabic simple">
@@ -794,7 +798,7 @@ in case you find a bug.</p>
 </section>
 </section>
 <section id="machine-learning-applications-to-neuroimaging">
-<h2><span class="section-number">1.3. </span>Machine learning applications to Neuroimaging<a class="headerlink" href="#machine-learning-applications-to-neuroimaging" title="Permalink to this heading">#</a></h2>
+<h1><span class="section-number">4. </span>Machine learning applications to Neuroimaging<a class="headerlink" href="#machine-learning-applications-to-neuroimaging" title="Permalink to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">nilearn</span></code> brings easy-to-use machine learning tools that can be leveraged to solve more complex applications.
 The interested reader can dive into the following articles for more content.</p>
 <p>We give a non-exhaustive list of such important applications.</p>
@@ -829,7 +833,6 @@ functional modules (“connectivity-based parcellation”).
 For example,
 <a class="reference internal" href="connectivity/resting_state_networks.html#extracting-rsn"><span class="std std-ref">Extracting functional brain networks: ICA and related</span></a> or <a class="reference internal" href="connectivity/parcellating.html#parcellating-brain"><span class="std std-ref">Clustering to parcellate the brain in regions</span></a> with clustering.</p>
 </section>
-</section>
 
         </article>
       </div>
@@ -841,7 +844,7 @@ For example,
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">2. </span>Decoding and MVPA: predicting from brain images</div>
+                <div class="title"><span class="section-number">5. </span>Decoding and MVPA: predicting from brain images</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -874,35 +877,8 @@ For example,
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">1. Introduction</a><ul>
-<li><a class="reference internal" href="#what-is-nilearn">1.1. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
-<li><a class="reference internal" href="#using-nilearn-for-the-first-time">1.2. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a><ul>
-<li><a class="reference internal" href="#first-steps-with-nilearn">1.2.1. First steps with nilearn</a></li>
-<li><a class="reference internal" href="#learning-with-the-api-references">1.2.2. Learning with the API references</a></li>
-<li><a class="reference internal" href="#learning-with-examples">1.2.3. Learning with examples</a></li>
-<li><a class="reference internal" href="#finding-help">1.2.4. Finding help</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#machine-learning-applications-to-neuroimaging">1.3. Machine learning applications to Neuroimaging</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

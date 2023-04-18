@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="3.3. Extracting functional brain networks: ICA and related" />
+<meta property="og:title" content="6.3. Extracting functional brain networks: ICA and related" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/connectivity/resting_state_networks.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/_images/sphx_glr_plot_compare_decomposition_001.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Page summary: This page demonstrates the use of multi-subject decompositions models to extract brain-networks from fMRI data in a data-driven way. Specifically, we will apply Independent Component ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="3.4. Region Extraction for better brain parcellations" href="region_extraction.html" /><link rel="prev" title="3.2.3.1. Group-sparse covariance estimation" href="../developers/group_sparse_covariance.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="6.4. Region Extraction for better brain parcellations" href="region_extraction.html" /><link rel="prev" title="6.2.3.1. Group-sparse covariance estimation" href="../developers/group_sparse_covariance.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>3.3. Extracting functional brain networks: ICA and related - Nilearn</title>
+        <title>6.3. Extracting functional brain networks: ICA and related - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">3. Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="connectome_extraction.html">3.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">6. Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="connectome_extraction.html">6.2. Connectome extraction: inverse covariance for direct connections</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">8. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">9. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -672,7 +675,7 @@
         </div>
         <article role="main">
           <section id="extracting-functional-brain-networks-ica-and-related">
-<span id="extracting-rsn"></span><h1><span class="section-number">3.3. </span>Extracting functional brain networks: ICA and related<a class="headerlink" href="#extracting-functional-brain-networks-ica-and-related" title="Permalink to this heading">#</a></h1>
+<span id="extracting-rsn"></span><h1><span class="section-number">6.3. </span>Extracting functional brain networks: ICA and related<a class="headerlink" href="#extracting-functional-brain-networks-ica-and-related" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>This page demonstrates the use of multi-subject decompositions models
@@ -682,7 +685,7 @@ implements a multivariate random effects model across subjects. We will
 then compare <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> to a newer technique, based on dictionary learning.</p>
 </aside>
 <section id="multi-subject-ica-canica">
-<h2><span class="section-number">3.3.1. </span>Multi-subject ICA: CanICA<a class="headerlink" href="#multi-subject-ica-canica" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3.1. </span>Multi-subject ICA: CanICA<a class="headerlink" href="#multi-subject-ica-canica" title="Permalink to this heading">#</a></h2>
 <aside class="topic">
 <p class="topic-title"><strong>References</strong></p>
 <ul class="simple">
@@ -691,7 +694,7 @@ fMRI datasets”, <a class="reference external" href="http://www.sciencedirect.c
 </ul>
 </aside>
 <section id="objective">
-<h3><span class="section-number">3.3.1.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.1.1. </span>Objective<a class="headerlink" href="#objective" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> is a useful approach for finding independent sources from <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a>
 images. <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> and similar techniques can be therefore used to define
 regions or networks that share similar <a class="reference internal" href="../glossary.html#term-BOLD"><span class="xref std std-term">BOLD</span></a> signal across time. The
@@ -707,7 +710,7 @@ filenames (<a class="reference internal" href="../manipulating_images/input_outp
 </aside>
 </section>
 <section id="fitting-canica-model-with-nilearn">
-<h3><span class="section-number">3.3.1.2. </span>Fitting CanICA model with nilearn<a class="headerlink" href="#fitting-canica-model-with-nilearn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.1.2. </span>Fitting CanICA model with nilearn<a class="headerlink" href="#fitting-canica-model-with-nilearn" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA" title="nilearn.decomposition.CanICA"><code class="xref py py-class docutils literal notranslate"><span class="pre">CanICA</span></code></a> is a ready-to-use object that can be applied to
 multi-subject Nifti data, for instance presented as filenames, and will
 perform a multi-subject <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> decomposition following the <a class="reference internal" href="../glossary.html#term-CanICA"><span class="xref std std-term">CanICA</span></a> model.
@@ -719,7 +722,7 @@ components can be accessed as a 4D Nifti object using the
 <code class="docutils literal notranslate"><span class="pre">components_img_</span></code> attribute.</p>
 </section>
 <section id="visualizing-results">
-<h3><span class="section-number">3.3.1.3. </span>Visualizing results<a class="headerlink" href="#visualizing-results" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.1.3. </span>Visualizing results<a class="headerlink" href="#visualizing-results" title="Permalink to this heading">#</a></h3>
 <p>We can visualize each component outlined over the brain:</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="../auto_examples/03_connectivity/plot_compare_decomposition.html"><img alt="../_images/sphx_glr_plot_compare_decomposition_001.png" src="../_images/sphx_glr_plot_compare_decomposition_001.png" /></a>
@@ -740,7 +743,7 @@ investigate which one resemble those displayed above.</p>
 </div>
 </section>
 <section id="interpreting-such-components">
-<h3><span class="section-number">3.3.1.4. </span>Interpreting such components<a class="headerlink" href="#interpreting-such-components" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">6.3.1.4. </span>Interpreting such components<a class="headerlink" href="#interpreting-such-components" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a>, and related algorithms, extract patterns that coactivate in the
 signal. As a result, it finds functional networks, but also patterns of
 non neural activity, ie confounding signals. Both are visible in the
@@ -748,7 +751,7 @@ plots of the components.</p>
 </section>
 </section>
 <section id="an-alternative-to-ica-dictionary-learning">
-<h2><span class="section-number">3.3.2. </span>An alternative to <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a>: <a class="reference internal" href="../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a><a class="headerlink" href="#an-alternative-to-ica-dictionary-learning" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.3.2. </span>An alternative to <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a>: <a class="reference internal" href="../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a><a class="headerlink" href="#an-alternative-to-ica-dictionary-learning" title="Permalink to this heading">#</a></h2>
 <p>Recent work has shown that <a class="reference internal" href="../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a> based techniques
 outperform <a class="reference internal" href="../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> in term of stability and constitutes a better first
 step in a statistical analysis pipeline.
@@ -805,7 +808,7 @@ in a variety of classification tasks.</p>
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">3.4. </span>Region Extraction for better brain parcellations</div>
+                <div class="title"><span class="section-number">6.4. </span>Region Extraction for better brain parcellations</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -816,7 +819,7 @@ in a variety of classification tasks.</p>
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">3.2.3.1. </span>Group-sparse covariance estimation</div>
+                <div class="title"><span class="section-number">6.2.3.1. </span>Group-sparse covariance estimation</div>
                 
               </div>
             </a>
@@ -850,15 +853,15 @@ in a variety of classification tasks.</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3.3. Extracting functional brain networks: ICA and related</a><ul>
-<li><a class="reference internal" href="#multi-subject-ica-canica">3.3.1. Multi-subject ICA: CanICA</a><ul>
-<li><a class="reference internal" href="#objective">3.3.1.1. Objective</a></li>
-<li><a class="reference internal" href="#fitting-canica-model-with-nilearn">3.3.1.2. Fitting CanICA model with nilearn</a></li>
-<li><a class="reference internal" href="#visualizing-results">3.3.1.3. Visualizing results</a></li>
-<li><a class="reference internal" href="#interpreting-such-components">3.3.1.4. Interpreting such components</a></li>
+<li><a class="reference internal" href="#">6.3. Extracting functional brain networks: ICA and related</a><ul>
+<li><a class="reference internal" href="#multi-subject-ica-canica">6.3.1. Multi-subject ICA: CanICA</a><ul>
+<li><a class="reference internal" href="#objective">6.3.1.1. Objective</a></li>
+<li><a class="reference internal" href="#fitting-canica-model-with-nilearn">6.3.1.2. Fitting CanICA model with nilearn</a></li>
+<li><a class="reference internal" href="#visualizing-results">6.3.1.3. Visualizing results</a></li>
+<li><a class="reference internal" href="#interpreting-such-components">6.3.1.4. Interpreting such components</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#an-alternative-to-ica-dictionary-learning">3.3.2. An alternative to <span class="xref std std-term">ICA</span>: <span class="xref std std-term">Dictionary learning</span></a></li>
+<li><a class="reference internal" href="#an-alternative-to-ica-dictionary-learning">6.3.2. An alternative to <span class="xref std std-term">ICA</span>: <span class="xref std std-term">Dictionary learning</span></a></li>
 </ul>
 </li>
 </ul>

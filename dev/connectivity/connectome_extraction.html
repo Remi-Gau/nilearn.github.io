@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-<meta property="og:title" content="3.2. Connectome extraction: inverse covariance for direct connections" />
+<meta property="og:title" content="6.2. Connectome extraction: inverse covariance for direct connections" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/connectivity/connectome_extraction.html" />
 <meta property="og:site_name" content="Nilearn" />
@@ -11,10 +11,10 @@
 <meta property="og:image" content="https://nilearn.github.io/connectivity/auto_examples/03_connectivity/images/sphx_glr_plot_inverse_covariance_connectome_001.png" />
 <meta property="og:image:alt" content="covariance" />
 <meta name="description" content="Page summary: Given a set of time-series (eg as extracted in the previous section) A functional connectome is a set of connections representing brain interactions between regions. Here we show the ..." />
-<link rel="search" title="Search" href="../search.html" /><link rel="next" title="3.2.3.1. Group-sparse covariance estimation" href="../developers/group_sparse_covariance.html" /><link rel="prev" title="3.1. Extracting times series to build a functional connectome" href="functional_connectomes.html" />
+<link rel="search" title="Search" href="../search.html" /><link rel="next" title="6.2.3.1. Group-sparse covariance estimation" href="../developers/group_sparse_covariance.html" /><link rel="prev" title="6.1. Extracting times series to build a functional connectome" href="functional_connectomes.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
-        <title>3.2. Connectome extraction: inverse covariance for direct connections - Nilearn</title>
+        <title>6.2. Connectome extraction: inverse covariance for direct connections - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev91+g91039a92) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev92+g54f4ccda) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -312,42 +312,45 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../user_guide.html">User guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">2. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">2.1. An introduction to decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">2.2. Choosing the right predictive model for neuroimaging</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">2.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">2.4. SpaceNet: decoding with spatial structure for better maps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">2.5. Searchlight : finding voxels containing information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">2.6. Running scikit-learn functions for more control on the analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#what-is-nilearn">2. What is <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#using-nilearn-for-the-first-time">3. Using <code class="docutils literal notranslate"><span class="pre">nilearn</span></code> for the first time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html#machine-learning-applications-to-neuroimaging">4. Machine learning applications to Neuroimaging</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../decoding/index.html">5. Decoding and MVPA: predicting from brain images</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/decoding_intro.html">5.1. An introduction to decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/estimator_choice.html">5.2. Choosing the right predictive model for neuroimaging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/frem.html">5.3. FREM: fast ensembling of regularized models for robust decoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/space_net.html">5.4. SpaceNet: decoding with spatial structure for better maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/searchlight.html">5.5. Searchlight : finding voxels containing information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../decoding/going_further.html">5.6. Running scikit-learn functions for more control on the analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">3. Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="functional_connectomes.html">3.1. Extracting times series to build a functional connectome</a></li>
-<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">3.2. Connectome extraction: inverse covariance for direct connections</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">3.2.3.1. Group-sparse covariance estimation</a></li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">6. Functional connectivity and resting state</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="functional_connectomes.html">6.1. Extracting times series to build a functional connectome</a></li>
+<li class="toctree-l3 current has-children current-page"><a class="current reference internal" href="#">6.2. Connectome extraction: inverse covariance for direct connections</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../developers/group_sparse_covariance.html">6.2.3.1. Group-sparse covariance estimation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="resting_state_networks.html">3.3. Extracting functional brain networks: ICA and related</a></li>
-<li class="toctree-l3"><a class="reference internal" href="region_extraction.html">3.4. Region Extraction for better brain parcellations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="parcellating.html">3.5. Clustering to parcellate the brain in regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="resting_state_networks.html">6.3. Extracting functional brain networks: ICA and related</a></li>
+<li class="toctree-l3"><a class="reference internal" href="region_extraction.html">6.4. Region Extraction for better brain parcellations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parcellating.html">6.5. Clustering to parcellate the brain in regions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">4. Plotting brain images</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">5. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">5.1. An introduction to GLMs in fMRI statistical analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">5.2. First level models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">5.3. Second level models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting/index.html">7. Plotting brain images</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../glm/index.html">8. Analyzing fMRI using GLMs</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../glm/glm_intro.html">8.1. An introduction to GLMs in fMRI statistical analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/first_level_model.html">8.2. First level models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../glm/second_level_model.html">8.3. Second level models</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">6. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">6.1. Input and output: neuroimaging data representation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">6.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">6.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../manipulating_images/index.html">9. Manipulation brain volumes with nilearn</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/input_output.html">9.1. Input and output: neuroimaging data representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/manipulating_images.html">9.2. Manipulating images: resampling, smoothing, masking, ROIs…</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manipulating_images/masker_objects.html">9.3. From neuroimaging volumes to data matrices: the masker objects</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">7. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">7.1. Building your own neuroimaging machine-learning pipeline</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">7.2. Downloading statistical maps from the Neurovault repository</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../building_blocks/index.html">10. Advanced usage: manual pipelines and scaling up</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/manual_pipeline.html">10.1. Building your own neuroimaging machine-learning pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../building_blocks/neurovault.html">10.2. Downloading statistical maps from the Neurovault repository</a></li>
 </ul>
 </li>
 </ul>
@@ -672,7 +675,7 @@
         </div>
         <article role="main">
           <section id="connectome-extraction-inverse-covariance-for-direct-connections">
-<span id="connectome-extraction"></span><h1><span class="section-number">3.2. </span>Connectome extraction: inverse covariance for direct connections<a class="headerlink" href="#connectome-extraction-inverse-covariance-for-direct-connections" title="Permalink to this heading">#</a></h1>
+<span id="connectome-extraction"></span><h1><span class="section-number">6.2. </span>Connectome extraction: inverse covariance for direct connections<a class="headerlink" href="#connectome-extraction-inverse-covariance-for-direct-connections" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>Given a set of time-series (eg as extracted in the previous section)
@@ -691,7 +694,7 @@ connectomes across subjects, NeuroImage 2013</a></p></li>
 </ul>
 </aside>
 <section id="sparse-inverse-covariance-for-functional-connectomes">
-<h2><span class="section-number">3.2.1. </span>Sparse inverse covariance for functional connectomes<a class="headerlink" href="#sparse-inverse-covariance-for-functional-connectomes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2.1. </span>Sparse inverse covariance for functional connectomes<a class="headerlink" href="#sparse-inverse-covariance-for-functional-connectomes" title="Permalink to this heading">#</a></h2>
 <p>Functional connectivity can be obtained by estimating a covariance
 (or correlation) matrix for signals from different brain
 regions decomposed, for example on resting-state or naturalistic-stimuli datasets.
@@ -756,7 +759,7 @@ multi-subject data.</p></li>
 </aside>
 </section>
 <section id="sparse-inverse-covariance-on-multiple-subjects">
-<h2><span class="section-number">3.2.2. </span>Sparse inverse covariance on multiple subjects<a class="headerlink" href="#sparse-inverse-covariance-on-multiple-subjects" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2.2. </span>Sparse inverse covariance on multiple subjects<a class="headerlink" href="#sparse-inverse-covariance-on-multiple-subjects" title="Permalink to this heading">#</a></h2>
 <p>To work at the level of a group of subject, it can be interesting to
 estimate multiple connectomes for each, with a similar structure but
 differing connection values across subjects.</p>
@@ -812,7 +815,7 @@ adhd.</p>
 </div>
 </section>
 <section id="comparing-the-different-approaches-on-simulated-data">
-<h2><span class="section-number">3.2.3. </span>Comparing the different approaches on simulated data<a class="headerlink" href="#comparing-the-different-approaches-on-simulated-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2.3. </span>Comparing the different approaches on simulated data<a class="headerlink" href="#comparing-the-different-approaches-on-simulated-data" title="Permalink to this heading">#</a></h2>
 <p>We simulate several sets of signals, one set representing one subject,
 with different precision matrices, but sharing a common sparsity pattern:
 10 brain regions, for 20 subjects.</p>
@@ -854,7 +857,7 @@ estimation and its implementation can be found in
 </aside>
 </section>
 <section id="linking-total-and-direct-interactions-at-the-group-level">
-<h2><span class="section-number">3.2.4. </span>Linking total and direct interactions at the group level<a class="headerlink" href="#linking-total-and-direct-interactions-at-the-group-level" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">6.2.4. </span>Linking total and direct interactions at the group level<a class="headerlink" href="#linking-total-and-direct-interactions-at-the-group-level" title="Permalink to this heading">#</a></h2>
 <p>Individual connectivity patterns reflect both on covariances and inverse covariances, but in different ways. For multiple subjects, mean covariance (or correlation) and group sparse inverse covariance provide different insights into the connectivity at the group level.</p>
 <p>We can go one step further by coupling the information from total (pairwise) and direct interactions in a unique group connectome. This can be done through a geometrical framework allowing to measure interactions in a common space called <strong>tangent space</strong> <a class="reference external" href="https://hal.inria.fr/inria-00512417/">[Varoquaux et al, MICCAI 2010]</a>.</p>
 <p>In nilearn, this is implemented in
@@ -899,7 +902,7 @@ dataset downloaded with <a class="reference internal" href="../modules/generated
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title"><span class="section-number">3.2.3.1. </span>Group-sparse covariance estimation</div>
+                <div class="title"><span class="section-number">6.2.3.1. </span>Group-sparse covariance estimation</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -910,7 +913,7 @@ dataset downloaded with <a class="reference internal" href="../modules/generated
                   <span>Previous</span>
                 </div>
                 
-                <div class="title"><span class="section-number">3.1. </span>Extracting times series to build a functional connectome</div>
+                <div class="title"><span class="section-number">6.1. </span>Extracting times series to build a functional connectome</div>
                 
               </div>
             </a>
@@ -944,11 +947,11 @@ dataset downloaded with <a class="reference internal" href="../modules/generated
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">3.2. Connectome extraction: inverse covariance for direct connections</a><ul>
-<li><a class="reference internal" href="#sparse-inverse-covariance-for-functional-connectomes">3.2.1. Sparse inverse covariance for functional connectomes</a></li>
-<li><a class="reference internal" href="#sparse-inverse-covariance-on-multiple-subjects">3.2.2. Sparse inverse covariance on multiple subjects</a></li>
-<li><a class="reference internal" href="#comparing-the-different-approaches-on-simulated-data">3.2.3. Comparing the different approaches on simulated data</a></li>
-<li><a class="reference internal" href="#linking-total-and-direct-interactions-at-the-group-level">3.2.4. Linking total and direct interactions at the group level</a></li>
+<li><a class="reference internal" href="#">6.2. Connectome extraction: inverse covariance for direct connections</a><ul>
+<li><a class="reference internal" href="#sparse-inverse-covariance-for-functional-connectomes">6.2.1. Sparse inverse covariance for functional connectomes</a></li>
+<li><a class="reference internal" href="#sparse-inverse-covariance-on-multiple-subjects">6.2.2. Sparse inverse covariance on multiple subjects</a></li>
+<li><a class="reference internal" href="#comparing-the-different-approaches-on-simulated-data">6.2.3. Comparing the different approaches on simulated data</a></li>
+<li><a class="reference internal" href="#linking-total-and-direct-interactions-at-the-group-level">6.2.4. Linking total and direct interactions at the group level</a></li>
 </ul>
 </li>
 </ul>
