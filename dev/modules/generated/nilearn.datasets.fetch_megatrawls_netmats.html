@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev93+g983accf6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev100+g199b8606) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -684,8 +684,8 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.datasets.fetch_megatrawls_netmats<a class="headerlink" href="#nilearn-datasets-fetch-megatrawls-netmats" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.datasets.fetch_megatrawls_netmats">
-<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_megatrawls_netmats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensionality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeseries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eigen_regression'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'partial_correlation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/983accf6/nilearn/datasets/func.py#L1154"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_megatrawls_netmats" title="Permalink to this definition">#</a></dt>
-<dd><p>Downloads and returns Network Matrices data from MegaTrawls release in HCP.</p>
+<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_megatrawls_netmats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dimensionality</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeseries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'eigen_regression'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matrices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'partial_correlation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/199b8606/nilearn/datasets/func.py#L1342"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_megatrawls_netmats" title="Permalink to this definition">#</a></dt>
+<dd><p>Download and return Network Matrices data     from MegaTrawls release in HCP.</p>
 <p>This data can be used to predict relationships between imaging data and
 non-imaging behavioural measures such as age, sex, education, etc.
 The network matrices are estimated from functional connectivity
@@ -697,20 +697,21 @@ datasets of 461 subjects. Full technical details in references.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>dimensionality</strong><span class="classifier">int, optional</span></dt><dd><p>Valid inputs are 25, 50, 100, 200, 300. By default, network matrices
-estimated using Group ICA brain parcellations of 100 components/dimensions
-will be returned. Default=100.</p>
+estimated using Group ICA brain parcellations
+of 100 components/dimensions will be returned. Default=100.</p>
 </dd>
-<dt><strong>timeseries</strong><span class="classifier">str, optional</span></dt><dd><p>Valid inputs are ‘multiple_spatial_regression’ or ‘eigen_regression’. By
-default ‘eigen_regression’, matrices estimated using first principal
+<dt><strong>timeseries</strong><span class="classifier">str, optional</span></dt><dd><p>Valid inputs are ‘multiple_spatial_regression’ or ‘eigen_regression’.
+By default ‘eigen_regression’, matrices estimated using first principal
 eigen component timeseries signals extracted from each subject data
-parcellations will be returned. Otherwise, ‘multiple_spatial_regression’
+parcellations will be returned.
+Otherwise, ‘multiple_spatial_regression’
 matrices estimated using spatial regressor based timeseries signals
 extracted from each subject data parcellations will be returned.
 Default=’eigen_regression’.</p>
 </dd>
-<dt><strong>matrices</strong><span class="classifier">str, optional</span></dt><dd><p>Valid inputs are ‘full_correlation’ or ‘partial_correlation’. By default,
-partial correlation matrices will be returned otherwise if selected
-full correlation matrices will be returned.
+<dt><strong>matrices</strong><span class="classifier">str, optional</span></dt><dd><p>Valid inputs are ‘full_correlation’ or ‘partial_correlation’.
+By default, partial correlation matrices will be returned
+otherwise if selected full correlation matrices will be returned.
 Default=’partial_correlation’.</p>
 </dd>
 <dt><strong>data_dir</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>Path where data should be downloaded. By default,
