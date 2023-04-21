@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Here we set the number of features selected in an Anova-SVC approach to maximize the cross-validation score. After separating 2 sessions for validation, we vary that parameter and measure the cross..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="ROI-based decoding analysis in Haxby et al. dataset" href="plot_haxby_full_analysis.html" /><link rel="prev" title="Decoding of a dataset after GLM fit for signal extraction" href="plot_haxby_glm_decoding.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" /><link rel="prev" title="ROI-based decoding analysis in Haxby et al. dataset" href="plot_haxby_full_analysis.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Setting a parameter by cross-validation - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev101+g3a12ec38) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev102+gd50ee520) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -230,8 +230,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_multiclass.html">The haxby dataset: different multi-class strategies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_searchlight.html">Searchlight analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_glm_decoding.html">Decoding of a dataset after GLM fit for signal extraction</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Setting a parameter by cross-validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_full_analysis.html">ROI-based decoding analysis in Haxby et al. dataset</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Setting a parameter by cross-validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_different_estimators.html">Different classifiers in decoding the Haxby dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_oasis_vbm.html">Voxel-Based Morphometry on Oasis dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_data.html">Example of pattern recognition on simulated data</a></li>
@@ -690,14 +690,14 @@ significant amount: this is due to sampling noise in cross validation,
 and choosing the parameter k to maximize the cross-validation score,
 might not maximize the score on left-out data.</p>
 <p>Thus using data to maximize a cross-validation score computed on that
-same data is likely to optimistic and lead to an overfit.</p>
+same data is likely to be too optimistic and lead to an overfit.</p>
 <p>The proper approach is known as a “nested cross-validation”. It consists
 in doing cross-validation loops to set the model parameters inside the
 cross-validation loop used to judge the prediction performance: the
 parameters are set separately on each fold, never using the data used to
 measure performance.</p>
-<p>For decoding task, in nilearn, this can be done using the
-<a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object, that will automatically select
+<p>For decoding tasks, in nilearn, this can be done using the
+<a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object, which will automatically select
 the best parameters of an estimator from a grid of parameter values.</p>
 <p>One difficulty is that the Decoder object is a composite estimator: a
 pipeline of feature selection followed by Support Vector Machine. Tuning
@@ -749,6 +749,22 @@ estimators (in this example is Support Vector Machine with a linear kernel)
 on nested cross-validation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">Decoder</span></a>
 
+<span class="c1"># We provide a grid of hyperparameter values to the Decoder&#39;s internal</span>
+<span class="c1"># cross-validation. If no param_grid is provided, the Decoder will use a</span>
+<span class="c1"># default grid with sensible values for the chosen estimator</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;dual&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">],</span>
+        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;dual&quot;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">],</span>
+        <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+
 <span class="c1"># Here screening_percentile is set to 2 percent, meaning around 800</span>
 <span class="c1"># features will be selected with ANOVA.</span>
 <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">Decoder</span></a><span class="p">(</span>
@@ -758,6 +774,7 @@ on nested cross-validation.</p>
     <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">screening_percentile</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -769,15 +786,23 @@ for the estimator, in this case Support Vector Machine. We can output the
 best parameters selected for each cross-validation fold. See
 <a class="reference external" href="https://scikit-learn.org/stable/modules/cross_validation.html">https://scikit-learn.org/stable/modules/cross_validation.html</a> for an
 excellent explanation of how cross-validation works.</p>
-<p>First we fit the Decoder</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.fit" title="nilearn.decoding.Decoder.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
-<span class="k">for</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <span class="p">(</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">param</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">cv_score</span></a><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_params_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">][</span><span class="s2">&quot;C&quot;</span><span class="p">],</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fit the Decoder</span>
+<a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.fit" title="nilearn.decoding.Decoder.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
+
+<span class="c1"># Print the best parameters for each fold</span>
+<span class="k">for</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_C</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_penalty</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_dual</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">cv_score</span></a><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+    <span class="nb">zip</span><span class="p">(</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_params_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">][</span><span class="s2">&quot;C&quot;</span><span class="p">],</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_params_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">][</span><span class="s2">&quot;penalty&quot;</span><span class="p">],</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_params_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">][</span><span class="s2">&quot;dual&quot;</span><span class="p">],</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span></a><span class="p">[</span><span class="s2">&quot;shoe&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
 <span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span>
-        <span class="s2">&quot;Fold </span><span class="si">%d</span><span class="s2"> | Best SVM parameter: </span><span class="si">%.1f</span><span class="s2"> with score: </span><span class="si">%.3f</span><span class="s2">&quot;</span>
-        <span class="o">%</span> <span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">param</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">cv_score</span></a><span class="p">)</span>
+        <span class="sa">f</span><span class="s2">&quot;Fold </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> | Best SVM parameters: C=</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_C</span></a><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;, penalty=</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_penalty</span></a><span class="si">}</span><span class="s2">, dual=</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">best_dual</span></a><span class="si">}</span><span class="s2"> with score: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">cv_score</span></a><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
+
 <span class="c1"># Output the prediction with Decoder</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.predict" title="nilearn.decoding.Decoder.predict" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">)</span>
 </pre></div>
@@ -790,11 +815,11 @@ The provided image has no sform in its header. Please check the provided file. R
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
-Fold 1 | Best SVM parameter: 100.0 with score: 0.901
-Fold 2 | Best SVM parameter: 100.0 with score: 0.918
-Fold 3 | Best SVM parameter: 1.0 with score: 0.738
-Fold 4 | Best SVM parameter: 100.0 with score: 0.749
-Fold 5 | Best SVM parameter: 100.0 with score: 0.736
+Fold 1 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.9318181818181818
+Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
+Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.751082251082251
+Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.8181818181818181
+Fold 5 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.735930735930736
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
@@ -817,6 +842,7 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
         <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold" title="sklearn.model_selection.KFold" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
         <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">screening_percentile</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a><span class="p">,</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="p">,</span>
     <span class="p">)</span>
     <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.fit" title="nilearn.decoding.Decoder.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session</span></a> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">),</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">[</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session</span></a> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">])</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv_scores</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span></a><span class="p">[</span><span class="s2">&quot;bottle&quot;</span><span class="p">]))</span>
@@ -833,12 +859,12 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 2.000
-Mean CV score: 0.8107
+Mean CV score: 0.8307
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
-Validation score: 0.6111
+Validation score: 0.4444
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -855,18 +881,7 @@ Validation score: 0.3889
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 8.000
-Mean CV score: 0.8437
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-Validation score: 0.4444
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-Sreening Percentile: 16.000
-Mean CV score: 0.8389
+Mean CV score: 0.8633
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
@@ -876,8 +891,8 @@ Validation score: 0.5000
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-Sreening Percentile: 32.000
-Mean CV score: 0.8059
+Sreening Percentile: 16.000
+Mean CV score: 0.8659
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
@@ -887,8 +902,19 @@ Validation score: 0.4444
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+Sreening Percentile: 32.000
+Mean CV score: 0.8370
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
+
+Validation score: 0.1111
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
 Sreening Percentile: 64.000
-Mean CV score: 0.8141
+Mean CV score: 0.8411
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
@@ -919,6 +945,7 @@ pipeline.</p>
             <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold" title="sklearn.model_selection.KFold" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">screening_percentile</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sp</span></a><span class="p">,</span>
+            <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">param_grid</span></a><span class="p">,</span>
         <span class="p">)</span>
         <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.fit" title="nilearn.decoding.Decoder.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">train</span></a><span class="p">),</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_train</span></a><span class="p">)</span>
         <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.predict" title="nilearn.decoding.Decoder.predict" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">test</span></a><span class="p">))</span>
@@ -941,6 +968,98 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
@@ -1041,39 +1160,7 @@ The provided image has no sform in its header. Please check the provided file. R
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-Nested CV score: 0.5880
+Nested CV score: 0.6852
 </pre></div>
 </div>
 </section>
@@ -1099,8 +1186,8 @@ Nested CV score: 0.5880
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_haxby_grid_search_001.png" srcset="../../_images/sphx_glr_plot_haxby_grid_search_001.png" alt="plot haxby grid search" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  48.954 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  916 MB</p>
+<img src="../../_images/sphx_glr_plot_haxby_grid_search_001.png" srcset="../../_images/sphx_glr_plot_haxby_grid_search_001.png" alt="plot haxby grid search" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  57.555 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  915 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-grid-search-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_grid_search.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1121,23 +1208,23 @@ Nested CV score: 0.5880
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_haxby_full_analysis.html">
+          <a class="next-page" href="plot_haxby_different_estimators.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">ROI-based decoding analysis in Haxby et al. dataset</div>
+                <div class="title">Different classifiers in decoding the Haxby dataset</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_haxby_glm_decoding.html">
+          <a class="prev-page" href="plot_haxby_full_analysis.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Decoding of a dataset after GLM fit for signal extraction</div>
+                <div class="title">ROI-based decoding analysis in Haxby et al. dataset</div>
                 
               </div>
             </a>

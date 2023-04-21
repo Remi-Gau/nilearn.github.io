@@ -31,7 +31,7 @@ and choosing the parameter k to maximize the cross-validation score,
 might not maximize the score on left-out data.
 
 Thus using data to maximize a cross-validation score computed on that
-same data is likely to optimistic and lead to an overfit.
+same data is likely to be too optimistic and lead to an overfit.
 
 The proper approach is known as a "nested cross-validation". It consists
 in doing cross-validation loops to set the model parameters inside the
@@ -39,8 +39,8 @@ cross-validation loop used to judge the prediction performance: the
 parameters are set separately on each fold, never using the data used to
 measure performance.
 
-For decoding task, in nilearn, this can be done using the
-:class:`nilearn.decoding.Decoder` object, that will automatically select
+For decoding tasks, in nilearn, this can be done using the
+:class:`nilearn.decoding.Decoder` object, which will automatically select
 the best parameters of an estimator from a grid of parameter values.
 
 One difficulty is that the Decoder object is a composite estimator: a
@@ -111,11 +111,27 @@ feature selection based on F-test, and then decoding with different types of
 estimators (in this example is Support Vector Machine with a linear kernel)
 on nested cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-88
+.. GENERATED FROM PYTHON SOURCE LINES 75-105
 
 .. code-block:: default
 
     from nilearn.decoding import Decoder
+
+    # We provide a grid of hyperparameter values to the Decoder's internal
+    # cross-validation. If no param_grid is provided, the Decoder will use a
+    # default grid with sensible values for the chosen estimator
+    param_grid = [
+        {
+            "penalty": ["l2"],
+            "dual": [True],
+            "C": [100, 1000],
+        },
+        {
+            "penalty": ["l1"],
+            "dual": [False],
+            "C": [100, 1000],
+        },
+    ]
 
     # Here screening_percentile is set to 2 percent, meaning around 800
     # features will be selected with ANOVA.
@@ -126,6 +142,7 @@ on nested cross-validation.
         smoothing_fwhm=4,
         standardize=True,
         screening_percentile=2,
+        param_grid=param_grid,
     )
 
 
@@ -135,7 +152,7 @@ on nested cross-validation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-98
+.. GENERATED FROM PYTHON SOURCE LINES 106-113
 
 Fit the Decoder and predict the responses
 -----------------------------------------
@@ -145,20 +162,28 @@ best parameters selected for each cross-validation fold. See
 https://scikit-learn.org/stable/modules/cross_validation.html for an
 excellent explanation of how cross-validation works.
 
-First we fit the Decoder
-
-.. GENERATED FROM PYTHON SOURCE LINES 98-109
+.. GENERATED FROM PYTHON SOURCE LINES 113-134
 
 .. code-block:: default
 
+
+    # Fit the Decoder
     decoder.fit(fmri_niimgs, y)
-    for i, (param, cv_score) in enumerate(
-        zip(decoder.cv_params_["shoe"]["C"], decoder.cv_scores_["shoe"])
+
+    # Print the best parameters for each fold
+    for i, (best_C, best_penalty, best_dual, cv_score) in enumerate(
+        zip(
+            decoder.cv_params_["shoe"]["C"],
+            decoder.cv_params_["shoe"]["penalty"],
+            decoder.cv_params_["shoe"]["dual"],
+            decoder.cv_scores_["shoe"],
+        )
     ):
         print(
-            "Fold %d | Best SVM parameter: %.1f with score: %.3f"
-            % (i + 1, param, cv_score)
+            f"Fold {i+1} | Best SVM parameters: C={best_C}"
+            f", penalty={best_penalty}, dual={best_dual} with score: {cv_score}"
         )
+
     # Output the prediction with Decoder
     y_pred = decoder.predict(fmri_niimgs)
 
@@ -178,11 +203,11 @@ First we fit the Decoder
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    Fold 1 | Best SVM parameter: 100.0 with score: 0.901
-    Fold 2 | Best SVM parameter: 100.0 with score: 0.918
-    Fold 3 | Best SVM parameter: 1.0 with score: 0.738
-    Fold 4 | Best SVM parameter: 100.0 with score: 0.749
-    Fold 5 | Best SVM parameter: 100.0 with score: 0.736
+    Fold 1 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.9318181818181818
+    Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
+    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.751082251082251
+    Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.8181818181818181
+    Fold 5 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.735930735930736
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -191,12 +216,12 @@ First we fit the Decoder
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-112
+.. GENERATED FROM PYTHON SOURCE LINES 135-137
 
 Compute prediction scores with different values of screening percentile
 -----------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-136
+.. GENERATED FROM PYTHON SOURCE LINES 137-162
 
 .. code-block:: default
 
@@ -214,6 +239,7 @@ Compute prediction scores with different values of screening percentile
             cv=3,
             standardize=True,
             screening_percentile=sp,
+            param_grid=param_grid,
         )
         decoder.fit(index_img(fmri_niimgs, session < 10), y[session < 10])
         cv_scores.append(np.mean(decoder.cv_scores_["bottle"]))
@@ -237,12 +263,12 @@ Compute prediction scores with different values of screening percentile
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 2.000
-    Mean CV score: 0.8107
+    Mean CV score: 0.8307
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    Validation score: 0.6111
+    Validation score: 0.4444
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -259,18 +285,7 @@ Compute prediction scores with different values of screening percentile
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 8.000
-    Mean CV score: 0.8437
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Validation score: 0.4444
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    Sreening Percentile: 16.000
-    Mean CV score: 0.8389
+    Mean CV score: 0.8633
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -280,8 +295,8 @@ Compute prediction scores with different values of screening percentile
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Sreening Percentile: 32.000
-    Mean CV score: 0.8059
+    Sreening Percentile: 16.000
+    Mean CV score: 0.8659
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -291,8 +306,19 @@ Compute prediction scores with different values of screening percentile
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+    Sreening Percentile: 32.000
+    Mean CV score: 0.8370
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    Validation score: 0.1111
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
     Sreening Percentile: 64.000
-    Mean CV score: 0.8141
+    Mean CV score: 0.8411
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -302,14 +328,14 @@ Compute prediction scores with different values of screening percentile
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-141
+.. GENERATED FROM PYTHON SOURCE LINES 163-167
 
 Nested cross-validation
 -----------------------
 We are going to tune the parameter 'screening_percentile' in the
 pipeline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-168
+.. GENERATED FROM PYTHON SOURCE LINES 167-195
 
 .. code-block:: default
 
@@ -331,6 +357,7 @@ pipeline.
                 cv=3,
                 standardize=True,
                 screening_percentile=sp,
+                param_grid=param_grid,
             )
             decoder.fit(index_img(fmri_niimgs, train), y_train)
             y_pred = decoder.predict(index_img(fmri_niimgs, test))
@@ -360,6 +387,98 @@ pipeline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+
+    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -460,49 +579,17 @@ pipeline.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Nested CV score: 0.5880
+    Nested CV score: 0.6852
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-171
+.. GENERATED FROM PYTHON SOURCE LINES 196-198
 
 Plot the prediction scores using matplotlib
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-189
+.. GENERATED FROM PYTHON SOURCE LINES 198-216
 
 .. code-block:: default
 
@@ -539,9 +626,9 @@ Plot the prediction scores using matplotlib
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  48.954 seconds)
+   **Total running time of the script:** ( 2 minutes  57.555 seconds)
 
-**Estimated memory usage:**  916 MB
+**Estimated memory usage:**  915 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_grid_search.py:
