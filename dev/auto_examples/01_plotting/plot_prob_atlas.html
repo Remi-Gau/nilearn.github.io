@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example shows how to visualize probabilistic atlases made of 4D images. There are 3 different display types: “contours”, which means maps or ROIs are shown as contours delineated by colored li..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Plotting tools in nilearn" href="plot_demo_plotting.html" /><link rel="prev" title="Plot Haxby masks" href="plot_haxby_masks.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Glass brain plotting in nilearn (all options)" href="plot_demo_glass_brain_extensive.html" /><link rel="prev" title="Technical point: Illustration of the volume to surface sampling schemes" href="plot_surface_projection_strategies.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.1.3 and Furo 2023.03.27 -->
         <title>Visualizing 4D probabilistic atlas maps - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev102+gd50ee520) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev103+g8782f832) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -202,17 +202,17 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain.html">Glass brain plotting in nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_visualize_megatrawls_netmats.html">Visualizing Megatrawls Network Matrices from Human Connectome Project</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas.html">Basic Atlas plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_multiscale_parcellations.html">Visualizing multiscale functional brain parcellations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_overlay.html">Visualizing a probabilistic atlas: the default mode in the MSDL atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_overlay.html#visualizing-a-probabilistic-atlas-with-plot-prob-atlas">Visualizing a probabilistic atlas with plot_prob_atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_dim_plotting.html">Controlling the contrast of the background when plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_multiscale_parcellations.html">Visualizing multiscale functional brain parcellations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_colormaps.html">Matplotlib colormaps in Nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_visualization.html">NeuroImaging volumes visualization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_carpet.html">Visualizing global patterns with a carpet plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_masks.html">Plot Haxby masks</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Visualizing 4D probabilistic atlas maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_plotting.html">Plotting tools in nilearn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surface_projection_strategies.html">Technical point: Illustration of the volume to surface sampling schemes</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Visualizing 4D probabilistic atlas maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_demo_glass_brain_extensive.html">Glass brain plotting in nilearn (all options)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_surf_atlas.html">Loading and plotting of a cortical surface atlas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_3d_map_to_surface_projection.html">Making a surface plot of a 3D statistical map</a></li>
@@ -708,9 +708,7 @@ which is already defined.</p>
 <li><img src="../../_images/sphx_glr_plot_prob_atlas_012.png" srcset="../../_images/sphx_glr_plot_prob_atlas_012.png" alt="plot prob atlas" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_prob_atlas_013.png" srcset="../../_images/sphx_glr_plot_prob_atlas_013.png" alt="plot prob atlas" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/atlas.py:1061: FutureWarning: The default behavior of the function will be deprecated and replaced in release 0.13 to use the new parameters dimension and resting.
-  warnings.warn(
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/numpy/ma/core.py:2820: UserWarning: Warning: converting a masked element to nan.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/numpy/ma/core.py:2820: UserWarning: Warning: converting a masked element to nan.
   _data = np.array(data, dtype=dtype, copy=copy,
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/displays/_axes.py:71: UserWarning: linewidths is ignored by contourf
   im = getattr(ax, type)(data_2d.copy(),
@@ -721,6 +719,7 @@ ready
 <div class="line"><br /></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load 4D probabilistic atlases</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <span class="c1"># Harvard Oxford Atlasf</span>
@@ -731,7 +730,24 @@ ready
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span></a><span class="p">()</span>
 
 <span class="c1"># Smith ICA Atlas and Brain Maps 2009</span>
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn10</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn20</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">20</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn70</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">70</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm10</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm20</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">20</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm70</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">70</span><span class="p">)[</span>
+    <span class="s2">&quot;map&quot;</span>
+<span class="p">]</span>
 
 <span class="c1"># ICBM tissue probability</span>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">icbm</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_icbm152_2009.html#nilearn.datasets.fetch_icbm152_2009" title="nilearn.datasets.fetch_icbm152_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_icbm152_2009</span></a><span class="p">()</span>
@@ -750,17 +766,16 @@ ready
 <span class="p">)</span>
 
 <span class="c1"># Visualization</span>
-<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
 <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_types</span></a> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Harvard_Oxford&quot;</span><span class="p">:</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">harvard_oxford</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
     <span class="s2">&quot;Harvard_Oxford sub&quot;</span><span class="p">:</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">harvard_oxford_sub</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
     <span class="s2">&quot;MSDL&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
-    <span class="s2">&quot;Smith 2009 10 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">rsn10</span></a><span class="p">,</span>
-    <span class="s2">&quot;Smith2009 20 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">rsn20</span></a><span class="p">,</span>
-    <span class="s2">&quot;Smith2009 70 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">rsn70</span></a><span class="p">,</span>
-    <span class="s2">&quot;Smith2009 20 Brainmap&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">bm20</span></a><span class="p">,</span>
-    <span class="s2">&quot;Smith2009 70 Brainmap&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">bm70</span></a><span class="p">,</span>
+    <span class="s2">&quot;Smith 2009 10 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn10</span></a><span class="p">,</span>
+    <span class="s2">&quot;Smith2009 20 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn20</span></a><span class="p">,</span>
+    <span class="s2">&quot;Smith2009 70 RSNs&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_rsn70</span></a><span class="p">,</span>
+    <span class="s2">&quot;Smith2009 20 Brainmap&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm20</span></a><span class="p">,</span>
+    <span class="s2">&quot;Smith2009 70 Brainmap&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm70</span></a><span class="p">,</span>
     <span class="s2">&quot;ICBM tissues&quot;</span><span class="p">:</span> <span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">icbm</span></a><span class="p">[</span><span class="s2">&quot;wm&quot;</span><span class="p">],</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">icbm</span></a><span class="p">[</span><span class="s2">&quot;gm&quot;</span><span class="p">],</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">icbm</span></a><span class="p">[</span><span class="s2">&quot;csf&quot;</span><span class="p">]),</span>
     <span class="s2">&quot;Allen2011&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">allen</span><span class="o">.</span><span class="n">rsn28</span></a><span class="p">,</span>
     <span class="s2">&quot;Pauli2017 Subcortical Atlas&quot;</span><span class="p">:</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subcortex</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
@@ -772,14 +787,16 @@ ready
 
 <span class="c1"># An optional colorbar can be set</span>
 <a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_prob_atlas</span></a><span class="p">(</span>
-    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith</span><span class="o">.</span><span class="n">bm10</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Smith2009 10 Brainmap (with&quot;</span> <span class="s2">&quot; colorbar)&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">smith_bm10</span></a><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Smith2009 10 Brainmap (with colorbar)&quot;</span><span class="p">,</span>
+    <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ready&quot;</span><span class="p">)</span>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  13.232 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1128 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 4 minutes  26.875 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1122 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-prob-atlas-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_prob_atlas.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
@@ -799,23 +816,23 @@ ready
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_demo_plotting.html">
+          <a class="next-page" href="plot_demo_glass_brain_extensive.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Plotting tools in nilearn</div>
+                <div class="title">Glass brain plotting in nilearn (all options)</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_haxby_masks.html">
+          <a class="prev-page" href="plot_surface_projection_strategies.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Plot Haxby masks</div>
+                <div class="title">Technical point: Illustration of the volume to surface sampling schemes</div>
                 
               </div>
             </a>

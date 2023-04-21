@@ -35,7 +35,7 @@ documentation.
 Retrieving multiscale group brain parcellations
 -----------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-29
+.. GENERATED FROM PYTHON SOURCE LINES 18-33
 
 .. code-block:: default
 
@@ -43,33 +43,30 @@ Retrieving multiscale group brain parcellations
     # import datasets module and use `fetch_atlas_basc_multiscale_2015` function
     from nilearn import datasets
 
-    parcellations = datasets.fetch_atlas_basc_multiscale_2015(version="sym")
+    parcellations = [
+        datasets.fetch_atlas_basc_multiscale_2015(version="sym", resolution=64),
+        datasets.fetch_atlas_basc_multiscale_2015(version="sym", resolution=197),
+        datasets.fetch_atlas_basc_multiscale_2015(version="sym", resolution=444),
+    ]
 
     # We show here networks of 64, 197, 444
-    networks_64 = parcellations["scale064"]
-    networks_197 = parcellations["scale197"]
-    networks_444 = parcellations["scale444"]
+    networks_64 = parcellations[0]["map"]
+    networks_197 = parcellations[1]["map"]
+    networks_444 = parcellations[2]["map"]
 
 
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/datasets/atlas.py:1467: FutureWarning: The default behavior of the function will be deprecated and replaced in release 0.13 to use the new parameters resolution and and version.
-      warnings.warn(
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Visualizing brain parcellations
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-51
+.. GENERATED FROM PYTHON SOURCE LINES 36-55
 
 .. code-block:: default
 
@@ -126,7 +123,7 @@ Visualizing brain parcellations
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  3.246 seconds)
+   **Total running time of the script:** ( 0 minutes  4.066 seconds)
 
 **Estimated memory usage:**  9 MB
 
