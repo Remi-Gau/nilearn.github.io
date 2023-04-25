@@ -92,7 +92,7 @@ Fit FREM
 
     from nilearn.decoding import FREMClassifier
 
-    decoder = FREMClassifier(cv=10)
+    decoder = FREMClassifier(cv=10, standardize="zscore_sample")
     # Fit model on train data and predict on test data
     decoder.fit(X_train, y_train)
     y_pred = decoder.predict(X_test)
@@ -107,19 +107,47 @@ Fit FREM
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    Features [15809] are constant.
 
-    FREM classification accuracy : 57.037%
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    invalid value encountered in divide
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    divide by zero encountered in divide
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
+
+    Features [15809] are constant.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    invalid value encountered in divide
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    divide by zero encountered in divide
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
+
+    Features [15809] are constant.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    invalid value encountered in divide
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
+
+    divide by zero encountered in divide
+
+    FREM classification accuracy : 57.7778%
 
 
 
@@ -218,7 +246,7 @@ FREMRegressor object is also available to solve regression problems.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 8 minutes  24.699 seconds)
+   **Total running time of the script:** ( 9 minutes  23.398 seconds)
 
 **Estimated memory usage:**  2014 MB
 

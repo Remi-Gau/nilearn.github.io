@@ -13,7 +13,7 @@
 <meta name="description" content="This example partly reproduces the encoding model presented in, Visual image reconstruction from human brain activity using a combination of multiscale local image decoders, Miyawaki, Y., Uchida, H..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Reconstruction of visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_reconstruction.html" /><link rel="prev" title="Example of pattern recognition on simulated data" href="plot_simulated_data.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.0 and Furo 2023.03.27 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
         <title>Encoding models for visual stimuli from Miyawaki et al. 2008 - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev109+g54aed730) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev110+g1b799410) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -243,8 +243,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -739,7 +739,7 @@ data, clean and mask it.</p>
 <span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMasker</span></a>
 
 <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMasker</span></a><span class="p">(</span>
-    <span class="n">mask_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">mask</span></a><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">mask_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">mask</span></a><span class="p">,</span> <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span>
 <span class="p">)</span>
 <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker.fit" title="nilearn.maskers.MultiNiftiMasker.fit" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit</span></a><span class="p">()</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker.transform" title="nilearn.maskers.MultiNiftiMasker.transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_random_runs_filenames</span></a><span class="p">)</span>
@@ -757,11 +757,6 @@ data, clean and mask it.</p>
             <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="p">)</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 </pre></div>
 </div>
 <p>Let’s take a look at some of these binary images:</p>
@@ -1010,7 +1005,7 @@ set of regression coefficients.</p>
 &#39;normalize&#39; was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
 
 
-&lt;matplotlib.colorbar.Colorbar object at 0x7f5d9d37cbe0&gt;
+&lt;matplotlib.colorbar.Colorbar object at 0x7f11c8838dc0&gt;
 </pre></div>
 </div>
 <p>The receptive fields of the four voxels are not only close to each other,
@@ -1018,8 +1013,8 @@ the relative location of the pixel each voxel is most sensitive to
 roughly maps to the relative location of the voxels to each other.
 We can see a relationship between some voxel’s receptive field and
 its location in the brain.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  25.677 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  416 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.488 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  446 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-encoding-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_miyawaki_encoding.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

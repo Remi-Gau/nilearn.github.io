@@ -126,7 +126,7 @@ class:`nilearn.decoding.Decoder` and specify the classifier.
 
 We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-117
+.. GENERATED FROM PYTHON SOURCE LINES 77-125
 
 .. code-block:: default
 
@@ -140,7 +140,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
         print(f"Working on {mask_name}")
         # For decoding, standardizing is often very important
         mask_filename = haxby_dataset[mask_name][0]
-        masker = NiftiMasker(mask_img=mask_filename, standardize=True)
+        masker = NiftiMasker(mask_img=mask_filename, standardize="zscore_sample")
         mask_scores[mask_name] = {}
         mask_chance_scores[mask_name] = {}
 
@@ -151,7 +151,11 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
             # With the decoder we can input the masker directly.
             # We are using the svc_l1 here because it is intra subject.
             decoder = Decoder(
-                estimator="svc_l1", cv=cv, mask=masker, scoring="roc_auc"
+                estimator="svc_l1",
+                cv=cv,
+                mask=masker,
+                scoring="roc_auc",
+                standardize="zscore_sample",
             )
             decoder.fit(task_data, classification_target, groups=session_labels)
             mask_scores[mask_name][category] = decoder.cv_scores_[1]
@@ -160,7 +164,11 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
             print(f"Scores: {mean:1.2f} +- {std:1.2f}")
 
             dummy_classifier = Decoder(
-                estimator="dummy_classifier", cv=cv, mask=masker, scoring="roc_auc"
+                estimator="dummy_classifier",
+                cv=cv,
+                mask=masker,
+                scoring="roc_auc",
+                standardize="zscore_sample",
             )
             dummy_classifier.fit(
                 task_data, classification_target, groups=session_labels
@@ -184,154 +192,86 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.92 +- 0.05
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt face
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.98 +- 0.03
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt cat
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.96 +- 0.04
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt shoe
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.92 +- 0.07
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt house
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 1.00 +- 0.00
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt scrambledpix
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.99 +- 0.01
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt bottle
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.89 +- 0.08
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Processing mask_vt chair
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Scores: 0.93 +- 0.04
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     Working on mask_face
     Processing mask_face scissors
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -346,10 +286,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -362,10 +298,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -380,10 +312,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -396,10 +324,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -414,10 +338,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -430,10 +350,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -448,10 +364,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -464,10 +376,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -482,10 +390,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -498,10 +402,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -516,10 +416,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -533,10 +429,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -545,14 +437,10 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
-    Scores: 0.67 +- 0.17
+    Scores: 0.68 +- 0.17
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -567,10 +455,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -583,10 +467,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -602,10 +482,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -614,10 +490,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -628,10 +500,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -640,10 +508,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -654,10 +518,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -666,10 +526,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -680,10 +536,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -692,10 +544,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -706,10 +554,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -718,10 +562,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -732,10 +572,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -744,10 +580,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -758,10 +590,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -770,10 +598,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
@@ -784,10 +608,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -797,10 +617,6 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:215: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
@@ -809,12 +625,12 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 126-128
 
 We make a simple bar plot to summarize the results
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-159
+.. GENERATED FROM PYTHON SOURCE LINES 128-167
 
 .. code-block:: default
 
@@ -872,9 +688,9 @@ We make a simple bar plot to summarize the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  44.719 seconds)
+   **Total running time of the script:** ( 2 minutes  16.311 seconds)
 
-**Estimated memory usage:**  1354 MB
+**Estimated memory usage:**  1343 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_full_analysis.py:

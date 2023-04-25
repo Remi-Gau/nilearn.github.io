@@ -140,7 +140,7 @@ on nested cross-validation.
         cv=5,
         mask=mask_img,
         smoothing_fwhm=4,
-        standardize=True,
+        standardize="zscore_sample",
         screening_percentile=2,
         param_grid=param_grid,
     )
@@ -199,19 +199,11 @@ excellent explanation of how cross-validation works.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     Fold 1 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9008264462809916
-    Fold 2 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9242424242424242
-    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.777056277056277
-    Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.8138528138528138
-    Fold 5 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.7619047619047619
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
+    Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
+    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7835497835497836
+    Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.8138528138528139
+    Fold 5 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.8463203463203463
 
 
 
@@ -237,7 +229,7 @@ Compute prediction scores with different values of screening percentile
             mask=mask_img,
             smoothing_fwhm=4,
             cv=3,
-            standardize=True,
+            standardize="zscore_sample",
             screening_percentile=sp,
             param_grid=param_grid,
         )
@@ -263,67 +255,43 @@ Compute prediction scores with different values of screening percentile
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 2.000
-    Mean CV score: 0.8211
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Validation score: 0.5000
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    Sreening Percentile: 4.000
-    Mean CV score: 0.8493
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
+    Mean CV score: 0.8111
     Validation score: 0.3889
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Sreening Percentile: 8.000
-    Mean CV score: 0.8581
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
+    Sreening Percentile: 4.000
+    Mean CV score: 0.8533
     Validation score: 0.5556
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+    Sreening Percentile: 8.000
+    Mean CV score: 0.8826
+    Validation score: 0.6111
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
     Sreening Percentile: 16.000
-    Mean CV score: 0.8815
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Validation score: 0.3333
+    Mean CV score: 0.8615
+    Validation score: 0.6111
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 32.000
-    Mean CV score: 0.8537
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Validation score: 0.5000
+    Mean CV score: 0.8641
+    Validation score: 0.3889
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 64.000
-    Mean CV score: 0.8696
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Validation score: 0.3333
+    Mean CV score: 0.8748
+    Validation score: 0.4444
 
 
 
@@ -355,7 +323,7 @@ pipeline.
                 mask=mask_img,
                 smoothing_fwhm=4,
                 cv=3,
-                standardize=True,
+                standardize="zscore_sample",
                 screening_percentile=sp,
                 param_grid=param_grid,
             )
@@ -379,18 +347,6 @@ pipeline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -399,9 +355,9 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    Liblinear failed to converge, increase the number of iterations.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
@@ -423,14 +379,6 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
-
-    Liblinear failed to converge, increase the number of iterations.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -447,14 +395,6 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
-
-    Liblinear failed to converge, increase the number of iterations.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -463,107 +403,63 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1244: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    Nested CV score: 0.6481
+    Nested CV score: 0.6991
 
 
 
@@ -610,7 +506,7 @@ Plot the prediction scores using matplotlib
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  11.310 seconds)
+   **Total running time of the script:** ( 2 minutes  44.629 seconds)
 
 **Estimated memory usage:**  916 MB
 

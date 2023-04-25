@@ -460,7 +460,7 @@ analyses.
         coords,
         radius=8,
         detrend=True,
-        standardize=True,
+        standardize="zscore_sample",
         low_pass=None,
         high_pass=None,
         t_r=None,
@@ -472,7 +472,7 @@ analyses.
     brain_masker = NiftiMasker(
         smoothing_fwhm=6,
         detrend=True,
-        standardize=True,
+        standardize="zscore_sample",
         low_pass=None,
         high_pass=None,
         t_r=None,
@@ -550,19 +550,6 @@ analyses.
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-
 
 
 
@@ -576,9 +563,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  33.781 seconds)
+   **Total running time of the script:** ( 1 minutes  26.759 seconds)
 
-**Estimated memory usage:**  234 MB
+**Estimated memory usage:**  233 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_beta_series.py:

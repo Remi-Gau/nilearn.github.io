@@ -103,7 +103,7 @@ Loading the data
 Training the decoder
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-108
+.. GENERATED FROM PYTHON SOURCE LINES 66-111
 
 .. code-block:: default
 
@@ -132,7 +132,10 @@ Training the decoder
 
         # The decoder has as default score the `roc_auc`
         decoder = Decoder(
-            estimator=classifier_name, mask=mask_filename, standardize=True, cv=cv
+            estimator=classifier_name,
+            mask=mask_filename,
+            standardize="zscore_sample",
+            cv=cv,
         )
         t0 = time.time()
         decoder.fit(fmri_niimgs, classification_target, groups=session_labels)
@@ -162,11 +165,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    logistic_l1: 14.27s
+    logistic_l1: 12.60s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.02
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -180,11 +179,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    logistic_l2: 45.24s
+    logistic_l2: 47.72s
         scissors       vs all -- AUC: 0.91 +- 0.08
         face           vs all -- AUC: 0.97 +- 0.04
         cat            vs all -- AUC: 0.97 +- 0.03
@@ -198,11 +193,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    ridge_classifier: 18.36s
+    ridge_classifier: 15.27s
         scissors       vs all -- AUC: 0.94 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.02
         cat            vs all -- AUC: 0.95 +- 0.04
@@ -216,11 +207,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    svc_l1    : 30.16s
+    svc_l1    : 28.40s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.03
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -234,11 +221,7 @@ Training the decoder
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    svc_l2    : 75.42s
+    svc_l2    : 88.20s
         scissors       vs all -- AUC: 0.90 +- 0.09
         face           vs all -- AUC: 0.96 +- 0.05
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -251,12 +234,12 @@ Training the decoder
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-111
+.. GENERATED FROM PYTHON SOURCE LINES 112-114
 
 Visualization
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-146
+.. GENERATED FROM PYTHON SOURCE LINES 114-149
 
 .. code-block:: default
 
@@ -307,21 +290,21 @@ Visualization
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-151
+.. GENERATED FROM PYTHON SOURCE LINES 150-154
 
 We can see that for a fixed penalty the results are similar between the svc
 and the logistic regression. The main difference relies on the penalty
 ($\ell_1$ and $\ell_2$). The sparse penalty works better because we are in
 an intra-subject setting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-157
+.. GENERATED FROM PYTHON SOURCE LINES 156-160
 
 Visualizing the face vs house map
 ---------------------------------
 
 Restrict the decoding to face vs house
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-175
+.. GENERATED FROM PYTHON SOURCE LINES 160-181
 
 .. code-block:: default
 
@@ -336,7 +319,10 @@ Restrict the decoding to face vs house
 
     for classifier_name in sorted(classifiers):
         decoder = Decoder(
-            estimator=classifier_name, mask=mask_filename, standardize=True, cv=cv
+            estimator=classifier_name,
+            mask=mask_filename,
+            standardize="zscore_sample",
+            cv=cv,
         )
         decoder.fit(fmri_niimgs_condition, stimuli, groups=session_labels)
         classifiers_data[classifier_name] = {}
@@ -355,52 +341,32 @@ Restrict the decoding to face vs house
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 176-178
+.. GENERATED FROM PYTHON SOURCE LINES 182-184
 
 Finally, we plot the face vs house map for the different classifiers
 Use the average EPI as a background
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-197
+.. GENERATED FROM PYTHON SOURCE LINES 184-203
 
 .. code-block:: default
 
@@ -471,9 +437,9 @@ Use the average EPI as a background
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 3 minutes  31.629 seconds)
+   **Total running time of the script:** ( 3 minutes  35.574 seconds)
 
-**Estimated memory usage:**  1318 MB
+**Estimated memory usage:**  1335 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_different_estimators.py:

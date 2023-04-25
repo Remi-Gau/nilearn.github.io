@@ -58,7 +58,7 @@ We study only 60 subjects from the dataset, to save computation time.
 
 We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-52
+.. GENERATED FROM PYTHON SOURCE LINES 29-53
 
 .. code-block:: default
 
@@ -76,6 +76,7 @@ We use probabilistic regions of interest (ROIs) from the MSDL atlas.
         high_pass=0.01,
         memory="nilearn_cache",
         memory_level=1,
+        standardize="zscore_sample",
     ).fit()
 
     masked_data = [
@@ -221,7 +222,7 @@ We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-58
+.. GENERATED FROM PYTHON SOURCE LINES 54-59
 
 What kind of connectivity is most powerful for classification?
 --------------------------------------------------------------
@@ -229,7 +230,7 @@ we will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-83
+.. GENERATED FROM PYTHON SOURCE LINES 59-84
 
 .. code-block:: default
 
@@ -265,13 +266,13 @@ compare the different kinds of connectivity matrices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-87
+.. GENERATED FROM PYTHON SOURCE LINES 85-88
 
 We use random splits of the subjects into training/testing sets.
 StratifiedShuffleSplit allows preserving the proportion of children in the
 test set.
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-107
+.. GENERATED FROM PYTHON SOURCE LINES 88-108
 
 .. code-block:: default
 
@@ -308,11 +309,11 @@ test set.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-109
+.. GENERATED FROM PYTHON SOURCE LINES 109-110
 
 display the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-122
+.. GENERATED FROM PYTHON SOURCE LINES 110-123
 
 .. code-block:: default
 
@@ -341,7 +342,7 @@ display the results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-130
+.. GENERATED FROM PYTHON SOURCE LINES 124-131
 
 This is a small example to showcase nilearn features. In practice such
 comparisons need to be performed on much larger cohorts and several
@@ -351,7 +352,7 @@ datasets.
 Showed that across many cohorts and clinical questions, the tangent
 kind should be preferred.
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-132
+.. GENERATED FROM PYTHON SOURCE LINES 131-133
 
 .. code-block:: default
 
@@ -367,9 +368,9 @@ kind should be preferred.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  41.156 seconds)
+   **Total running time of the script:** ( 1 minutes  32.249 seconds)
 
-**Estimated memory usage:**  1262 MB
+**Estimated memory usage:**  1254 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_age_group_prediction_cross_val.py:

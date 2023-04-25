@@ -93,7 +93,7 @@ To extract regions time series, we instantiate a
 :class:`nilearn.maskers.NiftiMapsMasker` object and pass the atlas the
 file name to it, as well as filtering band-width and detrending option.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-57
+.. GENERATED FROM PYTHON SOURCE LINES 44-58
 
 .. code-block:: default
 
@@ -108,6 +108,7 @@ file name to it, as well as filtering band-width and detrending option.
         high_pass=0.01,
         memory="nilearn_cache",
         memory_level=1,
+        standardize="zscore_sample",
     ).fit()
 
 
@@ -117,11 +118,11 @@ file name to it, as well as filtering band-width and detrending option.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-59
+.. GENERATED FROM PYTHON SOURCE LINES 59-60
 
 Then we compute region signals and extract useful phenotypic information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-75
+.. GENERATED FROM PYTHON SOURCE LINES 60-76
 
 .. code-block:: default
 
@@ -274,7 +275,7 @@ Then we compute region signals and extract useful phenotypic information.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 77-82
 
 ROI-to-ROI correlations of children
 -----------------------------------
@@ -282,7 +283,7 @@ The simpler and most commonly used kind of connectivity is correlation. It
 models the full (marginal) connectivity between pairwise ROIs. We can
 estimate it using :class:`nilearn.connectome.ConnectivityMeasure`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-85
+.. GENERATED FROM PYTHON SOURCE LINES 82-86
 
 .. code-block:: default
 
@@ -297,12 +298,12 @@ estimate it using :class:`nilearn.connectome.ConnectivityMeasure`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 87-89
 
 From the list of ROIs time-series for children, the
 `correlation_measure` computes individual correlation matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-97
+.. GENERATED FROM PYTHON SOURCE LINES 89-98
 
 .. code-block:: default
 
@@ -424,11 +425,11 @@ From the list of ROIs time-series for children, the
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 99-100
 
 as well as the average correlation across all fitted subjects.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-104
+.. GENERATED FROM PYTHON SOURCE LINES 100-105
 
 .. code-block:: default
 
@@ -450,11 +451,11 @@ as well as the average correlation across all fitted subjects.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-106
+.. GENERATED FROM PYTHON SOURCE LINES 106-107
 
 We display the connectome matrices of the first 3 children
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-117
+.. GENERATED FROM PYTHON SOURCE LINES 107-118
 
 .. code-block:: default
 
@@ -481,15 +482,15 @@ We display the connectome matrices of the first 3 children
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-119
+.. GENERATED FROM PYTHON SOURCE LINES 119-120
 
 The blocks structure that reflect functional networks are visible.
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-122
+.. GENERATED FROM PYTHON SOURCE LINES 122-123
 
 Now we display as a connectome the mean correlation matrix over all children.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-128
+.. GENERATED FROM PYTHON SOURCE LINES 123-129
 
 .. code-block:: default
 
@@ -513,18 +514,18 @@ Now we display as a connectome the mean correlation matrix over all children.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f5d9d3da2b0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f11c773c610>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-133
+.. GENERATED FROM PYTHON SOURCE LINES 130-134
 
 Studying partial correlations
 -----------------------------
 We can also study **direct connections**, revealed by partial correlation
 coefficients. We just change the `ConnectivityMeasure` kind
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-138
+.. GENERATED FROM PYTHON SOURCE LINES 134-139
 
 .. code-block:: default
 
@@ -540,11 +541,11 @@ coefficients. We just change the `ConnectivityMeasure` kind
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-140
+.. GENERATED FROM PYTHON SOURCE LINES 140-141
 
 Most of direct connections are weaker than full connections.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-150
+.. GENERATED FROM PYTHON SOURCE LINES 141-151
 
 .. code-block:: default
 
@@ -570,7 +571,7 @@ Most of direct connections are weaker than full connections.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-157
+.. GENERATED FROM PYTHON SOURCE LINES 152-158
 
 .. code-block:: default
 
@@ -594,11 +595,11 @@ Most of direct connections are weaker than full connections.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f5d9d552c70>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f11baee7970>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-163
+.. GENERATED FROM PYTHON SOURCE LINES 159-164
 
 Extract subjects variabilities around a group connectivity
 ----------------------------------------------------------
@@ -606,7 +607,7 @@ We can use **both** correlations and partial correlations to capture
 reproducible connectivity patterns at the group-level.
 This is done by the tangent space embedding.
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-165
+.. GENERATED FROM PYTHON SOURCE LINES 164-166
 
 .. code-block:: default
 
@@ -619,13 +620,13 @@ This is done by the tangent space embedding.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-169
+.. GENERATED FROM PYTHON SOURCE LINES 167-170
 
 We fit our children group and get the group connectivity matrix stored as
 in `tangent_measure.mean_`, and individual deviation matrices of each subject
 from it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-171
+.. GENERATED FROM PYTHON SOURCE LINES 170-172
 
 .. code-block:: default
 
@@ -638,7 +639,7 @@ from it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 172-177
+.. GENERATED FROM PYTHON SOURCE LINES 173-178
 
 `tangent_matrices` model individual connectivities as
 **perturbations** of the group connectivity matrix `tangent_measure.mean_`.
@@ -646,7 +647,7 @@ Keep in mind that these subjects-to-group variability matrices do not
 directly reflect individual brain connections. For instance negative
 coefficients can not be interpreted as anticorrelated regions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-188
+.. GENERATED FROM PYTHON SOURCE LINES 178-189
 
 .. code-block:: default
 
@@ -673,12 +674,12 @@ coefficients can not be interpreted as anticorrelated regions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-191
+.. GENERATED FROM PYTHON SOURCE LINES 190-192
 
 The average tangent matrix cannot be interpreted, as individual matrices
 represent deviations from the mean, which is set to 0.
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-201
+.. GENERATED FROM PYTHON SOURCE LINES 194-202
 
 What kind of connectivity is most powerful for classification?
 --------------------------------------------------------------
@@ -689,7 +690,7 @@ We use random splits of the subjects into training/testing sets.
 StratifiedShuffleSplit allows preserving the proportion of children in the
 test set.
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-230
+.. GENERATED FROM PYTHON SOURCE LINES 202-231
 
 .. code-block:: default
 
@@ -2534,11 +2535,11 @@ test set.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-232
+.. GENERATED FROM PYTHON SOURCE LINES 232-233
 
 display the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-248
+.. GENERATED FROM PYTHON SOURCE LINES 233-249
 
 .. code-block:: default
 
@@ -2570,7 +2571,7 @@ display the results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 249-256
+.. GENERATED FROM PYTHON SOURCE LINES 250-257
 
 This is a small example to showcase nilearn features. In practice such
 comparisons need to be performed on much larger cohorts and several
@@ -2580,7 +2581,7 @@ datasets.
 Showed that across many cohorts and clinical questions, the tangent
 kind should be preferred.
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-258
+.. GENERATED FROM PYTHON SOURCE LINES 257-259
 
 .. code-block:: default
 
@@ -2596,9 +2597,9 @@ kind should be preferred.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  38.047 seconds)
+   **Total running time of the script:** ( 1 minutes  15.933 seconds)
 
-**Estimated memory usage:**  1269 MB
+**Estimated memory usage:**  1270 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_group_level_connectivity.py:

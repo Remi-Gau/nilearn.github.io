@@ -108,7 +108,7 @@ data, clean and mask it.
     from nilearn.maskers import MultiNiftiMasker
 
     masker = MultiNiftiMasker(
-        mask_img=dataset.mask, detrend=True, standardize=True
+        mask_img=dataset.mask, detrend=True, standardize="zscore_sample"
     )
     masker.fit()
     fmri_data = masker.transform(fmri_random_runs_filenames)
@@ -129,15 +129,6 @@ data, clean and mask it.
 
 
 
-
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
 
 
@@ -524,7 +515,7 @@ set of regression coefficients.
     'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
 
 
-    <matplotlib.colorbar.Colorbar object at 0x7f5d9d37cbe0>
+    <matplotlib.colorbar.Colorbar object at 0x7f11c8838dc0>
 
 
 
@@ -539,9 +530,9 @@ its location in the brain.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  25.677 seconds)
+   **Total running time of the script:** ( 0 minutes  18.488 seconds)
 
-**Estimated memory usage:**  416 MB
+**Estimated memory usage:**  446 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_miyawaki_encoding.py:

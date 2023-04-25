@@ -11,9 +11,9 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example shows how to produce seed-to- voxel correlation maps for a single subject based on movie-watching fMRI scans. These maps depict the temporal correlation of a seed region with the rest ..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Group Sparse inverse covariance for multi-subject connectome" href="plot_multi_subject_connectome.html" /><link rel="prev" title="Deriving spatial maps from group fMRI data using ICA and Dictionary Learning" href="plot_compare_decomposition.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Deriving spatial maps from group fMRI data using ICA and Dictionary Learning" href="plot_compare_decomposition.html" /><link rel="prev" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.0 and Furo 2023.03.27 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.03.27 -->
         <title>Producing single subject maps of seed-to-voxel correlation - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?digest=fad236701ea90a88636c2a8c73b44ae642ed2a53" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.1rc2.dev109+g54aed730) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.1rc2.dev110+g1b799410) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -243,8 +243,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -751,7 +751,7 @@ This will create a NiftiSpheresMasker object.</p>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_coords</span></a><span class="p">,</span>
     <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
     <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">low_pass</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
     <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
     <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -782,7 +782,7 @@ arguments as in the seed_masker in addition to smoothing with a 6 mm kernel</p>
 <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">brain_masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a><span class="p">(</span>
     <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
     <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">standardize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">low_pass</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
     <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
     <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -866,7 +866,7 @@ values can potentially range between -1 and 1.</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Seed-to-voxel correlation shape: (32504, 1)
-Seed-to-voxel correlation: min = -0.646; max = 0.960
+Seed-to-voxel correlation: min = -0.642; max = 0.954
 </pre></div>
 </div>
 </section>
@@ -909,7 +909,7 @@ The transformed array can now have values more extreme than +/- 1.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Seed-to-voxel correlation Fisher-z transformed: min = -0.768; max = 1.941f
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Seed-to-voxel correlation Fisher-z transformed: min = -0.762; max = 1.874f
 </pre></div>
 </div>
 <p>Eventually, we can transform the correlation array back to a Nifti image
@@ -922,8 +922,8 @@ object, that we can save.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.651 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  723 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.578 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  726 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-seed-to-voxel-correlation-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_seed_to_voxel_correlation.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -944,23 +944,23 @@ object, that we can save.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_multi_subject_connectome.html">
+          <a class="next-page" href="plot_compare_decomposition.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Group Sparse inverse covariance for multi-subject connectome</div>
+                <div class="title">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_compare_decomposition.html">
+          <a class="prev-page" href="plot_simulated_connectome.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</div>
+                <div class="title">Connectivity structure estimation on simulated data</div>
                 
               </div>
             </a>

@@ -133,7 +133,7 @@ Extract coordinates on Yeo atlas - parcellations
     # computation
     masker = MultiNiftiLabelsMasker(
         labels_img=yeo["thick_17"],
-        standardize=True,
+        standardize="zscore_sample",
         memory="nilearn_cache",
         n_jobs=2,
     )
@@ -213,7 +213,7 @@ Extract coordinates on Yeo atlas - parcellations
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f5da9973940>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f11c438fa90>
 
 
 
@@ -322,7 +322,7 @@ Load probabilistic atlases - extracting coordinates on brain maps
 Iterate over fetched atlases to extract coordinates - probabilistic
 -------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-183
+.. GENERATED FROM PYTHON SOURCE LINES 151-186
 
 .. code-block:: default
 
@@ -332,7 +332,10 @@ Iterate over fetched atlases to extract coordinates - probabilistic
     # atlas parcels from multiple subjects using parallelization to speed up the
     # # computation
     masker = MultiNiftiMapsMasker(
-        maps_img=difumo.maps, standardize=True, memory="nilearn_cache", n_jobs=2
+        maps_img=difumo.maps,
+        standardize="zscore_sample",
+        memory="nilearn_cache",
+        n_jobs=2,
     )
 
     # extract time series from all subjects
@@ -422,9 +425,9 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  9.800 seconds)
+   **Total running time of the script:** ( 1 minutes  58.641 seconds)
 
-**Estimated memory usage:**  1724 MB
+**Estimated memory usage:**  1638 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_atlas_comparison.py:
