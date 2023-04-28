@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_06_manipulating_images_plot_resample_to_template.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_06_manipulating_images_plot_resample_to_template.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -30,30 +30,31 @@ Function :func:`nilearn.image.resample_img` could also be used to achieve this.
 
 First we load the required datasets using the nilearn datasets module.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-21
+.. GENERATED FROM PYTHON SOURCE LINES 13-22
 
 .. code-block:: default
 
-    from nilearn.datasets import fetch_neurovault_motor_task
-    from nilearn.datasets import load_mni152_template
+    from nilearn.datasets import (
+        load_mni152_template,
+        load_sample_motor_activation_image,
+    )
 
-    template = load_mni152_template()
+    template = load_mni152_template(resolution=2)
 
-    motor_images = fetch_neurovault_motor_task()
-    stat_img = motor_images.images[0]
-
-
-
+    stat_img = load_sample_motor_activation_image()
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
 
-Now, the localizer t-map image can be resampled to the MNI template image.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-27
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-24
+
+Now, the motor contrast map image can be resampled to the MNI template image.
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-28
 
 .. code-block:: default
 
@@ -68,17 +69,18 @@ Now, the localizer t-map image can be resampled to the MNI template image.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 Let's check the shape and affine have been correctly updated.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-55
+.. GENERATED FROM PYTHON SOURCE LINES 30-64
 
 .. code-block:: default
 
 
     # First load the original t-map in memory:
     from nilearn.image import load_img
+
     tmap_img = load_img(stat_img)
 
     original_shape = tmap_img.shape
@@ -90,17 +92,24 @@ Let's check the shape and affine have been correctly updated.
     template_img = load_img(template)
     template_shape = template_img.shape
     template_affine = template_img.affine
-    print("""Shape comparison:
-    - Original t-map image shape : {0}
-    - Resampled t-map image shape: {1}
-    - Template image shape       : {2}
-    """.format(original_shape, resampled_shape, template_shape))
+    print(
+        f"""Shape comparison:
+    - Original t-map image shape : {original_shape}
+    - Resampled t-map image shape: {resampled_shape}
+    - Template image shape       : {template_shape}
+    """
+    )
 
-    print("""Affine comparison:
-    - Original t-map image affine :\n {0}
-    - Resampled t-map image affine:\n {1}
-    - Template image affine       :\n {2}
-    """.format(original_affine, resampled_affine, template_affine))
+    print(
+        f"""Affine comparison:
+    - Original t-map image affine :
+     {original_affine}
+    - Resampled t-map image affine:
+     {resampled_affine}
+    - Template image affine       :
+     {template_affine}
+    """
+    )
 
 
 
@@ -112,8 +121,8 @@ Let's check the shape and affine have been correctly updated.
 
     Shape comparison:
     - Original t-map image shape : (53, 63, 46)
-    - Resampled t-map image shape: (197, 233, 189)
-    - Template image shape       : (197, 233, 189)
+    - Resampled t-map image shape: (99, 117, 95)
+    - Template image shape       : (99, 117, 95)
 
     Affine comparison:
     - Original t-map image affine :
@@ -122,40 +131,44 @@ Let's check the shape and affine have been correctly updated.
      [   0.    0.    3.  -50.]
      [   0.    0.    0.    1.]]
     - Resampled t-map image affine:
-     [[   1.    0.    0.  -98.]
-     [   0.    1.    0. -134.]
-     [   0.    0.    1.  -72.]
+     [[   2.    0.    0.  -98.]
+     [   0.    2.    0. -134.]
+     [   0.    0.    2.  -72.]
      [   0.    0.    0.    1.]]
     - Template image affine       :
-     [[   1.    0.    0.  -98.]
-     [   0.    1.    0. -134.]
-     [   0.    0.    1.  -72.]
+     [[   2.    0.    0.  -98.]
+     [   0.    2.    0. -134.]
+     [   0.    0.    2.  -72.]
      [   0.    0.    0.    1.]]
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 65-66
 
 Finally, result images are displayed using nilearn plotting module.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-70
+.. GENERATED FROM PYTHON SOURCE LINES 66-83
 
 .. code-block:: default
 
     from nilearn import plotting
 
-    plotting.plot_stat_map(stat_img,
-                           bg_img=template,
-                           cut_coords=(36, -27, 66),
-                           threshold=3,
-                           title="t-map in original resolution")
-    plotting.plot_stat_map(resampled_stat_img,
-                           bg_img=template,
-                           cut_coords=(36, -27, 66),
-                           threshold=3,
-                           title="Resampled t-map")
+    plotting.plot_stat_map(
+        stat_img,
+        bg_img=template,
+        cut_coords=(36, -27, 66),
+        threshold=3,
+        title="t-map in original resolution",
+    )
+    plotting.plot_stat_map(
+        resampled_stat_img,
+        bg_img=template,
+        cut_coords=(36, -27, 66),
+        threshold=3,
+        title="Resampled t-map",
+    )
     plotting.show()
 
 
@@ -184,7 +197,7 @@ Finally, result images are displayed using nilearn plotting module.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.371 seconds)
+   **Total running time of the script:** ( 0 minutes  6.865 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -199,9 +212,11 @@ Finally, result images are displayed using nilearn plotting module.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_resample_to_template.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_resample_to_template.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

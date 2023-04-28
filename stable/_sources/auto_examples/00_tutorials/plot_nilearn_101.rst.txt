@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_00_tutorials_plot_nilearn_101.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_00_tutorials_plot_nilearn_101.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -33,7 +33,7 @@ basic nilearn functionalities.
     from nilearn.datasets import MNI152_FILE_PATH
 
     # Note that the variable MNI152_FILE_PATH is just a path to a Nifti file
-    print('Path to MNI152 template: %r' % MNI152_FILE_PATH)
+    print(f"Path to MNI152 template: {MNI152_FILE_PATH!r}")
 
 
 
@@ -55,11 +55,12 @@ A first step: looking at our data
 
 Let's quickly plot this file:
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-23
+.. GENERATED FROM PYTHON SOURCE LINES 20-24
 
 .. code-block:: default
 
     from nilearn import plotting
+
     plotting.plot_img(MNI152_FILE_PATH)
 
 
@@ -76,11 +77,11 @@ Let's quickly plot this file:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc1e5e30430>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb596c923b0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-32
+.. GENERATED FROM PYTHON SOURCE LINES 25-33
 
 This is not a very pretty plot. We just used the simplest possible
 code. There is a whole :ref:`section of the documentation <plotting>`
@@ -91,10 +92,10 @@ MNI152_FILE_PATH is nothing more than a string with a path pointing to
 a nifti image. You can replace it with a string pointing to a file on
 your disk. Note that it should be a 3D volume, and not a 4D volume.
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-43
+.. GENERATED FROM PYTHON SOURCE LINES 35-44
 
 Simple image manipulation: smoothing
--------------------------------------
+------------------------------------
 
 Let's use an image-smoothing function from nilearn:
 :func:`nilearn.image.smooth_img`
@@ -103,11 +104,12 @@ Functions containing 'img' can take either a filename or an image as input.
 
 Here we give as inputs the image filename and the smoothing value in mm
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-50
+.. GENERATED FROM PYTHON SOURCE LINES 44-52
 
 .. code-block:: default
 
     from nilearn import image
+
     smooth_anat_img = image.smooth_img(MNI152_FILE_PATH, fwhm=3)
 
     # While we are giving a file name as input, the function returns
@@ -123,16 +125,16 @@ Here we give as inputs the image filename and the smoothing value in mm
  .. code-block:: none
 
 
-    <nibabel.nifti1.Nifti1Image object at 0x7fc1e633e110>
+    <nibabel.nifti1.Nifti1Image object at 0x7fb5971f09a0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 This is an in-memory object. We can pass it to nilearn function, for
 instance to look at it
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 .. code-block:: default
 
@@ -152,15 +154,15 @@ instance to look at it
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc1e5e33d30>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb597305540>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 58-59
 
 We could also pass it to the smoothing function
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-60
+.. GENERATED FROM PYTHON SOURCE LINES 59-62
 
 .. code-block:: default
 
@@ -181,22 +183,22 @@ We could also pass it to the smoothing function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc1e63f51b0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb596c2b2e0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-65
+.. GENERATED FROM PYTHON SOURCE LINES 63-67
 
 Saving results to a file
 -------------------------
 
 We can save any in-memory object as follows:
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 .. code-block:: default
 
-    more_smooth_anat_img.to_filename('more_smooth_anat_img.nii.gz')
+    more_smooth_anat_img.to_filename("more_smooth_anat_img.nii.gz")
 
 
 
@@ -205,12 +207,12 @@ We can save any in-memory object as follows:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-70
+.. GENERATED FROM PYTHON SOURCE LINES 70-72
 
 Finally, calling plotting.show() is necessary to display the figure
 when running as a script outside IPython
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-72
+.. GENERATED FROM PYTHON SOURCE LINES 72-74
 
 .. code-block:: default
 
@@ -223,7 +225,7 @@ when running as a script outside IPython
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-80
+.. GENERATED FROM PYTHON SOURCE LINES 75-82
 
 |
 
@@ -236,9 +238,9 @@ passed on to other nilearn tools, or saved to disk.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.913 seconds)
+   **Total running time of the script:** ( 0 minutes  5.269 seconds)
 
-**Estimated memory usage:**  228 MB
+**Estimated memory usage:**  251 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_nilearn_101.py:
@@ -251,9 +253,11 @@ passed on to other nilearn tools, or saved to disk.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_nilearn_101.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_nilearn_101.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

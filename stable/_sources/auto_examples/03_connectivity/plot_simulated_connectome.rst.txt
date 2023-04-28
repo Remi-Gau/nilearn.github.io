@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_03_connectivity_plot_simulated_connectome.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_03_connectivity_plot_simulated_connectome.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -24,7 +24,7 @@ Connectivity structure estimation on simulated data
 This example shows a comparison of graph lasso and group-sparse covariance
 estimation of connectivity structure for a synthetic dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-83
+.. GENERATED FROM PYTHON SOURCE LINES 9-109
 
 
 
@@ -40,18 +40,18 @@ estimation of connectivity structure for a synthetic dataset.
 
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.5s finished
+    [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  0 out of 4
+    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.4s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  1 out of 4
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.4s finished
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  2 out of 4
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.5s finished
-    [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  3 out of 4
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.4s finished
-    [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  4 out of 4
+    [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  3 out of 4
     [GroupSparseCovarianceCV.fit] Final optimization
-    /home/yasmin/nilearn/nilearn/nilearn/connectome/group_sparse_cov.py:245: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/connectome/group_sparse_cov.py:270: UserWarning:
 
     input signals do not all have unit variance. This can lead to numerical instability.
 
@@ -77,7 +77,7 @@ estimation of connectivity structure for a synthetic dataset.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
     [GraphicalLassoCV] Done refinement  3 out of 4:   0s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
     [GraphicalLassoCV] Done refinement  4 out of 4:   0s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
@@ -91,17 +91,17 @@ estimation of connectivity structure for a synthetic dataset.
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
     [GraphicalLassoCV] Done refinement  4 out of 4:   0s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
-    [GraphicalLassoCV] Done refinement  1 out of 4:   0s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
-    [GraphicalLassoCV] Done refinement  2 out of 4:   0s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
-    [GraphicalLassoCV] Done refinement  3 out of 4:   0s
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
     [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
+    [GraphicalLassoCV] Done refinement  1 out of 4:   0s
+    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
+    [GraphicalLassoCV] Done refinement  2 out of 4:   0s
+    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.0s finished
+    [GraphicalLassoCV] Done refinement  3 out of 4:   0s
+    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
+    [Parallel(n_jobs=1)]: Done   5 out of   5 | elapsed:    0.1s finished
     [GraphicalLassoCV] Done refinement  4 out of 4:   0s
 
 
@@ -116,43 +116,58 @@ estimation of connectivity structure for a synthetic dataset.
 
     import matplotlib.pyplot as plt
 
-
     # Generate synthetic data
     from nilearn._utils.data_gen import generate_group_sparse_gaussian_graphs
     from nilearn.plotting import show
 
-    n_subjects = 20  # number of subjects
-    n_displayed = 3  # number of subjects displayed
-    subjects, precisions, topology = generate_group_sparse_gaussian_graphs(
-        n_subjects=n_subjects, n_features=10, min_n_samples=30, max_n_samples=50,
-        density=0.1)
+    n_subjects = 20
+    n_displayed = 3
+    subjects, precisions, _ = generate_group_sparse_gaussian_graphs(
+        n_subjects=n_subjects,
+        n_features=10,
+        min_n_samples=30,
+        max_n_samples=50,
+        density=0.1,
+    )
 
     from nilearn import plotting
+
     fig = plt.figure(figsize=(10, 7))
     plt.subplots_adjust(hspace=0.4)
     for n in range(n_displayed):
         ax = plt.subplot(n_displayed, 4, 4 * n + 1)
         max_precision = precisions[n].max()
-        plotting.plot_matrix(precisions[n], vmin=-max_precision,
-                             vmax=max_precision, axes=ax, colorbar=False)
+        plotting.plot_matrix(
+            precisions[n],
+            vmin=-max_precision,
+            vmax=max_precision,
+            axes=ax,
+            colorbar=False,
+        )
 
         if n == 0:
             plt.title("ground truth")
-        plt.ylabel("subject %d" % n)
+        plt.ylabel(f"subject {int(n)}")
 
 
     # Run group-sparse covariance on all subjects
     from nilearn.connectome import GroupSparseCovarianceCV
+
     gsc = GroupSparseCovarianceCV(max_iter=50, verbose=1)
     gsc.fit(subjects)
 
     for n in range(n_displayed):
         ax = plt.subplot(n_displayed, 4, 4 * n + 2)
         max_precision = gsc.precisions_[..., n].max()
-        plotting.plot_matrix(gsc.precisions_[..., n], axes=ax, vmin=-max_precision,
-                             vmax=max_precision, colorbar=False)
+        plotting.plot_matrix(
+            gsc.precisions_[..., n],
+            axes=ax,
+            vmin=-max_precision,
+            vmax=max_precision,
+            colorbar=False,
+        )
         if n == 0:
-            plt.title("group-sparse\n$\\alpha=%.2f$" % gsc.alpha_)
+            plt.title(f"group-sparse\n$\\alpha={gsc.alpha_:.2f}$")
 
 
     # Fit one graph lasso per subject
@@ -169,29 +184,40 @@ estimation of connectivity structure for a synthetic dataset.
 
         ax = plt.subplot(n_displayed, 4, 4 * n + 3)
         max_precision = gl.precision_.max()
-        plotting.plot_matrix(gl.precision_, axes=ax, vmin=-max_precision,
-                             vmax=max_precision, colorbar=False)
+        plotting.plot_matrix(
+            gl.precision_,
+            axes=ax,
+            vmin=-max_precision,
+            vmax=max_precision,
+            colorbar=False,
+        )
         if n == 0:
             plt.title("graph lasso")
-        plt.ylabel("$\\alpha=%.2f$" % gl.alpha_)
+        plt.ylabel(f"$\\alpha={gl.alpha_:.2f}$")
 
 
     # Fit one graph lasso for all subjects at once
     import numpy as np
+
     gl.fit(np.concatenate(subjects))
 
     ax = plt.subplot(n_displayed, 4, 4)
     max_precision = gl.precision_.max()
-    plotting.plot_matrix(gl.precision_, axes=ax, vmin=-max_precision,
-                         vmax=max_precision, colorbar=False)
-    plt.title("graph lasso, all subjects\n$\\alpha=%.2f$" % gl.alpha_)
+    plotting.plot_matrix(
+        gl.precision_,
+        axes=ax,
+        vmin=-max_precision,
+        vmax=max_precision,
+        colorbar=False,
+    )
+    plt.title(f"graph lasso, all subjects\n$\\alpha={gl.alpha_:.2f}$")
 
     show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.107 seconds)
+   **Total running time of the script:** ( 0 minutes  3.893 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -206,9 +232,11 @@ estimation of connectivity structure for a synthetic dataset.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_simulated_connectome.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_simulated_connectome.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_07_advanced_plot_localizer_simple_analysis.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_07_advanced_plot_localizer_simple_analysis.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -32,16 +32,16 @@ variates.  The user can refer to the
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-25
+.. GENERATED FROM PYTHON SOURCE LINES 17-24
 
 .. code-block:: default
 
     # Author: Virgile Fritsch, <virgile.fritsch@inria.fr>, May. 2014
-    import numpy as np
     import matplotlib.pyplot as plt
+    import numpy as np
     from nilearn import datasets
-    from nilearn.maskers import NiftiMasker
     from nilearn.image import get_data
+    from nilearn.maskers import NiftiMasker
 
 
 
@@ -50,12 +50,11 @@ variates.  The user can refer to the
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Load Localizer contrast
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-34
+.. GENERATED FROM PYTHON SOURCE LINES 26-32
 
 .. code-block:: default
 
@@ -72,18 +71,17 @@ Load Localizer contrast
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 35-36
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
 
 Mask data
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-43
+.. GENERATED FROM PYTHON SOURCE LINES 34-40
 
 .. code-block:: default
 
     nifti_masker = NiftiMasker(
-        smoothing_fwhm=5,
-        memory='nilearn_cache', memory_level=1)  # cache options
+        smoothing_fwhm=5, memory="nilearn_cache", memory_level=1
+    )
     cmap_filenames = localizer_dataset.cmaps
     fmri_masked = nifti_masker.fit_transform(cmap_filenames)
 
@@ -94,24 +92,25 @@ Mask data
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 44-45
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Anova (parametric F-scores)
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-55
+.. GENERATED FROM PYTHON SOURCE LINES 42-54
 
 .. code-block:: default
 
     from sklearn.feature_selection import f_regression
-    _, pvals_anova = f_regression(fmri_masked, tested_var,
-                                  center=False)  # do not remove intercept
+
+    # Center=False is used to not remove intercept
+    _, pvals_anova = f_regression(fmri_masked, tested_var, center=False)
     pvals_anova *= fmri_masked.shape[1]
     pvals_anova[np.isnan(pvals_anova)] = 1
     pvals_anova[pvals_anova > 1] = 1
-    neg_log_pvals_anova = - np.log10(pvals_anova)
+    neg_log_pvals_anova = -np.log10(pvals_anova)
     neg_log_pvals_anova_unmasked = nifti_masker.inverse_transform(
-        neg_log_pvals_anova)
+        neg_log_pvals_anova
+    )
 
 
 
@@ -129,34 +128,39 @@ Anova (parametric F-scores)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-57
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-81
+.. GENERATED FROM PYTHON SOURCE LINES 56-85
 
 .. code-block:: default
 
     from nilearn.plotting import plot_stat_map, show
 
     # Various plotting parameters
-    z_slice = 45  # plotted slice
-
-    threshold = - np.log10(0.1)  # 10% corrected
+    plotted_slice = 45
+    threshold = -np.log10(0.1)  # 10% corrected
 
     # Plot Anova p-values
-    fig = plt.figure(figsize=(5, 6), facecolor='w')
-    display = plot_stat_map(neg_log_pvals_anova_unmasked,
-                            threshold=threshold,
-                            display_mode='z', cut_coords=[z_slice],
-                            figure=fig)
+    fig = plt.figure(figsize=(5, 6), facecolor="w")
+    display = plot_stat_map(
+        neg_log_pvals_anova_unmasked,
+        threshold=threshold,
+        display_mode="z",
+        cut_coords=[plotted_slice],
+        figure=fig,
+    )
 
-    masked_pvals = np.ma.masked_less(get_data(neg_log_pvals_anova_unmasked),
-                                     threshold)
+    masked_pvals = np.ma.masked_less(
+        get_data(neg_log_pvals_anova_unmasked), threshold
+    )
 
-    title = ('Negative $\\log_{10}$ p-values'
-             '\n(Parametric + Bonferroni correction)'
-             '\n%d detections' % (~masked_pvals.mask).sum())
+    title = (
+        "Negative $\\log_{10}$ p-values"
+        "\n(Parametric + Bonferroni correction)"
+        "\n%d detections" % (~masked_pvals.mask).sum()
+    )
 
     display.title(title, y=1.1, alpha=0.8)
 
@@ -176,9 +180,9 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  8.980 seconds)
+   **Total running time of the script:** ( 0 minutes  6.445 seconds)
 
-**Estimated memory usage:**  141 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_localizer_simple_analysis.py:
@@ -191,9 +195,11 @@ Visualization
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_localizer_simple_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_localizer_simple_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

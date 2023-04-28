@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_06_manipulating_images_plot_affine_transformation.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_06_manipulating_images_plot_affine_transformation.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -62,7 +62,7 @@ bounding box shape).
 
 First make a simple synthetic image
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-83
+.. GENERATED FROM PYTHON SOURCE LINES 46-94
 
 .. code-block:: default
 
@@ -72,17 +72,25 @@ First make a simple synthetic image
     from nilearn.image import get_data
 
     grid = np.mgrid[0:192, 0:128]
-    circle = np.sum(
-        (grid - np.array([32, 32])[:, np.newaxis, np.newaxis]) ** 2,
-        axis=0) < 256
-    diamond = np.sum(
-        np.abs(grid - np.array([128, 80])[:, np.newaxis, np.newaxis]),
-        axis=0) < 16
-    rectangle = np.max(np.abs(
-        grid - np.array([64, 96])[:, np.newaxis, np.newaxis]), axis=0) < 16
+    circle = (
+        np.sum((grid - np.array([32, 32])[:, np.newaxis, np.newaxis]) ** 2, axis=0)
+        < 256
+    )
+    diamond = (
+        np.sum(
+            np.abs(grid - np.array([128, 80])[:, np.newaxis, np.newaxis]), axis=0
+        )
+        < 16
+    )
+    rectangle = (
+        np.max(
+            np.abs(grid - np.array([64, 96])[:, np.newaxis, np.newaxis]), axis=0
+        )
+        < 16
+    )
 
     image = np.zeros_like(circle)
-    image[16:160, 16:120] = 1.
+    image[16:160, 16:120] = 1.0
     image = image + 2 * circle + 3 * rectangle + 4 * diamond + 1
 
     vmax = image.max()
@@ -94,14 +102,17 @@ First make a simple synthetic image
 
     # Rotate it slightly
     angle = np.pi / 180 * 15
-    rotation_matrix = np.array([[np.cos(angle), -np.sin(angle)],
-                                [np.sin(angle), np.cos(angle)]])
+    rotation_matrix = np.array(
+        [[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]]
+    )
     source_affine[:2, :2] = rotation_matrix * 2.0  # 2.0mm voxel size
 
     # We need to turn this data into a nibabel image
     import nibabel
-    img = nibabel.Nifti1Image(image[:, :, np.newaxis].astype("int32"),
-                              affine=source_affine)
+
+    img = nibabel.Nifti1Image(
+        image[:, :, np.newaxis].astype("int32"), affine=source_affine
+    )
 
 
 
@@ -110,36 +121,39 @@ First make a simple synthetic image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 95-96
 
 Now resample the image
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-108
+.. GENERATED FROM PYTHON SOURCE LINES 96-122
 
 .. code-block:: default
 
     from nilearn.image import resample_img
-    img_in_mm_space = resample_img(img, target_affine=np.eye(4),
-                                   target_shape=(512, 512, 1))
+
+    img_in_mm_space = resample_img(
+        img, target_affine=np.eye(4), target_shape=(512, 512, 1)
+    )
 
     target_affine_3x3 = np.eye(3) * 2
     target_affine_4x4 = np.eye(4) * 2
-    target_affine_4x4[3, 3] = 1.
+    target_affine_4x4[3, 3] = 1.0
     img_3d_affine = resample_img(img, target_affine=target_affine_3x3)
     img_4d_affine = resample_img(img, target_affine=target_affine_4x4)
     target_affine_mm_space_offset_changed = np.eye(4)
-    target_affine_mm_space_offset_changed[:3, 3] = \
-        img_3d_affine.affine[:3, 3]
+    target_affine_mm_space_offset_changed[:3, 3] = img_3d_affine.affine[:3, 3]
 
     img_3d_affine_in_mm_space = resample_img(
         img_3d_affine,
         target_affine=target_affine_mm_space_offset_changed,
-        target_shape=(np.array(img_3d_affine.shape) * 2).astype(int))
+        target_shape=(np.array(img_3d_affine.shape) * 2).astype(int),
+    )
 
     img_4d_affine_in_mm_space = resample_img(
         img_4d_affine,
         target_affine=np.eye(4),
-        target_shape=(np.array(img_4d_affine.shape) * 2).astype(int))
+        target_shape=(np.array(img_4d_affine.shape) * 2).astype(int),
+    )
 
 
 
@@ -149,15 +163,15 @@ Now resample the image
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:545: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:597: UserWarning:
 
     Casting data from int32 to float32
 
-    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:545: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:597: UserWarning:
 
     Casting data from int32 to float32
 
-    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:545: UserWarning:
+    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:597: UserWarning:
 
     Casting data from int32 to float32
 
@@ -165,16 +179,17 @@ Now resample the image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-110
+.. GENERATED FROM PYTHON SOURCE LINES 123-124
 
 Finally, visualize
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-133
+.. GENERATED FROM PYTHON SOURCE LINES 124-150
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
     from nilearn.plotting import show
+
     plt.figure()
     plt.imshow(image, interpolation="nearest", vmin=0, vmax=vmax)
     plt.title("The original data in voxel space")
@@ -184,16 +199,18 @@ Finally, visualize
     plt.title("The original data in mm space")
 
     plt.figure()
-    plt.imshow(get_data(img_3d_affine_in_mm_space)[:, :, 0],
-               vmin=0, vmax=vmax)
-    plt.title("Transformed using a 3x3 affine -\n leads to "
-              "re-estimation of bounding box")
+    plt.imshow(get_data(img_3d_affine_in_mm_space)[:, :, 0], vmin=0, vmax=vmax)
+    plt.title(
+        "Transformed using a 3x3 affine -\n leads to "
+        "re-estimation of bounding box"
+    )
 
     plt.figure()
-    plt.imshow(get_data(img_4d_affine_in_mm_space)[:, :, 0],
-               vmin=0, vmax=vmax)
-    plt.title("Transformed using a 4x4 affine -\n Uses affine anchor "
-              "and estimates bounding box size")
+    plt.imshow(get_data(img_4d_affine_in_mm_space)[:, :, 0], vmin=0, vmax=vmax)
+    plt.title(
+        "Transformed using a 4x4 affine -\n Uses affine anchor "
+        "and estimates bounding box size"
+    )
 
     show()
 
@@ -237,7 +254,7 @@ Finally, visualize
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.552 seconds)
+   **Total running time of the script:** ( 0 minutes  2.309 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -252,9 +269,11 @@ Finally, visualize
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_affine_transformation.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_affine_transformation.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

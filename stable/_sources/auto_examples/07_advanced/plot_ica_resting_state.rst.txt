@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_07_advanced_plot_ica_resting_state.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_07_advanced_plot_ica_resting_state.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -20,7 +20,6 @@
 
 Multivariate decompositions: Independent component analysis of fMRI
 ===================================================================
-
 
 This example is meant to demonstrate nilearn as a low-level tools used to
 combine feature extraction with a multivariate decomposition algorithm
@@ -39,23 +38,22 @@ be given by a call to fit_transform).
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Load movie watching dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-37
+.. GENERATED FROM PYTHON SOURCE LINES 26-35
 
 .. code-block:: default
 
     from nilearn import datasets
+
     # Here we use only single subject to get faster-running code.
     dataset = datasets.fetch_development_fmri(n_subjects=1)
     func_filename = dataset.func[0]
 
     # print basic information on the dataset
-    print('First subject functional nifti image (4D) is at: %s' %
-          dataset.func[0])  # 4D data
-
+    print(f"First subject functional nifti image (4D) is at: {dataset.func[0]}")
 
 
 
@@ -70,11 +68,11 @@ Load movie watching dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 36-37
 
 Preprocess
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-49
+.. GENERATED FROM PYTHON SOURCE LINES 37-51
 
 .. code-block:: default
 
@@ -83,8 +81,13 @@ Preprocess
     # This is fmri timeseries data: the background has not been removed yet,
     # thus we need to use mask_strategy='epi' to compute the mask from the
     # EPI images
-    masker = NiftiMasker(smoothing_fwhm=8, memory='nilearn_cache', memory_level=1,
-                         mask_strategy='epi', standardize=True)
+    masker = NiftiMasker(
+        smoothing_fwhm=8,
+        memory="nilearn_cache",
+        memory_level=1,
+        mask_strategy="epi",
+        standardize="zscore_sample",
+    )
     data_masked = masker.fit_transform(func_filename)
 
 
@@ -94,17 +97,16 @@ Preprocess
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 50-51
+.. GENERATED FROM PYTHON SOURCE LINES 52-53
 
 Apply ICA
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-68
+.. GENERATED FROM PYTHON SOURCE LINES 53-72
 
 .. code-block:: default
 
-
     from sklearn.decomposition import FastICA
+
     n_components = 10
     ica = FastICA(n_components=n_components, random_state=42)
     components_masked = ica.fit_transform(data_masked.T).T
@@ -112,9 +114,11 @@ Apply ICA
     # Normalize estimated components, for thresholding to make sense
     components_masked -= components_masked.mean(axis=0)
     components_masked /= components_masked.std(axis=0)
+
     # Threshold
     import numpy as np
-    components_masked[np.abs(components_masked) < .8] = 0
+
+    components_masked[np.abs(components_masked) < 0.8] = 0
 
     # Now invert the masking operation, going back to a full 3D
     # representation
@@ -140,18 +144,18 @@ Apply ICA
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-70
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 Visualize the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-83
+.. GENERATED FROM PYTHON SOURCE LINES 74-87
 
 .. code-block:: default
 
-
-    # Show some interesting components
     from nilearn import image
     from nilearn.plotting import plot_stat_map, show
+
+    # Show some interesting components
 
     # Use the mean as a background
     mean_img = image.mean_img(func_filename)
@@ -188,9 +192,9 @@ Visualize the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  12.189 seconds)
+   **Total running time of the script:** ( 0 minutes  13.154 seconds)
 
-**Estimated memory usage:**  351 MB
+**Estimated memory usage:**  198 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_ica_resting_state.py:
@@ -203,9 +207,11 @@ Visualize the results
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_ica_resting_state.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_ica_resting_state.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

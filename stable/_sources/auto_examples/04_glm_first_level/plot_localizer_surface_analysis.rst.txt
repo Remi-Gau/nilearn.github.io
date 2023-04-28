@@ -10,15 +10,16 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_04_glm_first_level_plot_localizer_surface_analysis.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_04_glm_first_level_plot_localizer_surface_analysis.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
 
 .. _sphx_glr_auto_examples_04_glm_first_level_plot_localizer_surface_analysis.py:
 
+
 Example of surface-based first-level analysis
-================================================
+=============================================
 
 A full step-by-step example of fitting a GLM to experimental data sampled on
 the cortical surface and visualizing the results.
@@ -29,7 +30,8 @@ More specifically:
 2. fMRI data are projected onto a reference cortical surface (the FreeSurfer
    template, fsaverage).
 3. A design matrix describing all the effects related to the data is computed.
-4. A GLM is applied to the dataset (effect/covariance, then contrast estimation).
+4. A GLM is applied to the dataset
+   (effect/covariance, then contrast estimation).
 
 The result of the analysis are statistical maps that are defined on the brain
 mesh. We display them using Nilearn capabilities.
@@ -47,13 +49,13 @@ The advantage of this second approach is that it makes it easy to run
 second-level analyses on the surface. On the other hand, it is obviously less
 accurate than using a subject-tailored mesh.
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-37
+.. GENERATED FROM PYTHON SOURCE LINES 36-39
 
 Prepare data and analysis parameters
--------------------------------------
+------------------------------------
 Prepare the timing parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-40
+.. GENERATED FROM PYTHON SOURCE LINES 39-42
 
 .. code-block:: default
 
@@ -67,16 +69,17 @@ Prepare the timing parameters.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 Prepare the data.
 First, the volume-based fMRI data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 45-50
 
 .. code-block:: default
 
     from nilearn.datasets import fetch_localizer_first_level
+
     data = fetch_localizer_first_level()
     fmri_img = data.epi_img
 
@@ -87,16 +90,17 @@ First, the volume-based fMRI data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 Second, the experimental paradigm.
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-53
+.. GENERATED FROM PYTHON SOURCE LINES 52-57
 
 .. code-block:: default
 
-    events_file = data.events
     import pandas as pd
+
+    events_file = data.events
     events = pd.read_table(events_file)
 
 
@@ -106,7 +110,7 @@ Second, the experimental paradigm.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-60
+.. GENERATED FROM PYTHON SOURCE LINES 58-64
 
 Project the fMRI image to the surface
 -------------------------------------
@@ -115,12 +119,12 @@ For this we need to get a mesh representing the geometry of the surface. We
 could use an individual mesh, but we first resort to a standard mesh, the
 so-called fsaverage5 template from the FreeSurfer software.
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 64-68
 
 .. code-block:: default
 
-
     import nilearn
+
     fsaverage = nilearn.datasets.fetch_surf_fsaverage()
 
 
@@ -130,16 +134,17 @@ so-called fsaverage5 template from the FreeSurfer software.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-67
+.. GENERATED FROM PYTHON SOURCE LINES 69-71
 
 The projection function simply takes the fMRI data and the mesh.
 Note that those correspond spatially, are they are both in MNI space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-70
+.. GENERATED FROM PYTHON SOURCE LINES 71-75
 
 .. code-block:: default
 
     from nilearn import surface
+
     texture = surface.vol_to_surf(fmri_img, fsaverage.pial_right)
 
 
@@ -149,7 +154,7 @@ Note that those correspond spatially, are they are both in MNI space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-76
+.. GENERATED FROM PYTHON SOURCE LINES 76-81
 
 Perform first level analysis
 ----------------------------
@@ -157,12 +162,12 @@ Perform first level analysis
 This involves computing the design matrix and fitting the model.
 We start by specifying the timing of fMRI frames.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 81-86
 
 .. code-block:: default
 
-
     import numpy as np
+
     n_scans = texture.shape[1]
     frame_times = t_r * (np.arange(n_scans) + .5)
 
@@ -173,18 +178,19 @@ We start by specifying the timing of fMRI frames.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-86
+.. GENERATED FROM PYTHON SOURCE LINES 87-91
 
 Create the design matrix.
 
 We specify an hrf model containing the Glover model and its time derivative
 The drift model is implicitly a cosine basis with a period cutoff at 128s.
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-92
+.. GENERATED FROM PYTHON SOURCE LINES 91-98
 
 .. code-block:: default
 
     from nilearn.glm.first_level import make_first_level_design_matrix
+
     design_matrix = make_first_level_design_matrix(frame_times,
                                                    events=events,
                                                    hrf_model='glover + derivative'
@@ -197,7 +203,7 @@ The drift model is implicitly a cosine basis with a period cutoff at 128s.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-99
+.. GENERATED FROM PYTHON SOURCE LINES 99-105
 
 Setup and fit GLM.
 
@@ -206,12 +212,12 @@ Note that the output consists in 2 variables: `labels` and `fit`.
 `estimates` contains the parameter estimates.
 We keep them for later contrast computation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-103
+.. GENERATED FROM PYTHON SOURCE LINES 105-109
 
 .. code-block:: default
 
-
     from nilearn.glm.first_level import run_glm
+
     labels, estimates = run_glm(texture.T, design_matrix.values)
 
 
@@ -221,7 +227,7 @@ We keep them for later contrast computation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-110
+.. GENERATED FROM PYTHON SOURCE LINES 110-116
 
 Estimate contrasts
 ------------------
@@ -230,7 +236,7 @@ Specify the contrasts.
 For practical purpose, we first generate an identity matrix whose size is
 the number of columns of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-112
+.. GENERATED FROM PYTHON SOURCE LINES 116-118
 
 .. code-block:: default
 
@@ -243,11 +249,11 @@ the number of columns of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-114
+.. GENERATED FROM PYTHON SOURCE LINES 119-120
 
 At first, we create basic contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-117
+.. GENERATED FROM PYTHON SOURCE LINES 120-123
 
 .. code-block:: default
 
@@ -261,12 +267,12 @@ At first, we create basic contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 124-126
 
 Next, we add some intermediate contrasts and
 one contrast adding all conditions with some auditory parts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-141
+.. GENERATED FROM PYTHON SOURCE LINES 126-147
 
 .. code-block:: default
 
@@ -298,17 +304,22 @@ one contrast adding all conditions with some auditory parts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-149
+.. GENERATED FROM PYTHON SOURCE LINES 148-160
 
 Finally, we create a dictionary of more relevant contrasts
 
-* 'left - right button press': probes motor activity in left versus right button presses.
-* 'audio - visual': probes the difference of activity between listening to some content or reading the same type of content (instructions, stories).
-* 'computation - sentences': looks at the activity when performing a mental computation task  versus simply reading sentences.
+* 'left - right button press': probes motor activity
+  in left versus right button presses.
+* 'audio - visual': probes the difference of activity between listening
+  to some content or reading the same type of content
+  (instructions, stories).
+* 'computation - sentences': looks at the activity
+  when performing a mental computation task  versus simply reading sentences.
 
-Of course, we could define other contrasts, but we keep only 3 for simplicity.
+Of course, we could define other contrasts,
+but we keep only 3 for simplicity.
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-163
+.. GENERATED FROM PYTHON SOURCE LINES 160-175
 
 .. code-block:: default
 
@@ -321,8 +332,9 @@ Of course, we could define other contrasts, but we keep only 3 for simplicity.
             - basic_contrasts['visual_right_hand_button_press']
         ),
         'audio - visual': basic_contrasts['audio'] - basic_contrasts['visual'],
-        'computation - sentences': (basic_contrasts['computation'] -
-                                    basic_contrasts['sentences']
+        'computation - sentences': (
+            basic_contrasts['computation']
+            - basic_contrasts['sentences']
         )
     }
 
@@ -333,16 +345,16 @@ Of course, we could define other contrasts, but we keep only 3 for simplicity.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-165
+.. GENERATED FROM PYTHON SOURCE LINES 176-177
 
 Let's estimate the contrasts by iterating over them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-184
+.. GENERATED FROM PYTHON SOURCE LINES 177-196
 
 .. code-block:: default
 
-    from nilearn.glm.contrasts import compute_contrast
     from nilearn import plotting
+    from nilearn.glm.contrasts import compute_contrast
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
         print('  Contrast % i out of %i: %s, right hemisphere' %
@@ -399,7 +411,7 @@ Let's estimate the contrasts by iterating over them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-190
+.. GENERATED FROM PYTHON SOURCE LINES 197-202
 
 Analysing the left hemisphere
 -----------------------------
@@ -407,11 +419,11 @@ Analysing the left hemisphere
 Note that re-creating the above analysis for the left hemisphere requires
 little additional code!
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-193
+.. GENERATED FROM PYTHON SOURCE LINES 204-205
 
 We project the fMRI data to the mesh.
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-195
+.. GENERATED FROM PYTHON SOURCE LINES 205-207
 
 .. code-block:: default
 
@@ -424,11 +436,11 @@ We project the fMRI data to the mesh.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-197
+.. GENERATED FROM PYTHON SOURCE LINES 208-209
 
 Then we estimate the General Linear Model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-199
+.. GENERATED FROM PYTHON SOURCE LINES 209-211
 
 .. code-block:: default
 
@@ -441,11 +453,11 @@ Then we estimate the General Linear Model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-201
+.. GENERATED FROM PYTHON SOURCE LINES 212-213
 
 Finally, we create contrast-specific maps and plot them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-215
+.. GENERATED FROM PYTHON SOURCE LINES 213-227
 
 .. code-block:: default
 
@@ -505,7 +517,7 @@ Finally, we create contrast-specific maps and plot them.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  25.646 seconds)
+   **Total running time of the script:** ( 0 minutes  19.934 seconds)
 
 **Estimated memory usage:**  209 MB
 
@@ -520,9 +532,11 @@ Finally, we create contrast-specific maps and plot them.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

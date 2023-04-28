@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_01_plotting_plot_atlas.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_01_plotting_plot_atlas.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -19,7 +19,7 @@
 
 
 Basic Atlas plotting
-=======================
+====================
 
 Plot the regions of a reference atlas (Harvard-Oxford and Juelich atlases).
 
@@ -35,14 +35,14 @@ Retrieving the atlas data
 
     from nilearn import datasets
 
-    dataset_ho = datasets.fetch_atlas_harvard_oxford('cort-maxprob-thr25-2mm')
-    dataset_ju = datasets.fetch_atlas_juelich('maxprob-thr0-1mm')
+    dataset_ho = datasets.fetch_atlas_harvard_oxford("cort-maxprob-thr25-2mm")
+    dataset_ju = datasets.fetch_atlas_juelich("maxprob-thr0-1mm")
 
     atlas_ho_filename = dataset_ho.filename
     atlas_ju_filename = dataset_ju.filename
 
-    print('Atlas ROIs are located at: %s' % atlas_ho_filename)
-    print('Atlas ROIs are located at: %s' % atlas_ju_filename)
+    print(f"Atlas ROIs are located at: {atlas_ho_filename}")
+    print(f"Atlas ROIs are located at: {atlas_ju_filename}")
 
 
 
@@ -86,14 +86,14 @@ Visualizing the Harvard-Oxford atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc1e6394070>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb585ad1600>
 
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 Visualizing the Juelich atlas
-------------------------------------
+-----------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 34-37
 
@@ -116,7 +116,7 @@ Visualizing the Juelich atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc1e39c96f0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb57b17add0>
 
 
 
@@ -125,12 +125,15 @@ Visualizing the Juelich atlas
 Visualizing the Harvard-Oxford atlas with contours
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-44
+.. GENERATED FROM PYTHON SOURCE LINES 40-47
 
 .. code-block:: default
 
-    plotting.plot_roi(atlas_ho_filename, view_type='contours',
-                      title="Harvard Oxford atlas in contours")
+    plotting.plot_roi(
+        atlas_ho_filename,
+        view_type="contours",
+        title="Harvard Oxford atlas in contours",
+    )
     plotting.show()
 
 
@@ -154,17 +157,18 @@ Visualizing the Harvard-Oxford atlas with contours
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-47
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Visualizing the Juelich atlas with contours
---------------------------------------------------
+-------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-50
+.. GENERATED FROM PYTHON SOURCE LINES 50-54
 
 .. code-block:: default
 
-    plotting.plot_roi(atlas_ju_filename, view_type='contours',
-                      title="Juelich atlas in contours")
+    plotting.plot_roi(
+        atlas_ju_filename, view_type="contours", title="Juelich atlas in contours"
+    )
     plotting.show()
 
 
@@ -175,24 +179,15 @@ Visualizing the Juelich atlas with contours
    :class: sphx-glr-single-img
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/yasmin/nilearn/nilearn/nilearn/plotting/img_plotting.py:572: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
-      img = new_img_like(roi_img, data, affine=roi_img.affine)
-    /home/yasmin/nilearn/nilearn/nilearn/plotting/displays/_axes.py:71: UserWarning: No contour levels were found within the data range.
-      im = getattr(ax, type)(data_2d.copy(),
-
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  15.912 seconds)
+   **Total running time of the script:** ( 1 minutes  4.490 seconds)
 
-**Estimated memory usage:**  234 MB
+**Estimated memory usage:**  146 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_atlas.py:
@@ -205,9 +200,11 @@ Visualizing the Juelich atlas with contours
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_atlas.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_atlas.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 

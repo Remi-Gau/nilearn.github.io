@@ -10,7 +10,7 @@
     .. note::
         :class: sphx-glr-download-link-note
 
-        Click :ref:`here <sphx_glr_download_auto_examples_01_plotting_plot_carpet.py>`
+        :ref:`Go to the end <sphx_glr_download_auto_examples_01_plotting_plot_carpet.py>`
         to download the full example code or to run this example in your browser via Binder
 
 .. rst-class:: sphx-glr-example-title
@@ -32,7 +32,7 @@ from a 4D functional image.
 Fetching data from ADHD dataset
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-27
+.. GENERATED FROM PYTHON SOURCE LINES 15-28
 
 .. code-block:: default
 
@@ -42,11 +42,12 @@ Fetching data from ADHD dataset
 
     # plot_carpet can infer TR from the image header, but preprocessing can often
     # overwrite that particular header field, so we will be explicit.
-    t_r = 2.
+    t_r = 2.0
 
     # Print basic information on the dataset
-    print('First subject functional nifti image (4D) is at: %s' %
-          adhd_dataset.func[0])  # 4D data
+    print(
+        f"First subject functional nifti image (4D) is at: {adhd_dataset.func[0]}"
+    )
 
 
 
@@ -61,12 +62,12 @@ Fetching data from ADHD dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
+.. GENERATED FROM PYTHON SOURCE LINES 29-31
 
 Deriving a mask
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-35
+.. GENERATED FROM PYTHON SOURCE LINES 31-36
 
 .. code-block:: default
 
@@ -82,17 +83,16 @@ Deriving a mask
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 Visualizing global patterns over time
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-46
+.. GENERATED FROM PYTHON SOURCE LINES 39-46
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
-
     from nilearn.plotting import plot_carpet
 
     display = plot_carpet(adhd_dataset.func[0], mask_img, t_r=t_r)
@@ -107,6 +107,13 @@ Visualizing global patterns over time
    :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_carpet_001.png
    :class: sphx-glr-single-img
 
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/yasmin/nilearn/nilearn/nilearn/plotting/img_plotting.py:1426: FutureWarning: The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+      data = clean(data, t_r=t_r, detrend=True, standardize='zscore')
 
 
 
@@ -154,11 +161,9 @@ ICBM152 tissue probability maps.
 Visualizing global patterns, separated by tissue type
 -----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-83
+.. GENERATED FROM PYTHON SOURCE LINES 67-81
 
 .. code-block:: default
-
-    import matplotlib.pyplot as plt
 
     from nilearn.plotting import plot_carpet
 
@@ -187,9 +192,11 @@ Visualizing global patterns, separated by tissue type
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:545: UserWarning: Casting data from int32 to float32
-      warnings.warn("Casting data from %s to %s" % (data.dtype.name, aux))
+    /home/yasmin/nilearn/nilearn/nilearn/image/resampling.py:597: UserWarning: Casting data from int32 to float32
+      warnings.warn(f"Casting data from {data.dtype.name} to {aux}")
     Coercing atlas_values to <class 'int'>
+    /home/yasmin/nilearn/nilearn/nilearn/plotting/img_plotting.py:1426: FutureWarning: The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+      data = clean(data, t_r=t_r, detrend=True, standardize='zscore')
 
 
 
@@ -197,9 +204,9 @@ Visualizing global patterns, separated by tissue type
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  10.350 seconds)
+   **Total running time of the script:** ( 0 minutes  11.300 seconds)
 
-**Estimated memory usage:**  986 MB
+**Estimated memory usage:**  1057 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_carpet.py:
@@ -212,9 +219,11 @@ Visualizing global patterns, separated by tissue type
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.0?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
         :alt: Launch binder
         :width: 150 px
+
+
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
