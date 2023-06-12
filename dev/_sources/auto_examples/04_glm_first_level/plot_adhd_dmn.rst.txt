@@ -21,8 +21,11 @@
 Default Mode Network extraction of ADHD dataset
 ===============================================
 
-This example shows a full step-by-step workflow of fitting a GLM to data
+This example shows a full step-by-step workflow of fitting a GLM to signal
 extracted from a seed on the Posterior Cingulate Cortex and saving the results.
+More precisely, this example shows how to use a signal extracted from a
+seed region as the regressor in a GLM to determine the correlation
+of each region in the dataset with the seed region.
 
 More specifically:
 
@@ -34,7 +37,7 @@ More specifically:
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-27
+.. GENERATED FROM PYTHON SOURCE LINES 22-30
 
 .. code-block:: default
 
@@ -53,13 +56,13 @@ More specifically:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-31
+.. GENERATED FROM PYTHON SOURCE LINES 31-34
 
 Prepare data and analysis parameters
 ------------------------------------
 Prepare the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-41
+.. GENERATED FROM PYTHON SOURCE LINES 34-44
 
 .. code-block:: default
 
@@ -80,13 +83,13 @@ Prepare the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-45
+.. GENERATED FROM PYTHON SOURCE LINES 45-48
 
-Estimate contrasts
-------------------
-Specify the contrasts.
+Extract the seed region's time course
+-------------------------------------
+Extract the time course of the seed region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-68
+.. GENERATED FROM PYTHON SOURCE LINES 48-63
 
 .. code-block:: default
 
@@ -104,6 +107,53 @@ Specify the contrasts.
     )
     seed_time_series = seed_masker.fit_transform(adhd_dataset.func[0])
     frametimes = np.linspace(0, (n_scans - 1) * t_r, n_scans)
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
+
+Plot the time course of the seed region.
+
+.. GENERATED FROM PYTHON SOURCE LINES 65-74
+
+.. code-block:: default
+
+    import matplotlib.pyplot as plt
+
+    fig = plt.figure(figsize=(9, 3))
+    ax = fig.add_subplot(111)
+    ax.plot(frametimes, seed_time_series, linewidth=2, label="seed region")
+    ax.legend(loc=2)
+    ax.set_title("Time course of the seed region")
+    plt.show()
+
+
+
+
+.. image-sg:: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_001.png
+   :alt: Time course of the seed region
+   :srcset: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_001.png
+   :class: sphx-glr-single-img
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 75-78
+
+Estimate contrasts
+------------------
+Specify the contrasts.
+
+.. GENERATED FROM PYTHON SOURCE LINES 78-87
+
+.. code-block:: default
+
     design_matrix = make_first_level_design_matrix(
         frametimes,
         hrf_model="spm",
@@ -120,13 +170,13 @@ Specify the contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-72
+.. GENERATED FROM PYTHON SOURCE LINES 88-91
 
 Perform first level analysis
 ----------------------------
 Setup and fit GLM.
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-77
+.. GENERATED FROM PYTHON SOURCE LINES 91-96
 
 .. code-block:: default
 
@@ -151,11 +201,11 @@ Setup and fit GLM.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-79
+.. GENERATED FROM PYTHON SOURCE LINES 97-98
 
 Estimate the contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-95
+.. GENERATED FROM PYTHON SOURCE LINES 98-114
 
 .. code-block:: default
 
@@ -178,9 +228,9 @@ Estimate the contrast.
 
 
 
-.. image-sg:: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_001.png
+.. image-sg:: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_002.png
    :alt: plot adhd dmn
-   :srcset: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_001.png
+   :srcset: /auto_examples/04_glm_first_level/images/sphx_glr_plot_adhd_dmn_002.png
    :class: sphx-glr-single-img
 
 
@@ -194,7 +244,7 @@ Estimate the contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-102
+.. GENERATED FROM PYTHON SOURCE LINES 115-121
 
 Generating a report
 -------------------
@@ -203,7 +253,7 @@ portable, ready-to-view report with most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
 which we do here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-113
+.. GENERATED FROM PYTHON SOURCE LINES 121-132
 
 .. code-block:: default
 
@@ -225,11 +275,11 @@ which we do here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-115
+.. GENERATED FROM PYTHON SOURCE LINES 133-134
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-119
+.. GENERATED FROM PYTHON SOURCE LINES 134-138
 
 .. code-block:: default
 
@@ -247,7 +297,7 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.127 seconds)
+   **Total running time of the script:** ( 0 minutes  20.397 seconds)
 
 **Estimated memory usage:**  587 MB
 

@@ -7,11 +7,11 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/04_glm_first_level/plot_adhd_dmn.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="This example shows a full step-by-step workflow of fitting a GLM to data extracted from a seed on the Posterior Cingulate Cortex and saving the results. More specifically: A sequence of fMRI volume..." />
+<meta property="og:description" content="This example shows a full step-by-step workflow of fitting a GLM to signal extracted from a seed on the Posterior Cingulate Cortex and saving the results. More precisely, this example shows how to ..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="This example shows a full step-by-step workflow of fitting a GLM to data extracted from a seed on the Posterior Cingulate Cortex and saving the results. More specifically: A sequence of fMRI volume..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of explicit fixed effects fMRI model fitting" href="plot_fixed_effects.html" /><link rel="prev" title="GLM: First level analysis" href="index.html" />
+<meta name="description" content="This example shows a full step-by-step workflow of fitting a GLM to signal extracted from a seed on the Posterior Cingulate Cortex and saving the results. More precisely, this example shows how to ..." />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Examples of design matrices" href="plot_design_matrix.html" /><link rel="prev" title="Generate an events.tsv file for the NeuroSpin localizer task" href="plot_write_events_file.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
         <title>Default Mode Network extraction of ADHD dataset - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev12+gc93e89a1) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev13+gb576d9f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -255,9 +255,9 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">GLM: First level analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of GLM: First level analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Default Mode Network extraction of ADHD dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_fixed_effects.html">Example of explicit fixed effects fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_write_events_file.html">Generate an events.tsv file for the NeuroSpin localizer task</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Default Mode Network extraction of ADHD dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_design_matrix.html">Examples of design matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_fir_model.html">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_spm_multimodal_faces.html">Single-subject data (two sessions) in native space</a></li>
@@ -681,8 +681,11 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="default-mode-network-extraction-of-adhd-dataset">
 <span id="sphx-glr-auto-examples-04-glm-first-level-plot-adhd-dmn-py"></span><h1>Default Mode Network extraction of ADHD dataset<a class="headerlink" href="#default-mode-network-extraction-of-adhd-dataset" title="Permalink to this heading">#</a></h1>
-<p>This example shows a full step-by-step workflow of fitting a GLM to data
-extracted from a seed on the Posterior Cingulate Cortex and saving the results.</p>
+<p>This example shows a full step-by-step workflow of fitting a GLM to signal
+extracted from a seed on the Posterior Cingulate Cortex and saving the results.
+More precisely, this example shows how to use a signal extracted from a
+seed region as the regressor in a GLM to determine the correlation
+of each region in the dataset with the seed region.</p>
 <p>More specifically:</p>
 <ol class="arabic simple">
 <li><p>A sequence of fMRI volumes are loaded.</p></li>
@@ -730,9 +733,9 @@ all occurrences of:</p>
 </pre></div>
 </div>
 </section>
-<section id="estimate-contrasts">
-<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Permalink to this heading">#</a></h2>
-<p>Specify the contrasts.</p>
+<section id="extract-the-seed-region-s-time-course">
+<h2>Extract the seed region’s time course<a class="headerlink" href="#extract-the-seed-region-s-time-course" title="Permalink to this heading">#</a></h2>
+<p>Extract the time course of the seed region.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">seed_masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiSpheresMasker</span></a><span class="p">(</span>
     <span class="p">[</span><a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_coords</span></a><span class="p">],</span>
     <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -747,7 +750,24 @@ all occurrences of:</p>
 <span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">seed_time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker.fit_transform" title="nilearn.maskers.NiftiSpheresMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">seed_masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">adhd_dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frametimes</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_scans</span></a> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_scans</span></a><span class="p">)</span>
-<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.make_first_level_design_matrix.html#nilearn.glm.first_level.make_first_level_design_matrix" title="nilearn.glm.first_level.make_first_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">make_first_level_design_matrix</span></a><span class="p">(</span>
+</pre></div>
+</div>
+<p>Plot the time course of the seed region.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.add_subplot" title="matplotlib.figure.Figure.add_subplot" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span></a><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib.axes.Axes.plot" title="matplotlib.axes.Axes.plot" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frametimes</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">seed_time_series</span></a><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;seed region&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib.axes.Axes.legend" title="matplotlib.axes.Axes.legend" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.set_title.html#matplotlib.axes.Axes.set_title" title="matplotlib.axes.Axes.set_title" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-method"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span></a><span class="p">(</span><span class="s2">&quot;Time course of the seed region&quot;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_adhd_dmn_001.png" srcset="../../_images/sphx_glr_plot_adhd_dmn_001.png" alt="Time course of the seed region" class = "sphx-glr-single-img"/></section>
+<section id="estimate-contrasts">
+<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Permalink to this heading">#</a></h2>
+<p>Specify the contrasts.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.make_first_level_design_matrix.html#nilearn.glm.first_level.make_first_level_design_matrix" title="nilearn.glm.first_level.make_first_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">make_first_level_design_matrix</span></a><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frametimes</span></a><span class="p">,</span>
     <span class="n">hrf_model</span><span class="o">=</span><span class="s2">&quot;spm&quot;</span><span class="p">,</span>
     <span class="n">add_regs</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">seed_time_series</span></a><span class="p">,</span>
@@ -790,7 +810,7 @@ Mean values of 0 observed.The data have probably been centered.Scaling might not
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Save z-map in &#39;</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_adhd_dmn_001.png" srcset="../../_images/sphx_glr_plot_adhd_dmn_001.png" alt="plot adhd dmn" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Contrast seed_based_glm computed.
+<img src="../../_images/sphx_glr_plot_adhd_dmn_002.png" srcset="../../_images/sphx_glr_plot_adhd_dmn_002.png" alt="plot adhd dmn" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Contrast seed_based_glm computed.
 Save z-map in &#39;dmn_z_map.png&#39;.
 </pre></div>
 </div>
@@ -819,7 +839,7 @@ which we do here.</p>
 <span class="c1"># report.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.127 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  20.397 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  587 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-adhd-dmn-py">
 <div class="binder-badge docutils container">
@@ -841,23 +861,23 @@ which we do here.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_fixed_effects.html">
+          <a class="next-page" href="plot_design_matrix.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Example of explicit fixed effects fMRI model fitting</div>
+                <div class="title">Examples of design matrices</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="plot_write_events_file.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">GLM: First level analysis</div>
+                <div class="title">Generate an events.tsv file for the NeuroSpin localizer task</div>
                 
               </div>
             </a>
@@ -893,6 +913,7 @@ which we do here.</p>
             <ul>
 <li><a class="reference internal" href="#">Default Mode Network extraction of ADHD dataset</a><ul>
 <li><a class="reference internal" href="#prepare-data-and-analysis-parameters">Prepare data and analysis parameters</a></li>
+<li><a class="reference internal" href="#extract-the-seed-region-s-time-course">Extract the seed region’s time course</a></li>
 <li><a class="reference internal" href="#estimate-contrasts">Estimate contrasts</a></li>
 <li><a class="reference internal" href="#perform-first-level-analysis">Perform first level analysis</a></li>
 <li><a class="reference internal" href="#generating-a-report">Generating a report</a></li>
