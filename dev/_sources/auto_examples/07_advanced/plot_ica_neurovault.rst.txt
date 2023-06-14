@@ -30,7 +30,7 @@ documentation for more details.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-29
+.. GENERATED FROM PYTHON SOURCE LINES 15-30
 
 .. code-block:: default
 
@@ -41,12 +41,13 @@ documentation for more details.
     import warnings
 
     import numpy as np
+    from scipy import stats
+    from sklearn.decomposition import FastICA
+
     from nilearn import plotting
     from nilearn.datasets import fetch_neurovault, load_mni152_brain_mask
     from nilearn.image import smooth_img
     from nilearn.maskers import NiftiMasker
-    from scipy import stats
-    from sklearn.decomposition import FastICA
 
 
 
@@ -55,12 +56,12 @@ documentation for more details.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Get image and term data
 -----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-59
+.. GENERATED FROM PYTHON SOURCE LINES 33-60
 
 .. code-block:: default
 
@@ -151,12 +152,12 @@ Get image and term data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-62
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 Reshape and mask images
 -----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-100
+.. GENERATED FROM PYTHON SOURCE LINES 63-101
 
 .. code-block:: default
 
@@ -213,12 +214,12 @@ Reshape and mask images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-103
+.. GENERATED FROM PYTHON SOURCE LINES 102-104
 
 Run ICA and map components to terms
 -----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-115
+.. GENERATED FROM PYTHON SOURCE LINES 104-116
 
 .. code-block:: default
 
@@ -252,12 +253,12 @@ Run ICA and map components to terms
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-118
+.. GENERATED FROM PYTHON SOURCE LINES 117-119
 
 Generate figures
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-139
+.. GENERATED FROM PYTHON SOURCE LINES 119-140
 
 .. code-block:: default
 
@@ -348,13 +349,13 @@ Generate figures
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-143
+.. GENERATED FROM PYTHON SOURCE LINES 141-144
 
 As we can see, some of the components capture cognitive or neurological
 maps, while other capture noise in the database. More data, better
 filtering, and better cognitive labels would give better maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-146
+.. GENERATED FROM PYTHON SOURCE LINES 144-147
 
 .. code-block:: default
 
@@ -371,9 +372,9 @@ filtering, and better cognitive labels would give better maps
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  32.960 seconds)
+   **Total running time of the script:** ( 0 minutes  33.323 seconds)
 
-**Estimated memory usage:**  116 MB
+**Estimated memory usage:**  62 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_ica_neurovault.py:

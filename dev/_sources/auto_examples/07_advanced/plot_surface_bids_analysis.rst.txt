@@ -123,7 +123,7 @@ and the task_label as specified in the file names.
 
     'StartTime' not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/glm/first_level/first_level.py:1017: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/glm/first_level/first_level.py:1018: UserWarning:
 
     'slice_time_ref' not provided and cannot be inferred from metadata.It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models.
 
@@ -185,11 +185,12 @@ Project fMRI data to the surface: First get fsaverage5.
 The projection function simply takes the fMRI data and the mesh.
 Note that those correspond spatially, as they are both in MNI space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-89
+.. GENERATED FROM PYTHON SOURCE LINES 84-90
 
 .. code-block:: default
 
     import numpy as np
+
     from nilearn import surface
     from nilearn.glm.contrasts import compute_contrast
     from nilearn.glm.first_level import make_first_level_design_matrix, run_glm
@@ -201,11 +202,11 @@ Note that those correspond spatially, as they are both in MNI space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-91
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
 
 Empty lists in which we are going to store activation values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-130
+.. GENERATED FROM PYTHON SOURCE LINES 92-131
 
 .. code-block:: default
 
@@ -255,13 +256,13 @@ Empty lists in which we are going to store activation values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-134
+.. GENERATED FROM PYTHON SOURCE LINES 132-135
 
 Individual activation maps have been accumulated in the z_score_left
 and az_scores_right lists respectively. We can now use them in a
 group study (one-sample study).
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-142
+.. GENERATED FROM PYTHON SOURCE LINES 137-143
 
 Group study
 -----------
@@ -270,7 +271,7 @@ Prepare figure for concurrent plot of individual maps
 compute population-level maps for left and right hemisphere
 We directly do that on the value arrays.
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-147
+.. GENERATED FROM PYTHON SOURCE LINES 143-148
 
 .. code-block:: default
 
@@ -286,11 +287,11 @@ We directly do that on the value arrays.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-149
+.. GENERATED FROM PYTHON SOURCE LINES 149-150
 
 What we have so far are p-values: we convert them to z-values for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-152
+.. GENERATED FROM PYTHON SOURCE LINES 150-153
 
 .. code-block:: default
 
@@ -304,11 +305,11 @@ What we have so far are p-values: we convert them to z-values for plotting.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-154
+.. GENERATED FROM PYTHON SOURCE LINES 154-155
 
 Plot the resulting maps, at first on the left hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-160
+.. GENERATED FROM PYTHON SOURCE LINES 155-161
 
 .. code-block:: default
 
@@ -336,11 +337,11 @@ Plot the resulting maps, at first on the left hemisphere.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-162
+.. GENERATED FROM PYTHON SOURCE LINES 162-163
 
 Next, on the right hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-168
+.. GENERATED FROM PYTHON SOURCE LINES 163-169
 
 .. code-block:: default
 
@@ -365,9 +366,9 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  52.410 seconds)
+   **Total running time of the script:** ( 1 minutes  52.200 seconds)
 
-**Estimated memory usage:**  466 MB
+**Estimated memory usage:**  470 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_surface_bids_analysis.py:

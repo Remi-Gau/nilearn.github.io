@@ -124,7 +124,7 @@ We can display the first functional image and the subject's anatomy:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f21ca3edac0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6618d3b550>
 
 
 
@@ -403,11 +403,12 @@ columns contain the predictors).
 Formally, we have taken the first design matrix, because the model is
 implictily meant to for multiple runs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-132
+.. GENERATED FROM PYTHON SOURCE LINES 125-133
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
+
     from nilearn.plotting import plot_design_matrix
 
     plot_design_matrix(design_matrix)
@@ -426,12 +427,12 @@ implictily meant to for multiple runs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-135
+.. GENERATED FROM PYTHON SOURCE LINES 134-136
 
 Save the design matrix image to disk
 first create a directory where you want to write the images
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-148
+.. GENERATED FROM PYTHON SOURCE LINES 136-149
 
 .. code-block:: default
 
@@ -455,13 +456,13 @@ first create a directory where you want to write the images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-152
+.. GENERATED FROM PYTHON SOURCE LINES 150-153
 
 The first column contains the expected response profile of regions which are
 sensitive to the auditory stimulation.
 Let's plot this first column
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-158
+.. GENERATED FROM PYTHON SOURCE LINES 153-159
 
 .. code-block:: default
 
@@ -483,7 +484,7 @@ Let's plot this first column
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-170
+.. GENERATED FROM PYTHON SOURCE LINES 160-171
 
 Detecting voxels with significant effects
 -----------------------------------------
@@ -497,7 +498,7 @@ effects.  Here we can define canonical contrasts that just consider
 the two effects in isolation ---let's call them "conditions"---
 then a :term:`contrast` that makes the difference between these conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-177
+.. GENERATED FROM PYTHON SOURCE LINES 171-178
 
 .. code-block:: default
 
@@ -515,12 +516,12 @@ then a :term:`contrast` that makes the difference between these conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-180
+.. GENERATED FROM PYTHON SOURCE LINES 179-181
 
 We can then compare the two conditions 'active' and 'rest' by
 defining the corresponding :term:`contrast`:
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-183
+.. GENERATED FROM PYTHON SOURCE LINES 181-184
 
 .. code-block:: default
 
@@ -534,12 +535,12 @@ defining the corresponding :term:`contrast`:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-186
+.. GENERATED FROM PYTHON SOURCE LINES 185-187
 
 Let's look at it: plot the coefficients of the :term:`contrast`, indexed by
 the names of the columns of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-191
+.. GENERATED FROM PYTHON SOURCE LINES 187-192
 
 .. code-block:: default
 
@@ -566,13 +567,13 @@ the names of the columns of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-195
+.. GENERATED FROM PYTHON SOURCE LINES 193-196
 
 Below, we compute the :term:`'estimated effect'<Parameter Estimate>`.
 It is in :term:`BOLD` signal unit, but has no statistical guarantees,
 because it does not take into account the associated variance.
 
-.. GENERATED FROM PYTHON SOURCE LINES 195-200
+.. GENERATED FROM PYTHON SOURCE LINES 196-201
 
 .. code-block:: default
 
@@ -588,14 +589,14 @@ because it does not take into account the associated variance.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-205
+.. GENERATED FROM PYTHON SOURCE LINES 202-206
 
 In order to get statistical significance, we form a t-statistic, and
 directly convert it into z-scale. The z-scale means that the values
 are scaled to match a standard Gaussian distribution (mean=0,
 variance=1), across voxels, if there were no effects in the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 205-208
+.. GENERATED FROM PYTHON SOURCE LINES 206-209
 
 .. code-block:: default
 
@@ -609,7 +610,7 @@ variance=1), across voxels, if there were no effects in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-217
+.. GENERATED FROM PYTHON SOURCE LINES 210-218
 
 Plot thresholded z scores map
 -----------------------------
@@ -620,7 +621,7 @@ subject).  We use arbitrarily a threshold of 3.0 in z-scale. We'll
 see later how to use corrected thresholds. We will show 3
 axial views, with display_mode='z' and cut_coords=3.
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-229
+.. GENERATED FROM PYTHON SOURCE LINES 218-230
 
 .. code-block:: default
 
@@ -648,7 +649,7 @@ axial views, with display_mode='z' and cut_coords=3.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-238
+.. GENERATED FROM PYTHON SOURCE LINES 231-239
 
 Statistical significance testing. One should worry about the
 statistical validity of the procedure: here we used an arbitrary
@@ -659,7 +660,7 @@ One suggestion is to control the false positive rate
 at a certain level, e.g. 0.001: this means that there is 0.1% chance
 of declaring an inactive :term:`voxel`, active.
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-254
+.. GENERATED FROM PYTHON SOURCE LINES 239-255
 
 .. code-block:: default
 
@@ -697,7 +698,7 @@ of declaring an inactive :term:`voxel`, active.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-260
+.. GENERATED FROM PYTHON SOURCE LINES 256-261
 
 The problem is that with this you expect 0.001 * n_voxels to show up
 while they're not active --- tens to hundreds of voxels. A more
@@ -705,7 +706,7 @@ conservative solution is to control the family wise error rate,
 i.e. the probability of making only one false detection, say at
 5%. For that we use the so-called Bonferroni correction.
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-276
+.. GENERATED FROM PYTHON SOURCE LINES 261-277
 
 .. code-block:: default
 
@@ -743,14 +744,14 @@ i.e. the probability of making only one false detection, say at
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 277-281
+.. GENERATED FROM PYTHON SOURCE LINES 278-282
 
 This is quite conservative indeed!  A popular alternative is to
 control the expected proportion of
 false discoveries among detections. This is called the False
 discovery rate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 281-295
+.. GENERATED FROM PYTHON SOURCE LINES 282-296
 
 .. code-block:: default
 
@@ -786,7 +787,7 @@ discovery rate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 296-301
+.. GENERATED FROM PYTHON SOURCE LINES 297-302
 
 Finally people like to discard isolated voxels (aka "small
 clusters") from these images. It is possible to generate a
@@ -794,7 +795,7 @@ thresholded map with small clusters removed by providing a
 cluster_threshold argument. Here clusters smaller than 10 voxels
 will be discarded.
 
-.. GENERATED FROM PYTHON SOURCE LINES 301-317
+.. GENERATED FROM PYTHON SOURCE LINES 302-318
 
 .. code-block:: default
 
@@ -826,11 +827,11 @@ will be discarded.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 318-319
+.. GENERATED FROM PYTHON SOURCE LINES 319-320
 
 We can save the effect and zscore maps to the disk.
 
-.. GENERATED FROM PYTHON SOURCE LINES 319-322
+.. GENERATED FROM PYTHON SOURCE LINES 320-323
 
 .. code-block:: default
 
@@ -844,11 +845,11 @@ We can save the effect and zscore maps to the disk.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 323-324
+.. GENERATED FROM PYTHON SOURCE LINES 324-325
 
 We can furthermore extract and report the found positions in a table.
 
-.. GENERATED FROM PYTHON SOURCE LINES 324-332
+.. GENERATED FROM PYTHON SOURCE LINES 325-333
 
 .. code-block:: default
 
@@ -1154,11 +1155,11 @@ We can furthermore extract and report the found positions in a table.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 333-334
+.. GENERATED FROM PYTHON SOURCE LINES 334-335
 
 This table can be saved for future use.
 
-.. GENERATED FROM PYTHON SOURCE LINES 334-337
+.. GENERATED FROM PYTHON SOURCE LINES 335-338
 
 .. code-block:: default
 
@@ -1172,7 +1173,7 @@ This table can be saved for future use.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 338-347
+.. GENERATED FROM PYTHON SOURCE LINES 339-348
 
 Performing an F-test
 --------------------
@@ -1184,13 +1185,13 @@ three- or higher-dimensional) explains a significant proportion of
 the signal.  Here one might for instance test which voxels are well
 explained by the combination of the active and rest condition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 349-352
+.. GENERATED FROM PYTHON SOURCE LINES 350-353
 
 Specify the contrast and compute the corresponding map. Actually, the
 contrast specification is done exactly the same way as for t-
 contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 352-359
+.. GENERATED FROM PYTHON SOURCE LINES 353-360
 
 .. code-block:: default
 
@@ -1213,12 +1214,12 @@ contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 360-362
+.. GENERATED FROM PYTHON SOURCE LINES 361-363
 
 Note that the statistic has been converted to a z-variable, which
 makes it easier to represent it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 362-377
+.. GENERATED FROM PYTHON SOURCE LINES 363-378
 
 .. code-block:: default
 
@@ -1249,16 +1250,16 @@ makes it easier to represent it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 378-379
+.. GENERATED FROM PYTHON SOURCE LINES 379-380
 
 Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  20.504 seconds)
+   **Total running time of the script:** ( 0 minutes  19.981 seconds)
 
-**Estimated memory usage:**  270 MB
+**Estimated memory usage:**  272 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_single_subject_single_run.py:

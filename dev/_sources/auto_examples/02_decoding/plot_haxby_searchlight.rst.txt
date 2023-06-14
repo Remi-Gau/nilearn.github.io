@@ -33,11 +33,12 @@ the :term:`fMRI` (see the generated figures).
 Load Haxby dataset
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-33
+.. GENERATED FROM PYTHON SOURCE LINES 17-34
 
 .. code-block:: default
 
     import pandas as pd
+
     from nilearn import datasets
     from nilearn.image import get_data, load_img, new_img_like
 
@@ -67,12 +68,12 @@ Load Haxby dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Restrict to faces and houses
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-43
+.. GENERATED FROM PYTHON SOURCE LINES 37-44
 
 .. code-block:: default
 
@@ -90,7 +91,7 @@ Restrict to faces and houses
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-50
+.. GENERATED FROM PYTHON SOURCE LINES 45-51
 
 Prepare masks
 -------------
@@ -99,7 +100,7 @@ Prepare masks
   should be processed (we only keep the slice z = 26 and the back of the
   brain to speed up computation)
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-62
+.. GENERATED FROM PYTHON SOURCE LINES 51-63
 
 .. code-block:: default
 
@@ -123,7 +124,7 @@ Prepare masks
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/02_decoding/plot_haxby_searchlight.py:60: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/02_decoding/plot_haxby_searchlight.py:61: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -131,12 +132,12 @@ Prepare masks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 Searchlight computation
 -----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-92
+.. GENERATED FROM PYTHON SOURCE LINES 66-93
 
 .. code-block:: default
 
@@ -175,34 +176,34 @@ Searchlight computation
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    Job #1, processed 0/739 voxels (0.00%, 383.74900817871094 seconds remaining)    Job #1, processed 10/739 voxels (1.35%, 32.50381124461139 seconds remaining)    Job #1, processed 20/739 voxels (2.71%, 32.961930497546035 seconds remaining)    Job #1, processed 30/739 voxels (4.06%, 34.2174291939571 seconds remaining)    Job #1, processed 40/739 voxels (5.41%, 34.01748201983693 seconds remaining)    Job #1, processed 50/739 voxels (6.77%, 34.0906233474106 seconds remaining)    Job #1, processed 60/739 voxels (8.12%, 33.97061611278892 seconds remaining)    Job #1, processed 70/739 voxels (9.47%, 33.810776102756876 seconds remaining)    Job #1, processed 80/739 voxels (10.83%, 33.60092678316633 seconds remaining)    Job #1, processed 90/739 voxels (12.18%, 33.259204570883014 seconds remaining)    Job #1, processed 100/739 voxels (13.53%, 32.99365635897967 seconds remaining)    Job #1, processed 110/739 voxels (14.88%, 32.59259100883238 seconds remaining)    Job #1, processed 120/739 voxels (16.24%, 32.22258798242203 seconds remaining)    Job #1, processed 130/739 voxels (17.59%, 31.802738505781473 seconds remaining)    Job #1, processed 140/739 voxels (18.94%, 31.413535023188764 seconds remaining)    Job #1, processed 150/739 voxels (20.30%, 30.915178269588303 seconds remaining)    Job #1, processed 160/739 voxels (21.65%, 30.486696991579088 seconds remaining)    Job #1, processed 170/739 voxels (23.00%, 30.01369639064955 seconds remaining)    Job #1, processed 180/739 voxels (24.36%, 29.54886051469249 seconds remaining)    Job #1, processed 190/739 voxels (25.71%, 29.029241568102808 seconds remaining)    Job #1, processed 200/739 voxels (27.06%, 28.57194165961441 seconds remaining)    Job #1, processed 210/739 voxels (28.42%, 28.030010971697507 seconds remaining)    Job #1, processed 220/739 voxels (29.77%, 27.551353346232325 seconds remaining)    Job #1, processed 230/739 voxels (31.12%, 27.045482579111134 seconds remaining)    Job #1, processed 240/739 voxels (32.48%, 26.545269794652032 seconds remaining)    Job #1, processed 250/739 voxels (33.83%, 26.030545889538423 seconds remaining)    Job #1, processed 260/739 voxels (35.18%, 25.543032222339004 seconds remaining)    Job #1, processed 270/739 voxels (36.54%, 25.041070467667563 seconds remaining)    Job #1, processed 280/739 voxels (37.89%, 24.523635905976345 seconds remaining)    Job #1, processed 290/739 voxels (39.24%, 24.028461918067737 seconds remaining)    Job #1, processed 300/739 voxels (40.60%, 23.50382398032202 seconds remaining)    Job #1, processed 310/739 voxels (41.95%, 22.994226237161794 seconds remaining)    Job #1, processed 320/739 voxels (43.30%, 22.469936874667162 seconds remaining)    Job #1, processed 330/739 voxels (44.65%, 21.962639039734846 seconds remaining)    Job #1, processed 340/739 voxels (46.01%, 21.420215785464528 seconds remaining)    Job #1, processed 350/739 voxels (47.36%, 20.903345460827286 seconds remaining)    Job #1, processed 360/739 voxels (48.71%, 20.383597640133665 seconds remaining)    Job #1, processed 370/739 voxels (50.07%, 19.846550066932508 seconds remaining)    Job #1, processed 380/739 voxels (51.42%, 19.328064817994633 seconds remaining)    Job #1, processed 390/739 voxels (52.77%, 18.79432679903378 seconds remaining)    Job #1, processed 400/739 voxels (54.13%, 18.268474576919417 seconds remaining)    Job #1, processed 410/739 voxels (55.48%, 17.731426481557737 seconds remaining)    Job #1, processed 420/739 voxels (56.83%, 17.2749228669203 seconds remaining)    Job #1, processed 430/739 voxels (58.19%, 16.730863723379574 seconds remaining)    Job #1, processed 440/739 voxels (59.54%, 16.200593801244697 seconds remaining)    Job #1, processed 450/739 voxels (60.89%, 15.667600772400014 seconds remaining)    Job #1, processed 460/739 voxels (62.25%, 15.120104200868722 seconds remaining)    Job #1, processed 470/739 voxels (63.60%, 14.585419254482916 seconds remaining)    Job #1, processed 480/739 voxels (64.95%, 14.045301186111544 seconds remaining)    Job #1, processed 490/739 voxels (66.31%, 13.505210676014899 seconds remaining)    Job #1, processed 500/739 voxels (67.66%, 12.963326714217153 seconds remaining)    Job #1, processed 510/739 voxels (69.01%, 12.42589198577371 seconds remaining)    Job #1, processed 520/739 voxels (70.37%, 11.874618545756922 seconds remaining)    Job #1, processed 530/739 voxels (71.72%, 11.337576932635843 seconds remaining)    Job #1, processed 540/739 voxels (73.07%, 10.79305654076524 seconds remaining)    Job #1, processed 550/739 voxels (74.42%, 10.25330427371504 seconds remaining)    Job #1, processed 560/739 voxels (75.78%, 9.707985123910952 seconds remaining)    Job #1, processed 570/739 voxels (77.13%, 9.163245809877274 seconds remaining)    Job #1, processed 580/739 voxels (78.48%, 8.624310705153825 seconds remaining)    Job #1, processed 590/739 voxels (79.84%, 8.075198421019588 seconds remaining)    Job #1, processed 600/739 voxels (81.19%, 7.535420775516293 seconds remaining)    Job #1, processed 610/739 voxels (82.54%, 6.991398059515907 seconds remaining)    Job #1, processed 620/739 voxels (83.90%, 6.44827233821473 seconds remaining)    Job #1, processed 630/739 voxels (85.25%, 5.905718858640565 seconds remaining)    Job #1, processed 640/739 voxels (86.60%, 5.367705851173843 seconds remaining)    Job #1, processed 650/739 voxels (87.96%, 4.8218013653705345 seconds remaining)    Job #1, processed 660/739 voxels (89.31%, 4.281382448741855 seconds remaining)    Job #1, processed 670/739 voxels (90.66%, 3.7409146649406746 seconds remaining)    Job #1, processed 680/739 voxels (92.02%, 3.1953372144357113 seconds remaining)    Job #1, processed 690/739 voxels (93.37%, 2.654799784124821 seconds remaining)    Job #1, processed 700/739 voxels (94.72%, 2.1119399686922904 seconds remaining)    Job #1, processed 710/739 voxels (96.08%, 1.5667040260705631 seconds remaining)    Job #1, processed 720/739 voxels (97.43%, 1.0261569723240636 seconds remaining)    Job #1, processed 730/739 voxels (98.78%, 0.4862892410006444 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   39.7s finished
+    Job #1, processed 0/739 voxels (0.00%, 375.7476806640625 seconds remaining)    Job #1, processed 10/739 voxels (1.35%, 32.15581988405298 seconds remaining)    Job #1, processed 20/739 voxels (2.71%, 32.78009641038536 seconds remaining)    Job #1, processed 30/739 voxels (4.06%, 33.96240798475708 seconds remaining)    Job #1, processed 40/739 voxels (5.41%, 33.82440593767078 seconds remaining)    Job #1, processed 50/739 voxels (6.77%, 33.86584056814805 seconds remaining)    Job #1, processed 60/739 voxels (8.12%, 33.72413967747994 seconds remaining)    Job #1, processed 70/739 voxels (9.47%, 33.54339391049764 seconds remaining)    Job #1, processed 80/739 voxels (10.83%, 33.36013763719208 seconds remaining)    Job #1, processed 90/739 voxels (12.18%, 33.02965414739399 seconds remaining)    Job #1, processed 100/739 voxels (13.53%, 32.76284187701748 seconds remaining)    Job #1, processed 110/739 voxels (14.88%, 32.337467952441145 seconds remaining)    Job #1, processed 120/739 voxels (16.24%, 31.958211305693457 seconds remaining)    Job #1, processed 130/739 voxels (17.59%, 31.535134850475448 seconds remaining)    Job #1, processed 140/739 voxels (18.94%, 31.176164470982776 seconds remaining)    Job #1, processed 150/739 voxels (20.30%, 30.722051888263874 seconds remaining)    Job #1, processed 160/739 voxels (21.65%, 30.310042821232223 seconds remaining)    Job #1, processed 170/739 voxels (23.00%, 29.830624922462132 seconds remaining)    Job #1, processed 180/739 voxels (24.36%, 29.35447403636864 seconds remaining)    Job #1, processed 190/739 voxels (25.71%, 28.842476912761462 seconds remaining)    Job #1, processed 200/739 voxels (27.06%, 28.384136586918796 seconds remaining)    Job #1, processed 210/739 voxels (28.42%, 27.837130321741604 seconds remaining)    Job #1, processed 220/739 voxels (29.77%, 27.3571477943833 seconds remaining)    Job #1, processed 230/739 voxels (31.12%, 26.84234139974442 seconds remaining)    Job #1, processed 240/739 voxels (32.48%, 26.349229286456936 seconds remaining)    Job #1, processed 250/739 voxels (33.83%, 25.827026464302726 seconds remaining)    Job #1, processed 260/739 voxels (35.18%, 25.34451265657673 seconds remaining)    Job #1, processed 270/739 voxels (36.54%, 24.843920706919654 seconds remaining)    Job #1, processed 280/739 voxels (37.89%, 24.326335010254216 seconds remaining)    Job #1, processed 290/739 voxels (39.24%, 23.827312597319498 seconds remaining)    Job #1, processed 300/739 voxels (40.60%, 23.30742197083722 seconds remaining)    Job #1, processed 310/739 voxels (41.95%, 22.79799498676259 seconds remaining)    Job #1, processed 320/739 voxels (43.30%, 22.27268253573094 seconds remaining)    Job #1, processed 330/739 voxels (44.65%, 21.762605406001864 seconds remaining)    Job #1, processed 340/739 voxels (46.01%, 21.224361936570876 seconds remaining)    Job #1, processed 350/739 voxels (47.36%, 20.71253317513981 seconds remaining)    Job #1, processed 360/739 voxels (48.71%, 20.201059262969363 seconds remaining)    Job #1, processed 370/739 voxels (50.07%, 19.67021373229182 seconds remaining)    Job #1, processed 380/739 voxels (51.42%, 19.15664274606293 seconds remaining)    Job #1, processed 390/739 voxels (52.77%, 18.621277926658077 seconds remaining)    Job #1, processed 400/739 voxels (54.13%, 18.100018994680024 seconds remaining)    Job #1, processed 410/739 voxels (55.48%, 17.569229225675755 seconds remaining)    Job #1, processed 420/739 voxels (56.83%, 17.126501613239704 seconds remaining)    Job #1, processed 430/739 voxels (58.19%, 16.588016666483483 seconds remaining)    Job #1, processed 440/739 voxels (59.54%, 16.06580839094637 seconds remaining)    Job #1, processed 450/739 voxels (60.89%, 15.542142611337738 seconds remaining)    Job #1, processed 460/739 voxels (62.25%, 15.00329012085635 seconds remaining)    Job #1, processed 470/739 voxels (63.60%, 14.475966843419105 seconds remaining)    Job #1, processed 480/739 voxels (64.95%, 13.941095322255816 seconds remaining)    Job #1, processed 490/739 voxels (66.31%, 13.406444974226785 seconds remaining)    Job #1, processed 500/739 voxels (67.66%, 12.86630395936642 seconds remaining)    Job #1, processed 510/739 voxels (69.01%, 12.337346977849675 seconds remaining)    Job #1, processed 520/739 voxels (70.37%, 11.79140627311342 seconds remaining)    Job #1, processed 530/739 voxels (71.72%, 11.258350190674866 seconds remaining)    Job #1, processed 540/739 voxels (73.07%, 10.715613956472303 seconds remaining)    Job #1, processed 550/739 voxels (74.42%, 10.17885997518997 seconds remaining)    Job #1, processed 560/739 voxels (75.78%, 9.637616640346664 seconds remaining)    Job #1, processed 570/739 voxels (77.13%, 9.096723264283467 seconds remaining)    Job #1, processed 580/739 voxels (78.48%, 8.561947098322719 seconds remaining)    Job #1, processed 590/739 voxels (79.84%, 8.016043686914538 seconds remaining)    Job #1, processed 600/739 voxels (81.19%, 7.482196075133113 seconds remaining)    Job #1, processed 610/739 voxels (82.54%, 6.942062460714716 seconds remaining)    Job #1, processed 620/739 voxels (83.90%, 6.4024510241520955 seconds remaining)    Job #1, processed 630/739 voxels (85.25%, 5.8635212452180925 seconds remaining)    Job #1, processed 640/739 voxels (86.60%, 5.329349697875098 seconds remaining)    Job #1, processed 650/739 voxels (87.96%, 4.7861861589552355 seconds remaining)    Job #1, processed 660/739 voxels (89.31%, 4.249898379413107 seconds remaining)    Job #1, processed 670/739 voxels (90.66%, 3.7137547625418206 seconds remaining)    Job #1, processed 680/739 voxels (92.02%, 3.1718286043974264 seconds remaining)    Job #1, processed 690/739 voxels (93.37%, 2.6351282856787894 seconds remaining)    Job #1, processed 700/739 voxels (94.72%, 2.096121345017408 seconds remaining)    Job #1, processed 710/739 voxels (96.08%, 1.5546661378144233 seconds remaining)    Job #1, processed 720/739 voxels (97.43%, 1.0180953244928996 seconds remaining)    Job #1, processed 730/739 voxels (98.78%, 0.4823598103331125 seconds remaining)    [Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:   39.4s finished
 
 
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
     <style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SearchLight(cv=KFold(n_splits=4, random_state=None, shuffle=False),
-                mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f21c10d7490&gt;,
-                process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f21c10d72e0&gt;,
+                mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6618deeeb0&gt;,
+                process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6617c98400&gt;,
                 radius=5.6, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">SearchLight</label><div class="sk-toggleable__content"><pre>SearchLight(cv=KFold(n_splits=4, random_state=None, shuffle=False),
-                mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f21c10d7490&gt;,
-                process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f21c10d72e0&gt;,
+                mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6618deeeb0&gt;,
+                process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6617c98400&gt;,
                 radius=5.6, verbose=1)</pre></div></div></div></div></div>
     </div>
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-95
+.. GENERATED FROM PYTHON SOURCE LINES 94-96
 
 F-scores computation
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-114
+.. GENERATED FROM PYTHON SOURCE LINES 96-115
 
 .. code-block:: default
 
@@ -232,13 +233,13 @@ F-scores computation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-118
+.. GENERATED FROM PYTHON SOURCE LINES 116-119
 
 Visualization
 -------------
 Use the fmri mean image as a surrogate of anatomical data
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-154
+.. GENERATED FROM PYTHON SOURCE LINES 119-155
 
 .. code-block:: default
 
@@ -305,7 +306,7 @@ Use the fmri mean image as a surrogate of anatomical data
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  50.811 seconds)
+   **Total running time of the script:** ( 0 minutes  50.432 seconds)
 
 **Estimated memory usage:**  916 MB
 

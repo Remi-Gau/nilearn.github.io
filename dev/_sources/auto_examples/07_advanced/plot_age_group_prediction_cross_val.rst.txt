@@ -230,17 +230,18 @@ we will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-84
+.. GENERATED FROM PYTHON SOURCE LINES 59-85
 
 .. code-block:: default
 
 
     # prepare the classification pipeline
-    from nilearn.connectome import ConnectivityMeasure
     from sklearn.dummy import DummyClassifier
     from sklearn.model_selection import GridSearchCV
     from sklearn.pipeline import Pipeline
     from sklearn.svm import LinearSVC
+
+    from nilearn.connectome import ConnectivityMeasure
 
     kinds = ["correlation", "partial correlation", "tangent"]
 
@@ -266,13 +267,13 @@ compare the different kinds of connectivity matrices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-88
+.. GENERATED FROM PYTHON SOURCE LINES 86-89
 
 We use random splits of the subjects into training/testing sets.
 StratifiedShuffleSplit allows preserving the proportion of children in the
 test set.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-108
+.. GENERATED FROM PYTHON SOURCE LINES 89-109
 
 .. code-block:: default
 
@@ -309,11 +310,11 @@ test set.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-110
+.. GENERATED FROM PYTHON SOURCE LINES 110-111
 
 display the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-123
+.. GENERATED FROM PYTHON SOURCE LINES 111-124
 
 .. code-block:: default
 
@@ -342,7 +343,7 @@ display the results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-131
+.. GENERATED FROM PYTHON SOURCE LINES 125-132
 
 This is a small example to showcase nilearn features. In practice such
 comparisons need to be performed on much larger cohorts and several
@@ -352,7 +353,7 @@ datasets.
 Showed that across many cohorts and clinical questions, the tangent
 kind should be preferred.
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-133
+.. GENERATED FROM PYTHON SOURCE LINES 132-134
 
 .. code-block:: default
 
@@ -368,9 +369,9 @@ kind should be preferred.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  42.299 seconds)
+   **Total running time of the script:** ( 1 minutes  43.282 seconds)
 
-**Estimated memory usage:**  1141 MB
+**Estimated memory usage:**  1143 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_age_group_prediction_cross_val.py:

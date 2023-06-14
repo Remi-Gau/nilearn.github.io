@@ -31,11 +31,12 @@ searchlight decoding. NeuroImage 56, 582–592.
 Load Haxby dataset
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-26
+.. GENERATED FROM PYTHON SOURCE LINES 15-27
 
 .. code-block:: default
 
     import pandas as pd
+
     from nilearn import datasets
 
     # We fetch 2nd subject from haxby datasets (which is default)
@@ -53,12 +54,12 @@ Load Haxby dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-29
+.. GENERATED FROM PYTHON SOURCE LINES 28-30
 
 Restrict to faces and houses
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-36
+.. GENERATED FROM PYTHON SOURCE LINES 30-37
 
 .. code-block:: default
 
@@ -76,17 +77,18 @@ Restrict to faces and houses
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Surface bold response
 ---------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-62
+.. GENERATED FROM PYTHON SOURCE LINES 40-64
 
 .. code-block:: default
 
-    from nilearn import datasets, surface
     from sklearn import neighbors
+
+    from nilearn import datasets, surface
 
     # Fetch a coarse surface of the left hemisphere only for speed
     fsaverage = datasets.fetch_surf_fsaverage(mesh="fsaverage5")
@@ -115,20 +117,21 @@ Surface bold response
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-65
+.. GENERATED FROM PYTHON SOURCE LINES 65-67
 
 Searchlight computation
 -----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-80
+.. GENERATED FROM PYTHON SOURCE LINES 67-83
 
 .. code-block:: default
 
-    from nilearn.decoding.searchlight import search_light
     from sklearn.linear_model import RidgeClassifier
     from sklearn.model_selection import KFold
     from sklearn.pipeline import make_pipeline
     from sklearn.preprocessing import StandardScaler
+
+    from nilearn.decoding.searchlight import search_light
 
     # Simple linear estimator preceded by a normalization step
     estimator = make_pipeline(StandardScaler(), RidgeClassifier(alpha=10.0))
@@ -146,12 +149,12 @@ Searchlight computation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-83
+.. GENERATED FROM PYTHON SOURCE LINES 84-86
 
 Visualization
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-96
+.. GENERATED FROM PYTHON SOURCE LINES 86-99
 
 .. code-block:: default
 
@@ -183,7 +186,7 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  5.742 seconds)
+   **Total running time of the script:** ( 2 minutes  7.888 seconds)
 
 **Estimated memory usage:**  916 MB
 

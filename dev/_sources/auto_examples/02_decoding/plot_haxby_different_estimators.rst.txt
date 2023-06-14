@@ -103,7 +103,7 @@ Loading the data
 Training the decoder
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-111
+.. GENERATED FROM PYTHON SOURCE LINES 66-112
 
 .. code-block:: default
 
@@ -121,8 +121,9 @@ Training the decoder
     # classifiers
     import time
 
-    from nilearn.decoding import Decoder
     from sklearn.model_selection import LeaveOneGroupOut
+
+    from nilearn.decoding import Decoder
 
     cv = LeaveOneGroupOut()
     classifiers_data = {}
@@ -161,25 +162,25 @@ Training the decoder
  .. code-block:: none
 
     ______________________________________________________________________
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l1: 98.98s
+    logistic_l1: 99.35s
         scissors       vs all -- AUC: 0.00 +- 0.00
         face           vs all -- AUC: 0.17 +- 0.37
-        cat            vs all -- AUC: 0.53 +- 0.45
+        cat            vs all -- AUC: 0.45 +- 0.46
         shoe           vs all -- AUC: 0.00 +- 0.00
         house          vs all -- AUC: 1.00 +- 0.00
         scrambledpix   vs all -- AUC: 0.98 +- 0.01
-        bottle         vs all -- AUC: 0.16 +- 0.35
+        bottle         vs all -- AUC: 0.15 +- 0.35
         chair          vs all -- AUC: 0.00 +- 0.00
     ______________________________________________________________________
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l2: 306.27s
+    logistic_l2: 310.35s
         scissors       vs all -- AUC: 0.90 +- 0.08
         face           vs all -- AUC: 0.97 +- 0.04
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -189,11 +190,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.82 +- 0.17
         chair          vs all -- AUC: 0.87 +- 0.17
     ______________________________________________________________________
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    ridge_classifier: 17.53s
+    ridge_classifier: 17.65s
         scissors       vs all -- AUC: 0.94 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.02
         cat            vs all -- AUC: 0.95 +- 0.04
@@ -203,11 +204,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.89 +- 0.09
         chair          vs all -- AUC: 0.93 +- 0.07
     ______________________________________________________________________
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l1    : 30.20s
+    svc_l1    : 29.60s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.03
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -217,11 +218,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.89 +- 0.08
         chair          vs all -- AUC: 0.93 +- 0.04
     ______________________________________________________________________
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l2    : 74.52s
+    svc_l2    : 74.91s
         scissors       vs all -- AUC: 0.90 +- 0.09
         face           vs all -- AUC: 0.96 +- 0.05
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -234,12 +235,12 @@ Training the decoder
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-114
+.. GENERATED FROM PYTHON SOURCE LINES 113-115
 
 Visualization
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-149
+.. GENERATED FROM PYTHON SOURCE LINES 115-150
 
 .. code-block:: default
 
@@ -290,21 +291,21 @@ Visualization
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-154
+.. GENERATED FROM PYTHON SOURCE LINES 151-155
 
 We can see that for a fixed penalty the results are similar between the svc
 and the logistic regression. The main difference relies on the penalty
 ($\ell_1$ and $\ell_2$). The sparse penalty works better because we are in
 an intra-subject setting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 156-160
+.. GENERATED FROM PYTHON SOURCE LINES 157-161
 
 Visualizing the face vs house map
 ---------------------------------
 
 Restrict the decoding to face vs house
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-181
+.. GENERATED FROM PYTHON SOURCE LINES 161-182
 
 .. code-block:: default
 
@@ -337,23 +338,23 @@ Restrict the decoding to face vs house
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:495: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -361,12 +362,12 @@ Restrict the decoding to face vs house
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 182-184
+.. GENERATED FROM PYTHON SOURCE LINES 183-185
 
 Finally, we plot the face vs house map for the different classifiers
 Use the average EPI as a background
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-204
+.. GENERATED FROM PYTHON SOURCE LINES 185-205
 
 .. code-block:: default
 
@@ -438,9 +439,9 @@ Use the average EPI as a background
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 9 minutes  20.923 seconds)
+   **Total running time of the script:** ( 9 minutes  25.552 seconds)
 
-**Estimated memory usage:**  1359 MB
+**Estimated memory usage:**  1346 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_different_estimators.py:

@@ -128,7 +128,7 @@ and the task_label as specified in the file names.
 
     'StartTime' not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/glm/first_level/first_level.py:1017: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/glm/first_level/first_level.py:1018: UserWarning:
 
     'slice_time_ref' not provided and cannot be inferred from metadata.It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models.
 
@@ -163,7 +163,7 @@ We just expect one run_img per subject.
 
  .. code-block:: none
 
-    ['sub-08_task-languagelocalizer_desc-preproc_bold.nii.gz']
+    ['sub-10_task-languagelocalizer_desc-preproc_bold.nii.gz']
 
 
 
@@ -254,11 +254,12 @@ Set the threshold as the z-variate with an uncorrected p-value of 0.001.
 
 Prepare figure for concurrent plot of individual maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-126
+.. GENERATED FROM PYTHON SOURCE LINES 104-127
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
+
     from nilearn import plotting
 
     fig, axes = plt.subplots(nrows=2, ncols=5, figsize=(8, 4.5))
@@ -292,7 +293,7 @@ Prepare figure for concurrent plot of individual maps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-133
+.. GENERATED FROM PYTHON SOURCE LINES 128-134
 
 Second level model estimation
 -----------------------------
@@ -301,7 +302,7 @@ to the SecondLevelModel object for estimation. We can do this because
 all subjects share a similar design matrix (same variables reflected in
 column names).
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-137
+.. GENERATED FROM PYTHON SOURCE LINES 134-138
 
 .. code-block:: default
 
@@ -316,11 +317,11 @@ column names).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-139
+.. GENERATED FROM PYTHON SOURCE LINES 139-140
 
 Note that we apply a smoothing of 8mm.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-142
+.. GENERATED FROM PYTHON SOURCE LINES 140-143
 
 .. code-block:: default
 
@@ -334,14 +335,14 @@ Note that we apply a smoothing of 8mm.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-147
+.. GENERATED FROM PYTHON SOURCE LINES 144-148
 
 Computing contrasts at the second level is as simple as at the first level.
 Since we are not providing confounders we are performing a one-sample test
 at the second level with the images determined by the specified first level
 contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-151
+.. GENERATED FROM PYTHON SOURCE LINES 148-152
 
 .. code-block:: default
 
@@ -356,12 +357,12 @@ contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-154
+.. GENERATED FROM PYTHON SOURCE LINES 153-155
 
 The group level contrast reveals a left lateralized fronto-temporal
 language network.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-163
+.. GENERATED FROM PYTHON SOURCE LINES 155-164
 
 .. code-block:: default
 
@@ -389,7 +390,7 @@ language network.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  49.012 seconds)
+   **Total running time of the script:** ( 0 minutes  49.045 seconds)
 
 **Estimated memory usage:**  98 MB
 
