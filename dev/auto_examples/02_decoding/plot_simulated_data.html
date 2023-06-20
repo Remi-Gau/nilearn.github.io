@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example simulates data according to a very simple sketch of brain imaging data and applies machine learning techniques to predict output values. We use a very simple generating function to sim..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Encoding models for visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_encoding.html" /><link rel="prev" title="Voxel-Based Morphometry on Oasis dataset" href="plot_oasis_vbm.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Encoding models for visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_encoding.html" /><link rel="prev" title="Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
         <title>Example of pattern recognition on simulated data - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev26+gbb59d699) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev28+gbf0f6e44) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -231,8 +231,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_glm_decoding.html">Decoding of a dataset after GLM fit for signal extraction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_full_analysis.html">ROI-based decoding analysis in Haxby et al. dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_haxby_grid_search.html">Setting a parameter by cross-validation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_haxby_different_estimators.html">Different classifiers in decoding the Haxby dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_oasis_vbm.html">Voxel-Based Morphometry on Oasis dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_haxby_different_estimators.html">Different classifiers in decoding the Haxby dataset</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Example of pattern recognition on simulated data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_miyawaki_encoding.html">Encoding models for visual stimuli from Miyawaki et al. 2008</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_miyawaki_reconstruction.html">Reconstruction of visual stimuli from Miyawaki et al. 2008</a></li>
@@ -294,13 +294,13 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../07_advanced/index.html">Advanced statistical analysis of brain images</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of Advanced statistical analysis of brain images</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_ica_resting_state.html">Multivariate decompositions: Independent component analysis of fMRI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_localizer_simple_analysis.html">Massively univariate analysis of a calculation task from the Localizer dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_ica_resting_state.html">Multivariate decompositions: Independent component analysis of fMRI</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_bids_analysis.html">BIDS dataset first and second level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_age_group_prediction_cross_val.html">Functional connectivity predicts age group</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_neurovault_meta_analysis.html">NeuroVault meta-analysis of stop-go paradigm studies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_surface_bids_analysis.html">Surface-based dataset first and second level analysis of a dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_age_group_prediction_cross_val.html">Functional connectivity predicts age group</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_localizer_mass_univariate_methods.html">Massively univariate analysis of a motor task from the Localizer dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_surface_bids_analysis.html">Surface-based dataset first and second level analysis of a dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_ica_neurovault.html">NeuroVault cross-study ICA maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_haxby_mass_univariate.html">Massively univariate analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../07_advanced/plot_advanced_decoding_scikit.html">Advanced decoding using scikit learn</a></li>
@@ -699,9 +699,7 @@ we simulate random normal variables and smooth them as in Gaussian
 fields.</p></li>
 <li><p><strong>e</strong> is random normal noise.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Licence : BSD</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span></a>
 
@@ -912,64 +910,64 @@ models, a <cite>coef_</cite> attribute that stores the coefficients <strong>w</s
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.06s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.14s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.18s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.07s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.04s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_005.png" srcset="../../_images/sphx_glr_plot_simulated_data_005.png" alt="svr: prediction score 0.345, training time: 0.00s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 6.45s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 6.29s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_007.png" srcset="../../_images/sphx_glr_plot_simulated_data_007.png" alt="f_regress" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.06s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.14s
 enet_cv: prediction score 0.528, training time: 0.18s
-ridge_cv: prediction score 0.328, training time: 0.07s
+ridge_cv: prediction score 0.328, training time: 0.04s
 svr: prediction score 0.345, training time: 0.00s
 [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-Job #1, processed 0/432 voxels (0.00%, 140.8672332763672 seconds remaining)
-Job #1, processed 10/432 voxels (2.31%, 6.6028081462496795 seconds remaining)
-Job #1, processed 20/432 voxels (4.63%, 5.698997187048004 seconds remaining)
-Job #1, processed 30/432 voxels (6.94%, 5.781465406033078 seconds remaining)
-Job #1, processed 40/432 voxels (9.26%, 5.785113034958973 seconds remaining)
-Job #1, processed 50/432 voxels (11.57%, 5.779370352226595 seconds remaining)
-Job #1, processed 60/432 voxels (13.89%, 5.517757057886144 seconds remaining)
-Job #1, processed 70/432 voxels (16.20%, 5.539795899096831 seconds remaining)
-Job #1, processed 80/432 voxels (18.52%, 5.507777078620301 seconds remaining)
-Job #1, processed 90/432 voxels (20.83%, 5.293281573718177 seconds remaining)
-Job #1, processed 100/432 voxels (23.15%, 5.078521109554217 seconds remaining)
-Job #1, processed 110/432 voxels (25.46%, 4.961584563341462 seconds remaining)
-Job #1, processed 120/432 voxels (27.78%, 4.794433888983949 seconds remaining)
-Job #1, processed 130/432 voxels (30.09%, 4.571181109673401 seconds remaining)
-Job #1, processed 140/432 voxels (32.41%, 4.40581987243271 seconds remaining)
-Job #1, processed 150/432 voxels (34.72%, 4.220921265914144 seconds remaining)
-Job #1, processed 160/432 voxels (37.04%, 4.024233100738691 seconds remaining)
-Job #1, processed 170/432 voxels (39.35%, 3.8385886119008816 seconds remaining)
-Job #1, processed 180/432 voxels (41.67%, 3.6705969531157905 seconds remaining)
-Job #1, processed 190/432 voxels (43.98%, 3.4962476108658582 seconds remaining)
-Job #1, processed 200/432 voxels (46.30%, 3.3104577878123997 seconds remaining)
-Job #1, processed 210/432 voxels (48.61%, 3.145353529635243 seconds remaining)
-Job #1, processed 220/432 voxels (50.93%, 2.9833276176789694 seconds remaining)
-Job #1, processed 230/432 voxels (53.24%, 2.817242281137777 seconds remaining)
-Job #1, processed 240/432 voxels (55.56%, 2.6540899345392455 seconds remaining)
-Job #1, processed 250/432 voxels (57.87%, 2.5032156388418074 seconds remaining)
-Job #1, processed 260/432 voxels (60.19%, 2.351463135581295 seconds remaining)
-Job #1, processed 270/432 voxels (62.50%, 2.200950765609741 seconds remaining)
-Job #1, processed 280/432 voxels (64.81%, 2.0531720480899014 seconds remaining)
-Job #1, processed 290/432 voxels (67.13%, 1.9134879912773193 seconds remaining)
-Job #1, processed 300/432 voxels (69.44%, 1.7823905637187345 seconds remaining)
-Job #1, processed 310/432 voxels (71.76%, 1.6418514150706682 seconds remaining)
-Job #1, processed 320/432 voxels (74.07%, 1.507385014972659 seconds remaining)
-Job #1, processed 330/432 voxels (76.39%, 1.378172937152991 seconds remaining)
-Job #1, processed 340/432 voxels (78.70%, 1.24499259394945 seconds remaining)
-Job #1, processed 350/432 voxels (81.02%, 1.1101839541800376 seconds remaining)
-Job #1, processed 360/432 voxels (83.33%, 0.9780441128190478 seconds remaining)
-Job #1, processed 370/432 voxels (85.65%, 0.8474832521985302 seconds remaining)
-Job #1, processed 380/432 voxels (87.96%, 0.7117118061320685 seconds remaining)
-Job #1, processed 390/432 voxels (90.28%, 0.579259064644377 seconds remaining)
-Job #1, processed 400/432 voxels (92.59%, 0.44083227911962625 seconds remaining)
-Job #1, processed 410/432 voxels (94.91%, 0.30393031931893133 seconds remaining)
-Job #1, processed 420/432 voxels (97.22%, 0.16552021292054936 seconds remaining)
-Job #1, processed 430/432 voxels (99.54%, 0.02736027259435726 seconds remaining)
-[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    5.9s finished
-SearchLight: training time: 6.45s
+Job #1, processed 0/432 voxels (0.00%, 135.3287696838379 seconds remaining)
+Job #1, processed 10/432 voxels (2.31%, 6.501638013047057 seconds remaining)
+Job #1, processed 20/432 voxels (4.63%, 5.60804526749234 seconds remaining)
+Job #1, processed 30/432 voxels (6.94%, 5.698784394635247 seconds remaining)
+Job #1, processed 40/432 voxels (9.26%, 5.736929264233385 seconds remaining)
+Job #1, processed 50/432 voxels (11.57%, 5.7224361826452395 seconds remaining)
+Job #1, processed 60/432 voxels (13.89%, 5.460325641199528 seconds remaining)
+Job #1, processed 70/432 voxels (16.20%, 5.4838817296204745 seconds remaining)
+Job #1, processed 80/432 voxels (18.52%, 5.453441001941525 seconds remaining)
+Job #1, processed 90/432 voxels (20.83%, 5.2331569463772905 seconds remaining)
+Job #1, processed 100/432 voxels (23.15%, 5.015852729393648 seconds remaining)
+Job #1, processed 110/432 voxels (25.46%, 4.900149273853645 seconds remaining)
+Job #1, processed 120/432 voxels (27.78%, 4.733058727757377 seconds remaining)
+Job #1, processed 130/432 voxels (30.09%, 4.508917936735195 seconds remaining)
+Job #1, processed 140/432 voxels (32.41%, 4.34420210724442 seconds remaining)
+Job #1, processed 150/432 voxels (34.72%, 4.163287079279324 seconds remaining)
+Job #1, processed 160/432 voxels (37.04%, 3.9682869452894636 seconds remaining)
+Job #1, processed 170/432 voxels (39.35%, 3.7876957208107505 seconds remaining)
+Job #1, processed 180/432 voxels (41.67%, 3.6222423312473504 seconds remaining)
+Job #1, processed 190/432 voxels (43.98%, 3.4490353259892834 seconds remaining)
+Job #1, processed 200/432 voxels (46.30%, 3.2644333504703598 seconds remaining)
+Job #1, processed 210/432 voxels (48.61%, 3.1000841794448535 seconds remaining)
+Job #1, processed 220/432 voxels (50.93%, 2.939717834411987 seconds remaining)
+Job #1, processed 230/432 voxels (53.24%, 2.774897844248656 seconds remaining)
+Job #1, processed 240/432 voxels (55.56%, 2.614445200577496 seconds remaining)
+Job #1, processed 250/432 voxels (57.87%, 2.465282138320517 seconds remaining)
+Job #1, processed 260/432 voxels (60.19%, 2.3154268726634712 seconds remaining)
+Job #1, processed 270/432 voxels (62.50%, 2.1668272018432617 seconds remaining)
+Job #1, processed 280/432 voxels (64.81%, 2.0208337820895084 seconds remaining)
+Job #1, processed 290/432 voxels (67.13%, 1.8832268741186593 seconds remaining)
+Job #1, processed 300/432 voxels (69.44%, 1.7541851557894237 seconds remaining)
+Job #1, processed 310/432 voxels (71.76%, 1.6153471228005225 seconds remaining)
+Job #1, processed 320/432 voxels (74.07%, 1.4829557095202295 seconds remaining)
+Job #1, processed 330/432 voxels (76.39%, 1.3582729958695163 seconds remaining)
+Job #1, processed 340/432 voxels (78.70%, 1.226826484200309 seconds remaining)
+Job #1, processed 350/432 voxels (81.02%, 1.0938723447498824 seconds remaining)
+Job #1, processed 360/432 voxels (83.33%, 0.9636992209958785 seconds remaining)
+Job #1, processed 370/432 voxels (85.65%, 0.8351864411130814 seconds remaining)
+Job #1, processed 380/432 voxels (87.96%, 0.7011122416235637 seconds remaining)
+Job #1, processed 390/432 voxels (90.28%, 0.57032723589497 seconds remaining)
+Job #1, processed 400/432 voxels (92.59%, 0.43401993627823204 seconds remaining)
+Job #1, processed 410/432 voxels (94.91%, 0.2992468273384708 seconds remaining)
+Job #1, processed 420/432 voxels (97.22%, 0.1629821835317575 seconds remaining)
+Job #1, processed 430/432 voxels (99.54%, 0.02694555964363526 seconds remaining)
+[Parallel(n_jobs=1)]: Done   1 out of   1 | elapsed:    5.8s finished
+SearchLight: training time: 6.29s
 </pre></div>
 </div>
 </section>
@@ -985,8 +983,8 @@ slow.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.feature_selection import RFE</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.334 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  58 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.131 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  13 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-simulated-data-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_simulated_data.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1016,14 +1014,14 @@ slow.</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_oasis_vbm.html">
+          <a class="prev-page" href="plot_haxby_different_estimators.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Voxel-Based Morphometry on Oasis dataset</div>
+                <div class="title">Different classifiers in decoding the Haxby dataset</div>
                 
               </div>
             </a>
