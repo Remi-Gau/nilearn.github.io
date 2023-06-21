@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev30+g06375b93) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev31+ga03175bb) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -715,13 +715,12 @@ all occurrences of:</p>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_coords</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_data</span><span class="o">.</span><span class="n">region_coords</span></a>
 <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_regions</span></a> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_coords</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="s2">&quot;MSDL has </span><span class="si">{0}</span><span class="s2"> ROIs, part of the following networks :</span><span class="se">\n</span><span class="si">{1}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_regions</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_data</span><span class="o">.</span><span class="n">networks</span></a>
-    <span class="p">)</span>
+    <span class="sa">f</span><span class="s2">&quot;MSDL has </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_regions</span></a><span class="si">}</span><span class="s2"> ROIs, &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;part of the following networks:</span><span class="se">\n</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_data</span><span class="o">.</span><span class="n">networks</span></a><span class="si">}</span><span class="s2">.&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MSDL has 39 ROIs, part of the following networks :
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>MSDL has 39 ROIs, part of the following networks:
 [&#39;Aud&#39;, &#39;Aud&#39;, &#39;Striate&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;DMN&#39;, &#39;Occ post&#39;, &#39;Motor&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;R V Att&#39;, &#39;Basal&#39;, &#39;L V Att&#39;, &#39;L V Att&#39;, &#39;L V Att&#39;, &#39;D Att&#39;, &#39;D Att&#39;, &#39;Vis Sec&#39;, &#39;Vis Sec&#39;, &#39;Vis Sec&#39;, &#39;Salience&#39;, &#39;Salience&#39;, &#39;Salience&#39;, &#39;Temporal&#39;, &#39;Temporal&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Language&#39;, &#39;Cereb&#39;, &#39;Dors PCC&#39;, &#39;Cing-Ins&#39;, &#39;Cing-Ins&#39;, &#39;Cing-Ins&#39;, &#39;Ant IPS&#39;, &#39;Ant IPS&#39;].
 </pre></div>
 </div>
@@ -904,9 +903,8 @@ estimate it using <a class="reference internal" href="../../modules/generated/ni
 
 <span class="c1"># All individual coefficients are stacked in a unique 2D matrix.</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="s2">&quot;Correlations of children are stacked in an array of shape </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrices</span><span class="o">.</span><span class="n">shape</span></a>
-    <span class="p">)</span>
+    <span class="s2">&quot;Correlations of children are stacked &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;in an array of shape </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrices</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1042,7 +1040,7 @@ Correlations of children are stacked in an array of shape (24, 39, 39)
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_group_level_connectivity_002.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_002.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f1aea8b9130&gt;
+<img src="../../_images/sphx_glr_plot_group_level_connectivity_002.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_002.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7efbe09a2070&gt;
 </pre></div>
 </div>
 </section>
@@ -1075,7 +1073,7 @@ coefficients. We just change the <cite>ConnectivityMeasure</cite> kind</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_group_level_connectivity_004.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_004.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f1aef1418b0&gt;
+<img src="../../_images/sphx_glr_plot_group_level_connectivity_004.png" srcset="../../_images/sphx_glr_plot_group_level_connectivity_004.png" alt="plot group level connectivity" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7efbe238f880&gt;
 </pre></div>
 </div>
 </section>
@@ -2975,8 +2973,8 @@ kind should be preferred.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  36.128 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1250 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  17.188 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1252 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-group-level-connectivity-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_group_level_connectivity.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
