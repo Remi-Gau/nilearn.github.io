@@ -104,7 +104,7 @@ a :class:`~nilearn.plotting.displays.OrthoProjector` is returned.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb3144dea00>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fa399672670>
 
 
 
@@ -135,7 +135,7 @@ setting ``colorbar=True``.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb324a50040>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fa39a667820>
 
 
 
@@ -145,14 +145,17 @@ Here, we show how to set a black background, and we only view sagittal and
 axial projections by setting ``display_mode='xz'``, which returns a
 :class:`~nilearn.plotting.displays.XZProjector`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-69
+.. GENERATED FROM PYTHON SOURCE LINES 62-72
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, title='plot_glass_brain', black_bg=True,
-        display_mode='xz', threshold=3
+        stat_img,
+        title="plot_glass_brain",
+        black_bg=True,
+        display_mode="xz",
+        threshold=3,
     )
 
 
@@ -170,24 +173,24 @@ axial projections by setting ``display_mode='xz'``, which returns a
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.XZProjector object at 0x7fb319b36a90>
+    <nilearn.plotting.displays._projectors.XZProjector object at 0x7fa39a12c280>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-74
+.. GENERATED FROM PYTHON SOURCE LINES 73-77
 
 We can also plot the sign of the activation by setting ``plot_abs=False``.
 Additionally, we only visualize coronal and axial projections by setting
 ``display_mode='yz'`` which returns a
 :class:`~nilearn.plotting.displays.YZProjector`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-80
+.. GENERATED FROM PYTHON SOURCE LINES 77-83
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, threshold=0, colorbar=True, plot_abs=False, display_mode='yz'
+        stat_img, threshold=0, colorbar=True, plot_abs=False, display_mode="yz"
     )
 
 
@@ -205,22 +208,22 @@ Additionally, we only visualize coronal and axial projections by setting
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.YZProjector object at 0x7fb31ac82910>
+    <nilearn.plotting.displays._projectors.YZProjector object at 0x7fa398a24f10>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-83
+.. GENERATED FROM PYTHON SOURCE LINES 84-86
 
 Setting ``plot_abs=True`` and ``display_mode='yx'`` (returns a
 :class:`~nilearn.plotting.displays.YXProjector`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-89
+.. GENERATED FROM PYTHON SOURCE LINES 86-92
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, threshold=3, colorbar=True, plot_abs=False, display_mode='yx'
+        stat_img, threshold=3, colorbar=True, plot_abs=False, display_mode="yx"
     )
 
 
@@ -238,11 +241,11 @@ Setting ``plot_abs=True`` and ``display_mode='yx'`` (returns a
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.YXProjector object at 0x7fb31a2b2070>
+    <nilearn.plotting.displays._projectors.YXProjector object at 0x7fa39a5a6430>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-99
+.. GENERATED FROM PYTHON SOURCE LINES 93-102
 
 Different projections for the left and right hemispheres
 --------------------------------------------------------
@@ -254,14 +257,17 @@ some additional possibilities. For example, setting ``display_mode='lzr'``
 enables an hemispheric sagittal view. The display object returned is then a
 :class:`~nilearn.plotting.displays.LZRProjector`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-106
+.. GENERATED FROM PYTHON SOURCE LINES 102-112
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, title='plot_glass_brain with display_mode="lzr"',
-        black_bg=True, display_mode='lzr', threshold=3
+        stat_img,
+        title='plot_glass_brain with display_mode="lzr"',
+        black_bg=True,
+        display_mode="lzr",
+        threshold=3,
     )
 
 
@@ -279,24 +285,27 @@ enables an hemispheric sagittal view. The display object returned is then a
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.LZRProjector object at 0x7fb319a72610>
+    <nilearn.plotting.displays._projectors.LZRProjector object at 0x7fa39ab39af0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-109
+.. GENERATED FROM PYTHON SOURCE LINES 113-115
 
 ``display_mode='lyrz'`` returns a
 :class:`~nilearn.plotting.displays.LYRZProjector` object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-117
+.. GENERATED FROM PYTHON SOURCE LINES 115-126
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, threshold=0, colorbar=True,
+        stat_img,
+        threshold=0,
+        colorbar=True,
         title='plot_glass_brain with display_mode="lyrz"',
-        plot_abs=False, display_mode='lyrz'
+        plot_abs=False,
+        display_mode="lyrz",
     )
 
 
@@ -314,11 +323,11 @@ enables an hemispheric sagittal view. The display object returned is then a
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.LYRZProjector object at 0x7fb3191d5280>
+    <nilearn.plotting.displays._projectors.LYRZProjector object at 0x7fa39a825310>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-125
+.. GENERATED FROM PYTHON SOURCE LINES 127-134
 
 If you are only interested in single projections, you can set
 ``display_mode`` to 'x' (returns a
@@ -328,14 +337,18 @@ If you are only interested in single projections, you can set
 :class:`~nilearn.plotting.displays.LProjector`), or 'r' (returns a
 :class:`~nilearn.plotting.displays.RProjector`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-132
+.. GENERATED FROM PYTHON SOURCE LINES 134-145
 
 .. code-block:: default
 
 
     plot_glass_brain(
-        stat_img, threshold=0, colorbar=True, title='display_mode="x"',
-        plot_abs=False, display_mode='x'
+        stat_img,
+        threshold=0,
+        colorbar=True,
+        title='display_mode="x"',
+        plot_abs=False,
+        display_mode="x",
     )
 
 
@@ -353,11 +366,11 @@ If you are only interested in single projections, you can set
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.XProjector object at 0x7fb319a04490>
+    <nilearn.plotting.displays._projectors.XProjector object at 0x7fa399d5b0a0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-148
+.. GENERATED FROM PYTHON SOURCE LINES 146-161
 
 Demo glass brain plotting with contours and with fillings
 ---------------------------------------------------------
@@ -375,12 +388,12 @@ save the display object (here a
 want an empty glass brain to plot the statistical maps with
 :meth:`~nilearn.plotting.displays.OrthoProjector.add_contours`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-156
+.. GENERATED FROM PYTHON SOURCE LINES 161-169
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lzry')
+    display = plot_glass_brain(None, display_mode="lzry")
     # Here, we project statistical maps
     display.add_contours(stat_img)
     # and add a title
@@ -399,21 +412,21 @@ want an empty glass brain to plot the statistical maps with
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-159
+.. GENERATED FROM PYTHON SOURCE LINES 170-172
 
 We can fill the contours by setting ``filled=True``. Note that we are not
 specifying levels here
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-167
+.. GENERATED FROM PYTHON SOURCE LINES 172-180
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lzry')
+    display = plot_glass_brain(None, display_mode="lzry")
     # Here, we project statistical maps with filled=True
     display.add_contours(stat_img, filled=True)
     # and add a title
-    display.title('Same map but with fillings in the contours')
+    display.title("Same map but with fillings in the contours")
 
 
 
@@ -428,7 +441,7 @@ specifying levels here
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-174
+.. GENERATED FROM PYTHON SOURCE LINES 181-187
 
 Here, we input a specific level (cut-off) in the statistical map.
 In other words, we are thresholding our statistical map.
@@ -437,13 +450,13 @@ We set the threshold using a parameter of method
 :meth:`~nilearn.plotting.displays.OrthoProjector.add_contours` called
 ``levels`` which value is given as a list and we choose the color to be red.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-180
+.. GENERATED FROM PYTHON SOURCE LINES 187-193
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lzry')
-    display.add_contours(stat_img, levels=[3.], colors='r')
+    display = plot_glass_brain(None, display_mode="lzry")
+    display.add_contours(stat_img, levels=[3.0], colors="r")
     display.title('"stat_img" on glass brain with threshold')
 
 
@@ -459,19 +472,19 @@ We set the threshold using a parameter of method
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 181-183
+.. GENERATED FROM PYTHON SOURCE LINES 194-196
 
 Plotting with same demonstration but fill the contours (by setting
 ``filled=True``).
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-189
+.. GENERATED FROM PYTHON SOURCE LINES 196-202
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lzry')
-    display.add_contours(stat_img, filled=True, levels=[3.], colors='r')
-    display.title('Same demonstration but using fillings inside contours')
+    display = plot_glass_brain(None, display_mode="lzry")
+    display.add_contours(stat_img, filled=True, levels=[3.0], colors="r")
+    display.title("Same demonstration but using fillings inside contours")
 
 
 
@@ -486,19 +499,19 @@ Plotting with same demonstration but fill the contours (by setting
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-192
+.. GENERATED FROM PYTHON SOURCE LINES 203-205
 
 Plotting with black background, ``black_bg`` should be set to ``True``
 through :func:`~nilearn.plotting.plot_glass_brain`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-199
+.. GENERATED FROM PYTHON SOURCE LINES 205-212
 
 .. code-block:: default
 
 
     # We can set black background using black_bg=True
     display = plot_glass_brain(None, black_bg=True)
-    display.add_contours(stat_img, levels=[3.], colors='g')
+    display.add_contours(stat_img, levels=[3.0], colors="g")
     display.title('"stat_img" on glass brain with black background')
 
 
@@ -514,18 +527,18 @@ through :func:`~nilearn.plotting.plot_glass_brain`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-201
+.. GENERATED FROM PYTHON SOURCE LINES 213-214
 
 Black background plotting with filled in contours.
 
-.. GENERATED FROM PYTHON SOURCE LINES 201-207
+.. GENERATED FROM PYTHON SOURCE LINES 214-220
 
 .. code-block:: default
 
 
     display = plot_glass_brain(None, black_bg=True)
-    display.add_contours(stat_img, filled=True, levels=[3.], colors='g')
-    display.title('Glass brain with black background and filled in contours')
+    display.add_contours(stat_img, filled=True, levels=[3.0], colors="g")
+    display.title("Glass brain with black background and filled in contours")
 
 
 
@@ -540,7 +553,7 @@ Black background plotting with filled in contours.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-214
+.. GENERATED FROM PYTHON SOURCE LINES 221-227
 
 Display contour projections in both hemispheres
 -----------------------------------------------
@@ -549,13 +562,13 @@ The key argument to vary here is ``display_mode`` for hemispheric plotting.
 Here, we set ``display_mode='lr'`` for both hemispheric plots. Note that a
 :class:`~nilearn.plotting.displays.LRProjector` is returned.
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-220
+.. GENERATED FROM PYTHON SOURCE LINES 227-233
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lr')
-    display.add_contours(stat_img, levels=[3.], colors='r')
+    display = plot_glass_brain(None, display_mode="lr")
+    display.add_contours(stat_img, levels=[3.0], colors="r")
     display.title('"stat_img" on glass brain only "l" "r" hemispheres')
 
 
@@ -571,17 +584,17 @@ Here, we set ``display_mode='lr'`` for both hemispheric plots. Note that a
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-222
+.. GENERATED FROM PYTHON SOURCE LINES 234-235
 
 Filled contours in both hemispheric plotting, by adding ``filled=True``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-228
+.. GENERATED FROM PYTHON SOURCE LINES 235-241
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, display_mode='lr')
-    display.add_contours(stat_img, filled=True, levels=[3.], colors='r')
+    display = plot_glass_brain(None, display_mode="lr")
+    display.add_contours(stat_img, filled=True, levels=[3.0], colors="r")
     display.title('Filled contours on glass brain only "l" "r" hemispheres')
 
 
@@ -597,7 +610,7 @@ Filled contours in both hemispheric plotting, by adding ``filled=True``.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 229-236
+.. GENERATED FROM PYTHON SOURCE LINES 242-249
 
 With positive and negative signs of activations with ``plot_abs`` in
 :func:`~nilearn.plotting.plot_glass_brain`.
@@ -607,12 +620,12 @@ can be displayed by changing ``plot_abs`` to ``False``. Note that we also
 specify ``display_mode='lyr'`` which returns a
 :class:`~nilearn.plotting.displays.LYRProjector` display object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-242
+.. GENERATED FROM PYTHON SOURCE LINES 249-255
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, plot_abs=False, display_mode='lyr')
+    display = plot_glass_brain(None, plot_abs=False, display_mode="lyr")
     display.add_contours(stat_img)
     display.title("Contours with both sign of activations without threshold")
 
@@ -629,17 +642,17 @@ specify ``display_mode='lyr'`` which returns a
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-245
+.. GENERATED FROM PYTHON SOURCE LINES 256-258
 
 Now, adding ``filled=True`` to get positive and negative sign activations
 with fillings in the contours.
 
-.. GENERATED FROM PYTHON SOURCE LINES 245-253
+.. GENERATED FROM PYTHON SOURCE LINES 258-266
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, plot_abs=False, display_mode='lyr')
+    display = plot_glass_brain(None, plot_abs=False, display_mode="lyr")
     display.add_contours(stat_img, filled=True)
     display.title(
         "Filled contours with both sign of activations without threshold"
@@ -658,7 +671,7 @@ with fillings in the contours.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-264
+.. GENERATED FROM PYTHON SOURCE LINES 267-277
 
 Displaying both signs (positive and negative) of activations with threshold
 meaning thresholding by adding an argument ``levels`` in method
@@ -671,18 +684,18 @@ different color to each contour. Additionally, we also choose to plot
 contours with thick line widths. For ``linewidths``, one value would be
 enough so that same value is used for both contours.
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-274
+.. GENERATED FROM PYTHON SOURCE LINES 277-287
 
 .. code-block:: default
 
 
     import numpy as np
 
-    display = plot_glass_brain(None, plot_abs=False, display_mode='lzry')
+    display = plot_glass_brain(None, plot_abs=False, display_mode="lzry")
     display.add_contours(
-        stat_img, levels=[-2.8, 3.], colors=['b', 'r'], linewidths=4.
+        stat_img, levels=[-2.8, 3.0], colors=["b", "r"], linewidths=4.0
     )
-    display.title('Contours with sign of activations with threshold')
+    display.title("Contours with sign of activations with threshold")
 
 
 
@@ -697,7 +710,7 @@ enough so that same value is used for both contours.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 275-285
+.. GENERATED FROM PYTHON SOURCE LINES 288-298
 
 Same display demonstration as above but adding ``filled=True`` to get
 fillings inside the contours.
@@ -710,19 +723,15 @@ Then, we plot negative sign of activation with levels given as negative
 activation value in a list. Upper bound should be kept to -infinity.
 Next, using the same display object, we plot positive sign of activation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 285-297
+.. GENERATED FROM PYTHON SOURCE LINES 298-306
 
 .. code-block:: default
 
 
-    display = plot_glass_brain(None, plot_abs=False, display_mode='lzry')
-    display.add_contours(
-        stat_img, filled=True, levels=[-np.inf, -2.8], colors='b'
-    )
-    display.add_contours(
-        stat_img, filled=True, levels=[3.], colors='r'
-    )
-    display.title('Now same plotting but with filled contours')
+    display = plot_glass_brain(None, plot_abs=False, display_mode="lzry")
+    display.add_contours(stat_img, filled=True, levels=[-np.inf, -2.8], colors="b")
+    display.add_contours(stat_img, filled=True, levels=[3.0], colors="r")
+    display.title("Now same plotting but with filled contours")
     # Finally, displaying them
     plotting.show()
 
@@ -741,9 +750,9 @@ Next, using the same display object, we plot positive sign of activation.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  25.222 seconds)
+   **Total running time of the script:** ( 0 minutes  41.177 seconds)
 
-**Estimated memory usage:**  9 MB
+**Estimated memory usage:**  8 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_demo_glass_brain_extensive.py:
