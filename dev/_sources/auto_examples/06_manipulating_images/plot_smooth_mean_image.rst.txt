@@ -28,7 +28,51 @@ of noise, but also lose spatial details. In general, the best amount
 of smoothing for a given analysis depends on the spatial extent of the
 effects that are expected.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-36
+.. GENERATED FROM PYTHON SOURCE LINES 13-27
+
+.. code-block:: default
+
+    from nilearn import datasets, image, plotting
+
+    data = datasets.fetch_development_fmri(n_subjects=1)
+
+    # Print basic information on the dataset
+    print(
+        f"First subject functional nifti image (4D) are located at: {data.func[0]}"
+    )
+
+    first_epi_file = data.func[0]
+
+    # First compute the mean image, from the 4D series of image
+    mean_func = image.mean_img(first_epi_file)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    First subject functional nifti image (4D) are located at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-30
+
+Then we smooth, with a varying amount of smoothing, from none to 20mm
+by increments of 5mm
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-35
+
+.. code-block:: default
+
+    for smoothing in range(0, 25, 5):
+        smoothed_img = image.smooth_img(mean_func, smoothing)
+        plotting.plot_epi(smoothed_img, title=f"Smoothing {int(smoothing)}mm")
+
+    plotting.show()
 
 
 
@@ -75,7 +119,6 @@ effects that are expected.
 
  .. code-block:: none
 
-    First subject functional nifti image (4D) are located at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/image.py:211: UserWarning:
 
     The parameter 'fwhm' for smoothing is specified as 0. Setting it to None (no smoothing will be performed)
@@ -85,41 +128,11 @@ effects that are expected.
 
 
 
-
-|
-
-.. code-block:: default
-
-
-    from nilearn import datasets, image, plotting
-
-    data = datasets.fetch_development_fmri(n_subjects=1)
-
-    # Print basic information on the dataset
-    print(
-        f"First subject functional nifti image (4D) are located at: {data.func[0]}"
-    )
-
-    first_epi_file = data.func[0]
-
-    # First the compute the mean image, from the 4D series of image
-    mean_func = image.mean_img(first_epi_file)
-
-    # Then we smooth, with a varying amount of smoothing, from none to 20mm
-    # by increments of 5mm
-    for smoothing in range(0, 25, 5):
-        smoothed_img = image.smooth_img(mean_func, smoothing)
-        plotting.plot_epi(smoothed_img, title=f"Smoothing {int(smoothing)}mm")
-
-
-    plotting.show()
-
-
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.987 seconds)
+   **Total running time of the script:** ( 0 minutes  3.230 seconds)
 
-**Estimated memory usage:**  226 MB
+**Estimated memory usage:**  198 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_smooth_mean_image.py:

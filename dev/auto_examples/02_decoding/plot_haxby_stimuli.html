@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev38+g43ff123d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev41+gee21258e) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -683,15 +683,6 @@ to download the full example code or to run this example in your browser via Bin
 <p>In this script we plot an overview of the stimuli used in “Distributed
 and Overlapping Representations of Faces and Objects in Ventral Temporal
 Cortex” (Science 2001)</p>
-<ul class="sphx-glr-horizontal">
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_001.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_001.png" alt="houses" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_002.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_002.png" alt="shoes" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_003.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_003.png" alt="scissors" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_004.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_004.png" alt="bottles" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_005.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_005.png" alt="cats" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_006.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_006.png" alt="faces" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_007.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_007.png" alt="chairs" class = "sphx-glr-multi-img"/></li>
-</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -699,8 +690,9 @@ Cortex” (Science 2001)</p>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">haxby_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_haxby.html#nilearn.datasets.fetch_haxby" title="nilearn.datasets.fetch_haxby" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span></a><span class="p">(</span><span class="n">subjects</span><span class="o">=</span><span class="p">[],</span> <span class="n">fetch_stimuli</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimulus_information</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">stimuli</span></a>
-
-<span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stim_type</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimulus_information</span></a><span class="p">:</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stim_type</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimulus_information</span></a><span class="p">:</span>
     <span class="c1"># skip control images, there are too many</span>
     <span class="k">if</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stim_type</span></a> <span class="o">!=</span> <span class="s2">&quot;controls&quot;</span><span class="p">:</span>
         <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_names</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimulus_information</span></a><span class="p">[</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stim_type</span></a><span class="p">]</span>
@@ -717,8 +709,17 @@ Cortex” (Science 2001)</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  12.676 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  54 MB</p>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_001.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_001.png" alt="houses" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_002.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_002.png" alt="shoes" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_003.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_003.png" alt="scissors" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_004.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_004.png" alt="bottles" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_005.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_005.png" alt="cats" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_006.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_006.png" alt="faces" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_haxby_stimuli_007.png" srcset="../../_images/sphx_glr_plot_haxby_stimuli_007.png" alt="chairs" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.806 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  52 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-stimuli-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_stimuli.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

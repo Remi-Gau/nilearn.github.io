@@ -23,37 +23,15 @@ Plot Haxby masks
 
 Small script to plot the masks of the Haxby dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-64
+.. GENERATED FROM PYTHON SOURCE LINES 9-11
 
+Load Haxby dataset
+------------------
 
-
-.. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_haxby_masks_001.png
-   :alt: plot haxby masks
-   :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_haxby_masks_001.png
-   :class: sphx-glr-single-img
-
-
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    First subject anatomical nifti image (3D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/haxby2001/subj2/anat.nii.gz
-    First subject functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/haxby2001/subj2/bold.nii.gz
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/displays/_axes.py:70: UserWarning: The following kwargs were not used by contour: 'contours', 'linewidth'
-      im = getattr(ax, type)(data_2d.copy(),
-
-
-
-
-
-
-|
+.. GENERATED FROM PYTHON SOURCE LINES 11-32
 
 .. code-block:: default
 
-
-
-    import matplotlib.pyplot as plt
 
     from nilearn import datasets
 
@@ -75,9 +53,35 @@ Small script to plot the masks of the Haxby dataset.
 
     z_slice = -14
 
-    fig = plt.figure(figsize=(4, 5.4), facecolor="k")
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    First subject anatomical nifti image (3D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/haxby2001/subj2/anat.nii.gz
+    First subject functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/haxby2001/subj2/bold.nii.gz
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 33-35
+
+Plot the masks
+--------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-71
+
+.. code-block:: default
+
+
+    import matplotlib.pyplot as plt
 
     from nilearn.plotting import plot_anat, show
+
+    fig = plt.figure(figsize=(4, 5.4), facecolor="k")
 
     display = plot_anat(
         mean_img, display_mode="z", cut_coords=[z_slice], figure=fig
@@ -110,11 +114,29 @@ Small script to plot the masks of the Haxby dataset.
 
 
 
+
+.. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_haxby_masks_001.png
+   :alt: plot haxby masks
+   :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_haxby_masks_001.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/displays/_axes.py:70: UserWarning: The following kwargs were not used by contour: 'contours', 'linewidth'
+      im = getattr(ax, type)(data_2d.copy(),
+
+
+
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.761 seconds)
+   **Total running time of the script:** ( 0 minutes  5.557 seconds)
 
-**Estimated memory usage:**  916 MB
+**Estimated memory usage:**  915 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_haxby_masks.py:
