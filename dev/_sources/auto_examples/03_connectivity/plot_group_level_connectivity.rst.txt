@@ -512,7 +512,7 @@ Now we display as a connectome the mean correlation matrix over all children.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f1433c4c460>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f54e57299a0>
 
 
 
@@ -593,7 +593,7 @@ Most of direct connections are weaker than full connections.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f1426c08220>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f54dc35bb20>
 
 
 
@@ -712,7 +712,7 @@ test set.
             # build vectorized connectomes for subjects in the train set
             connectomes = connectivity.fit_transform(pooled_subjects[train])
             # fit the classifier
-            classifier = LinearSVC().fit(connectomes, classes[train])
+            classifier = LinearSVC(dual=True).fit(connectomes, classes[train])
             # make predictions for the left-out test subjects
             predictions = classifier.predict(
                 connectivity.transform(pooled_subjects[test])
@@ -829,10 +829,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -953,10 +949,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1076,11 +1068,7 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
 
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1200,10 +1188,6 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -1325,10 +1309,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1448,11 +1428,7 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
 
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1572,11 +1548,7 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
 
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1696,10 +1668,6 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -1821,10 +1789,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -1944,11 +1908,7 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
 
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -2068,10 +2028,6 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -2193,10 +2149,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -2317,10 +2269,6 @@ test set.
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -2440,11 +2388,7 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
 
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
@@ -2564,10 +2508,6 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -2588,126 +2528,6 @@ test set.
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
-
-    The default value of `dual` will change from `True` to `'auto'` in 1.5. Set the value of `dual` explicitly to suppress the warning.
 
 
 
@@ -2775,9 +2595,9 @@ kind should be preferred.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  14.186 seconds)
+   **Total running time of the script:** ( 1 minutes  15.473 seconds)
 
-**Estimated memory usage:**  1249 MB
+**Estimated memory usage:**  1248 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_group_level_connectivity.py:

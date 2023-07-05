@@ -70,17 +70,6 @@ Now we can load the data set:
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-
-    Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/miyawaki2008
-
-    Downloading data from https://www.nitrc.org/frs/download.php/8486/miyawaki2008.tgz ...
-    Downloaded 30859264 of 161069109 bytes (19.2%,    4.2s remaining)    Downloaded 82944000 of 161069109 bytes (51.5%,    1.9s remaining)    Downloaded 134455296 of 161069109 bytes (83.5%,    0.6s remaining) ...done. (4 seconds, 0 min)
-    Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/miyawaki2008/18b67c55cebe5e71427c5ffdcfafd948/miyawaki2008.tgz..... done.
-
 
 
 
@@ -271,7 +260,7 @@ We hold out each fold of the data for testing, then fit a ridge regression
 to the remaining 9/10 of the data, using stimuli as predictors
 and fmri_data as targets, and create predictions for the held-out 10th.
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-156
+.. GENERATED FROM PYTHON SOURCE LINES 135-154
 
 .. code-block:: default
 
@@ -286,11 +275,9 @@ and fmri_data as targets, and create predictions for the held-out 10th.
     for train, test in cv.split(X=stimuli):
         # we train the Ridge estimator on the training set
         # and predict the fMRI activity for the test set
-        predictions = (
-            Ridge(alpha=100.0)
-            .fit(stimuli.reshape(-1, 100)[train], fmri_data[train])
-            .predict(stimuli.reshape(-1, 100)[test])
-        )
+        predictions = estimator.fit(
+            stimuli.reshape(-1, 100)[train], fmri_data[train]
+        ).predict(stimuli.reshape(-1, 100)[test])
         # we compute how much variance our encoding model explains in each voxel
         scores.append(
             r2_score(fmri_data[test], predictions, multioutput="raw_values")
@@ -303,14 +290,14 @@ and fmri_data as targets, and create predictions for the held-out 10th.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-161
+.. GENERATED FROM PYTHON SOURCE LINES 155-159
 
 Mapping the encoding scores on the brain
 ----------------------------------------
 To plot the scores onto the brain, we create a Nifti1Image containing
 the scores and then threshold it:
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-175
+.. GENERATED FROM PYTHON SOURCE LINES 159-173
 
 .. code-block:: default
 
@@ -335,12 +322,12 @@ the scores and then threshold it:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 176-178
+.. GENERATED FROM PYTHON SOURCE LINES 174-176
 
 Plotting the statistical map on a background brain, we mark four voxels
 which we will inspect more closely later on.
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-218
+.. GENERATED FROM PYTHON SOURCE LINES 176-216
 
 .. code-block:: default
 
@@ -396,7 +383,7 @@ which we will inspect more closely later on.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-231
+.. GENERATED FROM PYTHON SOURCE LINES 217-229
 
 Estimating receptive fields
 ---------------------------
@@ -411,7 +398,7 @@ pixels, so we use `Lasso regression
 <http://en.wikipedia.org/wiki/Lasso_(statistics)>`_ to estimate a sparse
 set of regression coefficients.
 
-.. GENERATED FROM PYTHON SOURCE LINES 231-313
+.. GENERATED FROM PYTHON SOURCE LINES 229-309
 
 .. code-block:: default
 
@@ -422,9 +409,7 @@ set of regression coefficients.
 
     # automatically estimate the sparsity by cross-validation
 
-    lasso = make_pipeline(
-        StandardScaler(), LassoLarsCV(normalize=False, max_iter=10)
-    )
+    lasso = make_pipeline(StandardScaler(), LassoLarsCV(max_iter=10))
 
     # Mark the same pixel in each receptive field
     marked_pixel = (4, 2)
@@ -510,28 +495,12 @@ set of regression coefficients.
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/linear_model/_base.py:121: FutureWarning:
 
-    'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/linear_model/_base.py:121: FutureWarning:
-
-    'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/linear_model/_base.py:121: FutureWarning:
-
-    'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
-
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/linear_model/_base.py:121: FutureWarning:
-
-    'normalize' was deprecated in version 1.2 and will be removed in 1.4. Please leave the normalize parameter to its default value to silence this warning. The default behavior of this estimator is to not do any normalization. If normalization is needed please use sklearn.preprocessing.StandardScaler instead.
-
-
-    <matplotlib.colorbar.Colorbar object at 0x7f14333863a0>
+    <matplotlib.colorbar.Colorbar object at 0x7f54e56e93d0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 314-319
+.. GENERATED FROM PYTHON SOURCE LINES 310-315
 
 The receptive fields of the four voxels are not only close to each other,
 the relative location of the pixel each voxel is most sensitive to
@@ -542,7 +511,7 @@ its location in the brain.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  23.205 seconds)
+   **Total running time of the script:** ( 0 minutes  17.913 seconds)
 
 **Estimated memory usage:**  416 MB
 
