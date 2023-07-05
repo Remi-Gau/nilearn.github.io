@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev43+g186845cc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev50+g8a7a80cb) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -874,7 +874,7 @@ The provided image has no sform in its header. Please check the provided file. R
 <section id="cross-validation-with-scikit-learn">
 <h3>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">#</a></h3>
 <p>To train and test the model in a meaningful way we use cross-validation with
-the function <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score" title="(in scikit-learn v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.cross_val_score</span></code></a> that computes
+the function <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score" title="(in scikit-learn v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.cross_val_score</span></code></a> that computes
 for you the score for the different folds of cross-validation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html#sklearn.model_selection.cross_val_score" title="sklearn.model_selection.cross_val_score" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-function"><span class="n">cross_val_score</span></a>
 
@@ -919,10 +919,10 @@ scikit-learn : scoring = ‘roc_auc’</p></li>
 </section>
 <section id="measuring-the-chance-level">
 <h2>Measuring the chance level<a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="(in scikit-learn v1.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.dummy.DummyClassifier</span></code></a> (purely random) estimators are the
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.dummy.DummyClassifier</span></code></a> (purely random) estimators are the
 simplest way to measure prediction performance at chance. A more controlled
 way, but slower, is to do permutation testing on the labels, with
-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="(in scikit-learn v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.permutation_test_score</span></code></a>.</p>
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="(in scikit-learn v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.permutation_test_score</span></code></a>.</p>
 <section id="dummy-estimator">
 <h3>Dummy estimator<a class="headerlink" href="#dummy-estimator" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.dummy</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="sklearn.dummy.DummyClassifier" class="sphx-glr-backref-module-sklearn-dummy sphx-glr-backref-type-py-class"><span class="n">DummyClassifier</span></a>
@@ -957,8 +957,8 @@ way, but slower, is to do permutation testing on the labels, with
 <h2>Decoding without a mask: Anova-SVM in scikit-lean<a class="headerlink" href="#decoding-without-a-mask-anova-svm-in-scikit-lean" title="Permalink to this heading">#</a></h2>
 <p>We can also implement feature selection before decoding as a scikit-learn
 <cite>pipeline`(:class:`sklearn.pipeline.Pipeline</cite>). For this, we need to import
-the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="(in scikit-learn v1.2)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.feature_selection</span></code></a> module and use
-<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html#sklearn.feature_selection.f_classif" title="(in scikit-learn v1.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.feature_selection.f_classif</span></code></a>, a simple F-score
+the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="(in scikit-learn v1.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.feature_selection</span></code></a> module and use
+<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html#sklearn.feature_selection.f_classif" title="(in scikit-learn v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.feature_selection.f_classif</span></code></a>, a simple F-score
 based feature selection (a.k.a.
 <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test">Anova</a>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.SelectPercentile.html#sklearn.feature_selection.SelectPercentile" title="sklearn.feature_selection.SelectPercentile" class="sphx-glr-backref-module-sklearn-feature_selection sphx-glr-backref-type-py-class"><span class="n">SelectPercentile</span></a><span class="p">,</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html#sklearn.feature_selection.f_classif" title="sklearn.feature_selection.f_classif" class="sphx-glr-backref-module-sklearn-feature_selection sphx-glr-backref-type-py-function"><span class="n">f_classif</span></a>
@@ -986,7 +986,55 @@ based feature selection (a.k.a.
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ANOVA+SVC test score: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fitted_pipeline</span></a><span class="p">[</span><span class="s1">&#39;test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>ANOVA+SVC test score: 0.801
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_classes.py:32: FutureWarning:
+
+The default value of `dual` will change from `True` to `&#39;auto&#39;` in 1.5. Set the value of `dual` explicitly to suppress the warning.
+
+ANOVA+SVC test score: 0.801
 </pre></div>
 </div>
 <section id="visualize-the-anova-svc-s-discriminating-weights">
@@ -1018,7 +1066,7 @@ based feature selection (a.k.a.
 <img src="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" srcset="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" alt="plot advanced decoding scikit" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>After feature selection, the SVC is trained only on 47 features
 After inverting feature selection, we have 464 features back
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0f99b547f0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f1432b69be0&gt;
 </pre></div>
 </div>
 </section>
@@ -1081,7 +1129,7 @@ We follows the same principle.</p>
 <span class="c1"># But, be aware that this can take * A WHILE * ...</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.765 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  22.908 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  916 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-advanced-decoding-scikit-py">
 <div class="binder-badge docutils container">
