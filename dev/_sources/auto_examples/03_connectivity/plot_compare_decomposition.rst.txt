@@ -149,20 +149,16 @@ However, the images need to be in :term:`MNI` template space.
     [{self.__class__.__name__}.fit] Computing mask
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     Template whole-brain mask computation
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/masking.py:648: UserWarning:
-
-    Persisting input arguments took 0.52s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:887: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     [MultiNiftiMasker.transform] Resampling mask
     [CanICA] Loading data
@@ -291,70 +287,110 @@ However, the images need to be in :term:`MNI` template space.
     randomized_svd(array([[0.003659, ..., 0.013254],
            ...,
            [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-    ___________________________________________________randomized_svd - 0.7s, 0.0min
+    ___________________________________________________randomized_svd - 0.9s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=209652396)
-    __________________________________________________________fastica - 1.4s, 0.0min
-    [Parallel(n_jobs=1)]: Done   1 tasks      | elapsed:    1.5s
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.0s, 0.1min
+    [Parallel(n_jobs=1)]: Done   1 tasks      | elapsed:    5.1s
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=398764591)
-    __________________________________________________________fastica - 1.6s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.1s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=924231285)
-    __________________________________________________________fastica - 3.2s, 0.1min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.0s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=1478610112)
-    __________________________________________________________fastica - 1.7s, 0.0min
-    [Parallel(n_jobs=1)]: Done   4 tasks      | elapsed:    8.1s
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.0s, 0.1min
+    [Parallel(n_jobs=1)]: Done   4 tasks      | elapsed:   20.2s
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=441365315)
-    __________________________________________________________fastica - 1.6s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.1s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=1537364731)
-    __________________________________________________________fastica - 1.4s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.1s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=192771779)
-    __________________________________________________________fastica - 1.9s, 0.0min
-    [Parallel(n_jobs=1)]: Done   7 tasks      | elapsed:   13.0s
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 4.8s, 0.1min
+    [Parallel(n_jobs=1)]: Done   7 tasks      | elapsed:   35.3s
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=1491434855)
-    __________________________________________________________fastica - 1.5s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 5.2s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=1819583497)
-    __________________________________________________________fastica - 2.5s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 4.9s, 0.1min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.004071, ...,  0.000497],
            ...,
            [ 0.005856, ..., -0.004765]]), whiten='arbitrary-variance', fun='cube', random_state=530702035)
-    __________________________________________________________fastica - 1.8s, 0.0min
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
+
+    FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
+
+    __________________________________________________________fastica - 4.6s, 0.1min
 
 
 
@@ -395,7 +431,7 @@ To visualize we plot the outline of all components on one figure
     linewidths is ignored by contourf
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f747a674610>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8cc49d6c40>
 
 
 
@@ -660,7 +696,7 @@ Create a dictionary learning estimator
     [{self.__class__.__name__}.fit] Computing mask
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/masking.py:648: UserWarning:
 
@@ -668,11 +704,11 @@ Create a dictionary learning estimator
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:887: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f747c35b280>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f8ccdaea310>, mask_type='whole-brain'), ignore list will not work.
 
     [MultiNiftiMasker.transform] Resampling mask
     [DictLearning] Loading data
@@ -802,19 +838,19 @@ Create a dictionary learning estimator
     randomized_svd(array([[-0.001315, ...,  0.004387],
            ...,
            [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-    ___________________________________________________randomized_svd - 0.7s, 0.0min
+    ___________________________________________________randomized_svd - 0.9s, 0.0min
     ________________________________________________________________________________
     [Memory] Calling sklearn.decomposition._fastica.fastica...
     fastica(array([[ 0.00289 , ..., -0.002135],
            ...,
            [ 0.005107, ..., -0.012507]]), whiten='arbitrary-variance', fun='cube', random_state=209652396)
-    _________________________________________________________fastica - 11.5s, 0.2min
+    __________________________________________________________fastica - 4.9s, 0.1min
     [DictLearning] Computing initial loadings
     ________________________________________________________________________________
     [Memory] Calling nilearn.decomposition.dict_learning._compute_loadings...
-    _compute_loadings(array([[ 0.007493, ...,  0.00709 ],
+    _compute_loadings(array([[ 0.004263, ...,  0.013097],
            ...,
-           [-0.000136, ..., -0.001312]]), 
+           [ 0.001264, ..., -0.004786]]), 
     array([[-0.622651, ...,  5.322742],
            ...,
            [ 0.777205, ...,  0.743122]]))
@@ -825,14 +861,14 @@ Create a dictionary learning estimator
     dict_learning_online(array([[-0.622651, ...,  0.777205],
            ...,
            [ 5.322742, ...,  0.743122]]), 
-    20, alpha=10, n_iter=1090, batch_size=20, method='cd', dict_init=array([[-0.148832, ...,  0.004228],
+    20, alpha=10, n_iter=1090, batch_size=20, method='cd', dict_init=array([[ 0.000965, ..., -0.133334],
            ...,
-           [ 0.244404, ..., -0.327163]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1)
+           [ 0.512409, ..., -0.261127]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1)
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_dict_learning.py:658: FutureWarning:
 
     'n_iter' is deprecated in version 1.1 and will be removed in version 1.4. Use 'max_iter' instead.
 
-    _____________________________________________dict_learning_online - 2.7s, 0.0min
+    _____________________________________________dict_learning_online - 4.1s, 0.1min
     [Example] Saving results
 
 
@@ -871,7 +907,7 @@ First plot all DictLearning components together
     linewidths is ignored by contourf
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f747a848f70>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8ccd0f3b80>
 
 
 
@@ -1088,15 +1124,15 @@ to calculate the score per component
     [Memory] Calling nilearn.decomposition._base._explained_variance...
     _explained_variance(array([[-6.227098e-01, ...,  5.322679e+00],
            ...,
-           [-8.977029e-15, ..., -7.807597e-16]]), 
+           [-2.737483e-16, ..., -4.553990e-16]]), 
     array([[0., ..., 0.],
            ...,
            [0., ..., 0.]]), per_component=True)
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/decomposition/_base.py:543: UserWarning:
 
-    Persisting input arguments took 1.69s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
+    Persisting input arguments took 1.54s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
 
-    ______________________________________________explained_variance - 51.2s, 0.9min
+    ______________________________________________explained_variance - 79.8s, 1.3min
 
 
 
@@ -1113,9 +1149,9 @@ to calculate the score per component
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 5 minutes  2.377 seconds)
+   **Total running time of the script:** ( 6 minutes  58.010 seconds)
 
-**Estimated memory usage:**  2661 MB
+**Estimated memory usage:**  2651 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_compare_decomposition.py:
