@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev60+gea375e01) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev61+g8c628681) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -970,6 +970,41 @@ for more details.</p>
 <p>Each function and class must come with a “docstring” at the top of the function code,
 using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc</a> formatting.
 The docstring must summarize what the function does and document every parameter.</p>
+<p>If an argument takes in a default value, it should be described
+with the type definition of that argument.</p>
+<p>See the examples below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">good</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;Show how parameters are documented.</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">----------</span>
+<span class="sd">x : :obj:`int`</span>
+<span class="sd">      X</span>
+
+<span class="sd">y : :obj:`int`, default=1</span>
+<span class="sd">      Note that &quot;default=1&quot; is preferred to &quot;Defaults to 1&quot;.</span>
+
+<span class="sd">z : :obj:`str`, default=None</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">bad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;Show how parameters should not be documented.</span>
+
+<span class="sd">Parameters</span>
+<span class="sd">----------</span>
+<span class="sd">x :</span>
+<span class="sd">      The type of X is not described</span>
+
+<span class="sd">y : :obj:`int`</span>
+<span class="sd">      The default value of y is not described.</span>
+
+<span class="sd">z : :obj:`str`</span>
+<span class="sd">      Defaults=None.</span>
+<span class="sd">      The default value should be described after the type.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
 <p>Additionally, we consider it best practice to write modular functions;
 i.e., functions should preferably be relatively short and do <em>one</em> thing.
 This is also useful for writing unit tests.</p>

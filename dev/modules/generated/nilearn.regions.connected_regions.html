@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev60+gea375e01) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev61+g8c628681) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -683,7 +683,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.regions.connected_regions<a class="headerlink" href="#nilearn-regions-connected-regions" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.regions.connected_regions">
-<span class="sig-prename descclassname"><span class="pre">nilearn.regions.</span></span><span class="sig-name descname"><span class="pre">connected_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maps_img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_region_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local_regions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/ea375e01/nilearn/regions/region_extractor.py#L135"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.regions.connected_regions" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.regions.</span></span><span class="sig-name descname"><span class="pre">connected_regions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maps_img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_region_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1350</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local_regions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_fwhm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/8c628681/nilearn/regions/region_extractor.py#L135"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.regions.connected_regions" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract brain connected regions into separate regions.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -705,22 +705,21 @@ then the volume of the voxel is 27mm^3.
 Default=1350mm^3, which means
 we take minimum size of 1350 / 27 = 50 voxels.</p>
 </dd>
-<dt><strong>extractor</strong><span class="classifier">{‘local_regions’, ‘connected_components’}, optional</span></dt><dd><p>This option can take two values:</p>
+<dt><strong>extractor</strong><span class="classifier">{“local_regions”, “connected_components”}, default=”local_regions”</span></dt><dd><p>This option can take two values:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘connected_components’: each component/region in the image is
-extracted automatically by labelling each region based upon the
-presence of unique features in their respective regions.</p></li>
-<li><p>‘local_regions’: each component/region is extracted based on
-their maximum peak value to define a seed marker and then using
-random walker segmentation algorithm on these markers for region
-separation.</p></li>
+<li><p><cite>“connected_components”</cite>: each component/region in the image
+is extracted automatically by labelling each region based
+upon the presence of unique features in their respective regions.</p></li>
+<li><p><cite>“local_regions”</cite>: each component/region is extracted
+based on their maximum peak value to define a seed marker
+and then using random walker segmentation algorithm
+on these markers for region separation.</p></li>
 </ul>
 </div></blockquote>
-<p>Default=’local_regions’.</p>
 </dd>
-<dt><strong>smoothing_fwhm</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, optional.</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">smoothing_fwhm</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it gives
-the <a class="reference internal" href="../../glossary.html#term-FWHM"><span class="xref std std-term">full-width at half maximum</span></a> in millimeters
+<dt><strong>smoothing_fwhm</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#float" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code></a>, optional.</span></dt><dd><p>If <cite>smoothing_fwhm</cite> is not <cite>None</cite>,
+it gives the <a class="reference internal" href="../../glossary.html#term-FWHM"><span class="xref std std-term">full-width at half maximum</span></a> in millimeters
 of the spatial smoothing to apply to the signal.
 Use this parameter to smooth an image to extract most sparser regions.</p>
 <div class="admonition note">
