@@ -138,7 +138,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev58+g021255c6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev59+g95086d87) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -681,7 +681,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.regions.img_to_signals_maps<a class="headerlink" href="#nilearn-regions-img-to-signals-maps" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.regions.img_to_signals_maps">
-<span class="sig-prename descclassname"><span class="pre">nilearn.regions.</span></span><span class="sig-name descname"><span class="pre">img_to_signals_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maps_img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/021255c6/nilearn/regions/signal_extraction.py#L425"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.regions.img_to_signals_maps" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.regions.</span></span><span class="sig-name descname"><span class="pre">img_to_signals_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maps_img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_masked_maps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/95086d87/nilearn/regions/signal_extraction.py#L425"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.regions.img_to_signals_maps" title="Permalink to this definition">#</a></dt>
 <dd><p>Extract region signals from image.</p>
 <p>This function is applicable to regions defined by maps.</p>
 <dl class="field-list">
@@ -698,6 +698,17 @@ shape: imgs.shape + (region number, )</p>
 Mask to apply to regions before extracting signals.
 Every point outside the mask is considered
 as background (i.e. outside of any region).</p>
+</dd>
+<dt><strong>keep_masked_maps</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>If True, masked atlas with invalid maps (maps that contain only
+zeros after applying the mask) will be retained in the output, resulting
+in corresponding time series containing zeros only. If False, the
+invalid maps will be removed from the trimmed atlas, resulting in
+no empty time series in the output.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.10.2.dev: </span>The ‘True’ option for <code class="docutils literal notranslate"><span class="pre">keep_masked_maps</span></code> is deprecated.
+The default value will change to ‘False’ in 0.13,
+and the <code class="docutils literal notranslate"><span class="pre">keep_masked_maps</span></code> parameter will be removed in 0.15.</p>
+</div>
 </dd>
 </dl>
 </dd>
