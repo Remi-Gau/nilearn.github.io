@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev72+g54fe838d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev73+g39c6dcbf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -242,8 +242,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Comparing connectomes on different reference atlases</a></li>
@@ -763,6 +763,7 @@ Counfound csv files (of same subject) are located at : &#39;/home/runner/work/ni
 <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiLabelsMasker</span></a><span class="p">(</span>
     <span class="n">labels_img</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yeo</span></a><span class="p">[</span><span class="s2">&quot;thick_17&quot;</span><span class="p">],</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
@@ -830,7 +831,7 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fda84c733a0&gt;
+&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fa73ab25820&gt;
 </pre></div>
 </div>
 </section>
@@ -902,6 +903,7 @@ matrices, but plot the latter as a directed graph.</p>
 <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">MultiNiftiMapsMasker</span></a><span class="p">(</span>
     <span class="n">maps_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">difumo</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
@@ -976,8 +978,8 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  27.121 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1746 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  12.907 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1613 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-atlas-comparison-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_atlas_comparison.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>

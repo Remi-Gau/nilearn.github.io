@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example shows how to produce seed-to- voxel correlation maps for a single subject based on movie-watching fMRI scans. These maps depict the temporal correlation of a seed region with the rest ..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Deriving spatial maps from group fMRI data using ICA and Dictionary Learning" href="plot_compare_decomposition.html" /><link rel="prev" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Group Sparse inverse covariance for multi-subject connectome" href="plot_multi_subject_connectome.html" /><link rel="prev" title="Deriving spatial maps from group fMRI data using ICA and Dictionary Learning" href="plot_compare_decomposition.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
         <title>Producing single subject maps of seed-to-voxel correlation - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev72+g54fe838d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev73+g39c6dcbf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -242,8 +242,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -751,6 +751,7 @@ This will create a NiftiSpheresMasker object.</p>
     <span class="n">radius</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
     <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">low_pass</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
     <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
     <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -768,11 +769,6 @@ can be found in the dataset’s csv file</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-</pre></div>
-</div>
 <p>Next, we can proceed similarly for the <strong>brain-wide voxel-wise time
 series</strong>, using <a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMasker</span></code></a> with the same input
 arguments as in the seed_masker in addition to smoothing with a 6 mm kernel</p>
@@ -782,6 +778,7 @@ arguments as in the seed_masker in addition to smoothing with a 6 mm kernel</p>
     <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
     <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">low_pass</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
     <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
     <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -796,11 +793,6 @@ out the confounds as before</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">brain_time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker.fit_transform" title="nilearn.maskers.NiftiMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">brain_masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filename</span></a><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><span class="p">[</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confound_filename</span></a><span class="p">]</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 </pre></div>
 </div>
 <p>We can now inspect the extracted time series. Note that the <strong>seed time
@@ -921,8 +913,8 @@ object, that we can save.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.705 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  765 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.624 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  702 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-seed-to-voxel-correlation-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_seed_to_voxel_correlation.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -943,23 +935,23 @@ object, that we can save.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_compare_decomposition.html">
+          <a class="next-page" href="plot_multi_subject_connectome.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</div>
+                <div class="title">Group Sparse inverse covariance for multi-subject connectome</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_simulated_connectome.html">
+          <a class="prev-page" href="plot_compare_decomposition.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Connectivity structure estimation on simulated data</div>
+                <div class="title">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</div>
                 
               </div>
             </a>

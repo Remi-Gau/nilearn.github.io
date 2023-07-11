@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example shows how to estimate a connectome on a group of subjects using the group sparse inverse covariance estimate. Fetching datasets: Extracting region signals: Computing group-sparse preci..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Regions extraction using dictionary learning and functional connectomes" href="plot_extract_regions_dictlearning_maps.html" /><link rel="prev" title="Deriving spatial maps from group fMRI data using ICA and Dictionary Learning" href="plot_compare_decomposition.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Regions extraction using dictionary learning and functional connectomes" href="plot_extract_regions_dictlearning_maps.html" /><link rel="prev" title="Producing single subject maps of seed-to-voxel correlation" href="plot_seed_to_voxel_correlation.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 6.2.1 and Furo 2023.05.20 -->
         <title>Group Sparse inverse covariance for multi-subject connectome - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev72+g54fe838d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev73+g39c6dcbf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -242,8 +242,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -763,6 +763,7 @@ all occurrences of:</p>
     <span class="n">high_pass</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
     <span class="n">t_r</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">memory_level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -786,11 +787,11 @@ Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 1.0s, 0.0min
+__________________________________________high_variance_confounds - 1.2s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fda8473bf40&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fa73c03cfa0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -803,7 +804,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;t_r&#39;: 2,
   &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
        [   0.,    4.,    0., -111.],
@@ -817,20 +818,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 7.9s, 0.1min
+_______________________________________________filter_and_extract - 7.1s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.9s, 0.0min
+__________________________________________high_variance_confounds - 1.2s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fda8473bf40&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fa7330a2b20&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -843,7 +840,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;t_r&#39;: 2,
   &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
        [   0.,    4.,    0., -111.],
@@ -857,20 +854,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 8.2s, 0.1min
+_______________________________________________filter_and_extract - 7.2s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.9s, 0.0min
+__________________________________________high_variance_confounds - 1.1s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fda84b1a190&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fa73d0cbdc0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -883,7 +876,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;t_r&#39;: 2,
   &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
        [   0.,    4.,    0., -111.],
@@ -897,20 +890,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 8.1s, 0.1min
+_______________________________________________filter_and_extract - 7.2s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 1.0s, 0.0min
+__________________________________________high_variance_confounds - 1.1s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fda83fb5d30&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fa7330a2b20&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -923,7 +912,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;t_r&#39;: 2,
   &#39;target_affine&#39;: array([[   4.,    0.,    0.,  -78.],
        [   0.,    4.,    0., -111.],
@@ -937,11 +926,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 8.3s, 0.1min
+_______________________________________________filter_and_extract - 7.1s, 0.1min
 </pre></div>
 </div>
 </section>
@@ -1075,8 +1060,8 @@ _______________________________________________filter_and_extract - 8.3s, 0.1min
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" alt="plot multi subject connectome" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" alt="plot multi subject connectome" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  54.535 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  550 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  40.423 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  547 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-multi-subject-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_multi_subject_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1106,14 +1091,14 @@ _______________________________________________filter_and_extract - 8.3s, 0.1min
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_compare_decomposition.html">
+          <a class="prev-page" href="plot_seed_to_voxel_correlation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</div>
+                <div class="title">Producing single subject maps of seed-to-voxel correlation</div>
                 
               </div>
             </a>

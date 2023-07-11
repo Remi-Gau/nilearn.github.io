@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev72+g54fe838d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev73+g39c6dcbf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -242,8 +242,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -795,6 +795,7 @@ magic           : b&#39;n+1&#39;
 <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a><span class="p">(</span>
     <span class="n">labels_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_filename</span></a><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">standardize_confounds</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
 <span class="p">)</span>
@@ -816,7 +817,7 @@ Resampling labels
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fda80c11f40&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fa7381d98b0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -825,13 +826,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fda80c1c310&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa7381e4190&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;strategy&#39;: &#39;mean&#39;,
   &#39;t_r&#39;: None,
   &#39;target_affine&#39;: None,
@@ -839,11 +840,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 1.1s, 0.0min
+_______________________________________________filter_and_extract - 1.0s, 0.0min
 </pre></div>
 </div>
 </section>
@@ -881,7 +878,7 @@ _______________________________________________filter_and_extract - 1.1s, 0.0min
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;matplotlib.image.AxesImage object at 0x7fda80d23550&gt;
+&lt;matplotlib.image.AxesImage object at 0x7fa73824b9a0&gt;
 </pre></div>
 </div>
 </section>
@@ -919,7 +916,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fda80587a00&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fa738252a00&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -928,13 +925,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fda80c1c310&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa7381e4190&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;strategy&#39;: &#39;mean&#39;,
   &#39;t_r&#39;: None,
   &#39;target_affine&#39;: None,
@@ -942,13 +939,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.2s, 0.0min
+_______________________________________________filter_and_extract - 1.1s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;matplotlib.image.AxesImage object at 0x7fda80d5d1f0&gt;
+&lt;matplotlib.image.AxesImage object at 0x7fa738298040&gt;
 </pre></div>
 </div>
 </section>
@@ -1010,7 +1007,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fda7932f070&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fa73a507280&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1019,13 +1016,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fda80c1c310&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa7381e4190&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;strategy&#39;: &#39;mean&#39;,
   &#39;t_r&#39;: None,
   &#39;target_affine&#39;: None,
@@ -1046,17 +1043,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 1.2s, 0.0min
+_______________________________________________filter_and_extract - 1.1s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;matplotlib.image.AxesImage object at 0x7fda8050c430&gt;
+&lt;matplotlib.image.AxesImage object at 0x7fa73c2c90d0&gt;
 </pre></div>
 </div>
 </section>
@@ -1122,7 +1115,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fda80d14b80&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fa73b0d6520&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1131,13 +1124,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fda80c1c310&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa7381e4190&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;strategy&#39;: &#39;mean&#39;,
   &#39;t_r&#39;: None,
   &#39;target_affine&#39;: None,
@@ -1158,17 +1151,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 1.2s, 0.0min
+_______________________________________________filter_and_extract - 1.1s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;matplotlib.image.AxesImage object at 0x7fda84b3fa30&gt;
+&lt;matplotlib.image.AxesImage object at 0x7fa73c7e72e0&gt;
 </pre></div>
 </div>
 </section>
@@ -1223,7 +1212,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fda73614880&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fa73b921af0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1232,13 +1221,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fda80c1c310&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7fa7381e4190&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: None,
   &#39;standardize&#39;: &#39;zscore_sample&#39;,
-  &#39;standardize_confounds&#39;: True,
+  &#39;standardize_confounds&#39;: &#39;zscore_sample&#39;,
   &#39;strategy&#39;: &#39;mean&#39;,
   &#39;t_r&#39;: None,
   &#39;target_affine&#39;: None,
@@ -1259,17 +1248,13 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:353: FutureWarning:
-
-The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
-
-_______________________________________________filter_and_extract - 1.2s, 0.0min
+_______________________________________________filter_and_extract - 1.1s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 
 
-&lt;matplotlib.image.AxesImage object at 0x7fda82fa45b0&gt;
+&lt;matplotlib.image.AxesImage object at 0x7fa73aeeedc0&gt;
 </pre></div>
 </div>
 </section>
@@ -1346,7 +1331,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]12.8s, 0.2min   : Loading _filter_and_extract...
+[Memory]11.6s, 0.2min   : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -1359,7 +1344,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]13.4s, 0.2min   : Loading _filter_and_extract...
+[Memory]12.1s, 0.2min   : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
@@ -1380,8 +1365,8 @@ The default strategy for standardize is currently &#39;zscore&#39; which incorre
 </aside>
 </aside>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  15.796 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  561 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  14.370 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  526 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-signal-extraction-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_signal_extraction.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>

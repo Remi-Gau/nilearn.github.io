@@ -114,7 +114,7 @@ Load functional data
 Extract coordinates on Yeo atlas - parcellations
 ------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-100
+.. GENERATED FROM PYTHON SOURCE LINES 59-101
 
 .. code-block:: default
 
@@ -134,6 +134,7 @@ Extract coordinates on Yeo atlas - parcellations
     masker = MultiNiftiLabelsMasker(
         labels_img=yeo["thick_17"],
         standardize="zscore_sample",
+        standardize_confounds="zscore_sample",
         memory="nilearn_cache",
         n_jobs=2,
     )
@@ -213,11 +214,11 @@ Extract coordinates on Yeo atlas - parcellations
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fda84c733a0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fa73ab25820>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-107
+.. GENERATED FROM PYTHON SOURCE LINES 102-108
 
 Plot a directed connectome - asymmetric connectivity measure
 ------------------------------------------------------------
@@ -226,7 +227,7 @@ measure, which leads to an asymmetric connectivity matrix.
 The plot_connectome function accepts both symmetric and asymmetric
 matrices, but plot the latter as a directed graph.
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-139
+.. GENERATED FROM PYTHON SOURCE LINES 108-140
 
 .. code-block:: default
 
@@ -295,12 +296,12 @@ matrices, but plot the latter as a directed graph.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-142
+.. GENERATED FROM PYTHON SOURCE LINES 141-143
 
 Load probabilistic atlases - extracting coordinates on brain maps
 -----------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-148
+.. GENERATED FROM PYTHON SOURCE LINES 143-149
 
 .. code-block:: default
 
@@ -317,12 +318,12 @@ Load probabilistic atlases - extracting coordinates on brain maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-151
+.. GENERATED FROM PYTHON SOURCE LINES 150-152
 
 Iterate over fetched atlases to extract coordinates - probabilistic
 -------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-186
+.. GENERATED FROM PYTHON SOURCE LINES 152-188
 
 .. code-block:: default
 
@@ -334,6 +335,7 @@ Iterate over fetched atlases to extract coordinates - probabilistic
     masker = MultiNiftiMapsMasker(
         maps_img=difumo.maps,
         standardize="zscore_sample",
+        standardize_confounds="zscore_sample",
         memory="nilearn_cache",
         n_jobs=2,
     )
@@ -425,9 +427,9 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  27.121 seconds)
+   **Total running time of the script:** ( 2 minutes  12.907 seconds)
 
-**Estimated memory usage:**  1746 MB
+**Estimated memory usage:**  1613 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_atlas_comparison.py:
