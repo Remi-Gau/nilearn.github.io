@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev74+gb7e7e86f) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev75+g91218eb8) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -840,6 +840,8 @@ with the tools we use for development and deployment.</p>
 <td><ul class="simple">
 <li><p>Variables, functions, arguments have clear names</p></li>
 <li><p>Easy to read, <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> compliant</p></li>
+<li><p>Code formatted with <a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">black</a></p></li>
+<li><p>Imports sorted with <a class="reference external" href="https://pycqa.github.io/isort/index.html#using-isort">isort</a></p></li>
 <li><p>Public functions have docstring (<a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc</a> format)</p></li>
 <li><p>Low redundancy</p></li>
 <li><p>No new dependency</p></li>
@@ -950,23 +952,11 @@ The main conventions we enforce are :</p>
 </ul>
 <p>You can check that any code you may have edited follows these conventions
 by running <a class="reference external" href="https://flake8.pycqa.org/en/latest/user/invocation.html#invoking-flake8">flake8</a>.</p>
-<p>Additionally, we recommend using:</p>
+<p>Additionally, we use:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">black</a>
-to format your code,</p></li>
-<li><p><a class="reference external" href="https://pycqa.github.io/isort/index.html#using-isort">isort</a>
-to organize the import statements.</p></li>
+<li><p><a class="reference external" href="https://black.readthedocs.io/en/stable/getting_started.html#basic-usage">black</a> to format our code,</p></li>
+<li><p><a class="reference external" href="https://pycqa.github.io/isort/index.html#using-isort">isort</a>  to organize the import statements.</p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>We are gradually transitioning to use <cite>isort</cite> and <cite>black</cite>
-to format the codebase.
-Only certain modules have been formatted so far,
-and running <cite>black</cite> or <cite>isort</cite> may not affect the files you are working on,
-because of how those formatter are currently configured.
-See <a class="reference external" href="https://github.com/nilearn/nilearn/issues/2528">issue #2528</a>
-for more details.</p>
-</div>
 <p>Each function and class must come with a “docstring” at the top of the function code,
 using <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc</a> formatting.
 The docstring must summarize what the function does and document every parameter.</p>
