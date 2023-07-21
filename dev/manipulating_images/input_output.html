@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev88+ge002d242) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev89+g8eb730e7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -683,8 +683,8 @@
 <section id="file-names-and-objects-3d-and-4d-images">
 <h3><span class="section-number">9.1.1.1. </span>File names and objects, 3D and 4D images<a class="headerlink" href="#file-names-and-objects-3d-and-4d-images" title="Permalink to this heading">#</a></h3>
 <p>All Nilearn functions accept file names as arguments:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">smoothed_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">smooth_img</span><span class="p">(</span><span class="s1">&#39;/home/user/t_map001.nii&#39;</span><span class="p">)</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="n">smoothed_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">smooth_img</span><span class="p">(</span><span class="s1">&#39;/home/user/t_map001.nii&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Nilearn can operate on either file names or <a class="reference external" href="http://nipy.org/nibabel/nibabel_images.html">NiftiImage objects</a>. The later represent the
@@ -696,9 +696,9 @@ either a file name or a <a class="reference external" href="http://nipy.org/niba
 <p>Niimgs can be 3D or 4D. A 4D niimg may for instance represent a time
 series of 3D images. It can be <strong>a list of file names</strong>, if these contain
 3D information:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># dataset folder contains subject1.nii and subject2.nii</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">smooth_img</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">([</span><span class="s1">&#39;dataset/subject1.nii&#39;</span><span class="p">,</span> <span class="s1">&#39;dataset/subject2.nii&#39;</span><span class="p">])</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset folder contains subject1.nii and subject2.nii</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">smooth_img</span>
+<span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">([</span><span class="s1">&#39;dataset/subject1.nii&#39;</span><span class="p">,</span> <span class="s1">&#39;dataset/subject2.nii&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">result_img</span></code> is a 4D in-memory image, containing the data of both
@@ -709,27 +709,27 @@ subjects.</p>
 <p>You can specify files with <em>wildcard</em> matching patterns (as in Unix
 shell):</p>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><p><strong>Matching multiple files</strong>: suppose the dataset folder contains
 subject_01.nii, subject_03.nii, and subject_03.nii;
-<code class="docutils literal notranslate"><span class="pre">dataset/subject_*.nii</span></code> is a glob expression matching all filenames:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Example with a smoothing process:</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">smooth_img</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">(</span><span class="s2">&quot;dataset/subject_*.nii&quot;</span><span class="p">)</span> 
+<code class="docutils literal notranslate"><span class="pre">dataset/subject_*.nii</span></code> is a glob expression matching all filenames:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example with a smoothing process:</span>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">smooth_img</span>
+<span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">(</span><span class="s2">&quot;dataset/subject_*.nii&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Note that the resulting is a 4D image.</p>
-</li>
+<ul class="simple">
 <li><p><strong>Expanding the home directory</strong> <code class="docutils literal notranslate"><span class="pre">~</span></code> is expanded to your home
-directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">(</span><span class="s2">&quot;~/dataset/subject_01.nii&quot;</span><span class="p">)</span> 
+directory:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result_img</span> <span class="o">=</span> <span class="n">smooth_img</span><span class="p">(</span><span class="s2">&quot;~/dataset/subject_01.nii&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using <code class="docutils literal notranslate"><span class="pre">~</span></code> rather than specifying the details of the path is good
 practice, as it will make it more likely that your script work on
 different computers.</p>
-</li>
-</ul>
 </div></blockquote>
 <aside class="topic">
 <p class="topic-title"><strong>Python globbing</strong></p>
@@ -753,31 +753,31 @@ nilearn’s path expansion.</p>
 automatically downloads reference
 datasets and atlases. They can be imported from
 <a class="reference internal" href="../modules/datasets.html#module-nilearn.datasets" title="nilearn.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.datasets</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">haxby_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">haxby_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>They return a data structure that contains different pieces of
 information on the retrieved dataset, including the
 file names on hard disk:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># The different files</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>  
-<span class="go">[&#39;anat&#39;, &#39;description&#39;, &#39;func&#39;, &#39;mask&#39;, &#39;mask_face&#39;, &#39;mask_face_little&#39;,</span>
-<span class="go">&#39;mask_house&#39;, &#39;mask_house_little&#39;, &#39;mask_vt&#39;, &#39;session_target&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Path to first functional file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  
-<span class="go">/.../nilearn_data/haxby2001/subj1/bold.nii.gz</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The different files</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="c1"># [&#39;anat&#39;, &#39;description&#39;, &#39;func&#39;, &#39;mask&#39;, &#39;mask_face&#39;, &#39;mask_face_little&#39;,</span>
+<span class="c1"># &#39;mask_house&#39;, &#39;mask_house_little&#39;, &#39;mask_vt&#39;, &#39;session_target&#39;]</span>
+<span class="c1"># Path to first functional file</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># /.../nilearn_data/haxby2001/subj1/bold.nii.gz</span>
 </pre></div>
 </div>
 <p>Explanation and further resources of the dataset at hand can be retrieved as
 follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>  
-<span class="go">Haxby 2001 results</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<span class="c1"># Haxby 2001 results</span>
 
 
-<span class="go">Notes</span>
-<span class="go">-----</span>
-<span class="go">Results from a classical fMRI study that...</span>
+<span class="c1"># Notes</span>
+<span class="c1"># -----</span>
+<span class="c1"># Results from a classical fMRI study that...</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -918,14 +918,13 @@ can be loaded with <cite>pd.read_csv</cite> but you may have to specify some opt
 (typically <cite>sep</cite> if fields aren’t delimited with a comma).</p>
 <p>For the Haxby datasets, we can load the categories of the images
 presented to the subject:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">haxby_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">session_target</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stimuli</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stimuli</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>  
-<span class="go">[&#39;bottle&#39; &#39;cat&#39; &#39;chair&#39; &#39;face&#39; &#39;house&#39; &#39;rest&#39; &#39;scissors&#39; &#39;scrambledpix&#39;</span>
-<span class="go"> &#39;shoe&#39;]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">haxby_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="o">.</span><span class="n">session_target</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">stimuli</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stimuli</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="c1"># [&#39;bottle&#39; &#39;cat&#39; &#39;chair&#39; &#39;face&#39; &#39;house&#39; &#39;rest&#39; &#39;scissors&#39; &#39;scrambledpix&#39; &#39;shoe&#39;]</span>
 </pre></div>
 </div>
 <aside class="topic">

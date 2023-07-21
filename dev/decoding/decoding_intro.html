@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev88+ge002d242) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev89+g8eb730e7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -835,12 +835,12 @@ and an SVC estimator as we already introduced, we can create a pipeline in
 two lines. The additional <cite>standardize=True</cite> argument adds a normalization
 of images signal to a zero mean and unit variance, which will improve
 performance of most estimators.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <span class="n">Decoder</span> 
-<span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span> <span class="o">=</span> <span class="n">Decoder</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s1">&#39;svc&#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_filename</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <span class="n">Decoder</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">Decoder</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="s1">&#39;svc&#39;</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_filename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Then we can fit it on the images and the conditions we chose before.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_niimgs</span><span class="p">,</span> <span class="n">conditions</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_niimgs</span><span class="p">,</span> <span class="n">conditions</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This decoder can now be used to predict conditions for new images !
@@ -868,7 +868,7 @@ made by your estimators. You repeat this for every combination of folds, and get
 <p>During the <cite>fit</cite>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object implicitly used a
 cross-validation: Stratified K-fold by default. You can easily inspect
 the prediction “score” it got in each fold.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span><span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

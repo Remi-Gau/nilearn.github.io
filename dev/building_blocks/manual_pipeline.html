@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev88+ge002d242) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev89+g8eb730e7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -700,20 +700,20 @@ which downloads a dataset and returns a bunch of paths to the dataset
 files (more details in <a class="reference internal" href="../manipulating_images/input_output.html#loading-data"><span class="std std-ref">Inputing data: file names or image objects</span></a>). We can then proceed
 loading them as if they were just any other files on our disk. For
 example, we can download the data from the
-<a class="reference external" href="http://dx.doi.org/10.1126/science.1063736">Haxby 2001 paper</a></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span> 
+<a class="reference external" href="http://dx.doi.org/10.1126/science.1063736">Haxby 2001 paper</a> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><cite>dataset.func</cite> contains filenames referring to dataset files on the disk:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span> 
-<span class="go">[&#39;anat&#39;, &#39;description&#39;, &#39;func&#39;, &#39;mask&#39;, &#39;mask_face&#39;, &#39;mask_face_little&#39;, &#39;mask_house&#39;, &#39;mask_house_little&#39;, &#39;mask_vt&#39;, &#39;session_target&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">func</span> 
-<span class="go">[&#39;.../haxby2001/subj2/bold.nii.gz&#39;]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="c1"># [&#39;anat&#39;, &#39;description&#39;, &#39;func&#39;, &#39;mask&#39;, &#39;mask_face&#39;, &#39;mask_face_little&#39;, &#39;mask_house&#39;, &#39;mask_house_little&#39;, &#39;mask_vt&#39;, &#39;session_target&#39;]</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">func</span>
+<span class="c1"># [&#39;.../haxby2001/subj2/bold.nii.gz&#39;]</span>
 </pre></div>
 </div>
 <p>Access supplementary information on the dataset:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">haxby_dataset</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The complete list of the data-downloading functions can be found in the

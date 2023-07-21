@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev88+ge002d242) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev89+g8eb730e7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -713,20 +713,20 @@ conditioned on all the others.</p>
 estimator</strong> is necessary. The GraphicalLasso, implemented in scikit-learn’s
 estimator <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.covariance.GraphicalLassoCV</span></code></a> is a good, simple
 solution. To use it, you need to create an estimator object:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">GraphicalLassoCV</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span> <span class="o">=</span> <span class="n">GraphicalLassoCV</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">GraphicalLassoCV</span>
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">GraphicalLassoCV</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>And then you can fit it on the activation time series, for instance
 extracted in <a class="reference internal" href="functional_connectomes.html#functional-connectomes"><span class="std std-ref">the previous section</span></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">time_series</span><span class="p">)</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">time_series</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The covariance matrix and inverse-covariance matrix (precision matrix)
 can be found respectively in the <cite>covariance_</cite> and <cite>precision_</cite> attribute
 of the estimator:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">covariance_</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">precision_</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">estimator</span><span class="o">.</span><span class="n">covariance_</span>
+<span class="n">estimator</span><span class="o">.</span><span class="n">precision_</span>
 </pre></div>
 </div>
 <p class="centered">
@@ -766,13 +766,13 @@ differing connection values across subjects.</p>
 <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.GroupSparseCovarianceCV</span></code></a>
 estimator. Its usage is similar to the GraphicalLassoCV object, but it takes
 a list of time series:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">time_series_1</span><span class="p">,</span> <span class="n">time_series_2</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">estimator</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">time_series_1</span><span class="p">,</span> <span class="n">time_series_2</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>And it provides one estimated covariance and inverse-covariance
 (precision) matrix per time-series: for the first one:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">estimator</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">estimator</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">estimator</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -861,12 +861,12 @@ estimation and its implementation can be found in
 <p>We can go one step further by coupling the information from total (pairwise) and direct interactions in a unique group connectome. This can be done through a geometrical framework allowing to measure interactions in a common space called <strong>tangent space</strong> <a class="reference external" href="https://hal.inria.fr/inria-00512417/">[Varoquaux et al, MICCAI 2010]</a>.</p>
 <p>In nilearn, this is implemented in
 <a class="reference internal" href="../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.ConnectivityMeasure</span></code></a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measure</span> <span class="o">=</span> <span class="n">ConnectivityMeasure</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;tangent&#39;</span><span class="p">)</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measure</span> <span class="o">=</span> <span class="n">ConnectivityMeasure</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;tangent&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The group connectivity is computed using all the subjects timeseries.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">connectivities</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">time_series_1</span><span class="p">,</span> <span class="n">time_series_2</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>  
-<span class="gp">&gt;&gt;&gt; </span><span class="n">group_connectivity</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">mean_</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">connectivities</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="n">time_series_1</span><span class="p">,</span> <span class="n">time_series_2</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+<span class="n">group_connectivity</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">mean_</span>
 </pre></div>
 </div>
 <p>Deviations from this mean in the tangent space are provided in the connectivities array and can be used to compare different groups/sessions. In practice, the tangent measure can outperform the correlation and partial correlation measures, especially for noisy or heterogeneous data.</p>
