@@ -13,7 +13,7 @@
 <meta name="description" content="This example partly reproduces the encoding model presented in, Visual image reconstruction from human brain activity using a combination of multiscale local image decoders, Miyawaki, Y., Uchida, H..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Reconstruction of visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_reconstruction.html" /><link rel="prev" title="Example of pattern recognition on simulated data" href="plot_simulated_data.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.1 and Furo 2023.07.26 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>Encoding models for visual stimuli from Miyawaki et al. 2008 - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=79c6a522" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev99+g923f766d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev101+ga95149b2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -725,6 +725,15 @@ all occurrences of:</p>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_miyawaki2008.html#nilearn.datasets.fetch_miyawaki2008" title="nilearn.datasets.fetch_miyawaki2008" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_miyawaki2008</span></a><span class="p">()</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/miyawaki2008
+
+Downloading data from https://www.nitrc.org/frs/download.php/8486/miyawaki2008.tgz ...
+
+Downloaded 54239232 of 161069109 bytes (33.7%,    2.0s remaining)
+Downloaded 112967680 of 161069109 bytes (70.1%,    0.9s remaining) ...done. (3 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/miyawaki2008/18b67c55cebe5e71427c5ffdcfafd948/miyawaki2008.tgz..... done.
+</pre></div>
+</div>
 <p>We only use the training data of this study,
 where random binary images were shown.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># training data starts after the first 12 files</span>
@@ -984,7 +993,7 @@ set of regression coefficients.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><a href="https://matplotlib.org/stable/api/image_api.html#matplotlib.image.AxesImage" title="matplotlib.image.AxesImage" class="sphx-glr-backref-module-matplotlib-image sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax_im</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7f597f21fca0&gt;
+<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7fd6651119a0&gt;
 </pre></div>
 </div>
 <p>The receptive fields of the four voxels are not only close to each other,
@@ -992,8 +1001,8 @@ the relative location of the pixel each voxel is most sensitive to
 roughly maps to the relative location of the voxels to each other.
 We can see a relationship between some voxel’s receptive field and
 its location in the brain.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  27.733 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  435 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  30.054 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  416 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-encoding-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_miyawaki_encoding.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

@@ -13,7 +13,7 @@
 <meta name="description" content="Full step-by-step example of fitting a GLM to perform a first and second level analysis in a BIDS dataset and visualizing the results. Details about the BIDS standard can be consulted at http://bid..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NeuroVault meta-analysis of stop-go paradigm studies" href="plot_neurovault_meta_analysis.html" /><link rel="prev" title="Multivariate decompositions: Independent component analysis of fMRI" href="plot_ica_resting_state.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.1 and Furo 2023.07.26 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.07.26 -->
         <title>BIDS dataset first and second level analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=79c6a522" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev99+g923f766d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev101+ga95149b2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -708,6 +708,20 @@ confounds.tsv files.</p>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_dir</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_language_localizer_demo_dataset.html#nilearn.datasets.fetch_language_localizer_demo_dataset" title="nilearn.datasets.fetch_language_localizer_demo_dataset" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_language_localizer_demo_dataset</span></a><span class="p">()</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset
+
+Downloading data from https://osf.io/3dj2a/download ...
+
+Downloaded 134340608 of 749503182 bytes (17.9%,    4.6s remaining)
+Downloaded 271212544 of 749503182 bytes (36.2%,    3.5s remaining)
+Downloaded 361996288 of 749503182 bytes (48.3%,    3.2s remaining)
+Downloaded 433102848 of 749503182 bytes (57.8%,    3.0s remaining)
+Downloaded 531169280 of 749503182 bytes (70.9%,    2.1s remaining)
+Downloaded 622264320 of 749503182 bytes (83.0%,    1.2s remaining)
+Downloaded 713400320 of 749503182 bytes (95.2%,    0.4s remaining) ...done. (8 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/fMRI-language-localizer-demo-dataset.zip..... done.
+</pre></div>
+</div>
 <p>Here is the location of the dataset on disk.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_dir</span></a><span class="p">)</span>
 </pre></div>
@@ -756,7 +770,7 @@ be made here.</p>
 <span class="nb">print</span><span class="p">([</span><a href="https://docs.python.org/3.9/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">models_run_imgs</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-10_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-01_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
 </pre></div>
 </div>
 <p>The only confounds stored are regressors obtained from motion correction. As
@@ -859,8 +873,8 @@ language network.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  55.279 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  98 MB</p>
+<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.073 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  188 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-bids-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_bids_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
