@@ -78,7 +78,7 @@ Retrieve data from nilearn provided (general-purpose) datasets
 Plotting statistical maps with function `plot_stat_map`
 -------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-50
+.. GENERATED FROM PYTHON SOURCE LINES 41-51
 
 .. code-block:: default
 
@@ -94,6 +94,7 @@ Plotting statistical maps with function `plot_stat_map`
 
 
 
+
 .. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_001.png
    :alt: plot demo plotting
    :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_001.png
@@ -105,11 +106,11 @@ Plotting statistical maps with function `plot_stat_map`
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f90871bd070>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd8c5314370>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-57
+.. GENERATED FROM PYTHON SOURCE LINES 52-58
 
 Making interactive visualizations with function `view_img`
 ----------------------------------------------------------
@@ -118,7 +119,7 @@ An alternative to :func:`nilearn.plotting.plot_stat_map` is to use
 visualizations in a web browser. See :ref:`interactive-stat-map-plotting`
 for more details.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-63
+.. GENERATED FROM PYTHON SOURCE LINES 58-64
 
 .. code-block:: default
 
@@ -187,7 +188,7 @@ for more details.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 .. code-block:: default
 
@@ -203,7 +204,7 @@ for more details.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-75
+.. GENERATED FROM PYTHON SOURCE LINES 71-76
 
 Plotting statistical maps in a glass brain with function `plot_glass_brain`
 ---------------------------------------------------------------------------
@@ -211,7 +212,7 @@ Plotting statistical maps in a glass brain with function `plot_glass_brain`
 Now, the t-map image is mapped on glass brain representation where glass
 brain is always a fixed background template
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-78
+.. GENERATED FROM PYTHON SOURCE LINES 76-79
 
 .. code-block:: default
 
@@ -232,18 +233,18 @@ brain is always a fixed background template
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f907be29bb0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd8bfdf5280>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-83
+.. GENERATED FROM PYTHON SOURCE LINES 80-84
 
 Plotting anatomical images with function `plot_anat`
 ----------------------------------------------------
 
 Visualizing anatomical image of haxby dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-85
+.. GENERATED FROM PYTHON SOURCE LINES 84-86
 
 .. code-block:: default
 
@@ -263,11 +264,11 @@ Visualizing anatomical image of haxby dataset
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f907b4938e0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd8c0abcd90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-92
+.. GENERATED FROM PYTHON SOURCE LINES 87-93
 
 Plotting ROIs (here the mask) with function `plot_roi`
 ------------------------------------------------------
@@ -276,7 +277,7 @@ Visualizing ventral temporal region image from haxby dataset overlaid on
 subject specific anatomical image
 with coordinates positioned automatically on region of interest (roi)
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-95
+.. GENERATED FROM PYTHON SOURCE LINES 93-96
 
 .. code-block:: default
 
@@ -297,16 +298,16 @@ with coordinates positioned automatically on region of interest (roi)
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f907a2edac0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd8c158ea30>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-98
+.. GENERATED FROM PYTHON SOURCE LINES 97-99
 
 Plotting EPI image with function `plot_epi`
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-109
+.. GENERATED FROM PYTHON SOURCE LINES 99-117
 
 .. code-block:: default
 
@@ -321,13 +322,32 @@ Plotting EPI image with function `plot_epi`
     # Visualizing mean image (3D)
     plotting.plot_epi(mean_haxby_img, title="plot_epi")
 
+    # It's also possible to visualize volumes in a LR-flipped "radiological" view
+    # Just set radiological=True
+    plotting.plot_stat_map(stat_img,
+                           threshold=3, title="plot_stat_map",
+                           cut_coords=[36, -27, 66],
+                           radiological=True)
 
 
 
-.. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_005.png
-   :alt: plot demo plotting
-   :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_005.png
-   :class: sphx-glr-single-img
+
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_005.png
+         :alt: plot demo plotting
+         :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_005.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_006.png
+         :alt: plot demo plotting
+         :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_demo_plotting_006.png
+         :class: sphx-glr-multi-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -335,16 +355,16 @@ Plotting EPI image with function `plot_epi`
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f907b896460>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd8bfdc2d90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-112
+.. GENERATED FROM PYTHON SOURCE LINES 118-120
 
 A call to plotting.show is needed to display the plots when running
 in script mode (ie outside IPython)
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-114
+.. GENERATED FROM PYTHON SOURCE LINES 120-122
 
 .. code-block:: default
 
@@ -360,9 +380,9 @@ in script mode (ie outside IPython)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  13.413 seconds)
+   **Total running time of the script:** ( 0 minutes  17.917 seconds)
 
-**Estimated memory usage:**  897 MB
+**Estimated memory usage:**  892 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_demo_plotting.py:
