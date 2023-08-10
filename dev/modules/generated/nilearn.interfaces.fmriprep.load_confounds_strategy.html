@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev119+g6fe4c711) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev120+gab8eae6c) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -683,17 +683,17 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.interfaces.fmriprep.load_confounds_strategy<a class="headerlink" href="#nilearn-interfaces-fmriprep-load-confounds-strategy" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.interfaces.fmriprep.load_confounds_strategy">
-<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/6fe4c711/nilearn/interfaces/fmriprep/load_confounds_strategy.py#L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds_strategy" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/ab8eae6c/nilearn/interfaces/fmriprep/load_confounds_strategy.py#L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds_strategy" title="Permalink to this definition">#</a></dt>
 <dd><p>Use preset strategy to load confounds from <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a>.</p>
 <p><cite>load_confounds_strategy</cite> provides an interface to select confounds
 based on past literature with limited parameters for user customisation.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.9.0.</span></p>
 </div>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>img_files</strong><span class="classifier">path to processed image files, optionally as a list.</span></dt><dd><p>Processed nii.gz/dtseries.nii/func.gii file reside in a
+<dd class="field-odd"><dl>
+<dt><strong>img_files</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>.</span></dt><dd><p>Processed nii.gz/dtseries.nii/func.gii file reside in a
 <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> generated functional derivative directory (i.e.The
 associated confound files should be in the same directory as the image
 file). As long as the image file, confound related tsv and json are in
@@ -706,7 +706,7 @@ relevant files correctly.</p>
 of lists.</p></li>
 </ul>
 </dd>
-<dt><strong>denoise_strategy</strong><span class="classifier">{‘simple’, ‘scrubbing’, ‘compcor’, ‘ica_aroma’}</span></dt><dd><p>Name of preset denoising strategies. Each strategy has a set of
+<dt><strong>denoise_strategy</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, default=”simple”</span></dt><dd><p>Name of preset denoising strategies. Each strategy has a set of
 associated configurable parameters. For customiseable parameters,
 please see the table in Notes.</p>
 <ul class="simple">
@@ -749,12 +749,12 @@ Notes and refer to the documentation of
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>confounds</strong><span class="classifier">pandas.DataFrame, or list of</span></dt><dd><p>A reduced version of <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds based on selected
+<dd class="field-even"><dl>
+<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of         <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.0.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt><dd><p>A reduced version of <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds based on selected
 strategy and flags.
 The columns contains the labels of the regressors.</p>
 </dd>
-<dt><strong>sample_mask</strong><span class="classifier">None, numpy.ndarray, or list of</span></dt><dd><p>When no volume requires removal, the value is None.
+<dt><strong>sample_mask</strong><span class="classifier">None, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or, <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of         <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> or None</span></dt><dd><p>When no volume requires removal, the value is None.
 Otherwise, shape: (number of scans - number of volumes removed, )
 The index of the niimgs along time/fourth dimension for valid volumes
 for subsequent analysis.
