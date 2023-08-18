@@ -179,7 +179,7 @@ Using the NiftiLabelsMasker
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5626f66f70>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f90c2760340>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -188,7 +188,7 @@ Using the NiftiLabelsMasker
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5626f71880>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f90c2759bb0>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -202,7 +202,7 @@ Using the NiftiLabelsMasker
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.3s, 0.0min
+    _______________________________________________filter_and_extract - 1.1s, 0.0min
 
 
 
@@ -246,7 +246,7 @@ Compute and display a correlation matrix
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_001.png
-   :alt: plot signal extraction
+   :alt: Confounds
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_001.png
    :class: sphx-glr-single-img
 
@@ -259,8 +259,12 @@ Compute and display a correlation matrix
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
 
-    <matplotlib.image.AxesImage object at 0x7f5626ff93d0>
+    The figure layout has changed to tight
+
+
+    <matplotlib.image.AxesImage object at 0x7f90c285e5b0>
 
 
 
@@ -299,7 +303,7 @@ connectivity matrix looks like without confound removal.
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_002.png
-   :alt: plot signal extraction
+   :alt: No confounds
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_002.png
    :class: sphx-glr-single-img
 
@@ -318,7 +322,7 @@ connectivity matrix looks like without confound removal.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5626f6ac70>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f90c2800040>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -327,7 +331,7 @@ connectivity matrix looks like without confound removal.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5626f71880>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f90c2759bb0>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -341,13 +345,17 @@ connectivity matrix looks like without confound removal.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.3s, 0.0min
+    _______________________________________________filter_and_extract - 1.2s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
 
-    <matplotlib.image.AxesImage object at 0x7f5626fea160>
+    The figure layout has changed to tight
+
+
+    <matplotlib.image.AxesImage object at 0x7f90c27ecbb0>
 
 
 
@@ -407,7 +415,7 @@ cerebrospinal fluid signal with high-pass filtering.
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_003.png
-   :alt: plot signal extraction
+   :alt: Motion, WM, CSF
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_003.png
    :class: sphx-glr-single-img
 
@@ -430,7 +438,7 @@ cerebrospinal fluid signal with high-pass filtering.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f562b601520>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f90c3acc190>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -439,7 +447,7 @@ cerebrospinal fluid signal with high-pass filtering.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5626f71880>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f90c2759bb0>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -466,13 +474,17 @@ cerebrospinal fluid signal with high-pass filtering.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.5s, 0.0min
+    _______________________________________________filter_and_extract - 1.2s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
 
-    <matplotlib.image.AxesImage object at 0x7f5629ec1a60>
+    The figure layout has changed to tight
+
+
+    <matplotlib.image.AxesImage object at 0x7f90c49f1520>
 
 
 
@@ -534,7 +546,7 @@ strategy.
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_004.png
-   :alt: plot signal extraction
+   :alt: Motion, WM, CSF, Scrubbing
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_004.png
    :class: sphx-glr-single-img
 
@@ -558,7 +570,7 @@ strategy.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f562b68daf0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f90c2800400>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -567,7 +579,7 @@ strategy.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5626f71880>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f90c2759bb0>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -594,13 +606,17 @@ strategy.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.5s, 0.0min
+    _______________________________________________filter_and_extract - 1.2s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
 
-    <matplotlib.image.AxesImage object at 0x7f562b2d42e0>
+    The figure layout has changed to tight
+
+
+    <matplotlib.image.AxesImage object at 0x7f90c437e6d0>
 
 
 
@@ -651,7 +667,7 @@ simple strategy and see its impact.
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_005.png
-   :alt: plot signal extraction
+   :alt: Motion, WM, CSF, GSR
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_005.png
    :class: sphx-glr-single-img
 
@@ -675,7 +691,7 @@ simple strategy and see its impact.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f562a27c490>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f90c69db8e0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -684,7 +700,7 @@ simple strategy and see its impact.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5626f71880>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f90c2759bb0>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -711,13 +727,17 @@ simple strategy and see its impact.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.4s, 0.0min
+    _______________________________________________filter_and_extract - 1.2s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
 
-    <matplotlib.image.AxesImage object at 0x7f5629e86a30>
+    The figure layout has changed to tight
+
+
+    <matplotlib.image.AxesImage object at 0x7f90c4a4c520>
 
 
 
@@ -799,14 +819,14 @@ the motion default to basic.
     *
 
       .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_006.png
-         :alt: plot signal extraction
+         :alt: simple
          :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_006.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_007.png
-         :alt: plot signal extraction
+         :alt: simple with global signal
          :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_signal_extraction_007.png
          :class: sphx-glr-multi-img
 
@@ -822,11 +842,15 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]15.4s, 0.3min   : Loading _filter_and_extract...
+    [Memory]12.9s, 0.2min   : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
+
+    The figure layout has changed to tight
 
     [NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
     shape=(91, 109, 91),
@@ -835,11 +859,15 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]16.2s, 0.3min   : Loading _filter_and_extract...
+    [Memory]13.6s, 0.2min   : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/connectome/connectivity_matrices.py:495: FutureWarning:
 
     The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
+
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/plotting/matrix_plotting.py:329: UserWarning:
+
+    The figure layout has changed to tight
 
 
 
@@ -855,9 +883,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.021 seconds)
+   **Total running time of the script:** ( 0 minutes  16.107 seconds)
 
-**Estimated memory usage:**  595 MB
+**Estimated memory usage:**  538 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_signal_extraction.py:
