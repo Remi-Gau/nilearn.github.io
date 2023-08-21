@@ -33,7 +33,7 @@ See :ref:`plotting` for more details.
 Retrieve data from nilearn provided (general-purpose) datasets
 --------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 16-38
+.. GENERATED FROM PYTHON SOURCE LINES 16-40
 
 .. code-block:: default
 
@@ -44,8 +44,10 @@ Retrieve data from nilearn provided (general-purpose) datasets
     haxby_dataset = datasets.fetch_haxby()
 
     # print basic information on the dataset
-    print("First subject anatomical nifti image (3D) is "
-          f"at: {haxby_dataset.anat[0]}")
+    print(
+        "First subject anatomical nifti image (3D) is "
+        f"at: {haxby_dataset.anat[0]}"
+    )
     print(
         "First subject functional nifti image (4D) is "
         f"at: {haxby_dataset.func[0]}"
@@ -73,12 +75,12 @@ Retrieve data from nilearn provided (general-purpose) datasets
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 41-43
 
 Plotting statistical maps with function `plot_stat_map`
 -------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-51
+.. GENERATED FROM PYTHON SOURCE LINES 43-53
 
 .. code-block:: default
 
@@ -87,9 +89,9 @@ Plotting statistical maps with function `plot_stat_map`
 
     # Visualizing t-map image on EPI template with manual
     # positioning of coordinates using cut_coords given as a list
-    plotting.plot_stat_map(stat_img,
-                           threshold=3, title="plot_stat_map",
-                           cut_coords=[36, -27, 66])
+    plotting.plot_stat_map(
+        stat_img, threshold=3, title="plot_stat_map", cut_coords=[36, -27, 66]
+    )
 
 
 
@@ -106,11 +108,11 @@ Plotting statistical maps with function `plot_stat_map`
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc9122795e0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd020fdefd0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-58
+.. GENERATED FROM PYTHON SOURCE LINES 54-60
 
 Making interactive visualizations with function `view_img`
 ----------------------------------------------------------
@@ -119,7 +121,7 @@ An alternative to :func:`nilearn.plotting.plot_stat_map` is to use
 visualizations in a web browser. See :ref:`interactive-stat-map-plotting`
 for more details.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-64
+.. GENERATED FROM PYTHON SOURCE LINES 60-66
 
 .. code-block:: default
 
@@ -188,7 +190,7 @@ for more details.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-70
+.. GENERATED FROM PYTHON SOURCE LINES 67-72
 
 .. code-block:: default
 
@@ -204,7 +206,7 @@ for more details.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-76
+.. GENERATED FROM PYTHON SOURCE LINES 73-78
 
 Plotting statistical maps in a glass brain with function `plot_glass_brain`
 ---------------------------------------------------------------------------
@@ -212,12 +214,11 @@ Plotting statistical maps in a glass brain with function `plot_glass_brain`
 Now, the t-map image is mapped on glass brain representation where glass
 brain is always a fixed background template
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-79
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
 
 .. code-block:: default
 
-    plotting.plot_glass_brain(stat_img, title='plot_glass_brain',
-                              threshold=3)
+    plotting.plot_glass_brain(stat_img, title="plot_glass_brain", threshold=3)
 
 
 
@@ -233,18 +234,18 @@ brain is always a fixed background template
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fc91347b790>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd02ceb91f0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-84
+.. GENERATED FROM PYTHON SOURCE LINES 81-85
 
 Plotting anatomical images with function `plot_anat`
 ----------------------------------------------------
 
 Visualizing anatomical image of haxby dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-86
+.. GENERATED FROM PYTHON SOURCE LINES 85-87
 
 .. code-block:: default
 
@@ -264,11 +265,11 @@ Visualizing anatomical image of haxby dataset
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc913330af0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd0221bb940>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-93
+.. GENERATED FROM PYTHON SOURCE LINES 88-94
 
 Plotting ROIs (here the mask) with function `plot_roi`
 ------------------------------------------------------
@@ -277,12 +278,13 @@ Visualizing ventral temporal region image from haxby dataset overlaid on
 subject specific anatomical image
 with coordinates positioned automatically on region of interest (roi)
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-96
+.. GENERATED FROM PYTHON SOURCE LINES 94-98
 
 .. code-block:: default
 
-    plotting.plot_roi(haxby_mask_filename, bg_img=haxby_anat_filename,
-                      title="plot_roi")
+    plotting.plot_roi(
+        haxby_mask_filename, bg_img=haxby_anat_filename, title="plot_roi"
+    )
 
 
 
@@ -298,16 +300,16 @@ with coordinates positioned automatically on region of interest (roi)
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc911741b20>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd020fde1c0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-99
+.. GENERATED FROM PYTHON SOURCE LINES 99-101
 
 Plotting EPI image with function `plot_epi`
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-117
+.. GENERATED FROM PYTHON SOURCE LINES 101-122
 
 .. code-block:: default
 
@@ -324,10 +326,13 @@ Plotting EPI image with function `plot_epi`
 
     # It's also possible to visualize volumes in a LR-flipped "radiological" view
     # Just set radiological=True
-    plotting.plot_stat_map(stat_img,
-                           threshold=3, title="plot_stat_map",
-                           cut_coords=[36, -27, 66],
-                           radiological=True)
+    plotting.plot_stat_map(
+        stat_img,
+        threshold=3,
+        title="plot_stat_map",
+        cut_coords=[36, -27, 66],
+        radiological=True,
+    )
 
 
 
@@ -355,16 +360,16 @@ Plotting EPI image with function `plot_epi`
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc912f7b5b0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd022fdae80>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 123-125
 
 A call to plotting.show is needed to display the plots when running
 in script mode (ie outside IPython)
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-122
+.. GENERATED FROM PYTHON SOURCE LINES 125-127
 
 .. code-block:: default
 
@@ -380,9 +385,9 @@ in script mode (ie outside IPython)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 15.182 seconds)
+   **Total running time of the script:** (0 minutes 15.717 seconds)
 
-**Estimated memory usage:**  892 MB
+**Estimated memory usage:**  969 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_demo_plotting.py:

@@ -119,14 +119,17 @@ integers representing coordinates of each slice in the order [x, y, z].
 By default the ``colorbar`` argument is set to ``True`` in
 :func:`~nilearn.plotting.plot_stat_map`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 76-84
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='ortho',
-                           cut_coords=[36, -27, 60],
-                           title="display_mode='ortho', cut_coords=[36, -27, 60]")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="ortho",
+        cut_coords=[36, -27, 60],
+        title="display_mode='ortho', cut_coords=[36, -27, 60]",
+    )
 
 
 
@@ -142,11 +145,11 @@ By default the ``colorbar`` argument is set to ``True`` in
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc913821880>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd01ea72b50>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-92
+.. GENERATED FROM PYTHON SOURCE LINES 85-95
 
 Visualizing in - single view 'axial' with number of cuts=5
 ----------------------------------------------------------
@@ -159,13 +162,17 @@ a list, which implies that the number of cuts in the slices should be 5
 maximum. Note that the coordinates used to cut the slices are selected
 automatically.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-96
+.. GENERATED FROM PYTHON SOURCE LINES 95-103
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='z', cut_coords=5,
-                           title="display_mode='z', cut_coords=5")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="z",
+        cut_coords=5,
+        title="display_mode='z', cut_coords=5",
+    )
 
 
 
@@ -181,11 +188,11 @@ automatically.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fc9135e7b20>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fd02ceb92b0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-104
+.. GENERATED FROM PYTHON SOURCE LINES 104-111
 
 Visualizing in - single view 'sagittal' with only two slices
 ------------------------------------------------------------
@@ -195,14 +202,17 @@ For sagittal visualization, we set ``display_mode='x'`` which returns a
 Additionally, we provide the coordinates of the slices as a list of
 integers.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-109
+.. GENERATED FROM PYTHON SOURCE LINES 111-119
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='x',
-                           cut_coords=[-36, 36],
-                           title="display_mode='x', cut_coords=[-36, 36]")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="x",
+        cut_coords=[-36, 36],
+        title="display_mode='x', cut_coords=[-36, 36]",
+    )
 
 
 
@@ -218,11 +228,11 @@ integers.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.XSlicer object at 0x7fc9129e6820>
+    <nilearn.plotting.displays._slicers.XSlicer object at 0x7fd0219ca760>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-117
+.. GENERATED FROM PYTHON SOURCE LINES 120-127
 
 Visualizing in - 'coronal' view with single cut
 -----------------------------------------------
@@ -232,15 +242,19 @@ For coronal view, we set ``display_mode='y'`` which returns a
 ``cut_coords`` is provided as an integer (1), and the coordinates are,
 again, selected automatically.
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-123
+.. GENERATED FROM PYTHON SOURCE LINES 127-137
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
 
-    plotting.plot_stat_map(stat_img, display_mode='y', cut_coords=1,
-                           title="display_mode='y', cut_coords=1",
-                           figure=plt.figure(figsize=(5, 4)))
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="y",
+        cut_coords=1,
+        title="display_mode='y', cut_coords=1",
+        figure=plt.figure(figsize=(5, 4)),
+    )
 
 
 
@@ -256,11 +270,11 @@ again, selected automatically.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.YSlicer object at 0x7fc912190070>
+    <nilearn.plotting.displays._slicers.YSlicer object at 0x7fd0225f6af0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-129
+.. GENERATED FROM PYTHON SOURCE LINES 138-143
 
 Visualizing without a colorbar on the right side
 ------------------------------------------------
@@ -268,15 +282,19 @@ Visualizing without a colorbar on the right side
 The argument ``colorbar`` should be set to ``False`` to show plots without
 a colorbar on the right side.
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-135
+.. GENERATED FROM PYTHON SOURCE LINES 143-153
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='z',
-                           cut_coords=1, colorbar=False,
-                           title="display_mode='z', cut_coords=1,\ncolorbar=False",
-                           figure=plt.figure(figsize=(5, 7)))
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="z",
+        cut_coords=1,
+        colorbar=False,
+        title="display_mode='z', cut_coords=1,\ncolorbar=False",
+        figure=plt.figure(figsize=(5, 7)),
+    )
 
 
 
@@ -292,11 +310,11 @@ a colorbar on the right side.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fc913a64400>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fd021b08340>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-146
+.. GENERATED FROM PYTHON SOURCE LINES 154-164
 
 Visualize in - two views 'sagittal' and 'axial' with given coordinates
 ----------------------------------------------------------------------
@@ -309,14 +327,17 @@ Finally, the argument ``cut_coords`` should match with the input number of
 views (two here). It is provided as a list of integers here to select the
 slices to be displayed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-151
+.. GENERATED FROM PYTHON SOURCE LINES 164-172
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='xz',
-                           cut_coords=[36, 60],
-                           title="display_mode='xz', cut_coords=[36, 60]")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="xz",
+        cut_coords=[36, 60],
+        title="display_mode='xz', cut_coords=[36, 60]",
+    )
 
 
 
@@ -332,11 +353,11 @@ slices to be displayed.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7fc9135c0d00>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7fd02230a3d0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-159
+.. GENERATED FROM PYTHON SOURCE LINES 173-180
 
 Changing the views to 'coronal', 'sagittal' views with coordinates
 ------------------------------------------------------------------
@@ -346,14 +367,17 @@ sagittal view, which will return a
 :class:`~nilearn.plotting.displays.YXSlicer` object.
 The coordinates will be assigned in the order of direction as [x, y, z].
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-164
+.. GENERATED FROM PYTHON SOURCE LINES 180-188
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='yx',
-                           cut_coords=[-27, 36],
-                           title="display_mode='yx', cut_coords=[-27, 36]")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="yx",
+        cut_coords=[-27, 36],
+        title="display_mode='yx', cut_coords=[-27, 36]",
+    )
 
 
 
@@ -369,11 +393,11 @@ The coordinates will be assigned in the order of direction as [x, y, z].
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.YXSlicer object at 0x7fc91296ef40>
+    <nilearn.plotting.displays._slicers.YXSlicer object at 0x7fd021886790>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-171
+.. GENERATED FROM PYTHON SOURCE LINES 189-195
 
 Now, views are changed to 'coronal' and 'axial' views with coordinates
 ----------------------------------------------------------------------
@@ -382,14 +406,17 @@ We can set ``display_mode='yz'`` to combine a coronal with an axial
 view, which will return a :class:`~nilearn.plotting.displays.YZSlicer`
 object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-176
+.. GENERATED FROM PYTHON SOURCE LINES 195-203
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='yz',
-                           cut_coords=[-27, 60],
-                           title="display_mode='yz', cut_coords=[-27, 60]")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="yz",
+        cut_coords=[-27, 60],
+        title="display_mode='yz', cut_coords=[-27, 60]",
+    )
 
 
 
@@ -405,11 +432,11 @@ object.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7fc91209de50>
+    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7fd022fda280>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-184
+.. GENERATED FROM PYTHON SOURCE LINES 204-211
 
 Visualizing three views in 2x2 fashion
 --------------------------------------
@@ -419,14 +446,17 @@ If we want to combine three views in a 2x2 way, we can set
 views. In this case, :func:`~nilearn.plotting.plot_stat_map` will return
 a :class:`~nilearn.plotting.displays.TiledSlicer` object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 184-189
+.. GENERATED FROM PYTHON SOURCE LINES 211-219
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='tiled',
-                           cut_coords=[36, -27, 60],
-                           title="display_mode='tiled'")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="tiled",
+        cut_coords=[36, -27, 60],
+        title="display_mode='tiled'",
+    )
 
 
 
@@ -442,11 +472,11 @@ a :class:`~nilearn.plotting.displays.TiledSlicer` object.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.TiledSlicer object at 0x7fc90cbe5f10>
+    <nilearn.plotting.displays._slicers.TiledSlicer object at 0x7fd021aba430>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-198
+.. GENERATED FROM PYTHON SOURCE LINES 220-228
 
 Visualizing three views along multiple rows and columns
 -------------------------------------------------------
@@ -457,13 +487,16 @@ situation, :func:`~nilearn.plotting.plot_stat_map` returns a
 :class:`~nilearn.plotting.displays.MosaicSlicer` object.
 In addition, we show here the default option ``cut_coords=None``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-202
+.. GENERATED FROM PYTHON SOURCE LINES 228-235
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='mosaic',
-                           title="display_mode='mosaic' default cut_coords")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="mosaic",
+        title="display_mode='mosaic' default cut_coords",
+    )
 
 
 
@@ -479,11 +512,11 @@ In addition, we show here the default option ``cut_coords=None``.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fc91296ebb0>
+    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fd02230aeb0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-209
+.. GENERATED FROM PYTHON SOURCE LINES 236-242
 
 Now, changing the number of slices along columns
 ------------------------------------------------
@@ -492,14 +525,17 @@ Here, we still set ``display_mode='mosaic'``, but we set the number of
 slices to be the same across views. In this case, we can specify it as
 an integer, i.e. ``cut_coords=3``.
 
-.. GENERATED FROM PYTHON SOURCE LINES 209-214
+.. GENERATED FROM PYTHON SOURCE LINES 242-250
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='mosaic',
-                           cut_coords=3,
-                           title="display_mode='mosaic' with cut_coords=3")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="mosaic",
+        cut_coords=3,
+        title="display_mode='mosaic' with cut_coords=3",
+    )
 
 
 
@@ -515,11 +551,11 @@ an integer, i.e. ``cut_coords=3``.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fc9135e79d0>
+    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fd021aa2a00>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-221
+.. GENERATED FROM PYTHON SOURCE LINES 251-257
 
 Now, another way of limiting the number of slices along rows and columns
 ------------------------------------------------------------------------
@@ -528,14 +564,17 @@ It can be the case that we want to display a different number of cuts in
 each view. In this situation, we still set ``display_mode='mosaic'``, but
 we specify the number of slices as a tuple of length 3.
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-226
+.. GENERATED FROM PYTHON SOURCE LINES 257-265
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img, display_mode='mosaic',
-                           cut_coords=(5, 4, 10),
-                           title="display_mode='mosaic' with cut_coords as tuple")
+    plotting.plot_stat_map(
+        stat_img,
+        display_mode="mosaic",
+        cut_coords=(5, 4, 10),
+        title="display_mode='mosaic' with cut_coords as tuple",
+    )
 
 
 
@@ -551,11 +590,11 @@ we specify the number of slices as a tuple of length 3.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fc913898d00>
+    <nilearn.plotting.displays._slicers.MosaicSlicer object at 0x7fd02196a5b0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-234
+.. GENERATED FROM PYTHON SOURCE LINES 266-273
 
 Demonstrating various display features
 --------------------------------------
@@ -565,7 +604,7 @@ figures. More precisely, we will show how to use specific methods of the
 display objects which can be helpful in projecting brain imaging results
 for further interpretation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-242
+.. GENERATED FROM PYTHON SOURCE LINES 273-281
 
 .. code-block:: default
 
@@ -584,7 +623,7 @@ for further interpretation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-259
+.. GENERATED FROM PYTHON SOURCE LINES 282-298
 
 Showing how to use `add_edges`
 ------------------------------
@@ -603,13 +642,13 @@ method. The first argument is the anatomical image and, by default,
 edges will be displayed in red ('r'). To choose a different color, use
 the ``color`` argument.
 
-.. GENERATED FROM PYTHON SOURCE LINES 259-263
+.. GENERATED FROM PYTHON SOURCE LINES 298-302
 
 .. code-block:: default
 
 
     display = plotting.plot_anat(mean_haxby_img, title="add_edges")
-    display.add_edges(haxby_anat_filename, color='r')
+    display.add_edges(haxby_anat_filename, color="r")
 
 
 
@@ -623,7 +662,7 @@ the ``color`` argument.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-284
+.. GENERATED FROM PYTHON SOURCE LINES 303-323
 
 How to use `add_contours`
 -------------------------
@@ -646,15 +685,16 @@ a list of values to select particular levels in the contour to display.
 We also specify ``colors='r'`` to display edges in red (See function
 :func:`~matplotlib.pyplot.contour` to use more options).
 
-.. GENERATED FROM PYTHON SOURCE LINES 284-290
+.. GENERATED FROM PYTHON SOURCE LINES 323-330
 
 .. code-block:: default
 
 
-    display = plotting.plot_anat(mean_haxby_img, title="add_contours",
-                                 cut_coords=[-34, -39, -9])
+    display = plotting.plot_anat(
+        mean_haxby_img, title="add_contours", cut_coords=[-34, -39, -9]
+    )
 
-    display.add_contours(haxby_mask_filename, levels=[0.5], colors='r')
+    display.add_contours(haxby_mask_filename, levels=[0.5], colors="r")
 
 
 
@@ -668,7 +708,7 @@ We also specify ``colors='r'`` to display edges in red (See function
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 291-301
+.. GENERATED FROM PYTHON SOURCE LINES 331-341
 
 Here, we plot the outline of the mask (in blue) with color fillings using
 the same method :meth:`~nilearn.plotting.displays.OrthoSlicer.add_contours`.
@@ -681,17 +721,20 @@ transparency of the fillings.
 See function :func:`~matplotlib.pyplot.contourf` to use more options (given
 that ``filled`` should be ``True``).
 
-.. GENERATED FROM PYTHON SOURCE LINES 301-309
+.. GENERATED FROM PYTHON SOURCE LINES 341-352
 
 .. code-block:: default
 
 
-    display = plotting.plot_anat(mean_haxby_img,
-                                 title="add_contours with filled=True",
-                                 cut_coords=[-34, -39, -9])
+    display = plotting.plot_anat(
+        mean_haxby_img,
+        title="add_contours with filled=True",
+        cut_coords=[-34, -39, -9],
+    )
 
-    display.add_contours(haxby_mask_filename, filled=True, alpha=0.7,
-                         levels=[0.5], colors='b')
+    display.add_contours(
+        haxby_mask_filename, filled=True, alpha=0.7, levels=[0.5], colors="b"
+    )
 
 
 
@@ -705,7 +748,7 @@ that ``filled`` should be ``True``).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 310-321
+.. GENERATED FROM PYTHON SOURCE LINES 353-364
 
 Plotting seeds using `add_markers`
 ----------------------------------
@@ -719,15 +762,16 @@ argument, and second argument ``marker_color`` is used to denote the
 color of the sphere (in this case yellow 'y'). The third argument
 ``marker_size`` is used to control the size of the sphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 321-327
+.. GENERATED FROM PYTHON SOURCE LINES 364-371
 
 .. code-block:: default
 
 
-    display = plotting.plot_anat(mean_haxby_img, title="add_markers",
-                                 cut_coords=[-34, -39, -9])
+    display = plotting.plot_anat(
+        mean_haxby_img, title="add_markers", cut_coords=[-34, -39, -9]
+    )
     coords = [(-34, -39, -9)]
-    display.add_markers(coords, marker_color='y', marker_size=100)
+    display.add_markers(coords, marker_color="y", marker_size=100)
 
 
 
@@ -741,7 +785,7 @@ color of the sphere (in this case yellow 'y'). The third argument
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 328-335
+.. GENERATED FROM PYTHON SOURCE LINES 372-379
 
 Annotating plots
 ----------------
@@ -751,14 +795,14 @@ method :meth:`~nilearn.plotting.displays.OrthoSlicer.annotate` of the
 display objects. For example, we can add a scale bar at the bottom
 right of each view:
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-342
+.. GENERATED FROM PYTHON SOURCE LINES 379-386
 
 .. code-block:: default
 
 
-    display = plotting.plot_anat(mean_haxby_img,
-                                 title="adding a scale bar",
-                                 cut_coords=[-34, -39, -9])
+    display = plotting.plot_anat(
+        mean_haxby_img, title="adding a scale bar", cut_coords=[-34, -39, -9]
+    )
     display.annotate(scalebar=True)
 
 
@@ -774,21 +818,21 @@ right of each view:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 343-346
+.. GENERATED FROM PYTHON SOURCE LINES 387-390
 
 Further configuration can be achieved by setting ``scale_*`` keyword args.
 For instance, we can change the ``units`` to ``mm``, or use a different
 scale bar size.
 
-.. GENERATED FROM PYTHON SOURCE LINES 346-352
+.. GENERATED FROM PYTHON SOURCE LINES 390-396
 
 .. code-block:: default
 
 
-    display = plotting.plot_anat(mean_haxby_img,
-                                 title="adding a scale bar",
-                                 cut_coords=[-34, -39, -9])
-    display.annotate(scalebar=True, scale_size=25, scale_units='mm')
+    display = plotting.plot_anat(
+        mean_haxby_img, title="adding a scale bar", cut_coords=[-34, -39, -9]
+    )
+    display.annotate(scalebar=True, scale_size=25, scale_units="mm")
 
 
 
@@ -802,7 +846,7 @@ scale bar size.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 353-362
+.. GENERATED FROM PYTHON SOURCE LINES 397-406
 
 Saving plots to file
 --------------------
@@ -814,14 +858,16 @@ First, we can save the contrast maps plotted with the function
 ``output_file``. We provide the filename and the file extension as
 a string (supported extensions are .png, .pdf, .svg).
 
-.. GENERATED FROM PYTHON SOURCE LINES 362-367
+.. GENERATED FROM PYTHON SOURCE LINES 406-413
 
 .. code-block:: default
 
 
-    plotting.plot_stat_map(stat_img,
-                           title='Using plot_stat_map output_file',
-                           output_file='plot_stat_map.png')
+    plotting.plot_stat_map(
+        stat_img,
+        title="Using plot_stat_map output_file",
+        output_file="plot_stat_map.png",
+    )
 
 
 
@@ -830,21 +876,20 @@ a string (supported extensions are .png, .pdf, .svg).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-371
+.. GENERATED FROM PYTHON SOURCE LINES 414-417
 
 A second way to save plots is by using the method
 :meth:`~nilearn.plotting.displays.OrthoSlicer.savefig` of the display
 object returned.
 
-.. GENERATED FROM PYTHON SOURCE LINES 371-382
+.. GENERATED FROM PYTHON SOURCE LINES 417-427
 
 .. code-block:: default
 
 
-    display = plotting.plot_stat_map(stat_img,
-                                     title='Using display savefig')
+    display = plotting.plot_stat_map(stat_img, title="Using display savefig")
 
-    display.savefig('plot_stat_map_from_display.png')
+    display.savefig("plot_stat_map_from_display.png")
 
     # In non-interactive settings make sure you close your displays
     display.close()
@@ -861,9 +906,9 @@ object returned.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 37.311 seconds)
+   **Total running time of the script:** (0 minutes 37.887 seconds)
 
-**Estimated memory usage:**  912 MB
+**Estimated memory usage:**  916 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_demo_more_plotting.py:
