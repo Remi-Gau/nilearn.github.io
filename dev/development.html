@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev140+g457c79ee) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev141+g9d5409c5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -1038,19 +1038,56 @@ Try to keep this in mind when you write new functions.
 For more information about this coding approach,
 see <a class="reference external" href="https://en.wikipedia.org/wiki/Test-driven_development">test-driven development</a>.</p>
 </div>
-<p>Tests must be seeded to avoid random failures.
-For objects using random seeds (e.g. scikit-learn estimators), pass either
-a  <cite>np.random.RandomState</cite> or an <cite>int</cite> as the seed.
-When your test use random numbers,  those must be generated through:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">my_number</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>To check your changes worked and didn’t break anything run <cite>pytest nilearn</cite>.
+<p>We use <a class="reference external" href="https://docs.pytest.org/en/6.2.x/contents.html">pytest</a> to run our tests.</p>
+<p>If you are not familiar with pytest,
+have a look at this <a class="reference external" href="https://www.youtube.com/watch?v=mzlH8lp4ISA">introductory video</a>
+by one of the pytest core developer.</p>
+<p>In general tests for a specific module (say <cite>nilearn/image/image.py</cite>)
+are kept in a <cite>tests</cite> folder in a separate module
+with a name that matches the module being tested
+(so in this case <cite>nilearn/image/tests/test_image.py</cite>).</p>
+<p>When you have added a test you can check that your changes worked
+and didn’t break anything by running <cite>pytest nilearn</cite>.
 To do quicker checks it’s possible to run only a subset of tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>test_module.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>nilearn/module/tests/test_module.py
 </pre></div>
 </div>
+<section id="fixtures">
+<h4>Fixtures<a class="headerlink" href="#fixtures" title="Permalink to this heading">#</a></h4>
+<p>If you need to do some special “set up” for your tests
+(for example you need to generate some data, or a NiftiImage object or a file…)
+you can use <a class="reference external" href="https://docs.pytest.org/en/6.2.x/fixture.html">pytest fixtures</a>
+to help you mock this data
+(more information on pytest fixtures in <a class="reference external" href="https://www.youtube.com/watch?v=ScEQRKwUePI">this video</a>).</p>
+<p>Fixture are recognizable because they have a <cite>&#64;pytest.fixture</cite> decorator.
+Fixtures that are shared by many tests modules can be found in <cite>nilearn/conftest.py</cite>
+but some fixures specific to certain modules can also be kept in that testing module.</p>
+<p>Before adding new fixtures, first check those that exist
+in the test modules you are working in or in <cite>nilearn/conftest.py</cite>.</p>
+</section>
+<section id="seeding">
+<h4>Seeding<a class="headerlink" href="#seeding" title="Permalink to this heading">#</a></h4>
+<p>Many tests must be seeded to avoid random failures.
+When your test use random numbers,
+you can seed a random number generator with <cite>numpy.random.default_rng</cite>
+like in the following examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_something</span><span class="p">():</span>
+      <span class="c1"># set up</span>
+      <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+      <span class="n">my_number</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
+
+      <span class="c1"># the rest of the test</span>
+</pre></div>
+</div>
+<p>You can also use the <cite>rng</cite> fixture.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="n">rng</span><span class="p">):</span>
+      <span class="c1"># set up</span>
+      <span class="n">my_number</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
+
+      <span class="c1"># the rest of the test</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="documentation">
 <h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">#</a></h3>
@@ -1386,7 +1423,11 @@ process can be found there : <a class="reference internal" href="maintenance.htm
 <li><a class="reference internal" href="#changelog">Changelog</a></li>
 <li><a class="reference internal" href="#coding-style">Coding Style</a></li>
 <li><a class="reference internal" href="#pre-commit">Pre-commit</a></li>
-<li><a class="reference internal" href="#tests">Tests</a></li>
+<li><a class="reference internal" href="#tests">Tests</a><ul>
+<li><a class="reference internal" href="#fixtures">Fixtures</a></li>
+<li><a class="reference internal" href="#seeding">Seeding</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
 </ul>
 </li>
