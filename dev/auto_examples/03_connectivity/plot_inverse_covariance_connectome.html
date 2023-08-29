@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example constructs a functional connectome using the sparse inverse covariance. We use the MSDL atlas of functional regions in movie watching, and the nilearn.maskers.NiftiMapsMasker to extrac..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" /><link rel="prev" title="Extracting signals of a probabilistic atlas of functional regions" href="plot_probabilistic_atlas_extraction.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Extracting signals of a probabilistic atlas of functional regions" href="plot_probabilistic_atlas_extraction.html" /><link rel="prev" title="Functional connectivity" href="index.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
         <title>Computing a connectome with sparse inverse covariance - Nilearn</title>
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev147+g9ae81991) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev148+g0b4d7db2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -239,8 +239,8 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">Functional connectivity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Functional connectivity</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Computing a connectome with sparse inverse covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
@@ -749,12 +749,17 @@ Resampling maps
 
 memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
-[Memory]0.0s, 0.0min    : Loading resample_img...
-________________________________________resample_img cache loaded - 0.0s, 0.0min
+________________________________________________________________________________
+[Memory] Calling nilearn.image.resampling.resample_img...
+resample_img(&lt;nibabel.nifti1.Nifti1Image object at 0x7f46a9a147c0&gt;, interpolation=&#39;continuous&#39;, target_shape=(50, 59, 50), target_affine=array([[   4.,    0.,    0.,  -96.],
+       [   0.,    4.,    0., -132.],
+       [   0.,    0.,    4.,  -78.],
+       [   0.,    0.,    0.,    1.]]))
+_____________________________________________________resample_img - 1.3s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7ff9bda0c9d0&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f46a9a14460&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
   &#39;dtype&#39;: None,
@@ -774,7 +779,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 2.2s, 0.0min
+_______________________________________________filter_and_extract - 2.5s, 0.0min
 </pre></div>
 </div>
 </section>
@@ -817,7 +822,7 @@ _______________________________________________filter_and_extract - 2.2s, 0.0min
 The figure layout has changed to tight
 
 
-&lt;matplotlib.image.AxesImage object at 0x7ff9c8309100&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f46a91b76a0&gt;
 </pre></div>
 </div>
 </section>
@@ -828,7 +833,7 @@ The figure layout has changed to tight
 <a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimator</span><span class="o">.</span><span class="n">covariance_</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coords</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Covariance&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7ff9b71e3df0&gt;
+<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_002.png" alt="plot inverse covariance connectome" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f46a91040d0&gt;
 </pre></div>
 </div>
 </section>
@@ -845,7 +850,7 @@ The figure layout has changed to tight
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" alt="Sparse inverse covariance" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7ff9b96c6670&gt;
+<img src="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" srcset="../../_images/sphx_glr_plot_inverse_covariance_connectome_003.png" alt="Sparse inverse covariance" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f46a7a97d00&gt;
 </pre></div>
 </div>
 </section>
@@ -1244,8 +1249,8 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
 <span class="c1"># view.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.239 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1168 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.183 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1082 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-inverse-covariance-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_inverse_covariance_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1266,23 +1271,23 @@ function decodeHemisphere(surfaceInfo, surface, hemisphere){
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_simulated_connectome.html">
+          <a class="next-page" href="plot_probabilistic_atlas_extraction.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Connectivity structure estimation on simulated data</div>
+                <div class="title">Extracting signals of a probabilistic atlas of functional regions</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_probabilistic_atlas_extraction.html">
+          <a class="prev-page" href="index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Extracting signals of a probabilistic atlas of functional regions</div>
+                <div class="title">Functional connectivity</div>
                 
               </div>
             </a>
