@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev156+gd4690b95) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev157+g36648d48) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -1010,8 +1010,18 @@ This is also useful for writing unit tests.</p>
 but well-tested, older functions in the codebase, unless there is a strong reason to do so (e.g., when adding a new feature).</p>
 <section id="guidelines-for-private-functions">
 <span id="private-functions"></span><h4>Guidelines for Private Functions<a class="headerlink" href="#guidelines-for-private-functions" title="Permalink to this heading">#</a></h4>
+<p>We start a name with a leading underscore to indicate that it is an internal implementation detail,
+not to be accessed directly from outside, of the enclosing context:</p>
+<ul class="simple">
+<li><p>the parent module (for a submodule name),</p></li>
+<li><p>or the module (for the name of a top-level function, class or global variable),</p></li>
+<li><p>or the class (for a method or attribute name).</p></li>
+</ul>
+<p>Moreover, modules explicitly declare their interface through the <code class="docutils literal notranslate"><span class="pre">__all__</span></code> attribute,
+and any name not listed in <code class="docutils literal notranslate"><span class="pre">__all__</span></code> should not be accessed from outside the module</p>
 <p>In some cases when private functions are in a private module (filename beginning with an underscore),
-but are used outside of that file, we do not name them with a leading underscore. Example:</p>
+but are used outside of that file, we do not name them with a leading underscore.</p>
+<p>Example:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>nilearn
 ├── image.py             # part of public API
 ├── __init__.py
