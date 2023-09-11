@@ -13,7 +13,7 @@
 <meta name="description" content="In this tutorial, we use a General Linear Model ( GLM) to compare the fMRI signal during periods of auditory stimulation versus periods of rest. The analyse described here is performed in the nativ..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Visualization of brain images" href="../01_plotting/index.html" /><link rel="prev" title="A introduction tutorial to fMRI decoding" href="plot_decoding_tutorial.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.08.19 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Intro to GLM Analysis: a single-session, single-subject fMRI dataset - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -140,7 +140,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev159+g339d179e) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev160+g65e0984b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -721,19 +721,7 @@ These should abide to the Brain Imaging Data Structure
 <span class="nb">print</span><span class="p">(</span><span class="o">*</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_data</span><span class="o">.</span><span class="n">func</span></a><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># print paths of first 5 func images</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory
-
-Data absent, downloading...
-Downloading data from https://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.zip ...
-
-Downloaded 4096000 of 34212021 bytes (12.0%,    7.4s remaining)
-Downloaded 8888320 of 34212021 bytes (26.0%,    5.8s remaining)
-Downloaded 14032896 of 34212021 bytes (41.0%,    4.4s remaining)
-Downloaded 19390464 of 34212021 bytes (56.7%,    3.1s remaining)
-Downloaded 24838144 of 34212021 bytes (72.6%,    1.9s remaining)
-Downloaded 30318592 of 34212021 bytes (88.6%,    0.8s remaining) ...done. (8 seconds, 0 min)
-Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/MoAEpilot.zip..... done.
-/home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_004.img
 /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_005.img
 /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_006.img
 /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory/sub001/fM00223/fM00223_007.img
@@ -751,7 +739,7 @@ Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/spm_auditory
 <li><img src="../../_images/sphx_glr_plot_single_subject_single_run_001.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_001.png" alt="plot single subject single run" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_single_subject_single_run_002.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_002.png" alt="plot single subject single run" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f694e77cdf0&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc8fe71a280&gt;
 </pre></div>
 </div>
 <p>Next, we concatenate all the 3D <a class="reference internal" href="../../glossary.html#term-EPI"><span class="xref std std-term">EPI</span></a> image into a single 4D image,
@@ -1478,8 +1466,8 @@ makes it easier to represent it.</p>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_single_subject_single_run_012.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_012.png" alt="plot single subject single run" class = "sphx-glr-single-img"/><p>Oops, there is a lot of non-neural signal in there (ventricles, arteries)…</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.463 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  271 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.549 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  272 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-00-tutorials-plot-single-subject-single-run-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_single_subject_single_run.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>
