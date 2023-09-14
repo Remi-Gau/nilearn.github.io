@@ -7,10 +7,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/changes/0.4.2.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="Released June 2018 Few important bugs fix release for OHBM conference. Changes: Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. plot_surf_st..." />
+<meta property="og:description" content="Released June 2018 Few important bugs fix release for OHBM conference. Changes: Plotting Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. plo..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="Released June 2018 Few important bugs fix release for OHBM conference. Changes: Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. plot_surf_st..." />
+<meta name="description" content="Released June 2018 Few important bugs fix release for OHBM conference. Changes: Plotting Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. plo..." />
 <link rel="search" title="Search" href="../search.html" />
 
     <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev171+g0c278269) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev172+gd4a6dfbf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -691,17 +691,17 @@
 <section id="changes">
 <h2>Changes<a class="headerlink" href="#changes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="nilearn.plotting.plot_surf_stat_map"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_surf_stat_map</span></code></a> now uses <code class="docutils literal notranslate"><span class="pre">cold_hot</span></code>, as <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_stat_map</span></code></a> does, and <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_surf_roi.html#nilearn.plotting.plot_surf_roi" title="nilearn.plotting.plot_surf_roi"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_surf_roi</span></code></a> now uses <code class="docutils literal notranslate"><span class="pre">gist_ncar</span></code>, as <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_roi.html#nilearn.plotting.plot_roi" title="nilearn.plotting.plot_roi"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_roi</span></code></a> does.</p></li>
-<li><p>Improve 3D surface plotting: lock the aspect ratio of the plots and reduce the whitespace around the plots.</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Default colormaps for surface plotting functions have changed to be more consistent with slice plotting. <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_surf_stat_map.html#nilearn.plotting.plot_surf_stat_map" title="nilearn.plotting.plot_surf_stat_map"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_surf_stat_map</span></code></a> now uses <code class="docutils literal notranslate"><span class="pre">cold_hot</span></code>, as <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_stat_map</span></code></a> does, and <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_surf_roi.html#nilearn.plotting.plot_surf_roi" title="nilearn.plotting.plot_surf_roi"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_surf_roi</span></code></a> now uses <code class="docutils literal notranslate"><span class="pre">gist_ncar</span></code>, as <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_roi.html#nilearn.plotting.plot_roi" title="nilearn.plotting.plot_roi"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_roi</span></code></a> does.</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Improve 3D surface plotting: lock the aspect ratio of the plots and reduce the whitespace around the plots.</p></li>
 </ul>
 </section>
 <section id="fixes">
 <h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Fix bug with input repetition time (<a class="reference internal" href="../glossary.html#term-TR"><span class="xref std std-term">TR</span></a>) which had no effect in signal cleaning (fixed by <a class="reference external" href="https://github.com/raamana">Pradeep Reddy Raamana</a>).</p></li>
-<li><p>Fix issues with signal extraction on list of 3D images in <a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parcellations</span></code></a>.</p></li>
-<li><p>Fix issues with raising <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> rather than <code class="docutils literal notranslate"><span class="pre">HTTPError</span></code> in datasets fetching utilities (by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
-<li><p>Fix issues in datasets testing function uncompression of files (by <a class="reference external" href="https://pierreglaser.github.io/">Pierre Glaser</a>).</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Fix bug with input repetition time (<a class="reference internal" href="../glossary.html#term-TR"><span class="xref std std-term">TR</span></a>) which had no effect in signal cleaning (fixed by <a class="reference external" href="https://github.com/raamana">Pradeep Reddy Raamana</a>).</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Fix issues with signal extraction on list of 3D images in <a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parcellations</span></code></a>.</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Fix issues with raising <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> rather than <code class="docutils literal notranslate"><span class="pre">HTTPError</span></code> in datasets fetching utilities (by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
+<li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Fix issues in datasets testing function uncompression of files (by <a class="reference external" href="https://pierreglaser.github.io/">Pierre Glaser</a>).</p></li>
 </ul>
 </section>
 </section>
