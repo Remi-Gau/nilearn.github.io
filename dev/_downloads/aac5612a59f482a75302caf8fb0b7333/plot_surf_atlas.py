@@ -17,6 +17,7 @@ sulci using standard anatomical nomenclature. NeuroImage, 53, 1.
 URL http://dx.doi.org/10.1016/j.neuroimage.2010.06.010.
 """
 
+
 ###############################################################################
 # Data fetcher
 # ------------
@@ -102,11 +103,11 @@ labels = destrieux_atlas['labels']
 for hemi in ['left', 'right']:
     vert = destrieux_atlas[f'map_{hemi}']
     rr, _ = surface.load_surf_mesh(fsaverage[f'pial_{hemi}'])
-    for k, label in enumerate(labels):
-        if "Unknown" not in str(label):  # Omit the Unknown label.
-            # Compute mean location of vertices in label of index k
-            coordinates.append(np.mean(rr[vert == k], axis=0))
-
+    coordinates.extend(
+        np.mean(rr[vert == k], axis=0)
+        for k, label in enumerate(labels)
+        if "Unknown" not in str(label)
+    )
 coordinates = np.array(coordinates)  # 3D coordinates of parcels
 
 # We now make a synthetic connectivity matrix that connects labels
