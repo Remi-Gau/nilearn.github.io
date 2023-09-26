@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -741,14 +741,14 @@ normalized to a small constant number (1 in the current
 implementation). Failing to do this leads quickly to instability,
 because too large numbers are used in the computation.</p></li>
 <li><p>an on-line computation of an inverse is performed in function
-<cite>_update_submatrix</cite>. For large problems, this is faster than
+<code class="docutils literal notranslate"><span class="pre">_update_submatrix</span></code>. For large problems, this is faster than
 computing the full inverse each time, but gives unfortunately less
 precision. In particular, symmetry is not always perfect, that’s why
 it is enforced at the end on the final result.</p></li>
 <li><p>the Newton-Raphson tolerance value has no influence on numerical
 stability, unless very large values (like 0.5) are used.</p></li>
 </ul>
-<p>The <cite>debug</cite> keyword in <a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a> activates a set
+<p>The <code class="docutils literal notranslate"><span class="pre">debug</span></code> keyword in <a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a> activates a set
 of numerical consistency checks (mainly that matrices are s.p.d.) that
 can be useful to track down numerical instability problems.</p>
 </section>
@@ -785,7 +785,7 @@ particular, three-dimensional arrays containing precision matrices are
 in Fortran order, to get prec[…, k] contiguous for any k. This is
 important to avoid copies by lapack/atlas functions, such as matrix
 inverse or dot product. It is also consistent with arrays returned by
-<cite>nibabel.load</cite>.</p>
+<code class="docutils literal notranslate"><span class="pre">nibabel.load</span></code>.</p>
 <p>An optimization that can be performed, but couldn’t be implemented
 short of having proper linalg functions for it is to process only half
 of each matrix: all are symmetric. This would improve numerical
@@ -800,7 +800,7 @@ signals from which they are generated.</p>
 <h2><span class="section-number">6.2.3.1.4. </span>Synthetic dataset<a class="headerlink" href="#synthetic-dataset" title="Permalink to this heading">#</a></h2>
 <p>For testing purposes, a function for synthesis of signals based on
 sparse precision matrices has been written:
-<cite>nilearn._utils.data_gen.generate_group_sparse_gaussian_graphs</cite>.
+<code class="docutils literal notranslate"><span class="pre">nilearn._utils.data_gen.generate_group_sparse_gaussian_graphs</span></code>.
 Synthesizing such signals is a hard problem that wasn’t solved in the
 present implementation. It is hopefully good enough.</p>
 <p>This function generates n_subjects time, n_features signals with a
@@ -828,8 +828,8 @@ level depends not only on the initial sparsity level, but also on the
 precise location of zeros. Two different sparsity patterns with the
 same number of zeros can lead to two significantly different sparsity
 level in precision matrices. In practice, it means that for a given
-value of the <cite>density</cite> parameter in
-<cite>nilearn._utils.data_gen.generate_group_sparse_gaussian_graphs</cite>,
+value of the <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter in
+<code class="docutils literal notranslate"><span class="pre">nilearn._utils.data_gen.generate_group_sparse_gaussian_graphs</span></code>,
 the actual number of zeros in the precision matrices can fluctuate
 widely depending on the random number generation.</p>
 <p>The condition number of the precision matrices depends on the range of
@@ -862,7 +862,7 @@ of time is wasted for almost no gain.</p>
 <h3><span class="section-number">6.2.3.1.5.2. </span>Duality gap<a class="headerlink" href="#duality-gap" title="Permalink to this heading">#</a></h3>
 <p>A better way to stop iteration is to use an upper bound on the duality
 gap value, since the problem is convex. This is performed in
-<cite>group_sparse_covariance_costs</cite>. The article by Honorio &amp;
+<code class="docutils literal notranslate"><span class="pre">group_sparse_covariance_costs</span></code>. The article by Honorio &amp;
 Samaras gives the formula for the dual cost, and proves that the
 derived bound at optimum is tight (strong duality holds). However, the
 dual problem is <em>not</em> solved by this algorithm, thus bounding the
@@ -938,7 +938,7 @@ parameter. If that function returns True, iteration is stopped.
 Changing the stopping criterion is thus just a matter of writing a
 function and passing it to <a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a>. The same
 feature can be used to study the algorithm convergence properties. An
-example is the <cite>EarlyStopProbe</cite> class used by the
+example is the <code class="docutils literal notranslate"><span class="pre">EarlyStopProbe</span></code> class used by the
 cross-validation object.</p>
 </section>
 </section>
@@ -973,7 +973,7 @@ implementation in Scikit-Learn.</p>
 <p>The simplest and fastest thing is to get bounds for the value of
 alpha. Above a critical value, the optimal precision matrices are
 fully sparse (i.e. diagonal). This critical value depends on the input
-covariance matrices, and can be obtained by <cite>compute_alpha_max</cite>.
+covariance matrices, and can be obtained by <code class="docutils literal notranslate"><span class="pre">compute_alpha_max</span></code>.
 The formula for computing this critical value can be obtained with
 techniques presented in:</p>
 <blockquote>
@@ -985,7 +985,7 @@ Methods for Learning Sparse Gaussians’. ArXiv E-prints 1206 (1 June
 critical value, for which the optimal precision matrices are fully
 dense (no zero values). In practice, this critical value is zero if
 there is a zero in the input matrices. For this reason, the second
-value returned by <cite>compute_alpha_max</cite> is that under which all
+value returned by <code class="docutils literal notranslate"><span class="pre">compute_alpha_max</span></code> is that under which all
 coefficients <em>that can be non-zero</em> are non-zero in the optimal
 precision matrices.</p>
 </section>
@@ -1069,8 +1069,8 @@ value is smaller than the previous one, then stop. The variation
 criterion is also computed for the rare cases when the log-likelihood
 never decreases, and a maximum number of iterations is enforced,
 to limit the time spent optimizing in any case.</p>
-<p>It is possible to disable the first criterion with <cite>the
-early_stopping</cite> keyword in <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupSparseCovarianceCV</span></code></a>. In that
+<p>It is possible to disable the first criterion with <code class="docutils literal notranslate"><span class="pre">the</span>
+<span class="pre">early_stopping</span></code> keyword in <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupSparseCovarianceCV</span></code></a>. In that
 case, only the two latter criteria are used. This provides a mean to
 test for the validity of the heuristic.</p>
 </section>

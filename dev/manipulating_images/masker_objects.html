@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -788,7 +788,7 @@ This allows to see whether it is suitable for your data and intended analyses.
 Alternatively, the mask computation parameters can still be modified.
 See the <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> documentation for a complete list of
 mask computation parameters.</p>
-<p>The mask can be retrieved and visualized from the <cite>mask_img_</cite> attribute
+<p>The mask can be retrieved and visualized from the <code class="docutils literal notranslate"><span class="pre">mask_img_</span></code> attribute
 of the masker:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">()</span>
 <span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">miyawaki_filename</span><span class="p">)</span>
@@ -804,10 +804,10 @@ of the masker:</p>
 <figure class="align-center">
 <a class="reference external image-reference" href="../auto_examples/06_manipulating_images/plot_mask_computation.html"><img alt="../_images/sphx_glr_plot_mask_computation_002.png" src="../_images/sphx_glr_plot_mask_computation_002.png" style="width: 264.0px; height: 140.0px;" /></a>
 </figure>
-<p>Alternatively, the mask can be visualized using the <cite>generate_report</cite>
+<p>Alternatively, the mask can be visualized using the <code class="docutils literal notranslate"><span class="pre">generate_report</span></code>
 method of the masker. The generated report can be viewed in a Jupyter notebook,
-opened in a new browser tab using <cite>report.open_in_browser()</cite>,
-or saved as a portable HTML file <cite>report.save_as_html(output_filepath)</cite>.</p>
+opened in a new browser tab using <code class="docutils literal notranslate"><span class="pre">report.open_in_browser()</span></code>,
+or saved as a portable HTML file <code class="docutils literal notranslate"><span class="pre">report.save_as_html(output_filepath)</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">(</span><span class="n">mask_strategy</span><span class="o">=</span><span class="s2">&quot;epi&quot;</span><span class="p">)</span>
 <span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">epi_img</span><span class="p">)</span>
 <span class="n">report</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">generate_report</span><span class="p">()</span>
@@ -822,19 +822,19 @@ or saved as a portable HTML file <cite>report.save_as_html(output_filepath)</cit
 </section>
 <section id="different-masking-strategies">
 <h4><span class="section-number">9.3.2.2.2. </span>Different masking strategies<a class="headerlink" href="#different-masking-strategies" title="Permalink to this heading">#</a></h4>
-<p>The <cite>mask_strategy</cite> argument controls how the mask is computed:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">mask_strategy</span></code> argument controls how the mask is computed:</p>
 <ul class="simple">
-<li><p><cite>background</cite>: detects a continuous background</p></li>
-<li><p><cite>epi</cite>: suitable for EPI images</p></li>
-<li><p><cite>whole-brain-template</cite>: uses an MNI whole-brain template</p></li>
-<li><p><cite>gm-template</cite>: uses an MNI grey-matter template</p></li>
-<li><p><cite>wm-template</cite>: uses an MNI white-matter template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background</span></code>: detects a continuous background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epi</span></code>: suitable for EPI images</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whole-brain-template</span></code>: uses an MNI whole-brain template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gm-template</span></code>: uses an MNI grey-matter template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wm-template</span></code>: uses an MNI white-matter template</p></li>
 </ul>
 </section>
 <section id="extra-mask-parameters-opening-cutoff">
 <h4><span class="section-number">9.3.2.2.3. </span>Extra mask parameters: opening, cutoff…<a class="headerlink" href="#extra-mask-parameters-opening-cutoff" title="Permalink to this heading">#</a></h4>
 <p>The underlying function is <a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a>
-called using the <cite>mask_args</cite> argument of the <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>.
+called using the <code class="docutils literal notranslate"><span class="pre">mask_args</span></code> argument of the <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>.
 Controlling these arguments set the fine aspects of the mask. See the
 functions documentation, or <a class="reference internal" href="../auto_examples/06_manipulating_images/plot_mask_computation.html"><span class="doc">the NiftiMasker example</span></a>.</p>
 <figure class="align-default">
@@ -864,9 +864,9 @@ preparation:</p>
 comment on the most important.</p>
 <aside class="topic">
 <p class="topic-title"><strong>`dtype` argument</strong></p>
-<p>Forcing your data to have a <cite>dtype</cite> of <strong>float32</strong> can help
+<p>Forcing your data to have a <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of <strong>float32</strong> can help
 save memory and is often a good-enough numerical precision.
-You can force this cast by choosing <cite>dtype</cite> to be ‘auto’.
+You can force this cast by choosing <code class="docutils literal notranslate"><span class="pre">dtype</span></code> to be ‘auto’.
 In the future this cast will be the default behaviour.</p>
 </aside>
 <div class="admonition seealso">
@@ -882,7 +882,7 @@ accessed in nilearn such as in
 neuroimaging data, useful to fight noise or for inter-individual
 differences in neuroanatomy. It is achieved by specifying the
 <a class="reference internal" href="../glossary.html#term-FWHM"><span class="xref std std-term">full-width half maximum</span></a> (<a class="reference internal" href="../glossary.html#term-FWHM"><span class="xref std std-term">FWHM</span></a>; in millimeter
-scale) with the <cite>smoothing_fwhm</cite> parameter. Anisotropic filtering
+scale) with the <code class="docutils literal notranslate"><span class="pre">smoothing_fwhm</span></code> parameter. Anisotropic filtering
 is also possible by passing 3 scalars <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>, the
 <a class="reference internal" href="../glossary.html#term-FWHM"><span class="xref std std-term">FWHM</span></a> along the x, y, and z direction.</p>
 <p>The underlying function handles properly non-cubic <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxels</span></a>
@@ -907,7 +907,7 @@ the <code class="docutils literal notranslate"><span class="pre">t_r</span></cod
 detrending or using prespecified confounds, such as behavioral or movement
 information.</p>
 <ul>
-<li><p>Linear trends can be removed by activating the <cite>detrend</cite> parameter.
+<li><p>Linear trends can be removed by activating the <code class="docutils literal notranslate"><span class="pre">detrend</span></code> parameter.
 This accounts for slow (as opposed to abrupt or transient) changes
 in voxel values along a series of brain images that are unrelated to the
 signal of interest (e.g., the neural correlates of cognitive tasks).
@@ -950,10 +950,10 @@ does it have a big impact on the result?</p>
 (recasting of images into different resolutions and transformations of
 brain voxel data). Two parameters control resampling:</p>
 <ul class="simple">
-<li><p><cite>target_affine</cite> to resample (resize, rotate…) images in order to match
+<li><p><code class="docutils literal notranslate"><span class="pre">target_affine</span></code> to resample (resize, rotate…) images in order to match
 the spatial configuration defined by the new affine (i.e., matrix
 transforming from voxel space into world space).</p></li>
-<li><p>Additionally, a <cite>target_shape</cite> can be used to resize images
+<li><p>Additionally, a <code class="docutils literal notranslate"><span class="pre">target_shape</span></code> can be used to resize images
 (i.e., cropping or padding with zeros) to match an expected data
 image dimensions (shape composed of x, y, and z).</p></li>
 </ul>
@@ -1050,14 +1050,14 @@ whole-brain voxel data into weighted region-wise data.</p></li>
 <p>Usage of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> is similar to that of
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>. The main difference is that it requires a labels image
 instead of a set of maps as input.</p>
-<p>The <cite>background_label</cite> keyword of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> deserves
+<p>The <code class="docutils literal notranslate"><span class="pre">background_label</span></code> keyword of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> deserves
 some explanation. The voxels that correspond to the brain or a region
 of interest in an fMRI image do not fill the entire image.
 Consequently, in the labels image, there must be a label value that corresponds
 to “outside” the brain (for which no signal should be extracted).
 By default, this label is set to zero in nilearn (referred to as “background”).
 Should some non-zero value encoding be necessary, it is possible
-to change the background value with the <cite>background_label</cite> keyword.</p>
+to change the background value with the <code class="docutils literal notranslate"><span class="pre">background_label</span></code> keyword.</p>
 <aside class="topic">
 <p class="topic-title"><strong>Examples</strong></p>
 <ul class="simple">
@@ -1068,12 +1068,12 @@ to change the background value with the <cite>background_label</cite> keyword.</
 <section id="niftimapsmasker-usage">
 <h3><span class="section-number">9.3.3.3. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> Usage<a class="headerlink" href="#niftimapsmasker-usage" title="Permalink to this heading">#</a></h3>
 <p>This atlas defines its regions using maps. The path to the corresponding
-file is given in the <cite>maps_img</cite> argument.</p>
+file is given in the <code class="docutils literal notranslate"><span class="pre">maps_img</span></code> argument.</p>
 <p>One important thing that happens transparently during the execution of
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker.fit_transform" title="nilearn.maskers.NiftiMasker.fit_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NiftiMasker.fit_transform</span></code></a> is resampling. Initially, the images
 and the atlas do typically not have the same shape nor the same affine.
 Casting them into the same format is required for successful signal extraction
-The keyword argument <cite>resampling_target</cite> specifies which format
+The keyword argument <code class="docutils literal notranslate"><span class="pre">resampling_target</span></code> specifies which format
 (i.e., dimensions and affine) the data should be resampled to.
 See the reference documentation for <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> for every
 possible option.</p>
@@ -1139,7 +1139,7 @@ you have a list of coordinates.
 A single seed is a sphere defined by the radius (in millimeters) and the
 coordinates (typically MNI or TAL) of its center.</p>
 <p>Using <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a> needs to define a list of coordinates.
-<cite>seeds</cite> argument takes a list of 3D coordinates (tuples) of the spheres centers,
+<code class="docutils literal notranslate"><span class="pre">seeds</span></code> argument takes a list of 3D coordinates (tuples) of the spheres centers,
 they should be in the same space as the images.
 Seeds can overlap spatially and are represented in a binary present/nonpresent
 coding (no weighting).
@@ -1147,8 +1147,8 @@ Below is an example of a coordinates list of four seeds from the default mode ne
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dmn_coords</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">52</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">46</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mi">46</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p><cite>radius</cite> is an optional argument that takes a real value in millimeters.
-If no value is given for the <cite>radius</cite> argument, the single voxel at the given
+<p><code class="docutils literal notranslate"><span class="pre">radius</span></code> is an optional argument that takes a real value in millimeters.
+If no value is given for the <code class="docutils literal notranslate"><span class="pre">radius</span></code> argument, the single voxel at the given
 seed position is used.</p>
 <aside class="topic">
 <p class="topic-title"><strong>Examples</strong></p>

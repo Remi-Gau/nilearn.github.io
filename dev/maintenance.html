@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -806,8 +806,10 @@ Finally, make sure the documentation can be built correctly.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>REL-x.y.z
 </pre></div>
 </div>
-<p>First we need to prepare the release by updating the file <code class="docutils literal notranslate"><span class="pre">nilearn/doc/changes/latest.rst</span></code> to make sure all the new features, enhancements, and bug fixes are included in their respective sections.</p>
-<p>We also need to write a “Highlights” section promoting the most important additions that come with this new release. Finally, we need to change the title from <code class="docutils literal notranslate"><span class="pre">x.y.z.dev</span></code> to <code class="docutils literal notranslate"><span class="pre">x.y.z</span></code>:</p>
+<p>First we need to prepare the release by updating the file <code class="docutils literal notranslate"><span class="pre">nilearn/doc/changes/latest.rst</span></code>
+to make sure all the new features, enhancements, and bug fixes are included in their respective sections.</p>
+<p>We also need to write a “Highlights” section promoting the most important additions that come with this new release.
+Finally, we need to change the title from <code class="docutils literal notranslate"><span class="pre">x.y.z.dev</span></code> to <code class="docutils literal notranslate"><span class="pre">x.y.z</span></code>:</p>
 <div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> nilearn
 
 <span class="p">..</span> <span class="ow">include</span><span class="p">::</span> names.rst
@@ -850,7 +852,8 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When building the distribution as described below, <code class="docutils literal notranslate"><span class="pre">hatch-vcs</span></code>, defined in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, extracts the version number using this tag and writes it to a <code class="docutils literal notranslate"><span class="pre">_version.py</span></code> file.</p>
+<p>When building the distribution as described below, <code class="docutils literal notranslate"><span class="pre">hatch-vcs</span></code>, defined in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>,
+extracts the version number using this tag and writes it to a <code class="docutils literal notranslate"><span class="pre">_version.py</span></code> file.</p>
 </div>
 </section>
 <section id="build-the-distributions-and-upload-them-to-pypi">
@@ -859,7 +862,7 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>x.y.z
 </pre></div>
 </div>
-<p>If the workspace contains a <cite>dist</cite> folder, make sure to clean it:</p>
+<p>If the workspace contains a <code class="docutils literal notranslate"><span class="pre">dist</span></code> folder, make sure to clean it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-r<span class="w"> </span>dist
 </pre></div>
 </div>
@@ -867,7 +870,7 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>build
 </pre></div>
 </div>
-<p>And, in order to upload to <cite>Pypi</cite>, we will use <a class="reference external" href="https://pypi.org/project/twine/">twine</a> that you can also install with <cite>pip</cite>:</p>
+<p>And, in order to upload to <code class="docutils literal notranslate"><span class="pre">Pypi</span></code>, we will use <a class="reference external" href="https://pypi.org/project/twine/">twine</a> that you can also install with <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>twine
 </pre></div>
 </div>
@@ -875,22 +878,26 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>build
 </pre></div>
 </div>
-<p>This should add two files to the <cite>dist</cite> subfolder:</p>
+<p>This should add two files to the <code class="docutils literal notranslate"><span class="pre">dist</span></code> subfolder:</p>
 <ul class="simple">
-<li><p>one for the source distribution that should look like <cite>PACKAGENAME-VERSION.tar.gz</cite></p></li>
-<li><p>one for the built distribution that should look like <cite>PACKAGENAME-PACKAGEVERSION-PYTHONVERSION-PYTHONCVERSION-PLATFORM.whl</cite></p></li>
+<li><p>one for the source distribution that should look like <code class="docutils literal notranslate"><span class="pre">PACKAGENAME-VERSION.tar.gz</span></code></p></li>
+<li><p>one for the built distribution that should look like <code class="docutils literal notranslate"><span class="pre">PACKAGENAME-PACKAGEVERSION-PYTHONVERSION-PYTHONCVERSION-PLATFORM.whl</span></code></p></li>
 </ul>
 <p>This will also update <code class="docutils literal notranslate"><span class="pre">_version.py</span></code>.</p>
-<p>Optionally, we can run some basic checks with <cite>twine</cite>:</p>
+<p>Optionally, we can run some basic checks with <code class="docutils literal notranslate"><span class="pre">twine</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>check<span class="w"> </span>dist/*
 </pre></div>
 </div>
-<p>We are now ready to upload to <cite>Pypi</cite>. Note that you will need to have an <a class="reference external" href="https://pypi.org/account/register/">account on Pypi</a>, and be added to the maintainers of <a class="reference external" href="https://pypi.org/project/nilearn/">Nilearn</a>. If you satisfy these conditions, you should be able to run:</p>
+<p>We are now ready to upload to <code class="docutils literal notranslate"><span class="pre">Pypi</span></code>. Note that you will need to have an <a class="reference external" href="https://pypi.org/account/register/">account on Pypi</a>, and be added to the maintainers of <a class="reference external" href="https://pypi.org/project/nilearn/">Nilearn</a>. If you satisfy these conditions, you should be able to run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
 </pre></div>
 </div>
-<p>Once the upload is completed, make sure everything looks good on <a class="reference external" href="https://pypi.org/project/nilearn/">Pypi</a>. Otherwise you will probably have to fix the issue and start over a new release with the patch number incremented.</p>
-<p>At this point, we need to upload the binaries to GitHub and link them to the tag. To do so, go to the <a class="reference external" href="https://github.com/nilearn/nilearn/tags">Nilearn GitHub page</a> under the “Releases” tab, and edit the <cite>x.y.z</cite> tag by providing a description, and upload the distributions we just created (you can just drag and drop the files).</p>
+<p>Once the upload is completed, make sure everything looks good on <a class="reference external" href="https://pypi.org/project/nilearn/">Pypi</a>.
+Otherwise you will probably have to fix the issue and start over a new release with the patch number incremented.</p>
+<p>At this point, we need to upload the binaries to GitHub and link them to the tag.
+To do so, go to the <a class="reference external" href="https://github.com/nilearn/nilearn/tags">Nilearn GitHub page</a> under the “Releases” tab,
+and edit the <code class="docutils literal notranslate"><span class="pre">x.y.z</span></code> tag by providing a description,
+and upload the distributions we just created (you can just drag and drop the files).</p>
 </section>
 <section id="build-and-deploy-the-documentation">
 <h3>Build and deploy the documentation<a class="headerlink" href="#build-and-deploy-the-documentation" title="Permalink to this heading">#</a></h3>
@@ -927,12 +934,14 @@ make<span class="w"> </span>install
 make<span class="w"> </span>install
 </pre></div>
 </div>
-<p>This will build the documentation (beware, this is time consuming…) and push it to the <a class="reference external" href="https://github.com/nilearn/nilearn.github.io">GitHub pages repo</a>.</p>
+<p>This will build the documentation (beware, this is time consuming…)
+and push it to the <a class="reference external" href="https://github.com/nilearn/nilearn.github.io">GitHub pages repo</a>.</p>
 </section>
 <section id="post-release">
 <h3>Post-release<a class="headerlink" href="#post-release" title="Permalink to this heading">#</a></h3>
 <p>At this point, the release has been made.</p>
-<p>We also need to create a new file <code class="docutils literal notranslate"><span class="pre">doc/changes/latest.rst</span></code> with a title and the usual <code class="docutils literal notranslate"><span class="pre">New</span></code>, <code class="docutils literal notranslate"><span class="pre">Enhancements</span></code>, <code class="docutils literal notranslate"><span class="pre">Bug</span> <span class="pre">Fixes</span></code>, and <code class="docutils literal notranslate"><span class="pre">Changes</span></code> sections for the version currently under development:</p>
+<p>We also need to create a new file <code class="docutils literal notranslate"><span class="pre">doc/changes/latest.rst</span></code> with a title
+and the usual <code class="docutils literal notranslate"><span class="pre">New</span></code>, <code class="docutils literal notranslate"><span class="pre">Enhancements</span></code>, <code class="docutils literal notranslate"><span class="pre">Bug</span> <span class="pre">Fixes</span></code>, and <code class="docutils literal notranslate"><span class="pre">Changes</span></code> sections for the version currently under development:</p>
 <div class="highlight-RST notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">currentmodule</span><span class="p">::</span> nilearn
 
 <span class="p">..</span> <span class="ow">include</span><span class="p">::</span> names.rst

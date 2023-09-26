@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -716,7 +716,7 @@ example, we can download the data from the
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><cite>dataset.func</cite> contains filenames referring to dataset files on the disk:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dataset.func</span></code> contains filenames referring to dataset files on the disk:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
 <span class="c1"># [&#39;anat&#39;, &#39;description&#39;, &#39;func&#39;, &#39;mask&#39;, &#39;mask_face&#39;, &#39;mask_face_little&#39;, &#39;mask_house&#39;, &#39;mask_house_little&#39;, &#39;mask_vt&#39;, &#39;session_target&#39;]</span>
 <span class="n">dataset</span><span class="o">.</span><span class="n">func</span>
@@ -738,7 +738,7 @@ presenting different category of pictures to the subject (face, cat, …)
 and the goal of this experiment is to predict which category is presented
 to the subjects from the brain activation.</p>
 <p>These conditions are presented as string into a CSV file. The <a class="reference external" href="http://pandas.pydata.org/">pandas</a> function
-<cite>read_csv</cite> is very useful to load this kind of data.</p>
+<code class="docutils literal notranslate"><span class="pre">read_csv</span></code> is very useful to load this kind of data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Load behavioral information</span>
@@ -818,15 +818,15 @@ all occurrences of:</p>
 <span class="n">fmri_masked</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">fmri_filename</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that you can call <cite>nifti_masker.transform(dataset.func[1])</cite> on new
+<p>Note that you can call <code class="docutils literal notranslate"><span class="pre">nifti_masker.transform(dataset.func[1])</span></code> on new
 data to mask it in a similar way as the data that was used during the
 fit.</p>
 </section>
 <section id="automatically-computing-a-mask">
 <h4><span class="section-number">10.1.1.3.2. </span>Automatically computing a mask<a class="headerlink" href="#automatically-computing-a-mask" title="Permalink to this heading">#</a></h4>
 <p>If your dataset does not provide a mask, the Nifti masker will compute
-one for you in the <cite>fit</cite> step. The generated mask can be accessed via the
-<cite>mask_img_</cite> attribute.</p>
+one for you in the <code class="docutils literal notranslate"><span class="pre">fit</span></code> step. The generated mask can be accessed via the
+<code class="docutils literal notranslate"><span class="pre">mask_img_</span></code> attribute.</p>
 <p>Detailed information on automatic mask computation can be found in:
 <a class="reference internal" href="../manipulating_images/input_output.html#extracting-data"><span class="std std-ref">Input and output: neuroimaging data representation</span></a>.</p>
 </section>
@@ -835,7 +835,7 @@ one for you in the <cite>fit</cite> step. The generated mask can be accessed via
 <section id="applying-a-scikit-learn-machine-learning-method">
 <h2><span class="section-number">10.1.2. </span>Applying a scikit-learn machine learning method<a class="headerlink" href="#applying-a-scikit-learn-machine-learning-method" title="Permalink to this heading">#</a></h2>
 <p>Now that we have a 2D array, we can apply any estimator from the
-scikit-learn, using its <cite>fit</cite>, <cite>predict</cite> or <cite>transform</cite> methods.</p>
+scikit-learn, using its <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <code class="docutils literal notranslate"><span class="pre">predict</span></code> or <code class="docutils literal notranslate"><span class="pre">transform</span></code> methods.</p>
 <p>Here, we use scikit-learn Support Vector Classification to learn how to
 predict the category of picture seen by the subject:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">svc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fmri_masked</span><span class="p">,</span> <span class="n">conditions</span><span class="p">)</span>
@@ -854,7 +854,7 @@ predict the category of picture seen by the subject:</p>
 <section id="unmasking-inverse-transform">
 <h2><span class="section-number">10.1.3. </span>Unmasking (inverse_transform)<a class="headerlink" href="#unmasking-inverse-transform" title="Permalink to this heading">#</a></h2>
 <p>Unmasking data is as easy as masking it! This can be done by using
-method <cite>inverse_transform</cite> on your processed data. As you may want to
+method <code class="docutils literal notranslate"><span class="pre">inverse_transform</span></code> on your processed data. As you may want to
 unmask several kinds of data (not only the data that you previously
 masked but also the results of an algorithm), the masker is clever and
 can take data of dimension 1D (resp. 2D) to convert it back to 3D

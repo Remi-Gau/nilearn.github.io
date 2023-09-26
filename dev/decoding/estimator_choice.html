@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -772,21 +772,21 @@ understand the classifier’s errors in a multiclass problem.</p>
 <p>Using Nilearn high-level objects, several estimators are easily available
 to model the relations between your images and the target to predict.
 For <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> let you choose them
-through the <cite>estimator</cite> parameter:</p>
+through the <code class="docutils literal notranslate"><span class="pre">estimator</span></code> parameter:</p>
 <ul class="simple">
-<li><p><cite>svc</cite> (same as <cite>svc_l2</cite>) : The <a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html">support vector classifier</a>.</p></li>
-<li><p><cite>svc_l1</cite> : SVC using <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity">L1 penalization</a> that yields a sparse solution : only a subset of feature weights is different from zero and contribute to prediction.</p></li>
-<li><p><cite>logistic</cite> (or <cite>logistic_l2</cite>) : The <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">logistic regression</a> with <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html">l2 penalty</a>.</p></li>
-<li><p><cite>logistic_l1</cite> :  The <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">logistic regression</a> with <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html">l1 penalty</a> (<strong>sparse model</strong>).</p></li>
-<li><p><cite>ridge_classifier</cite> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Ridge Regression variant</a>.</p></li>
-<li><p><cite>dummy classifier</cite> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html">dummy classifier</a> is a classifier that makes predictions using simple rules. It is useful as a simple baseline to compare with other classifiers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">svc</span></code> (same as <code class="docutils literal notranslate"><span class="pre">svc_l2</span></code>) : The <a class="reference external" href="https://scikit-learn.org/stable/modules/svm.html">support vector classifier</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">svc_l1</span></code> : SVC using <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity">L1 penalization</a> that yields a sparse solution : only a subset of feature weights is different from zero and contribute to prediction.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logistic</span></code> (or <code class="docutils literal notranslate"><span class="pre">logistic_l2</span></code>) : The <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">logistic regression</a> with <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html">l2 penalty</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logistic_l1</span></code> :  The <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">logistic regression</a> with <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_logistic_l1_l2_sparsity.html">l1 penalty</a> (<strong>sparse model</strong>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ridge_classifier</span></code> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Ridge Regression variant</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dummy</span> <span class="pre">classifier</span></code> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html">dummy classifier</a> is a classifier that makes predictions using simple rules. It is useful as a simple baseline to compare with other classifiers.</p></li>
 </ul>
 <p>In <a class="reference internal" href="../modules/generated/nilearn.decoding.DecoderRegressor.html#nilearn.decoding.DecoderRegressor" title="nilearn.decoding.DecoderRegressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.DecoderRegressor</span></code></a> you can use some of these objects counterparts for regression :</p>
 <ul class="simple">
-<li><p><cite>svr</cite> : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">Support vector regression</a>.</p></li>
-<li><p><cite>ridge_regressor</cite> (same as <cite>ridge</cite>) : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html">Ridge regression</a>.</p></li>
-<li><p><cite>lasso_regressor</cite> (same as <cite>lasso</cite>) : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html">Lasso regression</a>.</p></li>
-<li><p><cite>dummy_regressor</cite> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html">dummy regressor</a> is a regressor that makes predictions using simple rules. It is useful as a simple baseline to compare with other regressors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">svr</span></code> : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">Support vector regression</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ridge_regressor</span></code> (same as <code class="docutils literal notranslate"><span class="pre">ridge</span></code>) : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html">Ridge regression</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lasso_regressor</span></code> (same as <code class="docutils literal notranslate"><span class="pre">lasso</span></code>) : <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html">Lasso regression</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dummy_regressor</span></code> : A <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html">dummy regressor</a> is a regressor that makes predictions using simple rules. It is useful as a simple baseline to compare with other regressors.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -829,9 +829,9 @@ little guarantee on the brain maps.</p>
 to optimize their performance to a given problem. By default, the Decoder
 objects in Nilearn already try several values to roughly adapt to your problem.</p>
 <p>If you want to try more specific sets of parameters relevant to the model
-your using, you can pass a dictionary to <cite>param_grid</cite> argument. It must contain
-values for the suitable argument name. For example SVC has a parameter <cite>C</cite>.
-By default, the values tried for <cite>C</cite> are [1,10,100].</p>
+your using, you can pass a dictionary to <code class="docutils literal notranslate"><span class="pre">param_grid</span></code> argument. It must contain
+values for the suitable argument name. For example SVC has a parameter <code class="docutils literal notranslate"><span class="pre">C</span></code>.
+By default, the values tried for <code class="docutils literal notranslate"><span class="pre">C</span></code> are [1,10,100].</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Full code example on parameter setting can be found at :
@@ -859,7 +859,7 @@ generalize to new data better than single model. The easiest way is to average
 the prediction of several models trained on slightly different part of a
 dataset and thus should have different bias that may cancel out.</p>
 <p>The <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.decoding.DecoderRegressor.html#nilearn.decoding.DecoderRegressor" title="nilearn.decoding.DecoderRegressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.DecoderRegressor</span></code></a>
-implement a kind of bagging scheme under the hood in their <cite>fit</cite> method to
+implement a kind of bagging scheme under the hood in their <code class="docutils literal notranslate"><span class="pre">fit</span></code> method to
 yield better and more stable decoders. For each cross-validation fold,
 the best model coefficients are retained. The average of all those linear
 models is then used to make predictions.</p>

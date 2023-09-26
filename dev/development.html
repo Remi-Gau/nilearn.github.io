@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -1123,12 +1123,12 @@ see <a class="reference external" href="https://en.wikipedia.org/wiki/Test-drive
 <p>If you are not familiar with pytest,
 have a look at this <a class="reference external" href="https://www.youtube.com/watch?v=mzlH8lp4ISA">introductory video</a>
 by one of the pytest core developer.</p>
-<p>In general tests for a specific module (say <cite>nilearn/image/image.py</cite>)
-are kept in a <cite>tests</cite> folder in a separate module
+<p>In general tests for a specific module (say <code class="docutils literal notranslate"><span class="pre">nilearn/image/image.py</span></code>)
+are kept in a <code class="docutils literal notranslate"><span class="pre">tests</span></code> folder in a separate module
 with a name that matches the module being tested
-(so in this case <cite>nilearn/image/tests/test_image.py</cite>).</p>
+(so in this case <code class="docutils literal notranslate"><span class="pre">nilearn/image/tests/test_image.py</span></code>).</p>
 <p>When you have added a test you can check that your changes worked
-and didn’t break anything by running <cite>pytest nilearn</cite>.
+and didn’t break anything by running <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">nilearn</span></code>.
 To do quicker checks it’s possible to run only a subset of tests:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-v<span class="w"> </span>nilearn/module/tests/test_module.py
 </pre></div>
@@ -1140,17 +1140,17 @@ To do quicker checks it’s possible to run only a subset of tests:</p>
 you can use <a class="reference external" href="https://docs.pytest.org/en/6.2.x/fixture.html">pytest fixtures</a>
 to help you mock this data
 (more information on pytest fixtures in <a class="reference external" href="https://www.youtube.com/watch?v=ScEQRKwUePI">this video</a>).</p>
-<p>Fixture are recognizable because they have a <cite>&#64;pytest.fixture</cite> decorator.
-Fixtures that are shared by many tests modules can be found in <cite>nilearn/conftest.py</cite>
+<p>Fixture are recognizable because they have a <code class="docutils literal notranslate"><span class="pre">&#64;pytest.fixture</span></code> decorator.
+Fixtures that are shared by many tests modules can be found in <code class="docutils literal notranslate"><span class="pre">nilearn/conftest.py</span></code>
 but some fixures specific to certain modules can also be kept in that testing module.</p>
 <p>Before adding new fixtures, first check those that exist
-in the test modules you are working in or in <cite>nilearn/conftest.py</cite>.</p>
+in the test modules you are working in or in <code class="docutils literal notranslate"><span class="pre">nilearn/conftest.py</span></code>.</p>
 </section>
 <section id="seeding">
 <h4>Seeding<a class="headerlink" href="#seeding" title="Permalink to this heading">#</a></h4>
 <p>Many tests must be seeded to avoid random failures.
 When your test use random numbers,
-you can seed a random number generator with <cite>numpy.random.default_rng</cite>
+you can seed a random number generator with <code class="docutils literal notranslate"><span class="pre">numpy.random.default_rng</span></code>
 like in the following examples:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_something</span><span class="p">():</span>
       <span class="c1"># set up</span>
@@ -1160,7 +1160,7 @@ like in the following examples:</p>
       <span class="c1"># the rest of the test</span>
 </pre></div>
 </div>
-<p>You can also use the <cite>rng</cite> fixture.</p>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">rng</span></code> fixture.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_something</span><span class="p">(</span><span class="n">rng</span><span class="p">):</span>
       <span class="c1"># set up</span>
       <span class="n">my_number</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
@@ -1219,7 +1219,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>nilearn
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li><p>install the forked version of <cite>nilearn</cite></p></li>
+<li><p>install the forked version of <code class="docutils literal notranslate"><span class="pre">nilearn</span></code></p></li>
 </ol>
 <div class="admonition-recommendation admonition">
 <p class="admonition-title">Recommendation</p>
@@ -1267,9 +1267,9 @@ to run the linter and other checks before each commit:</p></li>
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>Contributing<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p>Here are the key steps you need to go through to contribute code to <cite>nilearn</cite>:</p>
+<section id="id4">
+<h3>Contributing<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>Here are the key steps you need to go through to contribute code to <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>:</p>
 <ol class="arabic simple">
 <li><p>open or join an already existing issue explaining what you want to work on</p></li>
 <li><p>on your fork, create a new branch from main:</p></li>
@@ -1313,7 +1313,7 @@ you work on with, for example):</p></li>
 </div>
 <ol class="arabic simple" start="7">
 <li><p>in github, open a pull request from your online fork to the main repo
-(most likely from <cite>your_fork:your_branch</cite> to <cite>nilearn:main</cite>).</p></li>
+(most likely from <code class="docutils literal notranslate"><span class="pre">your_fork:your_branch</span></code> to <code class="docutils literal notranslate"><span class="pre">nilearn:main</span></code>).</p></li>
 <li><p>check that all continuous integration tests pass</p></li>
 </ol>
 <p>For more details about the Fork Clone Push workflows, read <a class="reference external" href="https://guides.github.com/activities/forking/">here</a>.</p>
@@ -1331,7 +1331,7 @@ fork top folder, you can install the required packages using:</p></li>
 <ol class="arabic simple" start="2">
 <li><p>Then go to <code class="docutils literal notranslate"><span class="pre">nilearn/examples</span></code> or <code class="docutils literal notranslate"><span class="pre">nilearn/doc</span></code> and make needed changes
 using <a class="reference external" href="https://www.sphinx-doc.org/en/2.0/usage/restructuredtext/basics.html">reStructuredText files</a></p></li>
-<li><p>You can now go to <cite>nilearn/doc</cite> and build the examples locally:</p></li>
+<li><p>You can now go to <code class="docutils literal notranslate"><span class="pre">nilearn/doc</span></code> and build the examples locally:</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>html-strict
 </pre></div>
@@ -1523,7 +1523,7 @@ process can be found there : <a class="reference internal" href="maintenance.htm
 </li>
 <li><a class="reference internal" href="#setting-up-your-environment">Setting up your environment</a><ul>
 <li><a class="reference internal" href="#installing">Installing</a></li>
-<li><a class="reference internal" href="#id3">Contributing</a></li>
+<li><a class="reference internal" href="#id4">Contributing</a></li>
 <li><a class="reference internal" href="#building-documentation">Building documentation</a></li>
 </ul>
 </li>

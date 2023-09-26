@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.2.dev191+g0d39ce20) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.2.dev192+gb214dce5) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.1)</span></a></p> 
   </aside>
 </div>
 
@@ -776,7 +776,7 @@ nilearn, you can pass in the path to your own files
 (<a class="reference internal" href="../manipulating_images/input_output.html#loading-data"><span class="std std-ref">more on data input</span></a>).</p></li>
 <li><p><strong>Masking fMRI data</strong>: To perform the analysis on some <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxels</span></a> only, we will
 provide a spatial mask of <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxels</span></a> to keep, which is provided with the dataset
-(here <cite>mask_vt</cite> a mask of the ventral temporal cortex that comes with data).</p></li>
+(here <code class="docutils literal notranslate"><span class="pre">mask_vt</span></code> a mask of the ventral temporal cortex that comes with data).</p></li>
 <li><p><strong>Loading the behavioral labels</strong>: Behavioral information is often stored
 in a text file such as a CSV, and must be load with
 <strong>numpy.recfromcsv</strong> or <a class="reference external" href="http://pandas.pydata.org/">pandas</a></p></li>
@@ -812,14 +812,14 @@ interest to you. Or in other words to predict a condition label <strong>y</stron
 set <strong>X</strong> of imaging data.</p>
 <p>This is always done in at least two steps:</p>
 <ul class="simple">
-<li><p>first a <cite>fit</cite> during which we “learn” the parameters of the model that make
+<li><p>first a <code class="docutils literal notranslate"><span class="pre">fit</span></code> during which we “learn” the parameters of the model that make
 good predictions. This is done on some “training data” or “training set”.</p></li>
-<li><p>then a <cite>predict</cite> step where the “fitted” model is used to make prediction
+<li><p>then a <code class="docutils literal notranslate"><span class="pre">predict</span></code> step where the “fitted” model is used to make prediction
 on new data. Here, we just have to give the new set of images (as the target
 should be unknown). These are called “test data” or “test set”.</p></li>
 </ul>
 <p>All objects used to make prediction in Nilearn will at least have functions for
-these steps : a <cite>fit</cite> function and a <cite>predict</cite> function.</p>
+these steps : a <code class="docutils literal notranslate"><span class="pre">fit</span></code> function and a <code class="docutils literal notranslate"><span class="pre">predict</span></code> function.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p><strong>Do not predict on data used by the fit: this would yield misleadingly
@@ -843,7 +843,7 @@ variety of problems.</p>
 <p>Nilearn makes it easy to train a model with a principled pipeline using the
 <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object. Using the mask we defined before
 and an SVC estimator as we already introduced, we can create a pipeline in
-two lines. The additional <cite>standardize=True</cite> argument adds a normalization
+two lines. The additional <code class="docutils literal notranslate"><span class="pre">standardize=True</span></code> argument adds a normalization
 of images signal to a zero mean and unit variance, which will improve
 performance of most estimators.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <span class="n">Decoder</span>
@@ -856,7 +856,7 @@ performance of most estimators.</p>
 </div>
 <p>This decoder can now be used to predict conditions for new images !
 Be careful though, as we warned you, predicting on images that were used to
-<cite>fit</cite> your model should never be done.</p>
+<code class="docutils literal notranslate"><span class="pre">fit</span></code> your model should never be done.</p>
 </section>
 <section id="measuring-prediction-performance">
 <h3><span class="section-number">5.1.2.4. </span>Measuring prediction performance<a class="headerlink" href="#measuring-prediction-performance" title="Permalink to this heading">#</a></h3>
@@ -869,14 +869,14 @@ measure the errors we make when we do prediction.</p>
 <p>We cannot measure prediction error on the same set of data that we have
 used to fit the estimator: it would be much easier than on new data, and
 the result would be meaningless. We need to use a technique called
-<em>cross-validation</em> to split the data into different sets, we can then <cite>fit</cite> our
+<em>cross-validation</em> to split the data into different sets, we can then <code class="docutils literal notranslate"><span class="pre">fit</span></code> our
 estimator on some set and measure an unbiased error on another set.</p>
 <p>The easiest way to do cross-validation is the <a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">K-Fold strategy</a>.
 If you do 5-fold cross-validation manually, you split your data in 5 folds,
-use 4 folds to <cite>fit</cite> your estimator, and 1 to <cite>predict</cite> and measure the errors
+use 4 folds to <code class="docutils literal notranslate"><span class="pre">fit</span></code> your estimator, and 1 to <code class="docutils literal notranslate"><span class="pre">predict</span></code> and measure the errors
 made by your estimators. You repeat this for every combination of folds, and get
 5 prediction “scores”, one for each fold.</p>
-<p>During the <cite>fit</cite>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object implicitly used a
+<p>During the <code class="docutils literal notranslate"><span class="pre">fit</span></code>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object implicitly used a
 cross-validation: Stratified K-fold by default. You can easily inspect
 the prediction “score” it got in each fold.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span><span class="p">)</span>
@@ -901,8 +901,8 @@ the worst option (see Varoquaux et al, <em>Assessing and tuning brain decoders:
 cross-validation, caveats, and guidelines</em>, Neuroimage 2017).</p></li>
 </ul>
 <p>To improve our first pipeline for the Haxby example, we can leave one entire
-session out. To do this, we can pass a <cite>LeaveOneGroupOut</cite> cross-validation
-object from scikit-learn to our <cite>Decoder</cite>. Fitting it with the information of
+session out. To do this, we can pass a <code class="docutils literal notranslate"><span class="pre">LeaveOneGroupOut</span></code> cross-validation
+object from scikit-learn to our <code class="docutils literal notranslate"><span class="pre">Decoder</span></code>. Fitting it with the information of
 groups=`session_labels` will use one session as test set.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -920,7 +920,7 @@ especially in the case of very imbalanced classes, as in such situations
 choosing the dominant class can achieve a low number of errors.</p>
 <p>Other metrics, such as the <a class="reference internal" href="../glossary.html#term-AUC"><span class="xref std std-term">AUC</span></a> (Area Under the Curve, for the
 <a class="reference internal" href="../glossary.html#term-ROC"><span class="xref std std-term">ROC</span></a>: the Receiver Operating Characteristic), can be used through the
-<cite>scoring</cite> argument of <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a>.</p>
+<code class="docutils literal notranslate"><span class="pre">scoring</span></code> argument of <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>the <a class="reference external" href="http://scikit-learn.org/stable/modules/model_evaluation.html#common-cases-predefined-values">list of scoring options</a></p>
@@ -959,8 +959,8 @@ scores.</p>
 </section>
 <section id="visualizing-the-decoder-s-weights">
 <h3><span class="section-number">5.1.2.5. </span>Visualizing the decoder’s weights<a class="headerlink" href="#visualizing-the-decoder-s-weights" title="Permalink to this heading">#</a></h3>
-<p>During <cite>fit</cite> step, the <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object retains the
-coefficients of best models for each class in <cite>decoder.coef_img_</cite>.</p>
+<p>During <code class="docutils literal notranslate"><span class="pre">fit</span></code> step, the <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object retains the
+coefficients of best models for each class in <code class="docutils literal notranslate"><span class="pre">decoder.coef_img_</span></code>.</p>
 <figure class="align-default">
 <a class="reference external image-reference" href="../auto_examples/plot_decoding_tutorial.html"><img alt="../_images/sphx_glr_plot_haxby_anova_svm_001.png" src="../_images/sphx_glr_plot_haxby_anova_svm_001.png" style="width: 474.5px; height: 227.5px;" /></a>
 </figure>
@@ -984,11 +984,11 @@ coefficients of best models for each class in <cite>decoder.coef_img_</cite>.</p
 <p>If we do not start from a mask of the relevant regions, there is a very
 large number of voxels and not all are useful for
 face vs cat prediction. We thus add a <a class="reference external" href="http://scikit-learn.org/stable/modules/feature_selection.html">feature selection</a>
-procedure. The idea is to select the <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test">k`% voxels most correlated to the
+procedure. The idea is to select the <code class="docutils literal notranslate"><span class="pre">k</span></code> voxels most correlated to the
 task through a simple F-score based feature selection (a.k.a.
-`Anova</a>)</p>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test">Anova</a>)</p>
 <p>You can directly choose to keep only a certain percentage of voxels in the
-<a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object through the <cite>screening_percentile</cite>
+<a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object through the <code class="docutils literal notranslate"><span class="pre">screening_percentile</span></code>
 argument. To keep the 10% most correlated voxels, just create us this parameter :</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <span class="n">Decoder</span>
 
