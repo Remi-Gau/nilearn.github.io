@@ -224,7 +224,7 @@ Contrast specification
 
 Next, we compute and plot the statistics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-119
+.. GENERATED FROM PYTHON SOURCE LINES 104-118
 
 .. code-block:: default
 
@@ -232,8 +232,7 @@ Next, we compute and plot the statistics.
 
     print('Computing contrasts...')
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
-        print('  Contrast % 2i out of %i: %s' % (
-            index + 1, len(contrasts), contrast_id))
+        print(f"  Contrast {index + 1: 2} out of {len(contrasts)}: {contrast_id}")
         # Estimate the contasts. Note that the model implicitly computes a fixed
         # effect across the two sessions
         z_map = fmri_glm.compute_contrast(
@@ -253,7 +252,7 @@ Next, we compute and plot the statistics.
 
     Computing contrasts...
       Contrast  1 out of 8: SStSSp_minus_DStDSp
-    /home/yasmin/nilearn/nilearn/nilearn/glm/first_level/first_level.py:706: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:799: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
@@ -264,7 +263,7 @@ Next, we compute and plot the statistics.
       Contrast  6 out of 8: DSp_minus_SSp_for_DSt
       Contrast  7 out of 8: Deactivation
       Contrast  8 out of 8: Effects_of_interest
-    /home/yasmin/nilearn/nilearn/nilearn/glm/contrasts.py:348: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:381: UserWarning:
 
     Running approximate fixed effects on F statistics.
 
@@ -272,13 +271,13 @@ Next, we compute and plot the statistics.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-123
+.. GENERATED FROM PYTHON SOURCE LINES 119-122
 
 We can then compare session-specific and fixed effects.
 Here, we compare the activation mas produced from each session separately and
 then the fixed effects version.
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-126
+.. GENERATED FROM PYTHON SOURCE LINES 122-125
 
 .. code-block:: default
 
@@ -292,11 +291,11 @@ then the fixed effects version.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-128
+.. GENERATED FROM PYTHON SOURCE LINES 126-127
 
 Compute the statistics for the first session.
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-136
+.. GENERATED FROM PYTHON SOURCE LINES 127-135
 
 .. code-block:: default
 
@@ -322,15 +321,15 @@ Compute the statistics for the first session.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb57d8ba9e0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b7087110>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-138
+.. GENERATED FROM PYTHON SOURCE LINES 136-137
 
 Compute the statistics for the second session.
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-146
+.. GENERATED FROM PYTHON SOURCE LINES 137-145
 
 .. code-block:: default
 
@@ -356,15 +355,15 @@ Compute the statistics for the second session.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb5abb25780>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1ed809990>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-148
+.. GENERATED FROM PYTHON SOURCE LINES 146-147
 
 Compute the Fixed effects statistics.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-158
+.. GENERATED FROM PYTHON SOURCE LINES 147-157
 
 .. code-block:: default
 
@@ -391,11 +390,11 @@ Compute the Fixed effects statistics.
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/glm/first_level/first_level.py:706: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:799: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
-    /home/yasmin/nilearn/nilearn/nilearn/glm/contrasts.py:348: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:381: UserWarning:
 
     Running approximate fixed effects on F statistics.
 
@@ -403,20 +402,20 @@ Compute the Fixed effects statistics.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-162
+.. GENERATED FROM PYTHON SOURCE LINES 158-161
 
 Not unexpectedly, the fixed effects version displays higher peaks than the
 input sessions. Computing fixed effects enhances the signal-to-noise ratio of
 the resulting brain maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-169
+.. GENERATED FROM PYTHON SOURCE LINES 164-168
 
 Generating a report
 -------------------
 Since we have already computed the FirstLevelModel and
 and have the contrast, we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-176
+.. GENERATED FROM PYTHON SOURCE LINES 168-175
 
 .. code-block:: default
 
@@ -435,11 +434,11 @@ and have the contrast, we can quickly create a summary report.
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/glm/first_level/first_level.py:706: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:799: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
-    /home/yasmin/nilearn/nilearn/nilearn/glm/contrasts.py:348: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:381: UserWarning:
 
     Running approximate fixed effects on F statistics.
 
@@ -447,11 +446,11 @@ and have the contrast, we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-178
+.. GENERATED FROM PYTHON SOURCE LINES 176-177
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-182
+.. GENERATED FROM PYTHON SOURCE LINES 177-181
 
 .. code-block:: default
 
@@ -469,7 +468,7 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 1 minutes  14.532 seconds)
+   **Total running time of the script:** (0 minutes 51.043 seconds)
 
 **Estimated memory usage:**  367 MB
 
@@ -484,7 +483,7 @@ We have several ways to access the report:
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fiac_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fiac_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
 

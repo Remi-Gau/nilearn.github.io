@@ -75,11 +75,12 @@ LSS beta series.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-63
+.. GENERATED FROM PYTHON SOURCE LINES 60-64
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
+
     from nilearn import image, plotting
 
 
@@ -89,14 +90,14 @@ LSS beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-69
+.. GENERATED FROM PYTHON SOURCE LINES 66-70
 
 Prepare data and analysis parameters
 ------------------------------------
 Download data in :term:`BIDS` format and event information for one subject,
 and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-92
+.. GENERATED FROM PYTHON SOURCE LINES 70-93
 
 .. code-block:: default
 
@@ -131,19 +132,15 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
  .. code-block:: none
 
-    /home/yasmin/nilearn/nilearn/nilearn/interfaces/bids/query.py:46: UserWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/interfaces/bids/query.py:49: UserWarning:
 
-    'StartTime' not found in file /home/yasmin/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
-
-    /home/yasmin/nilearn/nilearn/nilearn/glm/first_level/first_level.py:1017: UserWarning:
-
-    'slice_time_ref' not provided and cannot be inferred from metadata.It will be assumed that the slice timing reference is 0.0 percent of the repetition time. If it is not the case it will need to be set manually in the generated list of models.
+    'StartTime' not found in file /home/remi/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-100
+.. GENERATED FROM PYTHON SOURCE LINES 94-101
 
 Define the standard model
 -------------------------
@@ -153,7 +150,7 @@ models.
 We will just use the one created by
 :func:`~nilearn.glm.first_level.first_level_from_bids`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-109
+.. GENERATED FROM PYTHON SOURCE LINES 101-110
 
 .. code-block:: default
 
@@ -178,7 +175,7 @@ We will just use the one created by
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-118
+.. GENERATED FROM PYTHON SOURCE LINES 111-119
 
 Define the LSA model
 --------------------
@@ -189,7 +186,7 @@ It's important to ensure that the original trial types can be inferred from
 the updated trial-wise trial types, in order to collect the resulting
 beta maps into condition-wise beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-138
+.. GENERATED FROM PYTHON SOURCE LINES 119-139
 
 .. code-block:: default
 
@@ -225,13 +222,13 @@ beta maps into condition-wise beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-142
+.. GENERATED FROM PYTHON SOURCE LINES 140-143
 
 Aggregate beta maps from the LSA model based on condition
 `````````````````````````````````````````````````````````
 Collect the :term:`Parameter Estimate` maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-157
+.. GENERATED FROM PYTHON SOURCE LINES 143-158
 
 .. code-block:: default
 
@@ -257,7 +254,7 @@ Collect the :term:`Parameter Estimate` maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-166
+.. GENERATED FROM PYTHON SOURCE LINES 159-167
 
 Define the LSS models
 ---------------------
@@ -268,7 +265,7 @@ We loop through the trials, create a version of the DataFrame where the
 targeted trial has a unique trial type, fit the model to that DataFrame,
 and finally collect the targeted trial's beta map for the beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-237
+.. GENERATED FROM PYTHON SOURCE LINES 167-238
 
 .. code-block:: default
 
@@ -350,12 +347,12 @@ and finally collect the targeted trial's beta map for the beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-240
+.. GENERATED FROM PYTHON SOURCE LINES 239-241
 
 Show the design matrices for the first few trials
 `````````````````````````````````````````````````
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-250
+.. GENERATED FROM PYTHON SOURCE LINES 241-251
 
 .. code-block:: default
 
@@ -381,12 +378,12 @@ Show the design matrices for the first few trials
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 251-253
+.. GENERATED FROM PYTHON SOURCE LINES 252-254
 
 Compare the three modeling approaches
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-273
+.. GENERATED FROM PYTHON SOURCE LINES 254-274
 
 .. code-block:: default
 
@@ -422,7 +419,7 @@ Compare the three modeling approaches
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 274-294
+.. GENERATED FROM PYTHON SOURCE LINES 275-295
 
 Applications of beta series
 ---------------------------
@@ -445,11 +442,12 @@ This section is based on
 which goes into more detail about seed-to-voxel functional connectivity
 analyses.
 
-.. GENERATED FROM PYTHON SOURCE LINES 294-386
+.. GENERATED FROM PYTHON SOURCE LINES 295-388
 
 .. code-block:: default
 
     import numpy as np
+
     from nilearn.maskers import NiftiMasker, NiftiSpheresMasker
 
     # Coordinate taken from Neurosynth's 'language' meta-analysis
@@ -553,7 +551,7 @@ analyses.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 387-391
+.. GENERATED FROM PYTHON SOURCE LINES 389-393
 
 References
 ----------
@@ -563,7 +561,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  15.218 seconds)
+   **Total running time of the script:** (1 minutes 36.305 seconds)
 
 **Estimated memory usage:**  188 MB
 
@@ -578,7 +576,7 @@ References
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_beta_series.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_beta_series.ipynb
         :alt: Launch binder
         :width: 150 px
 

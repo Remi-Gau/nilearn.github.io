@@ -58,6 +58,17 @@ Fetching probabilistic atlas - MSDL atlas
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    Dataset created in /home/remi/nilearn_data/msdl_atlas
+
+    Downloading data from https://team.inria.fr/parietal/files/2015/01/MSDL_rois.zip ...
+     ...done. (1 seconds, 0 min)
+    Extracting data from /home/remi/nilearn_data/msdl_atlas/8eaecb9e05c478f565847000d9902a25/MSDL_rois.zip..... done.
+
 
 
 
@@ -105,7 +116,7 @@ Visualizing a probabilistic atlas with plot_stat_map and add_overlay object
 
  .. code-block:: none
 
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/ma/core.py:2826: UserWarning: Warning: converting a masked element to nan.
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/numpy/ma/core.py:2820: UserWarning: Warning: converting a masked element to nan.
       _data = np.array(data, dtype=dtype, copy=copy,
 
 
@@ -114,7 +125,7 @@ Visualizing a probabilistic atlas with plot_stat_map and add_overlay object
 .. GENERATED FROM PYTHON SOURCE LINES 59-69
 
 Visualizing a probabilistic atlas with plot_prob_atlas
-======================================================
+------------------------------------------------------
 
 Alternatively, we can create a new 4D-image by selecting
 the 3rd, 4th, 5th and 6th (zero-based) probabilistic map from atlas
@@ -124,7 +135,7 @@ to plot the selected nodes in one step.
 
 Unlike :func:`nilearn.plotting.plot_stat_map` this works with 4D images
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 69-74
 
 .. code-block:: default
 
@@ -132,6 +143,7 @@ Unlike :func:`nilearn.plotting.plot_stat_map` this works with 4D images
     dmn_nodes = image.index_img(atlas_filename, [3, 4, 5, 6])
     # Note that dmn_node is now a 4D image
     print(dmn_nodes.shape)
+
 
 
 
@@ -145,15 +157,15 @@ Unlike :func:`nilearn.plotting.plot_stat_map` this works with 4D images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 75-80
 
 .. code-block:: default
-
 
     display = plotting.plot_prob_atlas(
         dmn_nodes, cut_coords=(0, -55, 29), title="DMN nodes in MSDL atlas"
     )
     plotting.show()
+
 
 
 
@@ -169,7 +181,7 @@ Unlike :func:`nilearn.plotting.plot_stat_map` this works with 4D images
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  4.852 seconds)
+   **Total running time of the script:** (0 minutes 6.246 seconds)
 
 **Estimated memory usage:**  10 MB
 
@@ -184,7 +196,7 @@ Unlike :func:`nilearn.plotting.plot_stat_map` this works with 4D images
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_overlay.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_overlay.ipynb
         :alt: Launch binder
         :width: 150 px
 

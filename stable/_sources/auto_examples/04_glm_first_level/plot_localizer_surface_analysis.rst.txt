@@ -357,8 +357,8 @@ Let's estimate the contrasts by iterating over them.
     from nilearn.glm.contrasts import compute_contrast
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
-        print('  Contrast % i out of %i: %s, right hemisphere' %
-              (index + 1, len(contrasts), contrast_id))
+        print(f"  Contrast {index + 1:1} out of {len(contrasts)}: "
+              f"{contrast_id}, right hemisphere")
         # compute contrast-related statistics
         contrast = compute_contrast(labels, estimates, contrast_val,
                                     contrast_type='t')
@@ -404,9 +404,9 @@ Let's estimate the contrasts by iterating over them.
 
  .. code-block:: none
 
-      Contrast  1 out of 3: left - right button press, right hemisphere
-      Contrast  2 out of 3: audio - visual, right hemisphere
-      Contrast  3 out of 3: computation - sentences, right hemisphere
+      Contrast 1 out of 3: left - right button press, right hemisphere
+      Contrast 2 out of 3: audio - visual, right hemisphere
+      Contrast 3 out of 3: computation - sentences, right hemisphere
 
 
 
@@ -462,8 +462,8 @@ Finally, we create contrast-specific maps and plot them.
 .. code-block:: default
 
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
-        print('  Contrast % i out of %i: %s, left hemisphere' %
-              (index + 1, len(contrasts), contrast_id))
+        print(f"  Contrast {index + 1:1} out of {len(contrasts)}: "
+              f"{contrast_id}, left hemisphere")
         # compute contrasts
         contrast = compute_contrast(labels, estimates, contrast_val,
                                     contrast_type='t')
@@ -507,9 +507,9 @@ Finally, we create contrast-specific maps and plot them.
 
  .. code-block:: none
 
-      Contrast  1 out of 3: left - right button press, left hemisphere
-      Contrast  2 out of 3: audio - visual, left hemisphere
-      Contrast  3 out of 3: computation - sentences, left hemisphere
+      Contrast 1 out of 3: left - right button press, left hemisphere
+      Contrast 2 out of 3: audio - visual, left hemisphere
+      Contrast 3 out of 3: computation - sentences, left hemisphere
 
 
 
@@ -517,7 +517,7 @@ Finally, we create contrast-specific maps and plot them.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.934 seconds)
+   **Total running time of the script:** (0 minutes 17.733 seconds)
 
 **Estimated memory usage:**  209 MB
 
@@ -532,7 +532,7 @@ Finally, we create contrast-specific maps and plot them.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_localizer_surface_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
 

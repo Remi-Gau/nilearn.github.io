@@ -22,7 +22,7 @@ to plot the maps in one step that
 with less control over the plot (see below)
 
 """
-############################################################################
+# %%
 # Fetching probabilistic atlas - MSDL atlas
 # -----------------------------------------
 from nilearn import datasets
@@ -30,7 +30,7 @@ from nilearn import datasets
 atlas_data = datasets.fetch_atlas_msdl()
 atlas_filename = atlas_data.maps
 
-#############################################################################
+# %%
 # Visualizing a probabilistic atlas with plot_stat_map and add_overlay object
 # ---------------------------------------------------------------------------
 from nilearn import image, plotting
@@ -55,9 +55,9 @@ for index, cmap in zip([5, 6, 3], cmaps):
 plotting.show()
 
 
-###############################################################################
+# %%
 # Visualizing a probabilistic atlas with plot_prob_atlas
-# ======================================================
+# ------------------------------------------------------
 #
 # Alternatively, we can create a new 4D-image by selecting
 # the 3rd, 4th, 5th and 6th (zero-based) probabilistic map from atlas
@@ -70,9 +70,11 @@ plotting.show()
 dmn_nodes = image.index_img(atlas_filename, [3, 4, 5, 6])
 # Note that dmn_node is now a 4D image
 print(dmn_nodes.shape)
-####################################
 
+# %%
 display = plotting.plot_prob_atlas(
     dmn_nodes, cut_coords=(0, -55, 29), title="DMN nodes in MSDL atlas"
 )
 plotting.show()
+
+# sphinx_gallery_dummy_images=2

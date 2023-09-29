@@ -41,13 +41,14 @@ these stimuli are sometimes used to map the borders of primary visual areas.
 At the group level, such a mapping is not possible. Yet, we may
 observe some significant effects in these areas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-32
+.. GENERATED FROM PYTHON SOURCE LINES 26-33
 
 .. code-block:: default
 
 
     import matplotlib.pyplot as plt
     import pandas as pd
+
     from nilearn import plotting
     from nilearn.datasets import fetch_localizer_contrasts
 
@@ -58,14 +59,14 @@ observe some significant effects in these areas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-37
+.. GENERATED FROM PYTHON SOURCE LINES 34-38
 
 Fetch dataset
 -------------
 We download a list of left vs right button press contrasts from a
 localizer dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-52
+.. GENERATED FROM PYTHON SOURCE LINES 38-53
 
 .. code-block:: default
 
@@ -88,17 +89,150 @@ localizer dataset.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Downloading data from https://osf.io/download/5d27c2c41c5b4a001d9f4e7e/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27ce321c5b4a001aa080fc/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27d3c3114a42001804500a/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27d175a26b340018084d23/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27e5fa1c5b4a001aa09681/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27e900a26b340017083df6/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27f18945253a00193cb2dd/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27f8a845253a001b3c3280/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2808401c5b4a001d9f83b2/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d280aab45253a001b3c3d51/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2811fba26b340017085492/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d280d0a114a42001704b6a7/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d282b2345253a001c3e7d09/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2829f7a26b34001708642d/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28318445253a00193ce6d7/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28399545253a001c3e9288/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2848581c5b4a001aa10aac/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2849cc114a42001804994e/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28545ca26b340018089ba7/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2852861c5b4a001c9ed5bf/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d285cd945253a001a3c8509/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d285c8b45253a00193d0295/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d286e49114a42001904ab90/ ...
+     ...done. (3 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d286b6b45253a001c3ec067/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d288af11c5b4a001d9ff0cb/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2881cd1c5b4a001d9fe799/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d289be945253a001c3ef5e2/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d288c4c114a42001804bfb6/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28a1c91c5b4a001da00bd9/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28ad481c5b4a001aa17d00/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28bb90a26b3400190925d2/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28c24f114a42001904ea5b/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27ccde1c5b4a001d9f5602/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27c7f01c5b4a001c9e778e/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27d9c6114a420019045370/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27d99fa26b340018085146/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27de38a26b340016099771/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27ec4d45253a001c3e3f47/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27fb651c5b4a001d9f7938/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27fb1e1c5b4a001aa0ab78/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d280057a26b340019089965/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d27ff2645253a001c3e4fb9/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2814d145253a001c3e6404/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d280e3945253a001a3c4f15/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28244745253a001b3c4afa/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2827ff114a420018047f9a/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28309645253a001a3c6a8d/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d282ef61c5b4a001b9f3747/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d284a3445253a001c3ea2d1/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d284636114a42001704e0f6/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28564b1c5b4a001d9fc9d6/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28516e45253a001a3c7e03/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d285b6c1c5b4a001c9edada/ ...
+    Downloaded 163840 of 234089 bytes (70.0%,    0.4s remaining) ...done. (3 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d285cffa26b34001908db9c/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28765645253a001b3c8106/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d287486114a42001804af82/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d287eeb45253a001c3ed1ba/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d287f8f114a4200170503d0/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d2896fb45253a001a3cabe0/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d288e101c5b4a001aa14e0f/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28af541c5b4a001da01caa/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28aa701c5b4a001aa1794c/ ...
+     ...done. (2 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28b9af45253a001a3ccb85/ ...
+     ...done. (1 seconds, 0 min)
+    Downloading data from https://osf.io/download/5d28b579114a42001804e2cd/ ...
+     ...done. (1 seconds, 0 min)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-57
+
+.. GENERATED FROM PYTHON SOURCE LINES 54-58
 
 Estimate second level models
 ----------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 58-60
 
 .. code-block:: default
 
@@ -111,11 +245,11 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-61
+.. GENERATED FROM PYTHON SOURCE LINES 61-62
 
 Next, we model the effect of conditions (sample 1 vs sample 2).
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-65
+.. GENERATED FROM PYTHON SOURCE LINES 62-66
 
 .. code-block:: default
 
@@ -130,12 +264,12 @@ Next, we model the effect of conditions (sample 1 vs sample 2).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-68
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 The design matrix for the unpaired test doesn't need any more columns
 For the paired test, we include an intercept for each subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-71
+.. GENERATED FROM PYTHON SOURCE LINES 69-72
 
 .. code-block:: default
 
@@ -149,11 +283,11 @@ For the paired test, we include an intercept for each subject.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-73
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 We then assemble those into design matrices
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-82
+.. GENERATED FROM PYTHON SOURCE LINES 74-83
 
 .. code-block:: default
 
@@ -173,11 +307,11 @@ We then assemble those into design matrices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-84
+.. GENERATED FROM PYTHON SOURCE LINES 84-85
 
 and plot the designs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-96
+.. GENERATED FROM PYTHON SOURCE LINES 85-97
 
 .. code-block:: default
 
@@ -205,11 +339,11 @@ and plot the designs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-98
+.. GENERATED FROM PYTHON SOURCE LINES 98-99
 
 We specify the analysis models and fit them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-108
+.. GENERATED FROM PYTHON SOURCE LINES 99-109
 
 .. code-block:: default
 
@@ -230,14 +364,14 @@ We specify the analysis models and fit them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-113
+.. GENERATED FROM PYTHON SOURCE LINES 110-114
 
 Estimating the contrast is simple. To do so, we provide the column
 name of the design matrix. The argument 'output_type' is set to return all
 available outputs so that we can compare differences in the effect size,
 variance, and z-score.
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-121
+.. GENERATED FROM PYTHON SOURCE LINES 114-122
 
 .. code-block:: default
 
@@ -256,14 +390,14 @@ variance, and z-score.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-126
+.. GENERATED FROM PYTHON SOURCE LINES 123-127
 
 Plot the results
 ----------------
 The two :term:`'effect_size'<Parameter Estimate>` images are essentially
 identical.
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-131
+.. GENERATED FROM PYTHON SOURCE LINES 127-132
 
 .. code-block:: default
 
@@ -285,11 +419,11 @@ identical.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-133
+.. GENERATED FROM PYTHON SOURCE LINES 133-134
 
 But the variance in the unpaired image is larger.
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-151
+.. GENERATED FROM PYTHON SOURCE LINES 134-152
 
 .. code-block:: default
 
@@ -335,12 +469,12 @@ But the variance in the unpaired image is larger.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-154
+.. GENERATED FROM PYTHON SOURCE LINES 153-155
 
 Together, this makes the z_scores from the paired test larger.
 We threshold the second level contrast and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-177
+.. GENERATED FROM PYTHON SOURCE LINES 155-178
 
 .. code-block:: default
 
@@ -391,7 +525,7 @@ We threshold the second level contrast and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-180
+.. GENERATED FROM PYTHON SOURCE LINES 179-181
 
 Unsurprisingly, we see activity in the primary visual cortex, both positive
 and negative.
@@ -399,9 +533,9 @@ and negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  32.105 seconds)
+   **Total running time of the script:** (2 minutes 0.240 seconds)
 
-**Estimated memory usage:**  16 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_05_glm_second_level_plot_second_level_two_sample_test.py:
@@ -414,7 +548,7 @@ and negative.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.ipynb
         :alt: Launch binder
         :width: 150 px
 

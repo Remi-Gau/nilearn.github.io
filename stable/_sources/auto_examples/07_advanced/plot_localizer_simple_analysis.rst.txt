@@ -32,13 +32,19 @@ variates.  The user can refer to the
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-24
+..
+    Original authors:
+
+    - Virgile Fritsch, May. 2014
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-30
 
 .. code-block:: default
 
-    # Author: Virgile Fritsch, <virgile.fritsch@inria.fr>, May. 2014
+
     import matplotlib.pyplot as plt
     import numpy as np
+
     from nilearn import datasets
     from nilearn.image import get_data
     from nilearn.maskers import NiftiMasker
@@ -50,11 +56,11 @@ variates.  The user can refer to the
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-26
+.. GENERATED FROM PYTHON SOURCE LINES 31-32
 
 Load Localizer contrast
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-32
+.. GENERATED FROM PYTHON SOURCE LINES 32-38
 
 .. code-block:: default
 
@@ -71,11 +77,11 @@ Load Localizer contrast
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-34
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
 
 Mask data
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-40
+.. GENERATED FROM PYTHON SOURCE LINES 40-46
 
 .. code-block:: default
 
@@ -92,11 +98,11 @@ Mask data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-42
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 Anova (parametric F-scores)
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-54
+.. GENERATED FROM PYTHON SOURCE LINES 48-60
 
 .. code-block:: default
 
@@ -120,7 +126,7 @@ Anova (parametric F-scores)
 
  .. code-block:: none
 
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/sklearn/utils/validation.py:1141: DataConversionWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/utils/validation.py:1183: DataConversionWarning:
 
     A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
 
@@ -128,11 +134,11 @@ Anova (parametric F-scores)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-56
+.. GENERATED FROM PYTHON SOURCE LINES 61-62
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-85
+.. GENERATED FROM PYTHON SOURCE LINES 62-91
 
 .. code-block:: default
 
@@ -159,10 +165,10 @@ Visualization
     title = (
         "Negative $\\log_{10}$ p-values"
         "\n(Parametric + Bonferroni correction)"
-        "\n%d detections" % (~masked_pvals.mask).sum()
+        f"\n{(~masked_pvals.mask).sum()} detections"
     )
 
-    display.title(title, y=1.1, alpha=0.8)
+    display.title(title, y=1, alpha=0.8)
 
     show()
 
@@ -180,9 +186,9 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.445 seconds)
+   **Total running time of the script:** (0 minutes 4.197 seconds)
 
-**Estimated memory usage:**  9 MB
+**Estimated memory usage:**  8 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_localizer_simple_analysis.py:
@@ -195,7 +201,7 @@ Visualization
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_localizer_simple_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_localizer_simple_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
 

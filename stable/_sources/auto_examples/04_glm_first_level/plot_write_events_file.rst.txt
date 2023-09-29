@@ -55,11 +55,10 @@ Define the onset times in seconds. These are typically extracted from
 the stimulation software used, but we will use hardcoded values in this
 example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-42
+.. GENERATED FROM PYTHON SOURCE LINES 26-40
 
 .. code-block:: default
 
-    import numpy as np
 
     # fmt: off
     onsets = [
@@ -73,7 +72,6 @@ example.
         264.0, 266.7, 269.7, 275.4, 278.4, 284.4, 288.0, 291.0, 293.4, 296.7,
     ]
     # fmt: on
-    onsets = np.array(onsets)
 
 
 
@@ -82,12 +80,12 @@ example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-45
+.. GENERATED FROM PYTHON SOURCE LINES 41-43
 
 Associated trial types: these are numbered between 0 and 9, hence
 corresponding to 10 different conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-56
+.. GENERATED FROM PYTHON SOURCE LINES 43-53
 
 .. code-block:: default
 
@@ -100,7 +98,6 @@ corresponding to 10 different conditions.
         7, 1, 0, 0, 4, 1, 9, 8, 4, 9, 9
     ]
     # fmt: on
-    trial_type_idx = np.array(trial_type_idx)
 
 
 
@@ -109,12 +106,12 @@ corresponding to 10 different conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 We may want to map these indices to explicit condition names.
 For that, we define a list of 10 strings.
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-74
+.. GENERATED FROM PYTHON SOURCE LINES 56-71
 
 .. code-block:: default
 
@@ -140,17 +137,25 @@ For that, we define a list of 10 strings.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-77
+.. GENERATED FROM PYTHON SOURCE LINES 72-76
 
 We must also define a duration (required by :term:`BIDS` conventions).
-In this case, all trials lasted one second.
+In this case, all trials lasted one second,
+except for button response
+that are modeled as events with instantaneous duration (0 second).
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-80
+.. GENERATED FROM PYTHON SOURCE LINES 76-85
 
 .. code-block:: default
 
 
-    durations = np.ones_like(onsets)
+    null_duration_trials = [2, 3, 4, 5]
+    durations = []
+    for i in trial_type_idx:
+        if i in null_duration_trials:
+            durations.append(0)
+        else:
+            durations.append(1)
 
 
 
@@ -159,11 +164,11 @@ In this case, all trials lasted one second.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-82
+.. GENERATED FROM PYTHON SOURCE LINES 86-87
 
 Form a pandas DataFrame from this information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-92
+.. GENERATED FROM PYTHON SOURCE LINES 87-97
 
 .. code-block:: default
 
@@ -184,11 +189,11 @@ Form a pandas DataFrame from this information.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-94
+.. GENERATED FROM PYTHON SOURCE LINES 98-99
 
 Take a look at the new DataFrame
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-96
+.. GENERATED FROM PYTHON SOURCE LINES 99-101
 
 .. code-block:: default
 
@@ -230,31 +235,31 @@ Take a look at the new DataFrame
           <th>0</th>
           <td>mental computation, visual instructions</td>
           <td>0.0</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>1</th>
           <td>mental computation, visual instructions</td>
           <td>2.4</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>2</th>
           <td>horizontal checkerboard</td>
           <td>8.7</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>3</th>
           <td>right button press, auditory instructions</td>
           <td>11.4</td>
-          <td>1.0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th>4</th>
           <td>auditory sentence</td>
           <td>15.0</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>...</th>
@@ -266,31 +271,31 @@ Take a look at the new DataFrame
           <th>75</th>
           <td>auditory sentence</td>
           <td>284.4</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>76</th>
           <td>visual sentence</td>
           <td>288.0</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>77</th>
           <td>right button press, visual instructions</td>
           <td>291.0</td>
-          <td>1.0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th>78</th>
           <td>auditory sentence</td>
           <td>293.4</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
         <tr>
           <th>79</th>
           <td>auditory sentence</td>
           <td>296.7</td>
-          <td>1.0</td>
+          <td>1</td>
         </tr>
       </tbody>
     </table>
@@ -300,11 +305,11 @@ Take a look at the new DataFrame
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-98
+.. GENERATED FROM PYTHON SOURCE LINES 102-103
 
 Export them to a tsv file.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-107
+.. GENERATED FROM PYTHON SOURCE LINES 103-112
 
 .. code-block:: default
 
@@ -330,16 +335,17 @@ Export them to a tsv file.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-110
+.. GENERATED FROM PYTHON SOURCE LINES 113-115
 
 Optionally, the events can be visualized using the
 :func:`~nilearn.plotting.plot_event` function.
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-115
+.. GENERATED FROM PYTHON SOURCE LINES 115-121
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
+
     from nilearn.plotting import plot_event
 
     plot_event(events, figsize=(15, 5))
@@ -353,15 +359,25 @@ Optionally, the events can be visualized using the
    :class: sphx-glr-single-img
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/experimental_paradigm.py:141: UserWarning:
+
+    The following conditions contain events with null duration:
+    right button press, auditory instructions, right button press, visual instructions, left button press, auditory instructions, left button press, visual instructions.
+
+
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  6.034 seconds)
+   **Total running time of the script:** (0 minutes 6.833 seconds)
 
-**Estimated memory usage:**  9 MB
+**Estimated memory usage:**  8 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_write_events_file.py:
@@ -374,7 +390,7 @@ Optionally, the events can be visualized using the
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
         :alt: Launch binder
         :width: 150 px
 

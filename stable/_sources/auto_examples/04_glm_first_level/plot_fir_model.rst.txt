@@ -40,11 +40,12 @@ presented : ['audio_computation', 'audio_left_hand_button_press',
 
 At first, we grab the localizer data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-33
+.. GENERATED FROM PYTHON SOURCE LINES 23-34
 
 .. code-block:: default
 
     import pandas as pd
+
     from nilearn.datasets import func
 
     data = func.fetch_localizer_first_level()
@@ -58,10 +59,21 @@ At first, we grab the localizer data.
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    Dataset created in /home/remi/nilearn_data/localizer_first_level
+
+    Downloading data from https://osf.io/2bqxn/download ...
+    Downloaded 5169152 of 34532740 bytes (15.0%,    5.7s remaining)    Downloaded 11018240 of 34532740 bytes (31.9%,    4.3s remaining)    Downloaded 15081472 of 34532740 bytes (43.7%,    3.9s remaining)    Downloaded 18243584 of 34532740 bytes (52.8%,    3.8s remaining)    Downloaded 22945792 of 34532740 bytes (66.4%,    2.7s remaining)    Downloaded 30253056 of 34532740 bytes (87.6%,    0.9s remaining) ...done. (9 seconds, 0 min)
+    Extracting data from /home/remi/nilearn_data/localizer_first_level/62d16779cfae29f3623d6a194141d263/download..... done.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-43
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-44
 
 Next solution is to try Finite Impulse Response (:term:`FIR`) models: we just
 say that the :term:`hrf<HRF>` is an arbitrary function that lags behind the
@@ -73,7 +85,7 @@ Concretely, we set `hrf_model` to 'fir' and `fir_delays` to [1, 2,
 t_r] seconds interval.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-52
+.. GENERATED FROM PYTHON SOURCE LINES 44-53
 
 .. code-block:: default
 
@@ -100,17 +112,17 @@ t_r] seconds interval.
  .. code-block:: none
 
 
-    <AxesSubplot:label='conditions', ylabel='scan number'>
+    <Axes: label='conditions', ylabel='scan number'>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-56
+.. GENERATED FROM PYTHON SOURCE LINES 54-57
 
 We have to adapt contrast specification. We characterize the :term:`BOLD`
 response by the sum across the three time lags. It's a bit hairy,
 sorry, but this is the price to pay for flexibility...
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-124
+.. GENERATED FROM PYTHON SOURCE LINES 57-125
 
 .. code-block:: default
 
@@ -189,11 +201,11 @@ sorry, but this is the price to pay for flexibility...
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-126
+.. GENERATED FROM PYTHON SOURCE LINES 126-127
 
 Take a look at the contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-129
+.. GENERATED FROM PYTHON SOURCE LINES 127-130
 
 .. code-block:: default
 
@@ -214,21 +226,22 @@ Take a look at the contrasts.
  .. code-block:: none
 
 
-    <AxesSubplot:label='conditions'>
+    <Axes: label='conditions'>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-133
+.. GENERATED FROM PYTHON SOURCE LINES 131-134
 
 Take a breath.
 
 We can now  proceed by estimating the contrasts and displaying them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-153
+.. GENERATED FROM PYTHON SOURCE LINES 134-155
 
 .. code-block:: default
 
     import matplotlib.pyplot as plt
+
     from nilearn.plotting import plot_stat_map
 
     fig = plt.figure(figsize=(11, 3))
@@ -260,7 +273,7 @@ We can now  proceed by estimating the contrasts and displaying them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-158
+.. GENERATED FROM PYTHON SOURCE LINES 156-160
 
 The result is acceptable. Note that we're asking a lot of questions
 to a small dataset, yet with a relatively large number of experimental
@@ -270,9 +283,9 @@ conditions.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  18.041 seconds)
+   **Total running time of the script:** (0 minutes 21.523 seconds)
 
-**Estimated memory usage:**  259 MB
+**Estimated memory usage:**  194 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_fir_model.py:
@@ -285,7 +298,7 @@ conditions.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fir_model.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fir_model.ipynb
         :alt: Launch binder
         :width: 150 px
 

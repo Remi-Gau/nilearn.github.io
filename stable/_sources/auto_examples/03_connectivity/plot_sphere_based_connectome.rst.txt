@@ -71,7 +71,7 @@ connectivity dataset.
 
  .. code-block:: none
 
-    First subject functional nifti image (4D) is at: /home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+    First subject functional nifti image (4D) is at: /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 
 
 
@@ -111,7 +111,7 @@ around a sequence of (x, y, z) coordinates with the object
 The resulting signal is then prepared by the masker object: Detrended,
 band-pass filtered and **standardized to 1 variance**.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-90
+.. GENERATED FROM PYTHON SOURCE LINES 63-91
 
 .. code-block:: default
 
@@ -123,6 +123,7 @@ band-pass filtered and **standardized to 1 variance**.
         radius=8,
         detrend=True,
         standardize="zscore_sample",
+        standardize_confounds="zscore_sample",
         low_pass=0.1,
         high_pass=0.01,
         t_r=2,
@@ -152,8 +153,8 @@ band-pass filtered and **standardized to 1 variance**.
 
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract('/home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7fb585a17b80>, 
+    _filter_and_extract('/home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
+    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7fd1b7a83c90>, 
     { 'allow_overlap': False,
       'clean_kwargs': {'butterworth__padtype': 'even'},
       'detrend': True,
@@ -166,26 +167,22 @@ band-pass filtered and **standardized to 1 variance**.
       'seeds': [(0, -52, 18), (-46, -68, 32), (46, -68, 32), (1, 50, -5)],
       'smoothing_fwhm': None,
       'standardize': 'zscore_sample',
-      'standardize_confounds': True,
-      't_r': 2}, confounds=[ '/home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_desc-reducedConfounds_regressors.tsv'], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
-    [NiftiSpheresMasker.transform_single_imgs] Loading data from /home/yasmin/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+      'standardize_confounds': 'zscore_sample',
+      't_r': 2}, confounds=[ '/home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_desc-reducedConfounds_regressors.tsv'], sample_mask=None, dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=2)
+    [NiftiSpheresMasker.transform_single_imgs] Loading data from /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiSpheresMasker.transform_single_imgs] Extracting region signals
     [NiftiSpheresMasker.transform_single_imgs] Cleaning extracted signals
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    _______________________________________________filter_and_extract - 2.1s, 0.0min
+    _______________________________________________filter_and_extract - 1.9s, 0.0min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-93
+.. GENERATED FROM PYTHON SOURCE LINES 92-94
 
 Display time series
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-104
+.. GENERATED FROM PYTHON SOURCE LINES 94-105
 
 .. code-block:: default
 
@@ -212,7 +209,7 @@ Display time series
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-110
+.. GENERATED FROM PYTHON SOURCE LINES 106-111
 
 Compute partial correlation matrix
 -----------------------------------
@@ -220,14 +217,17 @@ Using object :class:`nilearn.connectome.ConnectivityMeasure`: Its
 default covariance estimator is Ledoit-Wolf, allowing to obtain accurate
 partial correlations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-118
+.. GENERATED FROM PYTHON SOURCE LINES 111-122
 
 .. code-block:: default
 
 
     from nilearn.connectome import ConnectivityMeasure
 
-    connectivity_measure = ConnectivityMeasure(kind="partial correlation")
+    connectivity_measure = ConnectivityMeasure(
+        kind="partial correlation",
+        standardize="zscore_sample",
+    )
     partial_correlation_matrix = connectivity_measure.fit_transform([time_series])[
         0
     ]
@@ -239,7 +239,7 @@ partial correlations.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-124
+.. GENERATED FROM PYTHON SOURCE LINES 123-128
 
 Display connectome
 ------------------
@@ -247,7 +247,7 @@ Display connectome
 We display the graph of connections with
 `:func: nilearn.plotting.plot_connectome`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-133
+.. GENERATED FROM PYTHON SOURCE LINES 128-137
 
 .. code-block:: default
 
@@ -274,16 +274,16 @@ We display the graph of connections with
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb5abf1d5a0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1b5445f50>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-136
+.. GENERATED FROM PYTHON SOURCE LINES 138-140
 
 Display connectome with hemispheric projections.
 Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-145
+.. GENERATED FROM PYTHON SOURCE LINES 140-149
 
 .. code-block:: default
 
@@ -308,7 +308,7 @@ Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-152
+.. GENERATED FROM PYTHON SOURCE LINES 150-156
 
 3D visualization in a web browser
 ---------------------------------
@@ -317,7 +317,7 @@ An alternative to :func:`nilearn.plotting.plot_connectome` is to use
 visualizations in a web browser. See :ref:`interactive-connectome-plotting`
 for more details.
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-160
+.. GENERATED FROM PYTHON SOURCE LINES 156-164
 
 .. code-block:: default
 
@@ -706,7 +706,7 @@ for more details.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-165
+.. GENERATED FROM PYTHON SOURCE LINES 165-169
 
 .. code-block:: default
 
@@ -721,7 +721,7 @@ for more details.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-174
+.. GENERATED FROM PYTHON SOURCE LINES 170-178
 
 Extract signals on spheres from an atlas
 ----------------------------------------
@@ -732,7 +732,7 @@ This time, we'll use a different correlation measure.
 
 First we fetch the coordinates of the Power atlas
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-178
+.. GENERATED FROM PYTHON SOURCE LINES 178-182
 
 .. code-block:: default
 
@@ -753,7 +753,7 @@ First we fetch the coordinates of the Power atlas
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-185
+.. GENERATED FROM PYTHON SOURCE LINES 183-189
 
 .. note::
 
@@ -762,14 +762,14 @@ First we fetch the coordinates of the Power atlas
     not included in nilearn, using
     :func:`nilearn.plotting.find_parcellation_cut_coords`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 187-191
+.. GENERATED FROM PYTHON SOURCE LINES 191-195
 
 Compute within spheres averaged time-series
 -------------------------------------------
 
 We collect the regions coordinates in a numpy array
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-197
+.. GENERATED FROM PYTHON SOURCE LINES 195-201
 
 .. code-block:: default
 
@@ -792,11 +792,11 @@ We collect the regions coordinates in a numpy array
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-199
+.. GENERATED FROM PYTHON SOURCE LINES 202-203
 
 and define spheres masker, with small enough radius to avoid regions overlap.
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-215
+.. GENERATED FROM PYTHON SOURCE LINES 203-220
 
 .. code-block:: default
 
@@ -807,6 +807,7 @@ and define spheres masker, with small enough radius to avoid regions overlap.
         radius=5.0,
         detrend=True,
         standardize="zscore_sample",
+        standardize_confounds="zscore_sample",
         low_pass=0.1,
         high_pass=0.01,
         t_r=2,
@@ -820,19 +821,10 @@ and define spheres masker, with small enough radius to avoid regions overlap.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
 
 
 
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 216-221
+.. GENERATED FROM PYTHON SOURCE LINES 221-226
 
 Estimate correlations
 ---------------------
@@ -840,7 +832,7 @@ Estimate correlations
 We start by estimating the signal **covariance** matrix. Here the
 number of ROIs exceeds the number of samples,
 
-.. GENERATED FROM PYTHON SOURCE LINES 221-223
+.. GENERATED FROM PYTHON SOURCE LINES 226-228
 
 .. code-block:: default
 
@@ -859,12 +851,12 @@ number of ROIs exceeds the number of samples,
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 224-226
+.. GENERATED FROM PYTHON SOURCE LINES 229-231
 
 in which situation the graphical lasso **sparse inverse covariance**
 estimator captures well the covariance **structure**.
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-234
+.. GENERATED FROM PYTHON SOURCE LINES 231-239
 
 .. code-block:: default
 
@@ -883,11 +875,11 @@ estimator captures well the covariance **structure**.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 235-236
+.. GENERATED FROM PYTHON SOURCE LINES 240-241
 
 We just fit our regions signals into the `GraphicalLassoCV` object
 
-.. GENERATED FROM PYTHON SOURCE LINES 236-238
+.. GENERATED FROM PYTHON SOURCE LINES 241-243
 
 .. code-block:: default
 
@@ -901,19 +893,11 @@ We just fit our regions signals into the `GraphicalLassoCV` object
 
  .. code-block:: none
 
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    4.7s finished
-    [GraphicalLassoCV] Done refinement  1 out of 4:   4s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:    9.8s finished
-    [GraphicalLassoCV] Done refinement  2 out of 4:  14s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   14.5s finished
-    [GraphicalLassoCV] Done refinement  3 out of 4:  29s
-    [Parallel(n_jobs=1)]: Using backend SequentialBackend with 1 concurrent workers.
-    [Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:   15.1s finished
-    [GraphicalLassoCV] Done refinement  4 out of 4:  44s
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:233: RuntimeWarning:
+    [GraphicalLassoCV] Done refinement  1 out of 4:   6s
+    [GraphicalLassoCV] Done refinement  2 out of 4:  29s
+    [GraphicalLassoCV] Done refinement  3 out of 4:  68s
+    [GraphicalLassoCV] Done refinement  4 out of 4:  107s
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/numpy/core/_methods.py:173: RuntimeWarning:
 
     invalid value encountered in subtract
 
@@ -922,16 +906,16 @@ We just fit our regions signals into the `GraphicalLassoCV` object
 .. raw:: html
 
     <div class="output_subarea output_html rendered_html output_result">
-    <style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GraphicalLassoCV(cv=3, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">GraphicalLassoCV</label><div class="sk-toggleable__content"><pre>GraphicalLassoCV(cv=3, verbose=1)</pre></div></div></div></div></div>
+    <style>#sk-container-id-4 {color: black;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>GraphicalLassoCV(cv=3, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">GraphicalLassoCV</label><div class="sk-toggleable__content"><pre>GraphicalLassoCV(cv=3, verbose=1)</pre></div></div></div></div></div>
     </div>
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 239-240
+.. GENERATED FROM PYTHON SOURCE LINES 244-245
 
 and get the ROI-to-ROI covariance matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-243
+.. GENERATED FROM PYTHON SOURCE LINES 245-248
 
 .. code-block:: default
 
@@ -951,7 +935,7 @@ and get the ROI-to-ROI covariance matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-250
+.. GENERATED FROM PYTHON SOURCE LINES 249-255
 
 Plot matrix, graph, and strength
 --------------------------------
@@ -960,7 +944,7 @@ We use `:func: nilearn.plotting.plot_matrix`
 to visualize our correlation matrix
 and display the graph of connections with `nilearn.plotting.plot_connectome`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 250-270
+.. GENERATED FROM PYTHON SOURCE LINES 255-275
 
 .. code-block:: default
 
@@ -993,7 +977,7 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
     *
 
       .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_004.png
-         :alt: plot sphere based connectome
+         :alt: Power correlation matrix
          :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_004.png
          :class: sphx-glr-multi-img
 
@@ -1010,11 +994,11 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb5766e3430>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1e3366c90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 271-276
+.. GENERATED FROM PYTHON SOURCE LINES 276-281
 
 .. note::
 
@@ -1022,13 +1006,13 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
     to 1. by the `spheres_masker`. Hence the covariance of the signal is a
     correlation matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-281
+.. GENERATED FROM PYTHON SOURCE LINES 283-286
 
 Sometimes, the information in the correlation matrix is overwhelming and
 aggregating edge strength from the graph would help. Use the function
 `nilearn.plotting.plot_markers` to visualize this information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 281-292
+.. GENERATED FROM PYTHON SOURCE LINES 286-297
 
 .. code-block:: default
 
@@ -1057,17 +1041,17 @@ aggregating edge strength from the graph would help. Use the function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb57d8b8dc0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1c10a1510>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-296
+.. GENERATED FROM PYTHON SOURCE LINES 298-301
 
 From the correlation matrix, we observe that there is a positive and negative
 structure. We could make two different plots,
 one for the positive and one for the negative structure.
 
-.. GENERATED FROM PYTHON SOURCE LINES 296-327
+.. GENERATED FROM PYTHON SOURCE LINES 301-332
 
 .. code-block:: default
 
@@ -1128,18 +1112,18 @@ one for the positive and one for the negative structure.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb5770ed420>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1ed3b8d50>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 328-332
+.. GENERATED FROM PYTHON SOURCE LINES 333-337
 
 Connectome extracted from Dosenbach's atlas
 -------------------------------------------
 
 We repeat the same steps for Dosenbach's atlas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 332-415
+.. GENERATED FROM PYTHON SOURCE LINES 337-421
 
 .. code-block:: default
 
@@ -1159,6 +1143,7 @@ We repeat the same steps for Dosenbach's atlas.
         radius=4.5,
         detrend=True,
         standardize="zscore_sample",
+        standardize_confounds="zscore_sample",
         low_pass=0.1,
         high_pass=0.01,
         t_r=2,
@@ -1235,7 +1220,7 @@ We repeat the same steps for Dosenbach's atlas.
     *
 
       .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_009.png
-         :alt: plot sphere based connectome
+         :alt: Dosenbach correlation matrix
          :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_sphere_based_connectome_009.png
          :class: sphx-glr-multi-img
 
@@ -1272,24 +1257,20 @@ We repeat the same steps for Dosenbach's atlas.
 
  .. code-block:: none
 
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/joblib/memory.py:349: FutureWarning:
-
-    The default strategy for standardize is currently 'zscore' which incorrectly uses population std to calculate sample zscores. The new strategy 'zscore_sample' corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the 'zscore' option will be removed. Please use 'zscore_sample' instead.
-
-    /home/yasmin/miniconda3/envs/nilearn-dev/lib/python3.10/site-packages/numpy/core/_methods.py:233: RuntimeWarning:
+    /home/remi/github/nilearn/env/lib/python3.11/site-packages/numpy/core/_methods.py:173: RuntimeWarning:
 
     invalid value encountered in subtract
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb5781d2710>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1efd40850>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 416-417
+.. GENERATED FROM PYTHON SOURCE LINES 422-423
 
 We can easily identify the Dosenbach's networks from the matrix blocks.
 
-.. GENERATED FROM PYTHON SOURCE LINES 417-421
+.. GENERATED FROM PYTHON SOURCE LINES 423-427
 
 .. code-block:: default
 
@@ -1311,7 +1292,7 @@ We can easily identify the Dosenbach's networks from the matrix blocks.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 422-433
+.. GENERATED FROM PYTHON SOURCE LINES 428-439
 
 References
 ----------
@@ -1328,7 +1309,7 @@ See Also
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 2 minutes  1.644 seconds)
+   **Total running time of the script:** (4 minutes 26.208 seconds)
 
 **Estimated memory usage:**  576 MB
 
@@ -1343,7 +1324,7 @@ See Also
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.1?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_sphere_based_connectome.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_sphere_based_connectome.ipynb
         :alt: Launch binder
         :width: 150 px
 
