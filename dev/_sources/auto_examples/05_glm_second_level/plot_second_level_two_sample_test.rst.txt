@@ -41,10 +41,9 @@ these stimuli are sometimes used to map the borders of primary visual areas.
 At the group level, such a mapping is not possible. Yet, we may
 observe some significant effects in these areas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-33
+.. GENERATED FROM PYTHON SOURCE LINES 28-34
 
 .. code-block:: default
-
 
     import matplotlib.pyplot as plt
     import pandas as pd
@@ -59,14 +58,14 @@ observe some significant effects in these areas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-38
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 Fetch dataset
 -------------
 We download a list of left vs right button press contrasts from a
 localizer dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-53
+.. GENERATED FROM PYTHON SOURCE LINES 39-54
 
 .. code-block:: default
 
@@ -92,14 +91,14 @@ localizer dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-58
+.. GENERATED FROM PYTHON SOURCE LINES 55-59
 
 Estimate second level models
 ----------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-60
+.. GENERATED FROM PYTHON SOURCE LINES 59-61
 
 .. code-block:: default
 
@@ -112,11 +111,11 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-62
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 Next, we model the effect of conditions (sample 1 vs sample 2).
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-66
+.. GENERATED FROM PYTHON SOURCE LINES 63-67
 
 .. code-block:: default
 
@@ -131,12 +130,12 @@ Next, we model the effect of conditions (sample 1 vs sample 2).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-69
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 The design matrix for the unpaired test doesn't need any more columns
 For the paired test, we include an intercept for each subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-72
+.. GENERATED FROM PYTHON SOURCE LINES 70-73
 
 .. code-block:: default
 
@@ -150,11 +149,11 @@ For the paired test, we include an intercept for each subject.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 74-75
 
 We then assemble those into design matrices
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-83
+.. GENERATED FROM PYTHON SOURCE LINES 75-84
 
 .. code-block:: default
 
@@ -174,11 +173,11 @@ We then assemble those into design matrices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 85-86
 
 and plot the designs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-97
+.. GENERATED FROM PYTHON SOURCE LINES 86-98
 
 .. code-block:: default
 
@@ -206,11 +205,11 @@ and plot the designs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 99-100
 
 We specify the analysis models and fit them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-109
+.. GENERATED FROM PYTHON SOURCE LINES 100-110
 
 .. code-block:: default
 
@@ -231,14 +230,14 @@ We specify the analysis models and fit them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-114
+.. GENERATED FROM PYTHON SOURCE LINES 111-115
 
 Estimating the contrast is simple. To do so, we provide the column
 name of the design matrix. The argument 'output_type' is set to return all
 available outputs so that we can compare differences in the effect size,
 variance, and z-score.
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-122
+.. GENERATED FROM PYTHON SOURCE LINES 115-123
 
 .. code-block:: default
 
@@ -257,14 +256,14 @@ variance, and z-score.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-127
+.. GENERATED FROM PYTHON SOURCE LINES 124-128
 
 Plot the results
 ----------------
 The two :term:`'effect_size'<Parameter Estimate>` images are essentially
 identical.
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-132
+.. GENERATED FROM PYTHON SOURCE LINES 128-133
 
 .. code-block:: default
 
@@ -286,11 +285,11 @@ identical.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-134
+.. GENERATED FROM PYTHON SOURCE LINES 134-135
 
 But the variance in the unpaired image is larger.
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-152
+.. GENERATED FROM PYTHON SOURCE LINES 135-153
 
 .. code-block:: default
 
@@ -336,12 +335,12 @@ But the variance in the unpaired image is larger.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 154-156
 
 Together, this makes the z_scores from the paired test larger.
 We threshold the second level contrast and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-178
+.. GENERATED FROM PYTHON SOURCE LINES 156-179
 
 .. code-block:: default
 
@@ -392,7 +391,7 @@ We threshold the second level contrast and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-181
+.. GENERATED FROM PYTHON SOURCE LINES 180-182
 
 Unsurprisingly, we see activity in the primary visual cortex, both positive
 and negative.
@@ -400,7 +399,7 @@ and negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 17.186 seconds)
+   **Total running time of the script:** (0 minutes 17.116 seconds)
 
 **Estimated memory usage:**  9 MB
 

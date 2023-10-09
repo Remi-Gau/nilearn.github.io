@@ -44,10 +44,9 @@ model with a random design matrix **X**:
 
 * **e** is random normal noise.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-51
+.. GENERATED FROM PYTHON SOURCE LINES 31-52
 
 .. code-block:: default
-
 
     print(__doc__)
 
@@ -77,12 +76,12 @@ model with a random design matrix **X**:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 A function to generate data
-#############################################################################
+---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-98
+.. GENERATED FROM PYTHON SOURCE LINES 55-99
 
 .. code-block:: default
 
@@ -137,12 +136,12 @@ A function to generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-101
+.. GENERATED FROM PYTHON SOURCE LINES 100-102
 
 A simple function to plot slices
-#############################################################################
+--------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-122
+.. GENERATED FROM PYTHON SOURCE LINES 102-123
 
 .. code-block:: default
 
@@ -174,12 +173,12 @@ A simple function to plot slices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-125
+.. GENERATED FROM PYTHON SOURCE LINES 124-126
 
 Create data
-##############################################################################
+-----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-143
+.. GENERATED FROM PYTHON SOURCE LINES 126-144
 
 .. code-block:: default
 
@@ -219,30 +218,30 @@ Create data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-164
+.. GENERATED FROM PYTHON SOURCE LINES 145-165
 
 Run different estimators
-##############################################################################
+------------------------
 
- We can now run different estimators and look at their prediction score,
- as well as the feature maps that they recover. Namely, we will use
+We can now run different estimators and look at their prediction score,
+as well as the feature maps that they recover. Namely, we will use
 
- * A support vector regression (`SVM
-   <http://scikit-learn.org/stable/modules/svm.html>`_)
+* A support vector regression (`SVM
+  <http://scikit-learn.org/stable/modules/svm.html>`_)
 
- * An `elastic-net
-   <http://scikit-learn.org/stable/modules/linear_model.html#elastic-net>`_
+* An `elastic-net
+  <http://scikit-learn.org/stable/modules/linear_model.html#elastic-net>`_
 
- * A *Bayesian* ridge estimator, i.e. a ridge estimator that sets its
-   parameter according to a metaprior
+* A *Bayesian* ridge estimator, i.e. a ridge estimator that sets its
+  parameter according to a metaprior
 
- * A ridge estimator that set its parameter by cross-validation
+* A ridge estimator that set its parameter by cross-validation
 
- Note that the `RidgeCV` and the `ElasticNetCV` have names ending in `CV`
- that stands for `cross-validation`: in the list of possible `alpha`
- values that they are given, they choose the best by cross-validation.
+Note that the `RidgeCV` and the `ElasticNetCV` have names ending in `CV`
+that stands for `cross-validation`: in the list of possible `alpha`
+values that they are given, they choose the best by cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-190
+.. GENERATED FROM PYTHON SOURCE LINES 165-191
 
 .. code-block:: default
 
@@ -279,16 +278,17 @@ Run different estimators
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-197
+.. GENERATED FROM PYTHON SOURCE LINES 192-199
 
 Run the estimators
+------------------
 
 As the estimators expose a fairly consistent API, we can all fit them in
 a for loop: they all have a `fit` method for fitting the data, a `score`
 method to retrieve the prediction score, and because they are all linear
 models, a `coef_` attribute that stores the coefficients **w** estimated
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-242
+.. GENERATED FROM PYTHON SOURCE LINES 199-244
 
 .. code-block:: default
 
@@ -346,14 +346,14 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
-         :alt: bayesian_ridge: prediction score 0.114, training time: 0.15s
+         :alt: bayesian_ridge: prediction score 0.114, training time: 0.14s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
-         :alt: enet_cv: prediction score 0.528, training time: 0.20s
+         :alt: enet_cv: prediction score 0.528, training time: 0.17s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
          :class: sphx-glr-multi-img
 
@@ -374,7 +374,7 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
-         :alt: SearchLight: training time: 6.85s
+         :alt: SearchLight: training time: 6.75s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
          :class: sphx-glr-multi-img
 
@@ -390,29 +390,29 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
 
  .. code-block:: none
 
-    bayesian_ridge: prediction score 0.114, training time: 0.15s
-    enet_cv: prediction score 0.528, training time: 0.20s
+    bayesian_ridge: prediction score 0.114, training time: 0.14s
+    enet_cv: prediction score 0.528, training time: 0.17s
     ridge_cv: prediction score 0.328, training time: 0.04s
     svr: prediction score 0.345, training time: 0.00s
-    Job #1, processed 0/432 voxels (0.00%, 150.85458755493164 seconds remaining)    Job #1, processed 10/432 voxels (2.31%, 7.175809807591623 seconds remaining)    Job #1, processed 20/432 voxels (4.63%, 6.227068353677672 seconds remaining)    Job #1, processed 30/432 voxels (6.94%, 6.312395660609264 seconds remaining)    Job #1, processed 40/432 voxels (9.26%, 6.314052807847058 seconds remaining)    Job #1, processed 50/432 voxels (11.57%, 6.29187081286695 seconds remaining)    Job #1, processed 60/432 voxels (13.89%, 6.010438088464428 seconds remaining)    Job #1, processed 70/432 voxels (16.20%, 6.018796458656405 seconds remaining)    Job #1, processed 80/432 voxels (18.52%, 5.964792353545616 seconds remaining)    Job #1, processed 90/432 voxels (20.83%, 5.7218192887317665 seconds remaining)    Job #1, processed 100/432 voxels (23.15%, 5.481995305541267 seconds remaining)    Job #1, processed 110/432 voxels (25.46%, 5.350699393653719 seconds remaining)    Job #1, processed 120/432 voxels (27.78%, 5.167226274894071 seconds remaining)    Job #1, processed 130/432 voxels (30.09%, 4.925530364482496 seconds remaining)    Job #1, processed 140/432 voxels (32.41%, 4.744371022680814 seconds remaining)    Job #1, processed 150/432 voxels (34.72%, 4.546542541222639 seconds remaining)    Job #1, processed 160/432 voxels (37.04%, 4.33472757669041 seconds remaining)    Job #1, processed 170/432 voxels (39.35%, 4.1344214097668885 seconds remaining)    Job #1, processed 180/432 voxels (41.67%, 3.953140103676807 seconds remaining)    Job #1, processed 190/432 voxels (43.98%, 3.7653381682461426 seconds remaining)    Job #1, processed 200/432 voxels (46.30%, 3.5662029979038445 seconds remaining)    Job #1, processed 210/432 voxels (48.61%, 3.392190230675034 seconds remaining)    Job #1, processed 220/432 voxels (50.93%, 3.2180012047185476 seconds remaining)    Job #1, processed 230/432 voxels (53.24%, 3.0388820655000197 seconds remaining)    Job #1, processed 240/432 voxels (55.56%, 2.8636398811491377 seconds remaining)    Job #1, processed 250/432 voxels (57.87%, 2.700629804920034 seconds remaining)    Job #1, processed 260/432 voxels (60.19%, 2.5371357367905816 seconds remaining)    Job #1, processed 270/432 voxels (62.50%, 2.3748985290527345 seconds remaining)    Job #1, processed 280/432 voxels (64.81%, 2.2155357650576724 seconds remaining)    Job #1, processed 290/432 voxels (67.13%, 2.064764275096949 seconds remaining)    Job #1, processed 300/432 voxels (69.44%, 1.922409892631566 seconds remaining)    Job #1, processed 310/432 voxels (71.76%, 1.770623596748513 seconds remaining)    Job #1, processed 320/432 voxels (74.07%, 1.625012456252216 seconds remaining)    Job #1, processed 330/432 voxels (76.39%, 1.4853995434353684 seconds remaining)    Job #1, processed 340/432 voxels (78.70%, 1.3413970943024378 seconds remaining)    Job #1, processed 350/432 voxels (81.02%, 1.1958119307174064 seconds remaining)    Job #1, processed 360/432 voxels (83.33%, 1.0532549927676125 seconds remaining)    Job #1, processed 370/432 voxels (85.65%, 0.9121871306335303 seconds remaining)    Job #1, processed 380/432 voxels (87.96%, 0.7657383111673579 seconds remaining)    Job #1, processed 390/432 voxels (90.28%, 0.6225227457155523 seconds remaining)    Job #1, processed 400/432 voxels (92.59%, 0.47376191653395716 seconds remaining)    Job #1, processed 410/432 voxels (94.91%, 0.3265467156550995 seconds remaining)    Job #1, processed 420/432 voxels (97.22%, 0.1778702179214833 seconds remaining)    Job #1, processed 430/432 voxels (99.54%, 0.029404747790304976 seconds remaining)    SearchLight: training time: 6.85s
+    Job #1, processed 0/432 voxels (0.00%, 150.35152435302734 seconds remaining)    Job #1, processed 10/432 voxels (2.31%, 7.052266092011422 seconds remaining)    Job #1, processed 20/432 voxels (4.63%, 6.118024270426377 seconds remaining)    Job #1, processed 30/432 voxels (6.94%, 6.184035804154893 seconds remaining)    Job #1, processed 40/432 voxels (9.26%, 6.188388113326697 seconds remaining)    Job #1, processed 50/432 voxels (11.57%, 6.159643372483777 seconds remaining)    Job #1, processed 60/432 voxels (13.89%, 5.883910422362897 seconds remaining)    Job #1, processed 70/432 voxels (16.20%, 5.893399341606799 seconds remaining)    Job #1, processed 80/432 voxels (18.52%, 5.85478385220851 seconds remaining)    Job #1, processed 90/432 voxels (20.83%, 5.625665193673115 seconds remaining)    Job #1, processed 100/432 voxels (23.15%, 5.398782017421516 seconds remaining)    Job #1, processed 110/432 voxels (25.46%, 5.270475360603661 seconds remaining)    Job #1, processed 120/432 voxels (27.78%, 5.091969013042464 seconds remaining)    Job #1, processed 130/432 voxels (30.09%, 4.857163958154908 seconds remaining)    Job #1, processed 140/432 voxels (32.41%, 4.681348627417664 seconds remaining)    Job #1, processed 150/432 voxels (34.72%, 4.487708333450528 seconds remaining)    Job #1, processed 160/432 voxels (37.04%, 4.279939249318826 seconds remaining)    Job #1, processed 170/432 voxels (39.35%, 4.083850793038723 seconds remaining)    Job #1, processed 180/432 voxels (41.67%, 3.906226238415972 seconds remaining)    Job #1, processed 190/432 voxels (43.98%, 3.721556345730167 seconds remaining)    Job #1, processed 200/432 voxels (46.30%, 3.5251631886088823 seconds remaining)    Job #1, processed 210/432 voxels (48.61%, 3.350015595920094 seconds remaining)    Job #1, processed 220/432 voxels (50.93%, 3.17823219542744 seconds remaining)    Job #1, processed 230/432 voxels (53.24%, 3.0021386581825005 seconds remaining)    Job #1, processed 240/432 voxels (55.56%, 2.8291333823688083 seconds remaining)    Job #1, processed 250/432 voxels (57.87%, 2.668735719950722 seconds remaining)    Job #1, processed 260/432 voxels (60.19%, 2.507846456881991 seconds remaining)    Job #1, processed 270/432 voxels (62.50%, 2.347943830490112 seconds remaining)    Job #1, processed 280/432 voxels (64.81%, 2.190720491691828 seconds remaining)    Job #1, processed 290/432 voxels (67.13%, 2.0418818852202865 seconds remaining)    Job #1, processed 300/432 voxels (69.44%, 1.901577645183159 seconds remaining)    Job #1, processed 310/432 voxels (71.76%, 1.7516556756286445 seconds remaining)    Job #1, processed 320/432 voxels (74.07%, 1.6079027112943054 seconds remaining)    Job #1, processed 330/432 voxels (76.39%, 1.4699280584712102 seconds remaining)    Job #1, processed 340/432 voxels (78.70%, 1.3275744609032984 seconds remaining)    Job #1, processed 350/432 voxels (81.02%, 1.1836065549198362 seconds remaining)    Job #1, processed 360/432 voxels (83.33%, 1.0425854423073866 seconds remaining)    Job #1, processed 370/432 voxels (85.65%, 0.9032301379447082 seconds remaining)    Job #1, processed 380/432 voxels (87.96%, 0.7589632877169445 seconds remaining)    Job #1, processed 390/432 voxels (90.28%, 0.6171390880353164 seconds remaining)    Job #1, processed 400/432 voxels (92.59%, 0.46973707261617476 seconds remaining)    Job #1, processed 410/432 voxels (94.91%, 0.323841588563229 seconds remaining)    Job #1, processed 420/432 voxels (97.22%, 0.1764330616264132 seconds remaining)    Job #1, processed 430/432 voxels (99.54%, 0.029170481105249894 seconds remaining)    SearchLight: training time: 6.75s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-253
+.. GENERATED FROM PYTHON SOURCE LINES 245-255
 
 An exercise to go further
-##############################################################################
+-------------------------
 
- As an exercice, you can use recursive feature elimination (RFE) with
- the SVM
+As an exercice, you can use recursive feature elimination (RFE) with
+the SVM
 
- Read the object's documentation to find out how to use RFE.
+Read the object's documentation to find out how to use RFE.
 
- **Performance tip**: increase the `step` parameter, or it will be very
- slow.
+**Performance tip**: increase the `step` parameter, or it will be very
+slow.
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-255
+.. GENERATED FROM PYTHON SOURCE LINES 255-257
 
 .. code-block:: default
 
@@ -428,9 +428,9 @@ An exercise to go further
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 8.977 seconds)
+   **Total running time of the script:** (0 minutes 8.732 seconds)
 
-**Estimated memory usage:**  11 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_simulated_data.py:

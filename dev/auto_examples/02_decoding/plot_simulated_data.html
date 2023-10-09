@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev7+g38522af0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev8+g016f7493) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -846,8 +846,7 @@ fields.</p></li>
 </section>
 <section id="run-different-estimators">
 <h2>Run different estimators<a class="headerlink" href="#run-different-estimators" title="Permalink to this heading">#</a></h2>
-<blockquote>
-<div><p>We can now run different estimators and look at their prediction score,
+<p>We can now run different estimators and look at their prediction score,
 as well as the feature maps that they recover. Namely, we will use</p>
 <ul class="simple">
 <li><p>A support vector regression (<a class="reference external" href="http://scikit-learn.org/stable/modules/svm.html">SVM</a>)</p></li>
@@ -859,7 +858,6 @@ parameter according to a metaprior</p></li>
 <p>Note that the <cite>RidgeCV</cite> and the <cite>ElasticNetCV</cite> have names ending in <cite>CV</cite>
 that stands for <cite>cross-validation</cite>: in the list of possible <cite>alpha</cite>
 values that they are given, they choose the best by cross-validation.</p>
-</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bayesian_ridge</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a><span class="p">(</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler" title="sklearn.preprocessing.StandardScaler" class="sphx-glr-backref-module-sklearn-preprocessing sphx-glr-backref-type-py-class"><span class="n">StandardScaler</span></a><span class="p">(),</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.BayesianRidge.html#sklearn.linear_model.BayesianRidge" title="sklearn.linear_model.BayesianRidge" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">linear_model</span><span class="o">.</span><span class="n">BayesianRidge</span></a><span class="p">())</span>
 
 <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimators</span></a> <span class="o">=</span> <span class="p">[</span>
@@ -886,7 +884,9 @@ values that they are given, they choose the best by cross-validation.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>Run the estimators</p>
+</section>
+<section id="run-the-estimators">
+<h2>Run the estimators<a class="headerlink" href="#run-the-estimators" title="Permalink to this heading">#</a></h2>
 <p>As the estimators expose a fairly consistent API, we can all fit them in
 a for loop: they all have a <cite>fit</cite> method for fitting the data, a <cite>score</cite>
 method to retrieve the prediction score, and because they are all linear
@@ -937,79 +937,77 @@ models, a <cite>coef_</cite> attribute that stores the coefficients <strong>w</s
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.15s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.20s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.14s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.17s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.04s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_005.png" srcset="../../_images/sphx_glr_plot_simulated_data_005.png" alt="svr: prediction score 0.345, training time: 0.00s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 6.85s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 6.75s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_007.png" srcset="../../_images/sphx_glr_plot_simulated_data_007.png" alt="f_regress" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.15s
-enet_cv: prediction score 0.528, training time: 0.20s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.14s
+enet_cv: prediction score 0.528, training time: 0.17s
 ridge_cv: prediction score 0.328, training time: 0.04s
 svr: prediction score 0.345, training time: 0.00s
-Job #1, processed 0/432 voxels (0.00%, 150.85458755493164 seconds remaining)
-Job #1, processed 10/432 voxels (2.31%, 7.175809807591623 seconds remaining)
-Job #1, processed 20/432 voxels (4.63%, 6.227068353677672 seconds remaining)
-Job #1, processed 30/432 voxels (6.94%, 6.312395660609264 seconds remaining)
-Job #1, processed 40/432 voxels (9.26%, 6.314052807847058 seconds remaining)
-Job #1, processed 50/432 voxels (11.57%, 6.29187081286695 seconds remaining)
-Job #1, processed 60/432 voxels (13.89%, 6.010438088464428 seconds remaining)
-Job #1, processed 70/432 voxels (16.20%, 6.018796458656405 seconds remaining)
-Job #1, processed 80/432 voxels (18.52%, 5.964792353545616 seconds remaining)
-Job #1, processed 90/432 voxels (20.83%, 5.7218192887317665 seconds remaining)
-Job #1, processed 100/432 voxels (23.15%, 5.481995305541267 seconds remaining)
-Job #1, processed 110/432 voxels (25.46%, 5.350699393653719 seconds remaining)
-Job #1, processed 120/432 voxels (27.78%, 5.167226274894071 seconds remaining)
-Job #1, processed 130/432 voxels (30.09%, 4.925530364482496 seconds remaining)
-Job #1, processed 140/432 voxels (32.41%, 4.744371022680814 seconds remaining)
-Job #1, processed 150/432 voxels (34.72%, 4.546542541222639 seconds remaining)
-Job #1, processed 160/432 voxels (37.04%, 4.33472757669041 seconds remaining)
-Job #1, processed 170/432 voxels (39.35%, 4.1344214097668885 seconds remaining)
-Job #1, processed 180/432 voxels (41.67%, 3.953140103676807 seconds remaining)
-Job #1, processed 190/432 voxels (43.98%, 3.7653381682461426 seconds remaining)
-Job #1, processed 200/432 voxels (46.30%, 3.5662029979038445 seconds remaining)
-Job #1, processed 210/432 voxels (48.61%, 3.392190230675034 seconds remaining)
-Job #1, processed 220/432 voxels (50.93%, 3.2180012047185476 seconds remaining)
-Job #1, processed 230/432 voxels (53.24%, 3.0388820655000197 seconds remaining)
-Job #1, processed 240/432 voxels (55.56%, 2.8636398811491377 seconds remaining)
-Job #1, processed 250/432 voxels (57.87%, 2.700629804920034 seconds remaining)
-Job #1, processed 260/432 voxels (60.19%, 2.5371357367905816 seconds remaining)
-Job #1, processed 270/432 voxels (62.50%, 2.3748985290527345 seconds remaining)
-Job #1, processed 280/432 voxels (64.81%, 2.2155357650576724 seconds remaining)
-Job #1, processed 290/432 voxels (67.13%, 2.064764275096949 seconds remaining)
-Job #1, processed 300/432 voxels (69.44%, 1.922409892631566 seconds remaining)
-Job #1, processed 310/432 voxels (71.76%, 1.770623596748513 seconds remaining)
-Job #1, processed 320/432 voxels (74.07%, 1.625012456252216 seconds remaining)
-Job #1, processed 330/432 voxels (76.39%, 1.4853995434353684 seconds remaining)
-Job #1, processed 340/432 voxels (78.70%, 1.3413970943024378 seconds remaining)
-Job #1, processed 350/432 voxels (81.02%, 1.1958119307174064 seconds remaining)
-Job #1, processed 360/432 voxels (83.33%, 1.0532549927676125 seconds remaining)
-Job #1, processed 370/432 voxels (85.65%, 0.9121871306335303 seconds remaining)
-Job #1, processed 380/432 voxels (87.96%, 0.7657383111673579 seconds remaining)
-Job #1, processed 390/432 voxels (90.28%, 0.6225227457155523 seconds remaining)
-Job #1, processed 400/432 voxels (92.59%, 0.47376191653395716 seconds remaining)
-Job #1, processed 410/432 voxels (94.91%, 0.3265467156550995 seconds remaining)
-Job #1, processed 420/432 voxels (97.22%, 0.1778702179214833 seconds remaining)
-Job #1, processed 430/432 voxels (99.54%, 0.029404747790304976 seconds remaining)
-SearchLight: training time: 6.85s
+Job #1, processed 0/432 voxels (0.00%, 150.35152435302734 seconds remaining)
+Job #1, processed 10/432 voxels (2.31%, 7.052266092011422 seconds remaining)
+Job #1, processed 20/432 voxels (4.63%, 6.118024270426377 seconds remaining)
+Job #1, processed 30/432 voxels (6.94%, 6.184035804154893 seconds remaining)
+Job #1, processed 40/432 voxels (9.26%, 6.188388113326697 seconds remaining)
+Job #1, processed 50/432 voxels (11.57%, 6.159643372483777 seconds remaining)
+Job #1, processed 60/432 voxels (13.89%, 5.883910422362897 seconds remaining)
+Job #1, processed 70/432 voxels (16.20%, 5.893399341606799 seconds remaining)
+Job #1, processed 80/432 voxels (18.52%, 5.85478385220851 seconds remaining)
+Job #1, processed 90/432 voxels (20.83%, 5.625665193673115 seconds remaining)
+Job #1, processed 100/432 voxels (23.15%, 5.398782017421516 seconds remaining)
+Job #1, processed 110/432 voxels (25.46%, 5.270475360603661 seconds remaining)
+Job #1, processed 120/432 voxels (27.78%, 5.091969013042464 seconds remaining)
+Job #1, processed 130/432 voxels (30.09%, 4.857163958154908 seconds remaining)
+Job #1, processed 140/432 voxels (32.41%, 4.681348627417664 seconds remaining)
+Job #1, processed 150/432 voxels (34.72%, 4.487708333450528 seconds remaining)
+Job #1, processed 160/432 voxels (37.04%, 4.279939249318826 seconds remaining)
+Job #1, processed 170/432 voxels (39.35%, 4.083850793038723 seconds remaining)
+Job #1, processed 180/432 voxels (41.67%, 3.906226238415972 seconds remaining)
+Job #1, processed 190/432 voxels (43.98%, 3.721556345730167 seconds remaining)
+Job #1, processed 200/432 voxels (46.30%, 3.5251631886088823 seconds remaining)
+Job #1, processed 210/432 voxels (48.61%, 3.350015595920094 seconds remaining)
+Job #1, processed 220/432 voxels (50.93%, 3.17823219542744 seconds remaining)
+Job #1, processed 230/432 voxels (53.24%, 3.0021386581825005 seconds remaining)
+Job #1, processed 240/432 voxels (55.56%, 2.8291333823688083 seconds remaining)
+Job #1, processed 250/432 voxels (57.87%, 2.668735719950722 seconds remaining)
+Job #1, processed 260/432 voxels (60.19%, 2.507846456881991 seconds remaining)
+Job #1, processed 270/432 voxels (62.50%, 2.347943830490112 seconds remaining)
+Job #1, processed 280/432 voxels (64.81%, 2.190720491691828 seconds remaining)
+Job #1, processed 290/432 voxels (67.13%, 2.0418818852202865 seconds remaining)
+Job #1, processed 300/432 voxels (69.44%, 1.901577645183159 seconds remaining)
+Job #1, processed 310/432 voxels (71.76%, 1.7516556756286445 seconds remaining)
+Job #1, processed 320/432 voxels (74.07%, 1.6079027112943054 seconds remaining)
+Job #1, processed 330/432 voxels (76.39%, 1.4699280584712102 seconds remaining)
+Job #1, processed 340/432 voxels (78.70%, 1.3275744609032984 seconds remaining)
+Job #1, processed 350/432 voxels (81.02%, 1.1836065549198362 seconds remaining)
+Job #1, processed 360/432 voxels (83.33%, 1.0425854423073866 seconds remaining)
+Job #1, processed 370/432 voxels (85.65%, 0.9032301379447082 seconds remaining)
+Job #1, processed 380/432 voxels (87.96%, 0.7589632877169445 seconds remaining)
+Job #1, processed 390/432 voxels (90.28%, 0.6171390880353164 seconds remaining)
+Job #1, processed 400/432 voxels (92.59%, 0.46973707261617476 seconds remaining)
+Job #1, processed 410/432 voxels (94.91%, 0.323841588563229 seconds remaining)
+Job #1, processed 420/432 voxels (97.22%, 0.1764330616264132 seconds remaining)
+Job #1, processed 430/432 voxels (99.54%, 0.029170481105249894 seconds remaining)
+SearchLight: training time: 6.75s
 </pre></div>
 </div>
 </section>
 <section id="an-exercise-to-go-further">
 <h2>An exercise to go further<a class="headerlink" href="#an-exercise-to-go-further" title="Permalink to this heading">#</a></h2>
-<blockquote>
-<div><p>As an exercice, you can use recursive feature elimination (RFE) with
+<p>As an exercice, you can use recursive feature elimination (RFE) with
 the SVM</p>
 <p>Read the object’s documentation to find out how to use RFE.</p>
 <p><strong>Performance tip</strong>: increase the <cite>step</cite> parameter, or it will be very
 slow.</p>
-</div></blockquote>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.feature_selection import RFE</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.977 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  11 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.732 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  9 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-simulated-data-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_simulated_data.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1091,6 +1089,7 @@ slow.</p>
 <li><a class="reference internal" href="#a-simple-function-to-plot-slices">A simple function to plot slices</a></li>
 <li><a class="reference internal" href="#create-data">Create data</a></li>
 <li><a class="reference internal" href="#run-different-estimators">Run different estimators</a></li>
+<li><a class="reference internal" href="#run-the-estimators">Run the estimators</a></li>
 <li><a class="reference internal" href="#an-exercise-to-go-further">An exercise to go further</a></li>
 </ul>
 </li>
