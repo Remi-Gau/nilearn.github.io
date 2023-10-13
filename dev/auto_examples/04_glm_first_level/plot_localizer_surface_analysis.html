@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -708,26 +708,27 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="example-of-surface-based-first-level-analysis">
 <span id="sphx-glr-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py"></span><h1>Example of surface-based first-level analysis<a class="headerlink" href="#example-of-surface-based-first-level-analysis" title="Permalink to this heading">#</a></h1>
-<p>A full step-by-step example of fitting a GLM to experimental data sampled on
-the cortical surface and visualizing the results.</p>
+<p>A full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> to experimental
+data sampled on the cortical surface and visualizing the results.</p>
 <p>More specifically:</p>
 <ol class="arabic simple">
-<li><p>A sequence of fMRI volumes is loaded.</p></li>
-<li><p>fMRI data are projected onto a reference cortical surface (the FreeSurfer
-template, fsaverage).</p></li>
+<li><p>A sequence of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> volumes is loaded.</p></li>
+<li><p><a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data are projected onto a reference cortical surface
+(the FreeSurfer template, fsaverage).</p></li>
 <li><p>A design matrix describing all the effects related to the data is computed.</p></li>
-<li><p>A GLM is applied to the dataset
+<li><p>A <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> is applied to the dataset
 (effect/covariance, then contrast estimation).</p></li>
 </ol>
 <p>The result of the analysis are statistical maps that are defined on the brain
 mesh. We display them using Nilearn capabilities.</p>
-<p>The projection of fMRI data onto a given brain mesh requires that both are
-initially defined in the same space.</p>
+<p>The projection of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data onto a given brain mesh requires
+that both are initially defined in the same space.</p>
 <ul class="simple">
 <li><p>The functional data should be coregistered to the anatomy from which the mesh
 was obtained.</p></li>
-<li><p>Another possibility, used here, is to project the normalized fMRI data to an
-MNI-coregistered mesh, such as fsaverage.</p></li>
+<li><p>Another possibility, used here, is to project
+the normalized <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data to an <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a>-coregistered mesh,
+such as fsaverage.</p></li>
 </ul>
 <p>The advantage of this second approach is that it makes it easy to run
 second-level analyses on the surface. On the other hand, it is obviously less
@@ -740,7 +741,7 @@ accurate than using a subject-tailored mesh.</p>
 </pre></div>
 </div>
 <p>Prepare the data.
-First, the volume-based fMRI data.</p>
+First, the volume-based <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_localizer_first_level.html#nilearn.datasets.fetch_localizer_first_level" title="nilearn.datasets.fetch_localizer_first_level" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_localizer_first_level</span></a>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_localizer_first_level.html#nilearn.datasets.fetch_localizer_first_level" title="nilearn.datasets.fetch_localizer_first_level" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_localizer_first_level</span></a><span class="p">()</span>
@@ -756,7 +757,7 @@ First, the volume-based fMRI data.</p>
 </div>
 </section>
 <section id="project-the-fmri-image-to-the-surface">
-<h2>Project the fMRI image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Permalink to this heading">#</a></h2>
+<h2>Project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Permalink to this heading">#</a></h2>
 <p>For this we need to get a mesh representing the geometry of the surface. We
 could use an individual mesh, but we first resort to a standard mesh, the
 so-called fsaverage5 template from the FreeSurfer software.</p>
@@ -765,8 +766,8 @@ so-called fsaverage5 template from the FreeSurfer software.</p>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="nilearn.datasets.fetch_surf_fsaverage" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">nilearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p>The projection function simply takes the fMRI data and the mesh.
-Note that those correspond spatially, are they are both in MNI space.</p>
+<p>The projection function simply takes the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data and the mesh.
+Note that those correspond spatially, are they are both in <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">surface</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">texture</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.surface.vol_to_surf.html#nilearn.surface.vol_to_surf" title="nilearn.surface.vol_to_surf" class="sphx-glr-backref-module-nilearn-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">vol_to_surf</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_img</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span><span class="o">.</span><span class="n">pial_right</span></a><span class="p">)</span>
@@ -776,7 +777,7 @@ Note that those correspond spatially, are they are both in MNI space.</p>
 <section id="perform-first-level-analysis">
 <h2>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Permalink to this heading">#</a></h2>
 <p>This involves computing the design matrix and fitting the model.
-We start by specifying the timing of fMRI frames.</p>
+We start by specifying the timing of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> frames.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_scans</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">texture</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -784,7 +785,8 @@ We start by specifying the timing of fMRI frames.</p>
 </pre></div>
 </div>
 <p>Create the design matrix.</p>
-<p>We specify an hrf model containing the Glover model and its time derivative
+<p>We specify an <a class="reference internal" href="../../glossary.html#term-HRF"><span class="xref std std-term">HRF</span></a> model
+containing the Glover model and its time derivative
 The drift model is implicitly a cosine basis with a period cutoff at 128s.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.first_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.first_level.make_first_level_design_matrix.html#nilearn.glm.first_level.make_first_level_design_matrix" title="nilearn.glm.first_level.make_first_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">make_first_level_design_matrix</span></a>
 
@@ -798,7 +800,7 @@ The drift model is implicitly a cosine basis with a period cutoff at 128s.</p>
 <p>Note that the output consists in 2 variables: <cite>labels</cite> and <cite>fit</cite>.
 <cite>labels</cite> tags voxels according to noise autocorrelation.
 <cite>estimates</cite> contains the parameter estimates.
-We keep them for later contrast computation.</p>
+We keep them for later <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> computation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.first_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.first_level.run_glm.html#nilearn.glm.first_level.run_glm" title="nilearn.glm.first_level.run_glm" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">run_glm</span></a>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimates</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.run_glm.html#nilearn.glm.first_level.run_glm" title="nilearn.glm.first_level.run_glm" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">run_glm</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">texture</span><span class="o">.</span><span class="n">T</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.values.html#pandas.DataFrame.values" title="pandas.DataFrame.values" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-property"><span class="n">design_matrix</span><span class="o">.</span><span class="n">values</span></a><span class="p">)</span>
@@ -819,7 +821,7 @@ the number of columns of the design matrix.</p>
 </pre></div>
 </div>
 <p>Next, we add some intermediate contrasts and
-one contrast adding all conditions with some auditory parts.</p>
+one <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> adding all conditions with some auditory parts.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basic_contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basic_contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio_left_hand_button_press&#39;</span><span class="p">]</span>
     <span class="o">+</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basic_contrasts</span></a><span class="p">[</span><span class="s1">&#39;audio_right_hand_button_press&#39;</span><span class="p">]</span>
@@ -905,7 +907,7 @@ Contrast 3 out of 3: computation - sentences, right hemisphere
 <h2>Analysing the left hemisphere<a class="headerlink" href="#analysing-the-left-hemisphere" title="Permalink to this heading">#</a></h2>
 <p>Note that re-creating the above analysis for the left hemisphere requires
 little additional code!</p>
-<p>We project the fMRI data to the mesh.</p>
+<p>We project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data to the mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">texture</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.surface.vol_to_surf.html#nilearn.surface.vol_to_surf" title="nilearn.surface.vol_to_surf" class="sphx-glr-backref-module-nilearn-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">vol_to_surf</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_img</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span><span class="o">.</span><span class="n">pial_left</span></a><span class="p">)</span>
 </pre></div>
 </div>
@@ -940,7 +942,7 @@ Contrast 2 out of 3: audio - visual, left hemisphere
 Contrast 3 out of 3: computation - sentences, left hemisphere
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 14.740 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 14.938 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  234 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py">
 <div class="binder-badge docutils container">
@@ -1020,7 +1022,7 @@ Contrast 3 out of 3: computation - sentences, left hemisphere
             <ul>
 <li><a class="reference internal" href="#">Example of surface-based first-level analysis</a><ul>
 <li><a class="reference internal" href="#prepare-data-and-analysis-parameters">Prepare data and analysis parameters</a></li>
-<li><a class="reference internal" href="#project-the-fmri-image-to-the-surface">Project the fMRI image to the surface</a></li>
+<li><a class="reference internal" href="#project-the-fmri-image-to-the-surface">Project the <span class="xref std std-term">fMRI</span> image to the surface</a></li>
 <li><a class="reference internal" href="#perform-first-level-analysis">Perform first level analysis</a></li>
 <li><a class="reference internal" href="#estimate-contrasts">Estimate contrasts</a></li>
 <li><a class="reference internal" href="#analysing-the-left-hemisphere">Analysing the left hemisphere</a></li>

@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -724,7 +724,7 @@ Notice that in this case the preprocessed <a class="reference internal" href="..
 images were already normalized to the same <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.</p></li>
 </ol>
 <section id="fetch-example-bids-dataset">
-<h2>Fetch example BIDS dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Fetch example <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this heading">#</a></h2>
 <p>We download a simplified <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset made available for illustrative
 purposes. It contains only the necessary
 information to run a statistical analysis using Nilearn. The raw data
@@ -784,7 +784,7 @@ be made here.</p>
 <span class="nb">print</span><span class="p">([</span><a href="https://docs.python.org/3.9/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">models_run_imgs</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-01_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-10_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
 </pre></div>
 </div>
 <p>The only confounds stored are regressors obtained from motion correction. As
@@ -813,8 +813,8 @@ Name: count, dtype: int64
 <h2>First level model estimation<a class="headerlink" href="#first-level-model-estimation" title="Permalink to this heading">#</a></h2>
 <p>Now we simply fit each first level model and plot for each subject the
 <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> that reveals the language network (language - string).
-Notice that we can define a contrast using the names of the conditions
-specified in the events dataframe.
+Notice that we can define a <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a>
+using the names of the conditions specified in the events dataframe.
 Sum, subtraction and scalar multiplication are allowed.</p>
 <p>Set the threshold as the z-variate with an uncorrected p-value of 0.001.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -873,7 +873,7 @@ contrast.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>The group level contrast reveals a left lateralized fronto-temporal
+<p>The group level <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> reveals a left lateralized fronto-temporal
 language network.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="nilearn.plotting.plot_glass_brain" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span>
     <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">zmap</span></a><span class="p">,</span>
@@ -887,8 +887,8 @@ language network.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 48.339 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  218 MB</p>
+<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 47.972 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  188 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-bids-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_bids_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
@@ -966,7 +966,7 @@ language network.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">BIDS dataset first and second level analysis</a><ul>
-<li><a class="reference internal" href="#fetch-example-bids-dataset">Fetch example BIDS dataset</a></li>
+<li><a class="reference internal" href="#fetch-example-bids-dataset">Fetch example <span class="xref std std-term">BIDS</span> dataset</a></li>
 <li><a class="reference internal" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments">Obtain automatically FirstLevelModel objects and fit arguments</a></li>
 <li><a class="reference internal" href="#quick-sanity-check-on-fit-arguments">Quick sanity check on fit arguments</a></li>
 <li><a class="reference internal" href="#first-level-model-estimation">First level model estimation</a></li>

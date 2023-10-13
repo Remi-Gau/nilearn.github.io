@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -721,11 +721,11 @@ connectomes across subjects”, NeuroImage 2013</a>.</p></li>
 <section id="brain-parcellations">
 <h3><span class="section-number">6.1.1.1. </span>Brain parcellations<a class="headerlink" href="#brain-parcellations" title="Permalink to this heading">#</a></h3>
 <p>Regions used to extract the signal can be defined by a “hard”
-parcellation. For instance, the <a class="reference internal" href="../modules/datasets.html#module-nilearn.datasets" title="nilearn.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.datasets</span></code></a> has functions to
-download atlases forming reference parcellation, e.g.,
+<a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a>. For instance, the <a class="reference internal" href="../modules/datasets.html#module-nilearn.datasets" title="nilearn.datasets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.datasets</span></code></a> has functions to
+download atlases forming reference <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a>, e.g.,
 <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_craddock_2012.html#nilearn.datasets.fetch_atlas_craddock_2012" title="nilearn.datasets.fetch_atlas_craddock_2012"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_atlas_craddock_2012</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_harvard_oxford.html#nilearn.datasets.fetch_atlas_harvard_oxford" title="nilearn.datasets.fetch_atlas_harvard_oxford"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_atlas_harvard_oxford</span></code></a>,
 <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_yeo_2011.html#nilearn.datasets.fetch_atlas_yeo_2011" title="nilearn.datasets.fetch_atlas_yeo_2011"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_atlas_yeo_2011</span></code></a>.</p>
-<p>For instance to retrieve the Harvard-Oxford cortical parcellation, sampled
+<p>For instance to retrieve the Harvard-Oxford cortical <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a>, sampled
 at 2mm, and with a threshold of a probability of 0.25:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_harvard_oxford</span><span class="p">(</span><span class="s1">&#39;cort-maxprob-thr25-2mm&#39;</span><span class="p">)</span>
@@ -749,7 +749,7 @@ at 2mm, and with a threshold of a probability of 0.25:</p>
 </section>
 <section id="extracting-signals-on-a-parcellation">
 <h3><span class="section-number">6.1.1.2. </span>Extracting signals on a parcellation<a class="headerlink" href="#extracting-signals-on-a-parcellation" title="Permalink to this heading">#</a></h3>
-<p>To extract signal on the parcellation, the easiest option is to use the
+<p>To extract signal on the <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a>, the easiest option is to use the
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a>. As any “maskers” in
 nilearn, it is a processing object that is created by specifying all
 the important parameters, but not the data:</p>
@@ -820,7 +820,7 @@ a correlation matrix (check the shape of your matrices).</p></li>
 <p>The definition of regions as by a continuous probability map captures
 better our imperfect knowledge of boundaries in brain images (notably
 because of inter-subject registration errors). One example of such an
-atlas well suited to resting-state or naturalistic-stimuli data analysis is
+atlas well suited to <a class="reference internal" href="../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> or naturalistic-stimuli data analysis is
 the <a class="reference external" href="https://team.inria.fr/parietal/18-2/spatial_patterns/spatial-patterns-in-resting-state/">MSDL atlas</a>
 (<a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_atlas_msdl</span></code></a>).</p>
 <p>Probabilistic atlases are represented as a set of continuous maps, in a
@@ -831,8 +831,8 @@ of these maps, which requires accessing them with
 </section>
 <section id="extracting-signals-from-a-probabilistic-atlas">
 <h3><span class="section-number">6.1.2.2. </span>Extracting signals from a probabilistic atlas<a class="headerlink" href="#extracting-signals-from-a-probabilistic-atlas" title="Permalink to this heading">#</a></h3>
-<p>As with extraction of signals on a parcellation, extracting signals from
-a probabilistic atlas can be done with a “masker” object:  the
+<p>As with extraction of signals on a <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a>, extracting signals from
+a <a class="reference internal" href="../glossary.html#term-Probabilistic-atlas"><span class="xref std std-term">probabilistic atlas</span></a> can be done with a “masker” object:  the
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>. It is created by
 specifying the important parameters, in particular the atlas:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <span class="n">NiftiMapsMasker</span>
@@ -870,7 +870,7 @@ of “nodes”, connected by “edges”. When these nodes are brain regions, an
 the edges capture interactions between them, this graph is a “functional
 connectome”.</p>
 <p>We can display it with the <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.plot_connectome</span></code></a>
-function that take the matrix, and coordinates of the nodes in MNI space.
+function that take the matrix, and coordinates of the nodes in <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.
 In the case of the MSDL atlas
 (<a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_atlas_msdl</span></code></a>), the CSV file readily comes
 with <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> coordinates for each region (see for instance example:
@@ -884,10 +884,10 @@ direct connections only.</p>
 <section id="a-functional-connectome-extracting-coordinates-of-regions">
 <h2><span class="section-number">6.1.4. </span>A functional connectome: extracting coordinates of regions<a class="headerlink" href="#a-functional-connectome-extracting-coordinates-of-regions" title="Permalink to this heading">#</a></h2>
 <p>For atlases without readily available label coordinates, center coordinates
-can be computed for each region on hard parcellation or probabilistic atlases.</p>
+can be computed for each region on hard <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> or probabilistic atlases.</p>
 <blockquote>
 <div><ul>
-<li><p>For hard parcellation atlases (eg. <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_destrieux_2009.html#nilearn.datasets.fetch_atlas_destrieux_2009" title="nilearn.datasets.fetch_atlas_destrieux_2009"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_atlas_destrieux_2009</span></code></a>),
+<li><p>For hard <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> atlases (eg. <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_destrieux_2009.html#nilearn.datasets.fetch_atlas_destrieux_2009" title="nilearn.datasets.fetch_atlas_destrieux_2009"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_atlas_destrieux_2009</span></code></a>),
 use the <a class="reference internal" href="../modules/generated/nilearn.plotting.find_parcellation_cut_coords.html#nilearn.plotting.find_parcellation_cut_coords" title="nilearn.plotting.find_parcellation_cut_coords"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.find_parcellation_cut_coords</span></code></a>
 function. See example:
 <a class="reference internal" href="../auto_examples/03_connectivity/plot_atlas_comparison.html#sphx-glr-auto-examples-03-connectivity-plot-atlas-comparison-py"><span class="std std-ref">Comparing connectomes on different reference atlases</span></a></p></li>

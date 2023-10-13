@@ -23,20 +23,21 @@ FREM on Jimura et al "mixed gambles" dataset
 
 In this example, we use fast ensembling of regularized models (FREM) to
 solve a regression problem, predicting the gain level corresponding to each
-beta maps regressed from mixed gambles experiment. FREM uses an implicit
-spatial regularization through fast clustering and aggregates a high number
+:term:`beta<Beta>` maps regressed from mixed gambles experiment.
+:term:`FREM` uses an implicit spatial regularization through fast clustering
+and aggregates a high number
 of  estimators trained on various splits of the training set, thus returning
 a very robust decoder at a lower computational cost than other spatially
 regularized methods.
 
 To have more details, see: :ref:`frem`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-19
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
 
 Load the data from the Jimura mixed-gamble experiment
 -----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-27
+.. GENERATED FROM PYTHON SOURCE LINES 20-28
 
 .. code-block:: default
 
@@ -55,14 +56,14 @@ Load the data from the Jimura mixed-gamble experiment
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-32
+.. GENERATED FROM PYTHON SOURCE LINES 29-33
 
 Fit FREM
 --------
 We compare both of these models to a pipeline ensembling many models
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-51
+.. GENERATED FROM PYTHON SOURCE LINES 33-52
 
 .. code-block:: default
 
@@ -98,7 +99,7 @@ We compare both of these models to a pipeline ensembling many models
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:214: UserWarning:
 
     Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
 
@@ -223,13 +224,14 @@ We compare both of these models to a pipeline ensembling many models
     Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7f8c0c10e190>
+    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7f4cb8956730>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-59
+.. GENERATED FROM PYTHON SOURCE LINES 53-61
 
-We can observe that the coefficients map learnt by FREM is structured,
+We can observe that the coefficients map learnt
+by :term:`FREM` is structured,
 due to the spatial regularity imposed by working on clusters and model
 ensembling. Although these maps have been thresholded for display, they are
 not sparse (i.e. almost all voxels have non-zero coefficients). See also this
@@ -237,7 +239,7 @@ not sparse (i.e. almost all voxels have non-zero coefficients). See also this
 using FREM, and related :ref:`section of user guide <frem>`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-70
+.. GENERATED FROM PYTHON SOURCE LINES 63-72
 
 Example use of TV-L1 SpaceNet
 -----------------------------
@@ -249,7 +251,7 @@ not demonstrated on this example but you can try them easily if you have a
 few minutes. Example code is included below.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-86
+.. GENERATED FROM PYTHON SOURCE LINES 72-88
 
 .. code-block:: default
 
@@ -279,9 +281,9 @@ few minutes. Example code is included below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 51.496 seconds)
+   **Total running time of the script:** (0 minutes 53.268 seconds)
 
-**Estimated memory usage:**  1823 MB
+**Estimated memory usage:**  1833 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_mixed_gambles_frem.py:

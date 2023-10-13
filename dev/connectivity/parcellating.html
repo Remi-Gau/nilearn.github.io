@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -720,9 +720,9 @@ Frontiers in neuroscience 8.167 (2014): 13.</p>
 </aside>
 <section id="data-loading-movie-watching-data">
 <h2><span class="section-number">6.5.1. </span>Data loading: movie-watching data<a class="headerlink" href="#data-loading-movie-watching-data" title="Permalink to this heading">#</a></h2>
-<p>Clustering is commonly applied to resting-state data, but any brain
+<p>Clustering is commonly applied to <a class="reference internal" href="../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> data, but any brain
 functional data will give rise of a functional parcellation, capturing
-intrinsic brain architecture in the case of resting-state data.
+intrinsic brain architecture in the case of <a class="reference internal" href="../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> data.
 In the examples, we use naturalistic stimuli-based movie watching
 brain development data downloaded with the function
 <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_development_fmri</span></code></a> (see <a class="reference internal" href="../manipulating_images/input_output.html#loading-data"><span class="std std-ref">Inputing data: file names or image objects</span></a>).</p>
@@ -767,7 +767,7 @@ extract a numpy array and then the connectivity matrix.</p>
 Ward’s algorithm is a hierarchical clustering algorithm: it
 recursively merges voxels, then clusters that have similar signal
 (parameters, measurements or time courses).</p>
-<p><strong>Caching</strong> In practice the implementation of Ward clustering first
+<p><strong>Caching</strong> In practice the implementation of <a class="reference internal" href="../glossary.html#term-Ward-clustering"><span class="xref std std-term">Ward clustering</span></a> first
 computes a tree of possible merges, and then, given a requested number of
 clusters, breaks apart the tree at the right level.</p>
 <p>As the tree is independent of the number of clusters, we can rely on caching to speed things up when varying the
@@ -777,7 +777,7 @@ can give it either a <em>joblib.Memory</em> instance or the name of a directory
 used for caching.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Ward clustering computing 1000 parcels runs typically in about 10
+<p>The <a class="reference internal" href="../glossary.html#term-Ward-clustering"><span class="xref std std-term">Ward clustering</span></a> computing 1000 parcels runs typically in about 10
 seconds. Admittedly, this is very fast.</p>
 </div>
 <div class="admonition note">
@@ -791,7 +791,7 @@ Ward, caching and clustering are all implemented within the
 <ul class="simple">
 <li><p>A function <a class="reference internal" href="../modules/generated/nilearn.regions.connected_label_regions.html#nilearn.regions.connected_label_regions" title="nilearn.regions.connected_label_regions"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.regions.connected_label_regions</span></code></a> which can be useful to
 break down connected components into regions. For instance, clusters defined using
-KMeans whereas it is not necessary for Ward clustering due to its
+KMeans whereas it is not necessary for <a class="reference internal" href="../glossary.html#term-Ward-clustering"><span class="xref std std-term">Ward clustering</span></a> due to its
 spatial connectivity.</p></li>
 </ul>
 </div>
@@ -800,7 +800,7 @@ spatial connectivity.</p></li>
 <h2><span class="section-number">6.5.3. </span>Using and visualizing the resulting parcellation<a class="headerlink" href="#using-and-visualizing-the-resulting-parcellation" title="Permalink to this heading">#</a></h2>
 <section id="visualizing-the-parcellation">
 <h3><span class="section-number">6.5.3.1. </span>Visualizing the parcellation<a class="headerlink" href="#visualizing-the-parcellation" title="Permalink to this heading">#</a></h3>
-<p>The labels of the parcellation are found in the <code class="docutils literal notranslate"><span class="pre">labels_img_</span></code> attribute of
+<p>The labels of the <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> are found in the <code class="docutils literal notranslate"><span class="pre">labels_img_</span></code> attribute of
 the <a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.regions.Parcellations</span></code></a> object after fitting it to the data
 using <em>ward.fit</em>. We directly use the result for visualization.</p>
 <p>To visualize the clusters, we assign random colors to each cluster

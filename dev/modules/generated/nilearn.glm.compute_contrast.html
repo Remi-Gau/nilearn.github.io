@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,8 +711,8 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.glm.compute_contrast<a class="headerlink" href="#nilearn-glm-compute-contrast" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.glm.compute_contrast">
-<span class="sig-prename descclassname"><span class="pre">nilearn.glm.</span></span><span class="sig-name descname"><span class="pre">compute_contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regression_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">con_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/38ced876/nilearn/glm/contrasts.py#L49"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.compute_contrast" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute the specified contrast given an estimated glm.</p>
+<span class="sig-prename descclassname"><span class="pre">nilearn.glm.</span></span><span class="sig-name descname"><span class="pre">compute_contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regression_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">con_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/b6f4ff04/nilearn/glm/contrasts.py#L50"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.compute_contrast" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the specified <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> given an estimated glm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -721,16 +721,18 @@ function signature, and not how to use it. Please refer to the
 <dt><strong>regression_result</strong><span class="classifier">dict</span></dt><dd><p>With keys corresponding to the different labels
 values are RegressionResults instances corresponding to the voxels.</p>
 </dd>
-<dt><strong>con_val</strong><span class="classifier">numpy.ndarray of shape (p) or (q, p)</span></dt><dd><p>Where q = number of contrast vectors and p = number of regressors.</p>
+<dt><strong>con_val</strong><span class="classifier">numpy.ndarray of shape (p) or (q, p)</span></dt><dd><p>Where q = number of <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> vectors
+and p = number of regressors.</p>
 </dd>
-<dt><strong>contrast_type</strong><span class="classifier">{None, ‘t’, ‘F’}, optional</span></dt><dd><p>Type of the contrast.  If None, then defaults to ‘t’ for 1D
-<cite>con_val</cite> and ‘F’ for 2D <cite>con_val</cite></p>
+<dt><strong>contrast_type</strong><span class="classifier">{None, ‘t’, ‘F’}, optional</span></dt><dd><p>Type of the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a>.
+If None, then defaults to ‘t’ for 1D <cite>con_val</cite>
+and ‘F’ for 2D <cite>con_val</cite>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>con</strong><span class="classifier">Contrast instance,</span></dt><dd><p>Yields the statistics of the contrast
+<dt><strong>con</strong><span class="classifier">Contrast instance,</span></dt><dd><p>Yields the statistics of the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a>
 (<a class="reference internal" href="../../glossary.html#term-Parameter-estimate"><span class="xref std std-term">effects</span></a>, variance, p-values).</p>
 </dd>
 </dl>

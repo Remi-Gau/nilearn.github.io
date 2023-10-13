@@ -7,10 +7,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/08_experimental/plot_surface_image_and_maskers.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="copied from the nilearn sandbox discussion, to be transformed into tests & examples NOTE this example is meant to support discussion around a tentative API for surface images in nilearn. This funct..." />
+<meta property="og:description" content="copied from the nilearn sandbox discussion, to be transformed into tests & examples Connectivity with a surface atlas and SurfaceLabelsMasker:,. Using the Decoder: The following is just disabling a..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="copied from the nilearn sandbox discussion, to be transformed into tests & examples NOTE this example is meant to support discussion around a tentative API for surface images in nilearn. This funct..." />
+<meta name="description" content="copied from the nilearn sandbox discussion, to be transformed into tests & examples Connectivity with a surface atlas and SurfaceLabelsMasker:,. Using the Decoder: The following is just disabling a..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="User guide" href="../../user_guide.html" /><link rel="prev" title="Examples for experimental modules" href="index.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -167,7 +167,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -695,7 +695,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -710,11 +710,14 @@ to download the full example code or to run this example in your browser via Bin
 <span id="sphx-glr-auto-examples-08-experimental-plot-surface-image-and-maskers-py"></span><h1>A short demo of the surface images &amp; maskers<a class="headerlink" href="#a-short-demo-of-the-surface-images-maskers" title="Permalink to this heading">#</a></h1>
 <p>copied from the nilearn sandbox discussion, to be transformed into tests &amp;
 examples</p>
-<p>NOTE this example is meant to support discussion around a tentative API for
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this example is meant to support discussion around a tentative API for
 surface images in nilearn. This functionality is provided by the
 nilearn.experimental.surface module; it is still incomplete and subject to
 change without a deprecation cycle. Please participate in the discussion on
 GitHub!</p>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="typing.Optional" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data"><span class="n">Optional</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Sequence" title="typing.Sequence" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Sequence</span></a>
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -780,7 +783,8 @@ Masked data shape: (895, 20484)
 Image mean: &lt;SurfaceImage (20484,)&gt;
 </pre></div>
 </div>
-<p>### Connectivity with a surface atlas and <cite>SurfaceLabelsMasker</cite></p>
+<section id="connectivity-with-a-surface-atlas-and-surfacelabelsmasker">
+<h2>Connectivity with a surface atlas and <cite>SurfaceLabelsMasker</cite><a class="headerlink" href="#connectivity-with-a-surface-atlas-and-surfacelabelsmasker" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">connectome</span></a><span class="p">,</span> <span class="n">plotting</span>
 
 <a href="../../modules/generated/nilearn.experimental.surface.SurfaceImage.html#nilearn.experimental.surface.SurfaceImage" title="nilearn.experimental.surface.SurfaceImage" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.experimental.surface.fetch_nki.html#nilearn.experimental.surface.fetch_nki" title="nilearn.experimental.surface.fetch_nki" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">fetch_nki</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
@@ -814,7 +818,9 @@ Masked data shape: (895, 75)
 The default strategy for standardize is currently &#39;zscore&#39; which incorrectly uses population std to calculate sample zscores. The new strategy &#39;zscore_sample&#39; corrects this behavior by using the sample std. In release 0.13, the default strategy will be replaced by the new strategy and the &#39;zscore&#39; option will be removed. Please use &#39;zscore_sample&#39; instead.
 </pre></div>
 </div>
-<p>### Using the <cite>Decoder</cite></p>
+</section>
+<section id="using-the-decoder">
+<h2>Using the <cite>Decoder</cite><a class="headerlink" href="#using-the-decoder" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">decoding</span><span class="p">,</span> <span class="n">plotting</span>
@@ -883,7 +889,9 @@ invalid value encountered in divide
 CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034]}
 </pre></div>
 </div>
-<p>### Decoding with a scikit-learn <cite>Pipeline</cite></p>
+</section>
+<section id="decoding-with-a-scikit-learn-pipeline">
+<h2>Decoding with a scikit-learn <cite>Pipeline</cite><a class="headerlink" href="#decoding-with-a-scikit-learn-pipeline" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">preprocessing</span>
 
@@ -916,8 +924,8 @@ CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 34.506 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1558 MB</p>
+<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 34.827 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1475 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-08-experimental-plot-surface-image-and-maskers-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/08_experimental/plot_surface_image_and_maskers.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo8.svg" width="150px" /></a>
@@ -930,6 +938,7 @@ CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: 
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
 </section>
 
         </article>
@@ -981,8 +990,29 @@ CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: 
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">A short demo of the surface images &amp; maskers</a><ul>
+<li><a class="reference internal" href="#connectivity-with-a-surface-atlas-and-surfacelabelsmasker">Connectivity with a surface atlas and <cite>SurfaceLabelsMasker</cite></a></li>
+<li><a class="reference internal" href="#using-the-decoder">Using the <cite>Decoder</cite></a></li>
+<li><a class="reference internal" href="#decoding-with-a-scikit-learn-pipeline">Decoding with a scikit-learn <cite>Pipeline</cite></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

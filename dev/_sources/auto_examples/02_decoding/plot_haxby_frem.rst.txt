@@ -23,7 +23,7 @@ Decoding with FREM: face vs house vs chair object recognition
 
 This example uses fast ensembling of regularized models (FREM) to decode
 a face vs house vs chair discrimination task from Haxby 2001 study.
-FREM uses an implicit spatial regularization
+:term:`FREM` uses an implicit spatial regularization
 through fast clustering and aggregates a high number of estimators
 trained on various splits of the training set,
 thus returning a very robust decoder
@@ -69,7 +69,7 @@ Load the Haxby dataset
     y_test = conditions[condition_mask_test].values
 
 
-    # Compute the mean epi to be used for the background of the plotting
+    # Compute the mean EPI to be used for the background of the plotting
     from nilearn.image import mean_img
 
     background_img = mean_img(func_filenames)
@@ -107,7 +107,7 @@ Fit FREM
 
  .. code-block:: none
 
-    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:214: UserWarning:
 
     Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
 
@@ -206,8 +206,8 @@ Plot confusion matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 100-102
 
-Visualization of FREM weights
------------------------------
+Visualization of :term:`FREM` weights
+-------------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-112
 
@@ -235,9 +235,10 @@ Visualization of FREM weights
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-119
+.. GENERATED FROM PYTHON SOURCE LINES 113-120
 
-FREM ensembling procedure yields an important improvement of decoding
+:term:`FREM` ensembling procedure
+yields an important improvement of decoding
 accuracy on this simple example compared to fitting only one model per
 fold and the clustering mechanism keeps its computational cost reasonable
 even on heavier examples. Here we ensembled several instances of l2-SVC,
@@ -247,9 +248,9 @@ FREMRegressor object is also available to solve regression problems.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (7 minutes 33.256 seconds)
+   **Total running time of the script:** (7 minutes 35.296 seconds)
 
-**Estimated memory usage:**  2023 MB
+**Estimated memory usage:**  2014 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_frem.py:

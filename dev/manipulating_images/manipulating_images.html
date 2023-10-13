@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -768,7 +768,7 @@ of the transformation matrix (i.e., affine).</p>
 <aside class="topic">
 <p class="topic-title"><strong>Special case: resampling to a given voxel size</strong></p>
 <p>Specifying a 3x3 matrix that is diagonal as a target_affine fixes the
-voxel size. For instance to resample to 3x3x3 mm voxels:</p>
+<a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> size. For instance to resample to 3x3x3 mm voxels:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">target_affine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
@@ -817,8 +817,8 @@ metadata.</p></li>
 <span id="computing-and-applying-mask"></span><h2><span class="section-number">9.2.4. </span>Computing and applying spatial masks<a class="headerlink" href="#computing-and-applying-spatial-masks" title="Permalink to this heading">#</a></h2>
 <p>Relevant functions:</p>
 <ul class="simple">
-<li><p>compute a mask from EPI images: <a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a></p></li>
-<li><p>compute a whole-brain, grey-matter or white-matter mask using the MNI template:
+<li><p>compute a mask from <a class="reference internal" href="../glossary.html#term-EPI"><span class="xref std std-term">EPI</span></a> images: <a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a></p></li>
+<li><p>compute a whole-brain, grey-matter or white-matter mask using the <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> template:
 <a class="reference internal" href="../modules/generated/nilearn.masking.compute_brain_mask.html#nilearn.masking.compute_brain_mask" title="nilearn.masking.compute_brain_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_brain_mask</span></code></a>.</p></li>
 <li><p>compute a mask from images with a flat background:
 <a class="reference internal" href="../modules/generated/nilearn.masking.compute_background_mask.html#nilearn.masking.compute_background_mask" title="nilearn.masking.compute_background_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_background_mask</span></code></a></p></li>
@@ -837,9 +837,9 @@ can be computed from the data:</p>
 <li><p><a class="reference internal" href="../modules/generated/nilearn.masking.compute_background_mask.html#nilearn.masking.compute_background_mask" title="nilearn.masking.compute_background_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_background_mask</span></code></a> for brain images where
 the brain stands out of a constant background. This is typically the
 case when working on statistic maps output after a brain extraction</p></li>
-<li><p><a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a> for EPI images</p></li>
+<li><p><a class="reference internal" href="../modules/generated/nilearn.masking.compute_epi_mask.html#nilearn.masking.compute_epi_mask" title="nilearn.masking.compute_epi_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_epi_mask</span></code></a> for <a class="reference internal" href="../glossary.html#term-EPI"><span class="xref std std-term">EPI</span></a> images</p></li>
 <li><p><a class="reference internal" href="../modules/generated/nilearn.masking.compute_brain_mask.html#nilearn.masking.compute_brain_mask" title="nilearn.masking.compute_brain_mask"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.masking.compute_brain_mask</span></code></a> to compute a
-whole-brain, grey-matter or white-matter mask using the MNI template.</p></li>
+whole-brain, grey-matter or white-matter mask using the <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> template.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.masking</span> <span class="kn">import</span> <span class="n">compute_epi_mask</span>
 
@@ -859,9 +859,9 @@ whole-brain, grey-matter or white-matter mask using the MNI template.</p></li>
 </section>
 <section id="masking-data-from-4d-nifti-images-to-2d-data-arrays">
 <span id="mask-4d-2-3d"></span><h3><span class="section-number">9.2.4.2. </span>Masking data: from 4D Nifti images to 2D data arrays<a class="headerlink" href="#masking-data-from-4d-nifti-images-to-2d-data-arrays" title="Permalink to this heading">#</a></h3>
-<p>fMRI data is usually represented as a 4D block of data: 3 spatial
+<p><a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data is usually represented as a 4D block of data: 3 spatial
 dimensions and one time dimension. In practice, we are usually
-interested in working on the voxel time-series in the
+interested in working on the <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> time-series in the
 brain. It is thus convenient to apply a brain mask in order to convert the
 4D brain images representation into a restructured 2D data representation,
 <code class="docutils literal notranslate"><span class="pre">voxel</span></code> <strong>x</strong> <code class="docutils literal notranslate"><span class="pre">time</span></code>, as depicted below:</p>
@@ -927,7 +927,7 @@ used from <a class="reference external" href="https://scipy.github.io/devdocs/re
 <li><p><strong>Extracting connected components</strong>: We end with splitting the connected
 ROIs into two separate regions (ROIs), one in each hemisphere. The
 function <a class="reference external" href="https://scipy.github.io/devdocs/reference/generated/scipy.ndimage.label.html#scipy.ndimage.label" title="(in SciPy v1.12.0.dev)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.ndimage.label</span></code></a> from the scipy library is used.</p></li>
-<li><p><strong>Saving the result</strong>: The final voxel mask is saved to disk using
+<li><p><strong>Saving the result</strong>: The final <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> mask is saved to disk using
 the ‘to_filename’ method of the image object.
 (or <strong>nibabel.save</strong>).</p></li>
 </ul>
@@ -937,7 +937,7 @@ the ‘to_filename’ method of the image object.
 <p>For extracting connected components:</p>
 <ul class="simple">
 <li><p>A function <a class="reference internal" href="../modules/generated/nilearn.regions.connected_regions.html#nilearn.regions.connected_regions" title="nilearn.regions.connected_regions"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.regions.connected_regions</span></code></a> can be used readily
-on probabilistic atlas Nifti-like images whereas</p></li>
+on <a class="reference internal" href="../glossary.html#term-Probabilistic-atlas"><span class="xref std std-term">probabilistic atlas</span></a> Nifti-like images whereas</p></li>
 <li><p>A function <a class="reference internal" href="../modules/generated/nilearn.regions.connected_label_regions.html#nilearn.regions.connected_label_regions" title="nilearn.regions.connected_label_regions"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.regions.connected_label_regions</span></code></a> can be used on
 atlases denoted as labels. For instance, atlases labelled using KMeans.</p></li>
 </ul>

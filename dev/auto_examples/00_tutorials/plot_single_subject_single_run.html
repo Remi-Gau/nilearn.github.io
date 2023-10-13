@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -719,8 +719,8 @@ spatially normalized and smoothed images).</p>
 <h2>The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
 <p>The dataset comes from an experiment conducted at the FIL by Geraint Rees
 under the direction of Karl Friston. It is provided by FIL methods
-group which develops the SPM software.</p>
-<p>According to SPM documentation, 96 scans were acquired (repetition time
+group which develops the <a class="reference internal" href="../../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> software.</p>
+<p>According to <a class="reference internal" href="../../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> documentation, 96 scans were acquired (repetition time
 <a class="reference internal" href="../../glossary.html#term-TR"><span class="xref std std-term">TR</span></a> = 7s) in one session. The paradigm consisted of alternating periods
 of stimulation and rest, lasting 42s each (that is, for 6 scans). The session
 started with a rest block.  Auditory stimulation consisted of bi-syllabic words
@@ -767,7 +767,7 @@ These should abide to the Brain Imaging Data Structure
 <li><img src="../../_images/sphx_glr_plot_single_subject_single_run_001.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_001.png" alt="plot single subject single run" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_single_subject_single_run_002.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_002.png" alt="plot single subject single run" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c0d5ad640&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb6881520&gt;
 </pre></div>
 </div>
 <p>Next, we concatenate all the 3D <a class="reference internal" href="../../glossary.html#term-EPI"><span class="xref std std-term">EPI</span></a> image into a single 4D image,
@@ -920,7 +920,7 @@ provided in the dataset.</p>
 <br />
 <br /></section>
 <section id="performing-the-glm-analysis">
-<h2>Performing the GLM analysis<a class="headerlink" href="#performing-the-glm-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Performing the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> analysis<a class="headerlink" href="#performing-the-glm-analysis" title="Permalink to this heading">#</a></h2>
 <p>It is now time to create and estimate a <code class="docutils literal notranslate"><span class="pre">FirstLevelModel</span></code> object,
 that will generate the <em>design matrix</em>
 using the information provided by the <code class="docutils literal notranslate"><span class="pre">events</span></code> object.</p>
@@ -933,7 +933,8 @@ using the information provided by the <code class="docutils literal notranslate"
 <li><p>noise_model=’ar1’ specifies the noise covariance model: a lag-1 dependence</p></li>
 <li><p>standardize=False means that we do not want
 to rescale the time series to mean 0, variance 1</p></li>
-<li><p>hrf_model=’spm’ means that we rely on the SPM “canonical hrf” model
+<li><p>hrf_model=’spm’ means that we rely
+on the <a class="reference internal" href="../../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> “canonical hrf” model
 (without time or dispersion derivatives)</p></li>
 <li><p>drift_model=’cosine’ means that we model the signal drifts
 as slow oscillating time functions</p></li>
@@ -1001,7 +1002,7 @@ Let’s plot this first column</p>
 created <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> with a single ‘1’ in each of the columns: The role
 of the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> is to select some columns of the model –and
 potentially weight them– to study the associated statistics. So in
-a nutshell, a contrast is a weighted combination of the estimated
+a nutshell, a <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> is a weighted combination of the estimated
 effects.  Here we can define canonical contrasts that just consider
 the two effects in isolation —let’s call them “conditions”—
 then a <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> that makes the difference between these conditions.</p>
@@ -1466,9 +1467,9 @@ seeks whether a certain combination of conditions (possibly two-,
 three- or higher-dimensional) explains a significant proportion of
 the signal.  Here one might for instance test which voxels are well
 explained by the combination of the active and rest condition.</p>
-<p>Specify the contrast and compute the corresponding map. Actually, the
-contrast specification is done exactly the same way as for t-
-contrasts.</p>
+<p>Specify the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> and compute the corresponding map.
+Actually, the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> specification is done exactly the same way
+as for t-contrasts.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">effects_of_interest</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.vstack.html#numpy.vstack" title="numpy.vstack" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">vstack</span></a><span class="p">((</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">conditions</span></a><span class="p">[</span><span class="s2">&quot;active&quot;</span><span class="p">],</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">conditions</span></a><span class="p">[</span><span class="s2">&quot;rest&quot;</span><span class="p">]))</span>
 <a href="../../modules/generated/nilearn.plotting.plot_contrast_matrix.html#nilearn.plotting.plot_contrast_matrix" title="nilearn.plotting.plot_contrast_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">effects_of_interest</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a><span class="p">)</span>
 <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
@@ -1494,8 +1495,8 @@ makes it easier to represent it.</p>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_single_subject_single_run_012.png" srcset="../../_images/sphx_glr_plot_single_subject_single_run_012.png" alt="plot single subject single run" class = "sphx-glr-single-img"/><p>Oops, there is a lot of non-neural signal in there (ventricles, arteries)…</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 19.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  274 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 18.897 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  275 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-00-tutorials-plot-single-subject-single-run-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_single_subject_single_run.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>
@@ -1576,7 +1577,7 @@ makes it easier to represent it.</p>
 <li><a class="reference internal" href="#the-data">The data</a></li>
 <li><a class="reference internal" href="#retrieving-the-data">Retrieving the data</a></li>
 <li><a class="reference internal" href="#specifying-the-experimental-paradigm">Specifying the experimental paradigm</a></li>
-<li><a class="reference internal" href="#performing-the-glm-analysis">Performing the GLM analysis</a></li>
+<li><a class="reference internal" href="#performing-the-glm-analysis">Performing the <span class="xref std std-term">GLM</span> analysis</a></li>
 <li><a class="reference internal" href="#detecting-voxels-with-significant-effects">Detecting voxels with significant effects</a></li>
 <li><a class="reference internal" href="#plot-thresholded-z-scores-map">Plot thresholded z scores map</a></li>
 <li><a class="reference internal" href="#performing-an-f-test">Performing an F-test</a></li>

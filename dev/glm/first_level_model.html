@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,18 +707,18 @@
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>First level models are, in essence, linear regression models run at the level of a single
 session or single subject. The model is applied on a voxel-wise basis, either on the whole
-brain or within a region of interest. The timecourse of each voxel is regressed against a
-predicted BOLD response created by convolving the haemodynamic response function (HRF) with
+brain or within a region of interest. The timecourse of each <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> is regressed against a
+predicted <a class="reference internal" href="../glossary.html#term-BOLD"><span class="xref std std-term">BOLD</span></a> response created by convolving the haemodynamic response function (HRF) with
 a set of predictors defined within the design matrix.</p>
 </aside>
 <section id="hrf-models">
 <h2><span class="section-number">8.2.1. </span>HRF models<a class="headerlink" href="#hrf-models" title="Permalink to this heading">#</a></h2>
-<p>Nilearn offers a few different HRF models including the commonly used double-gamma SPM model (‘spm’)
+<p>Nilearn offers a few different <a class="reference internal" href="../glossary.html#term-HRF"><span class="xref std std-term">HRF</span></a> models including the commonly used double-gamma <a class="reference internal" href="../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> model (‘spm’)
 and the model shape proposed by G. Glover (‘glover’), both allowing the option of adding time and
 dispersion derivatives. The addition of these derivatives allows to better model any uncertainty in
-timing information. In addition, an FIR (finite impulse response, ‘fir’) model of the HRF is also available.</p>
+timing information. In addition, an <a class="reference internal" href="../glossary.html#term-FIR"><span class="xref std std-term">FIR</span></a> (finite impulse response, ‘fir’) model of the <a class="reference internal" href="../glossary.html#term-HRF"><span class="xref std std-term">HRF</span></a> is also available.</p>
 <p>In order to visualize the predicted regressor prior to plugging it into the linear model, use the
-function <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.compute_regressor.html#nilearn.glm.first_level.compute_regressor" title="nilearn.glm.first_level.compute_regressor"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.compute_regressor</span></code></a>, or explore the HRF plotting
+function <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.compute_regressor.html#nilearn.glm.first_level.compute_regressor" title="nilearn.glm.first_level.compute_regressor"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.compute_regressor</span></code></a>, or explore the <a class="reference internal" href="../glossary.html#term-HRF"><span class="xref std std-term">HRF</span></a> plotting
 example <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_hrf.html#sphx-glr-auto-examples-04-glm-first-level-plot-hrf-py"><span class="std std-ref">Example of MRI response functions</span></a>.</p>
 </section>
 <section id="design-matrix-event-based-and-time-series-based">
@@ -780,7 +780,7 @@ above. Code for this approach is in <a class="reference internal" href="../auto_
 <section id="fitting-a-first-level-model">
 <h2><span class="section-number">8.2.3. </span>Fitting a first level model<a class="headerlink" href="#fitting-a-first-level-model" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel</span></code></a> class provides the tools to fit the linear model to
-the fMRI data. The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.fit</span></code></a> function takes the fMRI data
+the <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data. The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.fit</span></code></a> function takes the fMRI data
 and design matrix as input and fits the GLM. Like other Nilearn functions,
 <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.fit</span></code></a> accepts file names as input, but can also
 work with <a class="reference external" href="https://nipy.org/nibabel/nibabel_images.html">NiftiImage objects</a>. More information about
@@ -792,7 +792,7 @@ input formats is available <a class="reference internal" href="../manipulating_i
 </div>
 <section id="computing-contrasts">
 <h3><span class="section-number">8.2.3.1. </span>Computing contrasts<a class="headerlink" href="#computing-contrasts" title="Permalink to this heading">#</a></h3>
-<p>To get more interesting results out of the GLM model, contrasts can be computed between regressors of interest.
+<p>To get more interesting results out of the <a class="reference internal" href="../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> model, contrasts can be computed between regressors of interest.
 The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.compute_contrast</span></code></a> function can be used for that. First,
 the contrasts of interest must be defined. In the spm_multimodal_fmri dataset referenced above, subjects are
 presented with ‘normal’ and ‘scrambled’ faces. The basic contrasts that can be constructed are the main effects
@@ -830,7 +830,7 @@ useful to calculate the F and R-squared statistic. For more information refer to
 </section>
 <section id="surface-based-analysis">
 <h2><span class="section-number">8.2.5. </span>Surface-based analysis<a class="headerlink" href="#surface-based-analysis" title="Permalink to this heading">#</a></h2>
-<p>fMRI analyses can also be performed on the cortical surface instead of a volumetric brain. Nilearn
+<p><a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> analyses can also be performed on the cortical surface instead of a volumetric brain. Nilearn
 provides functions to map subject brains on to a cortical mesh, which can be either a standard surface as
 provided by, for e.g. Freesurfer, or a user-defined one. Freesurfer meshes can be accessed using
 <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="nilearn.datasets.fetch_surf_fsaverage"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_surf_fsaverage</span></code></a>, while the function <a class="reference internal" href="../modules/generated/nilearn.surface.vol_to_surf.html#nilearn.surface.vol_to_surf" title="nilearn.surface.vol_to_surf"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.surface.vol_to_surf</span></code></a>

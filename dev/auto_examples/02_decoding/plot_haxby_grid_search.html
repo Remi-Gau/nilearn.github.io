@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -767,12 +767,13 @@ Functional nifti image (4D) are located at: /home/runner/work/nilearn/nilearn/ni
 </div>
 </section>
 <section id="anova-pipeline-with-nilearn-decoding-decoder-object">
-<h2>ANOVA pipeline with <a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object<a class="headerlink" href="#anova-pipeline-with-nilearn-decoding-decoder-object" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference internal" href="../../glossary.html#term-ANOVA"><span class="xref std std-term">ANOVA</span></a> pipeline with <a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> object<a class="headerlink" href="#anova-pipeline-with-nilearn-decoding-decoder-object" title="Permalink to this heading">#</a></h2>
 <p>Nilearn Decoder object aims to provide smooth user experience by acting as a
 pipeline of several tasks: preprocessing with NiftiMasker, reducing dimension
-by selecting only relevant features with ANOVA – a classical univariate
-feature selection based on F-test, and then decoding with different types of
-estimators (in this example is Support Vector Machine with a linear kernel)
+by selecting only relevant features with <a class="reference internal" href="../../glossary.html#term-ANOVA"><span class="xref std std-term">ANOVA</span></a>
+– a classical univariate feature selection based on F-test,
+and then decoding with different types of estimators
+(in this example is Support Vector Machine with a linear kernel)
 on nested cross-validation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">Decoder</span></a>
 
@@ -834,15 +835,15 @@ excellent explanation of how cross-validation works.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder.predict" title="nilearn.decoding.Decoder.predict" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-Fold 1 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9545454545454546
+Fold 1 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.9256198347107438
 Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
-Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7965367965367967
-Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7965367965367965
-Fold 5 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.777056277056277
+Fold 3 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.7965367965367965
+Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7683982683982684
+Fold 5 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.735930735930736
 </pre></div>
 </div>
 </section>
@@ -874,48 +875,48 @@ Fold 5 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.77705
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Validation score: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">val_scores</span></a><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 2.000
-Mean CV score: 0.8226
-Validation score: 0.4444
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+Mean CV score: 0.8100
+Validation score: 0.6111
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 4.000
 Mean CV score: 0.8493
 Validation score: 0.3889
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 8.000
-Mean CV score: 0.8644
-Validation score: 0.6667
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+Mean CV score: 0.8622
+Validation score: 0.5556
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 16.000
-Mean CV score: 0.8563
-Validation score: 0.4444
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+Mean CV score: 0.8744
+Validation score: 0.5000
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 32.000
-Mean CV score: 0.8667
-Validation score: 0.6667
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+Mean CV score: 0.8722
+Validation score: 0.5556
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 Sreening Percentile: 64.000
-Mean CV score: 0.8785
-Validation score: 0.6667
+Mean CV score: 0.9100
+Validation score: 0.3333
 </pre></div>
 </div>
 </section>
@@ -952,27 +953,11 @@ pipeline.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nested CV score: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nested_cv_scores</span></a><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -984,7 +969,31 @@ Liblinear failed to converge, increase the number of iterations.
 
 Liblinear failed to converge, increase the number of iterations.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
+
+The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
+
+Liblinear failed to converge, increase the number of iterations.
+
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -996,91 +1005,55 @@ Liblinear failed to converge, increase the number of iterations.
 
 Liblinear failed to converge, increase the number of iterations.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/svm/_base.py:1250: ConvergenceWarning:
-
-Liblinear failed to converge, increase the number of iterations.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
-
-The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-Nested CV score: 0.6574
+Nested CV score: 0.6852
 </pre></div>
 </div>
 </section>
@@ -1107,7 +1080,7 @@ Nested CV score: 0.6574
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_haxby_grid_search_001.png" srcset="../../_images/sphx_glr_plot_haxby_grid_search_001.png" alt="plot haxby grid search" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 6.045 seconds)</p>
+<img src="../../_images/sphx_glr_plot_haxby_grid_search_001.png" srcset="../../_images/sphx_glr_plot_haxby_grid_search_001.png" alt="plot haxby grid search" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 7.240 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  916 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-grid-search-py">
 <div class="binder-badge docutils container">
@@ -1187,7 +1160,7 @@ Nested CV score: 0.6574
             <ul>
 <li><a class="reference internal" href="#">Setting a parameter by cross-validation</a><ul>
 <li><a class="reference internal" href="#load-the-haxby-dataset">Load the Haxby dataset</a></li>
-<li><a class="reference internal" href="#anova-pipeline-with-nilearn-decoding-decoder-object">ANOVA pipeline with <code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code> object</a></li>
+<li><a class="reference internal" href="#anova-pipeline-with-nilearn-decoding-decoder-object"><span class="xref std std-term">ANOVA</span> pipeline with <code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code> object</a></li>
 <li><a class="reference internal" href="#fit-the-decoder-and-predict-the-responses">Fit the Decoder and predict the responses</a></li>
 <li><a class="reference internal" href="#compute-prediction-scores-with-different-values-of-screening-percentile">Compute prediction scores with different values of screening percentile</a></li>
 <li><a class="reference internal" href="#nested-cross-validation">Nested cross-validation</a></li>

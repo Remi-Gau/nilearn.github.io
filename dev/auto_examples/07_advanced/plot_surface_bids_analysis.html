@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -720,7 +720,7 @@ aka the Freesurfer template mesh downsampled to about 10k nodes per hemisphere.
 <p>Notice that in this case the preprocessed <a class="reference internal" href="../../glossary.html#term-BOLD"><span class="xref std std-term">bold</span></a>
 images were already normalized to the same <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.</p>
 <section id="fetch-example-bids-dataset">
-<h2>Fetch example BIDS dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Fetch example <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this heading">#</a></h2>
 <p>We download a simplified <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset made available for illustrative
 purposes. It contains only the necessary
 information to run a statistical analysis using Nilearn. The raw data
@@ -765,8 +765,8 @@ and the task_label as specified in the file names.</p>
 &#39;StartTime&#39; not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 </pre></div>
 </div>
-<p>We also need to get the TR information. For that we use the json sidecar file
-of the dataset’s functional images.</p>
+<p>We also need to get the <a class="reference internal" href="../../glossary.html#term-TR"><span class="xref std std-term">TR</span></a> information.
+For that we use the json sidecar file of the dataset’s functional images.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -782,14 +782,14 @@ of the dataset’s functional images.</p>
     <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/json.html#json.load" title="json.load" class="sphx-glr-backref-module-json sphx-glr-backref-type-py-function"><span class="n">json</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/io.html#io.TextIOWrapper" title="io.TextIOWrapper" class="sphx-glr-backref-module-io sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">f</span></a><span class="p">)[</span><span class="s1">&#39;RepetitionTime&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Project fMRI data to the surface: First get fsaverage5.</p>
+<p>Project <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data to the surface: First get fsaverage5.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="nilearn.datasets.fetch_surf_fsaverage" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_surf_fsaverage</span></a>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="nilearn.datasets.fetch_surf_fsaverage" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_surf_fsaverage</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="s1">&#39;fsaverage5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The projection function simply takes the fMRI data and the mesh.
-Note that those correspond spatially, as they are both in MNI space.</p>
+<p>The projection function simply takes the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data and the mesh.
+Note that those correspond spatially, as they are both in <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">surface</span>
@@ -879,7 +879,7 @@ We directly do that on the value arrays.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" alt="language-string, right hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 50.915 seconds)</p>
+<img src="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_surface_bids_analysis_002.png" alt="language-string, right hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 51.772 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  456 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-surface-bids-analysis-py">
 <div class="binder-badge docutils container">
@@ -958,7 +958,7 @@ We directly do that on the value arrays.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Surface-based dataset first and second level analysis of a dataset</a><ul>
-<li><a class="reference internal" href="#fetch-example-bids-dataset">Fetch example BIDS dataset</a></li>
+<li><a class="reference internal" href="#fetch-example-bids-dataset">Fetch example <span class="xref std std-term">BIDS</span> dataset</a></li>
 <li><a class="reference internal" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments">Obtain automatically FirstLevelModel objects and fit arguments</a></li>
 <li><a class="reference internal" href="#group-study">Group study</a></li>
 </ul>

@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -708,8 +708,8 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="predicted-time-series-and-residuals">
 <span id="sphx-glr-auto-examples-04-glm-first-level-plot-predictions-residuals-py"></span><h1>Predicted time series and residuals<a class="headerlink" href="#predicted-time-series-and-residuals" title="Permalink to this heading">#</a></h1>
-<p>Here we fit a First Level GLM with the <cite>minimize_memory</cite>-argument set to
-<cite>False</cite>.
+<p>Here we fit a First Level <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> with the <cite>minimize_memory</cite>-argument
+set to <cite>False</cite>.
 By doing so, the <cite>FirstLevelModel</cite>-object stores the residuals, which we can
 then inspect.
 Also, the predicted time series can be extracted, which is useful to assess the
@@ -782,7 +782,7 @@ original data in <cite>fmri_img</cite>.</p>
 <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_map</span></a><span class="p">,</span> <span class="n">bg_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.1</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_predictions_residuals_001.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_001.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c099ed4f0&gt;
+<img src="../../_images/sphx_glr_plot_predictions_residuals_001.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_001.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb87d3ee0&gt;
 </pre></div>
 </div>
 </section>
@@ -868,7 +868,8 @@ Mean residuals: 1.7689553525694162e-14
 <section id="plot-r-squared">
 <h2>Plot R-squared<a class="headerlink" href="#plot-r-squared" title="Permalink to this heading">#</a></h2>
 <p>Because we stored the residuals, we can plot the R-squared: the proportion of
-explained variance of the GLM as a whole. Note that the R-squared is markedly
+explained variance of the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> as a whole.
+Note that the R-squared is markedly
 lower deep down the brain, where there is more physiological noise and we are
 further away from the receive coils. However, R-Squared should be interpreted
 with a grain of salt. The R-squared value will necessarily increase with the
@@ -877,7 +878,8 @@ Additionally, we are looking at the overall fit of the model, so we are
 unable to say whether a voxel/region has a large R-squared value because the
 voxel/region is responsive to the experiment (such as active or rest) or
 because the voxel/region fits the noise factors (such as drift or motion)
-that could be present in the GLM. To isolate the influence of the experiment,
+that could be present in the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>.
+To isolate the influence of the experiment,
 we can use an F-test as shown in the next section.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_glm</span><span class="o">.</span><span class="n">r_square</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
@@ -888,16 +890,18 @@ we can use an F-test as shown in the next section.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_predictions_residuals_004.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_004.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x7f8c0ce2ea00&gt;
+<img src="../../_images/sphx_glr_plot_predictions_residuals_004.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_004.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x7f4cb6e47970&gt;
 </pre></div>
 </div>
 </section>
 <section id="calculate-and-plot-f-test">
 <h2>Calculate and Plot F-test<a class="headerlink" href="#calculate-and-plot-f-test" title="Permalink to this heading">#</a></h2>
-<p>The F-test tells you how well the GLM fits effects of interest such as the
-active and rest conditions together. This is different from R-squared, which
-tells you how well the overall GLM fits the data, including active, rest and
-all the other columns in the design matrix such as drift and motion.</p>
+<p>The F-test tells you how well the <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> fits effects of interest
+such as the active and rest conditions together.
+This is different from R-squared, which
+tells you how well the overall <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> fits the data,
+including active, rest and all the other columns
+in the design matrix such as drift and motion.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_glm</span><span class="o">.</span><span class="n">design_matrices_</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -919,10 +923,10 @@ all the other columns in the design matrix such as drift and motion.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_predictions_residuals_005.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_005.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x7f8bfe207370&gt;
+<img src="../../_images/sphx_glr_plot_predictions_residuals_005.png" srcset="../../_images/sphx_glr_plot_predictions_residuals_005.png" alt="plot predictions residuals" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x7f4cb45991f0&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 27.472 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 27.607 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  712 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-predictions-residuals-py">
 <div class="binder-badge docutils container">

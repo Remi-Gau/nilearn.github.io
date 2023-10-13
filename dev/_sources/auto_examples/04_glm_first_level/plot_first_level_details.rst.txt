@@ -29,12 +29,13 @@ We use an exploratory approach, in which we incrementally include some new
 features in the analysis and inspect the outcome, i.e. the resulting brain
 maps.
 
-Readers without prior experience in fMRI data analysis should first run the
+Readers without prior experience in :term:`fMRI` data analysis
+should first run the
 :ref:`sphx_glr_auto_examples_00_tutorials_plot_single_subject_single_run.py`
 tutorial to get a bit more familiar with the base concepts,
 and only then run this tutorial example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-26
+.. GENERATED FROM PYTHON SOURCE LINES 21-27
 
 Retrieving the data
 -------------------
@@ -43,7 +44,7 @@ We use a so-called localizer dataset, which consists in a 5-minutes
 acquisition of a fast event-related dataset.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-31
+.. GENERATED FROM PYTHON SOURCE LINES 27-32
 
 .. code-block:: default
 
@@ -59,7 +60,7 @@ acquisition of a fast event-related dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-65
+.. GENERATED FROM PYTHON SOURCE LINES 33-66
 
 Define the paradigm that will be used. Here, we just need to get the provided
 file.
@@ -95,7 +96,7 @@ This task comprises 10 conditions:
 * visual_computation: Mental subtraction, indicated by visual instruction
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-72
+.. GENERATED FROM PYTHON SOURCE LINES 66-73
 
 .. code-block:: default
 
@@ -212,7 +213,7 @@ This task comprises 10 conditions:
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-80
+.. GENERATED FROM PYTHON SOURCE LINES 74-81
 
 Running a basic model
 ---------------------
@@ -222,7 +223,7 @@ The .fit() functionality of FirstLevelModel function creates the design
 matrix and the beta maps.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-86
+.. GENERATED FROM PYTHON SOURCE LINES 81-87
 
 .. code-block:: default
 
@@ -239,13 +240,13 @@ matrix and the beta maps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-90
+.. GENERATED FROM PYTHON SOURCE LINES 88-91
 
 Let us take a look at the design matrix: it has 10 main columns corresponding
 to 10 experimental conditions, followed by 3 columns describing low-frequency
 signals (drifts) and a constant regressor.
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-97
+.. GENERATED FROM PYTHON SOURCE LINES 91-98
 
 .. code-block:: default
 
@@ -268,7 +269,7 @@ signals (drifts) and a constant regressor.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-103
+.. GENERATED FROM PYTHON SOURCE LINES 99-104
 
 Specification of the contrasts.
 
@@ -276,7 +277,7 @@ For this, let's create a function that, given the design matrix, generates
 the corresponding contrasts.  This will be useful to repeat contrast
 specification when we change the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-160
+.. GENERATED FROM PYTHON SOURCE LINES 104-161
 
 .. code-block:: default
 
@@ -344,7 +345,7 @@ specification when we change the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-174
+.. GENERATED FROM PYTHON SOURCE LINES 162-175
 
 Let's look at these computed contrasts:
 
@@ -360,7 +361,7 @@ Let's look at these computed contrasts:
   versus simply reading sentences.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-184
+.. GENERATED FROM PYTHON SOURCE LINES 175-185
 
 .. code-block:: default
 
@@ -412,7 +413,7 @@ Let's look at these computed contrasts:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-191
+.. GENERATED FROM PYTHON SOURCE LINES 186-192
 
 A first contrast estimation and plotting
 ----------------------------------------
@@ -421,7 +422,7 @@ As this script will be repeated several times, we encapsulate model
 fitting and plotting in a function that we call when needed.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-217
+.. GENERATED FROM PYTHON SOURCE LINES 192-218
 
 .. code-block:: default
 
@@ -458,11 +459,11 @@ fitting and plotting in a function that we call when needed.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-219
+.. GENERATED FROM PYTHON SOURCE LINES 219-220
 
 Let's run the model and look at the outcome.
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-223
+.. GENERATED FROM PYTHON SOURCE LINES 220-224
 
 .. code-block:: default
 
@@ -482,7 +483,7 @@ Let's run the model and look at the outcome.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 224-238
+.. GENERATED FROM PYTHON SOURCE LINES 225-239
 
 Changing the drift model
 ------------------------
@@ -499,7 +500,7 @@ For instance, if the longest period is 32s, the high_pass frequency shall be
 1/64 Hz ~ 0.016 Hz. Note that the design matrix has more columns to model
 drifts in the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 238-244
+.. GENERATED FROM PYTHON SOURCE LINES 239-245
 
 .. code-block:: default
 
@@ -527,11 +528,11 @@ drifts in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 245-246
+.. GENERATED FROM PYTHON SOURCE LINES 246-247
 
 Does the model perform worse or better ?
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-250
+.. GENERATED FROM PYTHON SOURCE LINES 247-251
 
 .. code-block:: default
 
@@ -551,14 +552,14 @@ Does the model perform worse or better ?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 251-255
+.. GENERATED FROM PYTHON SOURCE LINES 252-256
 
 We notice however that this model performs rather poorly.
 
 Another solution is to remove these drift terms. Maybe they're simply
 useless. This is done by setting drift_model to None.
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-263
+.. GENERATED FROM PYTHON SOURCE LINES 256-264
 
 .. code-block:: default
 
@@ -594,7 +595,7 @@ useless. This is done by setting drift_model to None.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-271
+.. GENERATED FROM PYTHON SOURCE LINES 265-272
 
 Is it better than the original? No!
 
@@ -604,7 +605,7 @@ the event columns, on the other hand, haven't changed.
 Another alternative to get a drift model is to specify a set of polynomials.
 Let's take a basis of 5 polynomials.
 
-.. GENERATED FROM PYTHON SOURCE LINES 271-281
+.. GENERATED FROM PYTHON SOURCE LINES 272-282
 
 .. code-block:: default
 
@@ -642,23 +643,23 @@ Let's take a basis of 5 polynomials.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 282-283
+.. GENERATED FROM PYTHON SOURCE LINES 283-284
 
 Is it good? No better, no worse. Let's turn to another parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 285-294
+.. GENERATED FROM PYTHON SOURCE LINES 286-295
 
 Changing the hemodynamic response model
 ---------------------------------------
 
 This is the filter used to convert the event sequence into a
-reference BOLD signal for the design matrix.
+reference :term:`BOLD` signal for the design matrix.
 
 The first thing that we can do is to change the default model (the
 so-called Glover hrf) for the so-called canonical model of SPM
 --which has a slightly weaker undershoot component.
 
-.. GENERATED FROM PYTHON SOURCE LINES 294-302
+.. GENERATED FROM PYTHON SOURCE LINES 295-303
 
 .. code-block:: default
 
@@ -694,11 +695,11 @@ so-called Glover hrf) for the so-called canonical model of SPM
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 303-304
+.. GENERATED FROM PYTHON SOURCE LINES 304-305
 
 No strong --positive or negative-- effect.
 
-.. GENERATED FROM PYTHON SOURCE LINES 306-317
+.. GENERATED FROM PYTHON SOURCE LINES 307-318
 
 Adding a time derivative to the design
 ......................................
@@ -712,7 +713,7 @@ of discounting timing misspecification from the error term, which would
 decrease the estimated variance and enhance the statistical significance of
 the effect. Is that the case?
 
-.. GENERATED FROM PYTHON SOURCE LINES 317-325
+.. GENERATED FROM PYTHON SOURCE LINES 318-326
 
 .. code-block:: default
 
@@ -748,7 +749,7 @@ the effect. Is that the case?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 326-332
+.. GENERATED FROM PYTHON SOURCE LINES 327-333
 
 Not a huge effect, but rather positive overall. We could keep that one.
 
@@ -757,7 +758,7 @@ well explained by the derivative term, hinting at misfit regions, a
 possibly valuable information. This is implemented by an F-test on
 the time derivative regressors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 332-342
+.. GENERATED FROM PYTHON SOURCE LINES 333-343
 
 .. code-block:: default
 
@@ -795,14 +796,14 @@ the time derivative regressors.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 343-347
+.. GENERATED FROM PYTHON SOURCE LINES 344-348
 
 There seems to be something here. Maybe we could adjust the
 timing, by increasing the slice_time_ref parameter from 0 to 0.5. Now the
 reference for model sampling is not the beginning of the volume
 acquisition, but the middle of it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 347-361
+.. GENERATED FROM PYTHON SOURCE LINES 348-362
 
 .. code-block:: default
 
@@ -832,11 +833,11 @@ acquisition, but the middle of it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 362-363
+.. GENERATED FROM PYTHON SOURCE LINES 363-364
 
 The time derivatives regressors capture less signal: it's better like that.
 
-.. GENERATED FROM PYTHON SOURCE LINES 365-370
+.. GENERATED FROM PYTHON SOURCE LINES 366-371
 
 We can also consider adding the so-called dispersion derivative to
 capture some mis-specification in the shape of the hrf.
@@ -844,7 +845,7 @@ capture some mis-specification in the shape of the hrf.
 This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 370-380
+.. GENERATED FROM PYTHON SOURCE LINES 371-381
 
 .. code-block:: default
 
@@ -882,12 +883,12 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 381-383
+.. GENERATED FROM PYTHON SOURCE LINES 382-384
 
 Not a huge effect. For the sake of simplicity and readability, we
 can drop that one.
 
-.. GENERATED FROM PYTHON SOURCE LINES 385-398
+.. GENERATED FROM PYTHON SOURCE LINES 386-399
 
 The noise model: ar(1), ols, or higher order ar?
 ------------------------------------------------
@@ -899,11 +900,11 @@ no temporal structure (time-independent noise) or
 to use an autoregressive model with a higher order,
 for example a third order autoregressive model---aka ar(3).
 
-First we recompute using the `spm + derivative` hrf model, the
-slice_time_ref parameter chosen above, and explicitly set
-the noise model to be ar(1).
+First we recompute using the `spm + derivative` :term:`HRF` model,
+the slice_time_ref parameter chosen above,
+and explicitly set the noise model to be ar(1).
 
-.. GENERATED FROM PYTHON SOURCE LINES 398-407
+.. GENERATED FROM PYTHON SOURCE LINES 399-408
 
 .. code-block:: default
 
@@ -928,12 +929,12 @@ the noise model to be ar(1).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 408-410
+.. GENERATED FROM PYTHON SOURCE LINES 409-411
 
 Next we change the noise model to ols and observe the difference
 relative to the ar(1) model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 410-418
+.. GENERATED FROM PYTHON SOURCE LINES 411-419
 
 .. code-block:: default
 
@@ -957,7 +958,7 @@ relative to the ar(1) model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 419-424
+.. GENERATED FROM PYTHON SOURCE LINES 420-425
 
 While the difference is not obvious you should rather stick to the
 ar(1) model, which is arguably more accurate.
@@ -965,7 +966,7 @@ ar(1) model, which is arguably more accurate.
 Alternatively we can include more terms in the autoregressive model to
 account for greater temporal complexity in the noise structure.
 
-.. GENERATED FROM PYTHON SOURCE LINES 424-432
+.. GENERATED FROM PYTHON SOURCE LINES 425-433
 
 .. code-block:: default
 
@@ -989,18 +990,18 @@ account for greater temporal complexity in the noise structure.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 433-436
+.. GENERATED FROM PYTHON SOURCE LINES 434-437
 
 This noise model arguably reduces the amount of spurious activity.
 However, as the difference is not obvious you may wish to stick to the
 ar(1) model, which is computationally more efficient.
 
-.. GENERATED FROM PYTHON SOURCE LINES 438-452
+.. GENERATED FROM PYTHON SOURCE LINES 439-453
 
 Removing confounds
 ------------------
 
-A problematic feature of fMRI is the presence of uncontrolled
+A problematic feature of :term:`fMRI` is the presence of uncontrolled
 confounds in the data, due to scanner instabilities (spikes) or
 physiological phenomena, such as motion, heart and
 respiration-related blood oxygenation fluctuations.  Side
@@ -1012,7 +1013,7 @@ the CompCor approach, and take those into account in the model.
 For this we rely on the so-called
 :func:`~nilearn.image.high_variance_confounds` routine of Nilearn.
 
-.. GENERATED FROM PYTHON SOURCE LINES 452-466
+.. GENERATED FROM PYTHON SOURCE LINES 453-467
 
 .. code-block:: default
 
@@ -1054,7 +1055,7 @@ For this we rely on the so-called
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 467-473
+.. GENERATED FROM PYTHON SOURCE LINES 468-474
 
 Note the five additional columns in the design matrix.
 
@@ -1063,7 +1064,7 @@ killed, probably because they were somewhat colinear to the confounds. On the
 other hand, some of the maps become cleaner (horizontal-vertical,
 computation) after this addition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 475-488
+.. GENERATED FROM PYTHON SOURCE LINES 476-489
 
 Volume censoring
 ----------------
@@ -1079,7 +1080,7 @@ For non-fMRIPrep output, we can still define a sample mask. Here we apply a
 sample mask that removes the first 50 volumes.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 488-500
+.. GENERATED FROM PYTHON SOURCE LINES 489-501
 
 .. code-block:: default
 
@@ -1107,12 +1108,12 @@ sample mask that removes the first 50 volumes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 501-503
+.. GENERATED FROM PYTHON SOURCE LINES 502-504
 
 Note the significantly shorter design matrix compared to the previous
 examples.
 
-.. GENERATED FROM PYTHON SOURCE LINES 505-514
+.. GENERATED FROM PYTHON SOURCE LINES 506-515
 
 Smoothing
 ---------
@@ -1124,7 +1125,7 @@ position of activation. Here, we simply illustrate the statistical
 gains.  We use a mild smoothing of 5mm
 :term:`full-width at half maximum<FWHM>` (:term:`FWHM`).
 
-.. GENERATED FROM PYTHON SOURCE LINES 514-523
+.. GENERATED FROM PYTHON SOURCE LINES 515-524
 
 .. code-block:: default
 
@@ -1161,12 +1162,12 @@ gains.  We use a mild smoothing of 5mm
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 524-526
+.. GENERATED FROM PYTHON SOURCE LINES 525-527
 
 The design is unchanged but the maps are smoother and more contrasted.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 528-542
+.. GENERATED FROM PYTHON SOURCE LINES 529-542
 
 Masking
 -------
@@ -1174,14 +1175,13 @@ Masking
 Masking consists in selecting the region of the image on which the
 model is run: it is useless to run it outside of the brain.
 
-The approach taken by FirstLeveModel is to estimate it from the fMRI
+The approach taken by FirstLeveModel is to estimate it from the :term:`fMRI`
 data itself when no mask is explicitly provided.  Since the data
-have been resampled into MNI space, we can use instead a mask of the
-grey matter in MNI space. The benefit is that it makes voxel-level
+have been resampled into :term:`MNI` space, we can use instead a mask of the
+grey matter in :term:`MNI` space. The benefit is that it makes voxel-level
 comparisons easier across subjects and datasets, and removes
-non-grey matter regions, in which no BOLD signal is expected.  The
-downside is that the mask may not fit very well this particular
-data.
+non-grey matter regions, in which no :term:`BOLD` signal is expected.
+The downside is that the mask may not fit very well this particular data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 542-556
 
@@ -1298,9 +1298,9 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 26.179 seconds)
+   **Total running time of the script:** (2 minutes 26.595 seconds)
 
-**Estimated memory usage:**  310 MB
+**Estimated memory usage:**  257 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_first_level_details.py:

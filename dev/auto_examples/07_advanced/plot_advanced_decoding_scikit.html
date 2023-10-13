@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -741,12 +741,12 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="retrieve-and-load-the-fmri-data-from-the-haxby-study">
-<h2>Retrieve and load the fMRI data from the Haxby study<a class="headerlink" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study" title="Permalink to this heading">#</a></h2>
+<h2>Retrieve and load the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data from the Haxby study<a class="headerlink" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study" title="Permalink to this heading">#</a></h2>
 <section id="first-download-the-data">
 <h3>First download the data<a class="headerlink" href="#first-download-the-data" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The :func:`nilearn.datasets.fetch_haxby` function will download the</span>
-<span class="c1"># Haxby dataset composed of fmri images in a Niimg, a spatial mask and a text</span>
-<span class="c1"># document with label of each image</span>
+<span class="c1"># Haxby dataset composed of fMRI images in a Niimg,</span>
+<span class="c1"># a spatial mask and a text document with label of each image</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">haxby_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_haxby.html#nilearn.datasets.fetch_haxby" title="nilearn.datasets.fetch_haxby" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_haxby</span></a><span class="p">()</span>
@@ -878,8 +878,9 @@ all occurrences of:</p>
 <h3>Masking the data<a class="headerlink" href="#masking-the-data" title="Permalink to this heading">#</a></h3>
 <p>To use a scikit-learn estimator on brain images, you should first mask the
 data using a <a class="reference internal" href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMasker</span></code></a> to extract only the
-voxels inside the mask of interest, and transform 4D input fMRI data to
-2D arrays(<cite>shape=(n_timepoints, n_voxels)</cite>) that estimators can work on.</p>
+voxels inside the mask of interest,
+and transform 4D input <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data to 2D arrays
+(<cite>shape=(n_timepoints, n_voxels)</cite>) that estimators can work on.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a>
 
 <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a><span class="p">(</span>
@@ -893,7 +894,7 @@ voxels inside the mask of interest, and transform 4D input fMRI data to
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_masked</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker.fit_transform" title="nilearn.maskers.NiftiMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_niimgs</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:493: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:494: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 </pre></div>
@@ -1019,7 +1020,7 @@ based feature selection (a.k.a.
 </pre></div>
 </div>
 <section id="visualize-the-anova-svc-s-discriminating-weights">
-<h3>Visualize the ANOVA + SVC’s discriminating weights<a class="headerlink" href="#visualize-the-anova-svc-s-discriminating-weights" title="Permalink to this heading">#</a></h3>
+<h3>Visualize the <a class="reference internal" href="../../glossary.html#term-ANOVA"><span class="xref std std-term">ANOVA</span></a> + SVC’s discriminating weights<a class="headerlink" href="#visualize-the-anova-svc-s-discriminating-weights" title="Permalink to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># retrieve the pipeline fitted on the first cross-validation fold and its SVC</span>
 <span class="c1"># coefficients</span>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_pipeline</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fitted_pipeline</span></a><span class="p">[</span><span class="s2">&quot;estimator&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -1047,7 +1048,7 @@ based feature selection (a.k.a.
 <img src="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" srcset="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" alt="plot advanced decoding scikit" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>After feature selection, the SVC is trained only on 47 features
 After inverting feature selection, we have 464 features back
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c0c43cd00&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb8287dc0&gt;
 </pre></div>
 </div>
 </section>
@@ -1110,8 +1111,8 @@ We follows the same principle.</p>
 <span class="c1"># But, be aware that this can take * A WHILE * ...</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 23.288 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  916 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 23.381 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  917 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-advanced-decoding-scikit-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
@@ -1190,7 +1191,7 @@ We follows the same principle.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Advanced decoding using scikit learn</a><ul>
-<li><a class="reference internal" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study">Retrieve and load the fMRI data from the Haxby study</a><ul>
+<li><a class="reference internal" href="#retrieve-and-load-the-fmri-data-from-the-haxby-study">Retrieve and load the <span class="xref std std-term">fMRI</span> data from the Haxby study</a><ul>
 <li><a class="reference internal" href="#first-download-the-data">First download the data</a></li>
 </ul>
 </li>
@@ -1206,7 +1207,7 @@ We follows the same principle.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#decoding-without-a-mask-anova-svm-in-scikit-lean">Decoding without a mask: Anova-SVM in scikit-lean</a><ul>
-<li><a class="reference internal" href="#visualize-the-anova-svc-s-discriminating-weights">Visualize the ANOVA + SVC’s discriminating weights</a></li>
+<li><a class="reference internal" href="#visualize-the-anova-svc-s-discriminating-weights">Visualize the <span class="xref std std-term">ANOVA</span> + SVC’s discriminating weights</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#going-further-with-scikit-learn">Going further with scikit-learn</a><ul>

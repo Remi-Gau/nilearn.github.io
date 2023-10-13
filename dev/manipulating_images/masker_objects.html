@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -751,7 +751,7 @@ data themselves (e.g., extracting time series from images).</p>
 <section id="niftimasker-applying-a-mask-to-load-time-series">
 <span id="nifti-masker"></span><h2><span class="section-number">9.3.2. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>: applying a mask to load time-series<a class="headerlink" href="#niftimasker-applying-a-mask-to-load-time-series" title="Permalink to this heading">#</a></h2>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> is a powerful tool to load images and
-extract voxel signals in the area defined by the mask.
+extract <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> signals in the area defined by the mask.
 It applies some basic preprocessing
 steps with commonly used parameters as defaults.
 But it is <em>very important</em> to look at your data to see the effects
@@ -842,10 +842,10 @@ or saved as a portable HTML file <code class="docutils literal notranslate"><spa
 <p>The <code class="docutils literal notranslate"><span class="pre">mask_strategy</span></code> argument controls how the mask is computed:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">background</span></code>: detects a continuous background</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">epi</span></code>: suitable for EPI images</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">whole-brain-template</span></code>: uses an MNI whole-brain template</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">gm-template</span></code>: uses an MNI grey-matter template</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">wm-template</span></code>: uses an MNI white-matter template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epi</span></code>: suitable for <a class="reference internal" href="../glossary.html#term-EPI"><span class="xref std std-term">EPI</span></a> images</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">whole-brain-template</span></code>: uses an <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> whole-brain template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gm-template</span></code>: uses an <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> grey-matter template</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wm-template</span></code>: uses an <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> white-matter template</p></li>
 </ul>
 </section>
 <section id="extra-mask-parameters-opening-cutoff">
@@ -912,7 +912,7 @@ by scaling the given widths appropriately.</p>
 <section id="temporal-filtering-and-confound-removal">
 <span id="temporal-filtering"></span><h4><span class="section-number">9.3.2.3.2. </span>Temporal Filtering and confound removal<a class="headerlink" href="#temporal-filtering-and-confound-removal" title="Permalink to this heading">#</a></h4>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> can also improve aspects of temporal data
-properties, before conversion to voxel signals.</p>
+properties, before conversion to <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> signals.</p>
 <ul class="simple">
 <li><p><strong>Standardization</strong>. Parameter <code class="docutils literal notranslate"><span class="pre">standardize</span></code>: Signals can be
 standardized (scaled to unit variance).</p></li>
@@ -926,7 +926,7 @@ information.</p>
 <ul>
 <li><p>Linear trends can be removed by activating the <code class="docutils literal notranslate"><span class="pre">detrend</span></code> parameter.
 This accounts for slow (as opposed to abrupt or transient) changes
-in voxel values along a series of brain images that are unrelated to the
+in <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> values along a series of brain images that are unrelated to the
 signal of interest (e.g., the neural correlates of cognitive tasks).
 It is not activated by default in <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> but is recommended
 in almost all scenarios.</p></li>
@@ -965,11 +965,11 @@ does it have a big impact on the result?</p>
 <h4><span class="section-number">9.3.2.3.3. </span>Resampling: resizing and changing resolutions of images<a class="headerlink" href="#resampling-resizing-and-changing-resolutions-of-images" title="Permalink to this heading">#</a></h4>
 <p><a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> and many similar classes enable resampling
 (recasting of images into different resolutions and transformations of
-brain voxel data). Two parameters control resampling:</p>
+brain <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> data). Two parameters control resampling:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">target_affine</span></code> to resample (resize, rotate…) images in order to match
 the spatial configuration defined by the new affine (i.e., matrix
-transforming from voxel space into world space).</p></li>
+transforming from <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> space into world space).</p></li>
 <li><p>Additionally, a <code class="docutils literal notranslate"><span class="pre">target_shape</span></code> can be used to resize images
 (i.e., cropping or padding with zeros) to match an expected data
 image dimensions (shape composed of x, y, and z).</p></li>
@@ -990,7 +990,7 @@ is explained in details in <a class="reference internal" href="manipulating_imag
 The data is only brought back into either a 3D or 4D represenetation,
 without inverting any signal processing performed by <code class="docutils literal notranslate"><span class="pre">transform</span></code>.</p>
 </div>
-<p>Once voxel signals have been processed, the result can be visualized as
+<p>Once <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> signals have been processed, the result can be visualized as
 images after unmasking (masked-reduced data transformed back into
 the original whole-brain space). This step is present in many
 <a class="reference external" href="https://matplotlib.org/stable/gallery/index.html#examples-index" title="(in Matplotlib v3.8.0)"><span class="xref std std-ref">examples</span></a> provided in nilearn. Below you will find
@@ -1030,7 +1030,7 @@ while inverse-transforming a 1D array produces a 3D (X x Y x Z) image.</p>
 <span id="region"></span><h2><span class="section-number">9.3.3. </span>Extraction of signals from regions: <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a><a class="headerlink" href="#extraction-of-signals-from-regions-niftilabelsmasker-niftimapsmasker" title="Permalink to this heading">#</a></h2>
 <p>The purpose of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> is to
 compute signals from regions containing many voxels. They make it easy to get
-these signals once you have an atlas or a parcellation into brain regions.</p>
+these signals once you have an atlas or a <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> into brain regions.</p>
 <section id="regions-definition">
 <h3><span class="section-number">9.3.3.1. </span>Regions definition<a class="headerlink" href="#regions-definition" title="Permalink to this heading">#</a></h3>
 <p>Nilearn understands two different ways of defining regions, which are called
@@ -1042,7 +1042,7 @@ common label (e.g., anatomical brain region definitions as integers)
 in the region definition array. The set of
 regions is defined by a single 3D array, containing a voxel-wise
 dictionary of label numbers that denote what
-region a given voxel belongs to. This technique has a big advantage: the
+region a given <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> belongs to. This technique has a big advantage: the
 required memory load is independent of the number of regions, allowing
 for a large number of regions. On the other hand, there are
 several disadvantages: regions cannot spatially overlap
@@ -1055,7 +1055,7 @@ While these defined weighted regions can exhibit spatial
 overlap (as opposed to labels), storage cost scales linearly with the
 number of regions. Handling a large number (e.g., thousands)
 of regions will prove difficult with this data transformation of
-whole-brain voxel data into weighted region-wise data.</p></li>
+whole-brain <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> data into weighted region-wise data.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1069,7 +1069,7 @@ whole-brain voxel data into weighted region-wise data.</p></li>
 instead of a set of maps as input.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">background_label</span></code> keyword of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> deserves
 some explanation. The voxels that correspond to the brain or a region
-of interest in an fMRI image do not fill the entire image.
+of interest in an <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> image do not fill the entire image.
 Consequently, in the labels image, there must be a label value that corresponds
 to “outside” the brain (for which no signal should be extracted).
 By default, this label is set to zero in nilearn (referred to as “background”).
@@ -1107,7 +1107,7 @@ possible option.</p>
 <p>The purpose of <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiLabelsMasker.html#nilearn.maskers.MultiNiftiLabelsMasker" title="nilearn.maskers.MultiNiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiLabelsMasker</span></code></a> and
 <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMapsMasker.html#nilearn.maskers.MultiNiftiMapsMasker" title="nilearn.maskers.MultiNiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMapsMasker</span></code></a> is to extend the capabilities of
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a>
-as to facilitate the computation of voxel signals in multi-subjects settings.
+as to facilitate the computation of <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> signals in multi-subjects settings.
 While <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a>, <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> and
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMapsMasker</span></code></a> work with 3D inputs (single brain volume) or 4D inputs
 (sequence of brain volumes in time for one subject), <a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a>,
@@ -1115,7 +1115,7 @@ While <a class="reference internal" href="../modules/generated/nilearn.maskers.N
 inputs (list of sequences of brain volumes).</p>
 <section id="multiniftimasker-usage">
 <h3><span class="section-number">9.3.4.1. </span><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> Usage<a class="headerlink" href="#multiniftimasker-usage" title="Permalink to this heading">#</a></h3>
-<p><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> extracts voxel signals for each subject in the areas defined by the
+<p><a class="reference internal" href="../modules/generated/nilearn.maskers.MultiNiftiMasker.html#nilearn.maskers.MultiNiftiMasker" title="nilearn.maskers.MultiNiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiNiftiMasker</span></code></a> extracts <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> signals for each subject in the areas defined by the
 masks.</p>
 <aside class="topic">
 <p class="topic-title"><strong>Examples</strong></p>
@@ -1154,7 +1154,7 @@ for each subject.</p>
 seeds containing voxels in spheres. It makes it easy to get these signals once
 you have a list of coordinates.
 A single seed is a sphere defined by the radius (in millimeters) and the
-coordinates (typically MNI or TAL) of its center.</p>
+coordinates (typically <a class="reference internal" href="../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> or TAL) of its center.</p>
 <p>Using <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiSpheresMasker</span></code></a> needs to define a list of coordinates.
 <code class="docutils literal notranslate"><span class="pre">seeds</span></code> argument takes a list of 3D coordinates (tuples) of the spheres centers,
 they should be in the same space as the images.
@@ -1165,7 +1165,7 @@ Below is an example of a coordinates list of four seeds from the default mode ne
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">radius</span></code> is an optional argument that takes a real value in millimeters.
-If no value is given for the <code class="docutils literal notranslate"><span class="pre">radius</span></code> argument, the single voxel at the given
+If no value is given for the <code class="docutils literal notranslate"><span class="pre">radius</span></code> argument, the single <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> at the given
 seed position is used.</p>
 <aside class="topic">
 <p class="topic-title"><strong>Examples</strong></p>

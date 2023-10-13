@@ -21,8 +21,8 @@
 Predicted time series and residuals
 ===================================
 
-Here we fit a First Level GLM with the `minimize_memory`-argument set to
-`False`.
+Here we fit a First Level :term:`GLM` with the `minimize_memory`-argument
+set to `False`.
 By doing so, the `FirstLevelModel`-object stores the residuals, which we can
 then inspect.
 Also, the predicted time series can be extracted, which is useful to assess the
@@ -130,7 +130,7 @@ Calculate and plot contrast
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c099ed4f0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb87d3ee0>
 
 
 
@@ -280,12 +280,13 @@ Note that residuals are not really distributed normally.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-158
+.. GENERATED FROM PYTHON SOURCE LINES 144-160
 
 Plot R-squared
 --------------
 Because we stored the residuals, we can plot the R-squared: the proportion of
-explained variance of the GLM as a whole. Note that the R-squared is markedly
+explained variance of the :term:`GLM` as a whole.
+Note that the R-squared is markedly
 lower deep down the brain, where there is more physiological noise and we are
 further away from the receive coils. However, R-Squared should be interpreted
 with a grain of salt. The R-squared value will necessarily increase with the
@@ -294,10 +295,11 @@ Additionally, we are looking at the overall fit of the model, so we are
 unable to say whether a voxel/region has a large R-squared value because the
 voxel/region is responsive to the experiment (such as active or rest) or
 because the voxel/region fits the noise factors (such as drift or motion)
-that could be present in the GLM. To isolate the influence of the experiment,
+that could be present in the :term:`GLM`.
+To isolate the influence of the experiment,
 we can use an F-test as shown in the next section.
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-167
+.. GENERATED FROM PYTHON SOURCE LINES 160-169
 
 .. code-block:: default
 
@@ -324,20 +326,22 @@ we can use an F-test as shown in the next section.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f8c0ce2ea00>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f4cb6e47970>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-174
+.. GENERATED FROM PYTHON SOURCE LINES 170-178
 
 Calculate and Plot F-test
 -------------------------
-The F-test tells you how well the GLM fits effects of interest such as the
-active and rest conditions together. This is different from R-squared, which
-tells you how well the overall GLM fits the data, including active, rest and
-all the other columns in the design matrix such as drift and motion.
+The F-test tells you how well the :term:`GLM` fits effects of interest
+such as the active and rest conditions together.
+This is different from R-squared, which
+tells you how well the overall :term:`GLM` fits the data,
+including active, rest and all the other columns
+in the design matrix such as drift and motion.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-194
+.. GENERATED FROM PYTHON SOURCE LINES 178-198
 
 .. code-block:: default
 
@@ -375,14 +379,14 @@ all the other columns in the design matrix such as drift and motion.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f8bfe207370>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7f4cb45991f0>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 27.472 seconds)
+   **Total running time of the script:** (0 minutes 27.607 seconds)
 
 **Estimated memory usage:**  712 MB
 

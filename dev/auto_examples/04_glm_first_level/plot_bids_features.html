@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev15+g38ced876) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -708,8 +708,9 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="first-level-analysis-of-a-complete-bids-dataset-from-openneuro">
 <span id="sphx-glr-auto-examples-04-glm-first-level-plot-bids-features-py"></span><h1>First level analysis of a complete BIDS dataset from openneuro<a class="headerlink" href="#first-level-analysis-of-a-complete-bids-dataset-from-openneuro" title="Permalink to this heading">#</a></h1>
-<p>Full step-by-step example of fitting a GLM to perform a first level analysis
-in an openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset. We demonstrate how <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a>
+<p>Full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>
+to perform a first level analysis in an openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset.
+We demonstrate how <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a>
 derivatives can be exploited to perform a simple one subject analysis with
 minimal code. Details about the <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> standard are available at
 <a class="reference external" href="http://bids.neuroimaging.io/">http://bids.neuroimaging.io/</a>.
@@ -726,7 +727,7 @@ estimation in the openneuro dataset.</p></li>
 <li><p>Display contrast plot and uncorrected first level statistics table report.</p></li>
 </ol>
 <section id="fetch-openneuro-bids-dataset">
-<h2>Fetch openneuro BIDS dataset<a class="headerlink" href="#fetch-openneuro-bids-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Fetch openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-openneuro-bids-dataset" title="Permalink to this heading">#</a></h2>
 <p>We download one subject from the stopsignal task
 in the ds000030 V4 <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset available in openneuro.
 This dataset contains the necessary information to run a statistical analysis
@@ -900,7 +901,7 @@ available in the dataset.</p>
 </section>
 <section id="simple-statistical-report-of-thresholded-contrast">
 <h2>Simple statistical report of thresholded contrast<a class="headerlink" href="#simple-statistical-report-of-thresholded-contrast" title="Permalink to this heading">#</a></h2>
-<p>We display the contrast plot and table with cluster information</p>
+<p>We display the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> plot and table with cluster information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_contrast_matrix.html#nilearn.plotting.plot_contrast_matrix" title="nilearn.plotting.plot_contrast_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_contrast_matrix</span></a>
 
 <a href="../../modules/generated/nilearn.plotting.plot_contrast_matrix.html#nilearn.plotting.plot_contrast_matrix" title="nilearn.plotting.plot_contrast_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_contrast_matrix</span></a><span class="p">(</span><span class="s2">&quot;StopSuccess - Go&quot;</span><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a><span class="p">)</span>
@@ -968,7 +969,7 @@ purposes</p>
 </section>
 <section id="generating-a-report">
 <h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Permalink to this heading">#</a></h2>
-<p>Using the computed FirstLevelModel and contrast information,
+<p>Using the computed FirstLevelModel and <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> information,
 we can quickly create a summary report.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a>
 
@@ -1030,8 +1031,8 @@ derivatives/nilearn_glm/sub-10159_task-stopsignal_stat-rSquare_statmap.nii.gz
 derivatives/nilearn_glm/sub-10159_task-stopsignal_statmap.json
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 44.106 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  531 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 43.831 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  404 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-bids-features-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_bids_features.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
@@ -1109,7 +1110,7 @@ derivatives/nilearn_glm/sub-10159_task-stopsignal_statmap.json
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">First level analysis of a complete BIDS dataset from openneuro</a><ul>
-<li><a class="reference internal" href="#fetch-openneuro-bids-dataset">Fetch openneuro BIDS dataset</a></li>
+<li><a class="reference internal" href="#fetch-openneuro-bids-dataset">Fetch openneuro <span class="xref std std-term">BIDS</span> dataset</a></li>
 <li><a class="reference internal" href="#obtain-firstlevelmodel-objects-automatically-and-fit-arguments">Obtain FirstLevelModel objects automatically and fit arguments</a></li>
 <li><a class="reference internal" href="#first-level-model-estimation-one-subject">First level model estimation (one subject)</a></li>
 <li><a class="reference internal" href="#simple-statistical-report-of-thresholded-contrast">Simple statistical report of thresholded contrast</a></li>

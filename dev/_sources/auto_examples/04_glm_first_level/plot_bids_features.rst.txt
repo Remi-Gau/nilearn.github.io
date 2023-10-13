@@ -22,8 +22,9 @@ First level analysis of a complete BIDS dataset from openneuro
 ==============================================================
 
 
-Full step-by-step example of fitting a GLM to perform a first level analysis
-in an openneuro :term:`BIDS` dataset. We demonstrate how :term:`BIDS`
+Full step-by-step example of fitting a :term:`GLM`
+to perform a first level analysis in an openneuro :term:`BIDS` dataset.
+We demonstrate how :term:`BIDS`
 derivatives can be exploited to perform a simple one subject analysis with
 minimal code. Details about the :term:`BIDS` standard are available at
 `http://bids.neuroimaging.io/ <http://bids.neuroimaging.io/>`_.
@@ -40,17 +41,17 @@ More specifically:
    estimation in the openneuro dataset.
 4. Display contrast plot and uncorrected first level statistics table report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-33
+.. GENERATED FROM PYTHON SOURCE LINES 28-35
 
-Fetch openneuro BIDS dataset
-----------------------------
+Fetch openneuro :term:`BIDS` dataset
+------------------------------------
 We download one subject from the stopsignal task
 in the ds000030 V4 :term:`BIDS` dataset available in openneuro.
 This dataset contains the necessary information to run a statistical analysis
 using Nilearn. The dataset also contains statistical results from a previous
 FSL analysis that we can employ for comparison with the Nilearn estimation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-62
+.. GENERATED FROM PYTHON SOURCE LINES 35-64
 
 .. code-block:: default
 
@@ -90,7 +91,7 @@ FSL analysis that we can employ for comparison with the Nilearn estimation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-75
+.. GENERATED FROM PYTHON SOURCE LINES 65-77
 
 Obtain FirstLevelModel objects automatically and fit arguments
 --------------------------------------------------------------
@@ -105,7 +106,7 @@ the task_label and the space_label as specified in the file names.
 We also have to provide the folder with the desired derivatives, that in this
 case were produced by the :term:`fMRIPrep` :term:`BIDS` app.
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-93
+.. GENERATED FROM PYTHON SOURCE LINES 77-95
 
 .. code-block:: default
 
@@ -134,11 +135,11 @@ case were produced by the :term:`fMRIPrep` :term:`BIDS` app.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-95
+.. GENERATED FROM PYTHON SOURCE LINES 96-97
 
 Access the model and model arguments of the subject and process events.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-116
+.. GENERATED FROM PYTHON SOURCE LINES 97-118
 
 .. code-block:: default
 
@@ -170,13 +171,13 @@ Access the model and model arguments of the subject and process events.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-120
+.. GENERATED FROM PYTHON SOURCE LINES 119-122
 
 We identify the columns of the Go and StopSuccess conditions of the
 design matrix inferred from the FSL file, to use them later for contrast
 definition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-127
+.. GENERATED FROM PYTHON SOURCE LINES 122-129
 
 .. code-block:: default
 
@@ -194,13 +195,13 @@ definition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-131
+.. GENERATED FROM PYTHON SOURCE LINES 130-133
 
 First level model estimation (one subject)
 ------------------------------------------
 We fit the first level model for one subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-133
+.. GENERATED FROM PYTHON SOURCE LINES 133-135
 
 .. code-block:: default
 
@@ -221,12 +222,12 @@ We fit the first level model for one subject.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-136
+.. GENERATED FROM PYTHON SOURCE LINES 136-138
 
 Then we compute the StopSuccess - Go contrast. We can use the column names
 of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-138
+.. GENERATED FROM PYTHON SOURCE LINES 138-140
 
 .. code-block:: default
 
@@ -239,12 +240,12 @@ of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-141
+.. GENERATED FROM PYTHON SOURCE LINES 141-143
 
 We show the agreement between the Nilearn estimation and the FSL estimation
 available in the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-185
+.. GENERATED FROM PYTHON SOURCE LINES 143-187
 
 .. code-block:: default
 
@@ -323,13 +324,13 @@ available in the dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-189
+.. GENERATED FROM PYTHON SOURCE LINES 188-191
 
 Simple statistical report of thresholded contrast
 -------------------------------------------------
-We display the contrast plot and table with cluster information
+We display the :term:`contrast` plot and table with cluster information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-202
+.. GENERATED FROM PYTHON SOURCE LINES 191-204
 
 .. code-block:: default
 
@@ -370,12 +371,12 @@ We display the contrast plot and table with cluster information
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-205
+.. GENERATED FROM PYTHON SOURCE LINES 205-207
 
 We can get a latex table from a Pandas Dataframe for display and publication
 purposes
 
-.. GENERATED FROM PYTHON SOURCE LINES 205-210
+.. GENERATED FROM PYTHON SOURCE LINES 207-212
 
 .. code-block:: default
 
@@ -433,14 +434,14 @@ purposes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-215
+.. GENERATED FROM PYTHON SOURCE LINES 213-217
 
 Generating a report
 -------------------
-Using the computed FirstLevelModel and contrast information,
+Using the computed FirstLevelModel and :term:`contrast` information,
 we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-222
+.. GENERATED FROM PYTHON SOURCE LINES 217-224
 
 .. code-block:: default
 
@@ -458,11 +459,11 @@ we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-224
+.. GENERATED FROM PYTHON SOURCE LINES 225-226
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 224-229
+.. GENERATED FROM PYTHON SOURCE LINES 226-231
 
 .. code-block:: default
 
@@ -478,12 +479,12 @@ We have several ways to access the report:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 230-232
+.. GENERATED FROM PYTHON SOURCE LINES 232-234
 
 Saving model outputs to disk
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-242
+.. GENERATED FROM PYTHON SOURCE LINES 234-244
 
 .. code-block:: default
 
@@ -532,11 +533,11 @@ Saving model outputs to disk
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-244
+.. GENERATED FROM PYTHON SOURCE LINES 245-246
 
 View the generated files
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-247
+.. GENERATED FROM PYTHON SOURCE LINES 246-249
 
 .. code-block:: default
 
@@ -570,9 +571,9 @@ View the generated files
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 44.106 seconds)
+   **Total running time of the script:** (0 minutes 43.831 seconds)
 
-**Estimated memory usage:**  531 MB
+**Estimated memory usage:**  404 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_bids_features.py:
