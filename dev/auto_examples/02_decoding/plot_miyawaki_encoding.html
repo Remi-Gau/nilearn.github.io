@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev18+gc0460580) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -709,7 +709,7 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="encoding-models-for-visual-stimuli-from-miyawaki-et-al-2008">
 <span id="sphx-glr-auto-examples-02-decoding-plot-miyawaki-encoding-py"></span><h1>Encoding models for visual stimuli from Miyawaki et al. 2008<a class="headerlink" href="#encoding-models-for-visual-stimuli-from-miyawaki-et-al-2008" title="Permalink to this heading">#</a></h1>
 <dl class="simple">
-<dt>This example partly reproduces the encoding model presented in</dt><dd><p><a class="reference external" href="http://www.cell.com/neuron/abstract/S0896-6273%2808%2900958-6">Visual image reconstruction from human brain activity
+<dt>This example partly reproduces the encoding model presented in</dt><dd><p><a class="reference external" href="https://doi.org/10.1016/j.neuron.2008.11.004">Visual image reconstruction from human brain activity
 using a combination of multiscale local image decoders</a>,
 Miyawaki, Y., Uchida, H., Yamashita, O., Sato, M. A.,
 Morito, Y., Tanabe, H. C., … &amp; Kamitani, Y. (2008).
@@ -721,7 +721,7 @@ presented stimuli, like an image or sound. Where decoding goes from
 brain data to real-world stimulus, encoding goes the other direction.</p>
 <p>We demonstrate how to build such an <strong>encoding model</strong> in nilearn, predicting
 <strong>fMRI data</strong> from <strong>visual stimuli</strong>, using the dataset from
-<a class="reference external" href="http://www.cell.com/neuron/abstract/S0896-6273%2808%2900958-6">Miyawaki et al., 2008</a>.</p>
+<a class="reference external" href="https://doi.org/10.1016/j.neuron.2008.11.004">Miyawaki et al., 2008</a>.</p>
 <p>Participants were shown images, which consisted of random 10x10 binary
 (either black or white) pixels, and the corresponding <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> activity
 was recorded. We will try to predict the activity in each <a class="reference internal" href="../../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a>
@@ -832,7 +832,7 @@ so it is a matrix of <em>samples</em> x <em>pixels</em>.</p>
 <section id="building-the-encoding-models">
 <h2>Building the encoding models<a class="headerlink" href="#building-the-encoding-models" title="Permalink to this heading">#</a></h2>
 <p>We can now proceed to build a simple <strong>voxel-wise encoding model</strong> using
-<a class="reference external" href="http://en.wikipedia.org/wiki/Tikhonov_regularization">Ridge regression</a>.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Ridge regression</a>.
 For each voxel we fit an independent regression model,
 using the pixel-values of the visual stimuli to predict the neuronal
 activity in this voxel.</p>
@@ -924,13 +924,13 @@ which we will inspect more closely later on.</p>
 <section id="estimating-receptive-fields">
 <h2>Estimating receptive fields<a class="headerlink" href="#estimating-receptive-fields" title="Permalink to this heading">#</a></h2>
 <p>Now we take a closer look at the receptive fields of the four marked voxels.
-A voxel’s <a class="reference external" href="http://en.wikipedia.org/wiki/Receptive_field">receptive field</a>
+A voxel’s <a class="reference external" href="https://en.wikipedia.org/wiki/Receptive_field">receptive field</a>
 is the region of a stimulus (like an image) where the presence of an object,
 like a white instead of a black pixel, results in a change in activity
 in the voxel. In our case the receptive field is just the vector of 100
 regression  coefficients (one for each pixel) reshaped into the 10x10
 form of the original images. Some voxels are receptive to only very few
-pixels, so we use <a class="reference external" href="http://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso regression</a> to estimate a sparse
+pixels, so we use <a class="reference external" href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso regression</a> to estimate a sparse
 set of regression coefficients.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" title="sklearn.linear_model.LassoLarsCV" class="sphx-glr-backref-module-sklearn-linear_model sphx-glr-backref-type-py-class"><span class="n">LassoLarsCV</span></a>
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.make_pipeline.html#sklearn.pipeline.make_pipeline" title="sklearn.pipeline.make_pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-function"><span class="n">make_pipeline</span></a>
@@ -1012,7 +1012,7 @@ set of regression coefficients.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><a href="https://matplotlib.org/stable/api/image_api.html#matplotlib.image.AxesImage" title="matplotlib.image.AxesImage" class="sphx-glr-backref-module-matplotlib-image sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax_im</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7f4cb8148a60&gt;
+<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7f2d61642c70&gt;
 </pre></div>
 </div>
 <p>The receptive fields of the four voxels are not only close to each other,
@@ -1020,8 +1020,8 @@ the relative location of the pixel each voxel is most sensitive to
 roughly maps to the relative location of the voxels to each other.
 We can see a relationship between some voxel’s receptive field and
 its location in the brain.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.297 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  419 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.007 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  417 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-encoding-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_miyawaki_encoding.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

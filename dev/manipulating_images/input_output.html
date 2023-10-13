@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev17+gb6f4ff04) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev18+gc0460580) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -715,12 +715,12 @@
 <span class="n">smoothed_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">smooth_img</span><span class="p">(</span><span class="s1">&#39;/home/user/t_map001.nii&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Nilearn can operate on either file names or <a class="reference external" href="http://nipy.org/nibabel/nibabel_images.html">NiftiImage objects</a>. The later represent the
+<p>Nilearn can operate on either file names or <a class="reference external" href="https://nipy.org/nibabel/nibabel_images.html">NiftiImage objects</a>. The later represent the
 data loaded in memory. In the example above, the
 function <a class="reference internal" href="../modules/generated/nilearn.image.smooth_img.html#nilearn.image.smooth_img" title="nilearn.image.smooth_img"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth_img</span></code></a> returns a Nifti1Image object, which can then
 be readily passed to other nilearn functions.</p>
 <p>In nilearn, we often use the term <em>“niimg”</em> as abbreviation that denotes
-either a file name or a <a class="reference external" href="http://nipy.org/nibabel/nibabel_images.html">NiftiImage object</a>.</p>
+either a file name or a <a class="reference external" href="https://nipy.org/nibabel/nibabel_images.html">NiftiImage object</a>.</p>
 <p>Niimgs can be 3D or 4D. A 4D niimg may for instance represent a time
 series of 3D images. It can be <strong>a list of file names</strong>, if these contain
 3D information:</p>
@@ -849,8 +849,8 @@ function <a class="reference internal" href="../modules/generated/nilearn.datase
 <section id="nifti-and-analyze-data">
 <h3><span class="section-number">9.1.3.1. </span>Nifti and Analyze data<a class="headerlink" href="#nifti-and-analyze-data" title="Permalink to this heading">#</a></h3>
 <p>For volumetric data, nilearn works with data stored as in the Nifti
-structure (via the <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a> package).</p>
-<p>The <a class="reference external" href="http://nifti.nimh.nih.gov/">NifTi</a> data structure (also used in
+structure (via the <a class="reference external" href="https://nipy.org/nibabel/">nibabel</a> package).</p>
+<p>The <a class="reference external" href="https://nifti.nimh.nih.gov/">NifTi</a> data structure (also used in
 Analyze files) is the standard way of sharing data in neuroimaging
 research. Three main components are:</p>
 <dl class="field-list simple">
@@ -868,13 +868,13 @@ locations of the brain:
 <code class="docutils literal notranslate"><span class="pre">header</span> <span class="pre">=</span> <span class="pre">img.header</span></code></p>
 </dd>
 </dl>
-<p>If you need to load the data without using nilearn, read the <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a>
+<p>If you need to load the data without using nilearn, read the <a class="reference external" href="https://nipy.org/nibabel/">nibabel</a>
 documentation.</p>
-<p>Note: For older versions of <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a>, affine and header can be retrieved
+<p>Note: For older versions of <a class="reference external" href="https://nipy.org/nibabel/">nibabel</a>, affine and header can be retrieved
 with <code class="docutils literal notranslate"><span class="pre">get_affine()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_header()</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>if you create images directly with <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a>, beware of int64
+<p>if you create images directly with <a class="reference external" href="https://nipy.org/nibabel/">nibabel</a>, beware of int64
 images. the default integer type used by Numpy is (signed) 64-bit.
 Several popular neuroimaging tools do not handle int64 Nifti
 images, so if you build Nifti images directly from Numpy arrays it
@@ -891,11 +891,11 @@ of MRI scans:</p>
 <ul class="simple">
 <li><p>a big 4D matrix representing (3D MRI + 1D for time), stored in a single
 Nifti file.
-<a class="reference external" href="http://www.fmrib.ox.ac.uk/fsl/">FSL</a> users tend to
+<a class="reference external" href="https://fsl.fmrib.ox.ac.uk/fsl/">FSL</a> users tend to
 prefer this format.</p></li>
 <li><p>several 3D matrices representing each time point (single 3D volume) of the
 session, stored in set of 3D Nifti or analyse files.
-<a class="reference external" href="http://www.fil.ion.ucl.ac.uk/spm/">SPM</a> users tend
+<a class="reference external" href="https://www.fil.ion.ucl.ac.uk/spm/">SPM</a> users tend
 to prefer this format.</p></li>
 </ul>
 </aside>
@@ -909,7 +909,7 @@ objects”:</p>
 <div><ul class="simple">
 <li><p>A string or pathlib.Path object with a file path to a Nifti or Analyse image</p></li>
 <li><p>An <code class="docutils literal notranslate"><span class="pre">SpatialImage</span></code> from nibabel, ie an object exposing <code class="docutils literal notranslate"><span class="pre">get_fdata()</span></code>
-method and <code class="docutils literal notranslate"><span class="pre">affine</span></code> attribute, typically a <code class="docutils literal notranslate"><span class="pre">Nifti1Image</span></code> from <a class="reference external" href="http://nipy.sourceforge.net/nibabel/">nibabel</a>.</p></li>
+method and <code class="docutils literal notranslate"><span class="pre">affine</span></code> attribute, typically a <code class="docutils literal notranslate"><span class="pre">Nifti1Image</span></code> from <a class="reference external" href="https://nipy.org/nibabel/">nibabel</a>.</p></li>
 </ul>
 </div></blockquote>
 <p><strong>Niimg-4D:</strong> Similarly, some functions require 4D Nifti-like
@@ -957,7 +957,7 @@ presented to the subject:</p>
 </div>
 <aside class="topic">
 <p class="topic-title"><strong>Reading CSV with pandas</strong></p>
-<p><a class="reference external" href="http://pandas.pydata.org/">Pandas</a> is a powerful package to read
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> is a powerful package to read
 data from CSV files and manipulate them.</p>
 </aside>
 <div class="line-block">

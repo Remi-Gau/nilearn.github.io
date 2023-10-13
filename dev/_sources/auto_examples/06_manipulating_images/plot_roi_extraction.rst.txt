@@ -185,7 +185,7 @@ also use file names as input parameters.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb80e9370>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d60b427c0>
 
 
 
@@ -297,7 +297,7 @@ then the :term:`voxel` is not very interesting to discriminate the condition.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb72b7a00>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d6084efa0>
 
 
 
@@ -354,7 +354,7 @@ array.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb89c4ca0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d4e4fe9a0>
 
 
 
@@ -430,20 +430,21 @@ intersection of this provided mask with our self-computed mask.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb5627160>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d5ffd8370>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 264-270
+.. GENERATED FROM PYTHON SOURCE LINES 264-271
 
 **Dilation** - Thresholded functional brain images often contain scattered
 voxels across the brain. To consolidate such brain images towards
 more compact shapes, we use a `morphological dilation
-<http://en.wikipedia.org/wiki/Dilation_(morphology)>`_. This is a common step
+<https://en.wikipedia.org/wiki/Dilation_(morphology)>`_.
+This is a common step
 to be sure not to forget voxels located on the edge of a ROI. In other words,
 such operations can fill "holes" in masked :term:`voxel` representations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 270-293
+.. GENERATED FROM PYTHON SOURCE LINES 271-294
 
 .. code-block:: default
 
@@ -483,29 +484,29 @@ such operations can fill "holes" in masked :term:`voxel` representations.
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:281: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:282: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4cb7eacc40>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d60a44340>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 294-297
+.. GENERATED FROM PYTHON SOURCE LINES 295-298
 
 Finally, we end with splitting the connected ROIs to two hemispheres into two
 separate regions (ROIs). The function `scipy.ndimage.label` from the scipy
 Python library.
 
-.. GENERATED FROM PYTHON SOURCE LINES 299-303
+.. GENERATED FROM PYTHON SOURCE LINES 300-304
 
 **Identification of connected components** - The function
 :func:`scipy.ndimage.label` from the scipy Python library identifies
 immediately neighboring voxels in our voxels mask. It assigns a separate
 integer label to each one of them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 303-324
+.. GENERATED FROM PYTHON SOURCE LINES 304-325
 
 .. code-block:: default
 
@@ -555,24 +556,24 @@ integer label to each one of them.
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:312: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:313: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:318: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:319: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4ca5c85a00>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f2d615fc2b0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 325-326
+.. GENERATED FROM PYTHON SOURCE LINES 326-327
 
 Use the new ROIs, to extract data maps in both ROIs
 
-.. GENERATED FROM PYTHON SOURCE LINES 326-363
+.. GENERATED FROM PYTHON SOURCE LINES 327-364
 
 .. code-block:: default
 
@@ -620,11 +621,11 @@ Use the new ROIs, to extract data maps in both ROIs
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 364-365
+.. GENERATED FROM PYTHON SOURCE LINES 365-366
 
 save the ROI 'atlas' to a Nifti file
 
-.. GENERATED FROM PYTHON SOURCE LINES 365-367
+.. GENERATED FROM PYTHON SOURCE LINES 366-368
 
 .. code-block:: default
 
@@ -637,11 +638,11 @@ save the ROI 'atlas' to a Nifti file
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-369
+.. GENERATED FROM PYTHON SOURCE LINES 369-370
 
 Plot the average in the different condition names
 
-.. GENERATED FROM PYTHON SOURCE LINES 369-381
+.. GENERATED FROM PYTHON SOURCE LINES 370-382
 
 .. code-block:: default
 
@@ -672,7 +673,7 @@ Plot the average in the different condition names
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 30.548 seconds)
+   **Total running time of the script:** (0 minutes 28.676 seconds)
 
 **Estimated memory usage:**  2257 MB
 
