@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.datasets.fetch_surf_fsaverage<a class="headerlink" href="#nilearn-datasets-fetch-surf-fsaverage" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.datasets.fetch_surf_fsaverage">
-<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_surf_fsaverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fsaverage5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/datasets/struct.py#L868"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_surf_fsaverage" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_surf_fsaverage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fsaverage5'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/datasets/struct.py#L867"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_surf_fsaverage" title="Permalink to this definition">#</a></dt>
 <dd><p>Download a Freesurfer fsaverage surface.</p>
 <p>File names are subject to change and only attribute names
 are guaranteed to be stable across nilearn versions.
@@ -719,7 +719,7 @@ See <a class="footnote-reference brackets" href="#footcite-fischl1999" id="id1" 
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>mesh</strong><span class="classifier">str, optional</span></dt><dd><p>Which mesh to fetch. Should be one of the following values:</p>
+<dt><strong>mesh</strong><span class="classifier">str, default=’fsaverage5’</span></dt><dd><p>Which mesh to fetch. Should be one of the following values:</p>
 <blockquote>
 <div><ul>
 <li><p><cite>“fsaverage3”</cite>: the low-resolution fsaverage3 mesh (642 nodes)</p></li>
@@ -738,10 +738,11 @@ time and memory usage</p>
 </li>
 </ul>
 </div></blockquote>
-<p>Default=’fsaverage5’.</p>
 </dd>
 <dt><strong>data_dir</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>Path where data should be downloaded.
-By default, files are downloaded in home directory.</p>
+By default, files are downloaded in a <code class="docutils literal notranslate"><span class="pre">nilearn_data</span></code> folder
+in the home directory of the user.
+See also <code class="docutils literal notranslate"><span class="pre">nilearn.datasets.utils.get_data_dirs</span></code>.</p>
 </dd>
 </dl>
 </dd>

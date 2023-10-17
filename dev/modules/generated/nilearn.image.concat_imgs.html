@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.image.concat_imgs<a class="headerlink" href="#nilearn-image-concat-imgs" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.image.concat_imgs">
-<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">concat_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">niimgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ndim=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory=Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_resample=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/_utils/niimg_conversions.py#L420"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.concat_imgs" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">concat_imgs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">niimgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ensure_ndim=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory=Memory(location=None)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memory_level=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_resample=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose=0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/_utils/niimg_conversions.py#L412"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.concat_imgs" title="Permalink to this definition">#</a></dt>
 <dd><p>Concatenate a list of 3D/4D niimgs of varying lengths.</p>
 <p>The niimgs list can contain niftis/paths to images of varying dimensions
 (i.e., 3D or 4D) as well as different 3D shapes and affines, as they
@@ -722,24 +722,21 @@ will be matched to the first image in the list if auto_resample=True.</p>
 <dt><strong>niimgs</strong><span class="classifier">iterable of Niimg-like objects or glob pattern</span></dt><dd><p>See <a class="reference internal" href="../../manipulating_images/input_output.html#extracting-data"><span class="std std-ref">Input and output: neuroimaging data representation</span></a>.
 Niimgs to concatenate.</p>
 </dd>
-<dt><strong>dtype</strong><span class="classifier">numpy dtype, optional</span></dt><dd><p>The dtype of the returned image. Default=np.float32.</p>
+<dt><strong>dtype</strong><span class="classifier">numpy dtype, default=np.float32</span></dt><dd><p>The dtype of the returned image.</p>
 </dd>
 <dt><strong>ensure_ndim</strong><span class="classifier">integer, optional</span></dt><dd><p>Indicate the dimensionality of the expected niimg. An
 error is raised if the niimg is of another dimensionality.</p>
 </dd>
-<dt><strong>auto_resample</strong><span class="classifier">boolean, optional</span></dt><dd><p>Converts all images to the space of the first one.
-Default=False.</p>
+<dt><strong>auto_resample</strong><span class="classifier">boolean, default=False</span></dt><dd><p>Converts all images to the space of the first one.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">int, optional</span></dt><dd><p>Controls the amount of verbosity (0 means no messages).
-Default=0.</p>
+<dt><strong>verbose</strong><span class="classifier">int, default=0</span></dt><dd><p>Controls the amount of verbosity (0 means no messages).</p>
 </dd>
-<dt><strong>memory</strong><span class="classifier">instance of joblib.Memory or string, optional</span></dt><dd><p>Used to cache the resampling process.
+<dt><strong>memory</strong><span class="classifier">instance of joblib.Memory or string, default=Memory(location=None)</span></dt><dd><p>Used to cache the resampling process.
 By default, no caching is done. If a string is given, it is the
-path to the caching directory.
-Default=Memory(location=None).</p>
+path to the caching directory.</p>
 </dd>
-<dt><strong>memory_level</strong><span class="classifier">integer, optional</span></dt><dd><p>Rough estimator of the amount of memory used by caching. Higher value
-means more memory for caching. Default=0.</p>
+<dt><strong>memory_level</strong><span class="classifier">integer, default=0</span></dt><dd><p>Rough estimator of the amount of memory used by caching. Higher value
+means more memory for caching.</p>
 </dd>
 </dl>
 </dd>

@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.glm.threshold_stats_img<a class="headerlink" href="#nilearn-glm-threshold-stats-img" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.glm.threshold_stats_img">
-<span class="sig-prename descclassname"><span class="pre">nilearn.glm.</span></span><span class="sig-name descname"><span class="pre">threshold_stats_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_control</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fpr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_sided</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/glm/thresholding.py#L183"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.threshold_stats_img" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.glm.</span></span><span class="sig-name descname"><span class="pre">threshold_stats_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height_control</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fpr'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">two_sided</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/glm/thresholding.py#L183"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.glm.threshold_stats_img" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute the required threshold level and return the thresholded map.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -722,26 +722,23 @@ If it is ‘fdr’ or ‘bonferroni’, an error is raised if stat_img is None.<
 </dd>
 <dt><strong>mask_img</strong><span class="classifier">Niimg-like object, optional,</span></dt><dd><p>Mask image</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float or list, optional</span></dt><dd><p>Number controlling the thresholding (either a p-value or q-value).
+<dt><strong>alpha</strong><span class="classifier">float or list, default=0.001</span></dt><dd><p>Number controlling the thresholding (either a p-value or q-value).
 Its actual meaning depends on the height_control parameter.
-This function translates alpha to a z-scale threshold.
-Default=0.001.</p>
+This function translates alpha to a z-scale threshold.</p>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float, optional</span></dt><dd><p>Desired threshold in z-scale.
-This is used only if height_control is None. Default=3.0.</p>
+<dt><strong>threshold</strong><span class="classifier">float, default=3.0</span></dt><dd><p>Desired threshold in z-scale.
+This is used only if height_control is None.</p>
 </dd>
-<dt><strong>height_control</strong><span class="classifier">string, or None optional</span></dt><dd><p>False positive control meaning of cluster forming
-threshold: None|’fpr’|’fdr’|’bonferroni’
-Default=’fpr’.</p>
+<dt><strong>height_control</strong><span class="classifier">string, or None optional, default=’fpr’</span></dt><dd><p>False positive control meaning of cluster forming
+threshold: None|’fpr’|’fdr’|’bonferroni’</p>
 </dd>
-<dt><strong>cluster_threshold</strong><span class="classifier">float, optional</span></dt><dd><p>cluster size threshold. In the returned thresholded map,
+<dt><strong>cluster_threshold</strong><span class="classifier">float, default=0</span></dt><dd><p>cluster size threshold. In the returned thresholded map,
 sets of connected voxels (<cite>clusters</cite>) with size smaller
-than this number will be removed. Default=0.</p>
+than this number will be removed.</p>
 </dd>
-<dt><strong>two_sided</strong><span class="classifier">Bool, optional</span></dt><dd><p>Whether the thresholding should yield both positive and negative
+<dt><strong>two_sided</strong><span class="classifier">Bool, default=True</span></dt><dd><p>Whether the thresholding should yield both positive and negative
 part of the maps.
-In that case, alpha is corrected by a factor of 2.
-Default=True.</p>
+In that case, alpha is corrected by a factor of 2.</p>
 </dd>
 </dl>
 </dd>

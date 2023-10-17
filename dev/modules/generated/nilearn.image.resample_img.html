@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.image.resample_img<a class="headerlink" href="#nilearn-image-resample-img" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.image.resample_img">
-<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">resample_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_affine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_resample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/image/resampling.py#L333"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.resample_img" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.image.</span></span><span class="sig-name descname"><span class="pre">resample_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_affine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'F'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_resample</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/image/resampling.py#L333"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.image.resample_img" title="Permalink to this definition">#</a></dt>
 <dd><p>Resample a Niimg-like object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -727,28 +727,25 @@ len(target_shape) must be equal to 3.
 If target_shape is specified, a target_affine of shape (4, 4)
 must also be given. (See notes)</p>
 </dd>
-<dt><strong>interpolation</strong><span class="classifier">str, optional</span></dt><dd><p>Can be ‘continuous’, ‘linear’, or ‘nearest’. Indicates the resample
-method. Default=’continuous’.</p>
+<dt><strong>interpolation</strong><span class="classifier">str, default=’continuous’</span></dt><dd><p>Can be ‘continuous’, ‘linear’, or ‘nearest’. Indicates the resample
+method.</p>
 </dd>
-<dt><strong>copy</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, guarantees that output array has no memory in common with
+<dt><strong>copy</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, guarantees that output array has no memory in common with
 input array.
-In all cases, input images are never modified by this function.
-Default=True.</p>
+In all cases, input images are never modified by this function.</p>
 </dd>
-<dt><strong>order</strong><span class="classifier">“F” or “C”, optional</span></dt><dd><p>Data ordering in output array. This function is slightly faster with
-Fortran ordering. Default=’F’.</p>
+<dt><strong>order</strong><span class="classifier">“F” or “C”, default=’F’</span></dt><dd><p>Data ordering in output array. This function is slightly faster with
+Fortran ordering.</p>
 </dd>
-<dt><strong>clip</strong><span class="classifier">bool, optional</span></dt><dd><p>If True (default) all resampled image values above max(img) and
+<dt><strong>clip</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True (default) all resampled image values above max(img) and
 under min(img) are clipped to min(img) and max(img). Note that
 0 is added as an image value for clipping, and it is the padding
 value when extrapolating out of field of view.
-If False no clip is performed.
-Default=True.</p>
+If False no clip is performed.</p>
 </dd>
-<dt><strong>fill_value</strong><span class="classifier">float, optional</span></dt><dd><p>Use a fill value for points outside of input volume. Default=0.</p>
+<dt><strong>fill_value</strong><span class="classifier">float, default=0</span></dt><dd><p>Use a fill value for points outside of input volume.</p>
 </dd>
-<dt><strong>force_resample</strong><span class="classifier">bool, optional</span></dt><dd><p>Intended for testing, this prevents the use of a padding optimization.
-Default=False.</p>
+<dt><strong>force_resample</strong><span class="classifier">bool, default=False</span></dt><dd><p>Intended for testing, this prevents the use of a padding optimization.</p>
 </dd>
 </dl>
 </dd>

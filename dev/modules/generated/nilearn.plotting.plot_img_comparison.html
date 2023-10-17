@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.plotting.plot_img_comparison<a class="headerlink" href="#nilearn-plotting-plot-img-comparison" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.plotting.plot_img_comparison">
-<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_img_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_hist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image</span> <span class="pre">set</span> <span class="pre">1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image</span> <span class="pre">set</span> <span class="pre">2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/plotting/img_plotting.py#L1625"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_img_comparison" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_img_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_imgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masker</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_hist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image</span> <span class="pre">set</span> <span class="pre">1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image</span> <span class="pre">set</span> <span class="pre">2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/plotting/img_plotting.py#L1611"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_img_comparison" title="Permalink to this definition">#</a></dt>
 <dd><p>Create plots to compare two lists of images and measure correlation.</p>
 <p>The first plot displays linear correlation between <a class="reference internal" href="../../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> values.
 The second plot superimposes histograms to compare values distribution.</p>
@@ -724,15 +724,14 @@ The second plot superimposes histograms to compare values distribution.</p>
 </dd>
 <dt><strong>masker</strong><span class="classifier">NiftiMasker object</span></dt><dd><p>Mask to be used on data.</p>
 </dd>
-<dt><strong>plot_hist</strong><span class="classifier">Boolean, optional</span></dt><dd><p>If True then histograms of each img in ref_imgs will be plotted
-along-side the histogram of the corresponding image in src_imgs.
-Default=True.</p>
+<dt><strong>plot_hist</strong><span class="classifier">Boolean, default=True</span></dt><dd><p>If True then histograms of each img in ref_imgs will be plotted
+along-side the histogram of the corresponding image in src_imgs.</p>
 </dd>
-<dt><strong>log</strong><span class="classifier">Boolean, optional</span></dt><dd><p>Passed to plt.hist. Default=True.</p>
+<dt><strong>log</strong><span class="classifier">Boolean, default=True</span></dt><dd><p>Passed to plt.hist.</p>
 </dd>
-<dt><strong>ref_label</strong><span class="classifier">str, optional</span></dt><dd><p>Name of reference images. Default=’image set 1’.</p>
+<dt><strong>ref_label</strong><span class="classifier">str, default=’image set 1’</span></dt><dd><p>Name of reference images.</p>
 </dd>
-<dt><strong>src_label</strong><span class="classifier">str, optional</span></dt><dd><p>Name of source images. Default=’image set 2’.</p>
+<dt><strong>src_label</strong><span class="classifier">str, default=’image set 2’</span></dt><dd><p>Name of source images.</p>
 </dd>
 <dt><strong>output_dir</strong><span class="classifier">string, optional</span></dt><dd><p>Directory where plotted figures will be stored.</p>
 </dd>

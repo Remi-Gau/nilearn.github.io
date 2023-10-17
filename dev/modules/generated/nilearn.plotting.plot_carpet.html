@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.plotting.plot_carpet<a class="headerlink" href="#nilearn-plotting-plot-carpet" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.plotting.plot_carpet">
-<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_carpet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_labels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detrend=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap='gray'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap_labels=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardize=True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/plotting/img_plotting.py#L1374"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_carpet" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_carpet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_img=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_labels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_r=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detrend=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap='gray'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap_labels=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standardize=True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/plotting/img_plotting.py#L1360"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_carpet" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot an image representation of <a class="reference internal" href="../../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a> intensities across time.</p>
 <p>This figure is also known as a “grayplot” or “Power plot”.</p>
 <dl class="field-list">
@@ -720,8 +720,8 @@ function signature, and not how to use it. Please refer to the
 <dt><strong>img</strong><span class="classifier">Niimg-like object</span></dt><dd><p>See <a class="reference internal" href="../../manipulating_images/input_output.html#extracting-data"><span class="std std-ref">Input and output: neuroimaging data representation</span></a>.
 4D image.</p>
 </dd>
-<dt><strong>mask_img</strong><span class="classifier">Niimg-like object or None, optional</span></dt><dd><p>Limit plotted voxels to those inside the provided mask (default is
-None). If a 3D atlas is provided, voxels will be grouped by atlas
+<dt><strong>mask_img</strong><span class="classifier">Niimg-like object or None, default=None</span></dt><dd><p>Limit plotted voxels to those inside the provided mask.
+If a 3D atlas is provided, voxels will be grouped by atlas
 value and a colorbar will be added to the left side of the figure
 with atlas labels.
 If not specified, a new mask will be derived from data.
@@ -743,7 +743,7 @@ header (<code class="docutils literal notranslate"><span class="pre">img.header.
 user input.</p>
 </div>
 </dd>
-<dt><strong>detrend</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>Detrend and z-score the data prior to plotting. Default=True.</p>
+<dt><strong>detrend</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default=True</span></dt><dd><p>Detrend and z-score the data prior to plotting.</p>
 </dd>
 <dt><strong>output_file</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, or None, optional</span></dt><dd><p>The name of an image file to export the plot to.
 Valid extensions are .png, .pdf, .svg.
@@ -772,10 +772,9 @@ Either a string which is a name of a matplotlib colormap,
 or a matplotlib colormap object.</p>
 <p>Default=`gray`.</p>
 </dd>
-<dt><strong>cmap_labels</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a>, or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>,</span></dt><dd><p>optional If <code class="docutils literal notranslate"><span class="pre">mask_img</span></code> corresponds to an atlas, then cmap_labels
+<dt><strong>cmap_labels</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a>, or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>,                   default=`plt.cm.gist_ncar`</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">mask_img</span></code> corresponds to an atlas, then cmap_labels
 can be used to define the colormap for coloring the labels placed
 on the side of the carpet plot.</p>
-<p>Default=`plt.cm.gist_ncar`.</p>
 </dd>
 <dt><strong>standardize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default=True</span></dt><dd><p>If <cite>standardize</cite> is <cite>True</cite>, the data are centered and normed:
 their mean is put to 0 and their variance is put to 1

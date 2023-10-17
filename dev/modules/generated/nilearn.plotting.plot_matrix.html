@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.plotting.plot_matrix<a class="headerlink" href="#nilearn-plotting-plot-matrix" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.plotting.plot_matrix">
-<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri='full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_fit=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reorder=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/plotting/matrix_plotting.py#L205"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_matrix" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tri='full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_fit=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reorder=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/plotting/matrix_plotting.py#L205"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.plotting.plot_matrix" title="Permalink to this definition">#</a></dt>
 <dd><p>Plot the given matrix.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -746,7 +746,7 @@ Either a string which is a name of a matplotlib colormap,
 or a matplotlib colormap object.
 Default=`plt.cm.RdBu_r`.</p>
 </dd>
-<dt><strong>tri</strong><span class="classifier">{‘full’, ‘lower’, ‘diag’}, optional</span></dt><dd><p>Which triangular part of the matrix to plot:</p>
+<dt><strong>tri</strong><span class="classifier">{‘full’, ‘lower’, ‘diag’}, default=’full’</span></dt><dd><p>Which triangular part of the matrix to plot:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>‘lower’: Plot the lower part</p></li>
@@ -754,20 +754,17 @@ Default=`plt.cm.RdBu_r`.</p>
 <li><p>‘full’: Plot the full matrix</p></li>
 </ul>
 </div></blockquote>
-<p>Default=’full’.</p>
 </dd>
-<dt><strong>auto_fit</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional</span></dt><dd><p>If auto_fit is True, the axes are dimensioned to give room
+<dt><strong>auto_fit</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default=True</span></dt><dd><p>If auto_fit is True, the axes are dimensioned to give room
 for the labels. This assumes that the labels are resting
-against the bottom and left edges of the figure.
-Default=True.</p>
+against the bottom and left edges of the figure.</p>
 </dd>
-<dt><strong>grid</strong><span class="classifier">color or False, optional</span></dt><dd><p>If not False, a grid is plotted to separate rows and columns
-using the given color. Default=False.</p>
+<dt><strong>grid</strong><span class="classifier">color or False, default=False</span></dt><dd><p>If not False, a grid is plotted to separate rows and columns
+using the given color.</p>
 </dd>
-<dt><strong>reorder</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a> or {‘single’, ‘complete’, ‘average’}, optional</span></dt><dd><p>If not False, reorders the matrix into blocks of clusters.
+<dt><strong>reorder</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a> or {‘single’, ‘complete’, ‘average’}, default=False</span></dt><dd><p>If not False, reorders the matrix into blocks of clusters.
 Accepted linkage options for the clustering are ‘single’,
-‘complete’, and ‘average’. True defaults to average linkage.
-Default=False.</p>
+‘complete’, and ‘average’. True defaults to average linkage.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This option is only available with SciPy &gt;= 1.0.0.</p>

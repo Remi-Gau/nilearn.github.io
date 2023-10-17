@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev24+gdd6c3919) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev25+g1f20b651) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -711,7 +711,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.datasets.fetch_development_fmri<a class="headerlink" href="#nilearn-datasets-fetch-development-fmri" title="Permalink to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.datasets.fetch_development_fmri">
-<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_development_fmri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_subjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/dd6c3919/nilearn/datasets/func.py#L1885"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_development_fmri" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.datasets.</span></span><span class="sig-name descname"><span class="pre">fetch_development_fmri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_subjects</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduce_confounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/1f20b651/nilearn/datasets/func.py#L1878"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.datasets.fetch_development_fmri" title="Permalink to this definition">#</a></dt>
 <dd><p>Fetch movie watching based brain development dataset (fMRI).</p>
 <p>The data is downsampled to 4mm resolution for convenience
 with a repetition time (TR) of 2 secs.
@@ -727,22 +727,23 @@ if you are using this dataset.</p>
 <dt><strong>n_subjects</strong><span class="classifier">int, optional</span></dt><dd><p>The number of subjects to load. If None, all the subjects are
 loaded. Total 155 subjects.</p>
 </dd>
-<dt><strong>reduce_confounds</strong><span class="classifier">bool, optional</span></dt><dd><p>If True, the returned confounds only include 6 motion parameters,
+<dt><strong>reduce_confounds</strong><span class="classifier">bool, default=True</span></dt><dd><p>If True, the returned confounds only include 6 motion parameters,
 mean framewise displacement, signal from white matter, csf, and
 6 anatomical compcor parameters. This selection only serves the
 purpose of having realistic examples. Depending on your research
 question, other confounds might be more appropriate.
-If False, returns all <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds.
-Default=True.</p>
+If False, returns all <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds.</p>
 </dd>
 <dt><strong>data_dir</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pathlib.Path</span></code></a> or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a>, optional</span></dt><dd><p>Path where data should be downloaded.
-By default, files are downloaded in home directory.</p>
+By default, files are downloaded in a <code class="docutils literal notranslate"><span class="pre">nilearn_data</span></code> folder
+in the home directory of the user.
+See also <code class="docutils literal notranslate"><span class="pre">nilearn.datasets.utils.get_data_dirs</span></code>.</p>
 </dd>
 <dt><strong>resume</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#bool" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, default=True</span></dt><dd><p>Whether to resume download of a partly-downloaded file.</p>
 </dd>
 <dt><strong>verbose</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.9/library/functions.html#int" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, default=1</span></dt><dd><p>Verbosity level (<cite>0</cite> means no message).</p>
 </dd>
-<dt><strong>age_group</strong><span class="classifier">str, optional</span></dt><dd><p>Default=’both’. Which age group to fetch</p>
+<dt><strong>age_group</strong><span class="classifier">str, default=’both’</span></dt><dd><p>Which age group to fetch</p>
 <ul class="simple">
 <li><p>‘adults’ = fetch adults only (n=33, ages 18-39)</p></li>
 <li><p>‘child’ = fetch children only (n=122, ages 3-12)</p></li>
