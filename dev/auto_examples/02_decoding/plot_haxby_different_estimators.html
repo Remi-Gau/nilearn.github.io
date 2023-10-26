@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Here we compare different classifiers on a visual object recognition decoding task. Loading the data: Training the decoder: Visualization: We can see that for a fixed penalty the results are simila..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of pattern recognition on simulated data" href="plot_simulated_data.html" /><link rel="prev" title="Voxel-Based Morphometry on Oasis dataset" href="plot_oasis_vbm.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Different classifiers in decoding the Haxby dataset - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev40+g0fa9ba3c) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,11 +707,11 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="different-classifiers-in-decoding-the-haxby-dataset">
-<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-different-estimators-py"></span><h1>Different classifiers in decoding the Haxby dataset<a class="headerlink" href="#different-classifiers-in-decoding-the-haxby-dataset" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-different-estimators-py"></span><h1>Different classifiers in decoding the Haxby dataset<a class="headerlink" href="#different-classifiers-in-decoding-the-haxby-dataset" title="Link to this heading">#</a></h1>
 <p>Here we compare different classifiers on a visual object recognition
 decoding task.</p>
 <section id="loading-the-data">
-<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">#</a></h2>
+<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># We start by loading data using nilearn dataset fetcher</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 <span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a>
@@ -769,7 +769,7 @@ First subject functional nifti image (4D) is located at: /home/runner/work/nilea
 </div>
 </section>
 <section id="training-the-decoder">
-<h2>Training the decoder<a class="headerlink" href="#training-the-decoder" title="Permalink to this heading">#</a></h2>
+<h2>Training the decoder<a class="headerlink" href="#training-the-decoder" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we define the various classifiers that we use</span>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">classifiers</span></a> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;svc_l2&quot;</span><span class="p">,</span>
@@ -821,21 +821,21 @@ First subject functional nifti image (4D) is located at: /home/runner/work/nilea
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-logistic_l1: 111.41s
+logistic_l1: 105.76s
     scissors       vs all -- AUC: 0.00 +- 0.00
     face           vs all -- AUC: 0.17 +- 0.37
     cat            vs all -- AUC: 0.45 +- 0.46
     shoe           vs all -- AUC: 0.00 +- 0.00
     house          vs all -- AUC: 1.00 +- 0.00
-    scrambledpix   vs all -- AUC: 0.98 +- 0.01
-    bottle         vs all -- AUC: 0.16 +- 0.35
+    scrambledpix   vs all -- AUC: 0.98 +- 0.02
+    bottle         vs all -- AUC: 0.15 +- 0.35
     chair          vs all -- AUC: 0.00 +- 0.00
 ______________________________________________________________________
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-logistic_l2: 357.47s
+logistic_l2: 334.78s
     scissors       vs all -- AUC: 0.90 +- 0.08
     face           vs all -- AUC: 0.97 +- 0.04
     cat            vs all -- AUC: 0.96 +- 0.04
@@ -849,7 +849,7 @@ ______________________________________________________________________
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-ridge_classifier: 18.75s
+ridge_classifier: 16.07s
     scissors       vs all -- AUC: 0.94 +- 0.05
     face           vs all -- AUC: 0.98 +- 0.02
     cat            vs all -- AUC: 0.95 +- 0.04
@@ -863,7 +863,7 @@ ______________________________________________________________________
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-svc_l1    : 32.07s
+svc_l1    : 27.44s
     scissors       vs all -- AUC: 0.92 +- 0.05
     face           vs all -- AUC: 0.98 +- 0.03
     cat            vs all -- AUC: 0.96 +- 0.04
@@ -877,7 +877,7 @@ ______________________________________________________________________
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-svc_l2    : 88.30s
+svc_l2    : 81.26s
     scissors       vs all -- AUC: 0.90 +- 0.09
     face           vs all -- AUC: 0.96 +- 0.05
     cat            vs all -- AUC: 0.96 +- 0.04
@@ -890,7 +890,7 @@ svc_l2    : 88.30s
 </div>
 </section>
 <section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this heading">#</a></h2>
+<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we make a rudimentary diagram</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -932,7 +932,7 @@ and the logistic regression. The main difference relies on the penalty
 an intra-subject setting.</p>
 </section>
 <section id="visualizing-the-face-vs-house-map">
-<h2>Visualizing the face vs house map<a class="headerlink" href="#visualizing-the-face-vs-house-map" title="Permalink to this heading">#</a></h2>
+<h2>Visualizing the face vs house map<a class="headerlink" href="#visualizing-the-face-vs-house-map" title="Link to this heading">#</a></h2>
 <p>Restrict the decoding to face vs house</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition_mask</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">logical_or</span></a><span class="p">(</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">==</span> <span class="s2">&quot;face&quot;</span><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">==</span> <span class="s2">&quot;house&quot;</span><span class="p">)</span>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stimuli</span></a><span class="p">[</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition_mask</span></a><span class="p">]</span>
@@ -1006,8 +1006,8 @@ Use the average <a class="reference internal" href="../../glossary.html#term-EPI
 <li><img src="../../_images/sphx_glr_plot_haxby_different_estimators_005.png" srcset="../../_images/sphx_glr_plot_haxby_different_estimators_005.png" alt="plot haxby different estimators" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_haxby_different_estimators_006.png" srcset="../../_images/sphx_glr_plot_haxby_different_estimators_006.png" alt="plot haxby different estimators" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (10 minutes 46.026 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1355 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (9 minutes 55.665 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1217 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-different-estimators-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_different_estimators.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1100,9 +1100,9 @@ Use the average <a class="reference internal" href="../../glossary.html#term-EPI
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>
