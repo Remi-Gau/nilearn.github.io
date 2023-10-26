@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="./">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Project Organization: This section describes how the project is organized. Issues: Nilearn uses issues for tracking bugs, requesting potential features, and holding project discussions. Labels: Lab..." />
 <link rel="search" title="Search" href="search.html" /><link rel="next" title="What’s new" href="changes/whats_new.html" /><link rel="prev" title="Contributing" href="development.html" />
 
-    <link rel="shortcut icon" href="_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Maintenance - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -702,16 +702,16 @@
         </div>
         <article role="main">
           <section id="maintenance">
-<span id="maintenance-process"></span><h1>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading">#</a></h1>
+<span id="maintenance-process"></span><h1>Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this heading">#</a></h1>
 <section id="project-organization">
-<h2>Project Organization<a class="headerlink" href="#project-organization" title="Link to this heading">#</a></h2>
+<h2>Project Organization<a class="headerlink" href="#project-organization" title="Permalink to this heading">#</a></h2>
 <p>This section describes how the project is organized.</p>
 <section id="issues">
-<h3>Issues<a class="headerlink" href="#issues" title="Link to this heading">#</a></h3>
+<h3>Issues<a class="headerlink" href="#issues" title="Permalink to this heading">#</a></h3>
 <p>Nilearn uses <a class="reference external" href="https://github.com/nilearn/nilearn/issues">issues</a> for
 tracking bugs, requesting potential features, and holding project discussions.</p>
 <section id="labels">
-<span id="issue-labels"></span><h4>Labels<a class="headerlink" href="#labels" title="Link to this heading">#</a></h4>
+<span id="issue-labels"></span><h4>Labels<a class="headerlink" href="#labels" title="Permalink to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/nilearn/nilearn/labels">Labels</a> are useful to
 quickly sort <a class="reference external" href="https://github.com/nilearn/nilearn/issues">issues</a>
 and easily find what you are looking for in the issue tracker.</p>
@@ -776,7 +776,7 @@ this, good first issues do not require a separate effort label.</p>
 see <a class="reference external" href="https://github.com/nilearn/nilearn/labels">this page</a></p>
 </section>
 <section id="closing-policy">
-<span id="id1"></span><h4>Closing policy<a class="headerlink" href="#closing-policy" title="Link to this heading">#</a></h4>
+<span id="id1"></span><h4>Closing policy<a class="headerlink" href="#closing-policy" title="Permalink to this heading">#</a></h4>
 <p>Usually we expect the issue’s author to close the issue, but there are several
 possible reasons for a community member to close an issue:</p>
 <blockquote>
@@ -789,7 +789,7 @@ possible reasons for a community member to close an issue:</p>
 </section>
 </section>
 <section id="pull-requests">
-<span id="pull-request"></span><h3>Pull Requests<a class="headerlink" href="#pull-requests" title="Link to this heading">#</a></h3>
+<span id="pull-request"></span><h3>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this heading">#</a></h3>
 <p>We welcome pull requests from all community members, if they follow the
 <a class="reference internal" href="development.html#contribution-guidelines"><span class="std std-ref">Contribution Guidelines</span></a> inspired from scikit learn conventions. (More
 details on their process are available
@@ -797,12 +797,12 @@ details on their process are available
 </section>
 </section>
 <section id="how-to-make-a-release">
-<h2>How to make a release?<a class="headerlink" href="#how-to-make-a-release" title="Link to this heading">#</a></h2>
+<h2>How to make a release?<a class="headerlink" href="#how-to-make-a-release" title="Permalink to this heading">#</a></h2>
 <p>This section describes how to make a new release of Nilearn. It is targeted to the specific case of Nilearn although it contains generic steps for packaging and distributing projects. More detailed information can be found on <a class="reference external" href="https://packaging.python.org/en/latest/tutorials/packaging-projects/">packaging.python.org</a>.</p>
 <p>The packaging specification is contained in <a class="reference external" href="https://github.com/nilearn/nilearn/blob/main/pyproject.toml">pyproject.toml</a>. We use <code class="docutils literal notranslate"><span class="pre">hatchling</span></code> and <code class="docutils literal notranslate"><span class="pre">hatch-vcs</span></code> as described in these <a class="reference external" href="https://effigies.gitlab.io/posts/python-packaging-2023/">guidelines</a> to build the sdist, wheel, and extract version number from the git tag.</p>
 <p>We assume that we are in a clean state where all the Pull Requests (PR) that we wish to include in the new release have been merged.</p>
 <section id="prepare-code-for-the-release">
-<h3>Prepare code for the release<a class="headerlink" href="#prepare-code-for-the-release" title="Link to this heading">#</a></h3>
+<h3>Prepare code for the release<a class="headerlink" href="#prepare-code-for-the-release" title="Permalink to this heading">#</a></h3>
 <p>The repository should be checked and updated in preparation for the release.</p>
 <p>One thing that <strong>must</strong> be done before the release is made is
 to update <code class="docutils literal notranslate"><span class="pre">deprecated</span></code>, <code class="docutils literal notranslate"><span class="pre">versionchanged</span></code> and <code class="docutils literal notranslate"><span class="pre">versionadded</span></code> directives
@@ -813,7 +813,7 @@ Ideally, these would have been done before such as to update the code base if ne
 Finally, make sure the documentation can be built correctly.</p>
 </section>
 <section id="prepare-the-release">
-<h3>Prepare the release<a class="headerlink" href="#prepare-the-release" title="Link to this heading">#</a></h3>
+<h3>Prepare the release<a class="headerlink" href="#prepare-the-release" title="Permalink to this heading">#</a></h3>
 <p>Switch to a new branch locally:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>REL-x.y.z
 </pre></div>
@@ -869,7 +869,7 @@ extracts the version number using this tag and writes it to a <code class="docut
 </div>
 </section>
 <section id="build-the-distributions-and-upload-them-to-pypi">
-<h3>Build the distributions and upload them to Pypi<a class="headerlink" href="#build-the-distributions-and-upload-them-to-pypi" title="Link to this heading">#</a></h3>
+<h3>Build the distributions and upload them to Pypi<a class="headerlink" href="#build-the-distributions-and-upload-them-to-pypi" title="Permalink to this heading">#</a></h3>
 <p>First of all we should make sure we don’t include files that shouldn’t be present:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>x.y.z
 </pre></div>
@@ -912,7 +912,7 @@ and edit the <code class="docutils literal notranslate"><span class="pre">x.y.z<
 and upload the distributions we just created (you can just drag and drop the files).</p>
 </section>
 <section id="build-and-deploy-the-documentation">
-<h3>Build and deploy the documentation<a class="headerlink" href="#build-and-deploy-the-documentation" title="Link to this heading">#</a></h3>
+<h3>Build and deploy the documentation<a class="headerlink" href="#build-and-deploy-the-documentation" title="Permalink to this heading">#</a></h3>
 <p>Before building the documentation, make sure that the following LaTeX
 dependencies are installed on your system:</p>
 <ul class="simple">
@@ -950,7 +950,7 @@ make<span class="w"> </span>install
 and push it to the <a class="reference external" href="https://github.com/nilearn/nilearn.github.io">GitHub pages repo</a>.</p>
 </section>
 <section id="post-release">
-<h3>Post-release<a class="headerlink" href="#post-release" title="Link to this heading">#</a></h3>
+<h3>Post-release<a class="headerlink" href="#post-release" title="Permalink to this heading">#</a></h3>
 <p>At this point, the release has been made.</p>
 <p>We also need to create a new file <code class="docutils literal notranslate"><span class="pre">doc/changes/latest.rst</span></code> with a title
 and the usual <code class="docutils literal notranslate"><span class="pre">New</span></code>, <code class="docutils literal notranslate"><span class="pre">Enhancements</span></code>, <code class="docutils literal notranslate"><span class="pre">Bug</span> <span class="pre">Fixes</span></code>, and <code class="docutils literal notranslate"><span class="pre">Changes</span></code> sections for the version currently under development:</p>
@@ -1073,9 +1073,9 @@ and the usual <code class="docutils literal notranslate"><span class="pre">New</
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=4ea706d9"></script>

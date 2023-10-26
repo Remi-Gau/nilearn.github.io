@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="A common quality control step for functional MRI data is to visualize the data over time in a carpet plot (also known as a Power plot or a grayplot). The nilearn.plotting.plot_carpet function gener..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Plot Haxby masks" href="plot_haxby_masks.html" /><link rel="prev" title="NeuroImaging volumes visualization" href="plot_visualization.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Visualizing global patterns with a carpet plot - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,13 +707,13 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="visualizing-global-patterns-with-a-carpet-plot">
-<span id="sphx-glr-auto-examples-01-plotting-plot-carpet-py"></span><h1>Visualizing global patterns with a carpet plot<a class="headerlink" href="#visualizing-global-patterns-with-a-carpet-plot" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-01-plotting-plot-carpet-py"></span><h1>Visualizing global patterns with a carpet plot<a class="headerlink" href="#visualizing-global-patterns-with-a-carpet-plot" title="Permalink to this heading">#</a></h1>
 <p>A common quality control step for functional MRI data is to visualize the data
 over time in a carpet plot (also known as a Power plot or a grayplot).</p>
 <p>The <a class="reference internal" href="../../modules/generated/nilearn.plotting.plot_carpet.html#nilearn.plotting.plot_carpet" title="nilearn.plotting.plot_carpet"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.plotting.plot_carpet</span></code></a> function generates a carpet plot
 from a 4D functional image.</p>
 <section id="fetching-data-from-adhd-dataset">
-<h2>Fetching data from ADHD dataset<a class="headerlink" href="#fetching-data-from-adhd-dataset" title="Link to this heading">#</a></h2>
+<h2>Fetching data from ADHD dataset<a class="headerlink" href="#fetching-data-from-adhd-dataset" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">adhd_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_adhd.html#nilearn.datasets.fetch_adhd" title="nilearn.datasets.fetch_adhd" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_adhd</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -734,7 +734,7 @@ from a 4D functional image.</p>
 </div>
 </section>
 <section id="deriving-a-mask">
-<h2>Deriving a mask<a class="headerlink" href="#deriving-a-mask" title="Link to this heading">#</a></h2>
+<h2>Deriving a mask<a class="headerlink" href="#deriving-a-mask" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">masking</span>
 
 <span class="c1"># Build an EPI-based mask because we have no anatomical data</span>
@@ -743,7 +743,7 @@ from a 4D functional image.</p>
 </div>
 </section>
 <section id="visualizing-global-patterns-over-time">
-<h2>Visualizing global patterns over time<a class="headerlink" href="#visualizing-global-patterns-over-time" title="Link to this heading">#</a></h2>
+<h2>Visualizing global patterns over time<a class="headerlink" href="#visualizing-global-patterns-over-time" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_carpet.html#nilearn.plotting.plot_carpet" title="nilearn.plotting.plot_carpet" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_carpet</span></a>
@@ -760,7 +760,7 @@ from a 4D functional image.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_carpet_001.png" srcset="../../_images/sphx_glr_plot_carpet_001.png" alt="plot carpet" class = "sphx-glr-single-img"/></section>
 <section id="deriving-a-label-based-mask">
-<h2>Deriving a label-based mask<a class="headerlink" href="#deriving-a-label-based-mask" title="Link to this heading">#</a></h2>
+<h2>Deriving a label-based mask<a class="headerlink" href="#deriving-a-label-based-mask" title="Permalink to this heading">#</a></h2>
 <p>Create a gray matter/white matter/cerebrospinal fluid mask from
 ICBM152 tissue probability maps.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -783,7 +783,7 @@ ICBM152 tissue probability maps.</p>
 </div>
 </section>
 <section id="visualizing-global-patterns-separated-by-tissue-type">
-<h2>Visualizing global patterns, separated by tissue type<a class="headerlink" href="#visualizing-global-patterns-separated-by-tissue-type" title="Link to this heading">#</a></h2>
+<h2>Visualizing global patterns, separated by tissue type<a class="headerlink" href="#visualizing-global-patterns-separated-by-tissue-type" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_carpet.html#nilearn.plotting.plot_carpet" title="nilearn.plotting.plot_carpet" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_carpet</span></a>
 
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fig</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -806,8 +806,8 @@ ICBM152 tissue probability maps.</p>
 Coercing atlas_values to &lt;class &#39;int&#39;&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.842 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  928 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.129 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1063 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-carpet-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo1.svg" width="150px" /></a>
@@ -901,9 +901,9 @@ Coercing atlas_values to &lt;class &#39;int&#39;&gt;
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

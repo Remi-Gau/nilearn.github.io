@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Full step-by-step example of fitting a GLM to perform a first and second level analysis in a BIDS dataset and visualizing the results. Details about the BIDS standard can be consulted at https://bi..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="NeuroVault meta-analysis of stop-go paradigm studies" href="plot_neurovault_meta_analysis.html" /><link rel="prev" title="Multivariate decompositions: Independent component analysis of fMRI" href="plot_ica_resting_state.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>BIDS dataset first and second level analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="bids-dataset-first-and-second-level-analysis">
-<span id="sphx-glr-auto-examples-07-advanced-plot-bids-analysis-py"></span><h1>BIDS dataset first and second level analysis<a class="headerlink" href="#bids-dataset-first-and-second-level-analysis" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-07-advanced-plot-bids-analysis-py"></span><h1>BIDS dataset first and second level analysis<a class="headerlink" href="#bids-dataset-first-and-second-level-analysis" title="Permalink to this heading">#</a></h1>
 <p>Full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>
 to perform a first and second level
 analysis in a <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset and visualizing the results.
@@ -724,7 +724,7 @@ Notice that in this case the preprocessed <a class="reference internal" href="..
 images were already normalized to the same <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> space.</p></li>
 </ol>
 <section id="fetch-example-bids-dataset">
-<h2>Fetch example <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Link to this heading">#</a></h2>
+<h2>Fetch example <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-example-bids-dataset" title="Permalink to this heading">#</a></h2>
 <p>We download a simplified <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset made available for illustrative
 purposes. It contains only the necessary
 information to run a statistical analysis using Nilearn. The raw data
@@ -745,7 +745,7 @@ confounds.tsv files.</p>
 </div>
 </section>
 <section id="obtain-automatically-firstlevelmodel-objects-and-fit-arguments">
-<h2>Obtain automatically FirstLevelModel objects and fit arguments<a class="headerlink" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments" title="Link to this heading">#</a></h2>
+<h2>Obtain automatically FirstLevelModel objects and fit arguments<a class="headerlink" href="#obtain-automatically-firstlevelmodel-objects-and-fit-arguments" title="Permalink to this heading">#</a></h2>
 <p>From the dataset directory we automatically obtain
 the FirstLevelModel objects
 with their subject_id filled from the <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset.
@@ -775,7 +775,7 @@ and the task_label as specified in the file names.</p>
 </div>
 </section>
 <section id="quick-sanity-check-on-fit-arguments">
-<h2>Quick sanity check on fit arguments<a class="headerlink" href="#quick-sanity-check-on-fit-arguments" title="Link to this heading">#</a></h2>
+<h2>Quick sanity check on fit arguments<a class="headerlink" href="#quick-sanity-check-on-fit-arguments" title="Permalink to this heading">#</a></h2>
 <p>Additional checks or information extraction from pre-processed data can
 be made here.</p>
 <p>We just expect one run_img per subject.</p>
@@ -784,7 +784,7 @@ be made here.</p>
 <span class="nb">print</span><span class="p">([</span><a href="https://docs.python.org/3.9/library/os.path.html#os.path.basename" title="os.path.basename" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span></a><span class="p">(</span><span class="n">run</span><span class="p">)</span> <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">models_run_imgs</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-08_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;sub-03_task-languagelocalizer_desc-preproc_bold.nii.gz&#39;]
 </pre></div>
 </div>
 <p>The only confounds stored are regressors obtained from motion correction. As
@@ -810,7 +810,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="first-level-model-estimation">
-<h2>First level model estimation<a class="headerlink" href="#first-level-model-estimation" title="Link to this heading">#</a></h2>
+<h2>First level model estimation<a class="headerlink" href="#first-level-model-estimation" title="Permalink to this heading">#</a></h2>
 <p>Now we simply fit each first level model and plot for each subject the
 <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> that reveals the language network (language - string).
 Notice that we can define a <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a>
@@ -849,7 +849,7 @@ Sum, subtraction and scalar multiplication are allowed.</p>
 </div>
 <img src="../../_images/sphx_glr_plot_bids_analysis_001.png" srcset="../../_images/sphx_glr_plot_bids_analysis_001.png" alt="subjects z_map language network (unc p<0.001)" class = "sphx-glr-single-img"/></section>
 <section id="second-level-model-estimation">
-<h2>Second level model estimation<a class="headerlink" href="#second-level-model-estimation" title="Link to this heading">#</a></h2>
+<h2>Second level model estimation<a class="headerlink" href="#second-level-model-estimation" title="Permalink to this heading">#</a></h2>
 <p>We just have to provide the list of fitted FirstLevelModel objects
 to the SecondLevelModel object for estimation. We can do this because
 all subjects share a similar design matrix (same variables reflected in
@@ -887,8 +887,8 @@ language network.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 44.274 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  98 MB</p>
+<img src="../../_images/sphx_glr_plot_bids_analysis_002.png" srcset="../../_images/sphx_glr_plot_bids_analysis_002.png" alt="plot bids analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 5.354 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  188 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-bids-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_bids_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
@@ -982,9 +982,9 @@ language network.</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="This page gives a few simple considerations on the choice of an estimator to tackle your decoding application, that is the prediction of external variables such as behavior or clinical traits from ..." />
 <link rel="search" title="Search" href="../search.html" /><link rel="next" title="5.3. FREM: fast ensembling of regularized models for robust decoding" href="frem.html" /><link rel="prev" title="5.1. An introduction to decoding" href="decoding_intro.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>5.2. Choosing the right predictive model for neuroimaging - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -702,7 +702,7 @@
         </div>
         <article role="main">
           <section id="choosing-the-right-predictive-model-for-neuroimaging">
-<span id="estimator-choice"></span><h1><span class="section-number">5.2. </span>Choosing the right predictive model for neuroimaging<a class="headerlink" href="#choosing-the-right-predictive-model-for-neuroimaging" title="Link to this heading">#</a></h1>
+<span id="estimator-choice"></span><h1><span class="section-number">5.2. </span>Choosing the right predictive model for neuroimaging<a class="headerlink" href="#choosing-the-right-predictive-model-for-neuroimaging" title="Permalink to this heading">#</a></h1>
 <p>This page gives a few simple considerations on the choice of an estimator to
 tackle your <em>decoding</em> application, that is the prediction of external
 variables such as behavior or clinical traits from brain images. It is
@@ -711,13 +711,13 @@ is well suited to your problem and how to implement it easily with Nilearn.
 This builds on concepts introduced in this <a class="reference internal" href="decoding_intro.html#decoding-intro"><span class="std std-ref">didactic
 introduction to decoding with nilearn</span></a>.</p>
 <section id="predictions-regression-classification-and-multi-class">
-<h2><span class="section-number">5.2.1. </span>Predictions: regression, classification and multi-class<a class="headerlink" href="#predictions-regression-classification-and-multi-class" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2.1. </span>Predictions: regression, classification and multi-class<a class="headerlink" href="#predictions-regression-classification-and-multi-class" title="Permalink to this heading">#</a></h2>
 <p>As seen in the previous section, high-level objects in Nilearn help you decode
 easily your dataset using a <strong>mask</strong> and/or <strong>feature selection</strong>. You can tune
 the <strong>cross-validation</strong> and <strong>scoring</strong> schemes of your model. Those objects
 come in two kinds, depending on your usecase : <a class="reference internal" href="../glossary.html#term-regression"><span class="xref std std-term">Regression</span></a> or <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">Classification</span></a>.</p>
 <section id="regression">
-<h3><span class="section-number">5.2.1.1. </span>Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1.1. </span>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-regression"><span class="xref std std-term">regression</span></a> problem is a learning task in which the variable to predict
 –that we often call <strong>y</strong> – is a continuous value, such as an age.
 Encoding models [Naselaris <em>et al.</em><a class="footnote-reference brackets" href="#footcite-naselaris2011" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>] typically call for regressions.
@@ -733,7 +733,7 @@ neuroimaging at a reasonable computational cost.</p></li>
 </div>
 </section>
 <section id="classification-two-classes-or-multi-class">
-<h3><span class="section-number">5.2.1.2. </span>Classification: two classes or multi-class<a class="headerlink" href="#classification-two-classes-or-multi-class" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.1.2. </span>Classification: two classes or multi-class<a class="headerlink" href="#classification-two-classes-or-multi-class" title="Permalink to this heading">#</a></h3>
 <p>A <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a> task consists in predicting a <em>class</em> label for each
 observation. In other words, the variable to predict is categorical.</p>
 <p>Often <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a> is performed between two classes, but it may well be
@@ -785,7 +785,7 @@ understand the classifier’s errors in a multiclass problem.</p>
 </section>
 </section>
 <section id="different-linear-models">
-<h2><span class="section-number">5.2.2. </span>Different linear models<a class="headerlink" href="#different-linear-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2.2. </span>Different linear models<a class="headerlink" href="#different-linear-models" title="Permalink to this heading">#</a></h2>
 <p>Using Nilearn high-level objects, several estimators are easily available
 to model the relations between your images and the target to predict.
 For <a class="reference internal" href="../glossary.html#term-classification"><span class="xref std std-term">classification</span></a>, <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> let you choose them
@@ -841,7 +841,7 @@ little guarantee on the brain maps.</p>
 <a class="reference external image-reference" href="../auto_examples/02_decoding/plot_haxby_different_estimators.html"><img alt="../_images/sphx_glr_plot_haxby_different_estimators_003.png" src="../_images/sphx_glr_plot_haxby_different_estimators_003.png" style="width: 210.0px; height: 280.0px;" /></a>
 </section>
 <section id="setting-estimator-parameters">
-<h2><span class="section-number">5.2.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
 <p>Most estimators have parameters (called “hyper-parameters”) that can be set
 to optimize their performance to a given problem. By default, the Decoder
 objects in Nilearn already try several values to roughly adapt to your problem.</p>
@@ -869,7 +869,7 @@ due to this noise.</p>
 </div>
 </section>
 <section id="bagging-several-models">
-<h2><span class="section-number">5.2.4. </span>Bagging several models<a class="headerlink" href="#bagging-several-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2.4. </span>Bagging several models<a class="headerlink" href="#bagging-several-models" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator">Bagging</a>
 is a classical machine learning method to create ensemble of models that usually
 generalize to new data better than single model. The easiest way is to average
@@ -896,7 +896,7 @@ is important.</p></li>
 </div>
 </section>
 <section id="references">
-<h2><span class="section-number">5.2.5. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.2.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <div class="docutils container" id="id3">
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="footcite-naselaris2011" role="doc-footnote">
@@ -990,9 +990,9 @@ is important.</p></li>
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=4ea706d9"></script>

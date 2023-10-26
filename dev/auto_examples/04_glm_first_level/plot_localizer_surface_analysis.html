@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="A full step-by-step example of fitting a GLM to experimental data sampled on the cortical surface and visualizing the results. More specifically: A sequence of fMRI volumes is loaded., fMRI data ar..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Understanding parameters of the first-level model" href="plot_first_level_details.html" /><link rel="prev" title="First level analysis of a complete BIDS dataset from openneuro" href="plot_bids_features.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>Example of surface-based first-level analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="example-of-surface-based-first-level-analysis">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py"></span><h1>Example of surface-based first-level analysis<a class="headerlink" href="#example-of-surface-based-first-level-analysis" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py"></span><h1>Example of surface-based first-level analysis<a class="headerlink" href="#example-of-surface-based-first-level-analysis" title="Permalink to this heading">#</a></h1>
 <p>A full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> to experimental
 data sampled on the cortical surface and visualizing the results.</p>
 <p>More specifically:</p>
@@ -734,7 +734,7 @@ such as fsaverage.</p></li>
 second-level analyses on the surface. On the other hand, it is obviously less
 accurate than using a subject-tailored mesh.</p>
 <section id="prepare-data-and-analysis-parameters">
-<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Link to this heading">#</a></h2>
+<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this heading">#</a></h2>
 <p>Prepare the timing parameters.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a> <span class="o">=</span> <span class="mf">2.4</span>
 <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">slice_time_ref</span></a> <span class="o">=</span> <span class="mf">0.5</span>
@@ -757,7 +757,7 @@ First, the volume-based <a class="reference internal" href="../../glossary.html#
 </div>
 </section>
 <section id="project-the-fmri-image-to-the-surface">
-<h2>Project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Link to this heading">#</a></h2>
+<h2>Project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Permalink to this heading">#</a></h2>
 <p>For this we need to get a mesh representing the geometry of the surface. We
 could use an individual mesh, but we first resort to a standard mesh, the
 so-called fsaverage5 template from the FreeSurfer software.</p>
@@ -775,7 +775,7 @@ Note that those correspond spatially, are they are both in <a class="reference i
 </div>
 </section>
 <section id="perform-first-level-analysis">
-<h2>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Link to this heading">#</a></h2>
+<h2>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Permalink to this heading">#</a></h2>
 <p>This involves computing the design matrix and fitting the model.
 We start by specifying the timing of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> frames.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -808,7 +808,7 @@ We keep them for later <a class="reference internal" href="../../glossary.html#t
 </div>
 </section>
 <section id="estimate-contrasts">
-<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Link to this heading">#</a></h2>
+<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Permalink to this heading">#</a></h2>
 <p>Specify the contrasts.</p>
 <p>For practical purpose, we first generate an identity matrix whose size is
 the number of columns of the design matrix.</p>
@@ -904,7 +904,7 @@ Contrast 3 out of 3: computation - sentences, right hemisphere
 </div>
 </section>
 <section id="analysing-the-left-hemisphere">
-<h2>Analysing the left hemisphere<a class="headerlink" href="#analysing-the-left-hemisphere" title="Link to this heading">#</a></h2>
+<h2>Analysing the left hemisphere<a class="headerlink" href="#analysing-the-left-hemisphere" title="Permalink to this heading">#</a></h2>
 <p>Note that re-creating the above analysis for the left hemisphere requires
 little additional code!</p>
 <p>We project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data to the mesh.</p>
@@ -942,7 +942,7 @@ Contrast 2 out of 3: audio - visual, left hemisphere
 Contrast 3 out of 3: computation - sentences, left hemisphere
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.439 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 21.736 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  233 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py">
 <div class="binder-badge docutils container">
@@ -1037,9 +1037,9 @@ Contrast 3 out of 3: computation - sentences, left hemisphere
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

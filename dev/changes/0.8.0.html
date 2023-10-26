@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<html class="no-js" lang="en" data-content_root="">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Released June 2021 HIGHLIGHTS: API Class NiftiLabelsMasker can now generate HTML reports in the same way as the NiftiMasker(#2707 by Nicolas Gensollen)., API Function clean now accepts a new parame..." />
 <link rel="search" title="Search" href="../search.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
         <title>0.8.0 - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev42+g43cb99f0) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -702,10 +702,10 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.8.0<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>0.8.0<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p><strong>Released June 2021</strong></p>
 <section id="highlights">
-<h2>HIGHLIGHTS<a class="headerlink" href="#highlights" title="Link to this heading">#</a></h2>
+<h2>HIGHLIGHTS<a class="headerlink" href="#highlights" title="Permalink to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <div class="line-block">
@@ -732,7 +732,7 @@
 </ul>
 </section>
 <section id="new">
-<h2>NEW<a class="headerlink" href="#new" title="Link to this heading">#</a></h2>
+<h2>NEW<a class="headerlink" href="#new" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Function <a class="reference internal" href="../modules/generated/nilearn.signal.clean.html#nilearn.signal.clean" title="nilearn.signal.clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean</span></code></a> now accepts a new parameter <code class="docutils literal notranslate"><span class="pre">sample_mask</span></code> of shape <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">scans</span> <span class="pre">-</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">volumes</span> <span class="pre">removed,</span> <span class="pre">)</span></code>. Masks the niimgs along time/fourth dimension to perform scrubbing (remove volumes with high motion) and/or non-steady-state volumes. Masking is applied before signal cleaning (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2858">#2858</a> by <a class="reference external" href="https://wanghaoting.com/">Hao-Ting Wang</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> All inherent classes of <a class="reference internal" href="../modules/generated/nilearn.maskers.BaseMasker.html#nilearn.maskers.BaseMasker" title="nilearn.maskers.BaseMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.BaseMasker</span></code></a> can use the parameter <code class="docutils literal notranslate"><span class="pre">sample_mask</span></code> for sub-sample masking (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2858">#2858</a> by <a class="reference external" href="https://wanghaoting.com/">Hao-Ting Wang</a>).</p></li>
@@ -740,7 +740,7 @@
 </ul>
 </section>
 <section id="fixes">
-<h2>Fixes<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h2>
+<h2>Fixes<a class="headerlink" href="#fixes" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-secondary sd-bg-text-secondary">Maint</span> Convert references in <code class="docutils literal notranslate"><span class="pre">signal.py</span></code>, <code class="docutils literal notranslate"><span class="pre">atlas.py</span></code>, <code class="docutils literal notranslate"><span class="pre">func.py</span></code>, <code class="docutils literal notranslate"><span class="pre">neurovault.py</span></code>, and <code class="docutils literal notranslate"><span class="pre">struct.py</span></code> to use footcite / footbibliography (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2806">#2806</a> by <a class="reference external" href="https://jlefortbesnard.github.io/">Jeremy Lefort-Besnard</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Fix detrending and temporal filtering order for confounders in function <a class="reference internal" href="../modules/generated/nilearn.signal.clean.html#nilearn.signal.clean" title="nilearn.signal.clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean</span></code></a>, so that these operations are applied in the same order as for the signals, i.e., first detrending and then temporal filtering (see <a class="reference external" href="https://github.com/nilearn/nilearn/issues/2730">#2730</a>) (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2732">#2732</a> by <a class="reference external" href="https://jrasero.github.io/">Javier Rasero</a>).</p></li>
@@ -751,7 +751,7 @@
 </ul>
 </section>
 <section id="enhancements">
-<h2>Enhancements<a class="headerlink" href="#enhancements" title="Link to this heading">#</a></h2>
+<h2>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Function <a class="reference internal" href="../modules/generated/nilearn.plotting.view_markers.html#nilearn.plotting.view_markers" title="nilearn.plotting.view_markers"><code class="xref py py-func docutils literal notranslate"><span class="pre">view_markers</span></code></a> now accepts an optional argument <code class="docutils literal notranslate"><span class="pre">marker_labels</span></code> to provide labels to each marker (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2745">#2745</a> by <a class="reference external" href="https://www.greydongilmore.com/">Greydon Gilmore</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Function <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_surf.html#nilearn.plotting.plot_surf" title="nilearn.plotting.plot_surf"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_surf</span></code></a> now accepts new values for <code class="docutils literal notranslate"><span class="pre">avg_method</span></code> argument, such as <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, or even a custom python function to compute the value displayed for each face of the plotted mesh (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2790">#2790</a> by <a class="reference external" href="https://github.com/alexisthual">Alexis Thual</a>).</p></li>
@@ -768,7 +768,7 @@
 </ul>
 </section>
 <section id="changes">
-<h2>Changes<a class="headerlink" href="#changes" title="Link to this heading">#</a></h2>
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this heading">#</a></h2>
 <ul>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">Deprecation</span> Python <code class="docutils literal notranslate"><span class="pre">3.5</span></code> is no longer supported. We recommend upgrading to Python <code class="docutils literal notranslate"><span class="pre">3.7</span></code> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2869">#2869</a> by <a class="reference external" href="https://nicolasgensollen.github.io/">Nicolas Gensollen</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">Deprecation</span> Support for Nibabel <code class="docutils literal notranslate"><span class="pre">2.x</span></code> is now deprecated and will be removed in the <code class="docutils literal notranslate"><span class="pre">0.9</span></code> release. Users with a version of Nibabel <code class="docutils literal notranslate"><span class="pre">&lt;</span> <span class="pre">3.0</span></code> will be warned at their first Nilearn import (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2869">#2869</a> by <a class="reference external" href="https://nicolasgensollen.github.io/">Nicolas Gensollen</a>).</p></li>
@@ -851,9 +851,9 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=4ea706d9"></script>
