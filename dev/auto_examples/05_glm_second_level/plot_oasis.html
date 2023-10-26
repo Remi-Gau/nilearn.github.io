@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="This example uses voxel-based morphometry ( VBM) to study the relationship between aging, sex, and gray matter density. The data come from the OASIS project. If you use it, you need to agree with t..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Second-level fMRI model: two-sample test, unpaired and paired" href="plot_second_level_two_sample_test.html" /><link rel="prev" title="Statistical testing of a second-level analysis" href="plot_thresholding.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Voxel-Based Morphometry on OASIS dataset - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="voxel-based-morphometry-on-oasis-dataset">
-<span id="sphx-glr-auto-examples-05-glm-second-level-plot-oasis-py"></span><h1>Voxel-Based Morphometry on OASIS dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-05-glm-second-level-plot-oasis-py"></span><h1>Voxel-Based Morphometry on OASIS dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Link to this heading">#</a></h1>
 <p>This example uses voxel-based morphometry (<a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a>) to study the
 relationship between aging, sex, and gray matter density.</p>
 <p>The data come from the <a class="reference external" href="https://www.oasis-brains.org/">OASIS</a> project.
@@ -717,7 +717,7 @@ on the website.</p>
 (using SPM8 and NewSegment)
 to create <a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a> maps, which we study here.</p>
 <section id="vbm-analysis-of-aging">
-<h2>VBM analysis of aging<a class="headerlink" href="#vbm-analysis-of-aging" title="Permalink to this heading">#</a></h2>
+<h2>VBM analysis of aging<a class="headerlink" href="#vbm-analysis-of-aging" title="Link to this heading">#</a></h2>
 <p>We run a standard <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> analysis
 to study the association between age and gray matter density
 from the <a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a> data.
@@ -725,7 +725,7 @@ We use only 100 subjects from the OASIS dataset to limit the memory usage.</p>
 <p>Note that more power would be obtained from using a larger sample of subjects.</p>
 </section>
 <section id="load-oasis-dataset">
-<h2>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># more subjects requires more memory</span>
@@ -773,7 +773,7 @@ First white-matter anatomy image (3D) is located at: /home/runner/work/nilearn/n
 </div>
 </section>
 <section id="analyse-data">
-<h2>Analyse data<a class="headerlink" href="#analyse-data" title="Permalink to this heading">#</a></h2>
+<h2>Analyse data<a class="headerlink" href="#analyse-data" title="Link to this heading">#</a></h2>
 <p>First, we create an adequate design matrix with three columns: ‘age’, ‘sex’,
 and ‘intercept’.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -809,8 +809,8 @@ also smooth a little bit to improve statistical behavior.</p>
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
-<style>#sk-container-id-7 {color: black;}#sk-container-id-7 pre{padding: 0;}#sk-container-id-7 div.sk-toggleable {background-color: white;}#sk-container-id-7 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-7 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-7 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-7 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-7 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-7 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-7 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-7 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-7 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-7 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-7 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-7 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-7 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-7 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-7 div.sk-item {position: relative;z-index: 1;}#sk-container-id-7 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-7 div.sk-item::before, #sk-container-id-7 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-7 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-7 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-7 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-7 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-7 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-7 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-7 div.sk-label-container {text-align: center;}#sk-container-id-7 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-7 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f43e2e4c5e0&gt;,
-                 smoothing_fwhm=2.0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">SecondLevelModel</label><div class="sk-toggleable__content"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f43e2e4c5e0&gt;,
+<style>#sk-container-id-7 {color: black;}#sk-container-id-7 pre{padding: 0;}#sk-container-id-7 div.sk-toggleable {background-color: white;}#sk-container-id-7 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-7 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-7 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-7 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-7 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-7 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-7 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-7 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-7 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-7 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-7 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-7 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-7 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-7 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-7 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-7 div.sk-item {position: relative;z-index: 1;}#sk-container-id-7 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-7 div.sk-item::before, #sk-container-id-7 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-7 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-7 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-7 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-7 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-7 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-7 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-7 div.sk-label-container {text-align: center;}#sk-container-id-7 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-7 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6913500310&gt;,
+                 smoothing_fwhm=2.0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked><label for="sk-estimator-id-7" class="sk-toggleable__label sk-toggleable__label-arrow">SecondLevelModel</label><div class="sk-toggleable__content"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6913500310&gt;,
                  smoothing_fwhm=2.0)</pre></div></div></div></div></div>
 </div>
 <br />
@@ -858,14 +858,14 @@ it and plot the resulting map.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_oasis_003.png" srcset="../../_images/sphx_glr_plot_oasis_003.png" alt="plot oasis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43d3ec7070&gt;
+<img src="../../_images/sphx_glr_plot_oasis_003.png" srcset="../../_images/sphx_glr_plot_oasis_003.png" alt="plot oasis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f691066c220&gt;
 </pre></div>
 </div>
 <p>Note that there does not seem to be any significant effect of sex on
 gray matter density on that dataset.</p>
 </section>
 <section id="generating-a-report">
-<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Permalink to this heading">#</a></h2>
+<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">#</a></h2>
 <p>It can be useful to quickly generate a portable, ready-to-view report with
 most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
@@ -886,8 +886,8 @@ which we do here.</p>
 <span class="c1"># report.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 23.745 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1475 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 30.718 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1344 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-oasis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_oasis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo5.svg" width="150px" /></a>
@@ -980,9 +980,9 @@ which we do here.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

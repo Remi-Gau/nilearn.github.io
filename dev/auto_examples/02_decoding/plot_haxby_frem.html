@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="This example uses fast ensembling of regularized models (FREM) to decode a face vs house vs chair discrimination task from Haxby 2001 study. FREM uses an implicit spatial regularization through fas..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="The haxby dataset: different multi-class strategies" href="plot_haxby_multiclass.html" /><link rel="prev" title="Decoding with ANOVA + SVM: face vs house in the Haxby dataset" href="plot_haxby_anova_svm.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Decoding with FREM: face vs house vs chair object recognition - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="decoding-with-frem-face-vs-house-vs-chair-object-recognition">
-<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-frem-py"></span><h1>Decoding with FREM: face vs house vs chair object recognition<a class="headerlink" href="#decoding-with-frem-face-vs-house-vs-chair-object-recognition" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-frem-py"></span><h1>Decoding with FREM: face vs house vs chair object recognition<a class="headerlink" href="#decoding-with-frem-face-vs-house-vs-chair-object-recognition" title="Link to this heading">#</a></h1>
 <p>This example uses fast ensembling of regularized models (FREM) to decode
 a face vs house vs chair discrimination task from Haxby 2001 study.
 <a class="reference internal" href="../../glossary.html#term-FREM"><span class="xref std std-term">FREM</span></a> uses an implicit spatial regularization
@@ -717,7 +717,7 @@ thus returning a very robust decoder
 at a lower computational cost than other spatially regularized methods.</p>
 <p>To have more details, see: <a class="reference internal" href="../../decoding/frem.html#frem"><span class="std std-ref">FREM: fast ensembling of regularized models for robust decoding</span></a>.</p>
 <section id="load-the-haxby-dataset">
-<h2>Load the Haxby dataset<a class="headerlink" href="#load-the-haxby-dataset" title="Permalink to this heading">#</a></h2>
+<h2>Load the Haxby dataset<a class="headerlink" href="#load-the-haxby-dataset" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_haxby.html#nilearn.datasets.fetch_haxby" title="nilearn.datasets.fetch_haxby" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_haxby</span></a>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data_files</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_haxby.html#nilearn.datasets.fetch_haxby" title="nilearn.datasets.fetch_haxby" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_haxby</span></a><span class="p">()</span>
@@ -755,7 +755,7 @@ at a lower computational cost than other spatially regularized methods.</p>
 </div>
 </section>
 <section id="fit-frem">
-<h2>Fit FREM<a class="headerlink" href="#fit-frem" title="Permalink to this heading">#</a></h2>
+<h2>Fit FREM<a class="headerlink" href="#fit-frem" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMClassifier</span></a>
 
 <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMClassifier</span></a><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">)</span>
@@ -811,7 +811,7 @@ FREM classification accuracy : 57.7778%
 </div>
 </section>
 <section id="plot-confusion-matrix">
-<h2>Plot confusion matrix<a class="headerlink" href="#plot-confusion-matrix" title="Permalink to this heading">#</a></h2>
+<h2>Plot confusion matrix<a class="headerlink" href="#plot-confusion-matrix" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html#sklearn.metrics.confusion_matrix" title="sklearn.metrics.confusion_matrix" class="sphx-glr-backref-module-sklearn-metrics sphx-glr-backref-type-py-function"><span class="n">confusion_matrix</span></a>
 
@@ -845,7 +845,7 @@ FREM classification accuracy : 57.7778%
 </div>
 <img src="../../_images/sphx_glr_plot_haxby_frem_001.png" srcset="../../_images/sphx_glr_plot_haxby_frem_001.png" alt="plot haxby frem" class = "sphx-glr-single-img"/></section>
 <section id="visualization-of-frem-weights">
-<h2>Visualization of <a class="reference internal" href="../../glossary.html#term-FREM"><span class="xref std std-term">FREM</span></a> weights<a class="headerlink" href="#visualization-of-frem-weights" title="Permalink to this heading">#</a></h2>
+<h2>Visualization of <a class="reference internal" href="../../glossary.html#term-FREM"><span class="xref std std-term">FREM</span></a> weights<a class="headerlink" href="#visualization-of-frem-weights" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
 <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
@@ -865,8 +865,8 @@ fold and the clustering mechanism keeps its computational cost reasonable
 even on heavier examples. Here we ensembled several instances of l2-SVC,
 but FREMClassifier also works with ridge or logistic.
 FREMRegressor object is also available to solve regression problems.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (11 minutes 25.912 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2011 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (9 minutes 32.810 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2008 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-frem-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_frem.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -959,9 +959,9 @@ FREMRegressor object is also available to solve regression problems.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

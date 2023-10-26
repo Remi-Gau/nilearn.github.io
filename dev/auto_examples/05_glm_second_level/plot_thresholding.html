@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Perform a one-sample t-test on a bunch of images (a.k.a. second-level analysis in fMRI) and threshold the resulting statistical map. This example is based on the so-called localizer dataset. It sho..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Voxel-Based Morphometry on OASIS dataset" href="plot_oasis.html" /><link rel="prev" title="Second-level fMRI model: true positive proportion in clusters" href="plot_proportion_activated_voxels.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Statistical testing of a second-level analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,14 +707,14 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="statistical-testing-of-a-second-level-analysis">
-<span id="sphx-glr-auto-examples-05-glm-second-level-plot-thresholding-py"></span><h1>Statistical testing of a second-level analysis<a class="headerlink" href="#statistical-testing-of-a-second-level-analysis" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-05-glm-second-level-plot-thresholding-py"></span><h1>Statistical testing of a second-level analysis<a class="headerlink" href="#statistical-testing-of-a-second-level-analysis" title="Link to this heading">#</a></h1>
 <p>Perform a one-sample t-test on a bunch of images (a.k.a. second-level analysis
 in fMRI) and threshold the resulting statistical map.</p>
 <p>This example is based on the so-called localizer dataset.
 It shows activation related to a mental computation task, as opposed to
 narrative sentence reading/listening.</p>
 <section id="prepare-some-images-for-a-simple-t-test">
-<h2>Prepare some images for a simple t test<a class="headerlink" href="#prepare-some-images-for-a-simple-t-test" title="Permalink to this heading">#</a></h2>
+<h2>Prepare some images for a simple t test<a class="headerlink" href="#prepare-some-images-for-a-simple-t-test" title="Link to this heading">#</a></h2>
 <p>This is a simple manually performed second level analysis.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -730,7 +730,7 @@ narrative sentence reading/listening.</p>
 </div>
 </section>
 <section id="perform-the-second-level-analysis">
-<h2>Perform the second level analysis<a class="headerlink" href="#perform-the-second-level-analysis" title="Permalink to this heading">#</a></h2>
+<h2>Perform the second level analysis<a class="headerlink" href="#perform-the-second-level-analysis" title="Link to this heading">#</a></h2>
 <p>First, we define a design matrix for the model. As the model is trivial
 (one-sample test), the design matrix is just one column with ones.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -763,7 +763,7 @@ abs(z) &gt; 3.29 (equivalent to p &lt; 0.001), cluster size &gt; 10 voxels.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nibabel.nifti1.Nifti1Image object at 0x7f43ed7cf1f0&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nibabel.nifti1.Nifti1Image object at 0x7f6912c2cbe0&gt;
 </pre></div>
 </div>
 <p>This is equivalent to thresholding a z-statistic image with a
@@ -803,7 +803,7 @@ use a simple Bonferroni correction.</p>
 </div>
 </section>
 <section id="visualize-the-results">
-<h2>Visualize the results<a class="headerlink" href="#visualize-the-results" title="Permalink to this heading">#</a></h2>
+<h2>Visualize the results<a class="headerlink" href="#visualize-the-results" title="Link to this heading">#</a></h2>
 <p>First, the unthresholded map.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
@@ -820,7 +820,7 @@ voxels).</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_thresholding_002.png" srcset="../../_images/sphx_glr_plot_thresholding_002.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43d6c11130&gt;
+<img src="../../_images/sphx_glr_plot_thresholding_002.png" srcset="../../_images/sphx_glr_plot_thresholding_002.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6913314cd0&gt;
 </pre></div>
 </div>
 <p>Third, the fdr-thresholded map.</p>
@@ -832,7 +832,7 @@ voxels).</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_thresholding_003.png" srcset="../../_images/sphx_glr_plot_thresholding_003.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43e3055520&gt;
+<img src="../../_images/sphx_glr_plot_thresholding_003.png" srcset="../../_images/sphx_glr_plot_thresholding_003.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6901391ac0&gt;
 </pre></div>
 </div>
 <p>Fourth, the Bonferroni-thresholded map.</p>
@@ -844,7 +844,7 @@ voxels).</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_thresholding_004.png" srcset="../../_images/sphx_glr_plot_thresholding_004.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43e1de8880&gt;
+<img src="../../_images/sphx_glr_plot_thresholding_004.png" srcset="../../_images/sphx_glr_plot_thresholding_004.png" alt="plot thresholding" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f691222e5b0&gt;
 </pre></div>
 </div>
 <p>These different thresholds correspond to different statistical
@@ -856,7 +856,7 @@ positive voxels.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 16.614 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.210 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-thresholding-py">
 <div class="binder-badge docutils container">
@@ -949,9 +949,9 @@ positive voxels.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

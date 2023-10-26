@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and visualizing the results. This is done on two runs of one subject of the FIAC dataset. For details on t..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Predicted time series and residuals" href="plot_predictions_residuals.html" /><link rel="prev" title="Example of MRI response functions" href="plot_hrf.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Simple example of two-session fMRI model fitting - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="simple-example-of-two-session-fmri-model-fitting">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-fiac-analysis-py"></span><h1>Simple example of two-session fMRI model fitting<a class="headerlink" href="#simple-example-of-two-session-fmri-model-fitting" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-fiac-analysis-py"></span><h1>Simple example of two-session fMRI model fitting<a class="headerlink" href="#simple-example-of-two-session-fmri-model-fitting" title="Link to this heading">#</a></h1>
 <p>Here, we will go through a full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>
 to experimental data and visualizing the results.
 This is done on two runs of one subject of the FIAC dataset.</p>
@@ -738,7 +738,7 @@ it will be a ‘results’ subdirectory of the current directory.</p>
 </pre></div>
 </div>
 <section id="prepare-data-and-analysis-parameters">
-<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Permalink to this heading">#</a></h2>
+<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Link to this heading">#</a></h2>
 <p>Note that there are two sessions.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <span class="n">func</span>
 
@@ -763,7 +763,7 @@ DataFrames.</p>
 </div>
 </section>
 <section id="glm-estimation">
-<h2><a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> estimation<a class="headerlink" href="#glm-estimation" title="Permalink to this heading">#</a></h2>
+<h2><a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> estimation<a class="headerlink" href="#glm-estimation" title="Link to this heading">#</a></h2>
 <p><a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> specification. Note that the mask was provided in the dataset.
 So we use it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.first_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class"><span class="n">FirstLevelModel</span></a>
@@ -845,7 +845,7 @@ then the fixed effects version.</p>
     <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">contrast_id</span></a><span class="si">}</span><span class="s1">, first session&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_fiac_analysis_001.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_001.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43e1c41a00&gt;
+<img src="../../_images/sphx_glr_plot_fiac_analysis_001.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_001.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6912da1100&gt;
 </pre></div>
 </div>
 <p>Compute the statistics for the second session.</p>
@@ -857,7 +857,7 @@ then the fixed effects version.</p>
     <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">contrast_id</span></a><span class="si">}</span><span class="s1">, second session&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_fiac_analysis_002.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_002.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f43e1ccb940&gt;
+<img src="../../_images/sphx_glr_plot_fiac_analysis_002.png" srcset="../../_images/sphx_glr_plot_fiac_analysis_002.png" alt="plot fiac analysis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f69135a6ca0&gt;
 </pre></div>
 </div>
 <p>Compute the Fixed effects statistics.</p>
@@ -885,7 +885,7 @@ input sessions. Computing fixed effects enhances the signal-to-noise ratio of
 the resulting brain maps.</p>
 </section>
 <section id="generating-a-report">
-<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Permalink to this heading">#</a></h2>
+<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">#</a></h2>
 <p>Since we have already computed the FirstLevelModel and
 and have the contrast, we can quickly create a summary report.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a>
@@ -911,7 +911,7 @@ Running approximate fixed effects on F statistics.
 <span class="c1"># report.open_in_browser()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 13.538 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 45.704 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  367 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-fiac-analysis-py">
 <div class="binder-badge docutils container">
@@ -1004,9 +1004,9 @@ Running approximate fixed effects on F statistics.
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

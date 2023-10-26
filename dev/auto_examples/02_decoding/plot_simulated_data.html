@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="This example simulates data according to a very simple sketch of brain imaging data and applies machine learning techniques to predict output values. We use a very simple generating function to sim..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Encoding models for visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_encoding.html" /><link rel="prev" title="Different classifiers in decoding the Haxby dataset" href="plot_haxby_different_estimators.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Example of pattern recognition on simulated data - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -707,7 +707,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="example-of-pattern-recognition-on-simulated-data">
-<span id="sphx-glr-auto-examples-02-decoding-plot-simulated-data-py"></span><h1>Example of pattern recognition on simulated data<a class="headerlink" href="#example-of-pattern-recognition-on-simulated-data" title="Permalink to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-simulated-data-py"></span><h1>Example of pattern recognition on simulated data<a class="headerlink" href="#example-of-pattern-recognition-on-simulated-data" title="Link to this heading">#</a></h1>
 <p>This example simulates data according to a very simple sketch of brain
 imaging data and applies machine learning techniques to predict output
 values.</p>
@@ -749,7 +749,7 @@ and smooth them as in Gaussian fields.</p></li>
 </pre></div>
 </div>
 <section id="a-function-to-generate-data">
-<h2>A function to generate data<a class="headerlink" href="#a-function-to-generate-data" title="Permalink to this heading">#</a></h2>
+<h2>A function to generate data<a class="headerlink" href="#a-function-to-generate-data" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_simulation_data</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">snr</span></a><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">size</span></a><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">generator</span> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.check_random_state.html#sklearn.utils.check_random_state" title="sklearn.utils.check_random_state" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-function"><span class="n">check_random_state</span></a><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
     <span class="n">roi_size</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># size / 3</span>
@@ -796,7 +796,7 @@ and smooth them as in Gaussian fields.</p></li>
 </div>
 </section>
 <section id="a-simple-function-to-plot-slices">
-<h2>A simple function to plot slices<a class="headerlink" href="#a-simple-function-to-plot-slices" title="Permalink to this heading">#</a></h2>
+<h2>A simple function to plot slices<a class="headerlink" href="#a-simple-function-to-plot-slices" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_slices</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">))</span>
     <span class="n">vmax</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -820,7 +820,7 @@ and smooth them as in Gaussian fields.</p></li>
 </div>
 </section>
 <section id="create-data">
-<h2>Create data<a class="headerlink" href="#create-data" title="Permalink to this heading">#</a></h2>
+<h2>Create data<a class="headerlink" href="#create-data" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">snr</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coefs</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">size</span></a> <span class="o">=</span> <span class="n">create_simulation_data</span><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">snr</span></a><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">size</span></a><span class="o">=</span><span class="mi">12</span>
 <span class="p">)</span>
@@ -845,7 +845,7 @@ and smooth them as in Gaussian fields.</p></li>
 </div>
 </section>
 <section id="run-different-estimators">
-<h2>Run different estimators<a class="headerlink" href="#run-different-estimators" title="Permalink to this heading">#</a></h2>
+<h2>Run different estimators<a class="headerlink" href="#run-different-estimators" title="Link to this heading">#</a></h2>
 <p>We can now run different estimators and look at their prediction score,
 as well as the feature maps that they recover. Namely, we will use</p>
 <ul class="simple">
@@ -886,7 +886,7 @@ values that they are given, they choose the best by cross-validation.</p>
 </div>
 </section>
 <section id="run-the-estimators">
-<h2>Run the estimators<a class="headerlink" href="#run-the-estimators" title="Permalink to this heading">#</a></h2>
+<h2>Run the estimators<a class="headerlink" href="#run-the-estimators" title="Link to this heading">#</a></h2>
 <p>As the estimators expose a fairly consistent API, we can all fit them in
 a for loop: they all have a <cite>fit</cite> method for fitting the data, a <cite>score</cite>
 method to retrieve the prediction score, and because they are all linear
@@ -937,67 +937,67 @@ models, a <cite>coef_</cite> attribute that stores the coefficients <strong>w</s
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.23s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.31s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.07s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_005.png" srcset="../../_images/sphx_glr_plot_simulated_data_005.png" alt="svr: prediction score 0.345, training time: 0.01s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 10.17s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.15s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.17s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.05s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_005.png" srcset="../../_images/sphx_glr_plot_simulated_data_005.png" alt="svr: prediction score 0.345, training time: 0.00s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 6.75s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_007.png" srcset="../../_images/sphx_glr_plot_simulated_data_007.png" alt="f_regress" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.23s
-enet_cv: prediction score 0.528, training time: 0.31s
-ridge_cv: prediction score 0.328, training time: 0.07s
-svr: prediction score 0.345, training time: 0.01s
-Job #1, processed 0/432 voxels (0.00%, 214.45512771606445 seconds remaining)
-Job #1, processed 10/432 voxels (2.31%, 9.936572747829155 seconds remaining)
-Job #1, processed 20/432 voxels (4.63%, 8.976050834161416 seconds remaining)
-Job #1, processed 30/432 voxels (6.94%, 8.946419840243776 seconds remaining)
-Job #1, processed 40/432 voxels (9.26%, 8.869140699151783 seconds remaining)
-Job #1, processed 50/432 voxels (11.57%, 8.83722762888428 seconds remaining)
-Job #1, processed 60/432 voxels (13.89%, 8.420195652822352 seconds remaining)
-Job #1, processed 70/432 voxels (16.20%, 8.53477622255867 seconds remaining)
-Job #1, processed 80/432 voxels (18.52%, 8.452572996621514 seconds remaining)
-Job #1, processed 90/432 voxels (20.83%, 8.136970745504218 seconds remaining)
-Job #1, processed 100/432 voxels (23.15%, 7.810199234964523 seconds remaining)
-Job #1, processed 110/432 voxels (25.46%, 7.607728188934984 seconds remaining)
-Job #1, processed 120/432 voxels (27.78%, 7.383204235800571 seconds remaining)
-Job #1, processed 130/432 voxels (30.09%, 7.0625893345462325 seconds remaining)
-Job #1, processed 140/432 voxels (32.41%, 6.830960186202378 seconds remaining)
-Job #1, processed 150/432 voxels (34.72%, 6.549667402346563 seconds remaining)
-Job #1, processed 160/432 voxels (37.04%, 6.244734592108181 seconds remaining)
-Job #1, processed 170/432 voxels (39.35%, 5.976212038927186 seconds remaining)
-Job #1, processed 180/432 voxels (41.67%, 5.7442769038468375 seconds remaining)
-Job #1, processed 190/432 voxels (43.98%, 5.489940863948023 seconds remaining)
-Job #1, processed 200/432 voxels (46.30%, 5.193683225701746 seconds remaining)
-Job #1, processed 210/432 voxels (48.61%, 4.941977494097962 seconds remaining)
-Job #1, processed 220/432 voxels (50.93%, 4.707785744903927 seconds remaining)
-Job #1, processed 230/432 voxels (53.24%, 4.464540089815743 seconds remaining)
-Job #1, processed 240/432 voxels (55.56%, 4.217308549935908 seconds remaining)
-Job #1, processed 250/432 voxels (57.87%, 3.983403230302586 seconds remaining)
-Job #1, processed 260/432 voxels (60.19%, 3.7472689387449343 seconds remaining)
-Job #1, processed 270/432 voxels (62.50%, 3.5046366691589355 seconds remaining)
-Job #1, processed 280/432 voxels (64.81%, 3.2727840069616447 seconds remaining)
-Job #1, processed 290/432 voxels (67.13%, 3.051011972734227 seconds remaining)
-Job #1, processed 300/432 voxels (69.44%, 2.8426954246336416 seconds remaining)
-Job #1, processed 310/432 voxels (71.76%, 2.6244158314223265 seconds remaining)
-Job #1, processed 320/432 voxels (74.07%, 2.4105526095735774 seconds remaining)
-Job #1, processed 330/432 voxels (76.39%, 2.2035051600629396 seconds remaining)
-Job #1, processed 340/432 voxels (78.70%, 1.9883338020596144 seconds remaining)
-Job #1, processed 350/432 voxels (81.02%, 1.7733934945572873 seconds remaining)
-Job #1, processed 360/432 voxels (83.33%, 1.5609369221589697 seconds remaining)
-Job #1, processed 370/432 voxels (85.65%, 1.3512915618504542 seconds remaining)
-Job #1, processed 380/432 voxels (87.96%, 1.1322851236325175 seconds remaining)
-Job #1, processed 390/432 voxels (90.28%, 0.9194622533111165 seconds remaining)
-Job #1, processed 400/432 voxels (92.59%, 0.7001424146298517 seconds remaining)
-Job #1, processed 410/432 voxels (94.91%, 0.48192877903111264 seconds remaining)
-Job #1, processed 420/432 voxels (97.22%, 0.2627318625929817 seconds remaining)
-Job #1, processed 430/432 voxels (99.54%, 0.0434042544208756 seconds remaining)
-SearchLight: training time: 10.17s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.15s
+enet_cv: prediction score 0.528, training time: 0.17s
+ridge_cv: prediction score 0.328, training time: 0.05s
+svr: prediction score 0.345, training time: 0.00s
+Job #1, processed 0/432 voxels (0.00%, 147.50242233276367 seconds remaining)
+Job #1, processed 10/432 voxels (2.31%, 7.038815727481594 seconds remaining)
+Job #1, processed 20/432 voxels (4.63%, 6.095634972302497 seconds remaining)
+Job #1, processed 30/432 voxels (6.94%, 6.167772626327162 seconds remaining)
+Job #1, processed 40/432 voxels (9.26%, 6.1715831354936315 seconds remaining)
+Job #1, processed 50/432 voxels (11.57%, 6.14542258579152 seconds remaining)
+Job #1, processed 60/432 voxels (13.89%, 5.872776212410758 seconds remaining)
+Job #1, processed 70/432 voxels (16.20%, 5.877376294430391 seconds remaining)
+Job #1, processed 80/432 voxels (18.52%, 5.831546711870198 seconds remaining)
+Job #1, processed 90/432 voxels (20.83%, 5.60399404879207 seconds remaining)
+Job #1, processed 100/432 voxels (23.15%, 5.376596397766542 seconds remaining)
+Job #1, processed 110/432 voxels (25.46%, 5.249688868998357 seconds remaining)
+Job #1, processed 120/432 voxels (27.78%, 5.071697191680568 seconds remaining)
+Job #1, processed 130/432 voxels (30.09%, 4.837056191587971 seconds remaining)
+Job #1, processed 140/432 voxels (32.41%, 4.660939476733516 seconds remaining)
+Job #1, processed 150/432 voxels (34.72%, 4.467662556380171 seconds remaining)
+Job #1, processed 160/432 voxels (37.04%, 4.260933361609606 seconds remaining)
+Job #1, processed 170/432 voxels (39.35%, 4.066594966939322 seconds remaining)
+Job #1, processed 180/432 voxels (41.67%, 3.889845933792887 seconds remaining)
+Job #1, processed 190/432 voxels (43.98%, 3.7060311955178316 seconds remaining)
+Job #1, processed 200/432 voxels (46.30%, 3.510554683388696 seconds remaining)
+Job #1, processed 210/432 voxels (48.61%, 3.3368495704460184 seconds remaining)
+Job #1, processed 220/432 voxels (50.93%, 3.1683541474303962 seconds remaining)
+Job #1, processed 230/432 voxels (53.24%, 2.99258625175969 seconds remaining)
+Job #1, processed 240/432 voxels (55.56%, 2.820202685672658 seconds remaining)
+Job #1, processed 250/432 voxels (57.87%, 2.6604509852557516 seconds remaining)
+Job #1, processed 260/432 voxels (60.19%, 2.499946119183618 seconds remaining)
+Job #1, processed 270/432 voxels (62.50%, 2.3405117511749265 seconds remaining)
+Job #1, processed 280/432 voxels (64.81%, 2.1838065827450177 seconds remaining)
+Job #1, processed 290/432 voxels (67.13%, 2.035678622372084 seconds remaining)
+Job #1, processed 300/432 voxels (69.44%, 1.895686461628857 seconds remaining)
+Job #1, processed 310/432 voxels (71.76%, 1.7462426765573724 seconds remaining)
+Job #1, processed 320/432 voxels (74.07%, 1.6029325012769946 seconds remaining)
+Job #1, processed 330/432 voxels (76.39%, 1.4653554674935818 seconds remaining)
+Job #1, processed 340/432 voxels (78.70%, 1.323443021980295 seconds remaining)
+Job #1, processed 350/432 voxels (81.02%, 1.180081636044633 seconds remaining)
+Job #1, processed 360/432 voxels (83.33%, 1.039425590237721 seconds remaining)
+Job #1, processed 370/432 voxels (85.65%, 0.9011651706918243 seconds remaining)
+Job #1, processed 380/432 voxels (87.96%, 0.7564937774568001 seconds remaining)
+Job #1, processed 390/432 voxels (90.28%, 0.6150706007673933 seconds remaining)
+Job #1, processed 400/432 voxels (92.59%, 0.4681509897355859 seconds remaining)
+Job #1, processed 410/432 voxels (94.91%, 0.32271738886870893 seconds remaining)
+Job #1, processed 420/432 voxels (97.22%, 0.1758134608846515 seconds remaining)
+Job #1, processed 430/432 voxels (99.54%, 0.02906931771172378 seconds remaining)
+SearchLight: training time: 6.75s
 </pre></div>
 </div>
 </section>
 <section id="an-exercise-to-go-further">
-<h2>An exercise to go further<a class="headerlink" href="#an-exercise-to-go-further" title="Permalink to this heading">#</a></h2>
+<h2>An exercise to go further<a class="headerlink" href="#an-exercise-to-go-further" title="Link to this heading">#</a></h2>
 <p>As an exercice, you can use recursive feature elimination (RFE) with
 the SVM</p>
 <p>Read the object’s documentation to find out how to use RFE.</p>
@@ -1006,8 +1006,8 @@ slow.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.feature_selection import RFE</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.553 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  16 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.773 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  10 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-simulated-data-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_simulated_data.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1102,9 +1102,9 @@ slow.</p>
       
     </aside>
   </div>
-</div><script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=4ea706d9"></script>

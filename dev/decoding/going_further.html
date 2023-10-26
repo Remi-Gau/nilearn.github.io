@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" data-content_root="">
+<html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +13,7 @@
 <meta name="description" content="This section gives pointers to design your own decoding pipelines with scikit-learn. This builds on the didactic introduction to decoding. Performing decoding with scikit-learn: Using scikit-learn ..." />
 <link rel="search" title="Search" href="../search.html" /><link rel="next" title="6. Functional connectivity and resting state" href="../connectivity/index.html" /><link rel="prev" title="5.5. Searchlight : finding voxels containing information" href="searchlight.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.1.2 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>5.6. Running scikit-learn functions for more control on the analysis - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev41+g361afcc6) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev43+g0bc2e1fa) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -702,7 +702,7 @@
         </div>
         <article role="main">
           <section id="running-scikit-learn-functions-for-more-control-on-the-analysis">
-<span id="going-further"></span><h1><span class="section-number">5.6. </span>Running scikit-learn functions for more control on the analysis<a class="headerlink" href="#running-scikit-learn-functions-for-more-control-on-the-analysis" title="Permalink to this heading">#</a></h1>
+<span id="going-further"></span><h1><span class="section-number">5.6. </span>Running scikit-learn functions for more control on the analysis<a class="headerlink" href="#running-scikit-learn-functions-for-more-control-on-the-analysis" title="Link to this heading">#</a></h1>
 <p>This section gives pointers to design your own decoding pipelines with
 scikit-learn. This builds on the <a class="reference internal" href="decoding_intro.html#decoding-intro"><span class="std std-ref">didactic introduction to decoding</span></a>.</p>
 <div class="admonition note">
@@ -711,9 +711,9 @@ scikit-learn. This builds on the <a class="reference internal" href="decoding_in
 correctly with scikit-learn. For a full code example, please check out: <a class="reference internal" href="../auto_examples/07_advanced/plot_advanced_decoding_scikit.html#sphx-glr-auto-examples-07-advanced-plot-advanced-decoding-scikit-py"><span class="std std-ref">Advanced decoding using scikit learn</span></a></p>
 </div>
 <section id="performing-decoding-with-scikit-learn">
-<h2><span class="section-number">5.6.1. </span>Performing decoding with scikit-learn<a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.1. </span>Performing decoding with scikit-learn<a class="headerlink" href="#performing-decoding-with-scikit-learn" title="Link to this heading">#</a></h2>
 <section id="using-scikit-learn-estimators">
-<h3><span class="section-number">5.6.1.1. </span>Using scikit-learn estimators<a class="headerlink" href="#using-scikit-learn-estimators" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1.1. </span>Using scikit-learn estimators<a class="headerlink" href="#using-scikit-learn-estimators" title="Link to this heading">#</a></h3>
 <p>You can easily import estimators from the <a class="reference external" href="https://scikit-learn.org">scikit-learn</a> machine-learning library,
 those available in the <code class="docutils literal notranslate"><span class="pre">Decoder</span></code> object and many others.
 They all have the <code class="docutils literal notranslate"><span class="pre">fit</span></code> and <code class="docutils literal notranslate"><span class="pre">predict</span></code> functions.
@@ -721,7 +721,7 @@ For example you can directly import the versatile <a class="reference external" 
 <p>To learn more about the variety of classifiers available in scikit-learn, see the <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">scikit-learn documentation on supervised learning</a>.</p>
 </section>
 <section id="cross-validation-with-scikit-learn">
-<h3><span class="section-number">5.6.1.2. </span>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1.2. </span>Cross-validation with scikit-learn<a class="headerlink" href="#cross-validation-with-scikit-learn" title="Link to this heading">#</a></h3>
 <p>To perform cross-validation using a scikit-learn estimator, you should first
 mask the data using a <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiMasker</span></code></a>: to extract
 only the <a class="reference internal" href="../glossary.html#term-voxel"><span class="xref std std-term">voxels</span></a> inside the mask of interest, and transform 4D input <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a>
@@ -751,7 +751,7 @@ see <a class="reference external" href="https://scikit-learn.org/stable/modules/
 </div>
 </section>
 <section id="measuring-the-chance-level">
-<h3><span class="section-number">5.6.1.3. </span>Measuring the chance level<a class="headerlink" href="#measuring-the-chance-level" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.6.1.3. </span>Measuring the chance level<a class="headerlink" href="#measuring-the-chance-level" title="Link to this heading">#</a></h3>
 <p><strong>Dummy estimators</strong>: The simplest way to measure prediction performance at chance is to use a <em>“dummy”</em> classifier: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.dummy.DummyClassifier</span></code></a>.</p>
 <p><strong>Permutation testing</strong>: A more controlled way, but slower, is to do permutation testing on the labels, with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html#sklearn.model_selection.permutation_test_score" title="(in scikit-learn v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.model_selection.permutation_test_score</span></code></a>.</p>
 <aside class="topic">
@@ -768,7 +768,7 @@ the simulations.</p>
 </section>
 </section>
 <section id="going-further-with-scikit-learn">
-<h2><span class="section-number">5.6.2. </span>Going further with scikit-learn<a class="headerlink" href="#going-further-with-scikit-learn" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.2. </span>Going further with scikit-learn<a class="headerlink" href="#going-further-with-scikit-learn" title="Link to this heading">#</a></h2>
 <p>We have seen a very simple analysis with scikit-learn, but your can easily add
 intermediate processing steps if your analysis requires it. Some common
 examples are :</p>
@@ -778,12 +778,12 @@ examples are :</p>
 <li><p>add more intermediate steps such as clustering</p></li>
 </ul>
 <section id="decoding-without-a-mask-anova-svm-using-scikit-learn">
-<h3><span class="section-number">5.6.2.1. </span>Decoding without a mask: Anova-SVM using scikit-learn<a class="headerlink" href="#decoding-without-a-mask-anova-svm-using-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.6.2.1. </span>Decoding without a mask: Anova-SVM using scikit-learn<a class="headerlink" href="#decoding-without-a-mask-anova-svm-using-scikit-learn" title="Link to this heading">#</a></h3>
 <p>We can also implement feature selection before decoding as a scikit-learn pipeline (<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="(in scikit-learn v1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">sklearn.pipeline.Pipeline</span></code></a>).
 For this, we need to import the <a class="reference external" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection" title="(in scikit-learn v1.3)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sklearn.feature_selection</span></code></a> module and use <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_selection.f_classif.html#sklearn.feature_selection.f_classif" title="(in scikit-learn v1.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">sklearn.feature_selection.f_classif</span></code></a>, a simple F-score based feature selection (a.k.a. <a class="reference external" href="https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test">Anova</a>),</p>
 </section>
 <section id="using-any-other-model-in-the-pipeline">
-<h3><span class="section-number">5.6.2.2. </span>Using any other model in the pipeline<a class="headerlink" href="#using-any-other-model-in-the-pipeline" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">5.6.2.2. </span>Using any other model in the pipeline<a class="headerlink" href="#using-any-other-model-in-the-pipeline" title="Link to this heading">#</a></h3>
 <p><a class="reference internal" href="../glossary.html#term-ANOVA"><span class="xref std std-term">Anova</span></a> - <a class="reference internal" href="../glossary.html#term-SVM"><span class="xref std std-term">SVM</span></a> is a good baseline that will give reasonable results
 in common settings. However it may be interesting for you to explore the
 <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">wide variety of supervised learning algorithms in the scikit-learn</a>. These can readily
@@ -808,7 +808,7 @@ To become better at decoding, you need to study it.</p></li>
 </section>
 </section>
 <section id="setting-estimator-parameters">
-<h2><span class="section-number">5.6.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">5.6.3. </span>Setting estimator parameters<a class="headerlink" href="#setting-estimator-parameters" title="Link to this heading">#</a></h2>
 <p>Most estimators have parameters that can be set to optimize their
 performance. Importantly, this must be done via <strong>nested</strong>
 cross-validation.</p>
@@ -914,9 +914,9 @@ selection</a></p>
       
     </aside>
   </div>
-</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+</div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=4ea706d9"></script>
