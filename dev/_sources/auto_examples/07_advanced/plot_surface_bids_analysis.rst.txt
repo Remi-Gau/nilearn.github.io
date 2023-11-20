@@ -99,7 +99,7 @@ in the :term:`BIDS` dataset.
 To get the first level models we only have to specify the dataset directory
 and the task_label as specified in the file names.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-58
+.. GENERATED FROM PYTHON SOURCE LINES 50-60
 
 .. code-block:: default
 
@@ -109,7 +109,9 @@ and the task_label as specified in the file names.
     _, models_run_imgs, models_events, models_confounds = \
         first_level_from_bids(
             data_dir, task_label,
-            img_filters=[('desc', 'preproc')])
+            img_filters=[('desc', 'preproc')],
+            n_jobs=2
+        )
 
 
 
@@ -127,12 +129,12 @@ and the task_label as specified in the file names.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-61
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
 We also need to get the :term:`TR` information.
 For that we use the json sidecar file of the dataset's functional images.
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-75
+.. GENERATED FROM PYTHON SOURCE LINES 63-77
 
 .. code-block:: default
 
@@ -157,11 +159,11 @@ For that we use the json sidecar file of the dataset's functional images.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 78-79
 
 Project :term:`fMRI` data to the surface: First get fsaverage5.
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-81
+.. GENERATED FROM PYTHON SOURCE LINES 79-83
 
 .. code-block:: default
 
@@ -176,12 +178,12 @@ Project :term:`fMRI` data to the surface: First get fsaverage5.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-84
+.. GENERATED FROM PYTHON SOURCE LINES 84-86
 
 The projection function simply takes the :term:`fMRI` data and the mesh.
 Note that those correspond spatially, as they are both in :term:`MNI` space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-90
+.. GENERATED FROM PYTHON SOURCE LINES 86-92
 
 .. code-block:: default
 
@@ -198,11 +200,11 @@ Note that those correspond spatially, as they are both in :term:`MNI` space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-92
+.. GENERATED FROM PYTHON SOURCE LINES 93-94
 
 Empty lists in which we are going to store activation values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-131
+.. GENERATED FROM PYTHON SOURCE LINES 94-133
 
 .. code-block:: default
 
@@ -252,13 +254,13 @@ Empty lists in which we are going to store activation values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-135
+.. GENERATED FROM PYTHON SOURCE LINES 134-137
 
 Individual activation maps have been accumulated in the z_score_left
 and az_scores_right lists respectively. We can now use them in a
 group study (one-sample study).
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-143
+.. GENERATED FROM PYTHON SOURCE LINES 139-145
 
 Group study
 -----------
@@ -267,7 +269,7 @@ Prepare figure for concurrent plot of individual maps
 compute population-level maps for left and right hemisphere
 We directly do that on the value arrays.
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-148
+.. GENERATED FROM PYTHON SOURCE LINES 145-150
 
 .. code-block:: default
 
@@ -283,11 +285,11 @@ We directly do that on the value arrays.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 149-150
+.. GENERATED FROM PYTHON SOURCE LINES 151-152
 
 What we have so far are p-values: we convert them to z-values for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-153
+.. GENERATED FROM PYTHON SOURCE LINES 152-155
 
 .. code-block:: default
 
@@ -301,11 +303,11 @@ What we have so far are p-values: we convert them to z-values for plotting.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-155
+.. GENERATED FROM PYTHON SOURCE LINES 156-157
 
 Plot the resulting maps, at first on the left hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-161
+.. GENERATED FROM PYTHON SOURCE LINES 157-163
 
 .. code-block:: default
 
@@ -333,11 +335,11 @@ Plot the resulting maps, at first on the left hemisphere.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-163
+.. GENERATED FROM PYTHON SOURCE LINES 164-165
 
 Next, on the right hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-169
+.. GENERATED FROM PYTHON SOURCE LINES 165-171
 
 .. code-block:: default
 
@@ -362,7 +364,7 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 9.343 seconds)
+   **Total running time of the script:** (1 minutes 10.313 seconds)
 
 **Estimated memory usage:**  456 MB
 

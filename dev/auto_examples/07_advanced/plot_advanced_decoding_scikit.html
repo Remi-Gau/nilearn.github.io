@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -936,7 +936,7 @@ scikit-learn : scoring = ‘roc_auc’</p></li>
     <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv</span></a><span class="p">,</span>
     <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span>
     <span class="n">groups</span><span class="o">=</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">session_label</span></a><span class="p">,</span>
-    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SVC accuracy (tuned parameters): </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cv_scores</span></a><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1048,7 +1048,7 @@ based feature selection (a.k.a.
 <img src="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" srcset="../../_images/sphx_glr_plot_advanced_decoding_scikit_001.png" alt="plot advanced decoding scikit" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>After feature selection, the SVC is trained only on 47 features
 After inverting feature selection, we have 464 features back
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fa5db3d7a30&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c9d452250&gt;
 </pre></div>
 </div>
 </section>
@@ -1106,13 +1106,13 @@ We follows the same principle.</p>
 <span class="c1">#                             fmri_masked,</span>
 <span class="c1">#                             target,</span>
 <span class="c1">#                             cv=cv,</span>
-<span class="c1">#                             n_jobs=-1,</span>
+<span class="c1">#                             n_jobs=2,</span>
 <span class="c1">#                             verbose=1)</span>
 <span class="c1"># But, be aware that this can take * A WHILE * ...</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 17.240 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  910 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 18.434 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  912 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-advanced-decoding-scikit-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>

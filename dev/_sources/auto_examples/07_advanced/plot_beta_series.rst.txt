@@ -110,7 +110,7 @@ Prepare data and analysis parameters
 Download data in :term:`BIDS` format and event information for one subject,
 and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-96
+.. GENERATED FROM PYTHON SOURCE LINES 73-97
 
 .. code-block:: default
 
@@ -123,6 +123,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
         data_dir,
         "languagelocalizer",
         img_filters=[("desc", "preproc")],
+        n_jobs=2,
     )
 
     # Grab the first subject's model, functional file, and events DataFrame
@@ -153,7 +154,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-104
+.. GENERATED FROM PYTHON SOURCE LINES 98-105
 
 Define the standard model
 -------------------------
@@ -163,7 +164,7 @@ models.
 We will just use the one created by
 :func:`~nilearn.glm.first_level.first_level_from_bids`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-113
+.. GENERATED FROM PYTHON SOURCE LINES 105-114
 
 .. code-block:: default
 
@@ -188,7 +189,7 @@ We will just use the one created by
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-122
+.. GENERATED FROM PYTHON SOURCE LINES 115-123
 
 Define the LSA model
 --------------------
@@ -199,7 +200,7 @@ It's important to ensure that the original trial types can be inferred from
 the updated trial-wise trial types, in order to collect the resulting
 beta maps into condition-wise beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-142
+.. GENERATED FROM PYTHON SOURCE LINES 123-143
 
 .. code-block:: default
 
@@ -235,13 +236,13 @@ beta maps into condition-wise beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-146
+.. GENERATED FROM PYTHON SOURCE LINES 144-147
 
 Aggregate beta maps from the LSA model based on condition
 `````````````````````````````````````````````````````````
 Collect the :term:`Parameter Estimate` maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-161
+.. GENERATED FROM PYTHON SOURCE LINES 147-162
 
 .. code-block:: default
 
@@ -267,7 +268,7 @@ Collect the :term:`Parameter Estimate` maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-170
+.. GENERATED FROM PYTHON SOURCE LINES 163-171
 
 Define the LSS models
 ---------------------
@@ -278,7 +279,7 @@ We loop through the trials, create a version of the DataFrame where the
 targeted trial has a unique trial type, fit the model to that DataFrame,
 and finally collect the targeted trial's beta map for the beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-241
+.. GENERATED FROM PYTHON SOURCE LINES 171-242
 
 .. code-block:: default
 
@@ -360,12 +361,12 @@ and finally collect the targeted trial's beta map for the beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 242-244
+.. GENERATED FROM PYTHON SOURCE LINES 243-245
 
 Show the design matrices for the first few trials
 `````````````````````````````````````````````````
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-254
+.. GENERATED FROM PYTHON SOURCE LINES 245-255
 
 .. code-block:: default
 
@@ -391,12 +392,12 @@ Show the design matrices for the first few trials
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-257
+.. GENERATED FROM PYTHON SOURCE LINES 256-258
 
 Compare the three modeling approaches
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 257-277
+.. GENERATED FROM PYTHON SOURCE LINES 258-278
 
 .. code-block:: default
 
@@ -432,7 +433,7 @@ Compare the three modeling approaches
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 278-299
+.. GENERATED FROM PYTHON SOURCE LINES 279-300
 
 Applications of beta series
 ---------------------------
@@ -456,7 +457,7 @@ This section is based on
 which goes into more detail about seed-to-voxel functional connectivity
 analyses.
 
-.. GENERATED FROM PYTHON SOURCE LINES 299-392
+.. GENERATED FROM PYTHON SOURCE LINES 300-393
 
 .. code-block:: default
 
@@ -565,7 +566,7 @@ analyses.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 393-397
+.. GENERATED FROM PYTHON SOURCE LINES 394-398
 
 References
 ----------
@@ -575,7 +576,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 34.712 seconds)
+   **Total running time of the script:** (1 minutes 40.924 seconds)
 
 **Estimated memory usage:**  457 MB
 

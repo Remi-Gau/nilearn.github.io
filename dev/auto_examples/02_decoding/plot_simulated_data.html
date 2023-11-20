@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -878,7 +878,7 @@ values that they are given, they choose the best by cross-validation.</p>
             <a href="../../modules/generated/nilearn.decoding.SearchLight.html#nilearn.decoding.SearchLight" title="nilearn.decoding.SearchLight" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">estimator</span></a><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR" title="sklearn.svm.SVR" class="sphx-glr-backref-module-sklearn-svm sphx-glr-backref-type-py-class"><span class="n">svm</span><span class="o">.</span><span class="n">SVR</span></a><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">),</span>
             <span class="n">cv</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html#sklearn.model_selection.KFold" title="sklearn.model_selection.KFold" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class"><span class="n">KFold</span></a><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
             <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
         <span class="p">),</span>
     <span class="p">),</span>
 <span class="p">]</span>
@@ -937,62 +937,20 @@ models, a <cite>coef_</cite> attribute that stores the coefficients <strong>w</s
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
-<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.19s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.22s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.07s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_002.png" srcset="../../_images/sphx_glr_plot_simulated_data_002.png" alt="bayesian_ridge: prediction score 0.114, training time: 0.16s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_003.png" srcset="../../_images/sphx_glr_plot_simulated_data_003.png" alt="enet_cv: prediction score 0.528, training time: 0.23s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_004.png" srcset="../../_images/sphx_glr_plot_simulated_data_004.png" alt="ridge_cv: prediction score 0.328, training time: 0.04s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_005.png" srcset="../../_images/sphx_glr_plot_simulated_data_005.png" alt="svr: prediction score 0.345, training time: 0.00s" class = "sphx-glr-multi-img"/></li>
-<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 5.47s" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_simulated_data_006.png" srcset="../../_images/sphx_glr_plot_simulated_data_006.png" alt="SearchLight: training time: 3.92s" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_simulated_data_007.png" srcset="../../_images/sphx_glr_plot_simulated_data_007.png" alt="f_regress" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.19s
-enet_cv: prediction score 0.528, training time: 0.22s
-ridge_cv: prediction score 0.328, training time: 0.07s
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>bayesian_ridge: prediction score 0.114, training time: 0.16s
+enet_cv: prediction score 0.528, training time: 0.23s
+ridge_cv: prediction score 0.328, training time: 0.04s
 svr: prediction score 0.345, training time: 0.00s
-Job #1, processed 0/432 voxels (0.00%, 174.0860939025879 seconds remaining)
-Job #1, processed 10/432 voxels (2.31%, 6.71891080559074 seconds remaining)
-Job #1, processed 20/432 voxels (4.63%, 5.38084717600186 seconds remaining)
-Job #1, processed 30/432 voxels (6.94%, 5.257242473470374 seconds remaining)
-Job #1, processed 40/432 voxels (9.26%, 5.158745042191211 seconds remaining)
-Job #1, processed 50/432 voxels (11.57%, 5.086449582718938 seconds remaining)
-Job #1, processed 60/432 voxels (13.89%, 4.860624352318507 seconds remaining)
-Job #1, processed 70/432 voxels (16.20%, 4.8376726809843085 seconds remaining)
-Job #1, processed 80/432 voxels (18.52%, 4.777960104767241 seconds remaining)
-Job #1, processed 90/432 voxels (20.83%, 4.577751387327381 seconds remaining)
-Job #1, processed 100/432 voxels (23.15%, 4.379306453865496 seconds remaining)
-Job #1, processed 110/432 voxels (25.46%, 4.265874740558632 seconds remaining)
-Job #1, processed 120/432 voxels (27.78%, 4.11570286424663 seconds remaining)
-Job #1, processed 130/432 voxels (30.09%, 3.9202134934878896 seconds remaining)
-Job #1, processed 140/432 voxels (32.41%, 3.785750027903434 seconds remaining)
-Job #1, processed 150/432 voxels (34.72%, 3.622845882644302 seconds remaining)
-Job #1, processed 160/432 voxels (37.04%, 3.451214785709752 seconds remaining)
-Job #1, processed 170/432 voxels (39.35%, 3.2898928086063908 seconds remaining)
-Job #1, processed 180/432 voxels (41.67%, 3.1435426882997186 seconds remaining)
-Job #1, processed 190/432 voxels (43.98%, 2.9923471283403082 seconds remaining)
-Job #1, processed 200/432 voxels (46.30%, 2.832026130952279 seconds remaining)
-Job #1, processed 210/432 voxels (48.61%, 2.6899111299842406 seconds remaining)
-Job #1, processed 220/432 voxels (50.93%, 2.54979083698624 seconds remaining)
-Job #1, processed 230/432 voxels (53.24%, 2.406923938030412 seconds remaining)
-Job #1, processed 240/432 voxels (55.56%, 2.267284413908264 seconds remaining)
-Job #1, processed 250/432 voxels (57.87%, 2.137500778430275 seconds remaining)
-Job #1, processed 260/432 voxels (60.19%, 2.007610635278946 seconds remaining)
-Job #1, processed 270/432 voxels (62.50%, 1.8788975715637206 seconds remaining)
-Job #1, processed 280/432 voxels (64.81%, 1.7523527994436936 seconds remaining)
-Job #1, processed 290/432 voxels (67.13%, 1.6325780248279709 seconds remaining)
-Job #1, processed 300/432 voxels (69.44%, 1.519919061441026 seconds remaining)
-Job #1, processed 310/432 voxels (71.76%, 1.3997245100695415 seconds remaining)
-Job #1, processed 320/432 voxels (74.07%, 1.28442532809878 seconds remaining)
-Job #1, processed 330/432 voxels (76.39%, 1.175876186099691 seconds remaining)
-Job #1, processed 340/432 voxels (78.70%, 1.0613521148167842 seconds remaining)
-Job #1, processed 350/432 voxels (81.02%, 0.9458935012996302 seconds remaining)
-Job #1, processed 360/432 voxels (83.33%, 0.8328388680018942 seconds remaining)
-Job #1, processed 370/432 voxels (85.65%, 0.721164298071474 seconds remaining)
-Job #1, processed 380/432 voxels (87.96%, 0.6052427601955221 seconds remaining)
-Job #1, processed 390/432 voxels (90.28%, 0.4920431479554182 seconds remaining)
-Job #1, processed 400/432 voxels (92.59%, 0.37439279847763574 seconds remaining)
-Job #1, processed 410/432 voxels (94.91%, 0.25805409295505444 seconds remaining)
-Job #1, processed 420/432 voxels (97.22%, 0.14053124043461332 seconds remaining)
-Job #1, processed 430/432 voxels (99.54%, 0.02323020215922595 seconds remaining)
-SearchLight: training time: 5.47s
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    3.4s finished
+SearchLight: training time: 3.92s
 </pre></div>
 </div>
 </section>
@@ -1006,7 +964,7 @@ slow.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.feature_selection import RFE</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.717 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.407 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  11 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-simulated-data-py">
 <div class="binder-badge docutils container">

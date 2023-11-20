@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -760,6 +760,7 @@ SpaceNetRegressor class, to take advantage of a multi-core system.</p>
     <span class="n">screening_percentile</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
     <span class="n">memory_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor.fit" title="nilearn.decoding.SpaceNetRegressor.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gm_imgs_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">age_train</span></a><span class="p">)</span>  <span class="c1"># fit</span>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coef_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span><span class="o">.</span><span class="n">coef_img_</span></a>
@@ -903,163 +904,9 @@ affine=array([[  -2.,    0.,    0.,   90.],
 
 Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
 
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([ 15, ..., 119]), array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 0), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.28s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.8s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 1), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.28s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.7s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 2), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.29s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.7s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 3), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.29s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.4s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 4), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.29s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.8s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89]), {&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 5), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.28s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.5s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 119]), array([ 90,  91,  92,  93,  94,  95,  96,  97,  98,  99, 100, 101, 102,
-       103, 104]),
-{&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 6), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.29s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 15.0s, 0.2min
-________________________________________________________________________________
-[Memory] Calling nilearn.decoding.space_net.path_scores...
-path_scores(&lt;function _graph_net_squared_loss at 0x7fa5dc23eee0&gt;, array([[0., ..., 0.],
-       ...,
-       [0., ..., 0.]]), array([73., ..., 62.]), array([[[ True, ...,  True],
-        ...,
-        [ True, ...,  True]],
-
-       ...,
-
-       [[ True, ...,  True],
-        ...,
-        [ True, ...,  True]]]),
-None, [0.5], array([  0, ..., 104]), array([105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
-       118, 119]),
-{&#39;max_iter&#39;: 200, &#39;tol&#39;: 0.0001}, n_alphas=10, eps=0.001, is_classif=False, key=(0, 7), debias=False, verbose=1, screening_percentile=1.2652228933482088)
-........./usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/parallel.py:1792: UserWarning:
-
-Persisting input arguments took 1.29s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-_____________________________________________________path_scores - 14.3s, 0.2min
-Time Elapsed: 154.14838314056396 seconds, 2.5691397190093994 minutes.
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done   8 out of   8 | elapsed:  1.4min finished
+Time Elapsed: 99.92429399490356 seconds, 1.6654048999150595 minutes.
 [NiftiMasker.transform_single_imgs] Loading data from Nifti1Image(
 shape=(91, 109, 91, 80),
 affine=array([[  -2.,    0.,    0.,   90.],
@@ -1113,8 +960,8 @@ Mean square error (MSE) on the predicted age: 12.33
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" alt="plot oasis vbm space net" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" alt="graph-net: Mean Absolute Error 12.33 years" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 40.698 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2901 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 46.653 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2678 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-space-net-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_oasis_vbm_space_net.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

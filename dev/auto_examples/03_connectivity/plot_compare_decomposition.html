@@ -11,7 +11,7 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="Various approaches exist to derive spatial maps or networks from group fmr data. The methods extract distributed brain regions that exhibit similar BOLD fluctuations over time. Decomposition method..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Producing single subject maps of seed-to-voxel correlation" href="plot_seed_to_voxel_correlation.html" /><link rel="prev" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Group Sparse inverse covariance for multi-subject connectome" href="plot_multi_subject_connectome.html" /><link rel="prev" title="Producing single subject maps of seed-to-voxel correlation" href="plot_seed_to_voxel_correlation.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Deriving spatial maps from group fMRI data using ICA and Dictionary Learning - Nilearn</title>
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -760,6 +760,7 @@ However, the images need to be in <a class="reference internal" href="../../glos
     <span class="n">mask_strategy</span><span class="o">=</span><span class="s2">&quot;whole-brain-template&quot;</span><span class="p">,</span>
     <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 <a href="../../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA.fit" title="nilearn.decomposition.CanICA.fit" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-method"><span class="n">canica</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a><span class="p">)</span>
 
@@ -804,248 +805,29 @@ However, the images need to be in <a class="reference internal" href="../../glos
 [{self.__class__.__name__}.fit] Computing mask
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 Template whole-brain mask computation
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [CanICA] Loading data
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
 ________________________________________________________________________________
 [Memory] Calling sklearn.utils.extmath.randomized_svd...
 randomized_svd(array([[0.003659, ..., 0.013254],
        ...,
        [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
 ___________________________________________________randomized_svd - 0.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=209652396)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.8s, 0.1min
-[Parallel(n_jobs=1)]: Done   1 tasks      | elapsed:    4.8s
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=398764591)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.9s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=924231285)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.8s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=1478610112)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 5.2s, 0.1min
-[Parallel(n_jobs=1)]: Done   4 tasks      | elapsed:   19.8s
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=441365315)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.9s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=1537364731)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.2s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=192771779)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.4s, 0.1min
-[Parallel(n_jobs=1)]: Done   7 tasks      | elapsed:   33.3s
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=1491434855)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.1s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=1819583497)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.2s, 0.1min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.004071, ...,  0.000497],
-       ...,
-       [ 0.005856, ..., -0.004765]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=530702035)
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_fastica.py:128: ConvergenceWarning:
-
-FastICA did not converge. Consider increasing tolerance or the maximum number of iterations.
-
-__________________________________________________________fastica - 4.6s, 0.1min
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    3.9s
+[Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    8.5s
+[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   20.5s finished
 </pre></div>
 </div>
 <p>To visualize we plot the outline of all components on one figure</p>
@@ -1060,7 +842,7 @@ __________________________________________________________fastica - 4.6s, 0.1min
 linewidths is ignored by contourf
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fa5da320670&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c9cf7de20&gt;
 </pre></div>
 </div>
 <p>Finally, we plot the map for each <a class="reference internal" href="../../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> component separately</p>
@@ -1125,6 +907,7 @@ ISBI 2016, Lecture Notes in Computer Science</p></li>
     <span class="n">n_epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">mask_strategy</span><span class="o">=</span><span class="s2">&quot;whole-brain-template&quot;</span><span class="p">,</span>
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Example] Fitting dictionary learning model&quot;</span><span class="p">)</span>
@@ -1173,138 +956,18 @@ ISBI 2016, Lecture Notes in Computer Science</p></li>
 [{self.__class__.__name__}.fit] Computing mask
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7fa5dd919430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f8c9e649430&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [DictLearning] Loading data
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
-[MultiNiftiMasker.transform_single_imgs] Loading data from Nifti1Image(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-[MultiNiftiMasker.transform_single_imgs] Smoothing images
-[MultiNiftiMasker.transform_single_imgs] Extracting region signals
-[MultiNiftiMasker.transform_single_imgs] Cleaning extracted signals
 [DictLearning] Learning initial components
 ________________________________________________________________________________
 [Memory] Calling sklearn.utils.extmath.randomized_svd...
@@ -1312,18 +975,13 @@ randomized_svd(array([[-0.001315, ...,  0.004387],
        ...,
        [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
 ___________________________________________________randomized_svd - 0.5s, 0.0min
-________________________________________________________________________________
-[Memory] Calling sklearn.decomposition._fastica.fastica...
-fastica(array([[ 0.00289 , ..., -0.002135],
-       ...,
-       [ 0.005107, ..., -0.012507]]), whiten=&#39;arbitrary-variance&#39;, fun=&#39;cube&#39;, random_state=209652396)
-__________________________________________________________fastica - 3.8s, 0.1min
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
 [DictLearning] Computing initial loadings
 ________________________________________________________________________________
 [Memory] Calling nilearn.decomposition.dict_learning._compute_loadings...
-_compute_loadings(array([[-0.000853, ...,  0.011545],
+_compute_loadings(array([[-0.002859, ..., -0.002701],
        ...,
-       [ 0.005481, ...,  0.002252]]),
+       [-0.008241, ...,  0.003048]]),
 array([[-0.622651, ...,  5.322742],
        ...,
        [ 0.777205, ...,  0.743122]]))
@@ -1334,9 +992,9 @@ ________________________________________________________________________________
 dict_learning_online(array([[-0.622651, ...,  0.777205],
        ...,
        [ 5.322742, ...,  0.743122]]),
-20, alpha=10, n_iter=1090, batch_size=20, method=&#39;cd&#39;, dict_init=array([[-0.16461 , ...,  0.266777],
+20, alpha=10, n_iter=1090, batch_size=20, method=&#39;cd&#39;, dict_init=array([[0.572552, ..., 0.18423 ],
        ...,
-       [-0.127623, ..., -0.164382]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1)
+       [0.203352, ..., 0.254058]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1)
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/decomposition/_dict_learning.py:658: FutureWarning:
 
 &#39;n_iter&#39; is deprecated in version 1.1 and will be removed in version 1.4. Use &#39;max_iter&#39; instead.
@@ -1357,7 +1015,7 @@ _____________________________________________dict_learning_online - 2.6s, 0.0min
 linewidths is ignored by contourf
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fa5e6647490&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8ca3860580&gt;
 </pre></div>
 </div>
 <p>One plot of each component</p>
@@ -1419,7 +1077,7 @@ to calculate the score per component</p>
 [Memory] Calling nilearn.decomposition._base._explained_variance...
 _explained_variance(array([[-6.227098e-01, ...,  5.322679e+00],
        ...,
-       [-4.891767e-16, ..., -6.591491e-16]]),
+       [ 4.971598e-17, ..., -4.629670e-16]]),
 array([[0., ..., 0.],
        ...,
        [0., ..., 0.]]), per_component=True)
@@ -1427,7 +1085,7 @@ array([[0., ..., 0.],
 
 Persisting input arguments took 1.30s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
 
-______________________________________________explained_variance - 16.0s, 0.3min
+______________________________________________explained_variance - 14.9s, 0.2min
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1436,8 +1094,8 @@ ______________________________________________explained_variance - 16.0s, 0.3min
 created using <a class="reference internal" href="../../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a>, see <a class="reference internal" href="plot_extract_regions_dictlearning_maps.html#sphx-glr-auto-examples-03-connectivity-plot-extract-regions-dictlearning-maps-py"><span class="std std-ref">example Regions
 extraction using dictionary learning and functional connectomes</span></a>.</p>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (3 minutes 40.021 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2986 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 34.559 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2955 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-compare-decomposition-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_compare_decomposition.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1458,23 +1116,23 @@ extraction using dictionary learning and functional connectomes</span></a>.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_seed_to_voxel_correlation.html">
+          <a class="next-page" href="plot_multi_subject_connectome.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Producing single subject maps of seed-to-voxel correlation</div>
+                <div class="title">Group Sparse inverse covariance for multi-subject connectome</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_simulated_connectome.html">
+          <a class="prev-page" href="plot_seed_to_voxel_correlation.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Connectivity structure estimation on simulated data</div>
+                <div class="title">Producing single subject maps of seed-to-voxel correlation</div>
                 
               </div>
             </a>

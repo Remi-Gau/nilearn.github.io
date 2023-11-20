@@ -224,7 +224,7 @@ We compare both of these models to a pipeline ensembling many models
     Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7fa5dd3dbdf0>
+    <nilearn.plotting.displays._slicers.YZSlicer object at 0x7f8ca368fdf0>
 
 
 
@@ -251,7 +251,7 @@ not demonstrated on this example but you can try them easily if you have a
 few minutes. Example code is included below.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-88
+.. GENERATED FROM PYTHON SOURCE LINES 72-89
 
 .. code-block:: default
 
@@ -266,6 +266,7 @@ few minutes. Example code is included below.
         penalty="tv-l1",
         eps=1e-1,  # prefer large alphas
         memory="nilearn_cache",
+        n_jobs=2,
     )
     # tv_l1.fit(zmap_filenames, behavioral_target)
     # plot_stat_map(tv_l1.coef_img_, title="TV-L1", display_mode="yz",
@@ -281,9 +282,9 @@ few minutes. Example code is included below.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 24.876 seconds)
+   **Total running time of the script:** (0 minutes 23.883 seconds)
 
-**Estimated memory usage:**  2152 MB
+**Estimated memory usage:**  2245 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_mixed_gambles_frem.py:

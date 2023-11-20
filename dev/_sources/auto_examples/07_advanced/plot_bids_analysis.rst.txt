@@ -113,7 +113,7 @@ and the task_label as specified in the file names.
         models_events,
         models_confounds,
     ) = first_level_from_bids(
-        data_dir, task_label, img_filters=[("desc", "preproc")]
+        data_dir, task_label, img_filters=[("desc", "preproc")], n_jobs=2
     )
 
 
@@ -321,7 +321,7 @@ Note that we apply a smoothing of 8mm.
 
 .. code-block:: default
 
-    second_level_model = SecondLevelModel(smoothing_fwhm=8.0)
+    second_level_model = SecondLevelModel(smoothing_fwhm=8.0, n_jobs=2)
     second_level_model = second_level_model.fit(second_level_input)
 
 
@@ -387,9 +387,9 @@ language network.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 50.227 seconds)
+   **Total running time of the script:** (0 minutes 51.939 seconds)
 
-**Estimated memory usage:**  1015 MB
+**Estimated memory usage:**  1089 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_bids_analysis.py:

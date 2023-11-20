@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -758,7 +758,7 @@ at a lower computational cost than other spatially regularized methods.</p>
 <h2>Fit FREM<a class="headerlink" href="#fit-frem" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMClassifier</span></a>
 
-<a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMClassifier</span></a><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier" title="nilearn.decoding.FREMClassifier" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMClassifier</span></a><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="c1"># Fit model on train data and predict on test data</span>
 <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier.fit" title="nilearn.decoding.FREMClassifier.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_train</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_train</span></a><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_pred</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMClassifier.html#nilearn.decoding.FREMClassifier.predict" title="nilearn.decoding.FREMClassifier.predict" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">decoder</span><span class="o">.</span><span class="n">predict</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X_test</span></a><span class="p">)</span>
@@ -769,42 +769,6 @@ at a lower computational cost than other spatially regularized methods.</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/param_validation.py:214: UserWarning:
 
 Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-Features [15809] are constant.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-invalid value encountered in divide
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-divide by zero encountered in divide
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-Features [15809] are constant.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-invalid value encountered in divide
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-divide by zero encountered in divide
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-Features [15809] are constant.
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-invalid value encountered in divide
-
-/usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-divide by zero encountered in divide
 
 FREM classification accuracy : 57.7778%
 </pre></div>
@@ -865,8 +829,8 @@ fold and the clustering mechanism keeps its computational cost reasonable
 even on heavier examples. Here we ensembled several instances of l2-SVC,
 but FREMClassifier also works with ridge or logistic.
 FREMRegressor object is also available to solve regression problems.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 0.089 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2031 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 11.005 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  974 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-frem-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_frem.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

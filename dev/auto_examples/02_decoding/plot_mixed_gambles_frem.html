@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev60+gb8053f1b) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev61+gf4b03d40) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -245,8 +245,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_inverse_covariance_connectome.html">Computing a connectome with sparse inverse covariance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_probabilistic_atlas_extraction.html">Extracting signals of a probabilistic atlas of functional regions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_simulated_connectome.html">Connectivity structure estimation on simulated data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html">Producing single subject maps of seed-to-voxel correlation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_compare_decomposition.html">Deriving spatial maps from group fMRI data using ICA and Dictionary Learning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_multi_subject_connectome.html">Group Sparse inverse covariance for multi-subject connectome</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_extract_regions_dictlearning_maps.html">Regions extraction using dictionary learning and functional connectomes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../03_connectivity/plot_atlas_comparison.html">Comparing connectomes on different reference atlases</a></li>
@@ -877,7 +877,7 @@ Solver terminated early (max_iter=10000).  Consider pre-processing your data wit
 Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7fa5dd3dbdf0&gt;
+&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7f8ca368fdf0&gt;
 </pre></div>
 </div>
 <p>We can observe that the coefficients map learnt
@@ -906,14 +906,15 @@ few minutes. Example code is included below.</p>
     <span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;tv-l1&quot;</span><span class="p">,</span>
     <span class="n">eps</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">,</span>  <span class="c1"># prefer large alphas</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="c1"># tv_l1.fit(zmap_filenames, behavioral_target)</span>
 <span class="c1"># plot_stat_map(tv_l1.coef_img_, title=&quot;TV-L1&quot;, display_mode=&quot;yz&quot;,</span>
 <span class="c1">#               cut_coords=[20, -2])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.876 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2152 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 23.883 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2245 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-mixed-gambles-frem-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_mixed_gambles_frem.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
