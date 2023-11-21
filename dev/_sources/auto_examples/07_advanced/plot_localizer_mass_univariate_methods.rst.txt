@@ -43,7 +43,7 @@ is included in the model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 28-35
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
@@ -65,7 +65,7 @@ Load Localizer contrast
 
 .. GENERATED FROM PYTHON SOURCE LINES 37-61
 
-.. code-block:: default
+.. code-block:: Python
 
     n_samples = 94
     localizer_dataset = datasets.fetch_localizer_contrasts(
@@ -111,7 +111,7 @@ Mask data
 
 .. GENERATED FROM PYTHON SOURCE LINES 63-69
 
-.. code-block:: default
+.. code-block:: Python
 
     nifti_masker = NiftiMasker(
         smoothing_fwhm=5, memory="nilearn_cache", memory_level=1
@@ -132,7 +132,7 @@ Anova (parametric F-scores)
 
 .. GENERATED FROM PYTHON SOURCE LINES 71-82
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.feature_selection import f_regression
 
@@ -176,7 +176,7 @@ This method will produce both voxel-level FWE-corrected -log10 p-values and
 
 .. GENERATED FROM PYTHON SOURCE LINES 93-112
 
-.. code-block:: default
+.. code-block:: Python
 
 
     ols_outputs = permuted_ols(
@@ -206,7 +206,7 @@ This method will produce both voxel-level FWE-corrected -log10 p-values and
  .. code-block:: none
 
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   52.2s finished
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   52.3s finished
 
 
 
@@ -217,7 +217,7 @@ Visualization
 
 .. GENERATED FROM PYTHON SOURCE LINES 114-159
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
     from nilearn.image import get_data
@@ -268,7 +268,7 @@ Visualization
 
 
 .. image-sg:: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
-   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 20 sig. voxels, Permutation Test (Max TFCE FWE) 1130 sig. voxels
+   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 22 sig. voxels, Permutation Test (Max TFCE FWE) 1147 sig. voxels
    :srcset: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
    :class: sphx-glr-single-img
 
@@ -285,7 +285,7 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 59.319 seconds)
+   **Total running time of the script:** (0 minutes 59.615 seconds)
 
 **Estimated memory usage:**  165 MB
 
@@ -296,7 +296,6 @@ Visualization
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -304,15 +303,13 @@ Visualization
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_localizer_mass_univariate_methods.ipynb <plot_localizer_mass_univariate_methods.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_localizer_mass_univariate_methods.py <plot_localizer_mass_univariate_methods.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_localizer_mass_univariate_methods.ipynb <plot_localizer_mass_univariate_methods.ipynb>`
 
 
 .. only:: html

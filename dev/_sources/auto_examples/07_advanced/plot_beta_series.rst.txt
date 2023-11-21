@@ -78,7 +78,8 @@ to build the LSS beta series.
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-62
 
-.. code-block:: default
+.. code-block:: Python
+   :dedent: 1
 
 
 
@@ -90,7 +91,7 @@ to build the LSS beta series.
 
 .. GENERATED FROM PYTHON SOURCE LINES 64-68
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -112,7 +113,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
 .. GENERATED FROM PYTHON SOURCE LINES 73-97
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_language_localizer_demo_dataset
     from nilearn.glm.first_level import FirstLevelModel, first_level_from_bids
@@ -166,7 +167,7 @@ We will just use the one created by
 
 .. GENERATED FROM PYTHON SOURCE LINES 105-114
 
-.. code-block:: default
+.. code-block:: Python
 
 
     standard_glm.fit(fmri_file, events_df)
@@ -202,7 +203,7 @@ beta maps into condition-wise beta series.
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-143
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Transform the DataFrame for LSA
@@ -244,7 +245,7 @@ Collect the :term:`Parameter Estimate` maps
 
 .. GENERATED FROM PYTHON SOURCE LINES 147-162
 
-.. code-block:: default
+.. code-block:: Python
 
 
     lsa_beta_maps = {cond: [] for cond in events_df["trial_type"].unique()}
@@ -281,7 +282,7 @@ and finally collect the targeted trial's beta map for the beta series.
 
 .. GENERATED FROM PYTHON SOURCE LINES 171-242
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -368,7 +369,7 @@ Show the design matrices for the first few trials
 
 .. GENERATED FROM PYTHON SOURCE LINES 245-255
 
-.. code-block:: default
+.. code-block:: Python
 
     fig, axes = plt.subplots(ncols=3, figsize=(20, 10))
     for i_trial in range(3):
@@ -399,7 +400,7 @@ Compare the three modeling approaches
 
 .. GENERATED FROM PYTHON SOURCE LINES 258-278
 
-.. code-block:: default
+.. code-block:: Python
 
 
     DM_TITLES = ["Standard GLM", "LSA Model", "LSS Model (Trial 1)"]
@@ -459,7 +460,7 @@ analyses.
 
 .. GENERATED FROM PYTHON SOURCE LINES 300-393
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -576,7 +577,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 38.212 seconds)
+   **Total running time of the script:** (1 minutes 41.474 seconds)
 
 **Estimated memory usage:**  457 MB
 
@@ -587,7 +588,6 @@ References
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -595,15 +595,13 @@ References
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_beta_series.ipynb <plot_beta_series.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_beta_series.py <plot_beta_series.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_beta_series.ipynb <plot_beta_series.ipynb>`
 
 
 .. only:: html

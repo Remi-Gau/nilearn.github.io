@@ -64,7 +64,7 @@ Retrieving the data
 
 .. GENERATED FROM PYTHON SOURCE LINES 45-51
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.datasets import fetch_spm_auditory
@@ -95,7 +95,7 @@ We can display the first functional image and the subject's anatomy:
 
 .. GENERATED FROM PYTHON SOURCE LINES 53-58
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.plotting import plot_anat, plot_img, plot_stat_map
 
@@ -128,7 +128,7 @@ We can display the first functional image and the subject's anatomy:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f625893f970>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f641bc29220>
 
 
 
@@ -140,7 +140,7 @@ image that will be used to display the activations:
 
 .. GENERATED FROM PYTHON SOURCE LINES 62-68
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.image import concat_imgs, mean_img
@@ -167,7 +167,7 @@ provided in the dataset.
 
 .. GENERATED FROM PYTHON SOURCE LINES 76-81
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -320,7 +320,7 @@ using the information provided by the ``events`` object.
 
 .. GENERATED FROM PYTHON SOURCE LINES 88-91
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.glm.first_level import FirstLevelModel
@@ -350,7 +350,7 @@ Parameters of the first-level model
 
 .. GENERATED FROM PYTHON SOURCE LINES 105-114
 
-.. code-block:: default
+.. code-block:: Python
 
     fmri_glm = FirstLevelModel(
         t_r=7,
@@ -374,7 +374,7 @@ Now that we have specified the model, we can run it on the :term:`fMRI` image
 
 .. GENERATED FROM PYTHON SOURCE LINES 116-118
 
-.. code-block:: default
+.. code-block:: Python
 
     fmri_glm = fmri_glm.fit(fmri_img, events)
 
@@ -392,7 +392,7 @@ columns contain the predictors).
 
 .. GENERATED FROM PYTHON SOURCE LINES 121-123
 
-.. code-block:: default
+.. code-block:: Python
 
     design_matrix = fmri_glm.design_matrices_[0]
 
@@ -410,7 +410,7 @@ implictily meant to for multiple runs.
 
 .. GENERATED FROM PYTHON SOURCE LINES 126-134
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -439,7 +439,7 @@ first create a directory where you want to write the images
 
 .. GENERATED FROM PYTHON SOURCE LINES 137-150
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import os
@@ -469,7 +469,7 @@ Let's plot this first column
 
 .. GENERATED FROM PYTHON SOURCE LINES 154-160
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plt.plot(design_matrix["active"])
@@ -505,7 +505,7 @@ then a :term:`contrast` that makes the difference between these conditions.
 
 .. GENERATED FROM PYTHON SOURCE LINES 172-179
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -528,7 +528,7 @@ defining the corresponding :term:`contrast`:
 
 .. GENERATED FROM PYTHON SOURCE LINES 182-185
 
-.. code-block:: default
+.. code-block:: Python
 
 
     active_minus_rest = conditions["active"] - conditions["rest"]
@@ -547,7 +547,7 @@ the names of the columns of the design matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 188-193
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.plotting import plot_contrast_matrix
@@ -580,7 +580,7 @@ because it does not take into account the associated variance.
 
 .. GENERATED FROM PYTHON SOURCE LINES 197-202
 
-.. code-block:: default
+.. code-block:: Python
 
 
     eff_map = fmri_glm.compute_contrast(
@@ -603,7 +603,7 @@ variance=1), across voxels, if there were no effects in the data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 207-210
 
-.. code-block:: default
+.. code-block:: Python
 
 
     z_map = fmri_glm.compute_contrast(active_minus_rest, output_type="z_score")
@@ -628,7 +628,7 @@ axial views, with display_mode='z' and cut_coords=3.
 
 .. GENERATED FROM PYTHON SOURCE LINES 219-231
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_stat_map(
@@ -667,7 +667,7 @@ of declaring an inactive :term:`voxel`, active.
 
 .. GENERATED FROM PYTHON SOURCE LINES 240-256
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.glm import threshold_stats_img
@@ -713,7 +713,7 @@ i.e. the probability of making only one false detection, say at
 
 .. GENERATED FROM PYTHON SOURCE LINES 262-278
 
-.. code-block:: default
+.. code-block:: Python
 
 
     _, threshold = threshold_stats_img(
@@ -758,7 +758,7 @@ discovery rate.
 
 .. GENERATED FROM PYTHON SOURCE LINES 283-297
 
-.. code-block:: default
+.. code-block:: Python
 
 
     _, threshold = threshold_stats_img(z_map, alpha=0.05, height_control="fdr")
@@ -802,7 +802,7 @@ will be discarded.
 
 .. GENERATED FROM PYTHON SOURCE LINES 303-319
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clean_map, threshold = threshold_stats_img(
@@ -838,7 +838,7 @@ We can save the effect and zscore maps to the disk.
 
 .. GENERATED FROM PYTHON SOURCE LINES 321-324
 
-.. code-block:: default
+.. code-block:: Python
 
     z_map.to_filename(join(outdir, "active_vs_rest_z_map.nii.gz"))
     eff_map.to_filename(join(outdir, "active_vs_rest_eff_map.nii.gz"))
@@ -856,7 +856,7 @@ We can furthermore extract and report the found positions in a table.
 
 .. GENERATED FROM PYTHON SOURCE LINES 326-334
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.reporting import get_clusters_table
@@ -1166,7 +1166,7 @@ This table can be saved for future use.
 
 .. GENERATED FROM PYTHON SOURCE LINES 336-339
 
-.. code-block:: default
+.. code-block:: Python
 
 
     table.to_csv(join(outdir, "table.csv"))
@@ -1198,7 +1198,7 @@ as for t-contrasts.
 
 .. GENERATED FROM PYTHON SOURCE LINES 354-361
 
-.. code-block:: default
+.. code-block:: Python
 
 
     effects_of_interest = np.vstack((conditions["active"], conditions["rest"]))
@@ -1226,7 +1226,7 @@ makes it easier to represent it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 364-379
 
-.. code-block:: default
+.. code-block:: Python
 
 
     clean_map, threshold = threshold_stats_img(
@@ -1262,9 +1262,9 @@ Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.870 seconds)
+   **Total running time of the script:** (0 minutes 14.831 seconds)
 
-**Estimated memory usage:**  278 MB
+**Estimated memory usage:**  276 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_single_subject_single_run.py:
@@ -1273,7 +1273,6 @@ Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -1281,15 +1280,13 @@ Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_single_subject_single_run.ipynb <plot_single_subject_single_run.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_single_subject_single_run.py <plot_single_subject_single_run.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_single_subject_single_run.ipynb <plot_single_subject_single_run.ipynb>`
 
 
 .. only:: html

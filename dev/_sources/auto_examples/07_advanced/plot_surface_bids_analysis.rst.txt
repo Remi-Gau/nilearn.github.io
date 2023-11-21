@@ -49,7 +49,7 @@ confounds.tsv files.
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-34
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_language_localizer_demo_dataset
 
@@ -68,7 +68,7 @@ Here is the location of the dataset on disk.
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-38
 
-.. code-block:: default
+.. code-block:: Python
 
     print(data_dir)
 
@@ -101,7 +101,7 @@ and the task_label as specified in the file names.
 
 .. GENERATED FROM PYTHON SOURCE LINES 50-60
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.first_level import first_level_from_bids
 
@@ -136,7 +136,7 @@ For that we use the json sidecar file of the dataset's functional images.
 
 .. GENERATED FROM PYTHON SOURCE LINES 63-77
 
-.. code-block:: default
+.. code-block:: Python
 
     import json
     import os
@@ -165,7 +165,7 @@ Project :term:`fMRI` data to the surface: First get fsaverage5.
 
 .. GENERATED FROM PYTHON SOURCE LINES 79-83
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_surf_fsaverage
 
@@ -185,7 +185,7 @@ Note that those correspond spatially, as they are both in :term:`MNI` space.
 
 .. GENERATED FROM PYTHON SOURCE LINES 86-92
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -206,7 +206,7 @@ Empty lists in which we are going to store activation values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 94-133
 
-.. code-block:: default
+.. code-block:: Python
 
     z_scores_right = []
     z_scores_left = []
@@ -271,7 +271,7 @@ We directly do that on the value arrays.
 
 .. GENERATED FROM PYTHON SOURCE LINES 145-150
 
-.. code-block:: default
+.. code-block:: Python
 
     from scipy.stats import norm, ttest_1samp
 
@@ -291,7 +291,7 @@ What we have so far are p-values: we convert them to z-values for plotting.
 
 .. GENERATED FROM PYTHON SOURCE LINES 152-155
 
-.. code-block:: default
+.. code-block:: Python
 
     z_val_left = norm.isf(pval_left)
     z_val_right = norm.isf(pval_right)
@@ -309,7 +309,7 @@ Plot the resulting maps, at first on the left hemisphere.
 
 .. GENERATED FROM PYTHON SOURCE LINES 157-163
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -341,7 +341,7 @@ Next, on the right hemisphere.
 
 .. GENERATED FROM PYTHON SOURCE LINES 165-171
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_surf_stat_map(
         fsaverage.infl_right, z_val_right, hemi='right',
@@ -364,7 +364,7 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 10.078 seconds)
+   **Total running time of the script:** (1 minutes 10.196 seconds)
 
 **Estimated memory usage:**  456 MB
 
@@ -375,7 +375,6 @@ Next, on the right hemisphere.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -383,15 +382,13 @@ Next, on the right hemisphere.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_surface_bids_analysis.ipynb <plot_surface_bids_analysis.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_surface_bids_analysis.py <plot_surface_bids_analysis.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_surface_bids_analysis.ipynb <plot_surface_bids_analysis.ipynb>`
 
 
 .. only:: html

@@ -48,7 +48,7 @@ using them for visualization.
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-41
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # cut in x-direction
@@ -80,7 +80,7 @@ we process data using paths of the Nifti images.
 
 .. GENERATED FROM PYTHON SOURCE LINES 49-78
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We load data from nilearn by import datasets
@@ -149,7 +149,7 @@ also use file names as input parameters.
 
 .. GENERATED FROM PYTHON SOURCE LINES 96-116
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Smooth the data using image processing module from nilearn
@@ -185,7 +185,7 @@ also use file names as input parameters.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f625995d4f0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6419a25250>
 
 
 
@@ -207,7 +207,7 @@ statistics can help reducing the number of voxels.
 
 .. GENERATED FROM PYTHON SOURCE LINES 129-135
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import get_data
 
@@ -241,7 +241,7 @@ then the :term:`voxel` is not very interesting to discriminate the condition.
 
 .. GENERATED FROM PYTHON SOURCE LINES 144-184
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -297,7 +297,7 @@ then the :term:`voxel` is not very interesting to discriminate the condition.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f624e306d90>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f64256d6b20>
 
 
 
@@ -318,7 +318,7 @@ array.
 
 .. GENERATED FROM PYTHON SOURCE LINES 196-216
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Note that we use log p-values data; we force values below 5 to 0 by
@@ -354,7 +354,7 @@ array.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62595d9be0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f64258eca90>
 
 
 
@@ -374,7 +374,7 @@ intersection of this provided mask with our self-computed mask.
 
 .. GENERATED FROM PYTHON SOURCE LINES 227-263
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # self-computed mask
@@ -430,7 +430,7 @@ intersection of this provided mask with our self-computed mask.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6259ef67f0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f64254be160>
 
 
 
@@ -446,7 +446,7 @@ such operations can fill "holes" in masked :term:`voxel` representations.
 
 .. GENERATED FROM PYTHON SOURCE LINES 271-294
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We use ndimage function from scipy Python library for mask dilation
@@ -489,7 +489,7 @@ such operations can fill "holes" in masked :term:`voxel` representations.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f625eecb100>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f641a3ef1c0>
 
 
 
@@ -508,7 +508,7 @@ integer label to each one of them.
 
 .. GENERATED FROM PYTHON SOURCE LINES 304-325
 
-.. code-block:: default
+.. code-block:: Python
 
     from scipy.ndimage import label
 
@@ -565,7 +565,7 @@ integer label to each one of them.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f625ecb8c70>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f640662e7c0>
 
 
 
@@ -575,7 +575,7 @@ Use the new ROIs, to extract data maps in both ROIs
 
 .. GENERATED FROM PYTHON SOURCE LINES 327-364
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We extract data from ROIs using nilearn's NiftiLabelsMasker
@@ -627,7 +627,7 @@ save the ROI 'atlas' to a Nifti file
 
 .. GENERATED FROM PYTHON SOURCE LINES 366-368
 
-.. code-block:: default
+.. code-block:: Python
 
     new_img_like(fmri_img, labels).to_filename("mask_atlas.nii.gz")
 
@@ -644,7 +644,7 @@ Plot the average in the different condition names
 
 .. GENERATED FROM PYTHON SOURCE LINES 370-382
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -673,9 +673,9 @@ Plot the average in the different condition names
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 21.594 seconds)
+   **Total running time of the script:** (0 minutes 22.080 seconds)
 
-**Estimated memory usage:**  2253 MB
+**Estimated memory usage:**  2269 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_roi_extraction.py:
@@ -684,7 +684,6 @@ Plot the average in the different condition names
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -692,15 +691,13 @@ Plot the average in the different condition names
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_roi_extraction.ipynb <plot_roi_extraction.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_roi_extraction.py <plot_roi_extraction.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_roi_extraction.ipynb <plot_roi_extraction.ipynb>`
 
 
 .. only:: html

@@ -40,7 +40,7 @@ At first, we need to load the Localizer contrasts.
 
 .. GENERATED FROM PYTHON SOURCE LINES 22-31
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -64,7 +64,7 @@ Let's print basic information on the dataset.
 
 .. GENERATED FROM PYTHON SOURCE LINES 33-38
 
-.. code-block:: default
+.. code-block:: Python
 
     print(
         "First contrast nifti image (3D) is located "
@@ -90,7 +90,7 @@ we also need to load the behavioral variable.
 
 .. GENERATED FROM PYTHON SOURCE LINES 40-43
 
-.. code-block:: default
+.. code-block:: Python
 
     tested_var = localizer_dataset.ext_vars["pseudo"]
     print(tested_var)
@@ -125,7 +125,7 @@ It is worth to do a auality check and remove subjects with missing values.
 
 .. GENERATED FROM PYTHON SOURCE LINES 45-55
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -159,7 +159,7 @@ and fit it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 60-67
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -181,7 +181,7 @@ Fit of the second-level model
 
 .. GENERATED FROM PYTHON SOURCE LINES 69-74
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import SecondLevelModel
 
@@ -208,7 +208,7 @@ We can just provide the column name of the design matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 77-79
 
-.. code-block:: default
+.. code-block:: Python
 
     z_map = model.compute_contrast("fluency", output_type="z_score")
 
@@ -225,7 +225,7 @@ We compute the fdr-corrected p = 0.05 threshold for these data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 81-85
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm import threshold_stats_img
 
@@ -244,7 +244,7 @@ Let us plot the second level :term:`contrast` at the computed thresholds.
 
 .. GENERATED FROM PYTHON SOURCE LINES 87-99
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -277,7 +277,7 @@ non parametric test
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-111
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import get_data, math_img
 
@@ -310,7 +310,7 @@ Let us plot the (corrected) negative log  p-values for the parametric test
 
 .. GENERATED FROM PYTHON SOURCE LINES 113-133
 
-.. code-block:: default
+.. code-block:: Python
 
     cut_coords = [38, -17, -3]
     # Since we are plotting negative log p-values and using a threshold equal to 1,
@@ -359,7 +359,7 @@ Computing the (corrected) negative log p-values with permutation test
 
 .. GENERATED FROM PYTHON SOURCE LINES 135-149
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import non_parametric_inference
 
@@ -388,7 +388,7 @@ Let us plot the (corrected) negative log  p-values
 
 .. GENERATED FROM PYTHON SOURCE LINES 151-168
 
-.. code-block:: default
+.. code-block:: Python
 
     title = (
         "Group-level association between motor activity and reading: \n"
@@ -422,7 +422,7 @@ Let us plot the (corrected) negative log  p-values
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 30.598 seconds)
+   **Total running time of the script:** (0 minutes 32.897 seconds)
 
 **Estimated memory usage:**  113 MB
 
@@ -433,7 +433,6 @@ Let us plot the (corrected) negative log  p-values
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -441,15 +440,13 @@ Let us plot the (corrected) negative log  p-values
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_second_level_association_test.ipynb <plot_second_level_association_test.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_second_level_association_test.py <plot_second_level_association_test.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_second_level_association_test.ipynb <plot_second_level_association_test.ipynb>`
 
 
 .. only:: html

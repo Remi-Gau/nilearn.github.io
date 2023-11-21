@@ -732,7 +732,7 @@ all occurrences of:</p>
 </div>
 <section id="load-and-prepare-the-data">
 <h2>Load and prepare the data<a class="headerlink" href="#load-and-prepare-the-data" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch data using nilearn dataset fetcher</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fetch data using nilearn dataset fetcher</span>
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <span class="c1"># by default we fetch 2nd subject data for analysis</span>
@@ -781,7 +781,7 @@ First subject functional nifti image (4D) is located at: /home/runner/work/nilea
 <h2>Decoding on the different masks<a class="headerlink" href="#decoding-on-the-different-masks" title="Link to this heading">#</a></h2>
 <p>The classifier used here is a support vector classifier (svc). We use
 class:<cite>nilearn.decoding.Decoder</cite> and specify the classifier.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Make a data splitting object for cross validation</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneGroupOut.html#sklearn.model_selection.LeaveOneGroupOut" title="sklearn.model_selection.LeaveOneGroupOut" class="sphx-glr-backref-module-sklearn-model_selection sphx-glr-backref-type-py-class"><span class="n">LeaveOneGroupOut</span></a>
@@ -792,7 +792,7 @@ class:<cite>nilearn.decoding.Decoder</cite> and specify the classifier.</p>
 </pre></div>
 </div>
 <p>We use <a class="reference internal" href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.decoding.Decoder</span></code></a> to estimate a baseline.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_names</span></a> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mask_vt&quot;</span><span class="p">,</span> <span class="s2">&quot;mask_face&quot;</span><span class="p">,</span> <span class="s2">&quot;mask_house&quot;</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_names</span></a> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;mask_vt&quot;</span><span class="p">,</span> <span class="s2">&quot;mask_face&quot;</span><span class="p">,</span> <span class="s2">&quot;mask_house&quot;</span><span class="p">]</span>
 
 <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_scores</span></a> <span class="o">=</span> <span class="p">{}</span>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_chance_scores</span></a> <span class="o">=</span> <span class="p">{}</span>
@@ -1278,7 +1278,7 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 </section>
 <section id="we-make-a-simple-bar-plot-to-summarize-the-results">
 <h2>We make a simple bar plot to summarize the results<a class="headerlink" href="#we-make-a-simple-bar-plot-to-summarize-the-results" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
 
@@ -1320,17 +1320,17 @@ Brain mask is smaller than .5% of the volume human brain. This object is probabl
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" srcset="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" alt="Category-specific classification accuracy for different masks" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 27.929 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1355 MB</p>
+<img src="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" srcset="../../_images/sphx_glr_plot_haxby_full_analysis_001.png" alt="Category-specific classification accuracy for different masks" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 22.701 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1343 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-full-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_full_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/e76a732ac72af39d323979705f3621cb/plot_haxby_full_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_haxby_full_analysis.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6ea755602c1d3d2cbd520ec61496102f/plot_haxby_full_analysis.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_haxby_full_analysis.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e76a732ac72af39d323979705f3621cb/plot_haxby_full_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_haxby_full_analysis.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

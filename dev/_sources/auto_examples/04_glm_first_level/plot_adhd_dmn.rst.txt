@@ -40,7 +40,7 @@ More specifically:
 
 .. GENERATED FROM PYTHON SOURCE LINES 25-34
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -66,7 +66,7 @@ Prepare the data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 38-48
 
-.. code-block:: default
+.. code-block:: Python
 
     adhd_dataset = datasets.fetch_adhd(n_subjects=1)
 
@@ -93,7 +93,7 @@ Extract the time course of the seed region.
 
 .. GENERATED FROM PYTHON SOURCE LINES 52-67
 
-.. code-block:: default
+.. code-block:: Python
 
     seed_masker = NiftiSpheresMasker(
         [pcc_coords],
@@ -123,7 +123,7 @@ Plot the time course of the seed region.
 
 .. GENERATED FROM PYTHON SOURCE LINES 69-78
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -154,7 +154,7 @@ Specify the contrasts.
 
 .. GENERATED FROM PYTHON SOURCE LINES 82-91
 
-.. code-block:: default
+.. code-block:: Python
 
     design_matrix = make_first_level_design_matrix(
         frametimes,
@@ -180,7 +180,7 @@ Setup and fit GLM.
 
 .. GENERATED FROM PYTHON SOURCE LINES 95-100
 
-.. code-block:: default
+.. code-block:: Python
 
     first_level_model = FirstLevelModel(t_r=t_r, slice_time_ref=slice_time_ref)
     first_level_model = first_level_model.fit(
@@ -209,7 +209,7 @@ Estimate the contrast.
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-118
 
-.. code-block:: default
+.. code-block:: Python
 
     print("Contrast seed_based_glm computed.")
     z_map = first_level_model.compute_contrast(
@@ -257,7 +257,7 @@ which we do here.
 
 .. GENERATED FROM PYTHON SOURCE LINES 125-136
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.reporting import make_glm_report
 
@@ -283,7 +283,7 @@ We have several ways to access the report:
 
 .. GENERATED FROM PYTHON SOURCE LINES 138-142
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # report  # This report can be viewed in a notebook
@@ -299,9 +299,9 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 14.736 seconds)
+   **Total running time of the script:** (0 minutes 15.160 seconds)
 
-**Estimated memory usage:**  585 MB
+**Estimated memory usage:**  587 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_adhd_dmn.py:
@@ -310,7 +310,6 @@ We have several ways to access the report:
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -318,15 +317,13 @@ We have several ways to access the report:
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_adhd_dmn.ipynb <plot_adhd_dmn.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_adhd_dmn.py <plot_adhd_dmn.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_adhd_dmn.ipynb <plot_adhd_dmn.ipynb>`
 
 
 .. only:: html

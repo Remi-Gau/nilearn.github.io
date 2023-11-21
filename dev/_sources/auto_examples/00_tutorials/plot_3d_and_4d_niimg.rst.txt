@@ -34,7 +34,7 @@ Let's first check where the data is downloaded on our disk:
 
 .. GENERATED FROM PYTHON SOURCE LINES 15-19
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -60,7 +60,7 @@ from a :term:`Neurovault` repository
 
 .. GENERATED FROM PYTHON SOURCE LINES 22-25
 
-.. code-block:: default
+.. code-block:: Python
 
     motor_images = datasets.fetch_neurovault_motor_task()
     motor_images.images
@@ -84,7 +84,7 @@ motor_images is a list of filenames. We need to take the first one
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-30
 
-.. code-block:: default
+.. code-block:: Python
 
     tmap_filename = motor_images.images[0]
 
@@ -106,7 +106,7 @@ statistical map:
 
 .. GENERATED FROM PYTHON SOURCE LINES 36-40
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -126,7 +126,7 @@ statistical map:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6257be96d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6418944790>
 
 
 
@@ -136,7 +136,7 @@ Visualizing works better with a threshold
 
 .. GENERATED FROM PYTHON SOURCE LINES 42-45
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(tmap_filename, threshold=3)
 
@@ -155,7 +155,7 @@ Visualizing works better with a threshold
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6257ca4a90>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f641bbf7940>
 
 
 
@@ -169,7 +169,7 @@ correspondence between rest and task
 
 .. GENERATED FROM PYTHON SOURCE LINES 51-54
 
-.. code-block:: default
+.. code-block:: Python
 
     rsn = datasets.fetch_atlas_smith_2009(resting=True, dimension=10)["maps"]
     rsn
@@ -194,7 +194,7 @@ shape.
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-61
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import image
 
@@ -219,7 +219,7 @@ We can retrieve the first volume (note that Python indexing starts at 0):
 
 .. GENERATED FROM PYTHON SOURCE LINES 63-66
 
-.. code-block:: default
+.. code-block:: Python
 
     first_rsn = image.index_img(rsn, 0)
     print(first_rsn.shape)
@@ -245,7 +245,7 @@ We can then plot it
 
 .. GENERATED FROM PYTHON SOURCE LINES 70-73
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(first_rsn)
 
@@ -264,7 +264,7 @@ We can then plot it
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6259e30e80>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f642588c4c0>
 
 
 
@@ -281,7 +281,7 @@ compact display.
 
 .. GENERATED FROM PYTHON SOURCE LINES 82-89
 
-.. code-block:: default
+.. code-block:: Python
 
     for img in image.iter_img(rsn):
         # img is now an in-memory 3D img
@@ -383,7 +383,7 @@ formula as before.
 
 .. GENERATED FROM PYTHON SOURCE LINES 98-100
 
-.. code-block:: default
+.. code-block:: Python
 
     selected_volumes = image.index_img(rsn, slice(3, 5))
 
@@ -402,7 +402,7 @@ to the previous plot above.
 
 .. GENERATED FROM PYTHON SOURCE LINES 104-109
 
-.. code-block:: default
+.. code-block:: Python
 
 
     for img in image.iter_img(selected_volumes):
@@ -440,7 +440,7 @@ outside IPython
 
 .. GENERATED FROM PYTHON SOURCE LINES 112-114
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.show()
 
@@ -475,7 +475,7 @@ image.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.213 seconds)
+   **Total running time of the script:** (0 minutes 13.838 seconds)
 
 **Estimated memory usage:**  127 MB
 
@@ -486,7 +486,6 @@ image.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -494,15 +493,13 @@ image.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_3d_and_4d_niimg.ipynb <plot_3d_and_4d_niimg.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_3d_and_4d_niimg.py <plot_3d_and_4d_niimg.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_3d_and_4d_niimg.ipynb <plot_3d_and_4d_niimg.ipynb>`
 
 
 .. only:: html

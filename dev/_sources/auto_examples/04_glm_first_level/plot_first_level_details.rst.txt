@@ -46,7 +46,7 @@ acquisition of a fast event-related dataset.
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-32
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import func
 
@@ -98,7 +98,7 @@ This task comprises 10 conditions:
 
 .. GENERATED FROM PYTHON SOURCE LINES 66-73
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -225,7 +225,7 @@ matrix and the beta maps.
 
 .. GENERATED FROM PYTHON SOURCE LINES 81-87
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.first_level import FirstLevelModel
 
@@ -248,7 +248,7 @@ signals (drifts) and a constant regressor.
 
 .. GENERATED FROM PYTHON SOURCE LINES 91-98
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.plotting import plot_design_matrix
 
@@ -279,7 +279,7 @@ specification when we change the design matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 104-161
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -363,7 +363,7 @@ Let's look at these computed contrasts:
 
 .. GENERATED FROM PYTHON SOURCE LINES 175-185
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.plotting import plot_contrast_matrix
 
@@ -424,7 +424,7 @@ fitting and plotting in a function that we call when needed.
 
 .. GENERATED FROM PYTHON SOURCE LINES 192-218
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -465,7 +465,7 @@ Let's run the model and look at the outcome.
 
 .. GENERATED FROM PYTHON SOURCE LINES 220-224
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_contrast(first_level_model)
@@ -502,7 +502,7 @@ drifts in the data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 239-245
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(t_r, high_pass=0.016)
@@ -534,7 +534,7 @@ Does the model perform worse or better ?
 
 .. GENERATED FROM PYTHON SOURCE LINES 247-251
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_contrast(first_level_model)
@@ -561,7 +561,7 @@ useless. This is done by setting drift_model to None.
 
 .. GENERATED FROM PYTHON SOURCE LINES 256-264
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(t_r, drift_model=None)
@@ -607,7 +607,7 @@ Let's take a basis of 5 polynomials.
 
 .. GENERATED FROM PYTHON SOURCE LINES 272-282
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -661,7 +661,7 @@ so-called Glover hrf) for the so-called canonical model of SPM
 
 .. GENERATED FROM PYTHON SOURCE LINES 295-303
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(t_r, hrf_model="spm")
@@ -715,7 +715,7 @@ the effect. Is that the case?
 
 .. GENERATED FROM PYTHON SOURCE LINES 318-326
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(t_r, hrf_model="spm + derivative")
@@ -760,7 +760,7 @@ the time derivative regressors.
 
 .. GENERATED FROM PYTHON SOURCE LINES 333-343
 
-.. code-block:: default
+.. code-block:: Python
 
 
     contrast_val = np.eye(design_matrix.shape[1])[1:21:2]
@@ -805,7 +805,7 @@ acquisition, but the middle of it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 348-362
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -847,7 +847,7 @@ This is done by specifying `hrf_model='spm + derivative + dispersion'`.
 
 .. GENERATED FROM PYTHON SOURCE LINES 371-381
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -906,7 +906,7 @@ and explicitly set the noise model to be ar(1).
 
 .. GENERATED FROM PYTHON SOURCE LINES 399-408
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -936,7 +936,7 @@ relative to the ar(1) model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 411-419
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -968,7 +968,7 @@ account for greater temporal complexity in the noise structure.
 
 .. GENERATED FROM PYTHON SOURCE LINES 425-433
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -1015,7 +1015,7 @@ For this we rely on the so-called
 
 .. GENERATED FROM PYTHON SOURCE LINES 453-467
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import high_variance_confounds
 
@@ -1082,7 +1082,7 @@ sample mask that removes the first 50 volumes.
 
 .. GENERATED FROM PYTHON SOURCE LINES 489-501
 
-.. code-block:: default
+.. code-block:: Python
 
 
     sample_masks = np.arange(events.shape[0])[50:]
@@ -1136,7 +1136,7 @@ gains.  We use a mild smoothing of 5mm
 
 .. GENERATED FROM PYTHON SOURCE LINES 515-524
 
-.. code-block:: default
+.. code-block:: Python
 
 
     first_level_model = FirstLevelModel(
@@ -1194,7 +1194,7 @@ The downside is that the mask may not fit very well this particular data.
 
 .. GENERATED FROM PYTHON SOURCE LINES 542-556
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_icbm152_brain_gm_mask
     from nilearn.plotting import plot_roi
@@ -1230,7 +1230,7 @@ We use interpolation = 'nearest' to keep the mask as a binary image.
 
 .. GENERATED FROM PYTHON SOURCE LINES 560-566
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import resample_to_img
 
@@ -1251,7 +1251,7 @@ Impact on the first-level model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 568-580
 
-.. code-block:: default
+.. code-block:: Python
 
     first_level_model = FirstLevelModel(
         t_r,
@@ -1307,9 +1307,9 @@ are specific to this dataset and may vary with other ones.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 53.568 seconds)
+   **Total running time of the script:** (1 minutes 58.029 seconds)
 
-**Estimated memory usage:**  287 MB
+**Estimated memory usage:**  256 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_first_level_details.py:
@@ -1318,7 +1318,6 @@ are specific to this dataset and may vary with other ones.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -1326,15 +1325,13 @@ are specific to this dataset and may vary with other ones.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_first_level_details.ipynb <plot_first_level_details.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_first_level_details.py <plot_first_level_details.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_first_level_details.ipynb <plot_first_level_details.ipynb>`
 
 
 .. only:: html

@@ -719,7 +719,7 @@ regularized methods.</p>
 <p>To have more details, see: <a class="reference internal" href="../../decoding/frem.html#frem"><span class="std std-ref">FREM: fast ensembling of regularized models for robust decoding</span></a>.</p>
 <section id="load-the-data-from-the-jimura-mixed-gamble-experiment">
 <h2>Load the data from the Jimura mixed-gamble experiment<a class="headerlink" href="#load-the-data-from-the-jimura-mixed-gamble-experiment" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_mixed_gambles.html#nilearn.datasets.fetch_mixed_gambles" title="nilearn.datasets.fetch_mixed_gambles" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_mixed_gambles</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_mixed_gambles.html#nilearn.datasets.fetch_mixed_gambles" title="nilearn.datasets.fetch_mixed_gambles" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_mixed_gambles</span></a>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_mixed_gambles.html#nilearn.datasets.fetch_mixed_gambles" title="nilearn.datasets.fetch_mixed_gambles" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_mixed_gambles</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
@@ -732,7 +732,7 @@ regularized methods.</p>
 <section id="fit-frem">
 <h2>Fit FREM<a class="headerlink" href="#fit-frem" title="Link to this heading">#</a></h2>
 <p>We compare both of these models to a pipeline ensembling many models</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMRegressor</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMRegressor</span></a>
 
 <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frem</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.FREMRegressor.html#nilearn.decoding.FREMRegressor" title="nilearn.decoding.FREMRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">FREMRegressor</span></a><span class="p">(</span><span class="s2">&quot;svr&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">)</span>
 
@@ -877,7 +877,7 @@ Solver terminated early (max_iter=10000).  Consider pre-processing your data wit
 Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
 
 
-&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7f625f8a2610&gt;
+&lt;nilearn.plotting.displays._slicers.YZSlicer object at 0x7f6424abfcd0&gt;
 </pre></div>
 </div>
 <p>We can observe that the coefficients map learnt
@@ -896,7 +896,7 @@ it yields either very structured maps (TV-L1) or unstructured maps
 (graph_net). Because of their heavy computational costs, these methods are
 not demonstrated on this example but you can try them easily if you have a
 few minutes. Example code is included below.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">SpaceNetRegressor</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">SpaceNetRegressor</span></a>
 
 <span class="c1"># We use the regressor object since the task is to predict a continuous</span>
 <span class="c1"># variable (gain of the gamble).</span>
@@ -913,17 +913,17 @@ few minutes. Example code is included below.</p>
 <span class="c1">#               cut_coords=[20, -2])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.490 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2210 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 24.839 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2143 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-mixed-gambles-frem-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_mixed_gambles_frem.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/95d88a64a1011103ed1dfbadd8493684/plot_mixed_gambles_frem.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mixed_gambles_frem.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e349ed7667bdc0b3e144b4a97a123f55/plot_mixed_gambles_frem.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_mixed_gambles_frem.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/95d88a64a1011103ed1dfbadd8493684/plot_mixed_gambles_frem.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_mixed_gambles_frem.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

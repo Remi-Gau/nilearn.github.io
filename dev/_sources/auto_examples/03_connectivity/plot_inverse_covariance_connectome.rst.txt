@@ -47,7 +47,7 @@ Retrieve the atlas and the data
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-43
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -83,7 +83,7 @@ Extract time series
 
 .. GENERATED FROM PYTHON SOURCE LINES 46-58
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiMapsMasker
 
@@ -113,7 +113,7 @@ Extract time series
 
     ________________________________________________________________________________
     [Memory] Calling nilearn.image.resampling.resample_img...
-    resample_img(<nibabel.nifti1.Nifti1Image object at 0x7f62589229a0>, interpolation='continuous', target_shape=(50, 59, 50), target_affine=array([[   4.,    0.,    0.,  -96.],
+    resample_img(<nibabel.nifti1.Nifti1Image object at 0x7f642544d1c0>, interpolation='continuous', target_shape=(50, 59, 50), target_affine=array([[   4.,    0.,    0.,  -96.],
            [   0.,    4.,    0., -132.],
            [   0.,    0.,    4.,  -78.],
            [   0.,    0.,    0.,    1.]]))
@@ -121,7 +121,7 @@ Extract time series
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f625ed66c40>, { 'allow_overlap': True,
+    <nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f642544dbe0>, { 'allow_overlap': True,
       'clean_kwargs': {},
       'detrend': False,
       'dtype': None,
@@ -153,7 +153,7 @@ Compute the sparse inverse covariance
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-70
 
-.. code-block:: default
+.. code-block:: Python
 
     try:
         from sklearn.covariance import GraphicalLassoCV
@@ -184,7 +184,7 @@ Display the connectome matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 73-87
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -214,7 +214,7 @@ Display the connectome matrix
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x7f625ed97ac0>
+    <matplotlib.image.AxesImage object at 0x7f6425693a00>
 
 
 
@@ -225,7 +225,7 @@ And now display the corresponding graph
 
 .. GENERATED FROM PYTHON SOURCE LINES 90-95
 
-.. code-block:: default
+.. code-block:: Python
 
     coords = atlas.region_coords
 
@@ -246,7 +246,7 @@ And now display the corresponding graph
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f62586ed520>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f6424ea0880>
 
 
 
@@ -258,7 +258,7 @@ we negate it to get partial correlations
 
 .. GENERATED FROM PYTHON SOURCE LINES 99-108
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_matrix(
         -estimator.precision_,
@@ -283,7 +283,7 @@ we negate it to get partial correlations
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x7f623f19b130>
+    <matplotlib.image.AxesImage object at 0x7f6405558dc0>
 
 
 
@@ -294,7 +294,7 @@ And now display the corresponding graph
 
 .. GENERATED FROM PYTHON SOURCE LINES 111-117
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_connectome(
         -estimator.precision_, coords, title="Sparse inverse covariance"
@@ -325,7 +325,7 @@ for more details.
 
 .. GENERATED FROM PYTHON SOURCE LINES 124-132
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -714,7 +714,7 @@ for more details.
 
 .. GENERATED FROM PYTHON SOURCE LINES 133-137
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # uncomment this to open the plot in a web browser:
@@ -730,7 +730,7 @@ for more details.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.802 seconds)
+   **Total running time of the script:** (0 minutes 13.043 seconds)
 
 **Estimated memory usage:**  1332 MB
 
@@ -741,7 +741,6 @@ for more details.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -749,15 +748,13 @@ for more details.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_inverse_covariance_connectome.ipynb <plot_inverse_covariance_connectome.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_inverse_covariance_connectome.py <plot_inverse_covariance_connectome.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_inverse_covariance_connectome.ipynb <plot_inverse_covariance_connectome.ipynb>`
 
 
 .. only:: html

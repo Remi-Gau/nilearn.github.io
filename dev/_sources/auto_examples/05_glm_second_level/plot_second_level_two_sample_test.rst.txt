@@ -44,7 +44,7 @@ observe some significant effects in these areas.
 
 .. GENERATED FROM PYTHON SOURCE LINES 29-35
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     import pandas as pd
@@ -68,7 +68,7 @@ localizer dataset.
 
 .. GENERATED FROM PYTHON SOURCE LINES 40-55
 
-.. code-block:: default
+.. code-block:: Python
 
     n_subjects = 16
     sample_vertical = fetch_localizer_contrasts(
@@ -101,7 +101,7 @@ and fit it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 60-62
 
-.. code-block:: default
+.. code-block:: Python
 
     second_level_input = sample_vertical["cmaps"] + sample_horizontal["cmaps"]
 
@@ -118,7 +118,7 @@ Next, we model the effect of conditions (sample 1 vs sample 2).
 
 .. GENERATED FROM PYTHON SOURCE LINES 64-68
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -138,7 +138,7 @@ For the paired test, we include an intercept for each subject.
 
 .. GENERATED FROM PYTHON SOURCE LINES 71-74
 
-.. code-block:: default
+.. code-block:: Python
 
     subject_effect = np.vstack((np.eye(n_subjects), np.eye(n_subjects)))
     subjects = [f"S{i:02d}" for i in range(1, n_subjects + 1)]
@@ -156,7 +156,7 @@ We then assemble those into design matrices
 
 .. GENERATED FROM PYTHON SOURCE LINES 76-85
 
-.. code-block:: default
+.. code-block:: Python
 
     unpaired_design_matrix = pd.DataFrame(
         condition_effect[:, np.newaxis], columns=["vertical vs horizontal"]
@@ -180,7 +180,7 @@ and plot the designs.
 
 .. GENERATED FROM PYTHON SOURCE LINES 87-99
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.plotting import plot_design_matrix
 
@@ -212,7 +212,7 @@ We specify the analysis models and fit them.
 
 .. GENERATED FROM PYTHON SOURCE LINES 101-111
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import SecondLevelModel
 
@@ -240,7 +240,7 @@ variance, and z-score.
 
 .. GENERATED FROM PYTHON SOURCE LINES 116-124
 
-.. code-block:: default
+.. code-block:: Python
 
     stat_maps_unpaired = second_level_model_unpaired.compute_contrast(
         "vertical vs horizontal", output_type="all"
@@ -266,7 +266,7 @@ identical.
 
 .. GENERATED FROM PYTHON SOURCE LINES 129-134
 
-.. code-block:: default
+.. code-block:: Python
 
     (
         stat_maps_unpaired["effect_size"].get_fdata()
@@ -292,7 +292,7 @@ But the variance in the unpaired image is larger.
 
 .. GENERATED FROM PYTHON SOURCE LINES 136-154
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_glass_brain(
         stat_maps_unpaired["effect_variance"],
@@ -343,7 +343,7 @@ We threshold the second level :term:`contrast` and plot it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 157-180
 
-.. code-block:: default
+.. code-block:: Python
 
     threshold = 3.1  # corresponds to  p < .001, uncorrected
     display = plotting.plot_glass_brain(
@@ -400,7 +400,7 @@ and negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.863 seconds)
+   **Total running time of the script:** (0 minutes 15.134 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -411,7 +411,6 @@ and negative.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -419,15 +418,13 @@ and negative.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_second_level_two_sample_test.ipynb <plot_second_level_two_sample_test.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_second_level_two_sample_test.py <plot_second_level_two_sample_test.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_second_level_two_sample_test.ipynb <plot_second_level_two_sample_test.ipynb>`
 
 
 .. only:: html

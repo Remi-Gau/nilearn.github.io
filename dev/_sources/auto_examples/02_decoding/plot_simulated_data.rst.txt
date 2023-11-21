@@ -46,7 +46,7 @@ model with a random design matrix **X**:
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-52
 
-.. code-block:: default
+.. code-block:: Python
 
     print(__doc__)
 
@@ -83,7 +83,7 @@ A function to generate data
 
 .. GENERATED FROM PYTHON SOURCE LINES 55-99
 
-.. code-block:: default
+.. code-block:: Python
 
     def create_simulation_data(snr=0, n_samples=2 * 100, size=12, random_state=1):
         generator = check_random_state(random_state)
@@ -143,7 +143,7 @@ A simple function to plot slices
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-123
 
-.. code-block:: default
+.. code-block:: Python
 
     def plot_slices(data, title=None):
         plt.figure(figsize=(5.5, 2.2))
@@ -180,7 +180,7 @@ Create data
 
 .. GENERATED FROM PYTHON SOURCE LINES 126-144
 
-.. code-block:: default
+.. code-block:: Python
 
     X_train, X_test, y_train, y_test, snr, coefs, size = create_simulation_data(
         snr=-10, n_samples=100, size=12
@@ -243,7 +243,7 @@ values that they are given, they choose the best by cross-validation.
 
 .. GENERATED FROM PYTHON SOURCE LINES 165-191
 
-.. code-block:: default
+.. code-block:: Python
 
 
     bayesian_ridge = make_pipeline(StandardScaler(), linear_model.BayesianRidge())
@@ -290,7 +290,7 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
 
 .. GENERATED FROM PYTHON SOURCE LINES 199-244
 
-.. code-block:: default
+.. code-block:: Python
 
 
     for name, estimator in estimators:
@@ -353,14 +353,14 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
-         :alt: enet_cv: prediction score 0.528, training time: 0.21s
+         :alt: enet_cv: prediction score 0.528, training time: 0.24s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
-         :alt: ridge_cv: prediction score 0.328, training time: 0.04s
+         :alt: ridge_cv: prediction score 0.328, training time: 0.05s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
          :class: sphx-glr-multi-img
 
@@ -374,7 +374,7 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
-         :alt: SearchLight: training time: 3.78s
+         :alt: SearchLight: training time: 3.82s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
          :class: sphx-glr-multi-img
 
@@ -391,12 +391,12 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
  .. code-block:: none
 
     bayesian_ridge: prediction score 0.114, training time: 0.18s
-    enet_cv: prediction score 0.528, training time: 0.21s
-    ridge_cv: prediction score 0.328, training time: 0.04s
+    enet_cv: prediction score 0.528, training time: 0.24s
+    ridge_cv: prediction score 0.328, training time: 0.05s
     svr: prediction score 0.345, training time: 0.00s
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
     [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    3.4s finished
-    SearchLight: training time: 3.78s
+    SearchLight: training time: 3.82s
 
 
 
@@ -416,7 +416,7 @@ slow.
 
 .. GENERATED FROM PYTHON SOURCE LINES 255-257
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # from sklearn.feature_selection import RFE
@@ -430,7 +430,7 @@ slow.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.156 seconds)
+   **Total running time of the script:** (0 minutes 6.280 seconds)
 
 **Estimated memory usage:**  11 MB
 
@@ -441,7 +441,6 @@ slow.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -449,15 +448,13 @@ slow.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_simulated_data.ipynb <plot_simulated_data.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_simulated_data.py <plot_simulated_data.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_simulated_data.ipynb <plot_simulated_data.ipynb>`
 
 
 .. only:: html

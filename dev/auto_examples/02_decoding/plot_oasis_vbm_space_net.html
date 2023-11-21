@@ -714,7 +714,7 @@ here, and not the classification object.</p>
 <p>See also the documentation: <a class="reference internal" href="../../decoding/space_net.html#space-net"><span class="std std-ref">SpaceNet: decoding with spatial structure for better maps</span></a>.</p>
 <section id="load-the-oasis-vbm-dataset">
 <h2>Load the Oasis <a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a> dataset<a class="headerlink" href="#load-the-oasis-vbm-dataset" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
@@ -752,7 +752,7 @@ are cached. We used a graph-net penalty here but more beautiful results can
 be obtained using the TV-l1 penalty, at the expense of longer runtimes.
 Also, you may pass and n_jobs=&lt;some_high_value&gt; to the
 SpaceNetRegressor class, to take advantage of a multi-core system.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">SpaceNetRegressor</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decoding</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">SpaceNetRegressor</span></a>
 
 <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.SpaceNetRegressor.html#nilearn.decoding.SpaceNetRegressor" title="nilearn.decoding.SpaceNetRegressor" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">SpaceNetRegressor</span></a><span class="p">(</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
@@ -906,7 +906,7 @@ Brain mask is bigger than the volume of a standard human brain. This object is p
 
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
 [Parallel(n_jobs=2)]: Done   8 out of   8 | elapsed:  1.4min finished
-Time Elapsed: 99.43705677986145 seconds, 1.6572842796643574 minutes.
+Time Elapsed: 101.75456714630127 seconds, 1.6959094524383544 minutes.
 [NiftiMasker.transform_single_imgs] Loading data from Nifti1Image(
 shape=(91, 109, 91, 80),
 affine=array([[  -2.,    0.,    0.,   90.],
@@ -923,7 +923,7 @@ Mean square error (MSE) on the predicted age: 12.33
 <section id="visualize-the-decoding-maps-and-quality-of-predictions">
 <h2>Visualize the decoding maps and quality of predictions<a class="headerlink" href="#visualize-the-decoding-maps-and-quality-of-predictions" title="Link to this heading">#</a></h2>
 <p>Visualize the resulting maps</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
 
 <span class="c1"># weights map</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.str_" title="numpy.str_" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">background_img</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gm_imgs</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -960,17 +960,17 @@ Mean square error (MSE) on the predicted age: 12.33
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" alt="plot oasis vbm space net" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" alt="graph-net: Mean Absolute Error 12.33 years" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 45.879 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2544 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 48.359 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2901 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-space-net-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_oasis_vbm_space_net.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/d4538acc0b1d0d875eba83ac76dd0c21/plot_oasis_vbm_space_net.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_oasis_vbm_space_net.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/355d509abf4f12d10cb865335aa41ee9/plot_oasis_vbm_space_net.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_oasis_vbm_space_net.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/d4538acc0b1d0d875eba83ac76dd0c21/plot_oasis_vbm_space_net.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_oasis_vbm_space_net.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

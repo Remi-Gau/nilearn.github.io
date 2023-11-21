@@ -49,7 +49,7 @@ subject by indexing with [0]).
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-37
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -71,7 +71,7 @@ files on your hard drive.
 
 .. GENERATED FROM PYTHON SOURCE LINES 40-43
 
-.. code-block:: default
+.. code-block:: Python
 
     print(func_filename)
     print(confound_filename)
@@ -105,7 +105,7 @@ We will be working with one seed sphere in the Posterior Cingulate Cortex
 
 .. GENERATED FROM PYTHON SOURCE LINES 54-56
 
-.. code-block:: default
+.. code-block:: Python
 
     pcc_coords = [(0, -52, 18)]
 
@@ -128,7 +128,7 @@ This will create a NiftiSpheresMasker object.
 
 .. GENERATED FROM PYTHON SOURCE LINES 64-80
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiSpheresMasker
 
@@ -161,7 +161,7 @@ can be found in the dataset's csv file
 
 .. GENERATED FROM PYTHON SOURCE LINES 84-88
 
-.. code-block:: default
+.. code-block:: Python
 
     seed_time_series = seed_masker.fit_transform(
         func_filename, confounds=[confound_filename]
@@ -182,7 +182,7 @@ arguments as in the seed_masker in addition to smoothing with a 6 mm kernel
 
 .. GENERATED FROM PYTHON SOURCE LINES 92-107
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiMasker
 
@@ -213,7 +213,7 @@ out the confounds as before
 
 .. GENERATED FROM PYTHON SOURCE LINES 110-114
 
-.. code-block:: default
+.. code-block:: Python
 
     brain_time_series = brain_masker.fit_transform(
         func_filename, confounds=[confound_filename]
@@ -234,7 +234,7 @@ series** is an array with shape n_volumes, 1), while the
 
 .. GENERATED FROM PYTHON SOURCE LINES 118-122
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(f"Seed time series shape: ({seed_time_series.shape})")
@@ -260,7 +260,7 @@ We can plot the **seed time series**.
 
 .. GENERATED FROM PYTHON SOURCE LINES 124-133
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import matplotlib.pyplot as plt
@@ -290,7 +290,7 @@ data** and plot the time series from.
 
 .. GENERATED FROM PYTHON SOURCE LINES 136-143
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plt.plot(brain_time_series[:, [10, 45, 100, 5000, 10000]])
@@ -326,7 +326,7 @@ series.
 
 .. GENERATED FROM PYTHON SOURCE LINES 154-160
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -350,7 +350,7 @@ values can potentially range between -1 and 1.
 
 .. GENERATED FROM PYTHON SOURCE LINES 165-174
 
-.. code-block:: default
+.. code-block:: Python
 
     print(
         "Seed-to-voxel correlation shape: (%s, %s)"
@@ -387,7 +387,7 @@ set the cross to the center of the seed region of interest.
 
 .. GENERATED FROM PYTHON SOURCE LINES 182-200
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -428,7 +428,7 @@ The transformed array can now have values more extreme than +/- 1.
 
 .. GENERATED FROM PYTHON SOURCE LINES 205-212
 
-.. code-block:: default
+.. code-block:: Python
 
     seed_to_voxel_correlations_fisher_z = np.arctanh(seed_to_voxel_correlations)
     print(
@@ -457,7 +457,7 @@ object, that we can save.
 
 .. GENERATED FROM PYTHON SOURCE LINES 215-221
 
-.. code-block:: default
+.. code-block:: Python
 
     seed_to_voxel_correlations_fisher_z_img = brain_masker.inverse_transform(
         seed_to_voxel_correlations_fisher_z.T
@@ -475,9 +475,9 @@ object, that we can save.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.780 seconds)
+   **Total running time of the script:** (0 minutes 11.059 seconds)
 
-**Estimated memory usage:**  954 MB
+**Estimated memory usage:**  851 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_seed_to_voxel_correlation.py:
@@ -486,7 +486,6 @@ object, that we can save.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -494,15 +493,13 @@ object, that we can save.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_seed_to_voxel_correlation.ipynb <plot_seed_to_voxel_correlation.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_seed_to_voxel_correlation.py <plot_seed_to_voxel_correlation.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_seed_to_voxel_correlation.ipynb <plot_seed_to_voxel_correlation.ipynb>`
 
 
 .. only:: html

@@ -712,7 +712,7 @@ to download the full example code or to run this example in your browser via Bin
 <a class="reference internal" href="../../glossary.html#term-Neurovault"><span class="xref std std-term">Neurovault</span></a></p>
 <p>See <a class="reference internal" href="../../modules/generated/nilearn.datasets.fetch_neurovault_ids.html#nilearn.datasets.fetch_neurovault_ids" title="nilearn.datasets.fetch_neurovault_ids"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.datasets.fetch_neurovault_ids</span></code></a>
 documentation for more details.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 <span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_neurovault_ids.html#nilearn.datasets.fetch_neurovault_ids" title="nilearn.datasets.fetch_neurovault_ids" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_neurovault_ids</span></a>
@@ -721,7 +721,7 @@ documentation for more details.</p>
 </div>
 <section id="fetch-images-for-successful-stop-minus-go-like-protocols">
 <h2>Fetch images for “successful stop minus go”-like protocols.<a class="headerlink" href="#fetch-images-for-successful-stop-minus-go-like-protocols" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are the images we are interested in,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are the images we are interested in,</span>
 <span class="c1"># in order to save time we specify their ids explicitly.</span>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stop_go_image_ids</span></a> <span class="o">=</span> <span class="p">(</span><span class="mi">151</span><span class="p">,</span> <span class="mi">3041</span><span class="p">,</span> <span class="mi">3042</span><span class="p">,</span> <span class="mi">2676</span><span class="p">,</span> <span class="mi">2675</span><span class="p">,</span> <span class="mi">2818</span><span class="p">,</span> <span class="mi">2834</span><span class="p">)</span>
 
@@ -756,7 +756,7 @@ Already fetched 7 images
 </section>
 <section id="visualize-the-data">
 <h2>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">plotting glass brain for collected images</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">plotting glass brain for collected images</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">im</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images_meta</span></a><span class="p">:</span>
     <a href="../../modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="nilearn.plotting.plot_glass_brain" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span>
@@ -780,7 +780,7 @@ Already fetched 7 images
 </section>
 <section id="compute-statistics">
 <h2>Compute statistics<a class="headerlink" href="#compute-statistics" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_to_z</span><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_to_z</span><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert t-scores to z-scores.&quot;&quot;&quot;</span>
     <span class="n">p_values</span> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/reference/generated/scipy.stats.rv_continuous.sf.html#scipy.stats.rv_continuous.sf" title="scipy.stats.rv_continuous.sf" class="sphx-glr-backref-module-scipy-stats sphx-glr-backref-type-py-method"><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span></a><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">)</span>
     <span class="n">z_values</span> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/reference/generated/scipy.stats.rv_continuous.isf.html#scipy.stats.rv_continuous.isf" title="scipy.stats.rv_continuous.isf" class="sphx-glr-backref-module-scipy-stats sphx-glr-backref-type-py-method"><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">isf</span></a><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
@@ -839,7 +839,7 @@ Collection 3041:
 </section>
 <section id="plot-the-combined-z-maps">
 <h2>Plot the combined z maps<a class="headerlink" href="#plot-the-combined-z-maps" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meta_analysis_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="nilearn.image.math_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">math_img</span></a><span class="p">(</span>
     <span class="s2">&quot;np.sum(z_imgs, axis=3) / np.sqrt(z_imgs.shape[3])&quot;</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a>
 <span class="p">)</span>
@@ -855,17 +855,17 @@ Collection 3041:
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" alt="plot neurovault meta analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.056 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  57 MB</p>
+<img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" alt="plot neurovault meta analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.753 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  59 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-neurovault-meta-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_neurovault_meta_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/c499fe7e0cff4cf48c1b87aaa5d1d59d/plot_neurovault_meta_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_neurovault_meta_analysis.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ae69ad5c7b3f726dc7ad675f7648b5db/plot_neurovault_meta_analysis.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_neurovault_meta_analysis.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c499fe7e0cff4cf48c1b87aaa5d1d59d/plot_neurovault_meta_analysis.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_neurovault_meta_analysis.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

@@ -745,7 +745,7 @@ all occurrences of:</p>
 </div>
 <section id="retrieve-the-atlas-and-the-data">
 <h2>Retrieve the atlas and the data<a class="headerlink" href="#retrieve-the-atlas-and-the-data" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_harvard_oxford.html#nilearn.datasets.fetch_atlas_harvard_oxford" title="nilearn.datasets.fetch_atlas_harvard_oxford" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_harvard_oxford</span></a><span class="p">(</span><span class="s2">&quot;cort-maxprob-thr25-2mm&quot;</span><span class="p">)</span>
 <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_filename</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">maps</span></a>
@@ -818,7 +818,7 @@ magic           : b&#39;n+1&#39;
 <section id="extract-signals-on-a-parcellation-defined-by-labels">
 <h2>Extract signals on a <a class="reference internal" href="../../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> defined by labels<a class="headerlink" href="#extract-signals-on-a-parcellation-defined-by-labels" title="Link to this heading">#</a></h2>
 <p>Using the NiftiLabelsMasker</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a>
 
 <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiLabelsMasker</span></a><span class="p">(</span>
     <span class="n">labels_img</span><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_filename</span></a><span class="p">,</span>
@@ -845,7 +845,7 @@ Resampling labels
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f625765f070&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6419041040&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -854,7 +854,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6257613160&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f64190673d0&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -874,7 +874,7 @@ _______________________________________________filter_and_extract - 0.6s, 0.0min
 </section>
 <section id="compute-and-display-a-correlation-matrix">
 <h2>Compute and display a correlation matrix<a class="headerlink" href="#compute-and-display-a-correlation-matrix" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">ConnectivityMeasure</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">ConnectivityMeasure</span></a>
 
 <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_measure</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure" title="nilearn.connectome.ConnectivityMeasure" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">ConnectivityMeasure</span></a><span class="p">(</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;correlation&quot;</span><span class="p">,</span>
@@ -904,7 +904,7 @@ _______________________________________________filter_and_extract - 0.6s, 0.0min
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_signal_extraction_001.png" srcset="../../_images/sphx_glr_plot_signal_extraction_001.png" alt="Confounds" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f6257715460&gt;
+<img src="../../_images/sphx_glr_plot_signal_extraction_001.png" srcset="../../_images/sphx_glr_plot_signal_extraction_001.png" alt="Confounds" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f64190cc700&gt;
 </pre></div>
 </div>
 </section>
@@ -914,7 +914,7 @@ _______________________________________________filter_and_extract - 0.6s, 0.0min
 matrix presentation, let’s look into the impact of confounds to <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a>
 signal and functional connectivity. Firstly let’s find out what a functional
 connectivity matrix looks like without confound removal.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker.fit_transform" title="nilearn.maskers.NiftiLabelsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker.fit_transform" title="nilearn.maskers.NiftiLabelsMasker.fit_transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">)</span>
 <span class="c1"># Note how we did not specify confounds above. This is bad!</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">correlation_matrix</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.ConnectivityMeasure.html#nilearn.connectome.ConnectivityMeasure.fit_transform" title="nilearn.connectome.ConnectivityMeasure.fit_transform" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-method"><span class="n">correlation_measure</span><span class="o">.</span><span class="n">fit_transform</span></a><span class="p">([</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_series</span></a><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
@@ -942,7 +942,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6257606ca0&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f64190672b0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -951,7 +951,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6257613160&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f64190673d0&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -965,9 +965,9 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 0.6s, 0.0min
+_______________________________________________filter_and_extract - 0.7s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7f6257710a30&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f6419123f10&gt;
 </pre></div>
 </div>
 </section>
@@ -984,7 +984,7 @@ out correctly.</p></li>
 </ol>
 <p>Let’s try a simple strategy removing motion, white matter signal,
 cerebrospinal fluid signal with high-pass filtering.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.interfaces.fmriprep</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.interfaces.fmriprep</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a>
 
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds_simple</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">,</span>
@@ -1029,7 +1029,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f625ece9970&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6418ba01f0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1038,7 +1038,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6257613160&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f64190673d0&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -1067,7 +1067,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 0.7s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7f62483ec760&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f64197af700&gt;
 </pre></div>
 </div>
 </section>
@@ -1082,7 +1082,7 @@ percentage of volumns scrubbed. Scrubbing is not a suitable strategy for
 datasets with too many high motion subjects.
 On top of the simple strategy above, let’s add scrubbing to our
 strategy.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds_scrub</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds_scrub</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">,</span>
     <span class="n">strategy</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;high_pass&quot;</span><span class="p">,</span> <span class="s2">&quot;motion&quot;</span><span class="p">,</span> <span class="s2">&quot;wm_csf&quot;</span><span class="p">,</span> <span class="s2">&quot;scrub&quot;</span><span class="p">],</span>
     <span class="n">motion</span><span class="o">=</span><span class="s2">&quot;basic&quot;</span><span class="p">,</span>
@@ -1133,7 +1133,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f62576d5850&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f642527ae50&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1142,7 +1142,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6257613160&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f64190673d0&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -1171,7 +1171,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 0.7s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7f625ed874c0&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f64101db3d0&gt;
 </pre></div>
 </div>
 </section>
@@ -1182,7 +1182,7 @@ it can remove impacts of physiological artifacts with minimal impact on the
 degrees of freedom. The downside is that one cannot get insight into variance
 explained by certain sources of noise. Now let’s add global signal to the
 simple strategy and see its impact.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds_minimal_no_gsr</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds_minimal_no_gsr</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds.html#nilearn.interfaces.fmriprep.load_confounds" title="nilearn.interfaces.fmriprep.load_confounds" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_filenames</span></a><span class="p">,</span>
     <span class="n">strategy</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;high_pass&quot;</span><span class="p">,</span> <span class="s2">&quot;motion&quot;</span><span class="p">,</span> <span class="s2">&quot;wm_csf&quot;</span><span class="p">,</span> <span class="s2">&quot;global_signal&quot;</span><span class="p">],</span>
     <span class="n">motion</span><span class="o">=</span><span class="s2">&quot;basic&quot;</span><span class="p">,</span>
@@ -1226,7 +1226,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f62592acee0&gt;,
+&lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f64259a3fa0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1235,7 +1235,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6257613160&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f64190673d0&gt;,
   &#39;low_pass&#39;: None,
   &#39;mask_img&#39;: None,
   &#39;reports&#39;: True,
@@ -1264,7 +1264,7 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 0.7s, 0.0min
 
-&lt;matplotlib.image.AxesImage object at 0x7f62596bc9d0&gt;
+&lt;matplotlib.image.AxesImage object at 0x7f6418b40d00&gt;
 </pre></div>
 </div>
 </section>
@@ -1278,7 +1278,7 @@ benchmarks studies (<a class="footnote-reference brackets" href="#footcite-ciric
 <cite>scrubbing</cite>, <cite>compcor</cite>, <cite>ica_aroma</cite>.
 The following examples shows how to use the <cite>simple</cite> strategy and overwrite
 the motion default to basic.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.interfaces.fmriprep</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds_strategy.html#nilearn.interfaces.fmriprep.load_confounds_strategy" title="nilearn.interfaces.fmriprep.load_confounds_strategy" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds_strategy</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.interfaces.fmriprep</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds_strategy.html#nilearn.interfaces.fmriprep.load_confounds_strategy" title="nilearn.interfaces.fmriprep.load_confounds_strategy" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds_strategy</span></a>
 
 <span class="c1"># use default parameters</span>
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confounds</span></a><span class="p">,</span> <span class="n">sample_mask</span> <span class="o">=</span> <a href="../../modules/generated/nilearn.interfaces.fmriprep.load_confounds_strategy.html#nilearn.interfaces.fmriprep.load_confounds_strategy" title="nilearn.interfaces.fmriprep.load_confounds_strategy" class="sphx-glr-backref-module-nilearn-interfaces-fmriprep sphx-glr-backref-type-py-function"><span class="n">load_confounds_strategy</span></a><span class="p">(</span>
@@ -1341,7 +1341,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]9.3s, 0.2min    : Loading _filter_and_extract...
+[Memory]9.4s, 0.2min    : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 [NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
 shape=(91, 109, 91),
@@ -1350,7 +1350,7 @@ affine=array([[   2.,    0.,    0.,  -90.],
        [   0.,    0.,    2.,  -72.],
        [   0.,    0.,    0.,    1.]])
 )
-[Memory]9.9s, 0.2min    : Loading _filter_and_extract...
+[Memory]10.0s, 0.2min   : Loading _filter_and_extract...
 __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </pre></div>
 </div>
@@ -1369,17 +1369,17 @@ __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 </aside>
 </aside>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.035 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  577 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.179 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  576 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-signal-extraction-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_signal_extraction.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/6a41a8dfe53db2e370c38bf1822d716f/plot_signal_extraction.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_signal_extraction.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6adeab99bb101f56741b106ab2f4e1c6/plot_signal_extraction.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_signal_extraction.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6a41a8dfe53db2e370c38bf1822d716f/plot_signal_extraction.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_signal_extraction.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

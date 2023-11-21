@@ -53,7 +53,7 @@ connectivity dataset.
 
 .. GENERATED FROM PYTHON SOURCE LINES 35-43
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn import datasets
@@ -83,7 +83,7 @@ Coordinates of Default Mode Network
 
 .. GENERATED FROM PYTHON SOURCE LINES 46-54
 
-.. code-block:: default
+.. code-block:: Python
 
     dmn_coords = [(0, -52, 18), (-46, -68, 32), (46, -68, 32), (1, 50, -5)]
     labels = [
@@ -113,7 +113,7 @@ band-pass filtered and **standardized to 1 variance**.
 
 .. GENERATED FROM PYTHON SOURCE LINES 63-91
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.maskers import NiftiSpheresMasker
@@ -154,7 +154,7 @@ band-pass filtered and **standardized to 1 variance**.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7f6258a3b4c0>, 
+    <nilearn.maskers.nifti_spheres_masker._ExtractionFunctor object at 0x7f641a1b1f70>, 
     { 'allow_overlap': False,
       'clean_kwargs': {'butterworth__padtype': 'even'},
       'detrend': True,
@@ -184,7 +184,7 @@ Display time series
 
 .. GENERATED FROM PYTHON SOURCE LINES 94-105
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -219,7 +219,7 @@ partial correlations.
 
 .. GENERATED FROM PYTHON SOURCE LINES 111-122
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.connectome import ConnectivityMeasure
@@ -249,7 +249,7 @@ We display the graph of connections with
 
 .. GENERATED FROM PYTHON SOURCE LINES 128-137
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn import plotting
@@ -274,7 +274,7 @@ We display the graph of connections with
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f6259c4b130>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f641a6bbfd0>
 
 
 
@@ -285,7 +285,7 @@ Notice (0, -52, 18) is included in both hemispheres since x == 0.
 
 .. GENERATED FROM PYTHON SOURCE LINES 140-149
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_connectome(
         partial_correlation_matrix,
@@ -319,7 +319,7 @@ for more details.
 
 .. GENERATED FROM PYTHON SOURCE LINES 156-164
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -708,7 +708,7 @@ for more details.
 
 .. GENERATED FROM PYTHON SOURCE LINES 165-169
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # uncomment this to open the plot in a web browser:
@@ -734,7 +734,7 @@ First we fetch the coordinates of the Power atlas
 
 .. GENERATED FROM PYTHON SOURCE LINES 178-182
 
-.. code-block:: default
+.. code-block:: Python
 
 
     power = datasets.fetch_coords_power_2011(legacy_format=False)
@@ -771,7 +771,7 @@ We collect the regions coordinates in a numpy array
 
 .. GENERATED FROM PYTHON SOURCE LINES 195-201
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -798,7 +798,7 @@ and define spheres masker, with small enough radius to avoid regions overlap.
 
 .. GENERATED FROM PYTHON SOURCE LINES 203-220
 
-.. code-block:: default
+.. code-block:: Python
 
 
     spheres_masker = NiftiSpheresMasker(
@@ -834,7 +834,7 @@ number of ROIs exceeds the number of samples,
 
 .. GENERATED FROM PYTHON SOURCE LINES 226-228
 
-.. code-block:: default
+.. code-block:: Python
 
     print(f"time series has {timeseries.shape[0]} samples")
 
@@ -858,7 +858,7 @@ estimator captures well the covariance **structure**.
 
 .. GENERATED FROM PYTHON SOURCE LINES 231-239
 
-.. code-block:: default
+.. code-block:: Python
 
     try:
         from sklearn.covariance import GraphicalLassoCV
@@ -881,7 +881,7 @@ We just fit our regions signals into the `GraphicalLassoCV` object
 
 .. GENERATED FROM PYTHON SOURCE LINES 241-243
 
-.. code-block:: default
+.. code-block:: Python
 
     covariance_estimator.fit(timeseries)
 
@@ -893,10 +893,10 @@ We just fit our regions signals into the `GraphicalLassoCV` object
 
  .. code-block:: none
 
-    [GraphicalLassoCV] Done refinement  1 out of 4:   2s
+    [GraphicalLassoCV] Done refinement  1 out of 4:   1s
     [GraphicalLassoCV] Done refinement  2 out of 4:   6s
     [GraphicalLassoCV] Done refinement  3 out of 4:  12s
-    [GraphicalLassoCV] Done refinement  4 out of 4:  19s
+    [GraphicalLassoCV] Done refinement  4 out of 4:  18s
     /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/numpy/core/_methods.py:173: RuntimeWarning:
 
     invalid value encountered in subtract
@@ -917,7 +917,7 @@ and get the ROI-to-ROI covariance matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 245-248
 
-.. code-block:: default
+.. code-block:: Python
 
     matrix = covariance_estimator.covariance_
     print(f"Covariance matrix has shape {matrix.shape}.")
@@ -946,7 +946,7 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
 
 .. GENERATED FROM PYTHON SOURCE LINES 255-275
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -994,7 +994,7 @@ and display the graph of connections with `nilearn.plotting.plot_connectome`.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f62402e0cd0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f641a59aee0>
 
 
 
@@ -1014,7 +1014,7 @@ aggregating edge strength from the graph would help. Use the function
 
 .. GENERATED FROM PYTHON SOURCE LINES 286-297
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # calculate normalized, absolute strength for each node
@@ -1041,7 +1041,7 @@ aggregating edge strength from the graph would help. Use the function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f625766f940>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f640c9da640>
 
 
 
@@ -1053,7 +1053,7 @@ one for the positive and one for the negative structure.
 
 .. GENERATED FROM PYTHON SOURCE LINES 301-332
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from matplotlib.pyplot import cm
@@ -1112,7 +1112,7 @@ one for the positive and one for the negative structure.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f6257f1c3a0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f6408e51730>
 
 
 
@@ -1125,7 +1125,7 @@ We repeat the same steps for Dosenbach's atlas.
 
 .. GENERATED FROM PYTHON SOURCE LINES 337-421
 
-.. code-block:: default
+.. code-block:: Python
 
     dosenbach = datasets.fetch_coords_dosenbach_2010(legacy_format=False)
 
@@ -1262,7 +1262,7 @@ We repeat the same steps for Dosenbach's atlas.
     invalid value encountered in subtract
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f625f3f6eb0>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f6417379cd0>
 
 
 
@@ -1272,7 +1272,7 @@ We can easily identify the Dosenbach's networks from the matrix blocks.
 
 .. GENERATED FROM PYTHON SOURCE LINES 423-427
 
-.. code-block:: default
+.. code-block:: Python
 
     print(f"Dosenbach networks names are {np.unique(dosenbach.networks)}")
 
@@ -1309,9 +1309,9 @@ See Also
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 0.509 seconds)
+   **Total running time of the script:** (0 minutes 58.817 seconds)
 
-**Estimated memory usage:**  577 MB
+**Estimated memory usage:**  576 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_sphere_based_connectome.py:
@@ -1320,7 +1320,6 @@ See Also
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -1328,15 +1327,13 @@ See Also
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_sphere_based_connectome.ipynb <plot_sphere_based_connectome.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_sphere_based_connectome.py <plot_sphere_based_connectome.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_sphere_based_connectome.ipynb <plot_sphere_based_connectome.ipynb>`
 
 
 .. only:: html

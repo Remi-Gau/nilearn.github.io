@@ -59,7 +59,7 @@ Now we can load the data set:
 
 .. GENERATED FROM PYTHON SOURCE LINES 41-46
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.datasets import fetch_miyawaki2008
@@ -80,7 +80,7 @@ where random binary images were shown.
 
 .. GENERATED FROM PYTHON SOURCE LINES 49-54
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # training data starts after the first 12 files
@@ -101,7 +101,7 @@ data, clean and mask it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-85
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -144,7 +144,7 @@ Let's take a look at some of these binary images:
 
 .. GENERATED FROM PYTHON SOURCE LINES 87-101
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import pylab as plt
@@ -179,7 +179,7 @@ beginning/end.
 
 .. GENERATED FROM PYTHON SOURCE LINES 104-110
 
-.. code-block:: default
+.. code-block:: Python
 
 
     fmri_data = np.vstack([fmri_run[2:] for fmri_run in fmri_data])
@@ -200,7 +200,7 @@ fmri_data is a matrix of *samples* x *voxels*
 
 .. GENERATED FROM PYTHON SOURCE LINES 112-115
 
-.. code-block:: default
+.. code-block:: Python
 
 
     print(fmri_data.shape)
@@ -225,7 +225,7 @@ so it is a matrix of *samples* x *pixels*.
 
 .. GENERATED FROM PYTHON SOURCE LINES 118-124
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Flatten the stimuli
@@ -265,7 +265,7 @@ and fmri_data as targets, and create predictions for the held-out 10th.
 
 .. GENERATED FROM PYTHON SOURCE LINES 138-157
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.linear_model import Ridge
     from sklearn.metrics import r2_score
@@ -302,7 +302,7 @@ the scores and then threshold it:
 
 .. GENERATED FROM PYTHON SOURCE LINES 162-176
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.image import threshold_img
@@ -332,7 +332,7 @@ which we will inspect more closely later on.
 
 .. GENERATED FROM PYTHON SOURCE LINES 179-219
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import coord_transform
     from nilearn.plotting import plot_stat_map
@@ -403,7 +403,7 @@ set of regression coefficients.
 
 .. GENERATED FROM PYTHON SOURCE LINES 232-312
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from sklearn.linear_model import LassoLarsCV
@@ -499,7 +499,7 @@ set of regression coefficients.
  .. code-block:: none
 
 
-    <matplotlib.colorbar.Colorbar object at 0x7f6258cd3e20>
+    <matplotlib.colorbar.Colorbar object at 0x7f6425231fd0>
 
 
 
@@ -514,9 +514,9 @@ its location in the brain.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.370 seconds)
+   **Total running time of the script:** (0 minutes 12.510 seconds)
 
-**Estimated memory usage:**  997 MB
+**Estimated memory usage:**  1001 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_miyawaki_encoding.py:
@@ -525,7 +525,6 @@ its location in the brain.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -533,15 +532,13 @@ its location in the brain.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_miyawaki_encoding.ipynb <plot_miyawaki_encoding.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_miyawaki_encoding.py <plot_miyawaki_encoding.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_miyawaki_encoding.ipynb <plot_miyawaki_encoding.ipynb>`
 
 
 .. only:: html

@@ -718,7 +718,7 @@ nilearn.experimental.surface module; it is still incomplete and subject to
 change without a deprecation cycle. Please participate in the discussion on
 GitHub!</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="typing.Optional" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data"><span class="n">Optional</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Sequence" title="typing.Sequence" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Sequence</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Optional" title="typing.Optional" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-data"><span class="n">Optional</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/typing.html#typing.Sequence" title="typing.Sequence" class="sphx-glr-backref-module-typing sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Sequence</span></a>
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
@@ -785,7 +785,7 @@ Image mean: &lt;SurfaceImage (20484,)&gt;
 </div>
 <section id="connectivity-with-a-surface-atlas-and-surfacelabelsmasker">
 <h2>Connectivity with a surface atlas and <cite>SurfaceLabelsMasker</cite><a class="headerlink" href="#connectivity-with-a-surface-atlas-and-surfacelabelsmasker" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">connectome</span></a><span class="p">,</span> <span class="n">plotting</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">connectome</span></a><span class="p">,</span> <span class="n">plotting</span>
 
 <a href="../../modules/generated/nilearn.experimental.surface.SurfaceImage.html#nilearn.experimental.surface.SurfaceImage" title="nilearn.experimental.surface.SurfaceImage" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.experimental.surface.fetch_nki.html#nilearn.experimental.surface.fetch_nki" title="nilearn.experimental.surface.fetch_nki" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">fetch_nki</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;NKI image: </span><span class="si">{</span><a href="../../modules/generated/nilearn.experimental.surface.SurfaceImage.html#nilearn.experimental.surface.SurfaceImage" title="nilearn.experimental.surface.SurfaceImage" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -818,7 +818,7 @@ Masked data shape: (895, 75)
 </section>
 <section id="using-the-decoder">
 <h2>Using the <cite>Decoder</cite><a class="headerlink" href="#using-the-decoder" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">decoding</span><span class="p">,</span> <span class="n">plotting</span>
 <span class="kn">from</span> <span class="nn">nilearn._utils</span> <span class="kn">import</span> <span class="n">param_validation</span>
@@ -826,7 +826,7 @@ Masked data shape: (895, 75)
 </div>
 <p>The following is just disabling a couple of checks performed by the decoder
 that would force us to use a <cite>NiftiMasker</cite>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monkeypatch_masker_checks</span><span class="p">():</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">monkeypatch_masker_checks</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">adjust_screening_percentile</span><span class="p">(</span><span class="n">screening_percentile</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">screening_percentile</span>
 
@@ -843,7 +843,7 @@ that would force us to use a <cite>NiftiMasker</cite>.</p>
 </div>
 <p>Now using the appropriate masker we can use a <cite>Decoder</cite> on surface data just
 as we do for volume images.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.experimental.surface.SurfaceImage.html#nilearn.experimental.surface.SurfaceImage" title="nilearn.experimental.surface.SurfaceImage" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.experimental.surface.fetch_nki.html#nilearn.experimental.surface.fetch_nki" title="nilearn.experimental.surface.fetch_nki" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">fetch_nki</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.experimental.surface.SurfaceImage.html#nilearn.experimental.surface.SurfaceImage" title="nilearn.experimental.surface.SurfaceImage" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.experimental.surface.fetch_nki.html#nilearn.experimental.surface.fetch_nki" title="nilearn.experimental.surface.fetch_nki" class="sphx-glr-backref-module-nilearn-experimental-surface sphx-glr-backref-type-py-function"><span class="n">surface</span><span class="o">.</span><span class="n">fetch_nki</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/legacy.html#numpy.random.RandomState" title="numpy.random.RandomState" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span></a><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-class"><span class="n">decoding</span><span class="o">.</span><span class="n">Decoder</span></a><span class="p">(</span>
@@ -883,13 +883,13 @@ Features [    8    36    38 ... 20206 20207 20208] are constant.
 
 invalid value encountered in divide
 
-CV scores: {0: [0.4991491267353336, 0.5115891053391053, 0.4847132034632034], 1: [0.4991491267353336, 0.5115891053391053, 0.4847132034632034]}
+CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034]}
 </pre></div>
 </div>
 </section>
 <section id="decoding-with-a-scikit-learn-pipeline">
 <h2>Decoding with a scikit-learn <cite>Pipeline</cite><a class="headerlink" href="#decoding-with-a-scikit-learn-pipeline" title="Link to this heading">#</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">preprocessing</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
@@ -921,17 +921,17 @@ CV scores: {0: [0.4991491267353336, 0.5115891053391053, 0.4847132034632034], 1: 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 20.146 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1559 MB</p>
+<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 20.094 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1481 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-08-experimental-plot-surface-image-and-maskers-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/08_experimental/plot_surface_image_and_maskers.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo8.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/f0b6ce1f4b594a03ef9d541eb754e69b/plot_surface_image_and_maskers.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_surface_image_and_maskers.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/14c468d44123efe56ebabebf18f1d7e1/plot_surface_image_and_maskers.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_surface_image_and_maskers.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f0b6ce1f4b594a03ef9d541eb754e69b/plot_surface_image_and_maskers.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_surface_image_and_maskers.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>

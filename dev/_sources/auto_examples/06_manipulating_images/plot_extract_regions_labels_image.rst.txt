@@ -42,7 +42,7 @@ The original Yeo atlas
 
 .. GENERATED FROM PYTHON SOURCE LINES 24-42
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # First we fetch the Yeo atlas
@@ -76,7 +76,7 @@ The original Yeo atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f625f7e3100>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f64254ffd30>
 
 
 
@@ -98,7 +98,7 @@ of the Yeo atlas into separated regions
 
 .. GENERATED FROM PYTHON SOURCE LINES 55-59
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.regions import connected_label_regions
 
@@ -126,7 +126,7 @@ Plotting the new regions
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-69
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_roi(
         region_labels,
@@ -150,7 +150,7 @@ Plotting the new regions
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62589bdeb0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f64197780a0>
 
 
 
@@ -172,7 +172,7 @@ You can save the new atlas to a nifti file using to_filename method.
 
 .. GENERATED FROM PYTHON SOURCE LINES 83-92
 
-.. code-block:: default
+.. code-block:: Python
 
     region_labels.to_filename("relabeled_yeo_atlas.nii.gz")
 
@@ -200,7 +200,7 @@ that are connected only along the diagonal.
 
 .. GENERATED FROM PYTHON SOURCE LINES 98-110
 
-.. code-block:: default
+.. code-block:: Python
 
 
     region_labels_not_diag = connected_label_regions(atlas_yeo, connect_diag=False)
@@ -228,7 +228,7 @@ that are connected only along the diagonal.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6259e6b2b0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f640a9a7ee0>
 
 
 
@@ -250,7 +250,7 @@ regions larger than 100mm^3.
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-136
 
-.. code-block:: default
+.. code-block:: Python
 
     region_labels_min_size = connected_label_regions(
         atlas_yeo, min_size=100, connect_diag=False
@@ -280,9 +280,9 @@ regions larger than 100mm^3.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 21.896 seconds)
+   **Total running time of the script:** (0 minutes 22.339 seconds)
 
-**Estimated memory usage:**  765 MB
+**Estimated memory usage:**  779 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_extract_regions_labels_image.py:
@@ -291,7 +291,6 @@ regions larger than 100mm^3.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -299,15 +298,13 @@ regions larger than 100mm^3.
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_extract_regions_labels_image.ipynb <plot_extract_regions_labels_image.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_extract_regions_labels_image.py <plot_extract_regions_labels_image.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_extract_regions_labels_image.ipynb <plot_extract_regions_labels_image.ipynb>`
 
 
 .. only:: html

@@ -72,7 +72,7 @@ ____
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-66
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
     import numpy as np
@@ -97,7 +97,7 @@ Load Oasis dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 69-92
 
-.. code-block:: default
+.. code-block:: Python
 
     oasis_dataset = datasets.fetch_oasis_vbm(
         n_subjects=n_subjects, legacy_format=False
@@ -143,7 +143,7 @@ Preprocess data
 
 .. GENERATED FROM PYTHON SOURCE LINES 95-111
 
-.. code-block:: default
+.. code-block:: Python
 
     nifti_masker = NiftiMasker(
         standardize=False, smoothing_fwhm=2, memory="nilearn_cache"
@@ -184,7 +184,7 @@ also want to set mask hyperparameter to be the mask we just obtained above.
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-149
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from nilearn.decoding import DecoderRegressor
@@ -234,7 +234,7 @@ Visualization
 
 .. GENERATED FROM PYTHON SOURCE LINES 152-165
 
-.. code-block:: default
+.. code-block:: Python
 
     weight_img = decoder.coef_img_["beta"]
 
@@ -268,7 +268,7 @@ Visualize the quality of predictions
 
 .. GENERATED FROM PYTHON SOURCE LINES 168-183
 
-.. code-block:: default
+.. code-block:: Python
 
     plt.figure(figsize=(6, 4.5))
     plt.suptitle(f"Decoder: Mean Absolute Error {prediction_score:.2f} years")
@@ -311,7 +311,7 @@ Visualize the quality of predictions
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7f62595ff8b0>
+    <matplotlib.legend.Legend object at 0x7f6424a63190>
 
 
 
@@ -322,7 +322,7 @@ Inference with massively univariate model
 
 .. GENERATED FROM PYTHON SOURCE LINES 186-231
 
-.. code-block:: default
+.. code-block:: Python
 
     print("Massively univariate model")
 
@@ -384,9 +384,9 @@ Inference with massively univariate model
 
     Massively univariate model
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   16.7s finished
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   17.0s finished
 
-    1975 detections
+    1987 detections
 
 
 
@@ -394,9 +394,9 @@ Inference with massively univariate model
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 46.767 seconds)
+   **Total running time of the script:** (0 minutes 47.667 seconds)
 
-**Estimated memory usage:**  2483 MB
+**Estimated memory usage:**  2471 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_oasis_vbm.py:
@@ -405,7 +405,6 @@ Inference with massively univariate model
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
@@ -413,15 +412,13 @@ Inference with massively univariate model
         :alt: Launch binder
         :width: 150 px
 
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
 
+      :download:`Download Jupyter notebook: plot_oasis_vbm.ipynb <plot_oasis_vbm.ipynb>`
 
     .. container:: sphx-glr-download sphx-glr-download-python
 
       :download:`Download Python source code: plot_oasis_vbm.py <plot_oasis_vbm.py>`
-
-    .. container:: sphx-glr-download sphx-glr-download-jupyter
-
-      :download:`Download Jupyter notebook: plot_oasis_vbm.ipynb <plot_oasis_vbm.ipynb>`
 
 
 .. only:: html

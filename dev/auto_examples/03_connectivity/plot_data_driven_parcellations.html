@@ -740,7 +740,7 @@ in the documentation section <a class="reference internal" href="../../connectiv
 <section id="download-a-brain-development-fmri-dataset-and-turn-it-to-a-data-matrix">
 <h2>Download a brain development fMRI dataset and turn it to a data matrix<a class="headerlink" href="#download-a-brain-development-fmri-dataset-and-turn-it-to-a-data-matrix" title="Link to this heading">#</a></h2>
 <p>We download one subject of the movie watching dataset from Internet</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -764,7 +764,7 @@ in the documentation section <a class="reference internal" href="../../connectiv
 <h2>Brain parcellations with Ward Clustering<a class="headerlink" href="#brain-parcellations-with-ward-clustering" title="Link to this heading">#</a></h2>
 <p>Transforming list of images to data matrix and build brain parcellations,
 all can be done at once using <cite>Parcellations</cite> object.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computing ward for the first time, will be long... This can be seen by</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Computing ward for the first time, will be long... This can be seen by</span>
 <span class="c1"># measuring using time</span>
 <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 
@@ -832,13 +832,13 @@ ward_tree(array([[-0.002154, ...,  0.007053],
        ...,
        [ 0.002661, ..., -0.007877]]), connectivity=&lt;24256x24256 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
         with 162682 stored elements in COOrdinate format&gt;, n_clusters=1000, return_distance=False)
-________________________________________________________ward_tree - 1.7s, 0.0min
-____________________________________________________estimator_fit - 1.9s, 0.0min
+________________________________________________________ward_tree - 1.8s, 0.0min
+____________________________________________________estimator_fit - 2.0s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/masking.py:966: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-Ward agglomeration 1000 clusters: 5.68s
+Ward agglomeration 1000 clusters: 6.16s
 [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
 [{self.__class__.__name__}.fit] Computing mask
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/_utils/cache_mixin.py:240: UserWarning:
@@ -863,20 +863,20 @@ ward_tree(array([[-0.002154, ...,  0.007053],
        ...,
        [ 0.002661, ..., -0.007877]]), connectivity=&lt;24256x24256 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
         with 162682 stored elements in COOrdinate format&gt;, n_clusters=2000, return_distance=False)
-________________________________________________________ward_tree - 1.5s, 0.0min
-____________________________________________________estimator_fit - 1.7s, 0.0min
+________________________________________________________ward_tree - 1.7s, 0.0min
+____________________________________________________estimator_fit - 1.8s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/masking.py:966: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-Ward agglomeration 2000 clusters: 4.23s
+Ward agglomeration 2000 clusters: 4.18s
 </pre></div>
 </div>
 <section id="visualize-brain-parcellations-ward">
 <h3>Visualize: Brain parcellations (Ward)<a class="headerlink" href="#visualize-brain-parcellations-ward" title="Link to this heading">#</a></h3>
 <p>First, we display the parcellations of the brain image stored in attribute
 <cite>labels_img_</cite></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ward_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ward</span><span class="o">.</span><span class="n">labels_img_</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ward_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ward</span><span class="o">.</span><span class="n">labels_img_</span></a>
 
 <span class="c1"># Now, ward_labels_img are Nifti1Image object, it can be saved to file</span>
 <span class="c1"># with the following code:</span>
@@ -897,7 +897,7 @@ Ward agglomeration 2000 clusters: 4.23s
 <p>Second, we illustrate the effect that the clustering has on the signal.
 We show the original data, and the approximation provided by the
 clustering by averaging the signal on each parcel.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab number of voxels from attribute mask image (mask_img_).</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab number of voxels from attribute mask image (mask_img_).</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">original_voxels</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ward</span><span class="o">.</span><span class="n">mask_img_</span></a><span class="p">))</span>
 
 <span class="c1"># Compute mean over time on the functional image to use the mean</span>
@@ -954,7 +954,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f624107a190&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f62416b7040&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f642543dd30&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6424e2ebb0&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -963,9 +963,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f624107a190&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f624107ae50&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f642543d4f0&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f624107a280&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f642543df70&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -980,7 +980,7 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f624107a190&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 1.2s, 0.0min
 
-&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f62556fdb80&gt;
+&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f6424d043d0&gt;
 </pre></div>
 </div>
 </section>
@@ -991,7 +991,7 @@ _______________________________________________filter_and_extract - 1.2s, 0.0min
 clustering. But, in the range of a small number of clusters,
 it is most likely that we want to use standardization. Indeed with
 standardization and smoothing, the clusters will form as regions.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># class/functions can be used here as they are already imported above.</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># class/functions can be used here as they are already imported above.</span>
 
 <span class="c1"># This object uses method=&#39;kmeans&#39; for KMeans clustering with 10mm smoothing</span>
 <span class="c1"># and standardization ON</span>
@@ -1029,14 +1029,14 @@ _estimator_fit(array([[ 0.004934, ..., -0.015396],
        ...,
        [-0.003247, ..., -0.001756]]),
 MiniBatchKMeans(n_clusters=50, n_init=3, random_state=0))
-____________________________________________________estimator_fit - 0.4s, 0.0min
-KMeans clusters: 4.35s
+____________________________________________________estimator_fit - 0.5s, 0.0min
+KMeans clusters: 4.51s
 </pre></div>
 </div>
 <section id="visualize-brain-parcellations-kmeans">
 <h3>Visualize: Brain parcellations (KMeans)<a class="headerlink" href="#visualize-brain-parcellations-kmeans" title="Link to this heading">#</a></h3>
 <p>Grab parcellations of brain image stored in attribute <cite>labels_img_</cite></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_img_</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_img_</span></a>
 
 <a href="../../modules/generated/nilearn.plotting.displays.XZSlicer.html#nilearn.plotting.displays.XZSlicer" title="nilearn.plotting.displays.XZSlicer" class="sphx-glr-backref-module-nilearn-plotting-displays sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">display</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.plotting.plot_roi.html#nilearn.plotting.plot_roi" title="nilearn.plotting.plot_roi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_roi</span></a><span class="p">(</span>
     <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_labels_img</span></a><span class="p">,</span>
@@ -1066,7 +1066,7 @@ the cluster in order to have n balanced clusters in the end.</p>
 <p>This object uses method=’hierarchical_kmeans’ for Hierarchical KMeans
 clustering and 10mm smoothing and standardization to compare
 with the previous method.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">Parcellations</span></a><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;hierarchical_kmeans&quot;</span><span class="p">,</span>
     <span class="n">n_parcels</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
@@ -1099,7 +1099,7 @@ _estimator_fit(array([[ 0.004934, ..., -0.015396],
        ...,
        [-0.003247, ..., -0.001756]]),
 HierarchicalKMeans(n_clusters=50))
-____________________________________________________estimator_fit - 1.1s, 0.0min
+____________________________________________________estimator_fit - 1.0s, 0.0min
 /usr/share/miniconda3/envs/testenv/lib/python3.9/site-packages/nilearn/masking.py:966: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
@@ -1116,7 +1116,7 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 <br /><section id="visualize-brain-parcellations-hierarchical-kmeans">
 <h3>Visualize: Brain parcellations (Hierarchical KMeans)<a class="headerlink" href="#visualize-brain-parcellations-hierarchical-kmeans" title="Link to this heading">#</a></h3>
 <p>Grab parcellations of brain image stored in attribute <cite>labels_img_</cite></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans</span><span class="o">.</span><span class="n">labels_img_</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans</span><span class="o">.</span><span class="n">labels_img_</span></a>
 
 <a href="../../modules/generated/nilearn.plotting.plot_roi.html#nilearn.plotting.plot_roi" title="nilearn.plotting.plot_roi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_roi</span></a><span class="p">(</span>
     <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans_labels_img</span></a><span class="p">,</span>
@@ -1140,7 +1140,7 @@ distribution. Hierarchical KMeans should give clusters closer to
 average (600 here) than KMeans.</p>
 <p>First count how many voxels have each label (except 0 which is the
 background).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_counts</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_labels_img</span></a><span class="p">),</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_counts</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kmeans_labels_img</span></a><span class="p">),</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans_counts</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">hkmeans_labels_img</span></a><span class="p">),</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
@@ -1156,7 +1156,7 @@ background).</p>
 </div>
 <p>Let’s plot clusters sizes distributions for both algorithms</p>
 <p>You can just skip the plotting code, the important part is the figure</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bins</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a><span class="p">(</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bins</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a><span class="p">(</span>
     <span class="p">[</span>
         <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
         <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
@@ -1183,7 +1183,7 @@ background).</p>
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.legend" title="matplotlib.figure.Figure.legend" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">handles</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f6258ad2880&gt;
+<img src="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f640c9dab80&gt;
 </pre></div>
 </div>
 <p>As we can see, half of the 50 KMeans clusters contain less than
@@ -1211,7 +1211,7 @@ Machine Intelligence, vol. 41, no. 3, pp. 669-681, 1 March 2019.
 <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-01366651/">https://hal.archives-ouvertes.fr/hal-01366651/</a></p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">Parcellations</span></a><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;rena&quot;</span><span class="p">,</span>
     <span class="n">n_parcels</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
@@ -1241,7 +1241,7 @@ ________________________________________________________________________________
 _estimator_fit(array([[-0.002154, ...,  0.002661],
        ...,
        [ 0.007053, ..., -0.007877]]),
-ReNA(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f625f3f86a0&gt;,
+ReNA(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f64254597f0&gt;,
      memory=Memory(location=nilearn_cache/joblib), n_clusters=5000,
      scaling=True),
 &#39;rena&#39;)
@@ -1250,7 +1250,7 @@ ________________________________________________________________________________
 recursive_neighbor_agglomeration(array([[-0.002154, ...,  0.002661],
        ...,
        [ 0.007053, ..., -0.007877]]),
-&lt;nibabel.nifti1.Nifti1Image object at 0x7f625f3f86a0&gt;, 5000, n_iter=10, threshold=1e-07, verbose=0)
+&lt;nibabel.nifti1.Nifti1Image object at 0x7f64254597f0&gt;, 5000, n_iter=10, threshold=1e-07, verbose=0)
 _________________________________recursive_neighbor_agglomeration - 0.4s, 0.0min
 ____________________________________________________estimator_fit - 0.6s, 0.0min
 [Parcellations.wrapped] loading data from Nifti1Image(
@@ -1269,7 +1269,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6258332a60&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f625f651b80&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f641aa3d4c0&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6409179430&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1278,9 +1278,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6258332a60&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6259c35d00&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f640ed265e0&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6259c35970&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f640ed26100&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -1294,7 +1294,7 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6258332a60&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 1.3s, 0.0min
-ReNA 5000 clusters: 5.13s
+ReNA 5000 clusters: 5.42s
 </pre></div>
 </div>
 </section>
@@ -1302,7 +1302,7 @@ ReNA 5000 clusters: 5.13s
 <h3>Visualize: Brain parcellations (ReNA)<a class="headerlink" href="#visualize-brain-parcellations-rena" title="Link to this heading">#</a></h3>
 <p>First, we display the parcellations of the brain image stored in attribute
 <cite>labels_img_</cite></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena</span><span class="o">.</span><span class="n">labels_img_</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena_labels_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena</span><span class="o">.</span><span class="n">labels_img_</span></a>
 
 <span class="c1"># Now, rena_labels_img are Nifti1Image object, it can be saved to file</span>
 <span class="c1"># with the following code:</span>
@@ -1316,7 +1316,7 @@ ReNA 5000 clusters: 5.13s
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f625ed272b0&gt;
+<img src="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f64191b6820&gt;
 </pre></div>
 </div>
 </section>
@@ -1327,7 +1327,7 @@ We show the original data, and the approximation provided by
 the clustering by averaging the signal on each parcel.</p>
 <p>We can then compare the results with the compressed representation
 obtained with Ward.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the original data</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the original data</span>
 <a href="../../modules/generated/nilearn.plotting.plot_epi.html#nilearn.plotting.plot_epi" title="nilearn.plotting.plot_epi" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_epi</span></a><span class="p">(</span>
     <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_func_img</span></a><span class="p">,</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="p">,</span>
@@ -1372,7 +1372,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f625f592b50&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f625ed97910&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f642544d970&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f641a8bb160&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1381,9 +1381,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f625f592b50&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f625ed97b80&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f642544d1f0&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f625ed97940&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f642544d100&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -1398,7 +1398,7 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f625f592b50&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 1.3s, 0.0min
 
-&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f625f3ad700&gt;
+&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f64255b8730&gt;
 </pre></div>
 </div>
 <p>Even if the compressed signal is relatively close
@@ -1407,17 +1407,17 @@ gives a slightly more accurate compressed representation.
 However, as said in the previous section, the computation time is
 reduced which could still make <a class="reference internal" href="../../glossary.html#term-ReNA"><span class="xref std std-term">ReNA</span></a> more relevant than Ward in
 some cases.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 37.282 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2987 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 38.346 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2955 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-data-driven-parcellations-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_data_driven_parcellations.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
 </div>
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
-<p><a class="reference download internal" download="" href="../../_downloads/386459a6054ce7cb5a9328ff8bd14379/plot_data_driven_parcellations.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_data_driven_parcellations.py</span></code></a></p>
-</div>
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/34fef91c90f36da995898e159cc3d8e6/plot_data_driven_parcellations.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_data_driven_parcellations.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/386459a6054ce7cb5a9328ff8bd14379/plot_data_driven_parcellations.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_data_driven_parcellations.py</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
