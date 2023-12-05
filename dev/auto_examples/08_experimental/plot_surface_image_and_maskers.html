@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev71+g570a65ad) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev72+gef089599) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -769,16 +769,7 @@ GitHub!</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_001.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_001.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/nilearn/experimental/__init__.py:10: UserWarning:
-
-
-
-
-All features in the nilearn.experimental module are experimental and subject to change. They are included in the nilearn package to gather early feedback from users about prototypes of new features. Changes may break backwards compatibility without prior notice or a deprecation cycle. Moreover, some features may be incomplete or may have been tested less thoroughly than the rest of the library.
-
-
-
-NKI image: &lt;SurfaceImage (895, 20484)&gt;
+<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_001.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_001.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>NKI image: &lt;SurfaceImage (895, 20484)&gt;
 Masked data shape: (895, 20484)
 Image mean: &lt;SurfaceImage (20484,)&gt;
 </pre></div>
@@ -832,11 +823,6 @@ that would force us to use a <cite>NiftiMasker</cite>.</p>
 
     <span class="n">param_validation</span><span class="o">.</span><span class="n">adjust_screening_percentile</span> <span class="o">=</span> <span class="n">adjust_screening_percentile</span>
 
-    <span class="k">def</span> <span class="nf">check_embedded_nifti_masker</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">estimator</span><span class="o">.</span><span class="n">mask</span>
-
-    <span class="n">decoding</span><span class="o">.</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html#sklearn.pipeline.Pipeline" title="sklearn.pipeline.Pipeline" class="sphx-glr-backref-module-sklearn-pipeline sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">decoder</span></a><span class="o">.</span><span class="n">_check_embedded_nifti_masker</span> <span class="o">=</span> <span class="n">check_embedded_nifti_masker</span>
-
 
 <span class="n">monkeypatch_masker_checks</span><span class="p">()</span>
 </pre></div>
@@ -859,7 +845,14 @@ as we do for volume images.</p>
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_004.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_004.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
+<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_004.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_004.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/nilearn/_utils/masker_validation.py:113: UserWarning:
+
+Overriding provided-default estimator parameters with provided masker parameters :
+Parameter standardize :
+    Masker parameter False - overriding estimator parameter True
+
+
+/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
 
 Features [    8    36    38 ... 20206 20207 20208] are constant.
 
@@ -921,8 +914,8 @@ CV scores: {0: [0.4991939095387371, 0.5115891053391053, 0.4847132034632034], 1: 
 <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 25.163 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1458 MB</p>
+<img src="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" srcset="../../_images/sphx_glr_plot_surface_image_and_maskers_005.png" alt="left_hemisphere, right_hemisphere" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 21.664 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1459 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-08-experimental-plot-surface-image-and-maskers-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/08_experimental/plot_surface_image_and_maskers.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo8.svg" width="150px" /></a>
