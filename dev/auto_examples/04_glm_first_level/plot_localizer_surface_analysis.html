@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev104+g8b0657bf) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev105+g3a4355ae) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -721,7 +721,7 @@ data sampled on the cortical surface and visualizing the results.</p>
 </ol>
 <p>The result of the analysis are statistical maps that are defined on the brain
 mesh. We display them using Nilearn capabilities.</p>
-<p>The projection of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data onto a given brain mesh requires
+<p>The projection of <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data onto a given brain <a class="reference internal" href="../../glossary.html#term-mesh"><span class="xref std std-term">mesh</span></a> requires
 that both are initially defined in the same space.</p>
 <ul class="simple">
 <li><p>The functional data should be coregistered to the anatomy from which the mesh
@@ -758,9 +758,11 @@ First, the volume-based <a class="reference internal" href="../../glossary.html#
 </section>
 <section id="project-the-fmri-image-to-the-surface">
 <h2>Project the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> image to the surface<a class="headerlink" href="#project-the-fmri-image-to-the-surface" title="Link to this heading">#</a></h2>
-<p>For this we need to get a mesh representing the geometry of the surface. We
-could use an individual mesh, but we first resort to a standard mesh, the
-so-called fsaverage5 template from the FreeSurfer software.</p>
+<p>For this we need to get a <a class="reference internal" href="../../glossary.html#term-mesh"><span class="xref std std-term">mesh</span></a>
+representing the geometry of the surface.
+We could use an individual <a class="reference internal" href="../../glossary.html#term-mesh"><span class="xref std std-term">mesh</span></a>,
+but we first resort to a standard <a class="reference internal" href="../../glossary.html#term-mesh"><span class="xref std std-term">mesh</span></a>,
+the so-called fsaverage5 template from the FreeSurfer software.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nilearn</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fsaverage</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_surf_fsaverage.html#nilearn.datasets.fetch_surf_fsaverage" title="nilearn.datasets.fetch_surf_fsaverage" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">nilearn</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_surf_fsaverage</span></a><span class="p">()</span>
@@ -942,7 +944,7 @@ Contrast 2 out of 3: audio - visual, left hemisphere
 Contrast 3 out of 3: computation - sentences, left hemisphere
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.264 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.405 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  209 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-localizer-surface-analysis-py">
 <div class="binder-badge docutils container">

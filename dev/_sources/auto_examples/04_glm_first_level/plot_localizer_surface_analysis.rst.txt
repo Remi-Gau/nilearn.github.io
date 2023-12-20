@@ -36,7 +36,7 @@ More specifically:
 The result of the analysis are statistical maps that are defined on the brain
 mesh. We display them using Nilearn capabilities.
 
-The projection of :term:`fMRI` data onto a given brain mesh requires
+The projection of :term:`fMRI` data onto a given brain :term:`mesh` requires
 that both are initially defined in the same space.
 
 * The functional data should be coregistered to the anatomy from which the mesh
@@ -111,16 +111,18 @@ Second, the experimental paradigm.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-67
 
 Project the :term:`fMRI` image to the surface
 ---------------------------------------------
 
-For this we need to get a mesh representing the geometry of the surface. We
-could use an individual mesh, but we first resort to a standard mesh, the
-so-called fsaverage5 template from the FreeSurfer software.
+For this we need to get a :term:`mesh`
+representing the geometry of the surface.
+We could use an individual :term:`mesh`,
+but we first resort to a standard :term:`mesh`,
+the so-called fsaverage5 template from the FreeSurfer software.
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-69
+.. GENERATED FROM PYTHON SOURCE LINES 67-71
 
 .. code-block:: Python
 
@@ -135,12 +137,12 @@ so-called fsaverage5 template from the FreeSurfer software.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-72
+.. GENERATED FROM PYTHON SOURCE LINES 72-74
 
 The projection function simply takes the :term:`fMRI` data and the mesh.
 Note that those correspond spatially, are they are both in :term:`MNI` space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-76
+.. GENERATED FROM PYTHON SOURCE LINES 74-78
 
 .. code-block:: Python
 
@@ -155,7 +157,7 @@ Note that those correspond spatially, are they are both in :term:`MNI` space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-82
+.. GENERATED FROM PYTHON SOURCE LINES 79-84
 
 Perform first level analysis
 ----------------------------
@@ -163,7 +165,7 @@ Perform first level analysis
 This involves computing the design matrix and fitting the model.
 We start by specifying the timing of :term:`fMRI` frames.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-87
+.. GENERATED FROM PYTHON SOURCE LINES 84-89
 
 .. code-block:: Python
 
@@ -179,7 +181,7 @@ We start by specifying the timing of :term:`fMRI` frames.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-93
+.. GENERATED FROM PYTHON SOURCE LINES 90-95
 
 Create the design matrix.
 
@@ -187,7 +189,7 @@ We specify an :term:`HRF` model
 containing the Glover model and its time derivative
 The drift model is implicitly a cosine basis with a period cutoff at 128s.
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-100
+.. GENERATED FROM PYTHON SOURCE LINES 95-102
 
 .. code-block:: Python
 
@@ -205,7 +207,7 @@ The drift model is implicitly a cosine basis with a period cutoff at 128s.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-107
+.. GENERATED FROM PYTHON SOURCE LINES 103-109
 
 Setup and fit GLM.
 
@@ -214,7 +216,7 @@ Note that the output consists in 2 variables: `labels` and `fit`.
 `estimates` contains the parameter estimates.
 We keep them for later :term:`contrast` computation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-111
+.. GENERATED FROM PYTHON SOURCE LINES 109-113
 
 .. code-block:: Python
 
@@ -229,7 +231,7 @@ We keep them for later :term:`contrast` computation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 112-118
+.. GENERATED FROM PYTHON SOURCE LINES 114-120
 
 Estimate contrasts
 ------------------
@@ -238,7 +240,7 @@ Specify the contrasts.
 For practical purpose, we first generate an identity matrix whose size is
 the number of columns of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 120-122
 
 .. code-block:: Python
 
@@ -251,11 +253,11 @@ the number of columns of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-122
+.. GENERATED FROM PYTHON SOURCE LINES 123-124
 
 At first, we create basic contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-125
+.. GENERATED FROM PYTHON SOURCE LINES 124-127
 
 .. code-block:: Python
 
@@ -269,12 +271,12 @@ At first, we create basic contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-128
+.. GENERATED FROM PYTHON SOURCE LINES 128-130
 
 Next, we add some intermediate contrasts and
 one :term:`contrast` adding all conditions with some auditory parts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-149
+.. GENERATED FROM PYTHON SOURCE LINES 130-151
 
 .. code-block:: Python
 
@@ -306,7 +308,7 @@ one :term:`contrast` adding all conditions with some auditory parts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-162
+.. GENERATED FROM PYTHON SOURCE LINES 152-164
 
 Finally, we create a dictionary of more relevant contrasts
 
@@ -321,7 +323,7 @@ Finally, we create a dictionary of more relevant contrasts
 Of course, we could define other contrasts,
 but we keep only 3 for simplicity.
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-177
+.. GENERATED FROM PYTHON SOURCE LINES 164-179
 
 .. code-block:: Python
 
@@ -347,11 +349,11 @@ but we keep only 3 for simplicity.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 178-179
+.. GENERATED FROM PYTHON SOURCE LINES 180-181
 
 Let's estimate the contrasts by iterating over them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-198
+.. GENERATED FROM PYTHON SOURCE LINES 181-200
 
 .. code-block:: Python
 
@@ -413,7 +415,7 @@ Let's estimate the contrasts by iterating over them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-204
+.. GENERATED FROM PYTHON SOURCE LINES 201-206
 
 Analysing the left hemisphere
 -----------------------------
@@ -421,11 +423,11 @@ Analysing the left hemisphere
 Note that re-creating the above analysis for the left hemisphere requires
 little additional code!
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-207
+.. GENERATED FROM PYTHON SOURCE LINES 208-209
 
 We project the :term:`fMRI` data to the mesh.
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-209
+.. GENERATED FROM PYTHON SOURCE LINES 209-211
 
 .. code-block:: Python
 
@@ -438,11 +440,11 @@ We project the :term:`fMRI` data to the mesh.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 210-211
+.. GENERATED FROM PYTHON SOURCE LINES 212-213
 
 Then we estimate the General Linear Model.
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-213
+.. GENERATED FROM PYTHON SOURCE LINES 213-215
 
 .. code-block:: Python
 
@@ -455,11 +457,11 @@ Then we estimate the General Linear Model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-215
+.. GENERATED FROM PYTHON SOURCE LINES 216-217
 
 Finally, we create contrast-specific maps and plot them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 215-229
+.. GENERATED FROM PYTHON SOURCE LINES 217-231
 
 .. code-block:: Python
 
@@ -519,7 +521,7 @@ Finally, we create contrast-specific maps and plot them.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.264 seconds)
+   **Total running time of the script:** (0 minutes 12.405 seconds)
 
 **Estimated memory usage:**  209 MB
 
