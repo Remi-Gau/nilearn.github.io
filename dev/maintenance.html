@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev107+g2504bedd) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev108+g6dc25eca) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -901,6 +901,14 @@ git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> 
 extracts the version number using this tag and writes it to a <code class="docutils literal notranslate"><span class="pre">_version.py</span></code> file.</p>
 </div>
 </section>
+<section id="build-of-stable-docs">
+<h3>Build of stable docs<a class="headerlink" href="#build-of-stable-docs" title="Link to this heading">#</a></h3>
+<p>Once the new version tag of a release is pushed upstream following the step
+above, the Github Actions workflow <code class="docutils literal notranslate"><span class="pre">release-docs.yml</span></code> will be triggered
+automatically to build the stable docs and push them to
+our github pages repository <code class="docutils literal notranslate"><span class="pre">nilearn/nilearn.github.io</span></code>. The workflow can
+also be triggered from the Actions tab.</p>
+</section>
 <section id="build-the-distributions-and-upload-them-to-pypi">
 <h3>Build the distributions and upload them to Pypi<a class="headerlink" href="#build-the-distributions-and-upload-them-to-pypi" title="Link to this heading">#</a></h3>
 <p>First of all we should make sure we don’t include files that shouldn’t be present:</p>
@@ -944,8 +952,13 @@ To do so, go to the <a class="reference external" href="https://github.com/nilea
 and edit the <code class="docutils literal notranslate"><span class="pre">x.y.z</span></code> tag by providing a description,
 and upload the distributions we just created (you can just drag and drop the files).</p>
 </section>
-<section id="build-and-deploy-the-documentation">
-<h3>Build and deploy the documentation<a class="headerlink" href="#build-and-deploy-the-documentation" title="Link to this heading">#</a></h3>
+<section id="build-and-deploy-the-documentation-manually">
+<h3>Build and deploy the documentation manually<a class="headerlink" href="#build-and-deploy-the-documentation-manually" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is now automated as described above. If there is a need to run it
+manually please follow the instructions below.</p>
+</div>
 <p>Before building the documentation, make sure that the following LaTeX
 dependencies are installed on your system:</p>
 <ul class="simple">
@@ -974,10 +987,10 @@ make<span class="w"> </span>install
 <li><p><a class="reference external" href="https://pkgs.org/search/?q=texlive-latex-base">https://pkgs.org/search/?q=texlive-latex-base</a></p></li>
 <li><p><a class="reference external" href="https://pkgs.org/search/?q=texlive-latex-extra">https://pkgs.org/search/?q=texlive-latex-extra</a></p></li>
 </ul>
-<p>We now need to update the documentation. Make sure to change <code class="docutils literal notranslate"><span class="pre">x.y.z</span></code> to the
-current release version:</p>
+<p>We now need to update the documentation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc
-make<span class="w"> </span>install<span class="w"> </span><span class="nv">VERSIONTAG</span><span class="o">=</span>x.y.z
+<span class="nb">export</span><span class="w"> </span><span class="nv">VERSIONTAG</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>describe<span class="w"> </span>--tags<span class="w"> </span>--abbrev<span class="o">=</span><span class="m">0</span><span class="k">)</span>
+make<span class="w"> </span>install
 </pre></div>
 </div>
 <p>This will build the documentation (beware, this is time consuming…)
@@ -1092,8 +1105,9 @@ and the usual <code class="docutils literal notranslate"><span class="pre">New</
 <li><a class="reference internal" href="#how-to-make-a-release">How to make a release?</a><ul>
 <li><a class="reference internal" href="#prepare-code-for-the-release">Prepare code for the release</a></li>
 <li><a class="reference internal" href="#prepare-the-release">Prepare the release</a></li>
+<li><a class="reference internal" href="#build-of-stable-docs">Build of stable docs</a></li>
 <li><a class="reference internal" href="#build-the-distributions-and-upload-them-to-pypi">Build the distributions and upload them to Pypi</a></li>
-<li><a class="reference internal" href="#build-and-deploy-the-documentation">Build and deploy the documentation</a></li>
+<li><a class="reference internal" href="#build-and-deploy-the-documentation-manually">Build and deploy the documentation manually</a></li>
 <li><a class="reference internal" href="#post-release">Post-release</a></li>
 </ul>
 </li>
