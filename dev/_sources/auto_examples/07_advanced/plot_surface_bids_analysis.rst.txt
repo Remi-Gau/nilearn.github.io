@@ -236,7 +236,7 @@ Empty lists in which we are going to store activation values.
         # We input them for contrast computation.
         labels, estimates = run_glm(texture.T, design_matrix.values)
         contrast = compute_contrast(labels, estimates, contrast_values,
-                                    contrast_type='t')
+                                    stat_type='t')
         # We present the Z-transform of the t map.
         z_score = contrast.z_score()
         z_scores_right.append(z_score)
@@ -245,7 +245,7 @@ Empty lists in which we are going to store activation values.
         texture = surface.vol_to_surf(fmri_img, fsaverage.pial_left)
         labels, estimates = run_glm(texture.T, design_matrix.values)
         contrast = compute_contrast(labels, estimates, contrast_values,
-                                    contrast_type='t')
+                                    stat_type='t')
         z_scores_left.append(contrast.z_score())
 
 
@@ -365,9 +365,9 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 13.186 seconds)
+   **Total running time of the script:** (1 minutes 10.400 seconds)
 
-**Estimated memory usage:**  457 MB
+**Estimated memory usage:**  479 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_surface_bids_analysis.py:
