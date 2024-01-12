@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev128+g89144df7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev129+ga5667b21) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -198,7 +198,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/00_tutorials/plot_nilearn_101.html">Basic nilearn example: manipulating and looking at data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/00_tutorials/plot_3d_and_4d_niimg.html">3D and 4D niimgs: handling and visualizing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/00_tutorials/plot_decoding_tutorial.html">A introduction tutorial to fMRI decoding</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/00_tutorials/plot_single_subject_single_run.html">Intro to GLM Analysis: a single-session, single-subject fMRI dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/00_tutorials/plot_single_subject_single_run.html">Intro to GLM Analysis: a single-run, single-subject fMRI dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../auto_examples/01_plotting/index.html">Visualization of brain images</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Visualization of brain images</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -230,8 +230,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_anova_svm.html">Decoding with ANOVA + SVM: face vs house in the Haxby dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_frem.html">Decoding with FREM: face vs house vs chair object recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_multiclass.html">The haxby dataset: different multi-class strategies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_searchlight.html">Searchlight analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_glm_decoding.html">Decoding of a dataset after GLM fit for signal extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_searchlight.html">Searchlight analysis of face vs house recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_full_analysis.html">ROI-based decoding analysis in Haxby et al. dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_haxby_grid_search.html">Setting a parameter by cross-validation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/02_decoding/plot_oasis_vbm.html">Voxel-Based Morphometry on Oasis dataset</a></li>
@@ -262,7 +262,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_adhd_dmn.html">Default Mode Network extraction of ADHD dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_design_matrix.html">Examples of design matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_fir_model.html">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html">Single-subject data (two sessions) in native space</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html">Single-subject data (two runs) in native space</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_hrf.html">Example of MRI response functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_fiac_analysis.html">Simple example of two-session fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/04_glm_first_level/plot_predictions_residuals.html">Predicted time series and residuals</a></li>
@@ -915,7 +915,7 @@ to enable a good measure the prediction error (at least 10-20% of the data as a
 rule of thumb).</p>
 <p>As a general advice :</p>
 <ul class="simple">
-<li><p>To train a decoder on one subject data, try to leave at least one session
+<li><p>To train a decoder on one subject data, try to leave at least one run
 out to have an independent test.</p></li>
 <li><p>To train a decoder across different subject data, leaving some subjects data
 out is often a good option.</p></li>
@@ -924,9 +924,9 @@ the worst option (see Varoquaux et al, <em>Assessing and tuning brain decoders:
 cross-validation, caveats, and guidelines</em>, Neuroimage 2017).</p></li>
 </ul>
 <p>To improve our first pipeline for the Haxby example, we can leave one entire
-session out. To do this, we can pass a <code class="docutils literal notranslate"><span class="pre">LeaveOneGroupOut</span></code> cross-validation
+run out. To do this, we can pass a <code class="docutils literal notranslate"><span class="pre">LeaveOneGroupOut</span></code> cross-validation
 object from scikit-learn to our <code class="docutils literal notranslate"><span class="pre">Decoder</span></code>. Fitting it with the information of
-groups=`session_labels` will use one session as test set.</p>
+groups=`run_labels` will use one run as test set.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Full code example can be found at :
@@ -1036,10 +1036,10 @@ argument. To keep the 10% most correlated voxels, just create us this parameter 
 <span class="c1"># Obtain prediction scores via cross validation</span>
 <span class="c1"># ---------------------------------------------</span>
 <span class="c1"># Define the cross-validation scheme used for validation. Here we use a</span>
-<span class="c1"># LeaveOneGroupOut cross-validation on the session group which corresponds to a</span>
-<span class="c1"># leave a session out scheme, then pass the cross-validator object to the cv</span>
-<span class="c1"># parameter of decoder.leave-one-session-out For more details please take a</span>
-<span class="c1"># look at:</span>
+<span class="c1"># LeaveOneGroupOut cross-validation on the run group which corresponds to a</span>
+<span class="c1"># leave a run out scheme, then pass the cross-validator object</span>
+<span class="c1"># to the cv parameter of decoder.leave-one-session-out.</span>
+<span class="c1"># For more details please take a look at:</span>
 <span class="c1"># `Measuring prediction scores using cross-validation\</span>
 <span class="c1"># &lt;../00_tutorials/plot_decoding_tutorial.html#measuring-prediction-scores-using-cross-validation&gt;`_</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneGroupOut</span>
@@ -1054,8 +1054,8 @@ argument. To keep the 10% most correlated voxels, just create us this parameter 
     <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span>
     <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="c1"># Compute the prediction accuracy for the different folds (i.e. session)</span>
-<span class="n">decoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">func_img</span><span class="p">,</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">session_label</span><span class="p">)</span>
+<span class="c1"># Compute the prediction accuracy for the different folds (i.e. run)</span>
+<span class="n">decoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">func_img</span><span class="p">,</span> <span class="n">conditions</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="n">run_label</span><span class="p">)</span>
 
 <span class="c1"># Print the CV scores</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">decoder</span><span class="o">.</span><span class="n">cv_scores_</span><span class="p">[</span><span class="s2">&quot;face&quot;</span><span class="p">])</span>

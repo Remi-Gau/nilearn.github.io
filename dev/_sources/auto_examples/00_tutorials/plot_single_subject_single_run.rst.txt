@@ -18,8 +18,8 @@
 .. _sphx_glr_auto_examples_00_tutorials_plot_single_subject_single_run.py:
 
 
-Intro to GLM Analysis: a single-session, single-subject fMRI dataset
-====================================================================
+Intro to GLM Analysis: a single-run, single-subject fMRI dataset
+================================================================
 
 In this tutorial, we use a General Linear Model (:term:`GLM`) to compare the
 :term:`fMRI` signal during periods of auditory stimulation
@@ -38,9 +38,10 @@ under the direction of Karl Friston. It is provided by FIL methods
 group which develops the :term:`SPM` software.
 
 According to :term:`SPM` documentation, 96 scans were acquired (repetition time
-:term:`TR` = 7s) in one session. The paradigm consisted of alternating periods
-of stimulation and rest, lasting 42s each (that is, for 6 scans). The session
-started with a rest block.  Auditory stimulation consisted of bi-syllabic words
+:term:`TR` = 7s) in one run. The paradigm consisted of alternating periods
+of stimulation and rest, lasting 42s each (that is, for 6 scans).
+The run started with a rest block.
+Auditory stimulation consisted of bi-syllabic words
 presented binaurally at a rate of 60 per minute.
 The functional data starts at scan number 4,
 that is the image file ``fM00223_004``.
@@ -51,7 +52,7 @@ MAGNETOM Vision system. Each scan consisted of 64 contiguous slices (64x64x64
 Acquisition of one scan took 6.05s, with the scan to scan repeat time
 (:term:`TR`) set arbitrarily to 7s.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-45
+.. GENERATED FROM PYTHON SOURCE LINES 38-46
 
 Retrieving the data
 -------------------
@@ -62,7 +63,7 @@ Retrieving the data
           These should abide to the Brain Imaging Data Structure
           (:term:`BIDS`) organization.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-51
+.. GENERATED FROM PYTHON SOURCE LINES 46-52
 
 .. code-block:: Python
 
@@ -89,11 +90,11 @@ Retrieving the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-53
+.. GENERATED FROM PYTHON SOURCE LINES 53-54
 
 We can display the first functional image and the subject's anatomy:
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-58
+.. GENERATED FROM PYTHON SOURCE LINES 54-59
 
 .. code-block:: Python
 
@@ -128,17 +129,17 @@ We can display the first functional image and the subject's anatomy:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7ff7ddce80b0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7ff0e4a75f40>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-62
+.. GENERATED FROM PYTHON SOURCE LINES 60-63
 
 Next, we concatenate all the 3D :term:`EPI` image into a single 4D image,
 then we average them in order to create a background
 image that will be used to display the activations:
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-68
+.. GENERATED FROM PYTHON SOURCE LINES 63-69
 
 .. code-block:: Python
 
@@ -155,7 +156,7 @@ image that will be used to display the activations:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-76
+.. GENERATED FROM PYTHON SOURCE LINES 70-77
 
 Specifying the experimental paradigm
 ------------------------------------
@@ -165,7 +166,7 @@ timing of the auditory stimulation and rest periods. This is typically
 provided in an events.tsv file. The path of this file is
 provided in the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 77-82
 
 .. code-block:: Python
 
@@ -309,7 +310,7 @@ provided in the dataset.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-88
+.. GENERATED FROM PYTHON SOURCE LINES 83-89
 
 Performing the :term:`GLM` analysis
 -----------------------------------
@@ -318,7 +319,7 @@ It is now time to create and estimate a ``FirstLevelModel`` object,
 that will generate the *design matrix*
 using the information provided by the ``events`` object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-91
+.. GENERATED FROM PYTHON SOURCE LINES 89-92
 
 .. code-block:: Python
 
@@ -332,7 +333,7 @@ using the information provided by the ``events`` object.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-105
+.. GENERATED FROM PYTHON SOURCE LINES 93-106
 
 Parameters of the first-level model
 
@@ -348,7 +349,7 @@ Parameters of the first-level model
 * high_pass=0.01(Hz) defines the cutoff frequency
   (inverse of the time period).
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-114
+.. GENERATED FROM PYTHON SOURCE LINES 106-115
 
 .. code-block:: Python
 
@@ -368,11 +369,11 @@ Parameters of the first-level model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-116
+.. GENERATED FROM PYTHON SOURCE LINES 116-117
 
 Now that we have specified the model, we can run it on the :term:`fMRI` image
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-118
+.. GENERATED FROM PYTHON SOURCE LINES 117-119
 
 .. code-block:: Python
 
@@ -385,12 +386,12 @@ Now that we have specified the model, we can run it on the :term:`fMRI` image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-121
+.. GENERATED FROM PYTHON SOURCE LINES 120-122
 
 One can inspect the design matrix (rows represent time, and
 columns contain the predictors).
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-123
+.. GENERATED FROM PYTHON SOURCE LINES 122-124
 
 .. code-block:: Python
 
@@ -403,12 +404,12 @@ columns contain the predictors).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-126
+.. GENERATED FROM PYTHON SOURCE LINES 125-127
 
 Formally, we have taken the first design matrix, because the model is
 implictily meant to for multiple runs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-134
+.. GENERATED FROM PYTHON SOURCE LINES 127-135
 
 .. code-block:: Python
 
@@ -432,12 +433,12 @@ implictily meant to for multiple runs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-137
+.. GENERATED FROM PYTHON SOURCE LINES 136-138
 
 Save the design matrix image to disk
 first create a directory where you want to write the images
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-150
+.. GENERATED FROM PYTHON SOURCE LINES 138-151
 
 .. code-block:: Python
 
@@ -461,13 +462,13 @@ first create a directory where you want to write the images
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-154
+.. GENERATED FROM PYTHON SOURCE LINES 152-155
 
 The first column contains the expected response profile of regions which are
 sensitive to the auditory stimulation.
 Let's plot this first column
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-160
+.. GENERATED FROM PYTHON SOURCE LINES 155-161
 
 .. code-block:: Python
 
@@ -489,7 +490,7 @@ Let's plot this first column
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-172
+.. GENERATED FROM PYTHON SOURCE LINES 162-173
 
 Detecting voxels with significant effects
 -----------------------------------------
@@ -503,7 +504,7 @@ effects.  Here we can define canonical contrasts that just consider
 the two effects in isolation ---let's call them "conditions"---
 then a :term:`contrast` that makes the difference between these conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 172-179
+.. GENERATED FROM PYTHON SOURCE LINES 173-180
 
 .. code-block:: Python
 
@@ -521,12 +522,12 @@ then a :term:`contrast` that makes the difference between these conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-182
+.. GENERATED FROM PYTHON SOURCE LINES 181-183
 
 We can then compare the two conditions 'active' and 'rest' by
 defining the corresponding :term:`contrast`:
 
-.. GENERATED FROM PYTHON SOURCE LINES 182-185
+.. GENERATED FROM PYTHON SOURCE LINES 183-186
 
 .. code-block:: Python
 
@@ -540,12 +541,12 @@ defining the corresponding :term:`contrast`:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-188
+.. GENERATED FROM PYTHON SOURCE LINES 187-189
 
 Let's look at it: plot the coefficients of the :term:`contrast`, indexed by
 the names of the columns of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-193
+.. GENERATED FROM PYTHON SOURCE LINES 189-194
 
 .. code-block:: Python
 
@@ -572,13 +573,13 @@ the names of the columns of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 194-197
+.. GENERATED FROM PYTHON SOURCE LINES 195-198
 
 Below, we compute the :term:`'estimated effect'<Parameter Estimate>`.
 It is in :term:`BOLD` signal unit, but has no statistical guarantees,
 because it does not take into account the associated variance.
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-202
+.. GENERATED FROM PYTHON SOURCE LINES 198-203
 
 .. code-block:: Python
 
@@ -594,14 +595,14 @@ because it does not take into account the associated variance.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 203-207
+.. GENERATED FROM PYTHON SOURCE LINES 204-208
 
 In order to get statistical significance, we form a t-statistic, and
 directly convert it into z-scale. The z-scale means that the values
 are scaled to match a standard Gaussian distribution (mean=0,
 variance=1), across voxels, if there were no effects in the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-210
+.. GENERATED FROM PYTHON SOURCE LINES 208-211
 
 .. code-block:: Python
 
@@ -615,7 +616,7 @@ variance=1), across voxels, if there were no effects in the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 211-219
+.. GENERATED FROM PYTHON SOURCE LINES 212-220
 
 Plot thresholded z scores map
 -----------------------------
@@ -626,7 +627,7 @@ subject).  We use arbitrarily a threshold of 3.0 in z-scale. We'll
 see later how to use corrected thresholds. We will show 3
 axial views, with display_mode='z' and cut_coords=3.
 
-.. GENERATED FROM PYTHON SOURCE LINES 219-231
+.. GENERATED FROM PYTHON SOURCE LINES 220-232
 
 .. code-block:: Python
 
@@ -654,7 +655,7 @@ axial views, with display_mode='z' and cut_coords=3.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 232-240
+.. GENERATED FROM PYTHON SOURCE LINES 233-241
 
 Statistical significance testing. One should worry about the
 statistical validity of the procedure: here we used an arbitrary
@@ -665,7 +666,7 @@ One suggestion is to control the false positive rate
 at a certain level, e.g. 0.001: this means that there is 0.1% chance
 of declaring an inactive :term:`voxel`, active.
 
-.. GENERATED FROM PYTHON SOURCE LINES 240-256
+.. GENERATED FROM PYTHON SOURCE LINES 241-257
 
 .. code-block:: Python
 
@@ -703,7 +704,7 @@ of declaring an inactive :term:`voxel`, active.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 257-262
+.. GENERATED FROM PYTHON SOURCE LINES 258-263
 
 The problem is that with this you expect 0.001 * n_voxels to show up
 while they're not active --- tens to hundreds of voxels. A more
@@ -711,7 +712,7 @@ conservative solution is to control the family wise error rate,
 i.e. the probability of making only one false detection, say at
 5%. For that we use the so-called Bonferroni correction.
 
-.. GENERATED FROM PYTHON SOURCE LINES 262-278
+.. GENERATED FROM PYTHON SOURCE LINES 263-279
 
 .. code-block:: Python
 
@@ -749,14 +750,14 @@ i.e. the probability of making only one false detection, say at
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 279-283
+.. GENERATED FROM PYTHON SOURCE LINES 280-284
 
 This is quite conservative indeed!  A popular alternative is to
 control the expected proportion of
 false discoveries among detections. This is called the False
 discovery rate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 283-297
+.. GENERATED FROM PYTHON SOURCE LINES 284-298
 
 .. code-block:: Python
 
@@ -792,7 +793,7 @@ discovery rate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-303
+.. GENERATED FROM PYTHON SOURCE LINES 299-304
 
 Finally people like to discard isolated voxels (aka "small
 clusters") from these images. It is possible to generate a
@@ -800,7 +801,7 @@ thresholded map with small clusters removed by providing a
 cluster_threshold argument. Here clusters smaller than 10 voxels
 will be discarded.
 
-.. GENERATED FROM PYTHON SOURCE LINES 303-319
+.. GENERATED FROM PYTHON SOURCE LINES 304-320
 
 .. code-block:: Python
 
@@ -832,11 +833,11 @@ will be discarded.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 320-321
+.. GENERATED FROM PYTHON SOURCE LINES 321-322
 
 We can save the effect and zscore maps to the disk.
 
-.. GENERATED FROM PYTHON SOURCE LINES 321-324
+.. GENERATED FROM PYTHON SOURCE LINES 322-325
 
 .. code-block:: Python
 
@@ -850,11 +851,11 @@ We can save the effect and zscore maps to the disk.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 325-326
+.. GENERATED FROM PYTHON SOURCE LINES 326-327
 
 We can furthermore extract and report the found positions in a table.
 
-.. GENERATED FROM PYTHON SOURCE LINES 326-334
+.. GENERATED FROM PYTHON SOURCE LINES 327-335
 
 .. code-block:: Python
 
@@ -1160,11 +1161,11 @@ We can furthermore extract and report the found positions in a table.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 335-336
+.. GENERATED FROM PYTHON SOURCE LINES 336-337
 
 This table can be saved for future use.
 
-.. GENERATED FROM PYTHON SOURCE LINES 336-339
+.. GENERATED FROM PYTHON SOURCE LINES 337-340
 
 .. code-block:: Python
 
@@ -1178,7 +1179,7 @@ This table can be saved for future use.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 340-349
+.. GENERATED FROM PYTHON SOURCE LINES 341-350
 
 Performing an F-test
 --------------------
@@ -1190,13 +1191,13 @@ three- or higher-dimensional) explains a significant proportion of
 the signal.  Here one might for instance test which voxels are well
 explained by the combination of the active and rest condition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 351-354
+.. GENERATED FROM PYTHON SOURCE LINES 352-355
 
 Specify the :term:`contrast` and compute the corresponding map.
 Actually, the :term:`contrast` specification is done exactly the same way
 as for t-contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 354-361
+.. GENERATED FROM PYTHON SOURCE LINES 355-362
 
 .. code-block:: Python
 
@@ -1219,12 +1220,12 @@ as for t-contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 362-364
+.. GENERATED FROM PYTHON SOURCE LINES 363-365
 
 Note that the statistic has been converted to a z-variable, which
 makes it easier to represent it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 364-379
+.. GENERATED FROM PYTHON SOURCE LINES 365-380
 
 .. code-block:: Python
 
@@ -1255,16 +1256,16 @@ makes it easier to represent it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 380-381
+.. GENERATED FROM PYTHON SOURCE LINES 381-382
 
 Oops, there is a lot of non-neural signal in there (ventricles, arteries)...
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 17.039 seconds)
+   **Total running time of the script:** (0 minutes 15.049 seconds)
 
-**Estimated memory usage:**  277 MB
+**Estimated memory usage:**  279 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_single_subject_single_run.py:

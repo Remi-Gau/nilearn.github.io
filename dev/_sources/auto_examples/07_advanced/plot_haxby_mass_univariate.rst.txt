@@ -24,9 +24,9 @@ Massively univariate analysis of face vs house recognition
 A permuted Ordinary Least Squares algorithm is run at each voxel in
 order to determine whether or not it behaves differently under a "face
 viewing" condition and a "house viewing" condition.
-We consider the mean image per session and per condition.
+We consider the mean image per run and per condition.
 Otherwise, the observations cannot be exchanged at random because
-a time dependence exists between observations within a same session
+a time dependence exists between observations within a same run
 (see [1] for more detailed explanations).
 
 The example shows the small differences that exist between
@@ -99,7 +99,7 @@ Restrict to faces and houses
     conditions_encoded = np.zeros_like(conditions)
     for c, category in enumerate(categories):
         conditions_encoded[conditions == category] = c
-    sessions = labels["chunks"]
+    runs = labels["chunks"]
     condition_mask = conditions.isin(["face", "house"])
     conditions_encoded = conditions_encoded[condition_mask]
 
@@ -114,7 +114,7 @@ Restrict to faces and houses
 
 Mask data
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-106
+.. GENERATED FROM PYTHON SOURCE LINES 64-104
 
 .. code-block:: Python
 
@@ -133,32 +133,30 @@ Mask data
     func_reduced = index_img(func_filename, condition_mask)
     fmri_masked = nifti_masker.fit_transform(func_reduced)
 
-    # We consider the mean image per session and per condition.
+    # We consider the mean image per run and per condition.
     # Otherwise, the observations cannot be exchanged at random because
-    # a time dependence exists between observations within a same session.
-    n_sessions = np.unique(sessions).size
-    conditions_per_session = 2
+    # a time dependence exists between observations within a same run.
+    n_runs = np.unique(runs).size
+    conditions_per_run = 2
     grouped_fmri_masked = np.empty(
-        (conditions_per_session * n_sessions, fmri_masked.shape[1])
+        (conditions_per_run * n_runs, fmri_masked.shape[1])
     )
-    grouped_conditions_encoded = np.empty((conditions_per_session * n_sessions, 1))
+    grouped_conditions_encoded = np.empty((conditions_per_run * n_runs, 1))
 
-    for s in range(n_sessions):
-        session_mask = sessions[condition_mask] == s
-        session_house_mask = np.logical_and(
-            session_mask, conditions[condition_mask] == "house"
+    for s in range(n_runs):
+        run_mask = runs[condition_mask] == s
+        run_house_mask = np.logical_and(
+            run_mask, conditions[condition_mask] == "house"
         )
-        session_face_mask = np.logical_and(
-            session_mask, conditions[condition_mask] == "face"
+        run_face_mask = np.logical_and(
+            run_mask, conditions[condition_mask] == "face"
         )
-        grouped_fmri_masked[2 * s] = fmri_masked[session_house_mask].mean(0)
-        grouped_fmri_masked[2 * s + 1] = fmri_masked[session_face_mask].mean(0)
-        grouped_conditions_encoded[2 * s] = conditions_encoded[session_house_mask][
+        grouped_fmri_masked[2 * s] = fmri_masked[run_house_mask].mean(0)
+        grouped_fmri_masked[2 * s + 1] = fmri_masked[run_face_mask].mean(0)
+        grouped_conditions_encoded[2 * s] = conditions_encoded[run_house_mask][0]
+        grouped_conditions_encoded[2 * s + 1] = conditions_encoded[run_face_mask][
             0
         ]
-        grouped_conditions_encoded[2 * s + 1] = conditions_encoded[
-            session_face_mask
-        ][0]
 
 
 
@@ -167,14 +165,14 @@ Mask data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-111
+.. GENERATED FROM PYTHON SOURCE LINES 105-109
 
 Perform massively univariate analysis with permuted OLS
 
 We use a two-sided t-test to compute p-values, but we keep trace of the
 effect sign to add it back at the end and thus observe the signed effect
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-127
+.. GENERATED FROM PYTHON SOURCE LINES 109-125
 
 .. code-block:: Python
 
@@ -203,18 +201,18 @@ effect sign to add it back at the end and thus observe the signed effect
  .. code-block:: none
 
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    5.0s finished
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    4.6s finished
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-131
+.. GENERATED FROM PYTHON SOURCE LINES 126-129
 
 scikit-learn F-scores for comparison
 
 F-test does not allow to observe the effect sign (pure two-sided test)
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-145
+.. GENERATED FROM PYTHON SOURCE LINES 129-143
 
 .. code-block:: Python
 
@@ -248,11 +246,11 @@ F-test does not allow to observe the effect sign (pure two-sided test)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-147
+.. GENERATED FROM PYTHON SOURCE LINES 144-145
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-204
+.. GENERATED FROM PYTHON SOURCE LINES 145-202
 
 .. code-block:: Python
 
@@ -340,9 +338,9 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.335 seconds)
+   **Total running time of the script:** (0 minutes 15.097 seconds)
 
-**Estimated memory usage:**  1015 MB
+**Estimated memory usage:**  984 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_haxby_mass_univariate.py:

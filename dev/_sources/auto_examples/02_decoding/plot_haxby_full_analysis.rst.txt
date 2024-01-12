@@ -74,7 +74,7 @@ Load and prepare the data
     categories = stimuli[task_mask].unique()
 
     # extract tags indicating to which acquisition run a tag belongs
-    session_labels = labels["chunks"][task_mask]
+    run_labels = labels["chunks"][task_mask]
 
     # apply the task_mask to  fMRI data (func_filename)
     from nilearn.image import index_img
@@ -158,7 +158,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
                 scoring="roc_auc",
                 standardize="zscore_sample",
             )
-            decoder.fit(task_data, classification_target, groups=session_labels)
+            decoder.fit(task_data, classification_target, groups=run_labels)
             mask_scores[mask_name][category] = decoder.cv_scores_[1]
             mean = np.mean(mask_scores[mask_name][category])
             std = np.std(mask_scores[mask_name][category])
@@ -172,7 +172,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
                 standardize="zscore_sample",
             )
             dummy_classifier.fit(
-                task_data, classification_target, groups=session_labels
+                task_data, classification_target, groups=run_labels
             )
             mask_chance_scores[mask_name][category] = dummy_classifier.cv_scores_[
                 1
@@ -253,7 +253,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Scores: 0.89 +- 0.08
+    Scores: 0.89 +- 0.09
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -691,9 +691,9 @@ We make a simple bar plot to summarize the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 51.977 seconds)
+   **Total running time of the script:** (2 minutes 21.280 seconds)
 
-**Estimated memory usage:**  1359 MB
+**Estimated memory usage:**  1337 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_full_analysis.py:
