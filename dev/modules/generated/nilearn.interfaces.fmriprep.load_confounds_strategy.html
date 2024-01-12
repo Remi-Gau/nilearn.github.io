@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev127+g33777378) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev128+g89144df7) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -717,7 +717,7 @@ function signature, and not how to use it. Please refer to the
 <h1>nilearn.interfaces.fmriprep.load_confounds_strategy<a class="headerlink" href="#nilearn-interfaces-fmriprep-load-confounds-strategy" title="Link to this heading">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.interfaces.fmriprep.load_confounds_strategy">
-<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/33777378/nilearn/interfaces/fmriprep/load_confounds_strategy.py#L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds_strategy" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denoise_strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/89144df7/nilearn/interfaces/fmriprep/load_confounds_strategy.py#L52"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds_strategy" title="Link to this definition">#</a></dt>
 <dd><p>Use preset strategy to load confounds from <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a>.</p>
 <p><cite>load_confounds_strategy</cite> provides an interface to select confounds
 based on past literature with limited parameters for user customisation.</p>
@@ -746,18 +746,18 @@ please see the table in Notes.</p>
 <ul class="simple">
 <li><p>‘simple’: Load confounds for a simple denoising strategy commonly
 used in resting state functional connectivity, described in
-<a class="footnote-reference brackets" href="#footcite-fox2005" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. With the global signal regression, this approach
-can remove confounds without compromising the temporal degrees of
-freedom.</p></li>
+Fox <em>et al.</em><a class="footnote-reference brackets" href="#footcite-fox2005" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>. With the global signal regression,
+this approach can remove confounds
+without compromising the temporal degrees of freedom.</p></li>
 <li><p>‘srubbing’: Load confounds for scrubbing described in
-<a class="footnote-reference brackets" href="#footcite-power2012" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. This approach can reliably remove the
+Power <em>et al.</em><a class="footnote-reference brackets" href="#footcite-power2012" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. This approach can reliably remove the
 impact of high motion volumes in functional connectome, however, it
 might not be suitable with subjects with high motion (more than 50%
 timeseries flagged as high motion). One should adjust the threshold
 based on the characteristics of the dataset, or remove high motion
 subjects from the dataset.</p></li>
 <li><p>‘compcor’: Load confounds using the CompCor strategy from
-<a class="footnote-reference brackets" href="#footcite-behzadi2007" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. CompCor estimates noise through principal
+Behzadi <em>et al.</em><a class="footnote-reference brackets" href="#footcite-behzadi2007" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. CompCor estimates noise through principal
 component analysis on regions that are unlikely to contain signal.
 Thus it might not be a suitable approach for researchers who want
 explicit description of the source of noise. Empirically, Compcor
@@ -768,11 +768,11 @@ variance as the noise component estimation as the number of compcor
 component can be really high. Please refer to <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a>
 documentation for more details.</p></li>
 <li><p>‘ica_aroma’: Load confounds for non-aggresive ICA-AROMA strategy
-described in <a class="footnote-reference brackets" href="#footcite-pruim2015" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>. The strategy requires
+described in Pruim <em>et al.</em><a class="footnote-reference brackets" href="#footcite-pruim2015" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>. The strategy requires
 <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> outputs generated with <cite>–use-aroma</cite> suffixed with
 <cite>desc-smoothAROMAnonaggr_bold</cite>. ICA-AROMA increases the run time of
 <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a>, however, the strategy performs well in various
-benchmarks (<a class="footnote-reference brackets" href="#footcite-ciric2017" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>, <a class="footnote-reference brackets" href="#footcite-parker2018" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>).
+benchmarks (Ciric <em>et al.</em><a class="footnote-reference brackets" href="#footcite-ciric2017" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>, Parkes <em>et al.</em><a class="footnote-reference brackets" href="#footcite-parker2018" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a>).
 See Notes for more details about this option.</p></li>
 </ul>
 </dd>
@@ -891,7 +891,7 @@ see <a class="reference internal" href="nilearn.interfaces.fmriprep.load_confoun
 </div>
 </div></blockquote>
 </li>
-<li><p>ICA-AROMA is implemented in two steps in <a class="footnote-reference brackets" href="#footcite-pruim2015" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>:</p>
+<li><p>ICA-AROMA is implemented in two steps in Pruim <em>et al.</em><a class="footnote-reference brackets" href="#footcite-pruim2015" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>:</p>
 <blockquote>
 <div><p>i. A non-aggressive denoising immediately after <a class="reference internal" href="../../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a>
 classification.
