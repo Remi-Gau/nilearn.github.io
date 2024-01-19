@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev132+g0ad24e1d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev139+ga366d22e) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -257,17 +257,16 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../04_glm_first_level/index.html">GLM: First level analysis</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of GLM: First level analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_fixed_effects.html">Example of explicit fixed effects fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_write_events_file.html">Generate an events.tsv file for the NeuroSpin localizer task</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_adhd_dmn.html">Default Mode Network extraction of ADHD dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_design_matrix.html">Examples of design matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_fir_model.html">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_spm_multimodal_faces.html">Single-subject data (two runs) in native space</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_hrf.html">Example of MRI response functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_fiac_analysis.html">Simple example of two-session fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_predictions_residuals.html">Predicted time series and residuals</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_bids_features.html">First level analysis of a complete BIDS dataset from openneuro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_localizer_surface_analysis.html">Example of surface-based first-level analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_two_runs_model.html">Simple example of two-runs fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../04_glm_first_level/plot_first_level_details.html">Understanding parameters of the first-level model</a></li>
 </ul>
 </li>
@@ -811,16 +810,16 @@ However, the images need to be in <a class="reference internal" href="../../glos
 [{self.__class__.__name__}.fit] Computing mask
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 Template whole-brain mask computation
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [CanICA] Loading data
@@ -829,11 +828,11 @@ ________________________________________________________________________________
 randomized_svd(array([[0.003659, ..., 0.013254],
        ...,
        [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-___________________________________________________randomized_svd - 0.5s, 0.0min
+___________________________________________________randomized_svd - 0.6s, 0.0min
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    4.2s
+[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    4.6s
 [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    8.8s
-[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   21.6s finished
+[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   21.2s finished
 </pre></div>
 </div>
 <p>To visualize we plot the outline of all components on one figure</p>
@@ -848,7 +847,7 @@ ___________________________________________________randomized_svd - 0.5s, 0.0min
 linewidths is ignored by contourf
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f5aae2f8590&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f829d4db8f0&gt;
 </pre></div>
 </div>
 <p>Finally, we plot the map for each <a class="reference internal" href="../../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> component separately</p>
@@ -962,15 +961,15 @@ ISBI 2016, Lecture Notes in Computer Science</p></li>
 [{self.__class__.__name__}.fit] Computing mask
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f5aae259a80&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7f829dba2480&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [DictLearning] Loading data
@@ -980,7 +979,7 @@ ________________________________________________________________________________
 randomized_svd(array([[-0.001315, ...,  0.004387],
        ...,
        [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-___________________________________________________randomized_svd - 0.6s, 0.0min
+___________________________________________________randomized_svd - 0.5s, 0.0min
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
 [DictLearning] Computing initial loadings
 ________________________________________________________________________________
@@ -1017,7 +1016,7 @@ _____________________________________________dict_learning_online - 2.9s, 0.0min
 linewidths is ignored by contourf
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f5a929c29f0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f828d2b6b40&gt;
 </pre></div>
 </div>
 <p>One plot of each component</p>
@@ -1087,7 +1086,7 @@ array([[0., ..., 0.],
 
 Persisting input arguments took 1.30s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
 
-______________________________________________explained_variance - 15.5s, 0.3min
+______________________________________________explained_variance - 17.1s, 0.3min
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1096,8 +1095,8 @@ ______________________________________________explained_variance - 15.5s, 0.3min
 created using <a class="reference internal" href="../../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a>, see <a class="reference internal" href="plot_extract_regions_dictlearning_maps.html#sphx-glr-auto-examples-03-connectivity-plot-extract-regions-dictlearning-maps-py"><span class="std std-ref">example Regions
 extraction using dictionary learning and functional connectomes</span></a>.</p>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 36.727 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2935 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 56.715 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2941 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-compare-decomposition-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_compare_decomposition.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>

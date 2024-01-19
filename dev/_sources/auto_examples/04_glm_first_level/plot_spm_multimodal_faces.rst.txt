@@ -40,25 +40,11 @@ https://doi.org/10.1093/cercor/13.7.793
 This example takes a lot of time because the input are lists of 3D images
 sampled in different positions (encoded by different affine functions).
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
-
-.. code-block:: Python
-
-    print(__doc__)
-
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Fetch the :term:`SPM` multimodal_faces data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-35
+.. GENERATED FROM PYTHON SOURCE LINES 26-30
 
 .. code-block:: Python
 
@@ -73,11 +59,11 @@ Fetch the :term:`SPM` multimodal_faces data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 31-32
 
 Specify timing and design matrix parameters.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-49
+.. GENERATED FROM PYTHON SOURCE LINES 32-44
 
 .. code-block:: Python
 
@@ -100,13 +86,13 @@ Specify timing and design matrix parameters.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-53
+.. GENERATED FROM PYTHON SOURCE LINES 45-48
 
 Resample the images.
 
 This is achieved by the concat_imgs function of Nilearn.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-68
+.. GENERATED FROM PYTHON SOURCE LINES 48-63
 
 .. code-block:: Python
 
@@ -138,11 +124,11 @@ This is achieved by the concat_imgs function of Nilearn.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-70
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
 
 Let's create mean image for display purposes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-72
+.. GENERATED FROM PYTHON SOURCE LINES 65-67
 
 .. code-block:: Python
 
@@ -155,11 +141,11 @@ Let's create mean image for display purposes.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
 
 Make the design matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-81
+.. GENERATED FROM PYTHON SOURCE LINES 69-76
 
 .. code-block:: Python
 
@@ -177,11 +163,11 @@ Make the design matrices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-83
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Loop over the two runs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-101
+.. GENERATED FROM PYTHON SOURCE LINES 78-96
 
 .. code-block:: Python
 
@@ -210,14 +196,14 @@ Loop over the two runs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-106
+.. GENERATED FROM PYTHON SOURCE LINES 97-101
 
 We can specify basic contrasts (to get :term:`beta<Parameter Estimate>`
 maps).
 We start by specifying canonical :term:`contrast`
 that isolate design matrix columns.
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-112
+.. GENERATED FROM PYTHON SOURCE LINES 101-107
 
 .. code-block:: Python
 
@@ -234,7 +220,7 @@ that isolate design matrix columns.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-118
+.. GENERATED FROM PYTHON SOURCE LINES 108-113
 
 We actually want more interesting contrasts. The simplest contrast
 just makes the difference between the two main conditions.  We
@@ -242,7 +228,7 @@ define the two opposite versions to run one-tailed t-tests.  We also
 define the effects of interest contrast, a 2-dimensional contrasts
 spanning the two conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-128
+.. GENERATED FROM PYTHON SOURCE LINES 113-123
 
 .. code-block:: Python
 
@@ -263,12 +249,12 @@ spanning the two conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-131
+.. GENERATED FROM PYTHON SOURCE LINES 124-126
 
 Fit the :term:`GLM` for the 2 runs
 by specifying a FirstLevelModel and then fitting it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-137
+.. GENERATED FROM PYTHON SOURCE LINES 126-132
 
 .. code-block:: Python
 
@@ -291,12 +277,12 @@ by specifying a FirstLevelModel and then fitting it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-140
+.. GENERATED FROM PYTHON SOURCE LINES 133-135
 
 Now we can compute contrast-related statistical maps (in z-scale), and plot
 them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-163
+.. GENERATED FROM PYTHON SOURCE LINES 135-158
 
 .. code-block:: Python
 
@@ -357,17 +343,17 @@ them.
 
     Computing contrasts
             contrast id: faces-scrambled
-    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
             contrast id: scrambled-faces
-    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
             contrast id: effects_of_interest
-    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
     One contrast given, assuming it for all 2 runs
 
@@ -379,7 +365,7 @@ them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-170
+.. GENERATED FROM PYTHON SOURCE LINES 159-165
 
 Based on the resulting maps we observe that the analysis results in
 wide activity for the 'effects of interest' contrast, showing the
@@ -391,9 +377,9 @@ also displays some responses in the frontal lobe.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 42.405 seconds)
+   **Total running time of the script:** (1 minutes 44.863 seconds)
 
-**Estimated memory usage:**  880 MB
+**Estimated memory usage:**  877 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_spm_multimodal_faces.py:

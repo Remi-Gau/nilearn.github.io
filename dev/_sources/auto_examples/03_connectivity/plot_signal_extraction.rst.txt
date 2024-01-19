@@ -179,7 +179,7 @@ Using the NiftiLabelsMasker
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5ab2064d40>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f82757537d0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -188,7 +188,7 @@ Using the NiftiLabelsMasker
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5a8b149040>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f8282651160>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -259,7 +259,7 @@ Compute and display a correlation matrix
  .. code-block:: none
 
 
-    <matplotlib.image.AxesImage object at 0x7f5ab2067920>
+    <matplotlib.image.AxesImage object at 0x7f8275753470>
 
 
 
@@ -317,7 +317,7 @@ connectivity matrix looks like without confound removal.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5ab1fff260>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f827723bcb0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -326,7 +326,7 @@ connectivity matrix looks like without confound removal.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5a8b149040>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f8282651160>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -340,9 +340,9 @@ connectivity matrix looks like without confound removal.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 0.7s, 0.0min
+    _______________________________________________filter_and_extract - 0.8s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5a89719e80>
+    <matplotlib.image.AxesImage object at 0x7f828bba27b0>
 
 
 
@@ -425,7 +425,7 @@ cerebrospinal fluid signal with high-pass filtering.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5aae63e870>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f829e341c70>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -434,7 +434,7 @@ cerebrospinal fluid signal with high-pass filtering.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5a8b149040>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f8282651160>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -461,9 +461,9 @@ cerebrospinal fluid signal with high-pass filtering.
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 0.7s, 0.0min
+    _______________________________________________filter_and_extract - 0.8s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5a8b607320>
+    <matplotlib.image.AxesImage object at 0x7f827d118bf0>
 
 
 
@@ -492,8 +492,8 @@ strategy.
         motion="basic",
         wm_csf="basic",
         scrub=5,
-        fd_threshold=0.2,
-        std_dvars_threshold=3,
+        fd_threshold=0.5,
+        std_dvars_threshold=1.5,
     )
 
     print(
@@ -534,7 +534,7 @@ strategy.
 
  .. code-block:: none
 
-    After scrubbing, 119 out of 168 volumes remains
+    After scrubbing, 164 out of 168 volumes remains
     The shape of the confounds matrix is: (168, 12)
     Index(['cosine00', 'cosine01', 'cosine02', 'cosine03', 'csf', 'rot_x', 'rot_y',
            'rot_z', 'trans_x', 'trans_y', 'trans_z', 'white_matter'],
@@ -549,7 +549,7 @@ strategy.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5a8a002270>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f82826512b0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -558,7 +558,7 @@ strategy.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5a8b149040>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f8282651160>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -569,25 +569,25 @@ strategy.
       't_r': None,
       'target_affine': None,
       'target_shape': None}, confounds=[      cosine00  cosine01  cosine02  ...   trans_y   trans_z  white_matter
-    0    0.097319  0.110228  0.100980  ... -0.024472  0.048861     -0.796008
-    1    0.097281  0.110075  0.100637  ... -0.025982  0.043313     -1.338031
-    2    0.097205  0.109770  0.099952  ... -0.017480  0.069643     -1.459963
-    3    0.097090  0.109313  0.098926  ... -0.022294  0.046877     -1.841207
-    4    0.096938  0.108705  0.097565  ... -0.031791  0.071620     -1.762509
+    0    0.108440  0.106895  0.110644  ... -0.026366  0.054759     -0.878390
+    1    0.108401  0.106742  0.110301  ... -0.027876  0.049211     -1.420413
+    2    0.108325  0.106438  0.109616  ... -0.019374  0.075540     -1.542346
+    3    0.108211  0.105981  0.108591  ... -0.024188  0.052775     -1.923589
+    4    0.108058  0.105373  0.107229  ... -0.033685  0.077517     -1.844892
     ..        ...       ...       ...  ...       ...       ...           ...
-    163 -0.120508  0.108705 -0.113737  ...  0.066478 -0.028314      1.302095
-    164 -0.120661  0.109313 -0.115099  ... -0.062660 -0.048393      1.318661
-    165 -0.120775  0.109770 -0.116124  ...  0.054846 -0.035645      1.671784
-    166 -0.120851  0.110075 -0.116809  ... -0.079953 -0.040381      1.203124
-    167 -0.120889  0.110228 -0.117152  ...  0.070892 -0.013439      1.081706
+    163 -0.109387  0.105373 -0.104073  ...  0.064585 -0.022416      1.219713
+    164 -0.109540  0.105981 -0.105434  ... -0.064554 -0.042495      1.236279
+    165 -0.109654  0.106438 -0.106460  ...  0.052952 -0.029747      1.589401
+    166 -0.109731  0.106742 -0.107145  ... -0.081847 -0.034483      1.120742
+    167 -0.109769  0.106895 -0.107488  ...  0.068998 -0.007541      0.999324
 
-    [168 rows x 12 columns]], sample_mask=array([  0, ..., 152]), dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=5)
+    [168 rows x 12 columns]], sample_mask=array([  0, ..., 167]), dtype=None, memory=Memory(location=nilearn_cache/joblib), memory_level=1, verbose=5)
     [NiftiLabelsMasker.transform_single_imgs] Loading data from /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 0.7s, 0.0min
+    _______________________________________________filter_and_extract - 0.8s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5a9301b050>
+    <matplotlib.image.AxesImage object at 0x7f828b21d580>
 
 
 
@@ -662,7 +662,7 @@ simple strategy and see its impact.
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
     _filter_and_extract('/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz', 
-    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f5a896419a0>, 
+    <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f829dc151c0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -671,7 +671,7 @@ simple strategy and see its impact.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f5a8b149040>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f8282651160>,
       'low_pass': None,
       'mask_img': None,
       'reports': True,
@@ -700,7 +700,7 @@ simple strategy and see its impact.
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
     _______________________________________________filter_and_extract - 0.8s, 0.0min
 
-    <matplotlib.image.AxesImage object at 0x7f5ab1f8f3e0>
+    <matplotlib.image.AxesImage object at 0x7f8282fdf770>
 
 
 
@@ -805,7 +805,7 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]9.9s, 0.2min    : Loading _filter_and_extract...
+    [Memory]10.4s, 0.2min   : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
     [NiftiLabelsMasker.wrapped] loading data from Nifti1Image(
     shape=(91, 109, 91),
@@ -814,7 +814,7 @@ the motion default to basic.
            [   0.,    0.,    2.,  -72.],
            [   0.,    0.,    0.,    1.]])
     )
-    [Memory]10.5s, 0.2min   : Loading _filter_and_extract...
+    [Memory]11.1s, 0.2min   : Loading _filter_and_extract...
     __________________________________filter_and_extract cache loaded - 0.0s, 0.0min
 
 
@@ -830,9 +830,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 12.701 seconds)
+   **Total running time of the script:** (0 minutes 13.463 seconds)
 
-**Estimated memory usage:**  730 MB
+**Estimated memory usage:**  759 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_signal_extraction.py:

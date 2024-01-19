@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev132+g0ad24e1d) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.3.dev139+ga366d22e) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
   </aside>
 </div>
 
@@ -257,17 +257,16 @@
 </ul>
 </li>
 <li class="toctree-l2 current has-children"><a class="reference internal" href="index.html">GLM: First level analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of GLM: First level analysis</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="plot_fixed_effects.html">Example of explicit fixed effects fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_write_events_file.html">Generate an events.tsv file for the NeuroSpin localizer task</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_adhd_dmn.html">Default Mode Network extraction of ADHD dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_design_matrix.html">Examples of design matrices</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_fir_model.html">Analysis of an fMRI dataset with a Finite Impule Response (FIR) model</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Single-subject data (two runs) in native space</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_hrf.html">Example of MRI response functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot_fiac_analysis.html">Simple example of two-session fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_predictions_residuals.html">Predicted time series and residuals</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_bids_features.html">First level analysis of a complete BIDS dataset from openneuro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_localizer_surface_analysis.html">Example of surface-based first-level analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_two_runs_model.html">Simple example of two-runs fMRI model fitting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_first_level_details.html">Understanding parameters of the first-level model</a></li>
 </ul>
 </li>
@@ -729,9 +728,6 @@ perception, recognition and priming. Cereb Cortex. 2003 Jul;13(7):793-805.
 <a class="reference external" href="https://doi.org/10.1093/cercor/13.7.793">https://doi.org/10.1093/cercor/13.7.793</a></p>
 <p>This example takes a lot of time because the input are lists of 3D images
 sampled in different positions (encoded by different affine functions).</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="vm">__doc__</span><span class="p">)</span>
-</pre></div>
-</div>
 <p>Fetch the <a class="reference internal" href="../../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> multimodal_faces data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_spm_multimodal_fmri.html#nilearn.datasets.fetch_spm_multimodal_fmri" title="nilearn.datasets.fetch_spm_multimodal_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_spm_multimodal_fmri</span></a>
 
@@ -876,17 +872,17 @@ them.</p>
 </ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing contrasts
         contrast id: faces-scrambled
-/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
 One contrast given, assuming it for all 2 runs
 
         contrast id: scrambled-faces
-/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
 One contrast given, assuming it for all 2 runs
 
         contrast id: effects_of_interest
-/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:148: UserWarning:
+/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_spm_multimodal_faces.py:143: UserWarning:
 
 One contrast given, assuming it for all 2 runs
 
@@ -901,8 +897,8 @@ implications of large portions of the visual cortex in the
 conditions. By contrast, the differential effect between “faces” and
 “scrambled” involves sparser, more anterior and lateral regions. It
 also displays some responses in the frontal lobe.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 42.405 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  880 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 44.863 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  877 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-spm-multimodal-faces-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_spm_multimodal_faces.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
