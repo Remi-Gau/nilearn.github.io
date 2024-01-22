@@ -54,7 +54,7 @@ confounds.tsv files.
 
     from nilearn.datasets import fetch_language_localizer_demo_dataset
 
-    data_dir, _ = fetch_language_localizer_demo_dataset()
+    data = fetch_language_localizer_demo_dataset(legacy_output=False)
 
 
 
@@ -71,7 +71,7 @@ Here is the location of the dataset on disk.
 
 .. code-block:: Python
 
-    print(data_dir)
+    print(data.data_dir)
 
 
 
@@ -100,7 +100,7 @@ in the :term:`BIDS` dataset.
 To get the first level models we only have to specify the dataset directory
 and the task_label as specified in the file names.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-61
+.. GENERATED FROM PYTHON SOURCE LINES 51-62
 
 .. code-block:: Python
 
@@ -109,7 +109,8 @@ and the task_label as specified in the file names.
     task_label = 'languagelocalizer'
     _, models_run_imgs, models_events, models_confounds = \
         first_level_from_bids(
-            data_dir, task_label,
+            data.data_dir,
+            task_label,
             img_filters=[('desc', 'preproc')],
             n_jobs=2
         )
@@ -130,12 +131,12 @@ and the task_label as specified in the file names.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-64
+.. GENERATED FROM PYTHON SOURCE LINES 63-65
 
 We also need to get the :term:`TR` information.
 For that we use the json sidecar file of the dataset's functional images.
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-78
+.. GENERATED FROM PYTHON SOURCE LINES 65-79
 
 .. code-block:: Python
 
@@ -143,7 +144,7 @@ For that we use the json sidecar file of the dataset's functional images.
     import os
 
     json_file = os.path.join(
-        data_dir,
+        data.data_dir,
         'derivatives',
         'sub-01',
         'func',
@@ -160,11 +161,11 @@ For that we use the json sidecar file of the dataset's functional images.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-80
+.. GENERATED FROM PYTHON SOURCE LINES 80-81
 
 Project :term:`fMRI` data to the surface: First get fsaverage5.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-84
+.. GENERATED FROM PYTHON SOURCE LINES 81-85
 
 .. code-block:: Python
 
@@ -179,12 +180,12 @@ Project :term:`fMRI` data to the surface: First get fsaverage5.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-87
+.. GENERATED FROM PYTHON SOURCE LINES 86-88
 
 The projection function simply takes the :term:`fMRI` data and the mesh.
 Note that those correspond spatially, as they are both in :term:`MNI` space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-93
+.. GENERATED FROM PYTHON SOURCE LINES 88-94
 
 .. code-block:: Python
 
@@ -201,11 +202,11 @@ Note that those correspond spatially, as they are both in :term:`MNI` space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-95
+.. GENERATED FROM PYTHON SOURCE LINES 95-96
 
 Empty lists in which we are going to store activation values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-134
+.. GENERATED FROM PYTHON SOURCE LINES 96-135
 
 .. code-block:: Python
 
@@ -255,13 +256,13 @@ Empty lists in which we are going to store activation values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-138
+.. GENERATED FROM PYTHON SOURCE LINES 136-139
 
 Individual activation maps have been accumulated in the z_score_left
 and az_scores_right lists respectively. We can now use them in a
 group study (one-sample study).
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-146
+.. GENERATED FROM PYTHON SOURCE LINES 141-147
 
 Group study
 -----------
@@ -270,7 +271,7 @@ Prepare figure for concurrent plot of individual maps
 compute population-level maps for left and right hemisphere
 We directly do that on the value arrays.
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-151
+.. GENERATED FROM PYTHON SOURCE LINES 147-152
 
 .. code-block:: Python
 
@@ -286,11 +287,11 @@ We directly do that on the value arrays.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-153
+.. GENERATED FROM PYTHON SOURCE LINES 153-154
 
 What we have so far are p-values: we convert them to z-values for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-156
+.. GENERATED FROM PYTHON SOURCE LINES 154-157
 
 .. code-block:: Python
 
@@ -304,11 +305,11 @@ What we have so far are p-values: we convert them to z-values for plotting.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-158
+.. GENERATED FROM PYTHON SOURCE LINES 158-159
 
 Plot the resulting maps, at first on the left hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-164
+.. GENERATED FROM PYTHON SOURCE LINES 159-165
 
 .. code-block:: Python
 
@@ -336,11 +337,11 @@ Plot the resulting maps, at first on the left hemisphere.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 165-166
+.. GENERATED FROM PYTHON SOURCE LINES 166-167
 
 Next, on the right hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-172
+.. GENERATED FROM PYTHON SOURCE LINES 167-173
 
 .. code-block:: Python
 
@@ -365,7 +366,7 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 13.853 seconds)
+   **Total running time of the script:** (1 minutes 12.118 seconds)
 
 **Estimated memory usage:**  457 MB
 

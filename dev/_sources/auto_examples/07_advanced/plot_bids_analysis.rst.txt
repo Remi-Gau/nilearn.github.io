@@ -54,7 +54,7 @@ confounds.tsv files.
 
     from nilearn.datasets import fetch_language_localizer_demo_dataset
 
-    data_dir, _ = fetch_language_localizer_demo_dataset()
+    data = fetch_language_localizer_demo_dataset(legacy_output=False)
 
 
 
@@ -71,7 +71,7 @@ Here is the location of the dataset on disk.
 
 .. code-block:: Python
 
-    print(data_dir)
+    print(data.data_dir)
 
 
 
@@ -113,7 +113,7 @@ and the task_label as specified in the file names.
         models_events,
         models_confounds,
     ) = first_level_from_bids(
-        data_dir, task_label, img_filters=[("desc", "preproc")], n_jobs=2
+        data.data_dir, task_label, img_filters=[("desc", "preproc")], n_jobs=2
     )
 
 
@@ -159,7 +159,7 @@ We just expect one run_img per subject.
 
  .. code-block:: none
 
-    ['sub-06_task-languagelocalizer_desc-preproc_bold.nii.gz']
+    ['sub-02_task-languagelocalizer_desc-preproc_bold.nii.gz']
 
 
 
@@ -387,9 +387,9 @@ language network.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 53.550 seconds)
+   **Total running time of the script:** (0 minutes 52.127 seconds)
 
-**Estimated memory usage:**  1083 MB
+**Estimated memory usage:**  1084 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_bids_analysis.py:
