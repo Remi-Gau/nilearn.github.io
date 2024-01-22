@@ -30,7 +30,7 @@ characteristics on brain signals.
 
 This example requires matplotlib.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-22
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
 
@@ -46,13 +46,14 @@ This example requires matplotlib.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-26
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
 
 Create a simple experimental paradigm
 -------------------------------------
 We want to get the group result of a :term:`contrast` for 20 subjects.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-30
 
 .. code-block:: Python
 
@@ -66,12 +67,12 @@ We want to get the group result of a :term:`contrast` for 20 subjects.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Next, we specify extra information about the subjects to create confounders.
 Without confounders the design matrix would correspond to a one sample test.
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-42
+.. GENERATED FROM PYTHON SOURCE LINES 33-43
 
 .. code-block:: Python
 
@@ -92,13 +93,13 @@ Without confounders the design matrix would correspond to a one sample test.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-46
+.. GENERATED FROM PYTHON SOURCE LINES 44-47
 
 Create a second level design matrix
 -----------------------------------
 With that information we can create the second level design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-52
+.. GENERATED FROM PYTHON SOURCE LINES 47-53
 
 .. code-block:: Python
 
@@ -124,19 +125,20 @@ With that information we can create the second level design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-54
+.. GENERATED FROM PYTHON SOURCE LINES 54-55
 
 Let's plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-61
+.. GENERATED FROM PYTHON SOURCE LINES 55-63
 
 .. code-block:: Python
 
     from nilearn.plotting import plot_design_matrix
 
-    ax = plot_design_matrix(design_matrix)
-    ax.set_title("Second level design matrix", fontsize=12)
+    fig, ax1 = plt.subplots(1, 1, figsize=(3, 4))
+    ax = plot_design_matrix(design_matrix, ax=ax1)
     ax.set_ylabel("maps")
+    ax.set_title("Second level design matrix", fontsize=12)
     plt.tight_layout()
     plt.show()
 
@@ -154,7 +156,7 @@ Let's plot it.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.561 seconds)
+   **Total running time of the script:** (0 minutes 1.712 seconds)
 
 **Estimated memory usage:**  9 MB
 

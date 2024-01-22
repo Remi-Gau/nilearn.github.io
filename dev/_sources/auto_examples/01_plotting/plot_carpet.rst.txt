@@ -32,11 +32,12 @@ from a 4D functional image.
 Fetching data from ADHD dataset
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-29
+.. GENERATED FROM PYTHON SOURCE LINES 15-30
 
 .. code-block:: Python
 
     from nilearn import datasets
+    from nilearn.plotting import plot_carpet
 
     adhd_dataset = datasets.fetch_adhd(n_subjects=1)
 
@@ -63,12 +64,12 @@ Fetching data from ADHD dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Deriving a mask
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-37
+.. GENERATED FROM PYTHON SOURCE LINES 33-38
 
 .. code-block:: Python
 
@@ -84,18 +85,16 @@ Deriving a mask
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 Visualizing global patterns over time
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-53
+.. GENERATED FROM PYTHON SOURCE LINES 41-52
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import plot_carpet
 
     display = plot_carpet(
         adhd_dataset.func[0],
@@ -118,14 +117,14 @@ Visualizing global patterns over time
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-58
+.. GENERATED FROM PYTHON SOURCE LINES 53-57
 
 Deriving a label-based mask
 ---------------------------
 Create a gray matter/white matter/cerebrospinal fluid mask from
 ICBM152 tissue probability maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-72
+.. GENERATED FROM PYTHON SOURCE LINES 57-71
 
 .. code-block:: Python
 
@@ -151,18 +150,18 @@ ICBM152 tissue probability maps.
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_carpet.py:69: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
+    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_carpet.py:68: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
       discrete_atlas_img = image.new_img_like(atlas_img, discrete_version)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-75
+.. GENERATED FROM PYTHON SOURCE LINES 72-74
 
 Visualizing global patterns, separated by tissue type
 -----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-91
+.. GENERATED FROM PYTHON SOURCE LINES 74-90
 
 .. code-block:: Python
 
@@ -195,8 +194,8 @@ Visualizing global patterns, separated by tissue type
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:589: UserWarning: Casting data from int32 to float32
-      warnings.warn(f"Casting data from {data.dtype.name} to {aux}")
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:353: UserWarning: Casting data from int32 to float32
+      return self.func(*args, **kwargs)
     Coercing atlas_values to <class 'int'>
 
 
@@ -205,9 +204,9 @@ Visualizing global patterns, separated by tissue type
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.175 seconds)
+   **Total running time of the script:** (0 minutes 6.293 seconds)
 
-**Estimated memory usage:**  920 MB
+**Estimated memory usage:**  910 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_carpet.py:

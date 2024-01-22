@@ -38,7 +38,7 @@ More specifically:
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-34
+.. GENERATED FROM PYTHON SOURCE LINES 24-33
 
 .. code-block:: Python
 
@@ -58,13 +58,13 @@ More specifically:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-38
+.. GENERATED FROM PYTHON SOURCE LINES 34-37
 
 Prepare data and analysis parameters
 ------------------------------------
 Prepare the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-48
+.. GENERATED FROM PYTHON SOURCE LINES 37-47
 
 .. code-block:: Python
 
@@ -85,13 +85,13 @@ Prepare the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-52
+.. GENERATED FROM PYTHON SOURCE LINES 48-51
 
 Extract the seed region's time course
 -------------------------------------
 Extract the time course of the seed region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-67
+.. GENERATED FROM PYTHON SOURCE LINES 51-66
 
 .. code-block:: Python
 
@@ -117,11 +117,11 @@ Extract the time course of the seed region.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-69
+.. GENERATED FROM PYTHON SOURCE LINES 67-68
 
 Plot the time course of the seed region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-78
+.. GENERATED FROM PYTHON SOURCE LINES 68-77
 
 .. code-block:: Python
 
@@ -146,13 +146,13 @@ Plot the time course of the seed region.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-82
+.. GENERATED FROM PYTHON SOURCE LINES 78-81
 
 Estimate contrasts
 ------------------
 Specify the contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-91
+.. GENERATED FROM PYTHON SOURCE LINES 81-90
 
 .. code-block:: Python
 
@@ -172,13 +172,13 @@ Specify the contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-95
+.. GENERATED FROM PYTHON SOURCE LINES 91-94
 
 Perform first level analysis
 ----------------------------
 Setup and fit GLM.
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-100
+.. GENERATED FROM PYTHON SOURCE LINES 94-99
 
 .. code-block:: Python
 
@@ -203,11 +203,11 @@ Setup and fit GLM.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-102
+.. GENERATED FROM PYTHON SOURCE LINES 100-101
 
 Estimate the contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-118
+.. GENERATED FROM PYTHON SOURCE LINES 101-117
 
 .. code-block:: Python
 
@@ -246,7 +246,7 @@ Estimate the contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-125
+.. GENERATED FROM PYTHON SOURCE LINES 118-124
 
 Generating a report
 -------------------
@@ -255,7 +255,7 @@ portable, ready-to-view report with most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
 which we do here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-136
+.. GENERATED FROM PYTHON SOURCE LINES 124-135
 
 .. code-block:: Python
 
@@ -277,18 +277,23 @@ which we do here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-138
+.. GENERATED FROM PYTHON SOURCE LINES 136-137
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-142
+.. GENERATED FROM PYTHON SOURCE LINES 137-146
 
 .. code-block:: Python
 
 
     # report  # This report can be viewed in a notebook
-    # report.save_as_html('report.html')
     # report.open_in_browser()
+
+    # or we can save as an html file
+    # from pathlib import Path
+    # output_dir = Path.cwd() / "results" / "plot_adhd_dmn"
+    # output_dir.mkdir(exist_ok=True, parents=True)
+    # report.save_as_html(output_dir / 'report.html')
 
 
 
@@ -299,7 +304,7 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 17.273 seconds)
+   **Total running time of the script:** (0 minutes 17.672 seconds)
 
 **Estimated memory usage:**  754 MB
 

@@ -33,13 +33,29 @@ for a careful study.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-23
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
+
+.. code-block:: Python
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
 
 Load brain development :term:`fMRI` dataset and MSDL atlas
 ----------------------------------------------------------
 We study only 60 subjects from the dataset, to save computation time.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-27
+.. GENERATED FROM PYTHON SOURCE LINES 27-31
 
 .. code-block:: Python
 
@@ -54,11 +70,11 @@ We study only 60 subjects from the dataset, to save computation time.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 32-33
 
 We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-54
+.. GENERATED FROM PYTHON SOURCE LINES 33-58
 
 .. code-block:: Python
 
@@ -94,7 +110,7 @@ We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-60
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 What kind of connectivity is most powerful for classification?
 --------------------------------------------------------------
@@ -102,7 +118,7 @@ we will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-92
+.. GENERATED FROM PYTHON SOURCE LINES 64-96
 
 .. code-block:: Python
 
@@ -145,13 +161,13 @@ compare the different kinds of connectivity matrices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-96
+.. GENERATED FROM PYTHON SOURCE LINES 97-100
 
 We use random splits of the subjects into training/testing sets.
 StratifiedShuffleSplit allows preserving the proportion of children in the
 test set.
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-116
+.. GENERATED FROM PYTHON SOURCE LINES 100-120
 
 .. code-block:: Python
 
@@ -188,15 +204,13 @@ test set.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-118
+.. GENERATED FROM PYTHON SOURCE LINES 121-122
 
 display the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-131
+.. GENERATED FROM PYTHON SOURCE LINES 122-133
 
 .. code-block:: Python
-
-    from matplotlib import pyplot as plt
 
     plt.figure(figsize=(6, 4))
     positions = [0.1, 0.2, 0.3, 0.4]
@@ -221,7 +235,7 @@ display the results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-139
+.. GENERATED FROM PYTHON SOURCE LINES 134-141
 
 This is a small example to showcase nilearn features. In practice such
 comparisons need to be performed on much larger cohorts and several
@@ -231,7 +245,7 @@ datasets.
 Showed that across many cohorts and clinical questions, the tangent
 kind should be preferred.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-141
+.. GENERATED FROM PYTHON SOURCE LINES 141-143
 
 .. code-block:: Python
 
@@ -247,7 +261,7 @@ kind should be preferred.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 4.850 seconds)
+   **Total running time of the script:** (1 minutes 6.598 seconds)
 
 **Estimated memory usage:**  1188 MB
 

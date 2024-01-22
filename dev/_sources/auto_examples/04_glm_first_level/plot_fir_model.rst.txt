@@ -36,17 +36,18 @@ presented : ['audio_computation', 'audio_left_hand_button_press',
 'visual_computation', 'visual_left_hand_button_press',
 'visual_right_hand_button_press']
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-23
+.. GENERATED FROM PYTHON SOURCE LINES 21-22
 
 At first, we grab the localizer data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-34
+.. GENERATED FROM PYTHON SOURCE LINES 22-34
 
 .. code-block:: Python
 
     import pandas as pd
 
     from nilearn.datasets import func
+    from nilearn.plotting import plot_stat_map
 
     data = func.fetch_localizer_first_level()
     fmri_img = data.epi_img
@@ -226,13 +227,11 @@ Take a breath.
 
 We can now  proceed by estimating the contrasts and displaying them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-156
+.. GENERATED FROM PYTHON SOURCE LINES 135-154
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import plot_stat_map
 
     fig = plt.figure(figsize=(11, 3))
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
@@ -263,7 +262,7 @@ We can now  proceed by estimating the contrasts and displaying them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-161
+.. GENERATED FROM PYTHON SOURCE LINES 155-159
 
 The result is acceptable. Note that we're asking a lot of questions
 to a small dataset, yet with a relatively large number of experimental
@@ -273,9 +272,9 @@ conditions.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 9.993 seconds)
+   **Total running time of the script:** (0 minutes 10.243 seconds)
 
-**Estimated memory usage:**  256 MB
+**Estimated memory usage:**  194 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_fir_model.py:

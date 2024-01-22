@@ -49,16 +49,17 @@ the SVM's parameters is already done automatically inside the Decoder, but
 performing cross-validation for the feature selection must be done
 manually.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Load the Haxby dataset
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-65
+.. GENERATED FROM PYTHON SOURCE LINES 37-65
 
 .. code-block:: Python
 
     from nilearn import datasets
+    from nilearn.plotting import show
 
     # by default 2nd subject data will be fetched on which we run our analysis
     haxby_dataset = datasets.fetch_haxby()
@@ -200,10 +201,10 @@ excellent explanation of how cross-validation works.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Fold 1 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9607438016528925
+    Fold 1 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9256198347107437
     Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
-    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7727272727272727
-    Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7489177489177489
+    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7597402597402597
+    Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7770562770562771
     Fold 5 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.735930735930736
 
 
@@ -256,43 +257,43 @@ Compute prediction scores with different values of screening percentile
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 2.000
-    Mean CV score: 0.8252
-    Validation score: 0.5000
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    Sreening Percentile: 4.000
-    Mean CV score: 0.8704
+    Mean CV score: 0.8263
     Validation score: 0.5556
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Sreening Percentile: 8.000
-    Mean CV score: 0.8833
+    Sreening Percentile: 4.000
+    Mean CV score: 0.8493
     Validation score: 0.3889
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
+    Sreening Percentile: 8.000
+    Mean CV score: 0.8815
+    Validation score: 0.5000
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
     Sreening Percentile: 16.000
-    Mean CV score: 0.8926
-    Validation score: 0.2778
+    Mean CV score: 0.8519
+    Validation score: 0.2222
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 32.000
-    Mean CV score: 0.8652
-    Validation score: 0.3333
+    Mean CV score: 0.8607
+    Validation score: 0.4444
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 64.000
     Mean CV score: 0.8804
-    Validation score: 0.5556
+    Validation score: 0.3889
 
 
 
@@ -352,21 +353,9 @@ pipeline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
 
     Liblinear failed to converge, increase the number of iterations.
-
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
-
-    Liblinear failed to converge, increase the number of iterations.
-
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
 
@@ -396,6 +385,34 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
@@ -444,7 +461,7 @@ pipeline.
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Nested CV score: 0.6898
+    Nested CV score: 0.6713
 
 
 
@@ -454,13 +471,11 @@ pipeline.
 Plot the prediction scores using matplotlib
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-219
+.. GENERATED FROM PYTHON SOURCE LINES 199-217
 
 .. code-block:: Python
 
     from matplotlib import pyplot as plt
-
-    from nilearn.plotting import show
 
     plt.figure(figsize=(6, 4))
     plt.plot(cv_scores, label="Cross validation scores")
@@ -493,9 +508,9 @@ Plot the prediction scores using matplotlib
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 17.405 seconds)
+   **Total running time of the script:** (2 minutes 21.067 seconds)
 
-**Estimated memory usage:**  917 MB
+**Estimated memory usage:**  915 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_grid_search.py:

@@ -177,7 +177,7 @@ Extract coordinates on Yeo atlas - parcellations
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f62d559cc80>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7f8c6df20e90>
 
 
 
@@ -200,7 +200,7 @@ matrices, but plot the latter as a directed graph.
     # Define a custom function to compute lag correlation on the time series
     def lag_correlation(time_series, lag):
         n_subjects = len(time_series)
-        n_samples, n_features = time_series[0].shape
+        _, n_features = time_series[0].shape
         lag_cor = np.zeros((n_subjects, n_features, n_features))
         for subject, serie in enumerate(time_series):
             for i in range(n_features):
@@ -251,7 +251,7 @@ matrices, but plot the latter as a directed graph.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/plotting/displays/_projectors.py:190: UserWarning:
+    /home/runner/work/nilearn/nilearn/examples/03_connectivity/plot_atlas_comparison.py:136: UserWarning:
 
     'adjacency_matrix' is not symmetric. A directed graph will be plotted.
 
@@ -339,7 +339,7 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/_utils/cache_mixin.py:240: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/maskers/multi_nifti_maps_masker.py:216: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -350,9 +350,9 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 25.533 seconds)
+   **Total running time of the script:** (1 minutes 27.819 seconds)
 
-**Estimated memory usage:**  1664 MB
+**Estimated memory usage:**  1792 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_atlas_comparison.py:

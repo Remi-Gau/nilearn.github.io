@@ -26,32 +26,24 @@ which can be used for plotting brain images on surface.
 
 See :ref:`surface-plotting` for surface plotting details.
 
-.. GENERATED FROM PYTHON SOURCE LINES 12-18
-
-.. code-block:: Python
-
-    import matplotlib.pyplot as plt
-    import numpy as np
-
-    from nilearn.plotting import show
-    from nilearn.plotting.cm import _cmap_d as nilearn_cmaps
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 11-13
 
 Plot color maps
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-35
+.. GENERATED FROM PYTHON SOURCE LINES 13-36
 
 .. code-block:: Python
 
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+    import numpy as np
+
+    from nilearn.plotting import show
+    from nilearn.plotting.cm import _cmap_d as nilearn_cmaps
 
     nmaps = len(nilearn_cmaps)
     a = np.outer(np.arange(0, 1, 0.01), np.ones(10))
@@ -78,12 +70,12 @@ Plot color maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 Plot matplotlib color maps
 --------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-57
+.. GENERATED FROM PYTHON SOURCE LINES 39-58
 
 .. code-block:: Python
 
@@ -121,9 +113,9 @@ Plot matplotlib color maps
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.090 seconds)
+   **Total running time of the script:** (0 minutes 3.026 seconds)
 
-**Estimated memory usage:**  18 MB
+**Estimated memory usage:**  17 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_colormaps.py:

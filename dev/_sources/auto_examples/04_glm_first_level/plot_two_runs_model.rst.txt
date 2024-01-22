@@ -227,7 +227,7 @@ Compute the statistics for the first run.
     t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62bd7a6ba0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c7670f290>
 
 
 
@@ -273,7 +273,7 @@ Compute the statistics for the second run.
     t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62d50dca70>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c65e31610>
 
 
 
@@ -328,7 +328,7 @@ from the run-specific FirstLevelModel results.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62b5948560>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c65e311f0>
 
 
 
@@ -600,15 +600,19 @@ we can quickly create a summary report.
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 247-252
+.. GENERATED FROM PYTHON SOURCE LINES 247-257
 
 .. code-block:: Python
 
 
     # report  # This report can be viewed in a notebook
-    # report.save_as_html(output_dir / "report.html")
     # report.open_in_browser()
 
+    # or we can save as an html file
+    # from pathlib import Path
+    # output_dir = Path.cwd() / "results" / "plot_oasis"
+    # output_dir.mkdir(exist_ok=True, parents=True)
+    # report.save_as_html(output_dir / 'report.html')
 
 
 
@@ -616,7 +620,8 @@ We have several ways to access the report:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-257
+
+.. GENERATED FROM PYTHON SOURCE LINES 258-262
 
 References
 ----------
@@ -626,9 +631,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 44.106 seconds)
+   **Total running time of the script:** (0 minutes 46.436 seconds)
 
-**Estimated memory usage:**  726 MB
+**Estimated memory usage:**  652 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_two_runs_model.py:

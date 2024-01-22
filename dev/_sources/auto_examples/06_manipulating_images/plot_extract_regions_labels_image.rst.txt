@@ -76,7 +76,7 @@ The original Yeo atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62e260a270>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c65dd19d0>
 
 
 
@@ -150,7 +150,7 @@ Plotting the new regions
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62e28c6240>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c7901a210>
 
 
 
@@ -174,18 +174,24 @@ You can save the new atlas to a nifti file using to_filename method.
 
 .. code-block:: Python
 
-    region_labels.to_filename("relabeled_yeo_atlas.nii.gz")
+    from pathlib import Path
 
-    # The images are saved to the current folder. It is possible to specify the
-    # folder for saving the results, i.e.
-    # import os
-    # region_labels.to_filename(os.path.join(folder_path,
-    #                                        'relabeled_yeo_atlas.nii.gz'))
+    output_dir = Path.cwd() / "results" / "plot_extract_regions_labels_image"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    print(f"Output will be saved to: {output_dir}")
 
-
+    region_labels.to_filename(output_dir / "relabeled_yeo_atlas.nii.gz")
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Output will be saved to: /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/results/plot_extract_regions_labels_image
 
 
 
@@ -228,7 +234,7 @@ that are connected only along the diagonal.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62bdc59010>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c64280c50>
 
 
 
@@ -280,9 +286,9 @@ regions larger than 100mm^3.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 22.745 seconds)
+   **Total running time of the script:** (0 minutes 23.351 seconds)
 
-**Estimated memory usage:**  785 MB
+**Estimated memory usage:**  783 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_extract_regions_labels_image.py:

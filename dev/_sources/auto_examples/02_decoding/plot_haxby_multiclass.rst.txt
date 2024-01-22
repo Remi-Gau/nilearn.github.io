@@ -26,20 +26,33 @@ cross-validated accuracy and the confusion matrix.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
-
-Load the Haxby data dataset
----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 15-45
+.. GENERATED FROM PYTHON SOURCE LINES 11-17
 
 .. code-block:: Python
-
 
     import numpy as np
     import pandas as pd
 
     from nilearn import datasets
+    from nilearn.plotting import plot_matrix, show
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 18-20
+
+Load the Haxby data dataset
+---------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-46
+
+.. code-block:: Python
+
+
 
     # By default 2nd subject from haxby datasets will be fetched.
     haxby_dataset = datasets.fetch_haxby()
@@ -79,12 +92,12 @@ Load the Haxby data dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 Prepare the :term:`fMRI` data
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-65
+.. GENERATED FROM PYTHON SOURCE LINES 49-66
 
 .. code-block:: Python
 
@@ -121,14 +134,14 @@ Prepare the :term:`fMRI` data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-70
+.. GENERATED FROM PYTHON SOURCE LINES 67-71
 
 Build the decoders, using scikit-learn
 --------------------------------------
 Here we use a Support Vector Classification, with a linear kernel,
 and a simple feature selection step
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-94
+.. GENERATED FROM PYTHON SOURCE LINES 71-95
 
 .. code-block:: Python
 
@@ -163,12 +176,12 @@ and a simple feature selection step
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-97
+.. GENERATED FROM PYTHON SOURCE LINES 96-98
 
 Now we compute cross-validation scores
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-106
+.. GENERATED FROM PYTHON SOURCE LINES 98-107
 
 .. code-block:: Python
 
@@ -195,12 +208,12 @@ Now we compute cross-validation scores
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-109
+.. GENERATED FROM PYTHON SOURCE LINES 108-110
 
 Plot barplots of the prediction scores
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-116
+.. GENERATED FROM PYTHON SOURCE LINES 110-117
 
 .. code-block:: Python
 
@@ -229,20 +242,18 @@ Plot barplots of the prediction scores
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-121
+.. GENERATED FROM PYTHON SOURCE LINES 118-122
 
 Plot a confusion matrix
 -----------------------
 We fit on the first 10 runs and plot a confusion matrix on the
 last 2 runs
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-147
+.. GENERATED FROM PYTHON SOURCE LINES 122-146
 
 .. code-block:: Python
 
     from sklearn.metrics import confusion_matrix
-
-    from nilearn.plotting import plot_matrix, show
 
     svc_ovo.fit(X[run < 10], y[run < 10])
     y_pred_ovo = svc_ovo.predict(X[run >= 10])
@@ -293,9 +304,9 @@ last 2 runs
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 30.909 seconds)
+   **Total running time of the script:** (0 minutes 31.497 seconds)
 
-**Estimated memory usage:**  2828 MB
+**Estimated memory usage:**  2959 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_multiclass.py:

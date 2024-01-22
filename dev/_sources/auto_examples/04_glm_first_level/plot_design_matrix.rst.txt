@@ -27,33 +27,19 @@ Three examples of design matrices specification and computation for first-level
 
 This examples requires matplotlib.
 
-.. GENERATED FROM PYTHON SOURCE LINES 14-19
-
-.. code-block:: Python
-
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        raise RuntimeError("This script needs the matplotlib library")
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 20-23
+.. GENERATED FROM PYTHON SOURCE LINES 13-16
 
 Define parameters
 -----------------
 At first, we define parameters related to the images acquisition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-29
+.. GENERATED FROM PYTHON SOURCE LINES 16-24
 
 .. code-block:: Python
 
     import numpy as np
+
+    from nilearn.plotting import plot_design_matrix
 
     tr = 1.0  # repetition time is 1 second
     n_scans = 128  # the acquisition comprises 128 scans
@@ -66,11 +52,11 @@ At first, we define parameters related to the images acquisition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-31
+.. GENERATED FROM PYTHON SOURCE LINES 25-26
 
 Then we define parameters related to the experimental design.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-43
+.. GENERATED FROM PYTHON SOURCE LINES 26-38
 
 .. code-block:: Python
 
@@ -93,14 +79,14 @@ Then we define parameters related to the experimental design.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-48
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 Create design matrices
 ----------------------
 The same parameters allow us to obtain a variety of design matrices.
 We first create an events object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-54
+.. GENERATED FROM PYTHON SOURCE LINES 43-49
 
 .. code-block:: Python
 
@@ -117,12 +103,12 @@ We first create an events object.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-57
+.. GENERATED FROM PYTHON SOURCE LINES 50-52
 
 We sample the events into a design matrix, also including additional
 regressors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-70
+.. GENERATED FROM PYTHON SOURCE LINES 52-65
 
 .. code-block:: Python
 
@@ -146,13 +132,13 @@ regressors.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-74
+.. GENERATED FROM PYTHON SOURCE LINES 66-69
 
 Now we compute a block design matrix. We add duration to create the blocks.
 For this we first define an event structure that includes the duration
 parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-80
+.. GENERATED FROM PYTHON SOURCE LINES 69-75
 
 .. code-block:: Python
 
@@ -169,11 +155,11 @@ parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-82
+.. GENERATED FROM PYTHON SOURCE LINES 76-77
 
 Then we sample the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-91
+.. GENERATED FROM PYTHON SOURCE LINES 77-86
 
 .. code-block:: Python
 
@@ -193,11 +179,11 @@ Then we sample the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-93
+.. GENERATED FROM PYTHON SOURCE LINES 87-88
 
 Finally we compute a :term:`FIR` model
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-107
+.. GENERATED FROM PYTHON SOURCE LINES 88-102
 
 .. code-block:: Python
 
@@ -222,15 +208,15 @@ Finally we compute a :term:`FIR` model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-109
+.. GENERATED FROM PYTHON SOURCE LINES 103-104
 
 Here are the three designs side by side.
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-119
+.. GENERATED FROM PYTHON SOURCE LINES 104-114
 
 .. code-block:: Python
 
-    from nilearn.plotting import plot_design_matrix
+    import matplotlib.pyplot as plt
 
     fig, (ax1, ax2, ax3) = plt.subplots(figsize=(10, 6), nrows=1, ncols=3)
     plot_design_matrix(X1, ax=ax1)
@@ -255,7 +241,7 @@ Here are the three designs side by side.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.856 seconds)
+   **Total running time of the script:** (0 minutes 2.780 seconds)
 
 **Estimated memory usage:**  9 MB
 

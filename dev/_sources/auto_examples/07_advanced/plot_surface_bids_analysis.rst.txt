@@ -123,7 +123,7 @@ and the task_label as specified in the file names.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/interfaces/bids/query.py:49: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/glm/first_level/first_level.py:1355: UserWarning:
 
     'StartTime' not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
@@ -136,21 +136,18 @@ and the task_label as specified in the file names.
 We also need to get the :term:`TR` information.
 For that we use the json sidecar file of the dataset's functional images.
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-79
+.. GENERATED FROM PYTHON SOURCE LINES 65-76
 
 .. code-block:: Python
 
     import json
-    import os
+    from pathlib import Path
 
-    json_file = os.path.join(
-        data.data_dir,
-        'derivatives',
-        'sub-01',
-        'func',
-        'sub-01_task-languagelocalizer_desc-preproc_bold.json'
-    )
-
+    json_file = (Path(data.data_dir) /
+                 'derivatives' /
+                 'sub-01' /
+                 'func' /
+                 'sub-01_task-languagelocalizer_desc-preproc_bold.json')
     with open(json_file, 'r') as f:
         t_r = json.load(f)['RepetitionTime']
 
@@ -161,11 +158,11 @@ For that we use the json sidecar file of the dataset's functional images.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-81
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Project :term:`fMRI` data to the surface: First get fsaverage5.
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-85
+.. GENERATED FROM PYTHON SOURCE LINES 78-82
 
 .. code-block:: Python
 
@@ -180,12 +177,12 @@ Project :term:`fMRI` data to the surface: First get fsaverage5.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 83-85
 
 The projection function simply takes the :term:`fMRI` data and the mesh.
 Note that those correspond spatially, as they are both in :term:`MNI` space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-94
+.. GENERATED FROM PYTHON SOURCE LINES 85-91
 
 .. code-block:: Python
 
@@ -202,11 +199,11 @@ Note that those correspond spatially, as they are both in :term:`MNI` space.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-96
+.. GENERATED FROM PYTHON SOURCE LINES 92-93
 
 Empty lists in which we are going to store activation values.
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-135
+.. GENERATED FROM PYTHON SOURCE LINES 93-132
 
 .. code-block:: Python
 
@@ -256,13 +253,13 @@ Empty lists in which we are going to store activation values.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-139
+.. GENERATED FROM PYTHON SOURCE LINES 133-136
 
 Individual activation maps have been accumulated in the z_score_left
 and az_scores_right lists respectively. We can now use them in a
 group study (one-sample study).
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-147
+.. GENERATED FROM PYTHON SOURCE LINES 138-144
 
 Group study
 -----------
@@ -271,7 +268,7 @@ Prepare figure for concurrent plot of individual maps
 compute population-level maps for left and right hemisphere
 We directly do that on the value arrays.
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-152
+.. GENERATED FROM PYTHON SOURCE LINES 144-149
 
 .. code-block:: Python
 
@@ -287,11 +284,11 @@ We directly do that on the value arrays.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-154
+.. GENERATED FROM PYTHON SOURCE LINES 150-151
 
 What we have so far are p-values: we convert them to z-values for plotting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-157
+.. GENERATED FROM PYTHON SOURCE LINES 151-154
 
 .. code-block:: Python
 
@@ -305,11 +302,11 @@ What we have so far are p-values: we convert them to z-values for plotting.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-159
+.. GENERATED FROM PYTHON SOURCE LINES 155-156
 
 Plot the resulting maps, at first on the left hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-165
+.. GENERATED FROM PYTHON SOURCE LINES 156-162
 
 .. code-block:: Python
 
@@ -337,11 +334,11 @@ Plot the resulting maps, at first on the left hemisphere.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-167
+.. GENERATED FROM PYTHON SOURCE LINES 163-164
 
 Next, on the right hemisphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-173
+.. GENERATED FROM PYTHON SOURCE LINES 164-170
 
 .. code-block:: Python
 
@@ -366,7 +363,7 @@ Next, on the right hemisphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 12.118 seconds)
+   **Total running time of the script:** (1 minutes 14.533 seconds)
 
 **Estimated memory usage:**  457 MB
 

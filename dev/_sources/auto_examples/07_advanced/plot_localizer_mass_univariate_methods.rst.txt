@@ -41,11 +41,26 @@ is included in the model.
 
     - Virgile Fritsch, May. 2014
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-35
+.. GENERATED FROM PYTHON SOURCE LINES 26-31
 
 .. code-block:: Python
 
-    import matplotlib.pyplot as plt
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 32-38
+
+.. code-block:: Python
+
     import numpy as np
 
     from nilearn import datasets
@@ -59,11 +74,11 @@ is included in the model.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 39-40
 
 Load Localizer contrast
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-61
+.. GENERATED FROM PYTHON SOURCE LINES 40-64
 
 .. code-block:: Python
 
@@ -105,11 +120,11 @@ Load Localizer contrast
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-63
+.. GENERATED FROM PYTHON SOURCE LINES 65-66
 
 Mask data
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-69
+.. GENERATED FROM PYTHON SOURCE LINES 66-72
 
 .. code-block:: Python
 
@@ -126,11 +141,11 @@ Mask data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-71
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 Anova (parametric F-scores)
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-82
+.. GENERATED FROM PYTHON SOURCE LINES 74-85
 
 .. code-block:: Python
 
@@ -161,7 +176,7 @@ Anova (parametric F-scores)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-93
+.. GENERATED FROM PYTHON SOURCE LINES 86-96
 
 Perform massively univariate analysis with permuted OLS
 
@@ -174,7 +189,7 @@ This method will produce both voxel-level FWE-corrected -log10 p-values and
   For example, if you wished to perform a one-sample test, you could
   simply provide an array of ones (e.g., ``np.ones(n_samples)``).
 
-.. GENERATED FROM PYTHON SOURCE LINES 93-112
+.. GENERATED FROM PYTHON SOURCE LINES 96-115
 
 .. code-block:: Python
 
@@ -206,16 +221,16 @@ This method will produce both voxel-level FWE-corrected -log10 p-values and
  .. code-block:: none
 
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   53.5s finished
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   56.4s finished
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-114
+.. GENERATED FROM PYTHON SOURCE LINES 116-117
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-159
+.. GENERATED FROM PYTHON SOURCE LINES 117-162
 
 .. code-block:: Python
 
@@ -268,7 +283,7 @@ Visualization
 
 
 .. image-sg:: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
-   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 11 sig. voxels, Permutation Test (Max TFCE FWE) 765 sig. voxels
+   :alt: Group left button press ($-\log_{10}$ p-values), Parametric Test (Bonferroni FWE) 3 sig. voxels, Permutation Test (Max t-statistic FWE) 8 sig. voxels, Permutation Test (Max TFCE FWE) 1175 sig. voxels
    :srcset: /auto_examples/07_advanced/images/sphx_glr_plot_localizer_mass_univariate_methods_001.png
    :class: sphx-glr-single-img
 
@@ -285,7 +300,7 @@ Visualization
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 1.322 seconds)
+   **Total running time of the script:** (1 minutes 4.721 seconds)
 
 **Estimated memory usage:**  114 MB
 

@@ -24,15 +24,29 @@ Connectivity structure estimation on simulated data
 This example shows a comparison of graph lasso and group-sparse covariance
 estimation of connectivity structure for a synthetic dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-27
+.. GENERATED FROM PYTHON SOURCE LINES 9-12
 
 .. code-block:: Python
 
-    import matplotlib.pyplot as plt
 
-    # Generate synthetic data
+    from nilearn import plotting
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 13-14
+
+Generate synthetic data
+
+.. GENERATED FROM PYTHON SOURCE LINES 14-26
+
+.. code-block:: Python
+
     from nilearn._utils.data_gen import generate_group_sparse_gaussian_graphs
-    from nilearn.plotting import show
 
     n_subjects = 20
     n_displayed = 3
@@ -51,15 +65,15 @@ estimation of connectivity structure for a synthetic dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-28
 
 Run connectome estimations and plot the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-113
+.. GENERATED FROM PYTHON SOURCE LINES 28-112
 
 .. code-block:: Python
 
-    from nilearn import plotting
+    import matplotlib.pyplot as plt
 
     fig = plt.figure(figsize=(10, 7))
     plt.subplots_adjust(hspace=0.4)
@@ -141,7 +155,7 @@ Run connectome estimations and plot the results
     )
     plt.title(f"graph lasso, all subjects\n$\\alpha={gl.alpha_:.2f}$")
 
-    show()
+    plotting.show()
 
 
 
@@ -188,9 +202,9 @@ Run connectome estimations and plot the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 4.001 seconds)
+   **Total running time of the script:** (0 minutes 4.257 seconds)
 
-**Estimated memory usage:**  10 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_simulated_connectome.py:

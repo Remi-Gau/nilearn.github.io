@@ -41,6 +41,19 @@ More specifically:
    estimation in the openneuro dataset.
 4. Display contrast plot and uncorrected first level statistics table report.
 
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+.. code-block:: Python
+
+    from nilearn import plotting
+
+
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 28-35
 
 Fetch openneuro :term:`BIDS` dataset
@@ -140,7 +153,7 @@ case were produced by the :term:`fMRIPrep` :term:`BIDS` app.
 
 Access the model and model arguments of the subject and process events.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-119
+.. GENERATED FROM PYTHON SOURCE LINES 98-124
 
 .. code-block:: Python
 
@@ -154,12 +167,17 @@ Access the model and model arguments of the subject and process events.
     subject = f"sub-{model.subject_label}"
     model.minimize_memory = False  # override default
 
-    import os
+    from pathlib import Path
 
     from nilearn.interfaces.fsl import get_design_from_fslmat
 
-    fsl_design_matrix_path = os.path.join(
-        data_dir, "derivatives", "task", subject, "stopsignal.feat", "design.mat"
+    fsl_design_matrix_path = (
+        Path(data_dir)
+        / "derivatives"
+        / "task"
+        / subject
+        / "stopsignal.feat"
+        / "design.mat"
     )
     design_matrix = get_design_from_fslmat(
         fsl_design_matrix_path, column_names=None
@@ -172,13 +190,13 @@ Access the model and model arguments of the subject and process events.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-123
+.. GENERATED FROM PYTHON SOURCE LINES 125-128
 
 We identify the columns of the Go and StopSuccess conditions of the
 design matrix inferred from the FSL file, to use them later for contrast
 definition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-130
+.. GENERATED FROM PYTHON SOURCE LINES 128-135
 
 .. code-block:: Python
 
@@ -196,13 +214,13 @@ definition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-134
+.. GENERATED FROM PYTHON SOURCE LINES 136-139
 
 First level model estimation (one subject)
 ------------------------------------------
 We fit the first level model for one subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-136
+.. GENERATED FROM PYTHON SOURCE LINES 139-141
 
 .. code-block:: Python
 
@@ -627,12 +645,12 @@ We fit the first level model for one subject.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 137-139
+.. GENERATED FROM PYTHON SOURCE LINES 142-144
 
 Then we compute the StopSuccess - Go contrast. We can use the column names
 of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-141
+.. GENERATED FROM PYTHON SOURCE LINES 144-146
 
 .. code-block:: Python
 
@@ -645,33 +663,29 @@ of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-144
+.. GENERATED FROM PYTHON SOURCE LINES 147-149
 
 We show the agreement between the Nilearn estimation and the FSL estimation
 available in the dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-188
+.. GENERATED FROM PYTHON SOURCE LINES 149-189
 
 .. code-block:: Python
 
     import nibabel as nib
 
     fsl_z_map = nib.load(
-        os.path.join(
-            data_dir,
-            "derivatives",
-            "task",
-            subject,
-            "stopsignal.feat",
-            "stats",
-            "zstat12.nii.gz",
-        )
+        Path(data_dir)
+        / "derivatives"
+        / "task"
+        / subject
+        / "stopsignal.feat"
+        / "stats"
+        / "zstat12.nii.gz"
     )
 
     import matplotlib.pyplot as plt
     from scipy.stats import norm
-
-    from nilearn import plotting
 
     plotting.plot_glass_brain(
         z_map,
@@ -729,13 +743,13 @@ available in the dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 189-192
+.. GENERATED FROM PYTHON SOURCE LINES 190-193
 
 Simple statistical report of thresholded contrast
 -------------------------------------------------
 We display the :term:`contrast` plot and table with cluster information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 192-205
+.. GENERATED FROM PYTHON SOURCE LINES 193-206
 
 .. code-block:: Python
 
@@ -776,12 +790,12 @@ We display the :term:`contrast` plot and table with cluster information.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 206-208
+.. GENERATED FROM PYTHON SOURCE LINES 207-209
 
 We can get a latex table from a Pandas Dataframe for display and publication
 purposes
 
-.. GENERATED FROM PYTHON SOURCE LINES 208-213
+.. GENERATED FROM PYTHON SOURCE LINES 209-214
 
 .. code-block:: Python
 
@@ -839,14 +853,14 @@ purposes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-218
+.. GENERATED FROM PYTHON SOURCE LINES 215-219
 
 Generating a report
 -------------------
 Using the computed FirstLevelModel and :term:`contrast` information,
 we can quickly create a summary report.
 
-.. GENERATED FROM PYTHON SOURCE LINES 218-225
+.. GENERATED FROM PYTHON SOURCE LINES 219-226
 
 .. code-block:: Python
 
@@ -864,19 +878,24 @@ we can quickly create a summary report.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-227
+.. GENERATED FROM PYTHON SOURCE LINES 227-228
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-232
+.. GENERATED FROM PYTHON SOURCE LINES 228-239
 
 .. code-block:: Python
 
 
     # report  # This report can be viewed in a notebook
-    # report.save_as_html('report.html')
     # report.open_in_browser()
 
+    # or we can save as an html file
+    from pathlib import Path
+
+    output_dir = Path.cwd() / "results" / "plot_bids_features"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    # report.save_as_html(output_dir / 'report.html')
 
 
 
@@ -884,12 +903,13 @@ We have several ways to access the report:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 233-235
+
+.. GENERATED FROM PYTHON SOURCE LINES 240-242
 
 Saving model outputs to disk
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 235-245
+.. GENERATED FROM PYTHON SOURCE LINES 242-252
 
 .. code-block:: Python
 
@@ -899,7 +919,7 @@ Saving model outputs to disk
         model,
         contrasts="StopSuccess - Go",
         contrast_types={"StopSuccess - Go": "t"},
-        out_dir="derivatives/nilearn_glm/",
+        out_dir=output_dir / "derivatives" / "nilearn_glm",
         prefix=f"{subject}_task-stopsignal",
     )
 
@@ -938,17 +958,16 @@ Saving model outputs to disk
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-247
+.. GENERATED FROM PYTHON SOURCE LINES 253-254
 
 View the generated files
 
-.. GENERATED FROM PYTHON SOURCE LINES 247-250
+.. GENERATED FROM PYTHON SOURCE LINES 254-256
 
 .. code-block:: Python
 
-    from glob import glob
-
-    print("\n".join(sorted(glob("derivatives/nilearn_glm/*"))))
+    files = sorted(list((output_dir / "derivatives" / "nilearn_glm").glob("*")))
+    print("\n".join([str(x.relative_to(output_dir)) for x in files]))
 
 
 
@@ -976,9 +995,9 @@ View the generated files
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 37.578 seconds)
+   **Total running time of the script:** (0 minutes 38.886 seconds)
 
-**Estimated memory usage:**  690 MB
+**Estimated memory usage:**  702 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_bids_features.py:

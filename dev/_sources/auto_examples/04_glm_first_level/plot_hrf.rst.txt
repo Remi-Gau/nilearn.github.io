@@ -45,7 +45,23 @@ timing issues.
 
 This example requires matplotlib and scipy.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-36
+.. GENERATED FROM PYTHON SOURCE LINES 29-34
+
+.. code-block:: Python
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-40
 
 Define stimulus parameters and response models
 ----------------------------------------------
@@ -53,7 +69,7 @@ Define stimulus parameters and response models
 To get an impulse response, we simulate a single event occurring at time t=0,
 with duration 1s.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-44
+.. GENERATED FROM PYTHON SOURCE LINES 40-48
 
 .. code-block:: Python
 
@@ -72,11 +88,11 @@ with duration 1s.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-46
+.. GENERATED FROM PYTHON SOURCE LINES 49-50
 
 Make a time array of this condition for display:
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-49
+.. GENERATED FROM PYTHON SOURCE LINES 50-53
 
 .. code-block:: Python
 
@@ -90,12 +106,12 @@ Make a time array of this condition for display:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 Define custom response functions for MION. Custom response
 functions should at least take :term:`TR` and oversampling as arguments:
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-113
+.. GENERATED FROM PYTHON SOURCE LINES 56-117
 
 .. code-block:: Python
 
@@ -167,11 +183,11 @@ functions should at least take :term:`TR` and oversampling as arguments:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-115
+.. GENERATED FROM PYTHON SOURCE LINES 118-119
 
 Define response function models to be displayed:
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-126
+.. GENERATED FROM PYTHON SOURCE LINES 119-130
 
 .. code-block:: Python
 
@@ -193,17 +209,14 @@ Define response function models to be displayed:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-129
+.. GENERATED FROM PYTHON SOURCE LINES 131-133
 
 Sample and plot response functions
 ----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-167
+.. GENERATED FROM PYTHON SOURCE LINES 133-168
 
 .. code-block:: Python
-
-
-    import matplotlib.pyplot as plt
 
     from nilearn.glm.first_level import compute_regressor
 
@@ -255,7 +268,7 @@ Sample and plot response functions
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.540 seconds)
+   **Total running time of the script:** (0 minutes 1.869 seconds)
 
 **Estimated memory usage:**  9 MB
 

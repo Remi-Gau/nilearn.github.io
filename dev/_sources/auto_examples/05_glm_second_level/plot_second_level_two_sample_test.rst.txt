@@ -42,11 +42,10 @@ these stimuli are sometimes used to map the borders of primary visual areas.
 At the group level, such a mapping is not possible. Yet, we may
 observe some significant effects in these areas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-35
+.. GENERATED FROM PYTHON SOURCE LINES 28-33
 
 .. code-block:: Python
 
-    import matplotlib.pyplot as plt
     import pandas as pd
 
     from nilearn import plotting
@@ -59,14 +58,14 @@ observe some significant effects in these areas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-40
+.. GENERATED FROM PYTHON SOURCE LINES 34-38
 
 Fetch dataset
 -------------
 We download a list of left vs right button press contrasts from a
 localizer dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-56
+.. GENERATED FROM PYTHON SOURCE LINES 38-54
 
 .. code-block:: Python
 
@@ -93,14 +92,14 @@ localizer dataset.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-61
+.. GENERATED FROM PYTHON SOURCE LINES 55-59
 
 Estimate second level models
 ----------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-63
+.. GENERATED FROM PYTHON SOURCE LINES 59-61
 
 .. code-block:: Python
 
@@ -113,11 +112,11 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-65
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 Next, we model the effect of conditions (sample 1 vs sample 2).
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-69
+.. GENERATED FROM PYTHON SOURCE LINES 63-67
 
 .. code-block:: Python
 
@@ -132,12 +131,12 @@ Next, we model the effect of conditions (sample 1 vs sample 2).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-72
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 The design matrix for the unpaired test doesn't need any more columns
 For the paired test, we include an intercept for each subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-75
+.. GENERATED FROM PYTHON SOURCE LINES 70-73
 
 .. code-block:: Python
 
@@ -151,11 +150,11 @@ For the paired test, we include an intercept for each subject.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 74-75
 
 We then assemble those into design matrices
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-86
+.. GENERATED FROM PYTHON SOURCE LINES 75-84
 
 .. code-block:: Python
 
@@ -175,21 +174,23 @@ We then assemble those into design matrices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-88
+.. GENERATED FROM PYTHON SOURCE LINES 85-86
 
 and plot the designs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-100
+.. GENERATED FROM PYTHON SOURCE LINES 86-100
 
 .. code-block:: Python
 
-    from nilearn.plotting import plot_design_matrix
+    import matplotlib.pyplot as plt
 
     _, (ax_unpaired, ax_paired) = plt.subplots(
         1, 2, gridspec_kw={"width_ratios": [1, 17]}
     )
-    plot_design_matrix(unpaired_design_matrix, rescale=False, ax=ax_unpaired)
-    plot_design_matrix(paired_design_matrix, rescale=False, ax=ax_paired)
+    plotting.plot_design_matrix(
+        unpaired_design_matrix, rescale=False, ax=ax_unpaired
+    )
+    plotting.plot_design_matrix(paired_design_matrix, rescale=False, ax=ax_paired)
     ax_unpaired.set_title("unpaired design", fontsize=12)
     ax_paired.set_title("paired design", fontsize=12)
     plt.tight_layout()
@@ -401,7 +402,7 @@ and negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.106 seconds)
+   **Total running time of the script:** (0 minutes 17.137 seconds)
 
 **Estimated memory usage:**  9 MB
 

@@ -185,7 +185,7 @@ also use file names as input parameters.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62c2b17980>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c75f072f0>
 
 
 
@@ -297,7 +297,7 @@ then the :term:`voxel` is not very interesting to discriminate the condition.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62b66c6630>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c664e3c20>
 
 
 
@@ -354,7 +354,7 @@ array.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62d599fbf0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c77a2a4e0>
 
 
 
@@ -430,7 +430,7 @@ intersection of this provided mask with our self-computed mask.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62c2b17920>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c77a2b4d0>
 
 
 
@@ -489,7 +489,7 @@ such operations can fill "holes" in masked :term:`voxel` representations.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62e2d858e0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c75be6c30>
 
 
 
@@ -565,7 +565,7 @@ integer label to each one of them.
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f62b66c5f10>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8c63c6e930>
 
 
 
@@ -625,24 +625,36 @@ Use the new ROIs, to extract data maps in both ROIs
 
 save the ROI 'atlas' to a Nifti file
 
-.. GENERATED FROM PYTHON SOURCE LINES 366-368
+.. GENERATED FROM PYTHON SOURCE LINES 366-374
 
 .. code-block:: Python
 
-    new_img_like(fmri_img, labels).to_filename("mask_atlas.nii.gz")
+    from pathlib import Path
+
+    output_dir = Path.cwd() / "results" / "plot_roi_extraction"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    print(f"Output will be saved to: {output_dir}")
+
+    new_img_like(fmri_img, labels).to_filename(output_dir / "mask_atlas.nii.gz")
 
 
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Output will be saved to: /home/runner/work/nilearn/nilearn/examples/06_manipulating_images/results/plot_roi_extraction
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 369-370
+
+.. GENERATED FROM PYTHON SOURCE LINES 375-376
 
 Plot the average in the different condition names
 
-.. GENERATED FROM PYTHON SOURCE LINES 370-382
+.. GENERATED FROM PYTHON SOURCE LINES 376-388
 
 .. code-block:: Python
 
@@ -673,9 +685,9 @@ Plot the average in the different condition names
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 22.020 seconds)
+   **Total running time of the script:** (0 minutes 23.225 seconds)
 
-**Estimated memory usage:**  2274 MB
+**Estimated memory usage:**  2254 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_roi_extraction.py:

@@ -89,11 +89,9 @@ to build the LSS beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-68
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
 
 .. code-block:: Python
-
-    import matplotlib.pyplot as plt
 
     from nilearn import image, plotting
 
@@ -104,14 +102,14 @@ to build the LSS beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 67-71
 
 Prepare data and analysis parameters
 ------------------------------------
 Download data in :term:`BIDS` format and event information for one subject,
 and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-97
+.. GENERATED FROM PYTHON SOURCE LINES 71-95
 
 .. code-block:: Python
 
@@ -147,7 +145,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/interfaces/bids/query.py:49: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/glm/first_level/first_level.py:1355: UserWarning:
 
     'StartTime' not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
@@ -155,7 +153,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-105
+.. GENERATED FROM PYTHON SOURCE LINES 96-103
 
 Define the standard model
 -------------------------
@@ -165,10 +163,11 @@ models.
 We will just use the one created by
 :func:`~nilearn.glm.first_level.first_level_from_bids`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-114
+.. GENERATED FROM PYTHON SOURCE LINES 103-113
 
 .. code-block:: Python
 
+    import matplotlib.pyplot as plt
 
     standard_glm.fit(fmri_file, events_df)
 
@@ -190,7 +189,7 @@ We will just use the one created by
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-123
+.. GENERATED FROM PYTHON SOURCE LINES 114-122
 
 Define the LSA model
 --------------------
@@ -201,7 +200,7 @@ It's important to ensure that the original trial types can be inferred from
 the updated trial-wise trial types, in order to collect the resulting
 beta maps into condition-wise beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-143
+.. GENERATED FROM PYTHON SOURCE LINES 122-142
 
 .. code-block:: Python
 
@@ -237,13 +236,13 @@ beta maps into condition-wise beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-147
+.. GENERATED FROM PYTHON SOURCE LINES 143-146
 
 Aggregate beta maps from the LSA model based on condition
 `````````````````````````````````````````````````````````
 Collect the :term:`Parameter Estimate` maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-162
+.. GENERATED FROM PYTHON SOURCE LINES 146-161
 
 .. code-block:: Python
 
@@ -269,7 +268,7 @@ Collect the :term:`Parameter Estimate` maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-172
+.. GENERATED FROM PYTHON SOURCE LINES 162-171
 
 Define the LSS models
 ---------------------
@@ -281,7 +280,7 @@ We loop through the trials, create a version of the DataFrame where the
 targeted trial has a unique trial type, fit the model to that DataFrame,
 and finally collect the targeted trial's beta map for the beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 172-243
+.. GENERATED FROM PYTHON SOURCE LINES 171-242
 
 .. code-block:: Python
 
@@ -363,12 +362,12 @@ and finally collect the targeted trial's beta map for the beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-246
+.. GENERATED FROM PYTHON SOURCE LINES 243-245
 
 Show the design matrices for the first few trials
 `````````````````````````````````````````````````
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-256
+.. GENERATED FROM PYTHON SOURCE LINES 245-255
 
 .. code-block:: Python
 
@@ -394,12 +393,12 @@ Show the design matrices for the first few trials
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 257-259
+.. GENERATED FROM PYTHON SOURCE LINES 256-258
 
 Compare the three modeling approaches
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 259-279
+.. GENERATED FROM PYTHON SOURCE LINES 258-278
 
 .. code-block:: Python
 
@@ -435,7 +434,7 @@ Compare the three modeling approaches
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 280-301
+.. GENERATED FROM PYTHON SOURCE LINES 279-300
 
 Applications of beta series
 ---------------------------
@@ -459,7 +458,7 @@ This section is based on
 which goes into more detail about seed-to-voxel functional connectivity
 analyses.
 
-.. GENERATED FROM PYTHON SOURCE LINES 301-394
+.. GENERATED FROM PYTHON SOURCE LINES 300-393
 
 .. code-block:: Python
 
@@ -568,7 +567,7 @@ analyses.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 395-399
+.. GENERATED FROM PYTHON SOURCE LINES 394-398
 
 References
 ----------
@@ -578,7 +577,7 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 42.841 seconds)
+   **Total running time of the script:** (1 minutes 45.668 seconds)
 
 **Estimated memory usage:**  457 MB
 

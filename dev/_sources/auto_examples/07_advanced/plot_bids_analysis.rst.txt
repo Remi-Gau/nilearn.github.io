@@ -37,7 +37,20 @@ More specifically:
    Notice that in this case the preprocessed :term:`bold<BOLD>`
    images were already normalized to the same :term:`MNI` space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-31
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
+
+.. code-block:: Python
+
+    from nilearn import plotting
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
 
 Fetch example :term:`BIDS` dataset
 ----------------------------------
@@ -48,7 +61,7 @@ subject folders only contain bold.json and events.tsv files, while the
 derivatives folder includes the preprocessed files preproc.nii and the
 confounds.tsv files.
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-35
+.. GENERATED FROM PYTHON SOURCE LINES 32-36
 
 .. code-block:: Python
 
@@ -63,11 +76,11 @@ confounds.tsv files.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-37
+.. GENERATED FROM PYTHON SOURCE LINES 37-38
 
 Here is the location of the dataset on disk.
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 .. code-block:: Python
 
@@ -86,7 +99,7 @@ Here is the location of the dataset on disk.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-51
+.. GENERATED FROM PYTHON SOURCE LINES 41-52
 
 Obtain automatically FirstLevelModel objects and fit arguments
 --------------------------------------------------------------
@@ -100,7 +113,7 @@ in the :term:`BIDS` dataset.
 To get the first level models we only have to specify the dataset directory
 and the task_label as specified in the file names.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-63
+.. GENERATED FROM PYTHON SOURCE LINES 52-64
 
 .. code-block:: Python
 
@@ -124,7 +137,7 @@ and the task_label as specified in the file names.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/interfaces/bids/query.py:49: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/glm/first_level/first_level.py:1355: UserWarning:
 
     'StartTime' not found in file /home/runner/work/nilearn/nilearn/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
@@ -132,24 +145,24 @@ and the task_label as specified in the file names.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-68
+.. GENERATED FROM PYTHON SOURCE LINES 65-69
 
 Quick sanity check on fit arguments
 -----------------------------------
 Additional checks or information extraction from pre-processed data can
 be made here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-71
+.. GENERATED FROM PYTHON SOURCE LINES 71-72
 
 We just expect one run_img per subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-75
+.. GENERATED FROM PYTHON SOURCE LINES 72-76
 
 .. code-block:: Python
 
-    import os
+    from pathlib import Path
 
-    print([os.path.basename(run) for run in models_run_imgs[0]])
+    print([Path(run).name for run in models_run_imgs[0]])
 
 
 
@@ -159,18 +172,18 @@ We just expect one run_img per subject.
 
  .. code-block:: none
 
-    ['sub-02_task-languagelocalizer_desc-preproc_bold.nii.gz']
+    ['sub-03_task-languagelocalizer_desc-preproc_bold.nii.gz']
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-79
+.. GENERATED FROM PYTHON SOURCE LINES 77-80
 
 The only confounds stored are regressors obtained from motion correction. As
 we can verify from the column headers of the confounds table corresponding
 to the only run_img present.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-81
+.. GENERATED FROM PYTHON SOURCE LINES 80-82
 
 .. code-block:: Python
 
@@ -189,13 +202,13 @@ to the only run_img present.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-85
+.. GENERATED FROM PYTHON SOURCE LINES 83-86
 
 During this acquisition the subject read blocks of sentences and
 consonant strings. So these are our only two conditions in events.
 We verify there are 12 blocks for each condition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-87
+.. GENERATED FROM PYTHON SOURCE LINES 86-88
 
 .. code-block:: Python
 
@@ -217,7 +230,7 @@ We verify there are 12 blocks for each condition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-95
+.. GENERATED FROM PYTHON SOURCE LINES 89-96
 
 First level model estimation
 ----------------------------
@@ -227,11 +240,11 @@ Notice that we can define a :term:`contrast`
 using the names of the conditions specified in the events dataframe.
 Sum, subtraction and scalar multiplication are allowed.
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-98
+.. GENERATED FROM PYTHON SOURCE LINES 98-99
 
 Set the threshold as the z-variate with an uncorrected p-value of 0.001.
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-102
+.. GENERATED FROM PYTHON SOURCE LINES 99-103
 
 .. code-block:: Python
 
@@ -246,17 +259,15 @@ Set the threshold as the z-variate with an uncorrected p-value of 0.001.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-104
+.. GENERATED FROM PYTHON SOURCE LINES 104-105
 
 Prepare figure for concurrent plot of individual maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-127
+.. GENERATED FROM PYTHON SOURCE LINES 105-126
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn import plotting
 
     fig, axes = plt.subplots(nrows=2, ncols=5, figsize=(8, 4.5))
     model_and_args = zip(models, models_run_imgs, models_events, models_confounds)
@@ -289,7 +300,7 @@ Prepare figure for concurrent plot of individual maps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 128-134
+.. GENERATED FROM PYTHON SOURCE LINES 127-133
 
 Second level model estimation
 -----------------------------
@@ -298,7 +309,7 @@ to the SecondLevelModel object for estimation. We can do this because
 all subjects share a similar design matrix (same variables reflected in
 column names).
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-138
+.. GENERATED FROM PYTHON SOURCE LINES 133-137
 
 .. code-block:: Python
 
@@ -313,11 +324,11 @@ column names).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-140
+.. GENERATED FROM PYTHON SOURCE LINES 138-139
 
 Note that we apply a smoothing of 8mm.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-143
+.. GENERATED FROM PYTHON SOURCE LINES 139-142
 
 .. code-block:: Python
 
@@ -331,14 +342,14 @@ Note that we apply a smoothing of 8mm.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-148
+.. GENERATED FROM PYTHON SOURCE LINES 143-147
 
 Computing contrasts at the second level is as simple as at the first level.
 Since we are not providing confounders we are performing a one-sample test
 at the second level with the images determined by the specified first level
 contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 148-152
+.. GENERATED FROM PYTHON SOURCE LINES 147-151
 
 .. code-block:: Python
 
@@ -353,12 +364,12 @@ contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 152-154
 
 The group level :term:`contrast` reveals a left lateralized fronto-temporal
 language network.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-165
+.. GENERATED FROM PYTHON SOURCE LINES 154-164
 
 .. code-block:: Python
 
@@ -387,9 +398,9 @@ language network.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 52.127 seconds)
+   **Total running time of the script:** (0 minutes 54.399 seconds)
 
-**Estimated memory usage:**  1084 MB
+**Estimated memory usage:**  1082 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_bids_analysis.py:
