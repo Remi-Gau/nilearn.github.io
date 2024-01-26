@@ -35,9 +35,10 @@ left versus right button press. Both at the individual and group level, this is
 expected to elicit activity in the motor cortex (positive in the right
 hemisphere, negative in the left hemisphere).
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-22
+.. GENERATED FROM PYTHON SOURCE LINES 20-23
 
 .. code-block:: Python
+
 
     from nilearn import plotting
 
@@ -48,7 +49,7 @@ hemisphere, negative in the left hemisphere).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-29
+.. GENERATED FROM PYTHON SOURCE LINES 24-30
 
 Fetch dataset
 -------------
@@ -57,7 +58,7 @@ from a localizer dataset. Note that we fetch individual t-maps that represent
 the :term:`BOLD` activity estimate divided by the uncertainty about
 this estimate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-39
+.. GENERATED FROM PYTHON SOURCE LINES 30-40
 
 .. code-block:: Python
 
@@ -78,7 +79,7 @@ this estimate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-45
+.. GENERATED FROM PYTHON SOURCE LINES 41-46
 
 Display subject t_maps
 ----------------------
@@ -86,7 +87,7 @@ We plot a grid with all the subjects t-maps thresholded at t = 2 for simple
 visualization purposes. The button press effect is visible among all
 subjects.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-62
+.. GENERATED FROM PYTHON SOURCE LINES 46-63
 
 .. code-block:: Python
 
@@ -119,7 +120,7 @@ subjects.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-70
+.. GENERATED FROM PYTHON SOURCE LINES 64-71
 
 Estimate second level model
 ---------------------------
@@ -129,7 +130,7 @@ the analysis will be performed.
 For a one-sample test, all we need to include in the design matrix is a
 single column of ones, corresponding to the model intercept.
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-78
+.. GENERATED FROM PYTHON SOURCE LINES 71-79
 
 .. code-block:: Python
 
@@ -148,11 +149,11 @@ single column of ones, corresponding to the model intercept.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-80
+.. GENERATED FROM PYTHON SOURCE LINES 80-81
 
 Next, we specify the model and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-88
+.. GENERATED FROM PYTHON SOURCE LINES 81-89
 
 .. code-block:: Python
 
@@ -171,12 +172,12 @@ Next, we specify the model and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-91
+.. GENERATED FROM PYTHON SOURCE LINES 90-92
 
 To estimate the :term:`contrast` is very simple. We can just provide the
 column name of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-96
+.. GENERATED FROM PYTHON SOURCE LINES 92-97
 
 .. code-block:: Python
 
@@ -192,12 +193,12 @@ column name of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-99
+.. GENERATED FROM PYTHON SOURCE LINES 98-100
 
 We threshold the second level :term:`contrast`
 at uncorrected p < 0.001 and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-114
+.. GENERATED FROM PYTHON SOURCE LINES 100-115
 
 .. code-block:: Python
 
@@ -228,16 +229,16 @@ at uncorrected p < 0.001 and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-116
+.. GENERATED FROM PYTHON SOURCE LINES 116-117
 
 As expected, we find the motor cortex.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 119-121
 
 Next, we compute the (corrected) p-values with a parametric test to compare
 them with the results from a nonparametric test.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-132
+.. GENERATED FROM PYTHON SOURCE LINES 121-133
 
 .. code-block:: Python
 
@@ -269,7 +270,7 @@ them with the results from a nonparametric test.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-160
+.. GENERATED FROM PYTHON SOURCE LINES 134-161
 
 Now, we compute the (corrected) p-values with a permutation test.
 
@@ -299,7 +300,7 @@ used as well (pending additional steps to mask and reformat the inputs).
   If you wish to only run voxel-level correction, set ``threshold`` to None
   (the default).
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-173
+.. GENERATED FROM PYTHON SOURCE LINES 161-174
 
 .. code-block:: Python
 
@@ -324,11 +325,11 @@ used as well (pending additional steps to mask and reformat the inputs).
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/mass_univariate/permuted_least_squares.py:985: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/mass_univariate/permuted_least_squares.py:986: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:979: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -336,7 +337,7 @@ used as well (pending additional steps to mask and reformat the inputs).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-186
+.. GENERATED FROM PYTHON SOURCE LINES 175-187
 
 Let us plot the (corrected) negative log p-values for the both tests.
 
@@ -351,7 +352,7 @@ We will also cap the negative log10 p-values at 2.69, because this is the
 maximum observable value for the nonparametric tests, which were run with
 only 500 permutations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-226
+.. GENERATED FROM PYTHON SOURCE LINES 187-227
 
 .. code-block:: Python
 
@@ -416,7 +417,7 @@ only 500 permutations.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-233
+.. GENERATED FROM PYTHON SOURCE LINES 228-234
 
 The nonparametric test yields many more discoveries and is more powerful than
 the usual parametric procedure.
@@ -428,9 +429,9 @@ cluster-mass corrections, which are very similar to one another.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 45.146 seconds)
+   **Total running time of the script:** (0 minutes 51.502 seconds)
 
-**Estimated memory usage:**  10 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_05_glm_second_level_plot_second_level_one_sample_test.py:

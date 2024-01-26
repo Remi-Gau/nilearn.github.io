@@ -49,12 +49,12 @@ the SVM's parameters is already done automatically inside the Decoder, but
 performing cross-validation for the feature selection must be done
 manually.
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Load the Haxby dataset
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-65
+.. GENERATED FROM PYTHON SOURCE LINES 38-66
 
 .. code-block:: Python
 
@@ -100,7 +100,7 @@ Load the Haxby dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-76
+.. GENERATED FROM PYTHON SOURCE LINES 67-77
 
 :term:`ANOVA` pipeline with :class:`nilearn.decoding.Decoder` object
 --------------------------------------------------------------------
@@ -113,7 +113,7 @@ and then decoding with different types of estimators
 (in this example is Support Vector Machine with a linear kernel)
 on nested cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-106
+.. GENERATED FROM PYTHON SOURCE LINES 77-107
 
 .. code-block:: Python
 
@@ -154,7 +154,7 @@ on nested cross-validation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-114
+.. GENERATED FROM PYTHON SOURCE LINES 108-115
 
 Fit the Decoder and predict the responses
 -----------------------------------------
@@ -164,7 +164,7 @@ best parameters selected for each cross-validation fold. See
 https://scikit-learn.org/stable/modules/cross_validation.html for an
 excellent explanation of how cross-validation works.
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-135
+.. GENERATED FROM PYTHON SOURCE LINES 115-136
 
 .. code-block:: Python
 
@@ -197,25 +197,25 @@ excellent explanation of how cross-validation works.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Fold 1 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9008264462809917
+    Fold 1 | Best SVM parameters: C=1000, penalty=l1, dual=False with score: 0.9008264462809916
     Fold 2 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.9177489177489176
-    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7359307359307359
+    Fold 3 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7943722943722944
     Fold 4 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.8246753246753247
-    Fold 5 | Best SVM parameters: C=100, penalty=l1, dual=False with score: 0.7402597402597403
+    Fold 5 | Best SVM parameters: C=1000, penalty=l2, dual=True with score: 0.735930735930736
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-138
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
 
 Compute prediction scores with different values of screening percentile
 -----------------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-163
+.. GENERATED FROM PYTHON SOURCE LINES 139-164
 
 .. code-block:: Python
 
@@ -252,60 +252,60 @@ Compute prediction scores with different values of screening percentile
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 2.000
-    Mean CV score: 0.8115
-    Validation score: 0.6667
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    Mean CV score: 0.8156
+    Validation score: 0.6111
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 4.000
-    Mean CV score: 0.8748
+    Mean CV score: 0.8619
     Validation score: 0.5556
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 8.000
     Mean CV score: 0.8433
-    Validation score: 0.4444
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    Validation score: 0.3333
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 16.000
-    Mean CV score: 0.8496
-    Validation score: 0.4444
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    Mean CV score: 0.8707
+    Validation score: 0.5000
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 32.000
-    Mean CV score: 0.8533
-    Validation score: 0.5556
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    Mean CV score: 0.8822
+    Validation score: 0.3333
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Sreening Percentile: 64.000
-    Mean CV score: 0.8793
-    Validation score: 0.5000
+    Mean CV score: 0.8437
+    Validation score: 0.4444
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-168
+.. GENERATED FROM PYTHON SOURCE LINES 165-169
 
 Nested cross-validation
 -----------------------
 We are going to tune the parameter 'screening_percentile' in the
 pipeline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-196
+.. GENERATED FROM PYTHON SOURCE LINES 169-197
 
 .. code-block:: Python
 
@@ -345,15 +345,11 @@ pipeline.
 
  .. code-block:: none
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -361,11 +357,7 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
-
-    Liblinear failed to converge, increase the number of iterations.
-
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -381,7 +373,7 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -393,7 +385,15 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -401,65 +401,81 @@ pipeline.
 
     Liblinear failed to converge, increase the number of iterations.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/sklearn/svm/_base.py:1237: ConvergenceWarning:
+
+    Liblinear failed to converge, increase the number of iterations.
+
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:491: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    Nested CV score: 0.6759
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
+
+    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+
+    Nested CV score: 0.7037
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-199
+.. GENERATED FROM PYTHON SOURCE LINES 198-200
 
 Plot the prediction scores using matplotlib
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-217
+.. GENERATED FROM PYTHON SOURCE LINES 200-218
 
 .. code-block:: Python
 
@@ -496,9 +512,9 @@ Plot the prediction scores using matplotlib
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 13.462 seconds)
+   **Total running time of the script:** (2 minutes 15.993 seconds)
 
-**Estimated memory usage:**  917 MB
+**Estimated memory usage:**  916 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_grid_search.py:

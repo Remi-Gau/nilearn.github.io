@@ -55,14 +55,14 @@ Vincent Michel, Alexandre Gramfort, Gael Varoquaux, Evelyn Eger,
 The big picture discussion corresponding to this example can be found
 in the documentation section :ref:`parcellating_brain`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-44
+.. GENERATED FROM PYTHON SOURCE LINES 41-45
 
 Download a brain development fMRI dataset and turn it to a data matrix
 ----------------------------------------------------------------------
 
 We download one subject of the movie watching dataset from Internet
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-60
+.. GENERATED FROM PYTHON SOURCE LINES 45-61
 
 .. code-block:: Python
 
@@ -95,7 +95,7 @@ We download one subject of the movie watching dataset from Internet
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-66
+.. GENERATED FROM PYTHON SOURCE LINES 62-67
 
 Brain parcellations with Ward Clustering
 ----------------------------------------
@@ -103,7 +103,7 @@ Brain parcellations with Ward Clustering
 Transforming list of images to data matrix and build brain parcellations,
 all can be done at once using `Parcellations` object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-107
+.. GENERATED FROM PYTHON SOURCE LINES 67-108
 
 .. code-block:: Python
 
@@ -158,7 +158,7 @@ all can be done at once using `Parcellations` object.
 
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:428: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -184,16 +184,16 @@ all can be done at once using `Parcellations` object.
            ...,
            [ 0.002661, ..., -0.007877]]), connectivity=<24256x24256 sparse matrix of type '<class 'numpy.int64'>'
             with 162682 stored elements in COOrdinate format>, n_clusters=1000, return_distance=False)
-    ________________________________________________________ward_tree - 1.9s, 0.0min
-    ____________________________________________________estimator_fit - 2.1s, 0.0min
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:979: UserWarning:
+    ________________________________________________________ward_tree - 2.2s, 0.0min
+    ____________________________________________________estimator_fit - 2.3s, 0.0min
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    Ward agglomeration 1000 clusters: 6.16s
+    Ward agglomeration 1000 clusters: 6.62s
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:428: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -215,18 +215,18 @@ all can be done at once using `Parcellations` object.
            ...,
            [ 0.002661, ..., -0.007877]]), connectivity=<24256x24256 sparse matrix of type '<class 'numpy.int64'>'
             with 162682 stored elements in COOrdinate format>, n_clusters=2000, return_distance=False)
-    ________________________________________________________ward_tree - 1.8s, 0.0min
-    ____________________________________________________estimator_fit - 2.0s, 0.0min
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:979: UserWarning:
+    ________________________________________________________ward_tree - 2.3s, 0.0min
+    ____________________________________________________estimator_fit - 2.4s, 0.0min
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    Ward agglomeration 2000 clusters: 4.37s
+    Ward agglomeration 2000 clusters: 5.04s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-113
+.. GENERATED FROM PYTHON SOURCE LINES 109-114
 
 Visualize: Brain parcellations (Ward)
 .....................................
@@ -234,7 +234,7 @@ Visualize: Brain parcellations (Ward)
 First, we display the parcellations of the brain image stored in attribute
 `labels_img_`
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-132
+.. GENERATED FROM PYTHON SOURCE LINES 114-133
 
 .. code-block:: Python
 
@@ -275,7 +275,7 @@ First, we display the parcellations of the brain image stored in attribute
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-139
+.. GENERATED FROM PYTHON SOURCE LINES 134-140
 
 Compressed representation of Ward clustering
 ............................................
@@ -284,7 +284,7 @@ Second, we illustrate the effect that the clustering has on the signal.
 We show the original data, and the approximation provided by the
 clustering by averaging the signal on each parcel.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-182
+.. GENERATED FROM PYTHON SOURCE LINES 140-183
 
 .. code-block:: Python
 
@@ -366,7 +366,7 @@ clustering by averaging the signal on each parcel.
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7efe3417fb60>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7efe59dbfd40>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f1d4475cf50>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f1d5d98a1e0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -375,9 +375,9 @@ clustering by averaging the signal on each parcel.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7efe43b6bf80>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d5ea76060>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7efe59e806b0>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d4475e5a0>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -392,11 +392,11 @@ clustering by averaging the signal on each parcel.
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
     _______________________________________________filter_and_extract - 1.2s, 0.0min
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7efe35bc4ef0>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f1d72878e90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-190
+.. GENERATED FROM PYTHON SOURCE LINES 184-191
 
 Brain parcellations with KMeans Clustering
 ------------------------------------------
@@ -406,7 +406,7 @@ clustering. But, in the range of a small number of clusters,
 it is most likely that we want to use standardization. Indeed with
 standardization and smoothing, the clusters will form as regions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 190-209
+.. GENERATED FROM PYTHON SOURCE LINES 191-210
 
 .. code-block:: Python
 
@@ -439,7 +439,7 @@ standardization and smoothing, the clusters will form as regions.
 
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:428: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -457,19 +457,19 @@ standardization and smoothing, the clusters will form as regions.
            [-0.003247, ..., -0.001756]]), 
     MiniBatchKMeans(n_clusters=50, n_init=3, random_state=0))
     ____________________________________________________estimator_fit - 0.4s, 0.0min
-    KMeans clusters: 4.22s
+    KMeans clusters: 4.53s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 210-214
+.. GENERATED FROM PYTHON SOURCE LINES 211-215
 
 Visualize: Brain parcellations (KMeans)
 .......................................
 
 Grab parcellations of brain image stored in attribute `labels_img_`
 
-.. GENERATED FROM PYTHON SOURCE LINES 214-227
+.. GENERATED FROM PYTHON SOURCE LINES 215-228
 
 .. code-block:: Python
 
@@ -498,7 +498,7 @@ Grab parcellations of brain image stored in attribute `labels_img_`
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-244
+.. GENERATED FROM PYTHON SOURCE LINES 229-245
 
 Brain parcellations with Hierarchical KMeans Clustering
 -------------------------------------------------------
@@ -517,7 +517,7 @@ This object uses method='hierarchical_kmeans' for Hierarchical KMeans
 clustering and 10mm smoothing and standardization to compare
 with the previous method.
 
-.. GENERATED FROM PYTHON SOURCE LINES 244-257
+.. GENERATED FROM PYTHON SOURCE LINES 245-258
 
 .. code-block:: Python
 
@@ -544,7 +544,7 @@ with the previous method.
 
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:428: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -562,7 +562,7 @@ with the previous method.
            [-0.003247, ..., -0.001756]]), 
     HierarchicalKMeans(n_clusters=50))
     ____________________________________________________estimator_fit - 0.9s, 0.0min
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:979: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -984,14 +984,14 @@ with the previous method.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 258-262
+.. GENERATED FROM PYTHON SOURCE LINES 259-263
 
 Visualize: Brain parcellations (Hierarchical KMeans)
 ....................................................
 
 Grab parcellations of brain image stored in attribute `labels_img_`
 
-.. GENERATED FROM PYTHON SOURCE LINES 262-278
+.. GENERATED FROM PYTHON SOURCE LINES 263-279
 
 .. code-block:: Python
 
@@ -1023,7 +1023,7 @@ Grab parcellations of brain image stored in attribute `labels_img_`
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 279-288
+.. GENERATED FROM PYTHON SOURCE LINES 280-289
 
 Compare Hierarchical Kmeans clusters with those from Kmeans
 ...........................................................
@@ -1035,7 +1035,7 @@ average (600 here) than KMeans.
 First count how many voxels have each label (except 0 which is the
 background).
 
-.. GENERATED FROM PYTHON SOURCE LINES 288-299
+.. GENERATED FROM PYTHON SOURCE LINES 289-300
 
 .. code-block:: Python
 
@@ -1063,13 +1063,13 @@ background).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 300-303
+.. GENERATED FROM PYTHON SOURCE LINES 301-304
 
 Let's plot clusters sizes distributions for both algorithms
 
 You can just skip the plotting code, the important part is the figure
 
-.. GENERATED FROM PYTHON SOURCE LINES 303-330
+.. GENERATED FROM PYTHON SOURCE LINES 304-331
 
 .. code-block:: Python
 
@@ -1114,11 +1114,11 @@ You can just skip the plotting code, the important part is the figure
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7efe2b6d6ab0>
+    <matplotlib.legend.Legend object at 0x7f1d5e5a6270>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 331-336
+.. GENERATED FROM PYTHON SOURCE LINES 332-337
 
 As we can see, half of the 50 KMeans clusters contain less than
 100 voxels whereas three contain several thousands voxels
@@ -1126,7 +1126,7 @@ Hierarchical KMeans yield better balanced clusters, with a significant
 proportion of them containing hundreds to thousands of voxels.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 338-357
+.. GENERATED FROM PYTHON SOURCE LINES 339-358
 
 Brain parcellations with :term:`ReNA` Clustering
 ------------------------------------------------
@@ -1148,7 +1148,7 @@ More about :term:`ReNA` clustering algorithm in the original paper
       Machine Intelligence, vol. 41, no. 3, pp. 669-681, 1 March 2019.
       https://hal.archives-ouvertes.fr/hal-01366651/
 
-.. GENERATED FROM PYTHON SOURCE LINES 357-372
+.. GENERATED FROM PYTHON SOURCE LINES 358-373
 
 .. code-block:: Python
 
@@ -1177,7 +1177,7 @@ More about :term:`ReNA` clustering algorithm in the original paper
 
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:428: UserWarning:
+    /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -1189,7 +1189,7 @@ More about :term:`ReNA` clustering algorithm in the original paper
     _estimator_fit(array([[-0.002154, ...,  0.002661],
            ...,
            [ 0.007053, ..., -0.007877]]), 
-    ReNA(mask_img=<nibabel.nifti1.Nifti1Image object at 0x7efe5a1948f0>,
+    ReNA(mask_img=<nibabel.nifti1.Nifti1Image object at 0x7f1d7c78a480>,
          memory=Memory(location=nilearn_cache/joblib), n_clusters=5000,
          scaling=True), 
     'rena')
@@ -1198,7 +1198,7 @@ More about :term:`ReNA` clustering algorithm in the original paper
     recursive_neighbor_agglomeration(array([[-0.002154, ...,  0.002661],
            ...,
            [ 0.007053, ..., -0.007877]]), 
-    <nibabel.nifti1.Nifti1Image object at 0x7efe5a1948f0>, 5000, n_iter=10, threshold=1e-07, verbose=0)
+    <nibabel.nifti1.Nifti1Image object at 0x7f1d7c78a480>, 5000, n_iter=10, threshold=1e-07, verbose=0)
     _________________________________recursive_neighbor_agglomeration - 0.4s, 0.0min
     ____________________________________________________estimator_fit - 0.6s, 0.0min
     [Parcellations.wrapped] loading data from Nifti1Image(
@@ -1217,7 +1217,7 @@ More about :term:`ReNA` clustering algorithm in the original paper
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7efe41523470>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7efe5a0d6ea0>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f1d5b07a060>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f1d5dee7b90>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -1226,9 +1226,9 @@ More about :term:`ReNA` clustering algorithm in the original paper
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7efe39f84aa0>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d5b0780e0>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7efe39f85b50>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d5b079e20>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -1241,13 +1241,13 @@ More about :term:`ReNA` clustering algorithm in the original paper
     [NiftiLabelsMasker.transform_single_imgs] Smoothing images
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.3s, 0.0min
-    ReNA 5000 clusters: 5.35s
+    _______________________________________________filter_and_extract - 1.4s, 0.0min
+    ReNA 5000 clusters: 5.54s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 373-378
+.. GENERATED FROM PYTHON SOURCE LINES 374-379
 
 Visualize: Brain parcellations (ReNA)
 .....................................
@@ -1255,7 +1255,7 @@ Visualize: Brain parcellations (ReNA)
 First, we display the parcellations of the brain image stored in attribute
 `labels_img_`
 
-.. GENERATED FROM PYTHON SOURCE LINES 378-391
+.. GENERATED FROM PYTHON SOURCE LINES 379-392
 
 .. code-block:: Python
 
@@ -1286,11 +1286,11 @@ First, we display the parcellations of the brain image stored in attribute
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7efe474b4ef0>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f1d50097140>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 392-401
+.. GENERATED FROM PYTHON SOURCE LINES 393-402
 
 Compressed representation of :term:`ReNA` clustering
 ....................................................
@@ -1302,7 +1302,7 @@ the clustering by averaging the signal on each parcel.
 We can then compare the results with the compressed representation
 obtained with Ward.
 
-.. GENERATED FROM PYTHON SOURCE LINES 401-432
+.. GENERATED FROM PYTHON SOURCE LINES 402-433
 
 .. code-block:: Python
 
@@ -1372,7 +1372,7 @@ obtained with Ward.
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7efe59497d40>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7efe2c55cd70>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f1d7330e8d0>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f1d500962a0>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -1381,9 +1381,9 @@ obtained with Ward.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7efe2c55c5c0>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d72d9aae0>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7efe59494da0>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f1d72d991f0>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -1396,13 +1396,13 @@ obtained with Ward.
     [NiftiLabelsMasker.transform_single_imgs] Smoothing images
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.3s, 0.0min
+    _______________________________________________filter_and_extract - 1.4s, 0.0min
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7efe4c388e90>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f1d7330ee10>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 433-439
+.. GENERATED FROM PYTHON SOURCE LINES 434-440
 
 Even if the compressed signal is relatively close
 to the original signal, we can notice that Ward Clustering
@@ -1414,9 +1414,9 @@ some cases.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 37.464 seconds)
+   **Total running time of the script:** (0 minutes 41.077 seconds)
 
-**Estimated memory usage:**  2901 MB
+**Estimated memory usage:**  2930 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_data_driven_parcellations.py:
