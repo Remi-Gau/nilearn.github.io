@@ -17,10 +17,9 @@ It is not a minimalistic example, as it strives to be didactic. It is not
 meant to be copied to analyze new data: many of the steps are unnecessary.
 """
 
-
 # %%
-# Retrieve and load the fMRI data from the Haxby study
-# ----------------------------------------------------
+# Retrieve and load the :term:`fMRI` data from the Haxby study
+# ------------------------------------------------------------
 #
 # First download the data
 # .......................
@@ -39,19 +38,20 @@ fmri_filename = haxby_dataset.func[0]
 print(f"First subject functional nifti images (4D) are at: {fmri_filename}")
 
 # %%
-# Visualizing the fmri volume
-# ...........................
+# Visualizing the :term:`fMRI` volume
+# ...................................
 #
-# One way to visualize a :term:`fmri<fMRI>` volume is
+# One way to visualize a :term:`fMRI` volume is
 # using :func:`nilearn.plotting.plot_epi`.
-# We will visualize the previously fetched :term:`fmri<fMRI>`
+# We will visualize the previously fetched :term:`fMRI`
 # data from Haxby dataset.
 #
-# Because :term:`fmri<fMRI>` data are 4D (they consist of many 3D EPI images),
+# Because :term:`fMRI` data are 4D
+# (they consist of many 3D :term:`EPI` images),
 # we cannot plot them directly using :func:`nilearn.plotting.plot_epi`
 # (which accepts just 3D input).
 # Here we are using :func:`nilearn.image.mean_img` to
-# extract a single 3D EPI image from the :term:`fmri<fMRI>` data.
+# extract a single 3D :term:`EPI` image from the :term:`fMRI` data.
 #
 from nilearn import plotting
 from nilearn.image import mean_img
@@ -59,8 +59,8 @@ from nilearn.image import mean_img
 plotting.view_img(mean_img(fmri_filename), threshold=None)
 
 # %%
-# Feature extraction: from fMRI volumes to a data matrix
-# ......................................................
+# Feature extraction: from :term:`fMRI` volumes to a data matrix
+# ..............................................................
 #
 # These are some really lovely images, but for machine learning
 # we need matrices to work with the actual data. Fortunately, the
@@ -106,15 +106,15 @@ print(conditions)
 # As we can see from the targets above, the experiment contains many
 # conditions. As a consequence, the data is quite big. Not all of this data
 # has an interest to us for decoding,
-# so we will keep only :term:`fmri<fMRI>` signals
+# so we will keep only :term:`fMRI` signals
 # corresponding to faces or cats.
 # We create a mask of the samples belonging to
 # the condition; this mask is then applied
-# to the :term:`fmri<fMRI>` data to restrict the
+# to the :term:`fMRI` data to restrict the
 # classification to the face vs cat discrimination.
 #
 # The input data will become much smaller
-# (i.e. :term:`fmri<fMRI>` signal is shorter):
+# (i.e. :term:`fMRI` signal is shorter):
 condition_mask = conditions.isin(["face", "cat"])
 
 # %%
@@ -254,20 +254,20 @@ print(decoder.cv_params_["face"])
 # 	We can speed things up to use all the CPUs of our computer with the
 # 	n_jobs parameter.
 #
-# The best way to do cross-validation is to respect the structure of
-# the experiment, for instance by leaving out full sessions of
-# acquisition.
+# The best way to do cross-validation is to respect
+# the structure of the experiment,
+# for instance by leaving out full runs of acquisition.
 #
-# The number of the session is stored in the CSV file giving the
-# behavioral data. We have to apply our session mask, to select only cats
-# and faces.
-session_label = behavioral["chunks"][condition_mask]
+# The number of the run is stored in the CSV file giving
+# the behavioral data.
+# We have to apply our run mask, to select only cats and faces.
+run_label = behavioral["chunks"][condition_mask]
 
 # %%
-# The :term:`fMRI` data is acquired by sessions,
-# and the noise is autocorrelated in a
-# given session. Hence, it is better to predict across sessions when doing
-# cross-validation. To leave a session out, pass the cross-validator object
+# The :term:`fMRI` data is acquired by runs,
+# and the noise is autocorrelated in a given run.
+# Hence, it is better to predict across runs when doing cross-validation.
+# To leave a run out, pass the cross-validator object
 # to the cv parameter of decoder.
 from sklearn.model_selection import LeaveOneGroupOut
 
@@ -276,7 +276,7 @@ cv = LeaveOneGroupOut()
 decoder = Decoder(
     estimator="svc", mask=mask_filename, standardize="zscore_sample", cv=cv
 )
-decoder.fit(fmri_niimgs, conditions, groups=session_label)
+decoder.fit(fmri_niimgs, conditions, groups=run_label)
 
 print(decoder.cv_scores_)
 
@@ -305,11 +305,16 @@ coef_img = decoder.coef_img_["face"]
 
 # %%
 # coef_img is now a NiftiImage.  We can save the coefficients as a nii.gz file:
-decoder.coef_img_["face"].to_filename("haxby_svc_weights.nii.gz")
+from pathlib import Path
+
+output_dir = Path.cwd() / "results" / "plot_decoding_tutorial"
+output_dir.mkdir(exist_ok=True, parents=True)
+print(f"Output will be saved to: {output_dir}")
+decoder.coef_img_["face"].to_filename(output_dir / "haxby_svc_weights.nii.gz")
 
 # %%
-# Plotting the SVM weights
-# ........................
+# Plotting the :term:`SVM` weights
+# ................................
 #
 # We can plot the weights, using the subject's anatomical as a background
 plotting.view_img(
@@ -337,7 +342,7 @@ dummy_decoder = Decoder(
     cv=cv,
     standardize="zscore_sample",
 )
-dummy_decoder.fit(fmri_niimgs, conditions, groups=session_label)
+dummy_decoder.fit(fmri_niimgs, conditions, groups=run_label)
 
 # Now, we can compare these scores by simply taking a mean over folds
 print(dummy_decoder.cv_scores_)

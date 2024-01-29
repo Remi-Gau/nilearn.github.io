@@ -3,9 +3,9 @@ Seed-based connectivity on the surface
 ======================================
 
 The dataset that is a subset of the enhanced NKI Rockland sample
-(http://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012)
+(https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012)
 
-Resting state fMRI scans (TR=645ms) of 102 subjects were preprocessed
+Resting state :term:`fMRI` scans (TR=645ms) of 102 subjects were preprocessed
 (https://github.com/fliem/nki_nilearn) and projected onto the Freesurfer
 fsaverage5 template (Dale et al, 1999, Fischl et al, 1999). For this example
 we use the time series of a single subject's left hemisphere.
@@ -30,19 +30,19 @@ References
 ----------
 Nooner et al, (2012). The NKI-Rockland Sample: A model for accelerating the
 pace of discovery science in psychiatry. Frontiers in neuroscience 6, 152.
-URL http://dx.doi.org/10.3389/fnins.2012.00152
+URL https://doi.org/10.3389/fnins.2012.00152
 
 Dale et al, (1999). Cortical surface-based analysis.I. Segmentation and
 surface reconstruction. Neuroimage 9.
-URL http://dx.doi.org/10.1006/nimg.1998.0395
+URL https://doi.org/10.1006/nimg.1998.0395
 
 Fischl et al, (1999). Cortical surface-based analysis. II: Inflation,
 flattening, and a surface-based coordinate system. Neuroimage 9.
-http://dx.doi.org/10.1006/nimg.1998.0396
+https://doi.org/10.1006/nimg.1998.0396
 
 Destrieux et al, (2010). Automatic parcellation of human cortical gyri and
 sulci using standard anatomical nomenclature. NeuroImage, 53, 1.
-URL http://dx.doi.org/10.1016/j.neuroimage.2010.06.010.
+URL https://doi.org/10.1016/j.neuroimage.2010.06.010.
 
 """
 
@@ -136,9 +136,9 @@ plotting.plot_surf_roi(
 )
 
 # %%
-# Using a flat mesh can be useful in order to easily locate the area
+# Using a flat :term:`mesh` can be useful in order to easily locate the area
 # of interest on the cortex. To make this plot easier to read,
-# we use the mesh curvature as a background map.
+# we use the :term:`mesh` curvature as a background map.
 
 bg_map = np.sign(surface.load_surf_data(fsaverage['curv_left']))
 # np.sign yields values in [-1, 1]. We rescale the background map
@@ -185,10 +185,16 @@ plotting.plot_surf_stat_map(fsaverage['pial_left'], stat_map=stat_map,
 # %%
 # The plots can be saved to file, in which case the display is closed after
 # creating the figure
+from pathlib import Path
+
+output_dir = Path.cwd() / "results" / "plot_surf_stat_map"
+output_dir.mkdir(exist_ok=True, parents=True)
+print(f"Output will be saved to: {output_dir}")
+
 plotting.plot_surf_stat_map(fsaverage['infl_left'], stat_map=stat_map,
                             hemi='left', bg_map=fsaverage['sulc_left'],
                             bg_on_data=True, threshold=.5, colorbar=True,
-                            output_file='plot_surf_stat_map.png')
+                            output_file=output_dir / 'plot_surf_stat_map.png')
 
 plotting.show()
 

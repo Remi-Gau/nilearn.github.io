@@ -21,8 +21,8 @@
 Predicted time series and residuals
 ===================================
 
-Here we fit a First Level GLM with the `minimize_memory`-argument set to
-`False`.
+Here we fit a First Level :term:`GLM` with the `minimize_memory`-argument
+set to `False`.
 By doing so, the `FirstLevelModel`-object stores the residuals, which we can
 then inspect.
 Also, the predicted time series can be extracted, which is useful to assess the
@@ -37,7 +37,7 @@ Import modules
 
 .. GENERATED FROM PYTHON SOURCE LINES 19-40
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -78,7 +78,7 @@ original data in `fmri_img`.
 
 .. GENERATED FROM PYTHON SOURCE LINES 47-60
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.first_level import FirstLevelModel
 
@@ -107,7 +107,7 @@ Calculate and plot contrast
 
 .. GENERATED FROM PYTHON SOURCE LINES 63-70
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -130,7 +130,7 @@ Calculate and plot contrast
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b217e290>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b1460f10>
 
 
 
@@ -141,7 +141,7 @@ Extract the largest clusters
 
 .. GENERATED FROM PYTHON SOURCE LINES 73-89
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiSpheresMasker
     from nilearn.reporting import get_clusters_table
@@ -173,7 +173,7 @@ Plot predicted and actual time series for 6 most significant clusters
 
 .. GENERATED FROM PYTHON SOURCE LINES 92-120
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -222,7 +222,7 @@ Get residuals
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-127
 
-.. code-block:: default
+.. code-block:: Python
 
 
     resid = masker.fit_transform(fmri_glm.residuals[0])
@@ -243,7 +243,7 @@ Note that residuals are not really distributed normally.
 
 .. GENERATED FROM PYTHON SOURCE LINES 131-143
 
-.. code-block:: default
+.. code-block:: Python
 
 
     fig2, axs2 = plt.subplots(2, 3)
@@ -280,12 +280,13 @@ Note that residuals are not really distributed normally.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-158
+.. GENERATED FROM PYTHON SOURCE LINES 144-160
 
 Plot R-squared
 --------------
 Because we stored the residuals, we can plot the R-squared: the proportion of
-explained variance of the GLM as a whole. Note that the R-squared is markedly
+explained variance of the :term:`GLM` as a whole.
+Note that the R-squared is markedly
 lower deep down the brain, where there is more physiological noise and we are
 further away from the receive coils. However, R-Squared should be interpreted
 with a grain of salt. The R-squared value will necessarily increase with the
@@ -294,12 +295,13 @@ Additionally, we are looking at the overall fit of the model, so we are
 unable to say whether a voxel/region has a large R-squared value because the
 voxel/region is responsive to the experiment (such as active or rest) or
 because the voxel/region fits the noise factors (such as drift or motion)
-that could be present in the GLM. To isolate the influence of the experiment,
+that could be present in the :term:`GLM`.
+To isolate the influence of the experiment,
 we can use an F-test as shown in the next section.
 
-.. GENERATED FROM PYTHON SOURCE LINES 158-167
+.. GENERATED FROM PYTHON SOURCE LINES 160-169
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plotting.plot_stat_map(
@@ -324,22 +326,24 @@ we can use an F-test as shown in the next section.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fd1f27b5f50>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fb3b223ea10>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-174
+.. GENERATED FROM PYTHON SOURCE LINES 170-178
 
 Calculate and Plot F-test
 -------------------------
-The F-test tells you how well the GLM fits effects of interest such as the
-active and rest conditions together. This is different from R-squared, which
-tells you how well the overall GLM fits the data, including active, rest and
-all the other columns in the design matrix such as drift and motion.
+The F-test tells you how well the :term:`GLM` fits effects of interest
+such as the active and rest conditions together.
+This is different from R-squared, which
+tells you how well the overall :term:`GLM` fits the data,
+including active, rest and all the other columns
+in the design matrix such as drift and motion.
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-194
+.. GENERATED FROM PYTHON SOURCE LINES 178-198
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -375,16 +379,16 @@ all the other columns in the design matrix such as drift and motion.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fd1b7117cd0>
+    <nilearn.plotting.displays._slicers.ZSlicer object at 0x7fb38bd53f10>
 
 
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 26.338 seconds)
+   **Total running time of the script:** (0 minutes 33.464 seconds)
 
-**Estimated memory usage:**  536 MB
+**Estimated memory usage:**  538 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_predictions_residuals.py:
@@ -393,23 +397,20 @@ all the other columns in the design matrix such as drift and motion.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_predictions_residuals.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_predictions_residuals.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_predictions_residuals.py <plot_predictions_residuals.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_predictions_residuals.ipynb <plot_predictions_residuals.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_predictions_residuals.py <plot_predictions_residuals.py>`
 
 
 .. only:: html

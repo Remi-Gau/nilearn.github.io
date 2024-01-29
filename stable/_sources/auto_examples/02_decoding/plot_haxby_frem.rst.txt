@@ -23,7 +23,7 @@ Decoding with FREM: face vs house vs chair object recognition
 
 This example uses fast ensembling of regularized models (FREM) to decode
 a face vs house vs chair discrimination task from Haxby 2001 study.
-FREM uses an implicit spatial regularization
+:term:`FREM` uses an implicit spatial regularization
 through fast clustering and aggregates a high number of estimators
 trained on various splits of the training set,
 thus returning a very robust decoder
@@ -38,7 +38,7 @@ Load the Haxby dataset
 
 .. GENERATED FROM PYTHON SOURCE LINES 19-53
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_haxby
 
@@ -69,7 +69,7 @@ Load the Haxby dataset
     y_test = conditions[condition_mask_test].values
 
 
-    # Compute the mean epi to be used for the background of the plotting
+    # Compute the mean EPI to be used for the background of the plotting
     from nilearn.image import mean_img
 
     background_img = mean_img(func_filenames)
@@ -88,11 +88,11 @@ Fit FREM
 
 .. GENERATED FROM PYTHON SOURCE LINES 56-65
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.decoding import FREMClassifier
 
-    decoder = FREMClassifier(cv=10, standardize="zscore_sample")
+    decoder = FREMClassifier(cv=10, standardize="zscore_sample", n_jobs=2)
     # Fit model on train data and predict on test data
     decoder.fit(X_train, y_train)
     y_pred = decoder.predict(X_test)
@@ -107,45 +107,9 @@ Fit FREM
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is bigger than the volume of a standard human brain. This object is probably not tuned to be used on such data.
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-    Features [15809] are constant.
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    invalid value encountered in divide
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    divide by zero encountered in divide
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-    Features [15809] are constant.
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    invalid value encountered in divide
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    divide by zero encountered in divide
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:112: UserWarning:
-
-    Features [15809] are constant.
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    invalid value encountered in divide
-
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/sklearn/feature_selection/_univariate_selection.py:113: RuntimeWarning:
-
-    divide by zero encountered in divide
 
     FREM classification accuracy : 57.7778%
 
@@ -159,7 +123,7 @@ Plot confusion matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 68-99
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -206,12 +170,12 @@ Plot confusion matrix
 
 .. GENERATED FROM PYTHON SOURCE LINES 100-102
 
-Visualization of FREM weights
------------------------------
+Visualization of :term:`FREM` weights
+-------------------------------------
 
 .. GENERATED FROM PYTHON SOURCE LINES 102-112
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -235,9 +199,10 @@ Visualization of FREM weights
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-119
+.. GENERATED FROM PYTHON SOURCE LINES 113-120
 
-FREM ensembling procedure yields an important improvement of decoding
+:term:`FREM` ensembling procedure
+yields an important improvement of decoding
 accuracy on this simple example compared to fitting only one model per
 fold and the clustering mechanism keeps its computational cost reasonable
 even on heavier examples. Here we ensembled several instances of l2-SVC,
@@ -247,9 +212,9 @@ FREMRegressor object is also available to solve regression problems.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (7 minutes 47.415 seconds)
+   **Total running time of the script:** (5 minutes 13.987 seconds)
 
-**Estimated memory usage:**  2017 MB
+**Estimated memory usage:**  916 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_frem.py:
@@ -258,23 +223,20 @@ FREMRegressor object is also available to solve regression problems.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_frem.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_frem.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_haxby_frem.py <plot_haxby_frem.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_haxby_frem.ipynb <plot_haxby_frem.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_haxby_frem.py <plot_haxby_frem.py>`
 
 
 .. only:: html

@@ -34,14 +34,12 @@ Fast reproducible identification and large-scale databasing of individual
 functional cognitive networks.
 BMC Neurosci 8, 91 (2007). https://doi.org/10.1186/1471-2202-8-91
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-22
+.. GENERATED FROM PYTHON SOURCE LINES 18-21
 
-.. code-block:: default
+.. code-block:: Python
 
 
-
-    print(__doc__)
-
+    from nilearn.plotting import plot_event
 
 
 
@@ -49,15 +47,16 @@ BMC Neurosci 8, 91 (2007). https://doi.org/10.1186/1471-2202-8-91
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-26
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-25
 
 Define the onset times in seconds. These are typically extracted from
 the stimulation software used, but we will use hardcoded values in this
 example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-40
+.. GENERATED FROM PYTHON SOURCE LINES 25-39
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # fmt: off
@@ -80,14 +79,14 @@ example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
 
 Associated trial types: these are numbered between 0 and 9, hence
 corresponding to 10 different conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-53
+.. GENERATED FROM PYTHON SOURCE LINES 42-52
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # fmt: off
@@ -106,14 +105,14 @@ corresponding to 10 different conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-56
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 We may want to map these indices to explicit condition names.
 For that, we define a list of 10 strings.
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-71
+.. GENERATED FROM PYTHON SOURCE LINES 55-70
 
-.. code-block:: default
+.. code-block:: Python
 
     condition_ids = [
         "horizontal checkerboard",
@@ -137,16 +136,16 @@ For that, we define a list of 10 strings.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-76
+.. GENERATED FROM PYTHON SOURCE LINES 71-75
 
 We must also define a duration (required by :term:`BIDS` conventions).
 In this case, all trials lasted one second,
 except for button response
 that are modeled as events with instantaneous duration (0 second).
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-85
+.. GENERATED FROM PYTHON SOURCE LINES 75-84
 
-.. code-block:: default
+.. code-block:: Python
 
 
     null_duration_trials = [2, 3, 4, 5]
@@ -164,13 +163,13 @@ that are modeled as events with instantaneous duration (0 second).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-87
+.. GENERATED FROM PYTHON SOURCE LINES 85-86
 
 Form a pandas DataFrame from this information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-97
+.. GENERATED FROM PYTHON SOURCE LINES 86-96
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -189,13 +188,13 @@ Form a pandas DataFrame from this information.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 97-98
 
 Take a look at the new DataFrame
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-101
+.. GENERATED FROM PYTHON SOURCE LINES 98-100
 
-.. code-block:: default
+.. code-block:: Python
 
     events
 
@@ -305,20 +304,19 @@ Take a look at the new DataFrame
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-103
+.. GENERATED FROM PYTHON SOURCE LINES 101-102
 
 Export them to a tsv file.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-112
+.. GENERATED FROM PYTHON SOURCE LINES 102-110
 
-.. code-block:: default
+.. code-block:: Python
 
     from pathlib import Path
 
-    outdir = Path("results")
-    if not outdir.exists():
-        outdir.mkdir()
-    tsvfile = outdir / "localizer_events.tsv"
+    output_dir = Path.cwd() / "results" / "plot_write_events_file"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    tsvfile = output_dir / "localizer_events.tsv"
     events.to_csv(tsvfile, sep="\t", index=False)
     print(f"The event information has been saved to {tsvfile}")
 
@@ -330,23 +328,21 @@ Export them to a tsv file.
 
  .. code-block:: none
 
-    The event information has been saved to results/localizer_events.tsv
+    The event information has been saved to /home/remi/github/nilearn/nilearn/examples/04_glm_first_level/results/plot_write_events_file/localizer_events.tsv
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-115
+.. GENERATED FROM PYTHON SOURCE LINES 111-113
 
 Optionally, the events can be visualized using the
 :func:`~nilearn.plotting.plot_event` function.
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-121
+.. GENERATED FROM PYTHON SOURCE LINES 113-117
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import plot_event
 
     plot_event(events, figsize=(15, 5))
     plt.show()
@@ -363,7 +359,7 @@ Optionally, the events can be visualized using the
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/experimental_paradigm.py:141: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/experimental_paradigm.py:142: UserWarning:
 
     The following conditions contain events with null duration:
     right button press, auditory instructions, right button press, visual instructions, left button press, auditory instructions, left button press, visual instructions.
@@ -375,9 +371,9 @@ Optionally, the events can be visualized using the
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.833 seconds)
+   **Total running time of the script:** (0 minutes 4.345 seconds)
 
-**Estimated memory usage:**  8 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_write_events_file.py:
@@ -386,23 +382,20 @@ Optionally, the events can be visualized using the
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_write_events_file.py <plot_write_events_file.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_write_events_file.ipynb <plot_write_events_file.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_write_events_file.py <plot_write_events_file.py>`
 
 
 .. only:: html

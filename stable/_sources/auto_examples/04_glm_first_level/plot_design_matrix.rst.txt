@@ -22,38 +22,24 @@ Examples of design matrices
 ===========================
 
 Three examples of design matrices specification and computation for first-level
-fMRI data analysis (event-related design, block design, FIR design).
+:term:`fMRI` data analysis (event-related design, block design,
+:term:`FIR` design).
 
 This examples requires matplotlib.
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-17
-
-.. code-block:: default
-
-
-    try:
-        import matplotlib.pyplot as plt
-    except ImportError:
-        raise RuntimeError("This script needs the matplotlib library")
-
-
-
-
-
-
-
-
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
+.. GENERATED FROM PYTHON SOURCE LINES 14-17
 
 Define parameters
 -----------------
 At first, we define parameters related to the images acquisition.
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-27
+.. GENERATED FROM PYTHON SOURCE LINES 17-25
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
+
+    from nilearn.plotting import plot_design_matrix
 
     tr = 1.0  # repetition time is 1 second
     n_scans = 128  # the acquisition comprises 128 scans
@@ -66,13 +52,13 @@ At first, we define parameters related to the images acquisition.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-29
+.. GENERATED FROM PYTHON SOURCE LINES 26-27
 
 Then we define parameters related to the experimental design.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-41
+.. GENERATED FROM PYTHON SOURCE LINES 27-39
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # these are the types of the different trials
@@ -93,16 +79,16 @@ Then we define parameters related to the experimental design.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-46
+.. GENERATED FROM PYTHON SOURCE LINES 40-44
 
 Create design matrices
 ----------------------
 The same parameters allow us to obtain a variety of design matrices.
 We first create an events object.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-52
+.. GENERATED FROM PYTHON SOURCE LINES 44-50
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -117,14 +103,14 @@ We first create an events object.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 51-53
 
 We sample the events into a design matrix, also including additional
 regressors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-68
+.. GENERATED FROM PYTHON SOURCE LINES 53-66
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.first_level import make_first_level_design_matrix
 
@@ -146,15 +132,15 @@ regressors.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-72
+.. GENERATED FROM PYTHON SOURCE LINES 67-70
 
 Now we compute a block design matrix. We add duration to create the blocks.
 For this we first define an event structure that includes the duration
 parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-78
+.. GENERATED FROM PYTHON SOURCE LINES 70-76
 
-.. code-block:: default
+.. code-block:: Python
 
 
     duration = 7.0 * np.ones(len(conditions))
@@ -169,13 +155,13 @@ parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-80
+.. GENERATED FROM PYTHON SOURCE LINES 77-78
 
 Then we sample the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-89
+.. GENERATED FROM PYTHON SOURCE LINES 78-87
 
-.. code-block:: default
+.. code-block:: Python
 
 
     X2 = make_first_level_design_matrix(
@@ -193,13 +179,13 @@ Then we sample the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-91
+.. GENERATED FROM PYTHON SOURCE LINES 88-89
 
-Finally we compute a FIR model
+Finally we compute a :term:`FIR` model
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-105
+.. GENERATED FROM PYTHON SOURCE LINES 89-103
 
-.. code-block:: default
+.. code-block:: Python
 
 
     events = pd.DataFrame(
@@ -222,15 +208,15 @@ Finally we compute a FIR model
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-107
+.. GENERATED FROM PYTHON SOURCE LINES 104-105
 
 Here are the three designs side by side.
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-117
+.. GENERATED FROM PYTHON SOURCE LINES 105-115
 
-.. code-block:: default
+.. code-block:: Python
 
-    from nilearn.plotting import plot_design_matrix
+    import matplotlib.pyplot as plt
 
     fig, (ax1, ax2, ax3) = plt.subplots(figsize=(10, 6), nrows=1, ncols=3)
     plot_design_matrix(X1, ax=ax1)
@@ -255,9 +241,9 @@ Here are the three designs side by side.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.170 seconds)
+   **Total running time of the script:** (0 minutes 4.147 seconds)
 
-**Estimated memory usage:**  8 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_design_matrix.py:
@@ -266,23 +252,20 @@ Here are the three designs side by side.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_design_matrix.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_design_matrix.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_design_matrix.py <plot_design_matrix.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_design_matrix.ipynb <plot_design_matrix.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_design_matrix.py <plot_design_matrix.py>`
 
 
 .. only:: html

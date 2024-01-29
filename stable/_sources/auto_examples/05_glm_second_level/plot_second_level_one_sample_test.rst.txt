@@ -35,7 +35,21 @@ left versus right button press. Both at the individual and group level, this is
 expected to elicit activity in the motor cortex (positive in the right
 hemisphere, negative in the left hemisphere).
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-28
+.. GENERATED FROM PYTHON SOURCE LINES 20-23
+
+.. code-block:: Python
+
+
+    from nilearn import plotting
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-30
 
 Fetch dataset
 -------------
@@ -44,9 +58,9 @@ from a localizer dataset. Note that we fetch individual t-maps that represent
 the :term:`BOLD` activity estimate divided by the uncertainty about
 this estimate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-38
+.. GENERATED FROM PYTHON SOURCE LINES 30-40
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_localizer_contrasts
 
@@ -65,7 +79,7 @@ this estimate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-44
+.. GENERATED FROM PYTHON SOURCE LINES 41-46
 
 Display subject t_maps
 ----------------------
@@ -73,16 +87,14 @@ We plot a grid with all the subjects t-maps thresholded at t = 2 for simple
 visualization purposes. The button press effect is visible among all
 subjects.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-63
+.. GENERATED FROM PYTHON SOURCE LINES 46-63
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
-    from nilearn import plotting
-
     subjects = data["ext_vars"]["participant_id"].tolist()
-    fig, axes = plt.subplots(nrows=4, ncols=4)
+    fig, axes = plt.subplots(nrows=4, ncols=4, figsize=(8, 8))
     for cidx, tmap in enumerate(data["tmaps"]):
         plotting.plot_glass_brain(
             tmap,
@@ -120,7 +132,7 @@ single column of ones, corresponding to the model intercept.
 
 .. GENERATED FROM PYTHON SOURCE LINES 71-79
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -143,11 +155,11 @@ Next, we specify the model and fit it.
 
 .. GENERATED FROM PYTHON SOURCE LINES 81-89
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import SecondLevelModel
 
-    second_level_model = SecondLevelModel(smoothing_fwhm=8.0)
+    second_level_model = SecondLevelModel(smoothing_fwhm=8.0, n_jobs=2)
     second_level_model = second_level_model.fit(
         second_level_input,
         design_matrix=design_matrix,
@@ -167,7 +179,7 @@ column name of the design matrix.
 
 .. GENERATED FROM PYTHON SOURCE LINES 92-97
 
-.. code-block:: default
+.. code-block:: Python
 
     z_map = second_level_model.compute_contrast(
         second_level_contrast="intercept",
@@ -181,13 +193,14 @@ column name of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 98-100
 
-We threshold the second level contrast at uncorrected p < 0.001 and plot it.
+We threshold the second level :term:`contrast`
+at uncorrected p < 0.001 and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-114
+.. GENERATED FROM PYTHON SOURCE LINES 100-115
 
-.. code-block:: default
+.. code-block:: Python
 
     from scipy.stats import norm
 
@@ -216,18 +229,18 @@ We threshold the second level contrast at uncorrected p < 0.001 and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-116
+.. GENERATED FROM PYTHON SOURCE LINES 116-117
 
 As expected, we find the motor cortex.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 119-121
 
 Next, we compute the (corrected) p-values with a parametric test to compare
 them with the results from a nonparametric test.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-132
+.. GENERATED FROM PYTHON SOURCE LINES 121-133
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -257,7 +270,7 @@ them with the results from a nonparametric test.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-160
+.. GENERATED FROM PYTHON SOURCE LINES 134-161
 
 Now, we compute the (corrected) p-values with a permutation test.
 
@@ -287,9 +300,9 @@ used as well (pending additional steps to mask and reformat the inputs).
   If you wish to only run voxel-level correction, set ``threshold`` to None
   (the default).
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-173
+.. GENERATED FROM PYTHON SOURCE LINES 161-174
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import non_parametric_inference
 
@@ -300,7 +313,7 @@ used as well (pending additional steps to mask and reformat the inputs).
         n_perm=500,  # 500 for the sake of time. Ideally, this should be 10,000.
         two_sided_test=False,
         smoothing_fwhm=8.0,
-        n_jobs=1,
+        n_jobs=2,
         threshold=0.001,
     )
 
@@ -312,11 +325,11 @@ used as well (pending additional steps to mask and reformat the inputs).
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/mass_univariate/permuted_least_squares.py:994: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/mass_univariate/permuted_least_squares.py:986: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/masking.py:974: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -324,7 +337,7 @@ used as well (pending additional steps to mask and reformat the inputs).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 174-186
+.. GENERATED FROM PYTHON SOURCE LINES 175-187
 
 Let us plot the (corrected) negative log p-values for the both tests.
 
@@ -339,9 +352,9 @@ We will also cap the negative log10 p-values at 2.69, because this is the
 maximum observable value for the nonparametric tests, which were run with
 only 500 permutations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-226
+.. GENERATED FROM PYTHON SOURCE LINES 187-227
 
-.. code-block:: default
+.. code-block:: Python
 
     import itertools
 
@@ -396,7 +409,7 @@ only 500 permutations.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/niimg.py:61: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/plotting/img_plotting.py:1431: UserWarning:
 
     Non-finite values detected. These values will be replaced with zeros.
 
@@ -404,7 +417,7 @@ only 500 permutations.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-233
+.. GENERATED FROM PYTHON SOURCE LINES 228-234
 
 The nonparametric test yields many more discoveries and is more powerful than
 the usual parametric procedure.
@@ -416,7 +429,7 @@ cluster-mass corrections, which are very similar to one another.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 19.686 seconds)
+   **Total running time of the script:** (0 minutes 57.613 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -427,23 +440,20 @@ cluster-mass corrections, which are very similar to one another.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_one_sample_test.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_second_level_one_sample_test.py <plot_second_level_one_sample_test.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_second_level_one_sample_test.ipynb <plot_second_level_one_sample_test.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_second_level_one_sample_test.py <plot_second_level_one_sample_test.py>`
 
 
 .. only:: html

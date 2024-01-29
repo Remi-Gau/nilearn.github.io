@@ -21,17 +21,17 @@
 Comparing connectomes on different reference atlases
 ====================================================
 
-This examples shows how to turn a parcellation into connectome for
+This examples shows how to turn a :term:`parcellation` into connectome for
 visualization. This requires choosing centers for each parcel
 or network, via :func:`nilearn.plotting.find_parcellation_cut_coords` for
-parcellation based on labels and
+:term:`parcellation` based on labels and
 :func:`nilearn.plotting.find_probabilistic_atlas_cut_coords` for
-parcellation based on probabilistic values.
+:term:`parcellation` based on probabilistic values.
 
 In the intermediary steps, we make use of
 :class:`nilearn.maskers.MultiNiftiLabelsMasker` and
 :class:`nilearn.maskers.MultiNiftiMapsMasker` to extract time series from nifti
-objects from multiple subjects using different parcellation atlases.
+objects from multiple subjects using different :term:`parcellation` atlases.
 
 The time series of all subjects of the brain development dataset are
 concatenated and given directly to
@@ -51,7 +51,7 @@ Load atlases
 
 .. GENERATED FROM PYTHON SOURCE LINES 33-41
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -69,12 +69,6 @@ Load atlases
 
  .. code-block:: none
 
-
-    Dataset created in /home/remi/nilearn_data/yeo_2011
-
-    Downloading data from ftp://surfer.nmr.mgh.harvard.edu/pub/data/Yeo_JNeurophysiol11_MNI152.zip ...
-    Downloaded 196608 of ? bytes.    Downloaded 458752 of ? bytes.    Downloaded 786432 of ? bytes.    Downloaded 1163264 of ? bytes.    Downloaded 1630208 of ? bytes.    Downloaded 2170880 of ? bytes. ...done. (8 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/yeo_2011/d7a5390bfb7686fb41fa64cc2ba058d0/Yeo_JNeurophysiol11_MNI152.zip..... done.
     Yeo atlas nifti image (3D) with 17 parcels and liberal mask  is located at: /home/remi/nilearn_data/yeo_2011/Yeo_JNeurophysiol11_MNI152/Yeo2011_17Networks_MNI152_FreeSurferConformed1mm_LiberalMask.nii.gz
 
 
@@ -87,7 +81,7 @@ Load functional data
 
 .. GENERATED FROM PYTHON SOURCE LINES 44-56
 
-.. code-block:: default
+.. code-block:: Python
 
     data = datasets.fetch_development_fmri(n_subjects=10)
 
@@ -122,7 +116,7 @@ Extract coordinates on Yeo atlas - parcellations
 
 .. GENERATED FROM PYTHON SOURCE LINES 59-104
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.connectome import ConnectivityMeasure
     from nilearn.maskers import MultiNiftiLabelsMasker
@@ -183,7 +177,7 @@ Extract coordinates on Yeo atlas - parcellations
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fd1ed633e10>
+    <nilearn.plotting.displays._projectors.OrthoProjector object at 0x7fb385cb5ed0>
 
 
 
@@ -198,7 +192,7 @@ matrices, but plot the latter as a directed graph.
 
 .. GENERATED FROM PYTHON SOURCE LINES 111-143
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -206,7 +200,7 @@ matrices, but plot the latter as a directed graph.
     # Define a custom function to compute lag correlation on the time series
     def lag_correlation(time_series, lag):
         n_subjects = len(time_series)
-        n_samples, n_features = time_series[0].shape
+        _, n_features = time_series[0].shape
         lag_cor = np.zeros((n_subjects, n_features, n_features))
         for subject, serie in enumerate(time_series):
             for i in range(n_features):
@@ -257,7 +251,7 @@ matrices, but plot the latter as a directed graph.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/plotting/displays/_projectors.py:190: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/03_connectivity/plot_atlas_comparison.py:136: UserWarning:
 
     'adjacency_matrix' is not symmetric. A directed graph will be plotted.
 
@@ -272,7 +266,7 @@ Load probabilistic atlases - extracting coordinates on brain maps
 
 .. GENERATED FROM PYTHON SOURCE LINES 146-152
 
-.. code-block:: default
+.. code-block:: Python
 
 
     dim = 64
@@ -284,19 +278,6 @@ Load probabilistic atlases - extracting coordinates on brain maps
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-
-    Dataset created in /home/remi/nilearn_data/difumo_atlases
-
-    Downloading data from https://osf.io/pqu9r/download ...
-    Downloaded 917504 of 1080837 bytes (84.9%,    0.2s remaining) ...done. (3 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/difumo_atlases/0fd53859aa9fed124e741c85ec45c705/download..... done.
-    Downloading data from https://osf.io/4k9bf/download ...
-     ...done. (2 seconds, 0 min)
-
 
 
 
@@ -307,7 +288,7 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
 .. GENERATED FROM PYTHON SOURCE LINES 155-191
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import MultiNiftiMapsMasker
 
@@ -358,7 +339,7 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/cache_mixin.py:241: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/maskers/multi_nifti_maps_masker.py:216: UserWarning:
 
     memory_level is currently set to 0 but a Memory object has been provided. Setting memory_level to 1.
 
@@ -369,9 +350,9 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 25.138 seconds)
+   **Total running time of the script:** (2 minutes 40.679 seconds)
 
-**Estimated memory usage:**  1711 MB
+**Estimated memory usage:**  1815 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_atlas_comparison.py:
@@ -380,23 +361,20 @@ Iterate over fetched atlases to extract coordinates - probabilistic
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_atlas_comparison.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_atlas_comparison.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_atlas_comparison.py <plot_atlas_comparison.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_atlas_comparison.ipynb <plot_atlas_comparison.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_atlas_comparison.py <plot_atlas_comparison.py>`
 
 
 .. only:: html

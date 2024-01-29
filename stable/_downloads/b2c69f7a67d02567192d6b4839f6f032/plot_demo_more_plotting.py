@@ -399,15 +399,20 @@ display.annotate(scalebar=True, scale_size=25, scale_units="mm")
 #
 # Finally, we can save a plot to file in two different ways:
 #
-# First, we can save the contrast maps plotted with the function
+# First, we can save the :term:`contrast` maps plotted with the function
 # :func:`nilearn.plotting.plot_stat_map` using the built-in parameter
 # ``output_file``. We provide the filename and the file extension as
 # a string (supported extensions are .png, .pdf, .svg).
+from pathlib import Path
+
+output_dir = Path.cwd() / "results" / "plot_demo_more_plotting"
+output_dir.mkdir(exist_ok=True, parents=True)
+print(f"Output will be saved to: {output_dir}")
 
 plotting.plot_stat_map(
     stat_img,
     title="Using plot_stat_map output_file",
-    output_file="plot_stat_map.png",
+    output_file=output_dir / "plot_stat_map.png",
 )
 
 # %%
@@ -417,7 +422,7 @@ plotting.plot_stat_map(
 
 display = plotting.plot_stat_map(stat_img, title="Using display savefig")
 
-display.savefig("plot_stat_map_from_display.png")
+display.savefig(output_dir / "plot_stat_map_from_display.png")
 
 # In non-interactive settings make sure you close your displays
 display.close()

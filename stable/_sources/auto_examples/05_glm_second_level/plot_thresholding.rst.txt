@@ -36,7 +36,7 @@ This is a simple manually performed second level analysis.
 
 .. GENERATED FROM PYTHON SOURCE LINES 18-25
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -49,51 +49,6 @@ This is a simple manually performed second level analysis.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Downloading data from https://osf.io/download/5d27cbbd45253a00193c9b70/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27dbce45253a001a3c32fd/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27e0221c5b4a001b9efb25/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27ed481c5b4a001aa09e83/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28000845253a001c3e507a/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d281a2a45253a001c3e684c/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d282aa5114a42001605db5a/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28335545253a00193ce806/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28453a1c5b4a001c9ecaed/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d284daf1c5b4a001d9fc4e5/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2866c0a26b340017088827/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28781945253a00193d1237/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2889a7a26b3400160a368f/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d288fb11c5b4a001d9ff738/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28a4c0114a420016064fa2/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28b6171c5b4a001c9f2ebd/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28d2bb114a420017054715/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28e056a26b340019093c95/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28e50945253a00193d6e09/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28ff54114a42001705610c/ ...
-     ...done. (1 seconds, 0 min)
-
 
 
 
@@ -103,7 +58,7 @@ Get the set of individual statstical maps (contrast estimates)
 
 .. GENERATED FROM PYTHON SOURCE LINES 27-29
 
-.. code-block:: default
+.. code-block:: Python
 
     cmap_filenames = localizer_dataset.cmaps
 
@@ -124,7 +79,7 @@ First, we define a design matrix for the model. As the model is trivial
 
 .. GENERATED FROM PYTHON SOURCE LINES 35-39
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
@@ -143,11 +98,11 @@ Next, we specify and estimate the model.
 
 .. GENERATED FROM PYTHON SOURCE LINES 41-47
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import SecondLevelModel
 
-    second_level_model = SecondLevelModel().fit(
+    second_level_model = SecondLevelModel(n_jobs=2).fit(
         cmap_filenames, design_matrix=design_matrix
     )
 
@@ -165,7 +120,7 @@ is only one possible contrast, we don't need to specify it in detail.
 
 .. GENERATED FROM PYTHON SOURCE LINES 50-52
 
-.. code-block:: default
+.. code-block:: Python
 
     z_map = second_level_model.compute_contrast(output_type="z_score")
 
@@ -183,7 +138,7 @@ abs(z) > 3.29 (equivalent to p < 0.001), cluster size > 10 voxels.
 
 .. GENERATED FROM PYTHON SOURCE LINES 55-64
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import threshold_img
 
@@ -203,7 +158,7 @@ abs(z) > 3.29 (equivalent to p < 0.001), cluster size > 10 voxels.
  .. code-block:: none
 
 
-    <nibabel.nifti1.Nifti1Image object at 0x7fd1f019d250>
+    <nibabel.nifti1.Nifti1Image object at 0x7fb3c6b5b250>
 
 
 
@@ -214,7 +169,7 @@ false positive rate < .001, cluster size > 10 voxels.
 
 .. GENERATED FROM PYTHON SOURCE LINES 67-77
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm import threshold_stats_img
 
@@ -239,7 +194,7 @@ Now use FDR <.05 (False Discovery Rate) and no cluster-level threshold.
 
 .. GENERATED FROM PYTHON SOURCE LINES 79-84
 
-.. code-block:: default
+.. code-block:: Python
 
     thresholded_map2, threshold2 = threshold_stats_img(
         z_map, alpha=0.05, height_control="fdr"
@@ -267,7 +222,7 @@ use a simple Bonferroni correction.
 
 .. GENERATED FROM PYTHON SOURCE LINES 88-93
 
-.. code-block:: default
+.. code-block:: Python
 
     thresholded_map3, threshold3 = threshold_stats_img(
         z_map, alpha=0.05, height_control="bonferroni"
@@ -296,7 +251,7 @@ First, the unthresholded map.
 
 .. GENERATED FROM PYTHON SOURCE LINES 98-102
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -321,7 +276,7 @@ voxels).
 
 .. GENERATED FROM PYTHON SOURCE LINES 105-112
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(
         thresholded_map1,
@@ -344,7 +299,7 @@ voxels).
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b710c4d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb380bbfd50>
 
 
 
@@ -354,7 +309,7 @@ Third, the fdr-thresholded map.
 
 .. GENERATED FROM PYTHON SOURCE LINES 114-121
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(
         thresholded_map2,
@@ -377,7 +332,7 @@ Third, the fdr-thresholded map.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1c35b8210>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37ef4c7d0>
 
 
 
@@ -387,7 +342,7 @@ Fourth, the Bonferroni-thresholded map.
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-130
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(
         thresholded_map3,
@@ -410,7 +365,7 @@ Fourth, the Bonferroni-thresholded map.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1f24f5890>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37ede0b90>
 
 
 
@@ -425,7 +380,7 @@ positive voxels.
 
 .. GENERATED FROM PYTHON SOURCE LINES 137-139
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plotting.show()
@@ -439,9 +394,9 @@ positive voxels.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 48.343 seconds)
+   **Total running time of the script:** (0 minutes 17.354 seconds)
 
-**Estimated memory usage:**  8 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_05_glm_second_level_plot_thresholding.py:
@@ -450,23 +405,20 @@ positive voxels.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_thresholding.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_thresholding.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_thresholding.py <plot_thresholding.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_thresholding.ipynb <plot_thresholding.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_thresholding.py <plot_thresholding.py>`
 
 
 .. only:: html

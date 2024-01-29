@@ -3,28 +3,26 @@ Examples of design matrices
 ===========================
 
 Three examples of design matrices specification and computation for first-level
-fMRI data analysis (event-related design, block design, FIR design).
+:term:`fMRI` data analysis (event-related design, block design,
+:term:`FIR` design).
 
 This examples requires matplotlib.
 
 """
 
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    raise RuntimeError("This script needs the matplotlib library")
-
-#########################################################################
+# %%
 # Define parameters
 # -----------------
 # At first, we define parameters related to the images acquisition.
 import numpy as np
 
+from nilearn.plotting import plot_design_matrix
+
 tr = 1.0  # repetition time is 1 second
 n_scans = 128  # the acquisition comprises 128 scans
 frame_times = np.arange(n_scans) * tr  # here are the corresponding frame times
 
-#########################################################################
+# %%
 # Then we define parameters related to the experimental design.
 
 # these are the types of the different trials
@@ -38,7 +36,7 @@ motion = np.cumsum(np.random.randn(n_scans, 6), 0)
 # rotations describing rigid body motion
 add_reg_names = ["tx", "ty", "tz", "rx", "ry", "rz"]
 
-#########################################################################
+# %%
 # Create design matrices
 # ----------------------
 # The same parameters allow us to obtain a variety of design matrices.
@@ -49,7 +47,7 @@ events = pd.DataFrame(
     {"trial_type": conditions, "onset": onsets, "duration": duration}
 )
 
-#########################################################################
+# %%
 # We sample the events into a design matrix, also including additional
 # regressors.
 from nilearn.glm.first_level import make_first_level_design_matrix
@@ -65,7 +63,7 @@ X1 = make_first_level_design_matrix(
     hrf_model=hrf_model,
 )
 
-#########################################################################
+# %%
 # Now we compute a block design matrix. We add duration to create the blocks.
 # For this we first define an event structure that includes the duration
 # parameter.
@@ -75,7 +73,7 @@ events = pd.DataFrame(
     {"trial_type": conditions, "onset": onsets, "duration": duration}
 )
 
-#########################################################################
+# %%
 # Then we sample the design matrix.
 
 X2 = make_first_level_design_matrix(
@@ -86,8 +84,8 @@ X2 = make_first_level_design_matrix(
     hrf_model=hrf_model,
 )
 
-#########################################################################
-# Finally we compute a FIR model
+# %%
+# Finally we compute a :term:`FIR` model
 
 events = pd.DataFrame(
     {"trial_type": conditions, "onset": onsets, "duration": duration}
@@ -102,9 +100,9 @@ X3 = make_first_level_design_matrix(
     fir_delays=np.arange(1, 6),
 )
 
-#########################################################################
+# %%
 # Here are the three designs side by side.
-from nilearn.plotting import plot_design_matrix
+import matplotlib.pyplot as plt
 
 fig, (ax1, ax2, ax3) = plt.subplots(figsize=(10, 6), nrows=1, ncols=3)
 plot_design_matrix(X1, ax=ax1)

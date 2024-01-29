@@ -26,20 +26,34 @@ cross-validated accuracy and the confusion matrix.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-15
+.. GENERATED FROM PYTHON SOURCE LINES 11-18
 
-Load the Haxby data dataset
----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 15-45
-
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
     import pandas as pd
 
     from nilearn import datasets
+    from nilearn.plotting import plot_matrix, show
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 19-21
+
+Load the Haxby data dataset
+---------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-47
+
+.. code-block:: Python
+
+
 
     # By default 2nd subject from haxby datasets will be fetched.
     haxby_dataset = datasets.fetch_haxby()
@@ -54,7 +68,7 @@ Load the Haxby data dataset
     # Load the behavioral data that we will predict
     labels = pd.read_csv(haxby_dataset.session_target[0], sep=" ")
     y = labels["labels"]
-    session = labels["chunks"]
+    run = labels["chunks"]
 
     # Remove the rest condition, it is not very interesting
     non_rest = y != "rest"
@@ -79,14 +93,14 @@ Load the Haxby data dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
-Prepare the fMRI data
----------------------
+Prepare the :term:`fMRI` data
+-----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-65
+.. GENERATED FROM PYTHON SOURCE LINES 50-67
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiMasker
 
@@ -94,7 +108,7 @@ Prepare the fMRI data
     nifti_masker = NiftiMasker(
         mask_img=mask_filename,
         standardize="zscore_sample",
-        runs=session,
+        runs=run,
         smoothing_fwhm=4,
         memory="nilearn_cache",
         memory_level=1,
@@ -103,7 +117,7 @@ Prepare the fMRI data
 
     # Remove the "rest" condition
     X = X[non_rest]
-    session = session[non_rest]
+    run = run[non_rest]
 
 
 
@@ -113,7 +127,7 @@ Prepare the fMRI data
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -121,16 +135,16 @@ Prepare the fMRI data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-70
+.. GENERATED FROM PYTHON SOURCE LINES 68-72
 
 Build the decoders, using scikit-learn
 --------------------------------------
 Here we use a Support Vector Classification, with a linear kernel,
 and a simple feature selection step
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-94
+.. GENERATED FROM PYTHON SOURCE LINES 72-96
 
-.. code-block:: default
+.. code-block:: Python
 
 
     from sklearn.feature_selection import SelectKBest, f_classif
@@ -163,14 +177,14 @@ and a simple feature selection step
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-97
+.. GENERATED FROM PYTHON SOURCE LINES 97-99
 
 Now we compute cross-validation scores
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-106
+.. GENERATED FROM PYTHON SOURCE LINES 99-108
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.model_selection import cross_val_score
 
@@ -195,14 +209,14 @@ Now we compute cross-validation scores
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-109
+.. GENERATED FROM PYTHON SOURCE LINES 109-111
 
 Plot barplots of the prediction scores
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-116
+.. GENERATED FROM PYTHON SOURCE LINES 111-118
 
-.. code-block:: default
+.. code-block:: Python
 
     from matplotlib import pyplot as plt
 
@@ -229,36 +243,34 @@ Plot barplots of the prediction scores
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 117-121
+.. GENERATED FROM PYTHON SOURCE LINES 119-123
 
 Plot a confusion matrix
 -----------------------
-We fit on the first 10 sessions and plot a confusion matrix on the
-last 2 sessions
+We fit on the first 10 runs and plot a confusion matrix on the
+last 2 runs
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-147
+.. GENERATED FROM PYTHON SOURCE LINES 123-147
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.metrics import confusion_matrix
 
-    from nilearn.plotting import plot_matrix, show
-
-    svc_ovo.fit(X[session < 10], y[session < 10])
-    y_pred_ovo = svc_ovo.predict(X[session >= 10])
+    svc_ovo.fit(X[run < 10], y[run < 10])
+    y_pred_ovo = svc_ovo.predict(X[run >= 10])
 
     plot_matrix(
-        confusion_matrix(y_pred_ovo, y[session >= 10]),
+        confusion_matrix(y_pred_ovo, y[run >= 10]),
         labels=unique_conditions,
         title="Confusion matrix: One vs One",
         cmap="hot_r",
     )
 
-    svc_ova.fit(X[session < 10], y[session < 10])
-    y_pred_ova = svc_ova.predict(X[session >= 10])
+    svc_ova.fit(X[run < 10], y[run < 10])
+    y_pred_ova = svc_ova.predict(X[run >= 10])
 
     plot_matrix(
-        confusion_matrix(y_pred_ova, y[session >= 10]),
+        confusion_matrix(y_pred_ova, y[run >= 10]),
         labels=unique_conditions,
         title="Confusion matrix: One vs All",
         cmap="hot_r",
@@ -293,9 +305,9 @@ last 2 sessions
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 43.456 seconds)
+   **Total running time of the script:** (0 minutes 50.726 seconds)
 
-**Estimated memory usage:**  3140 MB
+**Estimated memory usage:**  2951 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_multiclass.py:
@@ -304,23 +316,20 @@ last 2 sessions
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_multiclass.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_multiclass.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_haxby_multiclass.py <plot_haxby_multiclass.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_haxby_multiclass.ipynb <plot_haxby_multiclass.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_haxby_multiclass.py <plot_haxby_multiclass.py>`
 
 
 .. only:: html

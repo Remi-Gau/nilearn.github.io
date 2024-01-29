@@ -40,14 +40,15 @@ the bounding box (there is no intelligent way of inferring this given the
 bounding box shape).
 """
 
-
-#############################################################################
-# First make a simple synthetic image
-
 # Create the data with numpy
 import numpy as np
 
 from nilearn.image import get_data
+from nilearn.plotting import show
+
+# %%
+# First make a simple synthetic image
+
 
 grid = np.mgrid[0:192, 0:128]
 circle = (
@@ -92,7 +93,7 @@ img = nibabel.Nifti1Image(
     image[:, :, np.newaxis].astype("int32"), affine=source_affine
 )
 
-#############################################################################
+# %%
 # Now resample the image
 from nilearn.image import resample_img
 
@@ -120,11 +121,9 @@ img_4d_affine_in_mm_space = resample_img(
     target_shape=(np.array(img_4d_affine.shape) * 2).astype(int),
 )
 
-#############################################################################
+# %%
 # Finally, visualize
 import matplotlib.pyplot as plt
-
-from nilearn.plotting import show
 
 plt.figure()
 plt.imshow(image, interpolation="nearest", vmin=0, vmax=vmax)

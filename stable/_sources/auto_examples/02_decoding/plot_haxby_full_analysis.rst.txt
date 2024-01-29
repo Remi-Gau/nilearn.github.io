@@ -32,18 +32,32 @@ that have been defined via a standard GLM-based analysis.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 19-21
+.. GENERATED FROM PYTHON SOURCE LINES 17-22
 
-Load and prepare the data
--------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-61
-
-.. code-block:: default
+.. code-block:: Python
 
 
     # Fetch data using nilearn dataset fetcher
     from nilearn import datasets
+    from nilearn.plotting import show
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Load and prepare the data
+-------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-63
+
+.. code-block:: Python
+
+
 
     # by default we fetch 2nd subject data for analysis
     haxby_dataset = datasets.fetch_haxby()
@@ -74,7 +88,7 @@ Load and prepare the data
     categories = stimuli[task_mask].unique()
 
     # extract tags indicating to which acquisition run a tag belongs
-    session_labels = labels["chunks"][task_mask]
+    run_labels = labels["chunks"][task_mask]
 
     # apply the task_mask to  fMRI data (func_filename)
     from nilearn.image import index_img
@@ -95,7 +109,7 @@ Load and prepare the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-67
+.. GENERATED FROM PYTHON SOURCE LINES 64-69
 
 Decoding on the different masks
 -------------------------------
@@ -103,9 +117,9 @@ Decoding on the different masks
 The classifier used here is a support vector classifier (svc). We use
 class:`nilearn.decoding.Decoder` and specify the classifier.
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-76
+.. GENERATED FROM PYTHON SOURCE LINES 69-78
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -123,13 +137,13 @@ class:`nilearn.decoding.Decoder` and specify the classifier.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-78
+.. GENERATED FROM PYTHON SOURCE LINES 79-80
 
 We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-126
+.. GENERATED FROM PYTHON SOURCE LINES 80-128
 
-.. code-block:: default
+.. code-block:: Python
 
 
     mask_names = ["mask_vt", "mask_face", "mask_house"]
@@ -158,7 +172,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
                 scoring="roc_auc",
                 standardize="zscore_sample",
             )
-            decoder.fit(task_data, classification_target, groups=session_labels)
+            decoder.fit(task_data, classification_target, groups=run_labels)
             mask_scores[mask_name][category] = decoder.cv_scores_[1]
             mean = np.mean(mask_scores[mask_name][category])
             std = np.std(mask_scores[mask_name][category])
@@ -172,7 +186,7 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
                 standardize="zscore_sample",
             )
             dummy_classifier.fit(
-                task_data, classification_target, groups=session_labels
+                task_data, classification_target, groups=run_labels
             )
             mask_chance_scores[mask_name][category] = dummy_classifier.cv_scores_[
                 1
@@ -189,436 +203,436 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
     Working on mask_vt
     Processing mask_vt scissors
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.92 +- 0.05
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt face
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.98 +- 0.03
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt cat
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.96 +- 0.04
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt shoe
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.92 +- 0.07
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt house
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 1.00 +- 0.00
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt scrambledpix
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.99 +- 0.01
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt bottle
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.89 +- 0.08
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Processing mask_vt chair
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Scores: 0.93 +- 0.04
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
     Working on mask_face
     Processing mask_face scissors
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.70 +- 0.16
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face face
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.90 +- 0.06
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face cat
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.76 +- 0.12
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face shoe
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.73 +- 0.17
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face house
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.71 +- 0.16
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face scrambledpix
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.87 +- 0.09
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face bottle
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.68 +- 0.17
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Processing mask_face chair
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Scores: 0.63 +- 0.10
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:756: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:760: UserWarning:
 
     After clustering and screening, the decoding model will be trained only on 30 features. Consider raising clustering_percentile or screening_percentile parameters.
 
     Working on mask_house
     Processing mask_house scissors
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.83 +- 0.08
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house face
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.90 +- 0.07
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house cat
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.86 +- 0.09
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house shoe
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.82 +- 0.12
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house house
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 1.00 +- 0.00
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house scrambledpix
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.96 +- 0.05
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house bottle
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.86 +- 0.10
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Processing mask_house chair
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
     Scores: 0.90 +- 0.10
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/_utils/param_validation.py:213: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decoding/decoder.py:742: UserWarning:
 
     Brain mask is smaller than .5% of the volume human brain. This object is probably not tuned to be used on such data.
 
@@ -626,18 +640,16 @@ We use :class:`nilearn.decoding.Decoder` to estimate a baseline.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-129
+.. GENERATED FROM PYTHON SOURCE LINES 129-131
 
 We make a simple bar plot to summarize the results
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-170
+.. GENERATED FROM PYTHON SOURCE LINES 131-170
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import show
 
     plt.figure()
 
@@ -691,9 +703,9 @@ We make a simple bar plot to summarize the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 54.873 seconds)
+   **Total running time of the script:** (3 minutes 10.191 seconds)
 
-**Estimated memory usage:**  1354 MB
+**Estimated memory usage:**  1357 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_full_analysis.py:
@@ -702,23 +714,20 @@ We make a simple bar plot to summarize the results
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_full_analysis.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_full_analysis.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_haxby_full_analysis.py <plot_haxby_full_analysis.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_haxby_full_analysis.ipynb <plot_haxby_full_analysis.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_haxby_full_analysis.py <plot_haxby_full_analysis.py>`
 
 
 .. only:: html

@@ -34,7 +34,7 @@ Let's first check where the data is downloaded on our disk:
 
 .. GENERATED FROM PYTHON SOURCE LINES 15-19
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
 
@@ -53,13 +53,14 @@ Let's first check where the data is downloaded on our disk:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-21
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
 
-Let's now retrieve a motor contrast from a Neurovault repository
+Let's now retrieve a motor :term:`contrast`
+from a :term:`Neurovault` repository
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-24
+.. GENERATED FROM PYTHON SOURCE LINES 22-25
 
-.. code-block:: default
+.. code-block:: Python
 
     motor_images = datasets.fetch_neurovault_motor_task()
     motor_images.images
@@ -77,13 +78,13 @@ Let's now retrieve a motor contrast from a Neurovault repository
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-26
+.. GENERATED FROM PYTHON SOURCE LINES 26-27
 
 motor_images is a list of filenames. We need to take the first one
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-29
+.. GENERATED FROM PYTHON SOURCE LINES 27-30
 
-.. code-block:: default
+.. code-block:: Python
 
     tmap_filename = motor_images.images[0]
 
@@ -95,7 +96,7 @@ motor_images is a list of filenames. We need to take the first one
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-35
+.. GENERATED FROM PYTHON SOURCE LINES 31-36
 
 Visualizing a 3D file
 ---------------------
@@ -103,9 +104,9 @@ Visualizing a 3D file
 The file contains a 3D volume, we can easily visualize it as a
 statistical map:
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-39
+.. GENERATED FROM PYTHON SOURCE LINES 36-40
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import plotting
 
@@ -125,17 +126,17 @@ statistical map:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1e358d790>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b1fb3f10>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-41
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Visualizing works better with a threshold
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-44
+.. GENERATED FROM PYTHON SOURCE LINES 42-45
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(tmap_filename, threshold=3)
 
@@ -154,21 +155,21 @@ Visualizing works better with a threshold
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1e32ea510>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b16fe610>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-50
+.. GENERATED FROM PYTHON SOURCE LINES 46-51
 
 Visualizing one volume in a 4D file
 -----------------------------------
 
-We can download resting-state networks from the Smith 2009 study on
+We can download :term:`resting-state` networks from the Smith 2009 study on
 correspondence between rest and task
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-53
+.. GENERATED FROM PYTHON SOURCE LINES 51-54
 
-.. code-block:: default
+.. code-block:: Python
 
     rsn = datasets.fetch_atlas_smith_2009(resting=True, dimension=10)["maps"]
     rsn
@@ -186,14 +187,14 @@ correspondence between rest and task
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-56
+.. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 It is a 4D nifti file. We load it into the memory to print its
 shape.
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-60
+.. GENERATED FROM PYTHON SOURCE LINES 57-61
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import image
 
@@ -212,13 +213,13 @@ shape.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-62
+.. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 We can retrieve the first volume (note that Python indexing starts at 0):
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-65
+.. GENERATED FROM PYTHON SOURCE LINES 63-66
 
-.. code-block:: default
+.. code-block:: Python
 
     first_rsn = image.index_img(rsn, 0)
     print(first_rsn.shape)
@@ -236,15 +237,15 @@ We can retrieve the first volume (note that Python indexing starts at 0):
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-69
+.. GENERATED FROM PYTHON SOURCE LINES 67-70
 
 first_rsn is a 3D image.
 
 We can then plot it
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-72
+.. GENERATED FROM PYTHON SOURCE LINES 70-73
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_stat_map(first_rsn)
 
@@ -263,11 +264,11 @@ We can then plot it
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1f295c410>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b15cfb90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-81
+.. GENERATED FROM PYTHON SOURCE LINES 74-82
 
 Looping on all volumes in a 4D file
 -----------------------------------
@@ -278,9 +279,9 @@ to loop on them.
 Then we give a few arguments to plot_stat_map in order to have a more
 compact display.
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-88
+.. GENERATED FROM PYTHON SOURCE LINES 82-89
 
-.. code-block:: default
+.. code-block:: Python
 
     for img in image.iter_img(rsn):
         # img is now an in-memory 3D img
@@ -369,7 +370,7 @@ compact display.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-97
+.. GENERATED FROM PYTHON SOURCE LINES 90-98
 
 Looping through selected volumes in a 4D file
 ---------------------------------------------
@@ -380,9 +381,9 @@ with the `slice` constructor to select the desired volumes.
 Afterwards, we'll use iter_img to loop through them following the same
 formula as before.
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-99
+.. GENERATED FROM PYTHON SOURCE LINES 98-100
 
-.. code-block:: default
+.. code-block:: Python
 
     selected_volumes = image.index_img(rsn, slice(3, 5))
 
@@ -393,15 +394,15 @@ formula as before.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-103
+.. GENERATED FROM PYTHON SOURCE LINES 101-104
 
 If you're new to Python, one thing to note is that the slice constructor
 uses 0-based indexing. You can confirm this by matching these slices
 to the previous plot above.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-108
+.. GENERATED FROM PYTHON SOURCE LINES 104-109
 
-.. code-block:: default
+.. code-block:: Python
 
 
     for img in image.iter_img(selected_volumes):
@@ -432,14 +433,14 @@ to the previous plot above.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-111
+.. GENERATED FROM PYTHON SOURCE LINES 110-112
 
 plotting.show is useful to force the display of figures when running
 outside IPython
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-113
+.. GENERATED FROM PYTHON SOURCE LINES 112-114
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.show()
 
@@ -450,7 +451,7 @@ outside IPython
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-132
+.. GENERATED FROM PYTHON SOURCE LINES 115-133
 
 |
 
@@ -474,9 +475,9 @@ image.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 18.666 seconds)
+   **Total running time of the script:** (0 minutes 17.030 seconds)
 
-**Estimated memory usage:**  204 MB
+**Estimated memory usage:**  246 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_3d_and_4d_niimg.py:
@@ -485,23 +486,20 @@ image.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_3d_and_4d_niimg.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_3d_and_4d_niimg.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_3d_and_4d_niimg.py <plot_3d_and_4d_niimg.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_3d_and_4d_niimg.ipynb <plot_3d_and_4d_niimg.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_3d_and_4d_niimg.py <plot_3d_and_4d_niimg.py>`
 
 
 .. only:: html

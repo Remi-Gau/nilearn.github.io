@@ -39,13 +39,28 @@ images. If you do have both pial and white matter surfaces (as for the
 fsaverage and fsaverage5 surfaces fetched by `nilearn.datasets`) we recommend
 passing both to `vol_to_surf`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-33
+.. GENERATED FROM PYTHON SOURCE LINES 24-29
 
-.. code-block:: default
+.. code-block:: Python
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 30-36
+
+.. code-block:: Python
 
     import matplotlib
     import numpy as np
-    from matplotlib import pyplot as plt
 
     from nilearn.plotting import show
     from nilearn.surface import surface
@@ -57,14 +72,14 @@ passing both to `vol_to_surf`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 Build a mesh (of a cylinder)
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-49
+.. GENERATED FROM PYTHON SOURCE LINES 39-52
 
-.. code-block:: default
+.. code-block:: Python
 
 
     N_Z = 5
@@ -86,14 +101,14 @@ Build a mesh (of a cylinder)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 Get the locations from which vol_to_surf would draw its samples
 ---------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-63
+.. GENERATED FROM PYTHON SOURCE LINES 55-66
 
-.. code-block:: default
+.. code-block:: Python
 
 
     nested_sample_points = surface._sample_locations_between_surfaces(
@@ -113,14 +128,14 @@ Get the locations from which vol_to_surf would draw its samples
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 67-69
 
 Plot the mesh and the sample locations
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-81
+.. GENERATED FROM PYTHON SOURCE LINES 69-84
 
-.. code-block:: default
+.. code-block:: Python
 
 
     fig = plt.figure()
@@ -168,16 +183,16 @@ Plot the mesh and the sample locations
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-86
+.. GENERATED FROM PYTHON SOURCE LINES 85-89
 
 Adjust the sample locations
 ---------------------------
 For "line" and nested surfaces, the depth parameter allows adjusting the
 position of samples along the line
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-97
+.. GENERATED FROM PYTHON SOURCE LINES 89-100
 
-.. code-block:: default
+.. code-block:: Python
 
 
     nested_sample_points = surface._sample_locations_between_surfaces(
@@ -205,7 +220,7 @@ position of samples along the line
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.676 seconds)
+   **Total running time of the script:** (0 minutes 2.848 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -216,23 +231,20 @@ position of samples along the line
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_surface_projection_strategies.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_surface_projection_strategies.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_surface_projection_strategies.py <plot_surface_projection_strategies.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_surface_projection_strategies.ipynb <plot_surface_projection_strategies.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_surface_projection_strategies.py <plot_surface_projection_strategies.py>`
 
 
 .. only:: html

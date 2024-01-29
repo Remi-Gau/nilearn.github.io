@@ -21,7 +21,8 @@
 Second-level fMRI model: two-sample test, unpaired and paired
 =============================================================
 
-Full step-by-step example of fitting a GLM to perform a second level analysis
+Full step-by-step example of fitting a :term:`GLM`
+to perform a second level analysis
 in experimental data and visualizing the results
 
 More specifically:
@@ -41,12 +42,10 @@ these stimuli are sometimes used to map the borders of primary visual areas.
 At the group level, such a mapping is not possible. Yet, we may
 observe some significant effects in these areas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-33
+.. GENERATED FROM PYTHON SOURCE LINES 29-34
 
-.. code-block:: default
+.. code-block:: Python
 
-
-    import matplotlib.pyplot as plt
     import pandas as pd
 
     from nilearn import plotting
@@ -59,25 +58,26 @@ observe some significant effects in these areas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-38
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 Fetch dataset
 -------------
 We download a list of left vs right button press contrasts from a
 localizer dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-53
+.. GENERATED FROM PYTHON SOURCE LINES 39-55
 
-.. code-block:: default
+.. code-block:: Python
 
     n_subjects = 16
     sample_vertical = fetch_localizer_contrasts(
-        ["vertical checkerboard"], n_subjects, get_tmaps=True, legacy_format=False
+        ["vertical checkerboard"],
+        n_subjects,
+        legacy_format=False,
     )
     sample_horizontal = fetch_localizer_contrasts(
         ["horizontal checkerboard"],
         n_subjects,
-        get_tmaps=True,
         legacy_format=False,
     )
 
@@ -89,152 +89,19 @@ localizer dataset.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Downloading data from https://osf.io/download/5d27c2c41c5b4a001d9f4e7e/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27ce321c5b4a001aa080fc/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27d3c3114a42001804500a/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27d175a26b340018084d23/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27e5fa1c5b4a001aa09681/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27e900a26b340017083df6/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27f18945253a00193cb2dd/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27f8a845253a001b3c3280/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2808401c5b4a001d9f83b2/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d280aab45253a001b3c3d51/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2811fba26b340017085492/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d280d0a114a42001704b6a7/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d282b2345253a001c3e7d09/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2829f7a26b34001708642d/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28318445253a00193ce6d7/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28399545253a001c3e9288/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2848581c5b4a001aa10aac/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2849cc114a42001804994e/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28545ca26b340018089ba7/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2852861c5b4a001c9ed5bf/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285cd945253a001a3c8509/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285c8b45253a00193d0295/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d286e49114a42001904ab90/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d286b6b45253a001c3ec067/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d288af11c5b4a001d9ff0cb/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2881cd1c5b4a001d9fe799/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d289be945253a001c3ef5e2/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d288c4c114a42001804bfb6/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28a1c91c5b4a001da00bd9/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28ad481c5b4a001aa17d00/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28bb90a26b3400190925d2/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28c24f114a42001904ea5b/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27ccde1c5b4a001d9f5602/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27c7f01c5b4a001c9e778e/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27d9c6114a420019045370/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27d99fa26b340018085146/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27de38a26b340016099771/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27ec4d45253a001c3e3f47/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27fb651c5b4a001d9f7938/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27fb1e1c5b4a001aa0ab78/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d280057a26b340019089965/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d27ff2645253a001c3e4fb9/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2814d145253a001c3e6404/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d280e3945253a001a3c4f15/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28244745253a001b3c4afa/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2827ff114a420018047f9a/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28309645253a001a3c6a8d/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d282ef61c5b4a001b9f3747/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d284a3445253a001c3ea2d1/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d284636114a42001704e0f6/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28564b1c5b4a001d9fc9d6/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28516e45253a001a3c7e03/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285b6c1c5b4a001c9edada/ ...
-    Downloaded 163840 of 234089 bytes (70.0%,    0.4s remaining) ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d285cffa26b34001908db9c/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28765645253a001b3c8106/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d287486114a42001804af82/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d287eeb45253a001c3ed1ba/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d287f8f114a4200170503d0/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d2896fb45253a001a3cabe0/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d288e101c5b4a001aa14e0f/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28af541c5b4a001da01caa/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28aa701c5b4a001aa1794c/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28b9af45253a001a3ccb85/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5d28b579114a42001804e2cd/ ...
-     ...done. (1 seconds, 0 min)
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 54-58
+.. GENERATED FROM PYTHON SOURCE LINES 56-60
 
 Estimate second level models
 ----------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-60
+.. GENERATED FROM PYTHON SOURCE LINES 60-62
 
-.. code-block:: default
+.. code-block:: Python
 
     second_level_input = sample_vertical["cmaps"] + sample_horizontal["cmaps"]
 
@@ -245,13 +112,13 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-62
+.. GENERATED FROM PYTHON SOURCE LINES 63-64
 
 Next, we model the effect of conditions (sample 1 vs sample 2).
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-66
+.. GENERATED FROM PYTHON SOURCE LINES 64-68
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -264,14 +131,14 @@ Next, we model the effect of conditions (sample 1 vs sample 2).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-69
+.. GENERATED FROM PYTHON SOURCE LINES 69-71
 
 The design matrix for the unpaired test doesn't need any more columns
 For the paired test, we include an intercept for each subject.
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-72
+.. GENERATED FROM PYTHON SOURCE LINES 71-74
 
-.. code-block:: default
+.. code-block:: Python
 
     subject_effect = np.vstack((np.eye(n_subjects), np.eye(n_subjects)))
     subjects = [f"S{i:02d}" for i in range(1, n_subjects + 1)]
@@ -283,13 +150,13 @@ For the paired test, we include an intercept for each subject.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-74
+.. GENERATED FROM PYTHON SOURCE LINES 75-76
 
 We then assemble those into design matrices
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-83
+.. GENERATED FROM PYTHON SOURCE LINES 76-85
 
-.. code-block:: default
+.. code-block:: Python
 
     unpaired_design_matrix = pd.DataFrame(
         condition_effect[:, np.newaxis], columns=["vertical vs horizontal"]
@@ -307,21 +174,23 @@ We then assemble those into design matrices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 86-87
 
 and plot the designs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-97
+.. GENERATED FROM PYTHON SOURCE LINES 87-101
 
-.. code-block:: default
+.. code-block:: Python
 
-    from nilearn.plotting import plot_design_matrix
+    import matplotlib.pyplot as plt
 
     _, (ax_unpaired, ax_paired) = plt.subplots(
         1, 2, gridspec_kw={"width_ratios": [1, 17]}
     )
-    plot_design_matrix(unpaired_design_matrix, rescale=False, ax=ax_unpaired)
-    plot_design_matrix(paired_design_matrix, rescale=False, ax=ax_paired)
+    plotting.plot_design_matrix(
+        unpaired_design_matrix, rescale=False, ax=ax_unpaired
+    )
+    plotting.plot_design_matrix(paired_design_matrix, rescale=False, ax=ax_paired)
     ax_unpaired.set_title("unpaired design", fontsize=12)
     ax_paired.set_title("paired design", fontsize=12)
     plt.tight_layout()
@@ -339,21 +208,21 @@ and plot the designs.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 102-103
 
 We specify the analysis models and fit them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-109
+.. GENERATED FROM PYTHON SOURCE LINES 103-113
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.second_level import SecondLevelModel
 
-    second_level_model_unpaired = SecondLevelModel().fit(
+    second_level_model_unpaired = SecondLevelModel(n_jobs=2).fit(
         second_level_input, design_matrix=unpaired_design_matrix
     )
 
-    second_level_model_paired = SecondLevelModel().fit(
+    second_level_model_paired = SecondLevelModel(n_jobs=2).fit(
         second_level_input, design_matrix=paired_design_matrix
     )
 
@@ -364,16 +233,16 @@ We specify the analysis models and fit them.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-114
+.. GENERATED FROM PYTHON SOURCE LINES 114-118
 
-Estimating the contrast is simple. To do so, we provide the column
+Estimating the :term:`contrast` is simple. To do so, we provide the column
 name of the design matrix. The argument 'output_type' is set to return all
 available outputs so that we can compare differences in the effect size,
 variance, and z-score.
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-122
+.. GENERATED FROM PYTHON SOURCE LINES 118-126
 
-.. code-block:: default
+.. code-block:: Python
 
     stat_maps_unpaired = second_level_model_unpaired.compute_contrast(
         "vertical vs horizontal", output_type="all"
@@ -390,16 +259,16 @@ variance, and z-score.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-127
+.. GENERATED FROM PYTHON SOURCE LINES 127-131
 
 Plot the results
 ----------------
 The two :term:`'effect_size'<Parameter Estimate>` images are essentially
 identical.
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-132
+.. GENERATED FROM PYTHON SOURCE LINES 131-136
 
-.. code-block:: default
+.. code-block:: Python
 
     (
         stat_maps_unpaired["effect_size"].get_fdata()
@@ -419,13 +288,13 @@ identical.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-134
+.. GENERATED FROM PYTHON SOURCE LINES 137-138
 
 But the variance in the unpaired image is larger.
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-152
+.. GENERATED FROM PYTHON SOURCE LINES 138-156
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_glass_brain(
         stat_maps_unpaired["effect_variance"],
@@ -469,14 +338,14 @@ But the variance in the unpaired image is larger.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 157-159
 
 Together, this makes the z_scores from the paired test larger.
-We threshold the second level contrast and plot it.
+We threshold the second level :term:`contrast` and plot it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-178
+.. GENERATED FROM PYTHON SOURCE LINES 159-182
 
-.. code-block:: default
+.. code-block:: Python
 
     threshold = 3.1  # corresponds to  p < .001, uncorrected
     display = plotting.plot_glass_brain(
@@ -525,7 +394,7 @@ We threshold the second level contrast and plot it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 179-181
+.. GENERATED FROM PYTHON SOURCE LINES 183-185
 
 Unsurprisingly, we see activity in the primary visual cortex, both positive
 and negative.
@@ -533,7 +402,7 @@ and negative.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 0.240 seconds)
+   **Total running time of the script:** (0 minutes 18.491 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -544,23 +413,20 @@ and negative.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_second_level_two_sample_test.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_second_level_two_sample_test.py <plot_second_level_two_sample_test.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_second_level_two_sample_test.ipynb <plot_second_level_two_sample_test.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_second_level_two_sample_test.py <plot_second_level_two_sample_test.py>`
 
 
 .. only:: html

@@ -29,26 +29,27 @@ representational similarity analysis.
 
 Beta series models fit trial-wise conditions, which allow users to create
 "time series" of these trial-wise maps, which can be substituted for the
-typical time series used in resting-state functional connectivity analyses.
+typical time series used in :term:`resting-state`
+:term:`functional connectivity` analyses.
 Generally, these models are most useful for event-related task designs,
 while other modeling approaches, such as psychophysiological interactions
 (PPIs), tend to perform better in block designs, depending on the type of
 analysis.
 See :footcite:t:`Cisler2014` for more information about this,
-in the context of functional connectivity analyses.
+in the context of :term:`functional connectivity` analyses.
 
 Two of the most well-known beta series modeling methods are
-Least Squares- All (LSA) :footcite:p:`Rissman2004` and
+Least Squares- All (LSA) (:footcite:t:`Rissman2004`) and
 Least Squares- Separate (LSS)
-:footcite:p:`Mumford2012,Turner2012`.
+(:footcite:t:`Mumford2012,Turner2012`).
 In LSA, a single :term:`GLM` is run, in which each trial of each condition of
 interest is separated out into its own condition within the design matrix.
 In LSS, each trial of each condition of interest has its own :term:`GLM`,
 in which the targeted trial receives its own column within the design matrix,
 but everything else remains the same as the standard model.
 Trials are then looped across, and many GLMs are fitted,
-with the :term:`Parameter Estimate` map extracted from each GLM to build the
-LSS beta series.
+with the :term:`Parameter Estimate` map extracted from each :term:`GLM`
+to build the LSS beta series.
 
 .. topic:: Choosing the right model for your analysis
 
@@ -75,11 +76,23 @@ LSS beta series.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 61-63
 
-.. code-block:: default
+.. code-block:: Python
+   :dedent: 1
 
-    import matplotlib.pyplot as plt
+
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 65-67
+
+.. code-block:: Python
 
     from nilearn import image, plotting
 
@@ -90,26 +103,27 @@ LSS beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-70
+.. GENERATED FROM PYTHON SOURCE LINES 68-72
 
 Prepare data and analysis parameters
 ------------------------------------
 Download data in :term:`BIDS` format and event information for one subject,
 and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-93
+.. GENERATED FROM PYTHON SOURCE LINES 72-96
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.datasets import fetch_language_localizer_demo_dataset
     from nilearn.glm.first_level import FirstLevelModel, first_level_from_bids
 
-    data_dir, _ = fetch_language_localizer_demo_dataset()
+    data = fetch_language_localizer_demo_dataset(legacy_output=False)
 
     models, models_run_imgs, events_dfs, models_confounds = first_level_from_bids(
-        data_dir,
+        data.data_dir,
         "languagelocalizer",
         img_filters=[("desc", "preproc")],
+        n_jobs=2,
     )
 
     # Grab the first subject's model, functional file, and events DataFrame
@@ -132,7 +146,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/interfaces/bids/query.py:49: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:1356: UserWarning:
 
     'StartTime' not found in file /home/remi/nilearn_data/fMRI-language-localizer-demo-dataset/derivatives/sub-01/func/sub-01_task-languagelocalizer_desc-preproc_bold.json.
 
@@ -140,7 +154,7 @@ and create a standard :class:`~nilearn.glm.first_level.FirstLevelModel`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-101
+.. GENERATED FROM PYTHON SOURCE LINES 97-104
 
 Define the standard model
 -------------------------
@@ -150,10 +164,11 @@ models.
 We will just use the one created by
 :func:`~nilearn.glm.first_level.first_level_from_bids`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-110
+.. GENERATED FROM PYTHON SOURCE LINES 104-114
 
-.. code-block:: default
+.. code-block:: Python
 
+    import matplotlib.pyplot as plt
 
     standard_glm.fit(fmri_file, events_df)
 
@@ -175,7 +190,7 @@ We will just use the one created by
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-119
+.. GENERATED FROM PYTHON SOURCE LINES 115-123
 
 Define the LSA model
 --------------------
@@ -186,9 +201,9 @@ It's important to ensure that the original trial types can be inferred from
 the updated trial-wise trial types, in order to collect the resulting
 beta maps into condition-wise beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-139
+.. GENERATED FROM PYTHON SOURCE LINES 123-143
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Transform the DataFrame for LSA
@@ -222,15 +237,15 @@ beta maps into condition-wise beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-143
+.. GENERATED FROM PYTHON SOURCE LINES 144-147
 
 Aggregate beta maps from the LSA model based on condition
 `````````````````````````````````````````````````````````
 Collect the :term:`Parameter Estimate` maps
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-158
+.. GENERATED FROM PYTHON SOURCE LINES 147-162
 
-.. code-block:: default
+.. code-block:: Python
 
 
     lsa_beta_maps = {cond: [] for cond in events_df["trial_type"].unique()}
@@ -254,20 +269,21 @@ Collect the :term:`Parameter Estimate` maps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-167
+.. GENERATED FROM PYTHON SOURCE LINES 163-172
 
 Define the LSS models
 ---------------------
-We will now create a separate LSS model for each trial of interest.
+We will now create a separate Least Squares- Separate (LSS) model for each
+trial of interest.
 The transformation is much like the LSA approach, except that we only
 relabel *one* trial in the DataFrame.
 We loop through the trials, create a version of the DataFrame where the
 targeted trial has a unique trial type, fit the model to that DataFrame,
 and finally collect the targeted trial's beta map for the beta series.
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-238
+.. GENERATED FROM PYTHON SOURCE LINES 172-243
 
-.. code-block:: default
+.. code-block:: Python
 
 
 
@@ -347,14 +363,14 @@ and finally collect the targeted trial's beta map for the beta series.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 239-241
+.. GENERATED FROM PYTHON SOURCE LINES 244-246
 
 Show the design matrices for the first few trials
 `````````````````````````````````````````````````
 
-.. GENERATED FROM PYTHON SOURCE LINES 241-251
+.. GENERATED FROM PYTHON SOURCE LINES 246-256
 
-.. code-block:: default
+.. code-block:: Python
 
     fig, axes = plt.subplots(ncols=3, figsize=(20, 10))
     for i_trial in range(3):
@@ -378,14 +394,14 @@ Show the design matrices for the first few trials
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 252-254
+.. GENERATED FROM PYTHON SOURCE LINES 257-259
 
 Compare the three modeling approaches
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 254-274
+.. GENERATED FROM PYTHON SOURCE LINES 259-279
 
-.. code-block:: default
+.. code-block:: Python
 
 
     DM_TITLES = ["Standard GLM", "LSA Model", "LSS Model (Trial 1)"]
@@ -419,17 +435,18 @@ Compare the three modeling approaches
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 275-295
+.. GENERATED FROM PYTHON SOURCE LINES 280-301
 
 Applications of beta series
 ---------------------------
-Beta series can be used much like resting-state data, though generally with
-vastly reduced degrees of freedom than a typical resting-state run, given
-that the number of trials should always be less than the number of volumes
-in a functional MRI run.
+Beta series can be used much like :term:`resting-state` data,
+though generally with vastly reduced degrees of freedom
+than a typical :term:`resting-state` run,
+given that the number of trials should always be less
+than the number of volumes in a functional MRI run.
 
-Two common applications of beta series are to functional connectivity and
-decoding analyses.
+Two common applications of beta series are
+to :term:`functional connectivity` and decoding analyses.
 For an example of a beta series applied to decoding, see
 :ref:`sphx_glr_auto_examples_02_decoding_plot_haxby_glm_decoding.py`.
 Here, we show how the beta series can be applied to functional connectivity
@@ -442,9 +459,9 @@ This section is based on
 which goes into more detail about seed-to-voxel functional connectivity
 analyses.
 
-.. GENERATED FROM PYTHON SOURCE LINES 295-388
+.. GENERATED FROM PYTHON SOURCE LINES 301-394
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -551,7 +568,7 @@ analyses.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 389-393
+.. GENERATED FROM PYTHON SOURCE LINES 395-399
 
 References
 ----------
@@ -561,9 +578,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 36.305 seconds)
+   **Total running time of the script:** (3 minutes 22.583 seconds)
 
-**Estimated memory usage:**  188 MB
+**Estimated memory usage:**  457 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_beta_series.py:
@@ -572,23 +589,20 @@ References
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_beta_series.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_beta_series.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_beta_series.py <plot_beta_series.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_beta_series.ipynb <plot_beta_series.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_beta_series.py <plot_beta_series.py>`
 
 
 .. only:: html

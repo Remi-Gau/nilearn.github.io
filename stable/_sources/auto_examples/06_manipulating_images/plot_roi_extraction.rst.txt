@@ -48,7 +48,7 @@ using them for visualization.
 
 .. GENERATED FROM PYTHON SOURCE LINES 30-41
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # cut in x-direction
@@ -80,7 +80,7 @@ we process data using paths of the Nifti images.
 
 .. GENERATED FROM PYTHON SOURCE LINES 49-78
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We load data from nilearn by import datasets
@@ -107,9 +107,9 @@ we process data using paths of the Nifti images.
     # Second, load the labels stored in a text file into array using pandas
     import pandas as pd
 
-    session_target = pd.read_csv(haxby_dataset.session_target[0], sep=" ")
+    run_target = pd.read_csv(haxby_dataset.session_target[0], sep=" ")
     # Now, we have the labels and will be useful while computing student's t-test
-    haxby_labels = session_target["labels"]
+    haxby_labels = run_target["labels"]
 
 
 
@@ -149,7 +149,7 @@ also use file names as input parameters.
 
 .. GENERATED FROM PYTHON SOURCE LINES 96-116
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Smooth the data using image processing module from nilearn
@@ -165,8 +165,8 @@ also use file names as input parameters.
     # `plot_epi`
     from nilearn.plotting import plot_epi
 
-    # First, compute the voxel-wise mean of smooth EPI image (first argument) using
-    # image processing module `image`
+    # First, compute the voxel-wise mean of smooth EPI image
+    # (first argument) using image processing module `image`
     mean_img = image.mean_img(fmri_img)
     # Second, we visualize the mean image with coordinates positioned manually
     plot_epi(mean_img, title="Smoothed mean EPI", cut_coords=cut_coords)
@@ -185,7 +185,7 @@ also use file names as input parameters.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1f250c7d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3cb124750>
 
 
 
@@ -207,7 +207,7 @@ statistics can help reducing the number of voxels.
 
 .. GENERATED FROM PYTHON SOURCE LINES 129-135
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import get_data
 
@@ -236,12 +236,12 @@ two distributions have a different mean value.
 It can be used to compare voxel
 time-series from two different experimental conditions (e.g., when houses or
 faces are shown to individuals during brain scanning). If the time-series
-distribution is similar in the two conditions, then the voxel is not very
-interesting to discriminate the condition.
+distribution is similar in the two conditions,
+then the :term:`voxel` is not very interesting to discriminate the condition.
 
 .. GENERATED FROM PYTHON SOURCE LINES 144-184
 
-.. code-block:: default
+.. code-block:: Python
 
 
     import numpy as np
@@ -249,8 +249,8 @@ interesting to discriminate the condition.
 
     # This test returns p-values that represent probabilities that the two
     # time-series were not drawn from the same distribution. The lower the
-    # p-value, the more discriminative is the voxel in distinguishing the two
-    # conditions (faces and houses).
+    # p-value, the more discriminative is the voxel in distinguishing
+    # the two conditions (faces and houses).
     _, p_values = stats.ttest_ind(
         fmri_data[..., haxby_labels == "face"],
         fmri_data[..., haxby_labels == "house"],
@@ -297,7 +297,7 @@ interesting to discriminate the condition.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1f2765450>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3cb3517d0>
 
 
 
@@ -318,7 +318,7 @@ array.
 
 .. GENERATED FROM PYTHON SOURCE LINES 196-216
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Note that we use log p-values data; we force values below 5 to 0 by
@@ -354,26 +354,27 @@ array.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1cedb70d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37ef31190>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 217-220
+.. GENERATED FROM PYTHON SOURCE LINES 217-221
 
-We can post-process the results obtained with simple operations such as mask
-intersection and dilation to regularize the mask definition.
+We can post-process the results obtained with simple operations
+such as mask intersection and :term:`dilation<Dilation>`
+to regularize the mask definition.
 The idea of using these operations are to have more compact or sparser blobs.
 
-.. GENERATED FROM PYTHON SOURCE LINES 222-226
+.. GENERATED FROM PYTHON SOURCE LINES 223-227
 
 **Binarization** and **Intersection** with Ventral Temporal (VT) mask - We
 now want to restrict our investigation to the VT area. The corresponding
 spatial mask is provided in haxby_dataset.mask_vt. We want to compute the
 intersection of this provided mask with our self-computed mask.
 
-.. GENERATED FROM PYTHON SOURCE LINES 226-262
+.. GENERATED FROM PYTHON SOURCE LINES 227-263
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # self-computed mask
@@ -424,27 +425,28 @@ intersection of this provided mask with our self-computed mask.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:251: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:252: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1efe6f710>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3caff6c90>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 263-269
+.. GENERATED FROM PYTHON SOURCE LINES 264-271
 
 **Dilation** - Thresholded functional brain images often contain scattered
 voxels across the brain. To consolidate such brain images towards
 more compact shapes, we use a `morphological dilation
-<http://en.wikipedia.org/wiki/Dilation_(morphology)>`_. This is a common step
+<https://en.wikipedia.org/wiki/Dilation_(morphology)>`_.
+This is a common step
 to be sure not to forget voxels located on the edge of a ROI. In other words,
-such operations can fill "holes" in masked voxel representations.
+such operations can fill "holes" in masked :term:`voxel` representations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 269-292
+.. GENERATED FROM PYTHON SOURCE LINES 271-294
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We use ndimage function from scipy Python library for mask dilation
@@ -482,31 +484,31 @@ such operations can fill "holes" in masked voxel representations.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:280: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:282: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b01c3750>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37edfdad0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 293-296
+.. GENERATED FROM PYTHON SOURCE LINES 295-298
 
 Finally, we end with splitting the connected ROIs to two hemispheres into two
 separate regions (ROIs). The function `scipy.ndimage.label` from the scipy
 Python library.
 
-.. GENERATED FROM PYTHON SOURCE LINES 298-302
+.. GENERATED FROM PYTHON SOURCE LINES 300-304
 
 **Identification of connected components** - The function
 :func:`scipy.ndimage.label` from the scipy Python library identifies
 immediately neighboring voxels in our voxels mask. It assigns a separate
 integer label to each one of them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 302-323
+.. GENERATED FROM PYTHON SOURCE LINES 304-325
 
-.. code-block:: default
+.. code-block:: Python
 
     from scipy.ndimage import label
 
@@ -554,26 +556,26 @@ integer label to each one of them.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:311: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:313: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    /home/remi/github/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:317: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_roi_extraction.py:319: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b31b3bd0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37edfc650>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 324-325
+.. GENERATED FROM PYTHON SOURCE LINES 326-327
 
 Use the new ROIs, to extract data maps in both ROIs
 
-.. GENERATED FROM PYTHON SOURCE LINES 325-362
+.. GENERATED FROM PYTHON SOURCE LINES 327-364
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # We extract data from ROIs using nilearn's NiftiLabelsMasker
@@ -619,30 +621,42 @@ Use the new ROIs, to extract data maps in both ROIs
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 363-364
+.. GENERATED FROM PYTHON SOURCE LINES 365-366
 
 save the ROI 'atlas' to a Nifti file
 
-.. GENERATED FROM PYTHON SOURCE LINES 364-366
+.. GENERATED FROM PYTHON SOURCE LINES 366-374
 
-.. code-block:: default
+.. code-block:: Python
 
-    new_img_like(fmri_img, labels).to_filename("mask_atlas.nii.gz")
+    from pathlib import Path
+
+    output_dir = Path.cwd() / "results" / "plot_roi_extraction"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    print(f"Output will be saved to: {output_dir}")
+
+    new_img_like(fmri_img, labels).to_filename(output_dir / "mask_atlas.nii.gz")
 
 
 
 
 
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Output will be saved to: /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/results/plot_roi_extraction
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 367-368
+
+.. GENERATED FROM PYTHON SOURCE LINES 375-376
 
 Plot the average in the different condition names
 
-.. GENERATED FROM PYTHON SOURCE LINES 368-380
+.. GENERATED FROM PYTHON SOURCE LINES 376-388
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -671,9 +685,9 @@ Plot the average in the different condition names
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 32.674 seconds)
+   **Total running time of the script:** (0 minutes 32.881 seconds)
 
-**Estimated memory usage:**  2252 MB
+**Estimated memory usage:**  2267 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_roi_extraction.py:
@@ -682,23 +696,20 @@ Plot the average in the different condition names
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_roi_extraction.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_roi_extraction.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_roi_extraction.py <plot_roi_extraction.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_roi_extraction.ipynb <plot_roi_extraction.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_roi_extraction.py <plot_roi_extraction.py>`
 
 
 .. only:: html

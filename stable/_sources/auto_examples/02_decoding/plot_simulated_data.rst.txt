@@ -27,7 +27,7 @@ imaging data and applies machine learning techniques to predict output
 values.
 
 We use a very simple generating function to simulate data, as in `Michel
-et al. 2012 <http://dx.doi.org/10.1109/TMI.2011.2113378>`_ , a linear
+et al. 2012 <https://doi.org/10.1109/TMI.2011.2113378>`_ , a linear
 model with a random design matrix **X**:
 
 .. math::
@@ -38,22 +38,24 @@ model with a random design matrix **X**:
   brain regions. Here, in the simulations, they form a 3D image with 5, four
   of which in opposite corners and one in the middle, as plotted below.
 
-* **X**: the design matrix corresponds to the observed fMRI data. Here
-  we simulate random normal variables and smooth them as in Gaussian
-  fields.
+* **X**: the design matrix corresponds to the observed :term:`fMRI` data.
+  Here we simulate random normal variables
+  and smooth them as in Gaussian fields.
 
 * **e** is random normal noise.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-51
+.. GENERATED FROM PYTHON SOURCE LINES 29-53
 
-.. code-block:: default
+.. code-block:: Python
 
 
-    print(__doc__)
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
 
     from time import time
 
-    import matplotlib.pyplot as plt
     import nibabel
     import numpy as np
     from scipy import linalg
@@ -77,14 +79,14 @@ model with a random design matrix **X**:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 54-56
 
 A function to generate data
-#############################################################################
+---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-98
+.. GENERATED FROM PYTHON SOURCE LINES 56-100
 
-.. code-block:: default
+.. code-block:: Python
 
     def create_simulation_data(snr=0, n_samples=2 * 100, size=12, random_state=1):
         generator = check_random_state(random_state)
@@ -137,14 +139,14 @@ A function to generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-101
+.. GENERATED FROM PYTHON SOURCE LINES 101-103
 
 A simple function to plot slices
-#############################################################################
+--------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-122
+.. GENERATED FROM PYTHON SOURCE LINES 103-124
 
-.. code-block:: default
+.. code-block:: Python
 
     def plot_slices(data, title=None):
         plt.figure(figsize=(5.5, 2.2))
@@ -174,14 +176,14 @@ A simple function to plot slices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-125
+.. GENERATED FROM PYTHON SOURCE LINES 125-127
 
 Create data
-##############################################################################
+-----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-143
+.. GENERATED FROM PYTHON SOURCE LINES 127-145
 
-.. code-block:: default
+.. code-block:: Python
 
     X_train, X_test, y_train, y_test, snr, coefs, size = create_simulation_data(
         snr=-10, n_samples=100, size=12
@@ -219,32 +221,32 @@ Create data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-164
+.. GENERATED FROM PYTHON SOURCE LINES 146-166
 
 Run different estimators
-##############################################################################
+------------------------
 
- We can now run different estimators and look at their prediction score,
- as well as the feature maps that they recover. Namely, we will use
+We can now run different estimators and look at their prediction score,
+as well as the feature maps that they recover. Namely, we will use
 
- * A support vector regression (`SVM
-   <http://scikit-learn.org/stable/modules/svm.html>`_)
+* A support vector regression (`SVM
+  <https://scikit-learn.org/stable/modules/svm.html>`_)
 
- * An `elastic-net
-   <http://scikit-learn.org/stable/modules/linear_model.html#elastic-net>`_
+* An `elastic-net
+  <https://scikit-learn.org/stable/modules/linear_model.html#elastic-net>`_
 
- * A *Bayesian* ridge estimator, i.e. a ridge estimator that sets its
-   parameter according to a metaprior
+* A *Bayesian* ridge estimator, i.e. a ridge estimator that sets its
+  parameter according to a metaprior
 
- * A ridge estimator that set its parameter by cross-validation
+* A ridge estimator that set its parameter by cross-validation
 
- Note that the `RidgeCV` and the `ElasticNetCV` have names ending in `CV`
- that stands for `cross-validation`: in the list of possible `alpha`
- values that they are given, they choose the best by cross-validation.
+Note that the `RidgeCV` and the `ElasticNetCV` have names ending in `CV`
+that stands for `cross-validation`: in the list of possible `alpha`
+values that they are given, they choose the best by cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 164-190
+.. GENERATED FROM PYTHON SOURCE LINES 166-192
 
-.. code-block:: default
+.. code-block:: Python
 
 
     bayesian_ridge = make_pipeline(StandardScaler(), linear_model.BayesianRidge())
@@ -267,7 +269,7 @@ Run different estimators
                 estimator=svm.SVR(kernel="linear"),
                 cv=KFold(n_splits=4),
                 verbose=1,
-                n_jobs=1,
+                n_jobs=2,
             ),
         ),
     ]
@@ -279,18 +281,19 @@ Run different estimators
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 191-197
+.. GENERATED FROM PYTHON SOURCE LINES 193-200
 
 Run the estimators
+------------------
 
 As the estimators expose a fairly consistent API, we can all fit them in
 a for loop: they all have a `fit` method for fitting the data, a `score`
 method to retrieve the prediction score, and because they are all linear
 models, a `coef_` attribute that stores the coefficients **w** estimated
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-242
+.. GENERATED FROM PYTHON SOURCE LINES 200-245
 
-.. code-block:: default
+.. code-block:: Python
 
 
     for name, estimator in estimators:
@@ -346,21 +349,21 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
-         :alt: bayesian_ridge: prediction score 0.114, training time: 0.34s
+         :alt: bayesian_ridge: prediction score 0.114, training time: 0.39s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
-         :alt: enet_cv: prediction score 0.528, training time: 0.95s
+         :alt: enet_cv: prediction score 0.528, training time: 1.10s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
-         :alt: ridge_cv: prediction score 0.328, training time: 0.23s
+         :alt: ridge_cv: prediction score 0.328, training time: 0.21s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
          :class: sphx-glr-multi-img
 
@@ -374,7 +377,7 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
-         :alt: SearchLight: training time: 10.18s
+         :alt: SearchLight: training time: 9.29s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
          :class: sphx-glr-multi-img
 
@@ -390,31 +393,33 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
 
  .. code-block:: none
 
-    bayesian_ridge: prediction score 0.114, training time: 0.34s
-    enet_cv: prediction score 0.528, training time: 0.95s
-    ridge_cv: prediction score 0.328, training time: 0.23s
+    bayesian_ridge: prediction score 0.114, training time: 0.39s
+    enet_cv: prediction score 0.528, training time: 1.10s
+    ridge_cv: prediction score 0.328, training time: 0.21s
     svr: prediction score 0.345, training time: 0.01s
-    Job #1, processed 0/432 voxels (0.00%, 219.94590759277344 seconds remaining)    Job #1, processed 10/432 voxels (2.31%, 11.481922838078948 seconds remaining)    Job #1, processed 20/432 voxels (4.63%, 9.540979136658539 seconds remaining)    Job #1, processed 30/432 voxels (6.94%, 9.471739346424508 seconds remaining)    Job #1, processed 40/432 voxels (9.26%, 9.496690857745143 seconds remaining)    Job #1, processed 50/432 voxels (11.57%, 9.52042126367086 seconds remaining)    Job #1, processed 60/432 voxels (13.89%, 9.01930719661232 seconds remaining)    Job #1, processed 70/432 voxels (16.20%, 8.985643951981157 seconds remaining)    Job #1, processed 80/432 voxels (18.52%, 8.855918270980307 seconds remaining)    Job #1, processed 90/432 voxels (20.83%, 8.453287905131289 seconds remaining)    Job #1, processed 100/432 voxels (23.15%, 8.080981565088226 seconds remaining)    Job #1, processed 110/432 voxels (25.46%, 7.878148724877355 seconds remaining)    Job #1, processed 120/432 voxels (27.78%, 7.570692860882775 seconds remaining)    Job #1, processed 130/432 voxels (30.09%, 7.200613364938804 seconds remaining)    Job #1, processed 140/432 voxels (32.41%, 6.912669879424283 seconds remaining)    Job #1, processed 150/432 voxels (34.72%, 6.624798946116926 seconds remaining)    Job #1, processed 160/432 voxels (37.04%, 6.336682027668469 seconds remaining)    Job #1, processed 170/432 voxels (39.35%, 6.0940711171078705 seconds remaining)    Job #1, processed 180/432 voxels (41.67%, 5.8375970154664545 seconds remaining)    Job #1, processed 190/432 voxels (43.98%, 5.555652014284364 seconds remaining)    Job #1, processed 200/432 voxels (46.30%, 5.24655993659347 seconds remaining)    Job #1, processed 210/432 voxels (48.61%, 4.98031183854711 seconds remaining)    Job #1, processed 220/432 voxels (50.93%, 4.7408361562736 seconds remaining)    Job #1, processed 230/432 voxels (53.24%, 4.500827424065856 seconds remaining)    Job #1, processed 240/432 voxels (55.56%, 4.2516254923856875 seconds remaining)    Job #1, processed 250/432 voxels (57.87%, 4.017661877940804 seconds remaining)    Job #1, processed 260/432 voxels (60.19%, 3.779810918567783 seconds remaining)    Job #1, processed 270/432 voxels (62.50%, 3.540756368637085 seconds remaining)    Job #1, processed 280/432 voxels (64.81%, 3.302069993431857 seconds remaining)    Job #1, processed 290/432 voxels (67.13%, 3.072703605115139 seconds remaining)    Job #1, processed 300/432 voxels (69.44%, 2.857491480590012 seconds remaining)    Job #1, processed 310/432 voxels (71.76%, 2.6327577910428586 seconds remaining)    Job #1, processed 320/432 voxels (74.07%, 2.4166159502999967 seconds remaining)    Job #1, processed 330/432 voxels (76.39%, 2.211113126728294 seconds remaining)    Job #1, processed 340/432 voxels (78.70%, 2.002267358263687 seconds remaining)    Job #1, processed 350/432 voxels (81.02%, 1.797072631816634 seconds remaining)    Job #1, processed 360/432 voxels (83.33%, 1.5859084864931923 seconds remaining)    Job #1, processed 370/432 voxels (85.65%, 1.3764553218992976 seconds remaining)    Job #1, processed 380/432 voxels (87.96%, 1.156150191954561 seconds remaining)    Job #1, processed 390/432 voxels (90.28%, 0.9423678324821515 seconds remaining)    Job #1, processed 400/432 voxels (92.59%, 0.7180512699739423 seconds remaining)    Job #1, processed 410/432 voxels (94.91%, 0.49643090650236765 seconds remaining)    Job #1, processed 420/432 voxels (97.22%, 0.27031527853531995 seconds remaining)    Job #1, processed 430/432 voxels (99.54%, 0.04466648472584117 seconds remaining)    SearchLight: training time: 10.18s
+    [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    8.6s finished
+    SearchLight: training time: 9.29s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 243-253
+.. GENERATED FROM PYTHON SOURCE LINES 246-256
 
 An exercise to go further
-##############################################################################
+-------------------------
 
- As an exercice, you can use recursive feature elimination (RFE) with
- the SVM
+As an exercice, you can use recursive feature elimination (RFE) with
+the SVM
 
- Read the object's documentation to find out how to use RFE.
+Read the object's documentation to find out how to use RFE.
 
- **Performance tip**: increase the `step` parameter, or it will be very
- slow.
+**Performance tip**: increase the `step` parameter, or it will be very
+slow.
 
-.. GENERATED FROM PYTHON SOURCE LINES 253-255
+.. GENERATED FROM PYTHON SOURCE LINES 256-258
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # from sklearn.feature_selection import RFE
@@ -428,9 +433,9 @@ An exercise to go further
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.061 seconds)
+   **Total running time of the script:** (0 minutes 16.760 seconds)
 
-**Estimated memory usage:**  9 MB
+**Estimated memory usage:**  10 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_simulated_data.py:
@@ -439,23 +444,20 @@ An exercise to go further
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_simulated_data.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_simulated_data.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_simulated_data.py <plot_simulated_data.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_simulated_data.ipynb <plot_simulated_data.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_simulated_data.py <plot_simulated_data.py>`
 
 
 .. only:: html

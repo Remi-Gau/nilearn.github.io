@@ -40,13 +40,14 @@ presented : ['audio_computation', 'audio_left_hand_button_press',
 
 At first, we grab the localizer data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-34
+.. GENERATED FROM PYTHON SOURCE LINES 23-35
 
-.. code-block:: default
+.. code-block:: Python
 
     import pandas as pd
 
     from nilearn.datasets import func
+    from nilearn.plotting import plot_stat_map
 
     data = func.fetch_localizer_first_level()
     fmri_img = data.epi_img
@@ -59,21 +60,10 @@ At first, we grab the localizer data.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-
-    Dataset created in /home/remi/nilearn_data/localizer_first_level
-
-    Downloading data from https://osf.io/2bqxn/download ...
-    Downloaded 5169152 of 34532740 bytes (15.0%,    5.7s remaining)    Downloaded 11018240 of 34532740 bytes (31.9%,    4.3s remaining)    Downloaded 15081472 of 34532740 bytes (43.7%,    3.9s remaining)    Downloaded 18243584 of 34532740 bytes (52.8%,    3.8s remaining)    Downloaded 22945792 of 34532740 bytes (66.4%,    2.7s remaining)    Downloaded 30253056 of 34532740 bytes (87.6%,    0.9s remaining) ...done. (9 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/localizer_first_level/62d16779cfae29f3623d6a194141d263/download..... done.
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 35-44
+.. GENERATED FROM PYTHON SOURCE LINES 36-45
 
 Next solution is to try Finite Impulse Response (:term:`FIR`) models: we just
 say that the :term:`hrf<HRF>` is an arbitrary function that lags behind the
@@ -85,9 +75,9 @@ Concretely, we set `hrf_model` to 'fir' and `fir_delays` to [1, 2,
 t_r] seconds interval.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-53
+.. GENERATED FROM PYTHON SOURCE LINES 45-54
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.glm.first_level import FirstLevelModel
     from nilearn.plotting import plot_contrast_matrix, plot_design_matrix
@@ -116,15 +106,16 @@ t_r] seconds interval.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-57
+.. GENERATED FROM PYTHON SOURCE LINES 55-59
 
-We have to adapt contrast specification. We characterize the :term:`BOLD`
-response by the sum across the three time lags. It's a bit hairy,
-sorry, but this is the price to pay for flexibility...
+We have to adapt :term:`contrast` specification.
+We characterize the :term:`BOLD` response by the sum
+across the three time lags.
+It's a bit hairy, sorry, but this is the price to pay for flexibility...
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-125
+.. GENERATED FROM PYTHON SOURCE LINES 59-127
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -201,13 +192,13 @@ sorry, but this is the price to pay for flexibility...
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 126-127
+.. GENERATED FROM PYTHON SOURCE LINES 128-129
 
 Take a look at the contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-130
+.. GENERATED FROM PYTHON SOURCE LINES 129-132
 
-.. code-block:: default
+.. code-block:: Python
 
 
     plot_contrast_matrix(contrasts["left-right"], design_matrix)
@@ -230,19 +221,17 @@ Take a look at the contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 131-134
+.. GENERATED FROM PYTHON SOURCE LINES 133-136
 
 Take a breath.
 
 We can now  proceed by estimating the contrasts and displaying them.
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-155
+.. GENERATED FROM PYTHON SOURCE LINES 136-155
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import plot_stat_map
 
     fig = plt.figure(figsize=(11, 3))
     for index, (contrast_id, contrast_val) in enumerate(contrasts.items()):
@@ -283,9 +272,9 @@ conditions.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 21.523 seconds)
+   **Total running time of the script:** (0 minutes 16.151 seconds)
 
-**Estimated memory usage:**  194 MB
+**Estimated memory usage:**  286 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_fir_model.py:
@@ -294,23 +283,20 @@ conditions.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fir_model.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_fir_model.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_fir_model.py <plot_fir_model.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_fir_model.ipynb <plot_fir_model.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_fir_model.py <plot_fir_model.py>`
 
 
 .. only:: html

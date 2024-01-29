@@ -25,11 +25,26 @@ In this script we plot an overview of the stimuli used in "Distributed
 and Overlapping Representations of Faces and Objects in Ventral Temporal
 Cortex" (Science 2001)
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-17
+.. GENERATED FROM PYTHON SOURCE LINES 9-15
 
-.. code-block:: default
+.. code-block:: Python
 
-    import matplotlib.pyplot as plt
+
+    try:
+        import matplotlib.pyplot as plt
+    except ImportError:
+        raise RuntimeError("This script needs the matplotlib library")
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 16-22
+
+.. code-block:: Python
 
     from nilearn import datasets
     from nilearn.plotting import show
@@ -41,20 +56,12 @@ Cortex" (Science 2001)
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Downloading data from http://data.pymvpa.org/datasets/haxby2001/stimuli-2010.01.14.tar.gz ...
-    Downloaded 622592 of 10463676 bytes (6.0%,   16.2s remaining)    Downloaded 1523712 of 10463676 bytes (14.6%,   12.0s remaining)    Downloaded 2523136 of 10463676 bytes (24.1%,    9.6s remaining)    Downloaded 3571712 of 10463676 bytes (34.1%,    7.9s remaining)    Downloaded 4562944 of 10463676 bytes (43.6%,    6.6s remaining)    Downloaded 5619712 of 10463676 bytes (53.7%,    5.2s remaining)    Downloaded 6709248 of 10463676 bytes (64.1%,    4.0s remaining)    Downloaded 7929856 of 10463676 bytes (75.8%,    2.6s remaining)    Downloaded 9314304 of 10463676 bytes (89.0%,    1.1s remaining) ...done. (10 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/haxby2001/5cd78c74b711572c7f41a5bddb69abca/stimuli-2010.01.14.tar.gz..... done.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 23-40
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-35
-
-.. code-block:: default
+.. code-block:: Python
 
 
     for stim_type in stimulus_information:
@@ -135,9 +142,9 @@ Cortex" (Science 2001)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 16.621 seconds)
+   **Total running time of the script:** (0 minutes 10.577 seconds)
 
-**Estimated memory usage:**  12 MB
+**Estimated memory usage:**  17 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_stimuli.py:
@@ -146,23 +153,20 @@ Cortex" (Science 2001)
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_stimuli.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_stimuli.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_haxby_stimuli.py <plot_haxby_stimuli.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_haxby_stimuli.ipynb <plot_haxby_stimuli.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_haxby_stimuli.py <plot_haxby_stimuli.py>`
 
 
 .. only:: html

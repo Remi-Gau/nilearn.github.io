@@ -24,19 +24,33 @@ Different classifiers in decoding the Haxby dataset
 Here we compare different classifiers on a visual object recognition
 decoding task.
 
-.. GENERATED FROM PYTHON SOURCE LINES 10-12
+.. GENERATED FROM PYTHON SOURCE LINES 8-14
 
-Loading the data
-----------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 12-63
-
-.. code-block:: default
+.. code-block:: Python
 
 
     # We start by loading data using nilearn dataset fetcher
     from nilearn import datasets
     from nilearn.image import get_data
+    from nilearn.plotting import plot_stat_map, show
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 15-17
+
+Loading the data
+----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 17-65
+
+.. code-block:: Python
+
+
 
     # by default 2nd subject data will be fetched
     haxby_dataset = datasets.fetch_haxby()
@@ -68,7 +82,7 @@ Loading the data
     categories = stimuli[task_mask].unique()
 
     # extract tags indicating to which acquisition run a tag belongs
-    session_labels = labels["chunks"][task_mask]
+    run_labels = labels["chunks"][task_mask]
 
 
     # Load the fMRI data
@@ -98,14 +112,14 @@ Loading the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 66-68
 
 Training the decoder
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-112
+.. GENERATED FROM PYTHON SOURCE LINES 68-114
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Then we define the various classifiers that we use
@@ -139,7 +153,7 @@ Training the decoder
             cv=cv,
         )
         t0 = time.time()
-        decoder.fit(fmri_niimgs, classification_target, groups=session_labels)
+        decoder.fit(fmri_niimgs, classification_target, groups=run_labels)
 
         classifiers_data[classifier_name] = {"score": decoder.cv_scores_}
         print(f"{classifier_name:10}: {time.time() - t0:.2f}s")
@@ -162,25 +176,25 @@ Training the decoder
  .. code-block:: none
 
     ______________________________________________________________________
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l1: 161.50s
+    logistic_l1: 186.71s
         scissors       vs all -- AUC: 0.00 +- 0.00
-        face           vs all -- AUC: 0.17 +- 0.37
+        face           vs all -- AUC: 0.08 +- 0.27
         cat            vs all -- AUC: 0.45 +- 0.46
         shoe           vs all -- AUC: 0.00 +- 0.00
         house          vs all -- AUC: 1.00 +- 0.00
-        scrambledpix   vs all -- AUC: 0.98 +- 0.02
-        bottle         vs all -- AUC: 0.15 +- 0.35
+        scrambledpix   vs all -- AUC: 0.98 +- 0.01
+        bottle         vs all -- AUC: 0.16 +- 0.35
         chair          vs all -- AUC: 0.00 +- 0.00
     ______________________________________________________________________
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    logistic_l2: 430.57s
+    logistic_l2: 487.88s
         scissors       vs all -- AUC: 0.90 +- 0.08
         face           vs all -- AUC: 0.97 +- 0.04
         cat            vs all -- AUC: 0.97 +- 0.04
@@ -190,11 +204,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.82 +- 0.17
         chair          vs all -- AUC: 0.87 +- 0.17
     ______________________________________________________________________
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    ridge_classifier: 51.12s
+    ridge_classifier: 59.40s
         scissors       vs all -- AUC: 0.94 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.02
         cat            vs all -- AUC: 0.95 +- 0.04
@@ -204,11 +218,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.89 +- 0.09
         chair          vs all -- AUC: 0.93 +- 0.07
     ______________________________________________________________________
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l1    : 52.76s
+    svc_l1    : 50.54s
         scissors       vs all -- AUC: 0.92 +- 0.05
         face           vs all -- AUC: 0.98 +- 0.03
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -218,11 +232,11 @@ Training the decoder
         bottle         vs all -- AUC: 0.89 +- 0.08
         chair          vs all -- AUC: 0.93 +- 0.04
     ______________________________________________________________________
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    svc_l2    : 114.64s
+    svc_l2    : 118.59s
         scissors       vs all -- AUC: 0.90 +- 0.09
         face           vs all -- AUC: 0.96 +- 0.05
         cat            vs all -- AUC: 0.96 +- 0.04
@@ -235,14 +249,14 @@ Training the decoder
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-115
+.. GENERATED FROM PYTHON SOURCE LINES 115-117
 
 Visualization
 -------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-150
+.. GENERATED FROM PYTHON SOURCE LINES 117-152
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Then we make a rudimentary diagram
@@ -291,30 +305,30 @@ Visualization
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-155
+.. GENERATED FROM PYTHON SOURCE LINES 153-157
 
 We can see that for a fixed penalty the results are similar between the svc
 and the logistic regression. The main difference relies on the penalty
 ($\ell_1$ and $\ell_2$). The sparse penalty works better because we are in
 an intra-subject setting.
 
-.. GENERATED FROM PYTHON SOURCE LINES 157-161
+.. GENERATED FROM PYTHON SOURCE LINES 159-163
 
 Visualizing the face vs house map
 ---------------------------------
 
 Restrict the decoding to face vs house
 
-.. GENERATED FROM PYTHON SOURCE LINES 161-182
+.. GENERATED FROM PYTHON SOURCE LINES 163-184
 
-.. code-block:: default
+.. code-block:: Python
 
 
     condition_mask = np.logical_or(stimuli == "face", stimuli == "house")
     stimuli = stimuli[condition_mask]
     assert len(stimuli) == 216
     fmri_niimgs_condition = index_img(func_filename, condition_mask)
-    session_labels = labels["chunks"][condition_mask]
+    run_labels = labels["chunks"][condition_mask]
     categories = stimuli.unique()
     assert len(categories) == 2
 
@@ -325,7 +339,7 @@ Restrict the decoding to face vs house
             standardize="zscore_sample",
             cv=cv,
         )
-        decoder.fit(fmri_niimgs_condition, stimuli, groups=session_labels)
+        decoder.fit(fmri_niimgs_condition, stimuli, groups=run_labels)
         classifiers_data[classifier_name] = {}
         classifiers_data[classifier_name]["score"] = decoder.cv_scores_
         classifiers_data[classifier_name]["map"] = decoder.coef_img_["face"]
@@ -338,23 +352,23 @@ Restrict the decoding to face vs house
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -362,18 +376,16 @@ Restrict the decoding to face vs house
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 183-185
+.. GENERATED FROM PYTHON SOURCE LINES 185-187
 
 Finally, we plot the face vs house map for the different classifiers
-Use the average EPI as a background
+Use the average :term:`EPI` as a background
 
-.. GENERATED FROM PYTHON SOURCE LINES 185-206
+.. GENERATED FROM PYTHON SOURCE LINES 187-206
 
-.. code-block:: default
-
+.. code-block:: Python
 
     from nilearn.image import mean_img
-    from nilearn.plotting import plot_stat_map, show
 
     mean_epi_img = mean_img(func_filename)
 
@@ -440,9 +452,9 @@ Use the average EPI as a background
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (14 minutes 16.107 seconds)
+   **Total running time of the script:** (15 minutes 54.515 seconds)
 
-**Estimated memory usage:**  1360 MB
+**Estimated memory usage:**  1246 MB
 
 
 .. _sphx_glr_download_auto_examples_02_decoding_plot_haxby_different_estimators.py:
@@ -451,23 +463,20 @@ Use the average EPI as a background
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_different_estimators.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_haxby_different_estimators.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_haxby_different_estimators.py <plot_haxby_different_estimators.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_haxby_different_estimators.ipynb <plot_haxby_different_estimators.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_haxby_different_estimators.py <plot_haxby_different_estimators.py>`
 
 
 .. only:: html

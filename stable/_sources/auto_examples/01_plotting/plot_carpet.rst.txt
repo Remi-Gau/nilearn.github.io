@@ -32,16 +32,18 @@ from a 4D functional image.
 Fetching data from ADHD dataset
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 15-28
+.. GENERATED FROM PYTHON SOURCE LINES 15-30
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import datasets
+    from nilearn.plotting import plot_carpet
 
     adhd_dataset = datasets.fetch_adhd(n_subjects=1)
 
-    # plot_carpet can infer TR from the image header, but preprocessing can often
-    # overwrite that particular header field, so we will be explicit.
+    # plot_carpet can infer TR from the image header,
+    # but preprocessing can often overwrite that particular header field,
+    # so we will be explicit.
     t_r = 2.0
 
     # Print basic information on the dataset
@@ -57,28 +59,19 @@ Fetching data from ADHD dataset
 
  .. code-block:: none
 
-
-    Dataset created in /home/remi/nilearn_data/adhd
-
-    Downloading data from https://www.nitrc.org/frs/download.php/7781/adhd40_metadata.tgz ...
-     ...done. (0 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/adhd/fbef5baff0b388a8c913a08e1d84e059/adhd40_metadata.tgz..... done.
-    Downloading data from https://www.nitrc.org/frs/download.php/7782/adhd40_0010042.tgz ...
-    Downloaded 1507328 of 44414948 bytes (3.4%,   29.2s remaining)    Downloaded 2818048 of 44414948 bytes (6.3%,   30.1s remaining)    Downloaded 4333568 of 44414948 bytes (9.8%,   28.1s remaining)    Downloaded 5840896 of 44414948 bytes (13.2%,   26.7s remaining)    Downloaded 7159808 of 44414948 bytes (16.1%,   26.3s remaining)    Downloaded 8151040 of 44414948 bytes (18.4%,   27.2s remaining)    Downloaded 9134080 of 44414948 bytes (20.6%,   27.5s remaining)    Downloaded 10207232 of 44414948 bytes (23.0%,   27.2s remaining)    Downloaded 11272192 of 44414948 bytes (25.4%,   26.9s remaining)    Downloaded 12427264 of 44414948 bytes (28.0%,   26.2s remaining)    Downloaded 13631488 of 44414948 bytes (30.7%,   25.3s remaining)    Downloaded 14901248 of 44414948 bytes (33.6%,   24.2s remaining)    Downloaded 16277504 of 44414948 bytes (36.6%,   22.8s remaining)    Downloaded 17391616 of 44414948 bytes (39.2%,   22.1s remaining)    Downloaded 18694144 of 44414948 bytes (42.1%,   21.0s remaining)    Downloaded 20144128 of 44414948 bytes (45.4%,   19.6s remaining)    Downloaded 21618688 of 44414948 bytes (48.7%,   18.2s remaining)    Downloaded 22986752 of 44414948 bytes (51.8%,   17.1s remaining)    Downloaded 24223744 of 44414948 bytes (54.5%,   16.1s remaining)    Downloaded 25280512 of 44414948 bytes (56.9%,   15.4s remaining)    Downloaded 26386432 of 44414948 bytes (59.4%,   14.6s remaining)    Downloaded 27492352 of 44414948 bytes (61.9%,   13.8s remaining)    Downloaded 28622848 of 44414948 bytes (64.4%,   12.9s remaining)    Downloaded 29777920 of 44414948 bytes (67.0%,   12.0s remaining)    Downloaded 31031296 of 44414948 bytes (69.9%,   11.0s remaining)    Downloaded 32382976 of 44414948 bytes (72.9%,    9.8s remaining)    Downloaded 33857536 of 44414948 bytes (76.2%,    8.5s remaining)    Downloaded 35618816 of 44414948 bytes (80.2%,    7.0s remaining)    Downloaded 37363712 of 44414948 bytes (84.1%,    5.6s remaining)    Downloaded 39182336 of 44414948 bytes (88.2%,    4.1s remaining)    Downloaded 40787968 of 44414948 bytes (91.8%,    2.8s remaining)    Downloaded 42131456 of 44414948 bytes (94.9%,    1.8s remaining)    Downloaded 43261952 of 44414948 bytes (97.4%,    0.9s remaining)    Downloaded 44302336 of 44414948 bytes (99.7%,    0.1s remaining) ...done. (35 seconds, 0 min)
-    Extracting data from /home/remi/nilearn_data/adhd/e7ff5670bd594dcd9453e57b55d69dc9/adhd40_0010042.tgz..... done.
     First subject functional nifti image (4D) is at: /home/remi/nilearn_data/adhd/data/0010042/0010042_rest_tshift_RPI_voreg_mni.nii.gz
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-31
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Deriving a mask
 ---------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-36
+.. GENERATED FROM PYTHON SOURCE LINES 33-38
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn import masking
 
@@ -92,18 +85,16 @@ Deriving a mask
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 Visualizing global patterns over time
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-52
+.. GENERATED FROM PYTHON SOURCE LINES 41-52
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import plot_carpet
 
     display = plot_carpet(
         adhd_dataset.func[0],
@@ -135,7 +126,7 @@ ICBM152 tissue probability maps.
 
 .. GENERATED FROM PYTHON SOURCE LINES 57-71
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -159,7 +150,7 @@ ICBM152 tissue probability maps.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/examples/01_plotting/plot_carpet.py:68: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
+    /home/remi/github/nilearn/nilearn/examples/01_plotting/plot_carpet.py:68: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
       discrete_atlas_img = image.new_img_like(atlas_img, discrete_version)
 
 
@@ -172,7 +163,7 @@ Visualizing global patterns, separated by tissue type
 
 .. GENERATED FROM PYTHON SOURCE LINES 74-90
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.plotting import plot_carpet
 
@@ -203,8 +194,8 @@ Visualizing global patterns, separated by tissue type
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:591: UserWarning: Casting data from int32 to float32
-      warnings.warn(f"Casting data from {data.dtype.name} to {aux}")
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:353: UserWarning: Casting data from int32 to float32
+      return self.func(*args, **kwargs)
     Coercing atlas_values to <class 'int'>
 
 
@@ -213,9 +204,9 @@ Visualizing global patterns, separated by tissue type
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 44.510 seconds)
+   **Total running time of the script:** (0 minutes 14.467 seconds)
 
-**Estimated memory usage:**  1020 MB
+**Estimated memory usage:**  980 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_carpet.py:
@@ -224,23 +215,20 @@ Visualizing global patterns, separated by tissue type
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_carpet.py <plot_carpet.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_carpet.ipynb <plot_carpet.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_carpet.py <plot_carpet.py>`
 
 
 .. only:: html

@@ -58,19 +58,33 @@ causes an error message, because `resample_img` will not know where to start
 the bounding box (there is no intelligent way of inferring this given the
 bounding box shape).
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-46
+.. GENERATED FROM PYTHON SOURCE LINES 42-49
 
-First make a simple synthetic image
-
-.. GENERATED FROM PYTHON SOURCE LINES 46-95
-
-.. code-block:: default
+.. code-block:: Python
 
 
     # Create the data with numpy
     import numpy as np
 
     from nilearn.image import get_data
+    from nilearn.plotting import show
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 50-51
+
+First make a simple synthetic image
+
+.. GENERATED FROM PYTHON SOURCE LINES 51-96
+
+.. code-block:: Python
+
+
 
     grid = np.mgrid[0:192, 0:128]
     circle = (
@@ -122,13 +136,13 @@ First make a simple synthetic image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-97
+.. GENERATED FROM PYTHON SOURCE LINES 97-98
 
 Now resample the image
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-123
+.. GENERATED FROM PYTHON SOURCE LINES 98-124
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import resample_img
 
@@ -164,15 +178,15 @@ Now resample the image
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:591: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_affine_transformation.py:100: UserWarning:
 
     Casting data from int32 to float32
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:591: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_affine_transformation.py:107: UserWarning:
 
     Casting data from int32 to float32
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:591: UserWarning:
+    /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/plot_affine_transformation.py:108: UserWarning:
 
     Casting data from int32 to float32
 
@@ -180,17 +194,15 @@ Now resample the image
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-125
+.. GENERATED FROM PYTHON SOURCE LINES 125-126
 
 Finally, visualize
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-153
+.. GENERATED FROM PYTHON SOURCE LINES 126-152
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
-
-    from nilearn.plotting import show
 
     plt.figure()
     plt.imshow(image, interpolation="nearest", vmin=0, vmax=vmax)
@@ -257,9 +269,9 @@ Finally, visualize
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.182 seconds)
+   **Total running time of the script:** (0 minutes 2.033 seconds)
 
-**Estimated memory usage:**  8 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_affine_transformation.py:
@@ -268,23 +280,20 @@ Finally, visualize
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_affine_transformation.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_affine_transformation.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_affine_transformation.py <plot_affine_transformation.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_affine_transformation.ipynb <plot_affine_transformation.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_affine_transformation.py <plot_affine_transformation.py>`
 
 
 .. only:: html

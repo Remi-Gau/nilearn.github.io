@@ -21,25 +21,26 @@
 Default Mode Network extraction of ADHD dataset
 ===============================================
 
-This example shows a full step-by-step workflow of fitting a GLM to signal
-extracted from a seed on the Posterior Cingulate Cortex and saving the results.
+This example shows a full step-by-step workflow of fitting a :term:`GLM`
+to signal extracted from a seed on the Posterior Cingulate Cortex
+and saving the results.
 More precisely, this example shows how to use a signal extracted from a
-seed region as the regressor in a GLM to determine the correlation
+seed region as the regressor in a :term:`GLM` to determine the correlation
 of each region in the dataset with the seed region.
 
 More specifically:
 
-1. A sequence of fMRI volumes are loaded.
+1. A sequence of :term:`fMRI` volumes are loaded.
 2. A design matrix with the Posterior Cingulate Cortex seed is defined.
-3. A GLM is applied to the dataset (effect/covariance,
+3. A :term:`GLM` is applied to the dataset (effect/covariance,
    then contrast estimation).
 4. The Default Mode Network is displayed.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-31
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
 
-.. code-block:: default
+.. code-block:: Python
 
     import numpy as np
 
@@ -57,15 +58,15 @@ More specifically:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-35
+.. GENERATED FROM PYTHON SOURCE LINES 35-38
 
 Prepare data and analysis parameters
 ------------------------------------
 Prepare the data.
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-45
+.. GENERATED FROM PYTHON SOURCE LINES 38-48
 
-.. code-block:: default
+.. code-block:: Python
 
     adhd_dataset = datasets.fetch_adhd(n_subjects=1)
 
@@ -84,15 +85,15 @@ Prepare the data.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-49
+.. GENERATED FROM PYTHON SOURCE LINES 49-52
 
 Extract the seed region's time course
 -------------------------------------
 Extract the time course of the seed region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-64
+.. GENERATED FROM PYTHON SOURCE LINES 52-67
 
-.. code-block:: default
+.. code-block:: Python
 
     seed_masker = NiftiSpheresMasker(
         [pcc_coords],
@@ -116,13 +117,13 @@ Extract the time course of the seed region.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-66
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
 
 Plot the time course of the seed region.
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-75
+.. GENERATED FROM PYTHON SOURCE LINES 69-78
 
-.. code-block:: default
+.. code-block:: Python
 
     import matplotlib.pyplot as plt
 
@@ -145,15 +146,15 @@ Plot the time course of the seed region.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-79
+.. GENERATED FROM PYTHON SOURCE LINES 79-82
 
 Estimate contrasts
 ------------------
 Specify the contrasts.
 
-.. GENERATED FROM PYTHON SOURCE LINES 79-88
+.. GENERATED FROM PYTHON SOURCE LINES 82-91
 
-.. code-block:: default
+.. code-block:: Python
 
     design_matrix = make_first_level_design_matrix(
         frametimes,
@@ -171,15 +172,15 @@ Specify the contrasts.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 89-92
+.. GENERATED FROM PYTHON SOURCE LINES 92-95
 
 Perform first level analysis
 ----------------------------
 Setup and fit GLM.
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-97
+.. GENERATED FROM PYTHON SOURCE LINES 95-100
 
-.. code-block:: default
+.. code-block:: Python
 
     first_level_model = FirstLevelModel(t_r=t_r, slice_time_ref=slice_time_ref)
     first_level_model = first_level_model.fit(
@@ -194,7 +195,7 @@ Setup and fit GLM.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:76: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/first_level.py:702: UserWarning:
 
     Mean values of 0 observed.The data have probably been centered.Scaling might not work as expected
 
@@ -202,13 +203,13 @@ Setup and fit GLM.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-99
+.. GENERATED FROM PYTHON SOURCE LINES 101-102
 
 Estimate the contrast.
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-115
+.. GENERATED FROM PYTHON SOURCE LINES 102-118
 
-.. code-block:: default
+.. code-block:: Python
 
     print("Contrast seed_based_glm computed.")
     z_map = first_level_model.compute_contrast(
@@ -245,7 +246,7 @@ Estimate the contrast.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-122
+.. GENERATED FROM PYTHON SOURCE LINES 119-125
 
 Generating a report
 -------------------
@@ -254,9 +255,9 @@ portable, ready-to-view report with most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
 which we do here.
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-133
+.. GENERATED FROM PYTHON SOURCE LINES 125-136
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.reporting import make_glm_report
 
@@ -276,18 +277,23 @@ which we do here.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-135
+.. GENERATED FROM PYTHON SOURCE LINES 137-138
 
 We have several ways to access the report:
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-139
+.. GENERATED FROM PYTHON SOURCE LINES 138-147
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # report  # This report can be viewed in a notebook
-    # report.save_as_html('report.html')
     # report.open_in_browser()
+
+    # or we can save as an html file
+    # from pathlib import Path
+    # output_dir = Path.cwd() / "results" / "plot_adhd_dmn"
+    # output_dir.mkdir(exist_ok=True, parents=True)
+    # report.save_as_html(output_dir / 'report.html')
 
 
 
@@ -298,9 +304,9 @@ We have several ways to access the report:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 19.840 seconds)
+   **Total running time of the script:** (0 minutes 27.647 seconds)
 
-**Estimated memory usage:**  569 MB
+**Estimated memory usage:**  753 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_adhd_dmn.py:
@@ -309,23 +315,20 @@ We have several ways to access the report:
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_adhd_dmn.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_adhd_dmn.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_adhd_dmn.py <plot_adhd_dmn.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_adhd_dmn.ipynb <plot_adhd_dmn.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_adhd_dmn.py <plot_adhd_dmn.py>`
 
 
 .. only:: html

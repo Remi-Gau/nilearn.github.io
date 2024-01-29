@@ -40,8 +40,8 @@ face and cat images.
 
 .. GENERATED FROM PYTHON SOURCE LINES 25-31
 
-Retrieve and load the fMRI data from the Haxby study
-----------------------------------------------------
+Retrieve and load the :term:`fMRI` data from the Haxby study
+------------------------------------------------------------
 
 First download the data
 .......................
@@ -49,12 +49,12 @@ First download the data
 
 .. GENERATED FROM PYTHON SOURCE LINES 31-47
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # The :func:`nilearn.datasets.fetch_haxby` function will download the
-    # Haxby dataset composed of fmri images in a Niimg, a spatial mask and a text
-    # document with label of each image
+    # Haxby dataset composed of fMRI images in a Niimg,
+    # a spatial mask and a text document with label of each image
     from nilearn import datasets
 
     haxby_dataset = datasets.fetch_haxby()
@@ -167,7 +167,7 @@ We keep only a images from a pair of conditions(cats versus faces).
 
 .. GENERATED FROM PYTHON SOURCE LINES 49-59
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.image import index_img
 
@@ -177,7 +177,7 @@ We keep only a images from a pair of conditions(cats versus faces).
     conditions = conditions[condition_mask]
     # Convert to numpy array
     conditions = conditions.values
-    session_label = behavioral["chunks"][condition_mask]
+    run_label = behavioral["chunks"][condition_mask]
 
 
 
@@ -193,7 +193,7 @@ Performing decoding with scikit-learn
 
 .. GENERATED FROM PYTHON SOURCE LINES 62-75
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Importing a classifier
@@ -202,7 +202,7 @@ Performing decoding with scikit-learn
     # decoding pipelines. They are all used with the same `fit()` and `predict()`
     # functions.
     # Let's define a Support Vector Classifier
-    # (or `SVC <http://scikit-learn.org/stable/modules/svm.html >`_).
+    # (or `SVC <https://scikit-learn.org/stable/modules/svm.html >`_).
 
     from sklearn.svm import SVC
 
@@ -215,24 +215,25 @@ Performing decoding with scikit-learn
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-82
+.. GENERATED FROM PYTHON SOURCE LINES 76-83
 
 Masking the data
 ................
 To use a scikit-learn estimator on brain images, you should first mask the
 data using a :class:`nilearn.maskers.NiftiMasker` to extract only the
-voxels inside the mask of interest, and transform 4D input fMRI data to
-2D arrays(`shape=(n_timepoints, n_voxels)`) that estimators can work on.
+voxels inside the mask of interest,
+and transform 4D input :term:`fMRI` data to 2D arrays
+(`shape=(n_timepoints, n_voxels)`) that estimators can work on.
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-94
+.. GENERATED FROM PYTHON SOURCE LINES 83-95
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.maskers import NiftiMasker
 
     masker = NiftiMasker(
         mask_img=mask_filename,
-        runs=session_label,
+        runs=run_label,
         smoothing_fwhm=4,
         standardize="zscore_sample",
         memory="nilearn_cache",
@@ -248,7 +249,7 @@ voxels inside the mask of interest, and transform 4D input fMRI data to
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:493: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
     The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
@@ -256,7 +257,7 @@ voxels inside the mask of interest, and transform 4D input fMRI data to
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 95-100
+.. GENERATED FROM PYTHON SOURCE LINES 96-101
 
 Cross-validation with scikit-learn
 ..................................
@@ -264,9 +265,9 @@ To train and test the model in a meaningful way we use cross-validation with
 the function :func:`sklearn.model_selection.cross_val_score` that computes
 for you the score for the different folds of cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 100-106
+.. GENERATED FROM PYTHON SOURCE LINES 101-107
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.model_selection import cross_val_score
 
@@ -287,7 +288,7 @@ for you the score for the different folds of cross-validation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-118
+.. GENERATED FROM PYTHON SOURCE LINES 108-119
 
 Tuning cross-validation parameters
 ..................................
@@ -301,9 +302,9 @@ You can change many parameters of the cross_validation here, for example:
 * use a different scoring function, as a keyword or imported from
   scikit-learn : scoring = 'roc_auc'
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-132
+.. GENERATED FROM PYTHON SOURCE LINES 119-133
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.model_selection import LeaveOneGroupOut
 
@@ -314,8 +315,8 @@ You can change many parameters of the cross_validation here, for example:
         conditions,
         cv=cv,
         scoring="roc_auc",
-        groups=session_label,
-        n_jobs=-1,
+        groups=run_label,
+        n_jobs=2,
     )
     print(f"SVC accuracy (tuned parameters): {cv_scores.mean():.3f}")
 
@@ -332,7 +333,7 @@ You can change many parameters of the cross_validation here, for example:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-139
+.. GENERATED FROM PYTHON SOURCE LINES 134-140
 
 Measuring the chance level
 --------------------------
@@ -341,19 +342,19 @@ simplest way to measure prediction performance at chance. A more controlled
 way, but slower, is to do permutation testing on the labels, with
 :func:`sklearn.model_selection.permutation_test_score`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-143
+.. GENERATED FROM PYTHON SOURCE LINES 142-144
 
 Dummy estimator
 ...............
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-151
+.. GENERATED FROM PYTHON SOURCE LINES 144-152
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.dummy import DummyClassifier
 
     null_cv_scores = cross_val_score(
-        DummyClassifier(), fmri_masked, conditions, cv=cv, groups=session_label
+        DummyClassifier(), fmri_masked, conditions, cv=cv, groups=run_label
     )
 
     print(f"Dummy accuracy: {null_cv_scores.mean():.3f}")
@@ -371,19 +372,19 @@ Dummy estimator
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-154
+.. GENERATED FROM PYTHON SOURCE LINES 153-155
 
 Permutation test
 ................
 
-.. GENERATED FROM PYTHON SOURCE LINES 154-161
+.. GENERATED FROM PYTHON SOURCE LINES 155-162
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.model_selection import permutation_test_score
 
     null_cv_scores = permutation_test_score(
-        svc, fmri_masked, conditions, cv=cv, groups=session_label
+        svc, fmri_masked, conditions, cv=cv, groups=run_label
     )[1]
     print(f"Permutation test score: {null_cv_scores.mean():.3f}")
 
@@ -400,7 +401,7 @@ Permutation test
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 162-170
+.. GENERATED FROM PYTHON SOURCE LINES 163-171
 
 Decoding without a mask: Anova-SVM in scikit-lean
 -------------------------------------------------
@@ -411,9 +412,9 @@ the :mod:`sklearn.feature_selection` module and use
 based feature selection (a.k.a.
 `Anova <https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test>`_).
 
-.. GENERATED FROM PYTHON SOURCE LINES 170-195
+.. GENERATED FROM PYTHON SOURCE LINES 171-196
 
-.. code-block:: default
+.. code-block:: Python
 
     from sklearn.feature_selection import SelectPercentile, f_classif
     from sklearn.pipeline import Pipeline
@@ -435,7 +436,7 @@ based feature selection (a.k.a.
         fmri_masked,
         conditions,
         cv=cv,
-        groups=session_label,
+        groups=run_label,
         return_estimator=True,
     )
     print(f"ANOVA+SVC test score: {fitted_pipeline['test_score'].mean():.3f}")
@@ -453,14 +454,14 @@ based feature selection (a.k.a.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 196-198
+.. GENERATED FROM PYTHON SOURCE LINES 197-199
 
-Visualize the ANOVA + SVC's discriminating weights
-..................................................
+Visualize the :term:`ANOVA` + SVC's discriminating weights
+..........................................................
 
-.. GENERATED FROM PYTHON SOURCE LINES 198-222
+.. GENERATED FROM PYTHON SOURCE LINES 199-223
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # retrieve the pipeline fitted on the first cross-validation fold and its SVC
@@ -502,27 +503,27 @@ Visualize the ANOVA + SVC's discriminating weights
     After feature selection, the SVC is trained only on 47 features
     After inverting feature selection, we have 464 features back
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b1fb3f50>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb385763290>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-225
+.. GENERATED FROM PYTHON SOURCE LINES 224-226
 
 Going further with scikit-learn
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 227-233
+.. GENERATED FROM PYTHON SOURCE LINES 228-234
 
 Changing the prediction engine
 ..............................
 To change the prediction engine, we just need to import it and use in our
 pipeline instead of the SVC.
 We can try Fisher's
-`Linear Discriminant Analysis (LDA) <http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html>`_ # noqa
+`Linear Discriminant Analysis (LDA) <https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html>`_ # noqa
 
-.. GENERATED FROM PYTHON SOURCE LINES 233-254
+.. GENERATED FROM PYTHON SOURCE LINES 234-255
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Construct the new estimator object and use it in a new pipeline after anova
@@ -536,7 +537,7 @@ We can try Fisher's
     import numpy as np
 
     cv_scores = cross_val_score(
-        anova_lda, fmri_masked, conditions, cv=cv, verbose=1, groups=session_label
+        anova_lda, fmri_masked, conditions, cv=cv, verbose=1, groups=run_label
     )
     classification_accuracy = np.mean(cv_scores)
     n_conditions = len(set(conditions))  # number of target classes
@@ -558,7 +559,7 @@ We can try Fisher's
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 255-260
+.. GENERATED FROM PYTHON SOURCE LINES 256-261
 
 Changing the feature selection
 ..............................
@@ -566,9 +567,9 @@ Let's say that you want a more sophisticated feature selection, for example a
 Recursive Feature Elimination(RFE) before a svc.
 We follows the same principle.
 
-.. GENERATED FROM PYTHON SOURCE LINES 260-279
+.. GENERATED FROM PYTHON SOURCE LINES 261-280
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # Import it and define your fancy objects
@@ -586,7 +587,7 @@ We follows the same principle.
     #                             fmri_masked,
     #                             target,
     #                             cv=cv,
-    #                             n_jobs=-1,
+    #                             n_jobs=2,
     #                             verbose=1)
     # But, be aware that this can take * A WHILE * ...
 
@@ -599,7 +600,7 @@ We follows the same principle.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 27.694 seconds)
+   **Total running time of the script:** (0 minutes 31.047 seconds)
 
 **Estimated memory usage:**  916 MB
 
@@ -610,23 +611,20 @@ We follows the same principle.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_advanced_decoding_scikit.py <plot_advanced_decoding_scikit.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_advanced_decoding_scikit.ipynb <plot_advanced_decoding_scikit.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_advanced_decoding_scikit.py <plot_advanced_decoding_scikit.py>`
 
 
 .. only:: html

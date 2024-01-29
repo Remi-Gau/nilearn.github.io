@@ -1,6 +1,6 @@
 """
-Intro to GLM Analysis: a single-session, single-subject fMRI dataset
-====================================================================
+Intro to GLM Analysis: a single-run, single-subject fMRI dataset
+================================================================
 
 In this tutorial, we use a General Linear Model (:term:`GLM`) to compare the
 :term:`fMRI` signal during periods of auditory stimulation
@@ -16,12 +16,13 @@ The data
 
 The dataset comes from an experiment conducted at the FIL by Geraint Rees
 under the direction of Karl Friston. It is provided by FIL methods
-group which develops the SPM software.
+group which develops the :term:`SPM` software.
 
-According to SPM documentation, 96 scans were acquired (repetition time
-:term:`TR` = 7s) in one session. The paradigm consisted of alternating periods
-of stimulation and rest, lasting 42s each (that is, for 6 scans). The session
-started with a rest block.  Auditory stimulation consisted of bi-syllabic words
+According to :term:`SPM` documentation, 96 scans were acquired (repetition time
+:term:`TR` = 7s) in one run. The paradigm consisted of alternating periods
+of stimulation and rest, lasting 42s each (that is, for 6 scans).
+The run started with a rest block.
+Auditory stimulation consisted of bi-syllabic words
 presented binaurally at a rate of 60 per minute.
 The functional data starts at scan number 4,
 that is the image file ``fM00223_004``.
@@ -79,8 +80,8 @@ events = pd.read_table(subject_data["events"])
 events
 
 # %%
-# Performing the GLM analysis
-# ---------------------------
+# Performing the :term:`GLM` analysis
+# -----------------------------------
 #
 # It is now time to create and estimate a ``FirstLevelModel`` object,
 # that will generate the *design matrix*
@@ -95,7 +96,8 @@ from nilearn.glm.first_level import FirstLevelModel
 # * noise_model='ar1' specifies the noise covariance model: a lag-1 dependence
 # * standardize=False means that we do not want
 #   to rescale the time series to mean 0, variance 1
-# * hrf_model='spm' means that we rely on the SPM "canonical hrf" model
+# * hrf_model='spm' means that we rely
+#   on the :term:`SPM` "canonical hrf" model
 #   (without time or dispersion derivatives)
 # * drift_model='cosine' means that we model the signal drifts
 #   as slow oscillating time functions
@@ -133,18 +135,13 @@ plt.show()
 # %%
 # Save the design matrix image to disk
 # first create a directory where you want to write the images
+from pathlib import Path
 
-import os
+output_dir = Path.cwd() / "results" / "plot_single_subject_single_run"
+output_dir.mkdir(exist_ok=True, parents=True)
+print(f"Output will be saved to: {output_dir}")
 
-outdir = "results"
-if not os.path.exists(outdir):
-    os.mkdir(outdir)
-
-from os.path import join
-
-plot_design_matrix(
-    design_matrix, output_file=join(outdir, "design_matrix.png")
-)
+plot_design_matrix(design_matrix, output_file=output_dir / "design_matrix.png")
 
 # %%
 # The first column contains the expected response profile of regions which are
@@ -164,7 +161,7 @@ plt.show()
 # created :term:`contrast` with a single '1' in each of the columns: The role
 # of the :term:`contrast` is to select some columns of the model --and
 # potentially weight them-- to study the associated statistics. So in
-# a nutshell, a contrast is a weighted combination of the estimated
+# a nutshell, a :term:`contrast` is a weighted combination of the estimated
 # effects.  Here we can define canonical contrasts that just consider
 # the two effects in isolation ---let's call them "conditions"---
 # then a :term:`contrast` that makes the difference between these conditions.
@@ -317,8 +314,8 @@ plt.show()
 
 # %%
 # We can save the effect and zscore maps to the disk.
-z_map.to_filename(join(outdir, "active_vs_rest_z_map.nii.gz"))
-eff_map.to_filename(join(outdir, "active_vs_rest_eff_map.nii.gz"))
+z_map.to_filename(output_dir / "active_vs_rest_z_map.nii.gz")
+eff_map.to_filename(output_dir / "active_vs_rest_eff_map.nii.gz")
 
 # %%
 # We can furthermore extract and report the found positions in a table.
@@ -333,7 +330,7 @@ table
 # %%
 # This table can be saved for future use.
 
-table.to_csv(join(outdir, "table.csv"))
+table.to_csv(output_dir / "table.csv")
 
 # %%
 # Performing an F-test
@@ -347,9 +344,9 @@ table.to_csv(join(outdir, "table.csv"))
 # explained by the combination of the active and rest condition.
 
 # %%
-# Specify the contrast and compute the corresponding map. Actually, the
-# contrast specification is done exactly the same way as for t-
-# contrasts.
+# Specify the :term:`contrast` and compute the corresponding map.
+# Actually, the :term:`contrast` specification is done exactly the same way
+# as for t-contrasts.
 
 effects_of_interest = np.vstack((conditions["active"], conditions["rest"]))
 plot_contrast_matrix(effects_of_interest, design_matrix)

@@ -24,16 +24,29 @@ Connectivity structure estimation on simulated data
 This example shows a comparison of graph lasso and group-sparse covariance
 estimation of connectivity structure for a synthetic dataset.
 
-.. GENERATED FROM PYTHON SOURCE LINES 9-26
+.. GENERATED FROM PYTHON SOURCE LINES 9-12
 
-.. code-block:: default
+.. code-block:: Python
 
 
-    import matplotlib.pyplot as plt
+    from nilearn import plotting
 
-    # Generate synthetic data
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 13-14
+
+Generate synthetic data
+
+.. GENERATED FROM PYTHON SOURCE LINES 14-26
+
+.. code-block:: Python
+
     from nilearn._utils.data_gen import generate_group_sparse_gaussian_graphs
-    from nilearn.plotting import show
 
     n_subjects = 20
     n_displayed = 3
@@ -58,9 +71,9 @@ Run connectome estimations and plot the results
 
 .. GENERATED FROM PYTHON SOURCE LINES 28-112
 
-.. code-block:: default
+.. code-block:: Python
 
-    from nilearn import plotting
+    import matplotlib.pyplot as plt
 
     fig = plt.figure(figsize=(10, 7))
     plt.subplots_adjust(hspace=0.4)
@@ -142,13 +155,13 @@ Run connectome estimations and plot the results
     )
     plt.title(f"graph lasso, all subjects\n$\\alpha={gl.alpha_:.2f}$")
 
-    show()
+    plotting.show()
 
 
 
 
 .. image-sg:: /auto_examples/03_connectivity/images/sphx_glr_plot_simulated_connectome_001.png
-   :alt: ground truth, group-sparse $\alpha=0.04$, graph lasso, graph lasso, all subjects $\alpha=0.03$
+   :alt: ground truth, group-sparse $\alpha=0.03$, graph lasso, graph lasso, all subjects $\alpha=0.02$
    :srcset: /auto_examples/03_connectivity/images/sphx_glr_plot_simulated_connectome_001.png
    :class: sphx-glr-single-img
 
@@ -162,7 +175,7 @@ Run connectome estimations and plot the results
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  2 out of 4
     [GroupSparseCovarianceCV.fit] [GroupSparseCovarianceCV] Done refinement  3 out of 4
     [GroupSparseCovarianceCV.fit] Final optimization
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/connectome/group_sparse_cov.py:269: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/connectome/group_sparse_cov.py:267: UserWarning:
 
     input signals do not all have unit variance. This can lead to numerical instability.
 
@@ -189,9 +202,9 @@ Run connectome estimations and plot the results
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.430 seconds)
+   **Total running time of the script:** (0 minutes 6.297 seconds)
 
-**Estimated memory usage:**  8 MB
+**Estimated memory usage:**  9 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_simulated_connectome.py:
@@ -200,23 +213,20 @@ Run connectome estimations and plot the results
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_simulated_connectome.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_simulated_connectome.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_simulated_connectome.py <plot_simulated_connectome.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_simulated_connectome.ipynb <plot_simulated_connectome.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_simulated_connectome.py <plot_simulated_connectome.py>`
 
 
 .. only:: html

@@ -42,7 +42,7 @@ The original Yeo atlas
 
 .. GENERATED FROM PYTHON SOURCE LINES 24-42
 
-.. code-block:: default
+.. code-block:: Python
 
 
     # First we fetch the Yeo atlas
@@ -76,7 +76,7 @@ The original Yeo atlas
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1b7cdb2d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb385cc1910>
 
 
 
@@ -98,7 +98,7 @@ of the Yeo atlas into separated regions
 
 .. GENERATED FROM PYTHON SOURCE LINES 55-59
 
-.. code-block:: default
+.. code-block:: Python
 
     from nilearn.regions import connected_label_regions
 
@@ -112,7 +112,7 @@ of the Yeo atlas into separated regions
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/env/lib/python3.11/site-packages/nilearn/regions/region_extractor.py:608: UserWarning:
+    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/regions/region_extractor.py:607: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
@@ -126,7 +126,7 @@ Plotting the new regions
 
 .. GENERATED FROM PYTHON SOURCE LINES 61-69
 
-.. code-block:: default
+.. code-block:: Python
 
     plotting.plot_roi(
         region_labels,
@@ -150,7 +150,7 @@ Plotting the new regions
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1ed061710>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3cb2ba950>
 
 
 
@@ -172,20 +172,26 @@ You can save the new atlas to a nifti file using to_filename method.
 
 .. GENERATED FROM PYTHON SOURCE LINES 83-92
 
-.. code-block:: default
+.. code-block:: Python
 
-    region_labels.to_filename("relabeled_yeo_atlas.nii.gz")
+    from pathlib import Path
 
-    # The images are saved to the current folder. It is possible to specify the
-    # folder for saving the results, i.e.
-    # import os
-    # region_labels.to_filename(os.path.join(folder_path,
-    #                                        'relabeled_yeo_atlas.nii.gz'))
+    output_dir = Path.cwd() / "results" / "plot_extract_regions_labels_image"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    print(f"Output will be saved to: {output_dir}")
 
-
+    region_labels.to_filename(output_dir / "relabeled_yeo_atlas.nii.gz")
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Output will be saved to: /home/remi/github/nilearn/nilearn/examples/06_manipulating_images/results/plot_extract_regions_labels_image
 
 
 
@@ -200,7 +206,7 @@ that are connected only along the diagonal.
 
 .. GENERATED FROM PYTHON SOURCE LINES 98-110
 
-.. code-block:: default
+.. code-block:: Python
 
 
     region_labels_not_diag = connected_label_regions(atlas_yeo, connect_diag=False)
@@ -228,7 +234,7 @@ that are connected only along the diagonal.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fd1e3325e10>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb37ed71150>
 
 
 
@@ -250,7 +256,7 @@ regions larger than 100mm^3.
 
 .. GENERATED FROM PYTHON SOURCE LINES 123-136
 
-.. code-block:: default
+.. code-block:: Python
 
     region_labels_min_size = connected_label_regions(
         atlas_yeo, min_size=100, connect_diag=False
@@ -280,9 +286,9 @@ regions larger than 100mm^3.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 28.058 seconds)
+   **Total running time of the script:** (0 minutes 31.301 seconds)
 
-**Estimated memory usage:**  719 MB
+**Estimated memory usage:**  780 MB
 
 
 .. _sphx_glr_download_auto_examples_06_manipulating_images_plot_extract_regions_labels_image.py:
@@ -291,23 +297,20 @@ regions larger than 100mm^3.
 
   .. container:: sphx-glr-footer sphx-glr-footer-example
 
-
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.2?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_extract_regions_labels_image.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/06_manipulating_images/plot_extract_regions_labels_image.ipynb
         :alt: Launch binder
         :width: 150 px
-
-
-
-    .. container:: sphx-glr-download sphx-glr-download-python
-
-      :download:`Download Python source code: plot_extract_regions_labels_image.py <plot_extract_regions_labels_image.py>`
 
     .. container:: sphx-glr-download sphx-glr-download-jupyter
 
       :download:`Download Jupyter notebook: plot_extract_regions_labels_image.ipynb <plot_extract_regions_labels_image.ipynb>`
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download Python source code: plot_extract_regions_labels_image.py <plot_extract_regions_labels_image.py>`
 
 
 .. only:: html
