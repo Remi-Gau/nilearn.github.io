@@ -13,7 +13,7 @@
 <meta name="description" content="The goal of this example is to illustrate the use of the function nilearn.image.math_img with a list of images as input. We compare the means of 2 resting state 4D images. The mean of the images co..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Smoothing an image" href="plot_smooth_mean_image.html" /><link rel="prev" title="Negating an image with math_img" href="plot_negate_image.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
         <title>Comparing the means of 2 images - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev3+g29ae5f12) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -720,12 +720,12 @@ could have been computed with nilearn <a class="reference internal" href="../../
 <p>Fetching 2 subject movie watching brain development <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> datasets.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Print basic information on the adhd subjects resting state datasets.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Subject 1 resting state dataset at: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Subject 2 resting state dataset at: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Subject 1 resting state dataset at: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Subject 2 resting state dataset at: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Subject 1 resting state dataset at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
@@ -735,19 +735,19 @@ Subject 2 resting state dataset at: /home/runner/work/nilearn/nilearn/nilearn_da
 <p>Comparing the means of the 2 movie watching datasets.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span><span class="p">,</span> <span class="n">plotting</span>
 
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="nilearn.image.math_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">math_img</span></a><span class="p">(</span>
+<span class="n">result_img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">math_img</span><span class="p">(</span>
     <span class="s2">&quot;np.mean(img1, axis=-1) - np.mean(img2, axis=-1)&quot;</span><span class="p">,</span>
-    <span class="n">img1</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-    <span class="n">img2</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">img1</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="n">img2</span><span class="o">=</span><span class="n">dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
 <span class="p">)</span>
 
-<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_img</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Comparing means of 2 resting state 4D images.&quot;</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span>
+    <span class="n">result_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Comparing means of 2 resting state 4D images.&quot;</span>
 <span class="p">)</span>
-<a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_compare_mean_image_001.png" srcset="../../_images/sphx_glr_plot_compare_mean_image_001.png" alt="plot compare mean image" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.746 seconds)</p>
+<img src="../../_images/sphx_glr_plot_compare_mean_image_001.png" srcset="../../_images/sphx_glr_plot_compare_mean_image_001.png" alt="plot compare mean image" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.794 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  766 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-compare-mean-image-py">
 <div class="binder-badge docutils container">
@@ -792,7 +792,7 @@ Subject 2 resting state dataset at: /home/runner/work/nilearn/nilearn/nilearn_da
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; The nilearn developers
+                Copyright &#169; The nilearn developers 2010-2023
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
