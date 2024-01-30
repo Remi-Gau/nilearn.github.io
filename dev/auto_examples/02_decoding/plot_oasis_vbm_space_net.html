@@ -13,7 +13,7 @@
 <meta name="description" content="Predicting age from gray-matter concentration maps from OASIS dataset. Note that age is a continuous variable, we use the regressor here, and not the classification object. See also the documentati..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Cortical surface-based searchlight decoding" href="plot_haxby_searchlight_surface.html" /><link rel="prev" title="FREM on Jimura et al “mixed gambles” dataset" href="plot_mixed_gambles_frem.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>Voxel-Based Morphometry on Oasis dataset with Space-Net prior - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev147+g2a111333) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -747,6 +747,29 @@ here, and not the classification object.</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gm_imgs_test</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gm_imgs_test</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">perm</span></a><span class="p">]</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/oasis1
+
+Downloading data from https://www.nitrc.org/frs/download.php/6364/archive_dartel.tgz ...
+
+Downloaded 53723136 of 905208634 bytes (5.9%,   16.0s remaining)
+Downloaded 106807296 of 905208634 bytes (11.8%,   15.1s remaining)
+Downloaded 159178752 of 905208634 bytes (17.6%,   14.1s remaining)
+Downloaded 211132416 of 905208634 bytes (23.3%,   13.2s remaining)
+Downloaded 262299648 of 905208634 bytes (29.0%,   12.3s remaining)
+Downloaded 321232896 of 905208634 bytes (35.5%,   10.9s remaining)
+Downloaded 375767040 of 905208634 bytes (41.5%,    9.9s remaining)
+Downloaded 426459136 of 905208634 bytes (47.1%,    9.0s remaining)
+Downloaded 478298112 of 905208634 bytes (52.8%,    8.1s remaining)
+Downloaded 530636800 of 905208634 bytes (58.6%,    7.1s remaining)
+Downloaded 585326592 of 905208634 bytes (64.7%,    6.0s remaining)
+Downloaded 636542976 of 905208634 bytes (70.3%,    5.1s remaining)
+Downloaded 689160192 of 905208634 bytes (76.1%,    4.1s remaining)
+Downloaded 742350848 of 905208634 bytes (82.0%,    3.1s remaining)
+Downloaded 801701888 of 905208634 bytes (88.6%,    1.9s remaining)
+Downloaded 854523904 of 905208634 bytes (94.4%,    1.0s remaining) ...done. (17 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/oasis1/ca50951394ea282f76278201a3c0415c/archive_dartel.tgz..... done.
+</pre></div>
+</div>
 </section>
 <section id="fit-the-spacenet-and-predict-with-it">
 <h2>Fit the SpaceNet and predict with it<a class="headerlink" href="#fit-the-spacenet-and-predict-with-it" title="Link to this heading">#</a></h2>
@@ -911,7 +934,7 @@ Brain mask is bigger than the volume of a standard human brain. This object is p
 
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
 [Parallel(n_jobs=2)]: Done   8 out of   8 | elapsed:  1.4min finished
-Time Elapsed: 103.73609352111816 seconds, 1.728934892018636 minutes.
+Time Elapsed: 99.80724477767944 seconds, 1.6634540796279906 minutes.
 [NiftiMasker.transform_single_imgs] Loading data from Nifti1Image(
 shape=(91, 109, 91, 80),
 affine=array([[  -2.,    0.,    0.,   90.],
@@ -965,8 +988,8 @@ Mean square error (MSE) on the predicted age: 12.33
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_001.png" alt="plot oasis vbm space net" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" srcset="../../_images/sphx_glr_plot_oasis_vbm_space_net_002.png" alt="graph-net: Mean Absolute Error 12.33 years" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 51.246 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2716 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 10.362 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2626 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-oasis-vbm-space-net-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_oasis_vbm_space_net.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>

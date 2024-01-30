@@ -13,7 +13,7 @@
 <meta name="description" content="The example shows the analysis of an SPM dataset studying face perception. The analysis is performed in native space. Realignment parameters are provided with the input images, but those have not b..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of MRI response functions" href="plot_hrf.html" /><link rel="prev" title="Analysis of an fMRI dataset with a Finite Impule Response (FIR) model" href="plot_fir_model.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>Single-subject data (two runs) in native space - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev147+g2a111333) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -734,6 +734,44 @@ sampled in different positions (encoded by different affine functions).</p>
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_spm_multimodal_fmri.html#nilearn.datasets.fetch_spm_multimodal_fmri" title="nilearn.datasets.fetch_spm_multimodal_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_spm_multimodal_fmri</span></a><span class="p">()</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/spm_multimodal_fmri
+
+Missing 390 functional scans for session 1.
+Data absent, downloading...
+Downloading data from https://www.fil.ion.ucl.ac.uk/spm/download/data/mmfaces/multimodal_fmri.zip ...
+
+Downloaded 3899392 of 134263085 bytes (2.9%,   34.8s remaining)
+Downloaded 8183808 of 134263085 bytes (6.1%,   31.7s remaining)
+Downloaded 12673024 of 134263085 bytes (9.4%,   29.4s remaining)
+Downloaded 17211392 of 134263085 bytes (12.8%,   27.7s remaining)
+Downloaded 22044672 of 134263085 bytes (16.4%,   25.9s remaining)
+Downloaded 26812416 of 134263085 bytes (20.0%,   24.4s remaining)
+Downloaded 31449088 of 134263085 bytes (23.4%,   23.2s remaining)
+Downloaded 36290560 of 134263085 bytes (27.0%,   22.0s remaining)
+Downloaded 41287680 of 134263085 bytes (30.8%,   20.7s remaining)
+Downloaded 46456832 of 134263085 bytes (34.6%,   19.3s remaining)
+Downloaded 51937280 of 134263085 bytes (38.7%,   17.8s remaining)
+Downloaded 57925632 of 134263085 bytes (43.1%,   16.2s remaining)
+Downloaded 64618496 of 134263085 bytes (48.1%,   14.3s remaining)
+Downloaded 71720960 of 134263085 bytes (53.4%,   12.5s remaining)
+Downloaded 77561856 of 134263085 bytes (57.8%,   11.2s remaining)
+Downloaded 82223104 of 134263085 bytes (61.2%,   10.4s remaining)
+Downloaded 87138304 of 134263085 bytes (64.9%,    9.4s remaining)
+Downloaded 91856896 of 134263085 bytes (68.4%,    8.5s remaining)
+Downloaded 96944128 of 134263085 bytes (72.2%,    7.5s remaining)
+Downloaded 102064128 of 134263085 bytes (76.0%,    6.4s remaining)
+Downloaded 107216896 of 134263085 bytes (79.9%,    5.4s remaining)
+Downloaded 112402432 of 134263085 bytes (83.7%,    4.4s remaining)
+Downloaded 117710848 of 134263085 bytes (87.7%,    3.3s remaining)
+Downloaded 123224064 of 134263085 bytes (91.8%,    2.2s remaining)
+Downloaded 129130496 of 134263085 bytes (96.2%,    1.0s remaining) ...done. (27 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/spm_multimodal_fmri/sub001/multimodal_fmri.zip..... done.
+Downloading data from https://www.fil.ion.ucl.ac.uk/spm/download/data/mmfaces/multimodal_smri.zip ...
+
+Downloaded 4743168 of 6852766 bytes (69.2%,    0.4s remaining) ...done. (2 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/spm_multimodal_fmri/sub001/multimodal_smri.zip..... done.
+</pre></div>
+</div>
 <p>Specify timing and design matrix parameters.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># repetition time, in seconds</span>
 <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tr</span></a> <span class="o">=</span> <span class="mf">2.0</span>
@@ -897,8 +935,8 @@ implications of large portions of the visual cortex in the
 conditions. By contrast, the differential effect between “faces” and
 “scrambled” involves sparser, more anterior and lateral regions. It
 also displays some responses in the frontal lobe.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 42.744 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  879 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 13.098 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  877 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-spm-multimodal-faces-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_spm_multimodal_faces.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>

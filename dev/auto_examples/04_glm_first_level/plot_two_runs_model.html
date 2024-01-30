@@ -13,7 +13,7 @@
 <meta name="description" content="Here, we will go through a full step-by-step example of fitting a GLM to experimental data and visualizing the results. This is done on two runs of one subject of the FIAC dataset. For more details..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Understanding parameters of the first-level model" href="plot_first_level_details.html" /><link rel="prev" title="Example of surface-based first-level analysis" href="plot_localizer_surface_analysis.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>Simple example of two-runs fMRI model fitting - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.3.dev147+g2a111333) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.2)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -750,6 +750,15 @@ We will retain those two runs in a list of 4D img objects.</p>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_imgs</span></a> <span class="o">=</span> <span class="p">[</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">[</span><span class="s2">&quot;func1&quot;</span><span class="p">],</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">data</span></a><span class="p">[</span><span class="s2">&quot;func2&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/fiac_nilearn.glm
+
+Missing functional scan for session 1.
+Data absent, downloading...
+Downloading data from https://nipy.org/data-packages/nipy-data-0.2.tar.gz ...
+ ...done. (2 seconds, 0 min)
+Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/fiac_nilearn.glm/nipy-data-0.2.tar.gz..... done.
+</pre></div>
+</div>
 <p>Create a mean image for plotting purpose.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.mean_img.html#nilearn.image.mean_img" title="nilearn.image.mean_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">mean_img</span></a>
 
@@ -816,7 +825,7 @@ and then the fixed effects version.</p>
 t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f683e6c4680&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f036eca7ec0&gt;
 </pre></div>
 </div>
 <p>Compute the statistics for the second run.</p>
@@ -842,7 +851,7 @@ t contrasts should be of length P=13, but it has length 4. The rest of the contr
 t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f683c1538f0&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f039b74b6e0&gt;
 </pre></div>
 </div>
 <p>Compute the fixed effects statistics
@@ -875,7 +884,7 @@ from the run-specific FirstLevelModel results.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_two_runs_model_003.png" srcset="../../_images/sphx_glr_plot_two_runs_model_003.png" alt="plot two runs model" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6866764dd0&gt;
+<img src="../../_images/sphx_glr_plot_two_runs_model_003.png" srcset="../../_images/sphx_glr_plot_two_runs_model_003.png" alt="plot two runs model" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f037b496c30&gt;
 </pre></div>
 </div>
 <p>Not unexpectedly, the fixed effects version displays higher peaks
@@ -1087,8 +1096,8 @@ Running approximate fixed effects on F statistics.
 </aside>
 </div>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 42.572 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  586 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 44.907 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  725 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-two-runs-model-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_two_runs_model.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
