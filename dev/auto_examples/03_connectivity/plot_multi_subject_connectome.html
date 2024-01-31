@@ -13,7 +13,7 @@
 <meta name="description" content="This example shows how to estimate a connectome on a group of subjects using the group sparse inverse covariance estimate. Fetching datasets: Extracting region signals: Computing group-sparse preci..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Producing single subject maps of seed-to-voxel correlation" href="plot_seed_to_voxel_correlation.html" /><link rel="prev" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>Group Sparse inverse covariance for multi-subject connectome - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev3+g29ae5f12) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -734,10 +734,10 @@ all occurrences of:</p>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
-<span class="n">n_subjects</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># subjects to consider for group-sparse covariance (max: 40)</span>
+<a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># subjects to consider for group-sparse covariance (max: 40)</span>
 
 
-<span class="k">def</span> <span class="nf">plot_matrices</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">prec</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">plot_matrices</span><span class="p">(</span><span class="n">cov</span><span class="p">,</span> <span class="n">prec</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot covariance and precision matrices, for a given processing.&quot;&quot;&quot;</span>
     <span class="n">prec</span> <span class="o">=</span> <span class="n">prec</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># avoid side effects</span>
 
@@ -747,22 +747,22 @@ all occurrences of:</p>
     <span class="n">span</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">min</span><span class="p">()),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">prec</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
 
     <span class="c1"># Display covariance matrix</span>
-    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_matrix.html#nilearn.plotting.plot_matrix" title="nilearn.plotting.plot_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span></a><span class="p">(</span>
         <span class="n">cov</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="matplotlib.colors.LinearSegmentedColormap" class="sphx-glr-backref-module-matplotlib-colors sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span></a><span class="p">,</span>
         <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> / covariance&quot;</span><span class="p">,</span>
-        <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="si">}</span><span class="s2"> / covariance&quot;</span><span class="p">,</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span>
     <span class="p">)</span>
     <span class="c1"># Display precision matrix</span>
-    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span><span class="p">(</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_matrix.html#nilearn.plotting.plot_matrix" title="nilearn.plotting.plot_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_matrix</span></a><span class="p">(</span>
         <span class="n">prec</span><span class="p">,</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="matplotlib.colors.LinearSegmentedColormap" class="sphx-glr-backref-module-matplotlib-colors sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">plotting</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bwr</span></a><span class="p">,</span>
         <span class="n">vmin</span><span class="o">=-</span><span class="n">span</span><span class="p">,</span>
         <span class="n">vmax</span><span class="o">=</span><span class="n">span</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> / precision&quot;</span><span class="p">,</span>
-        <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="si">}</span><span class="s2"> / precision&quot;</span><span class="p">,</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
@@ -770,37 +770,25 @@ all occurrences of:</p>
 <h2>Fetching datasets<a class="headerlink" href="#fetching-datasets" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
-<span class="n">msdl_atlas_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span><span class="p">()</span>
-<span class="n">rest_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="n">n_subjects</span><span class="p">)</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span></a><span class="p">()</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a><span class="p">)</span>
 
 <span class="c1"># print basic information on the dataset</span>
 <span class="nb">print</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;First subject functional nifti image (4D) is at: </span><span class="si">{</span><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;First subject functional nifti image (4D) is at: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://osf.io/download/5c8ff37da743a90018606df1/ ...
- ...done. (1 seconds, 0 min)
-Downloading data from https://osf.io/download/5c8ff37c2286e80019c3c102/ ...
- ...done. (3 seconds, 0 min)
-Downloading data from https://osf.io/download/5cb4701e3992690018133d4f/ ...
- ...done. (1 seconds, 0 min)
-Downloading data from https://osf.io/download/5cb46e6b353c58001b9cb34f/ ...
- ...done. (2 seconds, 0 min)
-Downloading data from https://osf.io/download/5c8ff37d4712b400193b5b54/ ...
- ...done. (2 seconds, 0 min)
-Downloading data from https://osf.io/download/5c8ff37d4712b400183b7011/ ...
- ...done. (1 seconds, 0 min)
-First subject functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First subject functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 </pre></div>
 </div>
 </section>
 <section id="extracting-region-signals">
 <h2>Extracting region signals<a class="headerlink" href="#extracting-region-signals" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <span class="n">NiftiMapsMasker</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a>
 
-<span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMapsMasker</span><span class="p">(</span>
-    <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span><span class="p">,</span>
+<a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span></a><span class="p">,</span>
     <span class="n">resampling_target</span><span class="o">=</span><span class="s2">&quot;maps&quot;</span><span class="p">,</span>
     <span class="n">detrend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">high_variance_confounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -813,18 +801,18 @@ First subject functional nifti image (4D) is at: /home/runner/work/nilearn/nilea
     <span class="n">memory_level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">masker</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker.fit" title="nilearn.maskers.NiftiMapsMasker.fit" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">fit</span></a><span class="p">()</span>
 
-<span class="n">subject_time_series</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">func_filenames</span> <span class="o">=</span> <span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span>
-<span class="n">confound_filenames</span> <span class="o">=</span> <span class="n">rest_dataset</span><span class="o">.</span><span class="n">confounds</span>
-<span class="k">for</span> <span class="n">func_filename</span><span class="p">,</span> <span class="n">confound_filename</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-    <span class="n">func_filenames</span><span class="p">,</span> <span class="n">confound_filenames</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_time_series</span></a> <span class="o">=</span> <span class="p">[]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span></a>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confound_filenames</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span><span class="o">.</span><span class="n">confounds</span></a>
+<span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filename</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confound_filename</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confound_filenames</span></a>
 <span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing file </span><span class="si">{</span><span class="n">func_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing file </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filename</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="n">region_ts</span> <span class="o">=</span> <span class="n">masker</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">func_filename</span><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><span class="n">confound_filename</span><span class="p">)</span>
-    <span class="n">subject_time_series</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">region_ts</span><span class="p">)</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region_ts</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker.transform" title="nilearn.maskers.NiftiMapsMasker.transform" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-method"><span class="n">masker</span><span class="o">.</span><span class="n">transform</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filename</span></a><span class="p">,</span> <span class="n">confounds</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">confound_filename</span></a><span class="p">)</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_time_series</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">region_ts</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[NiftiMapsMasker.fit] loading regions from None
@@ -836,7 +824,7 @@ __________________________________________high_variance_confounds - 0.5s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fb6b4ab7800&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f0ce871dee0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -868,11 +856,11 @@ Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.4s, 0.0min
+__________________________________________high_variance_confounds - 0.5s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fb6c1244f20&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f0ce6147170&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -904,11 +892,11 @@ Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.4s, 0.0min
+__________________________________________high_variance_confounds - 0.5s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fb6c12450a0&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f0cf5600cb0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -940,11 +928,11 @@ Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.4s, 0.0min
+__________________________________________high_variance_confounds - 0.5s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fb6c153aa20&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f0cf5600cb0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -971,22 +959,22 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 5.0s, 0.1min
+_______________________________________________filter_and_extract - 5.1s, 0.1min
 </pre></div>
 </div>
 </section>
 <section id="computing-group-sparse-precision-matrices">
 <h2>Computing group-sparse precision matrices<a class="headerlink" href="#computing-group-sparse-precision-matrices" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <span class="n">GroupSparseCovarianceCV</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">GroupSparseCovarianceCV</span></a>
 
-<span class="n">gsc</span> <span class="o">=</span> <span class="n">GroupSparseCovarianceCV</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">gsc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">subject_time_series</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gsc</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">GroupSparseCovarianceCV</span></a><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV.fit" title="nilearn.connectome.GroupSparseCovarianceCV.fit" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-method"><span class="n">gsc</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_time_series</span></a><span class="p">)</span>
 
 
-<span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <span class="n">GraphicalLassoCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="kn">import</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="sklearn.covariance.GraphicalLassoCV" class="sphx-glr-backref-module-sklearn-covariance sphx-glr-backref-type-py-class"><span class="n">GraphicalLassoCV</span></a>
 
-<span class="n">gl</span> <span class="o">=</span> <span class="n">GraphicalLassoCV</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">gl</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">subject_time_series</span><span class="p">))</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="sklearn.covariance.GraphicalLassoCV" class="sphx-glr-backref-module-sklearn-covariance sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gl</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV" title="sklearn.covariance.GraphicalLassoCV" class="sphx-glr-backref-module-sklearn-covariance sphx-glr-backref-type-py-class"><span class="n">GraphicalLassoCV</span></a><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.covariance.GraphicalLassoCV.html#sklearn.covariance.GraphicalLassoCV.fit" title="sklearn.covariance.GraphicalLassoCV.fit" class="sphx-glr-backref-module-sklearn-covariance sphx-glr-backref-type-py-method"><span class="n">gl</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">subject_time_series</span></a><span class="p">))</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[GroupSparseCovarianceCV.fit] Log-likelihood on test set is decreasing. Stopping at iteration 2
@@ -1460,41 +1448,41 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <br /></section>
 <section id="displaying-results">
 <h2>Displaying results<a class="headerlink" href="#displaying-results" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">atlas_img</span> <span class="o">=</span> <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span>
-<span class="n">atlas_region_coords</span> <span class="o">=</span> <span class="n">plotting</span><span class="o">.</span><span class="n">find_probabilistic_atlas_cut_coords</span><span class="p">(</span><span class="n">atlas_img</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">labels</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_img</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span></a>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_region_coords</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.plotting.find_probabilistic_atlas_cut_coords.html#nilearn.plotting.find_probabilistic_atlas_cut_coords" title="nilearn.plotting.find_probabilistic_atlas_cut_coords" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">find_probabilistic_atlas_cut_coords</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_img</span></a><span class="p">)</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">labels</span></a>
 
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span>
-    <span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span>
-    <span class="n">atlas_region_coords</span><span class="p">,</span>
+<a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span></a><span class="p">,</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_region_coords</span></a><span class="p">,</span>
     <span class="n">edge_threshold</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Covariance&quot;</span><span class="p">,</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="s2">&quot;Covariance&quot;</span><span class="p">,</span>
     <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span>
-    <span class="o">-</span><span class="n">gl</span><span class="o">.</span><span class="n">precision_</span><span class="p">,</span>
-    <span class="n">atlas_region_coords</span><span class="p">,</span>
+<a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span>
+    <span class="o">-</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gl</span><span class="o">.</span><span class="n">precision_</span></a><span class="p">,</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_region_coords</span></a><span class="p">,</span>
     <span class="n">edge_threshold</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Sparse inverse covariance (GraphicalLasso)&quot;</span><span class="p">,</span>
-    <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
-    <span class="n">edge_vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-    <span class="n">edge_vmin</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">plot_matrices</span><span class="p">(</span><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span><span class="p">,</span> <span class="n">gl</span><span class="o">.</span><span class="n">precision_</span><span class="p">,</span> <span class="s2">&quot;GraphicalLasso&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
-
-<span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;GroupSparseCovariance&quot;</span>
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span><span class="p">(</span>
-    <span class="o">-</span><span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="n">atlas_region_coords</span><span class="p">,</span>
-    <span class="n">edge_threshold</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="s2">&quot;Sparse inverse covariance (GraphicalLasso)&quot;</span><span class="p">,</span>
     <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
     <span class="n">edge_vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
     <span class="n">edge_vmin</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">plot_matrices</span><span class="p">(</span><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">title</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="n">plot_matrices</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gl</span><span class="o">.</span><span class="n">covariance_</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gl</span><span class="o">.</span><span class="n">precision_</span></a><span class="p">,</span> <span class="s2">&quot;GraphicalLasso&quot;</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">)</span>
 
-<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a> <span class="o">=</span> <span class="s2">&quot;GroupSparseCovariance&quot;</span>
+<a href="../../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_connectome</span></a><span class="p">(</span>
+    <span class="o">-</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span></a><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_region_coords</span></a><span class="p">,</span>
+    <span class="n">edge_threshold</span><span class="o">=</span><span class="s2">&quot;90%&quot;</span><span class="p">,</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="p">,</span>
+    <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;lzr&quot;</span><span class="p">,</span>
+    <span class="n">edge_vmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">edge_vmin</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plot_matrices</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gsc</span><span class="o">.</span><span class="n">covariances_</span></a><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gsc</span><span class="o">.</span><span class="n">precisions_</span></a><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">)</span>
+
+<a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
@@ -1506,8 +1494,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" alt="GroupSparseCovariance / covariance" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" alt="GroupSparseCovariance / precision" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 38.473 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  502 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 30.036 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  492 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-multi-subject-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_multi_subject_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1552,7 +1540,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; The nilearn developers 2010-2023
+                Copyright &#169; The nilearn developers
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             

@@ -13,7 +13,7 @@
 <meta name="description" content="This example shows how to download statistical maps from Neurovault See nilearn.datasets.fetch_neurovault_ids documentation for more details. Fetch images for “successful stop minus go”-like protoc..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Functional connectivity predicts age group" href="plot_age_group_prediction_cross_val.html" /><link rel="prev" title="BIDS dataset first and second level analysis" href="plot_bids_analysis.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>NeuroVault meta-analysis of stop-go paradigm studies - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev3+g29ae5f12) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -720,15 +720,15 @@ documentation for more details.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
-<span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_neurovault_ids</span>
-<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">get_data</span><span class="p">,</span> <span class="n">load_img</span><span class="p">,</span> <span class="n">math_img</span><span class="p">,</span> <span class="n">new_img_like</span>
+<span class="kn">from</span> <span class="nn">nilearn.datasets</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.datasets.fetch_neurovault_ids.html#nilearn.datasets.fetch_neurovault_ids" title="nilearn.datasets.fetch_neurovault_ids" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_neurovault_ids</span></a>
+<span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.image.load_img.html#nilearn.image.load_img" title="nilearn.image.load_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">load_img</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="nilearn.image.math_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">math_img</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.image.new_img_like.html#nilearn.image.new_img_like" title="nilearn.image.new_img_like" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">new_img_like</span></a>
 </pre></div>
 </div>
 <section id="fetch-images-for-successful-stop-minus-go-like-protocols">
 <h2>Fetch images for “successful stop minus go”-like protocols.<a class="headerlink" href="#fetch-images-for-successful-stop-minus-go-like-protocols" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are the images we are interested in,</span>
 <span class="c1"># in order to save time we specify their ids explicitly.</span>
-<span class="n">stop_go_image_ids</span> <span class="o">=</span> <span class="p">(</span><span class="mi">151</span><span class="p">,</span> <span class="mi">3041</span><span class="p">,</span> <span class="mi">3042</span><span class="p">,</span> <span class="mi">2676</span><span class="p">,</span> <span class="mi">2675</span><span class="p">,</span> <span class="mi">2818</span><span class="p">,</span> <span class="mi">2834</span><span class="p">)</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stop_go_image_ids</span></a> <span class="o">=</span> <span class="p">(</span><span class="mi">151</span><span class="p">,</span> <span class="mi">3041</span><span class="p">,</span> <span class="mi">3042</span><span class="p">,</span> <span class="mi">2676</span><span class="p">,</span> <span class="mi">2675</span><span class="p">,</span> <span class="mi">2818</span><span class="p">,</span> <span class="mi">2834</span><span class="p">)</span>
 
 <span class="c1"># These ids were determined by querying Neurovault like this:</span>
 
@@ -742,412 +742,20 @@ documentation for more details.</p>
 <span class="c1">#</span>
 <span class="c1"># print([meta[&#39;id&#39;] for meta in nv_data[&#39;images_meta&#39;]])</span>
 
-<span class="n">nv_data</span> <span class="o">=</span> <span class="n">fetch_neurovault_ids</span><span class="p">(</span><span class="n">image_ids</span><span class="o">=</span><span class="n">stop_go_image_ids</span><span class="p">)</span>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nv_data</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_neurovault_ids.html#nilearn.datasets.fetch_neurovault_ids" title="nilearn.datasets.fetch_neurovault_ids" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">fetch_neurovault_ids</span></a><span class="p">(</span><span class="n">image_ids</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stop_go_image_ids</span></a><span class="p">)</span>
 
-<span class="n">images_meta</span> <span class="o">=</span> <span class="n">nv_data</span><span class="p">[</span><span class="s2">&quot;images_meta&quot;</span><span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images_meta</span></a> <span class="o">=</span> <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nv_data</span></a><span class="p">[</span><span class="s2">&quot;images_meta&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Reading local neurovault data.
-No image found on local disk.
-getting new batch: https://neurovault.org/api/images/3041
-Could not get batch from https://neurovault.org/api/images/3041
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d130&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/3041 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d130&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/3041 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d130&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/3042
-Could not get batch from https://neurovault.org/api/images/3042
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6df70&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/3042 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6df70&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/3042 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6df70&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/2818
-Could not get batch from https://neurovault.org/api/images/2818
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2818 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2818 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/2834
-Could not get batch from https://neurovault.org/api/images/2834
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5d0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2834 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5d0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2834 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6e5d0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/2675
-Could not get batch from https://neurovault.org/api/images/2675
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6c800&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2675 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6c800&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2675 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6c800&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/2676
-Could not get batch from https://neurovault.org/api/images/2676
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d220&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2676 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d220&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/2676 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6d220&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-getting new batch: https://neurovault.org/api/images/151
-Could not get batch from https://neurovault.org/api/images/151
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6fec0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/151 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6fec0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/151 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6a5b6fec0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
+Already fetched 1 image
+Already fetched 2 images
+Already fetched 3 images
+Already fetched 4 images
+Already fetched 5 images
+Already fetched 6 images
+Already fetched 7 images
+7 images found on local disk.
 </pre></div>
 </div>
 </section>
@@ -1155,92 +763,105 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org
 <h2>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">plotting glass brain for collected images</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">images_meta</span><span class="p">:</span>
-    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span><span class="p">(</span>
-        <span class="n">im</span><span class="p">[</span><span class="s2">&quot;absolute_path&quot;</span><span class="p">],</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image </span><span class="si">{</span><span class="n">im</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">im</span><span class="p">[</span><span class="s1">&#39;contrast_definition&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">im</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images_meta</span></a><span class="p">:</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_glass_brain.html#nilearn.plotting.plot_glass_brain" title="nilearn.plotting.plot_glass_brain" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_glass_brain</span></a><span class="p">(</span>
+        <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">im</span></a><span class="p">[</span><span class="s2">&quot;absolute_path&quot;</span><span class="p">],</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;image </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">im</span></a><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">im</span></a><span class="p">[</span><span class="s1">&#39;contrast_definition&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_001.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_001.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_002.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_002.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_003.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_003.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_004.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_004.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_005.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_005.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_006.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_006.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_007.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_007.png" alt="plot neurovault meta analysis" class = "sphx-glr-multi-img"/></li>
+</ul>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>plotting glass brain for collected images
 </pre></div>
 </div>
 </section>
 <section id="compute-statistics">
 <h2>Compute statistics<a class="headerlink" href="#compute-statistics" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_to_z</span><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <span class="n">deg_of_freedom</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">t_to_z</span><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert t-scores to z-scores.&quot;&quot;&quot;</span>
-    <span class="n">p_values</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">deg_of_freedom</span><span class="p">)</span>
-    <span class="n">z_values</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
+    <span class="n">p_values</span> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/reference/generated/scipy.stats.rv_continuous.sf.html#scipy.stats.rv_continuous.sf" title="scipy.stats.rv_continuous.sf" class="sphx-glr-backref-module-scipy-stats sphx-glr-backref-type-py-method"><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">sf</span></a><span class="p">(</span><span class="n">t_scores</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">)</span>
+    <span class="n">z_values</span> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/reference/generated/scipy.stats.rv_continuous.isf.html#scipy.stats.rv_continuous.isf" title="scipy.stats.rv_continuous.isf" class="sphx-glr-backref-module-scipy-stats sphx-glr-backref-type-py-method"><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">isf</span></a><span class="p">(</span><span class="n">p_values</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">z_values</span>
 
 
 <span class="c1"># Compute z values</span>
-<span class="n">z_imgs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">current_collection</span> <span class="o">=</span> <span class="kc">None</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a> <span class="o">=</span> <span class="p">[]</span>
+<a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_collection</span></a> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Computing maps...&quot;</span><span class="p">)</span>
 
 <span class="c1"># convert t to z for all images</span>
-<span class="k">for</span> <span class="n">this_meta</span> <span class="ow">in</span> <span class="n">images_meta</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">this_meta</span><span class="p">[</span><span class="s2">&quot;collection_id&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">current_collection</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Collection </span><span class="si">{</span><span class="n">this_meta</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
-        <span class="n">current_collection</span> <span class="o">=</span> <span class="n">this_meta</span><span class="p">[</span><span class="s2">&quot;collection_id&quot;</span><span class="p">]</span>
+<span class="k">for</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images_meta</span></a><span class="p">:</span>
+    <span class="k">if</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s2">&quot;collection_id&quot;</span><span class="p">]</span> <span class="o">!=</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_collection</span></a><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Collection </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+        <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">current_collection</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s2">&quot;collection_id&quot;</span><span class="p">]</span>
 
     <span class="c1"># Load and validate the downloaded image.</span>
-    <span class="n">t_img</span> <span class="o">=</span> <span class="n">load_img</span><span class="p">(</span><span class="n">this_meta</span><span class="p">[</span><span class="s2">&quot;absolute_path&quot;</span><span class="p">])</span>
-    <span class="n">deg_of_freedom</span> <span class="o">=</span> <span class="n">this_meta</span><span class="p">[</span><span class="s2">&quot;number_of_subjects&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.load_img.html#nilearn.image.load_img" title="nilearn.image.load_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">load_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s2">&quot;absolute_path&quot;</span><span class="p">])</span>
+    <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s2">&quot;number_of_subjects&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;     Image </span><span class="si">{</span><span class="n">this_meta</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: degrees of freedom: </span><span class="si">{</span><span class="n">deg_of_freedom</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;     Image </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">this_meta</span></a><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: degrees of freedom: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
 
     <span class="c1"># Convert data, create new image.</span>
-    <span class="n">z_img</span> <span class="o">=</span> <span class="n">new_img_like</span><span class="p">(</span>
-        <span class="n">t_img</span><span class="p">,</span> <span class="n">t_to_z</span><span class="p">(</span><span class="n">get_data</span><span class="p">(</span><span class="n">t_img</span><span class="p">),</span> <span class="n">deg_of_freedom</span><span class="o">=</span><span class="n">deg_of_freedom</span><span class="p">)</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.new_img_like.html#nilearn.image.new_img_like" title="nilearn.image.new_img_like" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">new_img_like</span></a><span class="p">(</span>
+        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_img</span></a><span class="p">,</span> <span class="n">t_to_z</span><span class="p">(</span><a href="../../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">get_data</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_img</span></a><span class="p">),</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">deg_of_freedom</span></a><span class="p">)</span>
     <span class="p">)</span>
 
-    <span class="n">z_imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z_img</span><span class="p">)</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a><span class="o">.</span><span class="n">append</span><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_img</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing maps...
+
+
+Collection 2675:
+     Image 2675: degrees of freedom: 6
+     Image 2676: degrees of freedom: 6
+
+
+Collection 151:
+     Image 151: degrees of freedom: 13
+     Image 3041: degrees of freedom: 13
+
+
+Collection 2834:
+     Image 2834: degrees of freedom: 18
+     Image 2818: degrees of freedom: 18
+
+
+Collection 3042:
+     Image 3042: degrees of freedom: 22
 </pre></div>
 </div>
 </section>
 <section id="plot-the-combined-z-maps">
 <h2>Plot the combined z maps<a class="headerlink" href="#plot-the-combined-z-maps" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">cut_coords</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
-<span class="n">meta_analysis_img</span> <span class="o">=</span> <span class="n">math_img</span><span class="p">(</span>
-    <span class="s2">&quot;np.sum(z_imgs, axis=3) / np.sqrt(z_imgs.shape[3])&quot;</span><span class="p">,</span> <span class="n">z_imgs</span><span class="o">=</span><span class="n">z_imgs</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">62</span><span class="p">]</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meta_analysis_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.math_img.html#nilearn.image.math_img" title="nilearn.image.math_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">math_img</span></a><span class="p">(</span>
+    <span class="s2">&quot;np.sum(z_imgs, axis=3) / np.sqrt(z_imgs.shape[3])&quot;</span><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">z_imgs</span></a>
 <span class="p">)</span>
 
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span>
-    <span class="n">meta_analysis_img</span><span class="p">,</span>
+<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">meta_analysis_img</span></a><span class="p">,</span>
     <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
     <span class="n">threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-    <span class="n">cut_coords</span><span class="o">=</span><span class="n">cut_coords</span><span class="p">,</span>
+    <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cut_coords</span></a><span class="p">,</span>
     <span class="n">vmax</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/nilearn/nilearn/examples/07_advanced/plot_neurovault_meta_analysis.py&quot;</span>, line <span class="m">104</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="n">meta_analysis_img</span> <span class="o">=</span> <span class="n">math_img</span><span class="p">(</span>
-<span class="w">                        </span><span class="pm">^^^^^^^^^</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/image.py&quot;</span>, line <span class="m">1043</span>, in <span class="n">math_img</span>
-<span class="w">    </span><span class="n">niimgs</span> <span class="o">=</span> <span class="p">[</span><span class="n">check_niimg</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">imgs</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
-<span class="w">              </span><span class="pm">^^^^^^^^^^^^^^^^^^</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/_utils/niimg_conversions.py&quot;</span>, line <span class="m">310</span>, in <span class="n">check_niimg</span>
-<span class="w">    </span><span class="k">return</span> <span class="n">ni</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">concat_imgs</span><span class="p">(</span>
-<span class="w">           </span><span class="pm">^^^^^^^^^^^^^^^^^^^^^</span>
-  File <span class="nb">&quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/image/image.py&quot;</span>, line <span class="m">1430</span>, in <span class="n">concat_imgs</span>
-<span class="w">    </span><span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot concatenate empty objects&quot;</span><span class="p">)</span>
-<span class="gr">TypeError</span>: <span class="n">(&quot;Input images cannot be compared, you provided &#39;dict_values([[]])&#39;,&quot;, &#39;Cannot concatenate empty objects&#39;)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 11.486 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1137 MB</p>
+<img src="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" srcset="../../_images/sphx_glr_plot_neurovault_meta_analysis_008.png" alt="plot neurovault meta analysis" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 12.593 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  58 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-neurovault-meta-analysis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_neurovault_meta_analysis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>
@@ -1285,7 +906,7 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; The nilearn developers 2010-2023
+                Copyright &#169; The nilearn developers
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             

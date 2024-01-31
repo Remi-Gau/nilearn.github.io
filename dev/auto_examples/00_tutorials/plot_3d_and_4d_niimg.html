@@ -13,7 +13,7 @@
 <meta name="description" content="Here we discover how to work with 3D and 4D niimgs. Downloading tutorial datasets from Internet: Nilearn comes with functions that download public data from Internet Let’s first check where the dat..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Basic nilearn example: manipulating and looking at data" href="plot_nilearn_101.html" /><link rel="prev" title="Basic numerics and plotting with Python" href="plot_python_101.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
         <title>3D and 4D niimgs: handling and visualizing - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev1+gf29d23e9) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev3+g29ae5f12) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -720,7 +720,7 @@ to download the full example code or to run this example in your browser via Bin
 <p>Let’s first check where the data is downloaded on our disk:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datasets are stored in: </span><span class="si">{</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_data_dirs</span><span class="p">()</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datasets are stored in: </span><span class="si">{</span><a href="../../modules/generated/nilearn.datasets.get_data_dirs.html#nilearn.datasets.get_data_dirs" title="nilearn.datasets.get_data_dirs" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">get_data_dirs</span></a><span class="p">()</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Datasets are stored in: [&#39;/home/runner/work/nilearn/nilearn/nilearn_data&#39;, &#39;/home/runner/nilearn_data&#39;]
@@ -728,84 +728,15 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <p>Let’s now retrieve a motor <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a>
 from a <a class="reference internal" href="../../glossary.html#term-Neurovault"><span class="xref std std-term">Neurovault</span></a> repository</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">motor_images</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_neurovault_motor_task</span><span class="p">()</span>
-<span class="n">motor_images</span><span class="o">.</span><span class="n">images</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">motor_images</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_neurovault_motor_task.html#nilearn.datasets.fetch_neurovault_motor_task" title="nilearn.datasets.fetch_neurovault_motor_task" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_neurovault_motor_task</span></a><span class="p">()</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">motor_images</span><span class="o">.</span><span class="n">images</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Added README.md to /home/runner/work/nilearn/nilearn/nilearn_data
-
-
-Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/neurovault
-
-Could not get batch from https://neurovault.org/api/images/10426
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 203, in _new_conn
-    sock = connection.create_connection(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 85, in create_connection
-    raise err
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py&quot;, line 73, in create_connection
-    sock.connect(sa)
-TimeoutError: timed out
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-               ^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 491, in _make_request
-    raise new_e
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 467, in _make_request
-    self._validate_conn(conn)
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 1096, in _validate_conn
-    conn.connect()
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 611, in connect
-    self.sock = sock = self._new_conn()
-                       ^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py&quot;, line 212, in _new_conn
-    raise ConnectTimeoutError(
-urllib3.exceptions.ConnectTimeoutError: (&lt;urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;)
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-           ^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py&quot;, line 844, in urlopen
-    retries = retries.increment(
-              ^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py&quot;, line 515, in increment
-    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/10426 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py&quot;, line 991, in _get_batch
-    resp = session.send(prepped, timeout=timeout)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File &quot;/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py&quot;, line 507, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org&#39;, port=443): Max retries exceeded with url: /api/images/10426 (Caused by ConnectTimeoutError(&lt;urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0&gt;, &#39;Connection to neurovault.org timed out. (connect timeout=10.0)&#39;))
-
-[]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;/home/runner/work/nilearn/nilearn/nilearn_data/neurovault/collection_658/image_10426.nii.gz&#39;]
 </pre></div>
 </div>
 <p>motor_images is a list of filenames. We need to take the first one</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tmap_filename</span> <span class="o">=</span> <span class="n">motor_images</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="sphx-glr-script-out highlight-pytb notranslate"><div class="highlight"><pre><span></span><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;/home/runner/work/nilearn/nilearn/examples/00_tutorials/plot_3d_and_4d_niimg.py&quot;</span>, line <span class="m">27</span>, in <span class="n">&lt;module&gt;</span>
-<span class="w">    </span><span class="n">tmap_filename</span> <span class="o">=</span> <span class="n">motor_images</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="w">                    </span><span class="pm">~~~~~~~~~~~~~~~~~~~^^^</span>
-<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">motor_images</span><span class="o">.</span><span class="n">images</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -815,11 +746,17 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host=&#39;neurovault.org
 statistical map:</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
-<span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">tmap_filename</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_001.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_001.png" alt="plot 3d and 4d niimg" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce5994230&gt;
 </pre></div>
 </div>
 <p>Visualizing works better with a threshold</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">tmap_filename</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_002.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_002.png" alt="plot 3d and 4d niimg" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce56c0bf0&gt;
 </pre></div>
 </div>
 </section>
@@ -827,25 +764,37 @@ statistical map:</p>
 <h2>Visualizing one volume in a 4D file<a class="headerlink" href="#visualizing-one-volume-in-a-4d-file" title="Link to this heading">#</a></h2>
 <p>We can download <a class="reference internal" href="../../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> networks from the Smith 2009 study on
 correspondence between rest and task</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">rsn</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10</span><span class="p">)[</span><span class="s2">&quot;maps&quot;</span><span class="p">]</span>
-<span class="n">rsn</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_smith_2009.html#nilearn.datasets.fetch_atlas_smith_2009" title="nilearn.datasets.fetch_atlas_smith_2009" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_smith_2009</span></a><span class="p">(</span><span class="n">resting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">10</span><span class="p">)[</span><span class="s2">&quot;maps&quot;</span><span class="p">]</span>
+<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/nilearn/nilearn/nilearn_data/smith_2009/PNAS_Smith09_rsn10.nii.gz&#39;
 </pre></div>
 </div>
 <p>It is a 4D nifti file. We load it into the memory to print its
 shape.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">rsn</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="../../modules/generated/nilearn.image.load_img.html#nilearn.image.load_img" title="nilearn.image.load_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">load_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(91, 109, 91, 10)
 </pre></div>
 </div>
 <p>We can retrieve the first volume (note that Python indexing starts at 0):</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">first_rsn</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">index_img</span><span class="p">(</span><span class="n">rsn</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first_rsn</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_rsn</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">index_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.dataobj_images.html#nibabel.dataobj_images.DataobjImage.shape" title="nibabel.dataobj_images.DataobjImage.shape" class="sphx-glr-backref-module-nibabel-dataobj_images sphx-glr-backref-type-py-property"><span class="n">first_rsn</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(91, 109, 91)
 </pre></div>
 </div>
 <p>first_rsn is a 3D image.</p>
 <p>We can then plot it</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">first_rsn</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_rsn</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_003.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_003.png" alt="plot 3d and 4d niimg" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce7853ad0&gt;
 </pre></div>
 </div>
 </section>
@@ -855,13 +804,25 @@ shape.</p>
 to loop on them.</p>
 <p>Then we give a few arguments to plot_stat_map in order to have a more
 compact display.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">image</span><span class="o">.</span><span class="n">iter_img</span><span class="p">(</span><span class="n">rsn</span><span class="p">):</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="ow">in</span> <a href="../../modules/generated/nilearn.image.iter_img.html#nilearn.image.iter_img" title="nilearn.image.iter_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">iter_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a><span class="p">):</span>
     <span class="c1"># img is now an in-memory 3D img</span>
-    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span>
-        <span class="n">img</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
+        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span>
     <span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_004.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_004.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_005.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_005.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_006.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_006.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_007.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_007.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_008.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_008.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_009.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_009.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_010.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_010.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_011.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_011.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_012.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_012.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_013.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_013.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+</ul>
 </section>
 <section id="looping-through-selected-volumes-in-a-4d-file">
 <h2>Looping through selected volumes in a 4D file<a class="headerlink" href="#looping-through-selected-volumes-in-a-4d-file" title="Link to this heading">#</a></h2>
@@ -869,19 +830,23 @@ compact display.</p>
 with the <cite>slice</cite> constructor to select the desired volumes.</p>
 <p>Afterwards, we’ll use iter_img to loop through them following the same
 formula as before.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">selected_volumes</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">index_img</span><span class="p">(</span><span class="n">rsn</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">selected_volumes</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">index_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rsn</span></a><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>If you’re new to Python, one thing to note is that the slice constructor
 uses 0-based indexing. You can confirm this by matching these slices
 to the previous plot above.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">image</span><span class="o">.</span><span class="n">iter_img</span><span class="p">(</span><span class="n">selected_volumes</span><span class="p">):</span>
-    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a> <span class="ow">in</span> <a href="../../modules/generated/nilearn.image.iter_img.html#nilearn.image.iter_img" title="nilearn.image.iter_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">image</span><span class="o">.</span><span class="n">iter_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">selected_volumes</span></a><span class="p">):</span>
+    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">img</span></a><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_014.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_014.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_3d_and_4d_niimg_015.png" srcset="../../_images/sphx_glr_plot_3d_and_4d_niimg_015.png" alt="plot 3d and 4d niimg" class = "sphx-glr-multi-img"/></li>
+</ul>
 <p>plotting.show is useful to force the display of figures when running
 outside IPython</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
 </pre></div>
 </div>
 <div class="line-block">
@@ -901,8 +866,8 @@ hand <a class="reference internal" href="../../modules/generated/nilearn.image.i
 to break down 4D images into 3D images, and on the other hand
 <a class="reference internal" href="../../modules/generated/nilearn.image.concat_imgs.html#nilearn.image.concat_imgs" title="nilearn.image.concat_imgs"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.image.concat_imgs</span></code></a> to group a list of 3D images into a 4D
 image.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.773 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  234 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 17.198 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  217 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-00-tutorials-plot-3d-and-4d-niimg-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_3d_and_4d_niimg.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo.svg" width="150px" /></a>
@@ -947,7 +912,7 @@ image.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; The nilearn developers 2010-2023
+                Copyright &#169; The nilearn developers
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             

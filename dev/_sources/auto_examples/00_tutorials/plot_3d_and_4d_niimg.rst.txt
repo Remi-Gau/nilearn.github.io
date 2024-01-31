@@ -74,69 +74,7 @@ from a :term:`Neurovault` repository
  .. code-block:: none
 
 
-    Added README.md to /home/runner/work/nilearn/nilearn/nilearn_data
-
-
-    Dataset created in /home/runner/work/nilearn/nilearn/nilearn_data/neurovault
-
-    Could not get batch from https://neurovault.org/api/images/10426
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
-        sock = connection.create_connection(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py", line 85, in create_connection
-        raise err
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/connection.py", line 73, in create_connection
-        sock.connect(sa)
-    TimeoutError: timed out
-
-    The above exception was the direct cause of the following exception:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 790, in urlopen
-        response = self._make_request(
-                   ^^^^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 491, in _make_request
-        raise new_e
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 467, in _make_request
-        self._validate_conn(conn)
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 1096, in _validate_conn
-        conn.connect()
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py", line 611, in connect
-        self.sock = sock = self._new_conn()
-                           ^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connection.py", line 212, in _new_conn
-        raise ConnectTimeoutError(
-    urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0>, 'Connection to neurovault.org timed out. (connect timeout=10.0)')
-
-    The above exception was the direct cause of the following exception:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py", line 486, in send
-        resp = conn.urlopen(
-               ^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/connectionpool.py", line 844, in urlopen
-        retries = retries.increment(
-                  ^^^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/urllib3/util/retry.py", line 515, in increment
-        raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='neurovault.org', port=443): Max retries exceeded with url: /api/images/10426 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0>, 'Connection to neurovault.org timed out. (connect timeout=10.0)'))
-
-    During handling of the above exception, another exception occurred:
-
-    Traceback (most recent call last):
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/datasets/neurovault.py", line 991, in _get_batch
-        resp = session.send(prepped, timeout=timeout)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
-        r = adapter.send(request, **kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/requests/adapters.py", line 507, in send
-        raise ConnectTimeout(e, request=request)
-    requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='neurovault.org', port=443): Max retries exceeded with url: /api/images/10426 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fb6c1d281a0>, 'Connection to neurovault.org timed out. (connect timeout=10.0)'))
-
-    []
+    ['/home/runner/work/nilearn/nilearn/nilearn_data/neurovault/collection_658/image_10426.nii.gz']
 
 
 
@@ -153,15 +91,7 @@ motor_images is a list of filenames. We need to take the first one
 
 
 
-.. rst-class:: sphx-glr-script-out
 
-.. code-block:: pytb
-
-    Traceback (most recent call last):
-      File "/home/runner/work/nilearn/nilearn/examples/00_tutorials/plot_3d_and_4d_niimg.py", line 27, in <module>
-        tmap_filename = motor_images.images[0]
-                        ~~~~~~~~~~~~~~~~~~~^^^
-    IndexError: list index out of range
 
 
 
@@ -183,6 +113,23 @@ statistical map:
     plotting.plot_stat_map(tmap_filename)
 
 
+
+
+.. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_001.png
+   :alt: plot 3d and 4d niimg
+   :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_001.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce5994230>
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Visualizing works better with a threshold
@@ -192,6 +139,23 @@ Visualizing works better with a threshold
 .. code-block:: Python
 
     plotting.plot_stat_map(tmap_filename, threshold=3)
+
+
+
+
+
+.. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_002.png
+   :alt: plot 3d and 4d niimg
+   :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_002.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce56c0bf0>
 
 
 
@@ -211,6 +175,18 @@ correspondence between rest and task
     rsn
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    '/home/runner/work/nilearn/nilearn/nilearn_data/smith_2009/PNAS_Smith09_rsn10.nii.gz'
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 It is a 4D nifti file. We load it into the memory to print its
@@ -225,6 +201,18 @@ shape.
     print(image.load_img(rsn).shape)
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    (91, 109, 91, 10)
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 62-63
 
 We can retrieve the first volume (note that Python indexing starts at 0):
@@ -235,6 +223,18 @@ We can retrieve the first volume (note that Python indexing starts at 0):
 
     first_rsn = image.index_img(rsn, 0)
     print(first_rsn.shape)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    (91, 109, 91)
+
+
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 67-70
@@ -248,6 +248,23 @@ We can then plot it
 .. code-block:: Python
 
     plotting.plot_stat_map(first_rsn)
+
+
+
+
+
+.. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_003.png
+   :alt: plot 3d and 4d niimg
+   :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_003.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f0ce7853ad0>
 
 
 
@@ -274,6 +291,85 @@ compact display.
 
 
 
+
+
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_004.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_004.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_005.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_005.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_006.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_006.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_007.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_007.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_008.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_008.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_009.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_009.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_010.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_010.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_011.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_011.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_012.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_012.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_013.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_013.png
+         :class: sphx-glr-multi-img
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 90-98
 
 Looping through selected volumes in a 4D file
@@ -292,6 +388,12 @@ formula as before.
     selected_volumes = image.index_img(rsn, slice(3, 5))
 
 
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 101-104
 
 If you're new to Python, one thing to note is that the slice constructor
@@ -308,6 +410,29 @@ to the previous plot above.
 
 
 
+
+
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_014.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_014.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_015.png
+         :alt: plot 3d and 4d niimg
+         :srcset: /auto_examples/00_tutorials/images/sphx_glr_plot_3d_and_4d_niimg_015.png
+         :class: sphx-glr-multi-img
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 110-112
 
 plotting.show is useful to force the display of figures when running
@@ -318,6 +443,12 @@ outside IPython
 .. code-block:: Python
 
     plotting.show()
+
+
+
+
+
+
 
 
 .. GENERATED FROM PYTHON SOURCE LINES 115-133
@@ -344,9 +475,9 @@ image.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 10.773 seconds)
+   **Total running time of the script:** (0 minutes 17.198 seconds)
 
-**Estimated memory usage:**  234 MB
+**Estimated memory usage:**  217 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_3d_and_4d_niimg.py:
