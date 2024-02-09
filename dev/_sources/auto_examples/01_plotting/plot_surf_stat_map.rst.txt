@@ -22,16 +22,17 @@ Seed-based connectivity on the surface
 ======================================
 
 The dataset that is a subset of the enhanced NKI Rockland sample
-(https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012)
+(https://fcon_1000.projects.nitrc.org/indi/enhanced/,
+:footcite:t:`Nooner2012`)
 
 Resting state :term:`fMRI` scans (TR=645ms) of 102 subjects were preprocessed
 (https://github.com/fliem/nki_nilearn) and projected onto the Freesurfer
-fsaverage5 template (Dale et al, 1999, Fischl et al, 1999). For this example
-we use the time series of a single subject's left hemisphere.
+fsaverage5 template (:footcite:t:`Dale1999` and  :footcite:t:`Fischl1999b`).
+For this example we use the time series of a single subject's left hemisphere.
 
-The Destrieux parcellation (Destrieux et al, 2010) in fsaverage5 space as
-distributed with Freesurfer is used to select a seed region in the posterior
-cingulate cortex.
+The Destrieux parcellation (:footcite:t:`Destrieux2010`)
+in fsaverage5 space as distributed with Freesurfer
+is used to select a seed region in the posterior cingulate cortex.
 
 Functional connectivity of the seed region to all other cortical nodes in the
 same hemisphere is calculated using Pearson product-moment correlation
@@ -45,30 +46,12 @@ See also :ref:`for a similar example but using volumetric input data
 
 See :ref:`plotting` for more details on plotting tools.
 
-References
-----------
-Nooner et al, (2012). The NKI-Rockland Sample: A model for accelerating the
-pace of discovery science in psychiatry. Frontiers in neuroscience 6, 152.
-URL https://doi.org/10.3389/fnins.2012.00152
-
-Dale et al, (1999). Cortical surface-based analysis.I. Segmentation and
-surface reconstruction. Neuroimage 9.
-URL https://doi.org/10.1006/nimg.1998.0395
-
-Fischl et al, (1999). Cortical surface-based analysis. II: Inflation,
-flattening, and a surface-based coordinate system. Neuroimage 9.
-https://doi.org/10.1006/nimg.1998.0396
-
-Destrieux et al, (2010). Automatic parcellation of human cortical gyri and
-sulci using standard anatomical nomenclature. NeuroImage, 53, 1.
-URL https://doi.org/10.1016/j.neuroimage.2010.06.010.
-
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 Retrieving the data
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-85
+.. GENERATED FROM PYTHON SOURCE LINES 34-67
 
 .. code-block:: Python
 
@@ -123,12 +106,12 @@ Retrieving the data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-88
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 Extracting the seed time series
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-104
+.. GENERATED FROM PYTHON SOURCE LINES 70-86
 
 .. code-block:: Python
 
@@ -155,12 +138,12 @@ Extracting the seed time series
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-107
+.. GENERATED FROM PYTHON SOURCE LINES 87-89
 
 Calculating seed-based functional connectivity
 ----------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 107-119
+.. GENERATED FROM PYTHON SOURCE LINES 89-101
 
 .. code-block:: Python
 
@@ -184,7 +167,7 @@ Calculating seed-based functional connectivity
 
  .. code-block:: none
 
-    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_surf_stat_map.py:114: ConstantInputWarning:
+    /home/runner/work/nilearn/nilearn/examples/01_plotting/plot_surf_stat_map.py:96: ConstantInputWarning:
 
     An input array is constant; the correlation coefficient is not defined.
 
@@ -192,11 +175,11 @@ Calculating seed-based functional connectivity
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-121
+.. GENERATED FROM PYTHON SOURCE LINES 102-103
 
 Display ROI on surface
 
-.. GENERATED FROM PYTHON SOURCE LINES 121-138
+.. GENERATED FROM PYTHON SOURCE LINES 103-120
 
 .. code-block:: Python
 
@@ -235,13 +218,13 @@ Display ROI on surface
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-142
+.. GENERATED FROM PYTHON SOURCE LINES 121-124
 
 Using a flat :term:`mesh` can be useful in order to easily locate the area
 of interest on the cortex. To make this plot easier to read,
 we use the :term:`mesh` curvature as a background map.
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-158
+.. GENERATED FROM PYTHON SOURCE LINES 124-140
 
 .. code-block:: Python
 
@@ -279,11 +262,11 @@ we use the :term:`mesh` curvature as a background map.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 159-160
+.. GENERATED FROM PYTHON SOURCE LINES 141-142
 
 Display unthresholded stat map with a slightly dimmed background
 
-.. GENERATED FROM PYTHON SOURCE LINES 160-165
+.. GENERATED FROM PYTHON SOURCE LINES 142-147
 
 .. code-block:: Python
 
@@ -310,12 +293,12 @@ Display unthresholded stat map with a slightly dimmed background
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-168
+.. GENERATED FROM PYTHON SOURCE LINES 148-150
 
 Many different options are available for plotting, for example thresholding,
 or using custom colormaps
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-174
+.. GENERATED FROM PYTHON SOURCE LINES 150-156
 
 .. code-block:: Python
 
@@ -343,7 +326,7 @@ or using custom colormaps
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 175-180
+.. GENERATED FROM PYTHON SOURCE LINES 157-162
 
 Here the surface is plotted in a lateral view without a background map.
 To capture 3D structure without depth information, the default is to plot a
@@ -351,7 +334,7 @@ half transparent surface.
 Note that you can also control the transparency with a background map using
 the alpha parameter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 180-185
+.. GENERATED FROM PYTHON SOURCE LINES 162-167
 
 .. code-block:: Python
 
@@ -378,12 +361,12 @@ the alpha parameter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-188
+.. GENERATED FROM PYTHON SOURCE LINES 168-170
 
 The plots can be saved to file, in which case the display is closed after
 creating the figure
 
-.. GENERATED FROM PYTHON SOURCE LINES 188-201
+.. GENERATED FROM PYTHON SOURCE LINES 170-183
 
 .. code-block:: Python
 
@@ -413,10 +396,17 @@ creating the figure
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 184-188
+
+References
+----------
+
+ .. footbibliography::
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 18.149 seconds)
+   **Total running time of the script:** (0 minutes 17.950 seconds)
 
 **Estimated memory usage:**  275 MB
 

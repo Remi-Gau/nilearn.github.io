@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -759,10 +759,11 @@ viewing” condition and a “house viewing” condition.
 We consider the mean image per run and per condition.
 Otherwise, the observations cannot be exchanged at random because
 a time dependence exists between observations within a same run
-(see [1] for more detailed explanations).</p>
+(see Winkler <em>et al.</em><a class="footnote-reference brackets" href="#footcite-winkler2014" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for more detailed explanations).</p>
 <p>The example shows the small differences that exist between
 Bonferroni-corrected p-values and family-wise corrected p-values obtained
-from a permutation test combined with a max-type procedure [2].
+from a permutation test combined
+with a max-type procedure (Anderson and Robinson<a class="footnote-reference brackets" href="#footcite-anderson2001" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>).
 Bonferroni correction is a bit conservative, as revealed by the presence of
 a few false negative.</p>
 <div class="admonition note">
@@ -780,16 +781,6 @@ all occurrences of:</p>
 </pre></div>
 </div>
 </div>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<dl class="simple">
-<dt>[1] Winkler, A. M. et al. (2014).</dt><dd><p>Permutation inference for the general linear model. Neuroimage.</p>
-</dd>
-<dt>[2] Anderson, M. J. &amp; Robinson, J. (2001).</dt><dd><p>Permutation tests for linear models.
-Australian &amp; New Zealand Journal of Statistics, 43(1), 75-88.
-(<a class="reference external" href="https://www.uvm.edu/~statdhtx/fundamentals9/Supplements/RandomizationTestsWithR/permut2.pdf">https://www.uvm.edu/~statdhtx/fundamentals9/Supplements/RandomizationTestsWithR/permut2.pdf</a>)</p>
-</dd>
-</dl>
 <p>Load Haxby dataset</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">image</span>
 <span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
@@ -883,7 +874,7 @@ effect sign to add it back at the end and thus observe the signed effect</p>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    4.9s finished
+[Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    4.6s finished
 </pre></div>
 </div>
 <p>scikit-learn F-scores for comparison</p>
@@ -970,8 +961,24 @@ A column-vector y was passed when a 1d array was expected. Please change the sha
 <li><img src="../../_images/sphx_glr_plot_haxby_mass_univariate_001.png" srcset="../../_images/sphx_glr_plot_haxby_mass_univariate_001.png" alt="plot haxby mass univariate" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_haxby_mass_univariate_002.png" srcset="../../_images/sphx_glr_plot_haxby_mass_univariate_002.png" alt="plot haxby mass univariate" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 15.768 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  917 MB</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><div class="docutils container" id="id3">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-winkler2014" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Anderson M. Winkler, Gerard R. Ridgway, Matthew A. Webster, Stephen M. Smith, and Thomas E. Nichols. Permutation inference for the general linear model. <em>NeuroImage</em>, 92:381–397, 2014. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811914000913">https://www.sciencedirect.com/science/article/pii/S1053811914000913</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.neuroimage.2014.01.060">doi:https://doi.org/10.1016/j.neuroimage.2014.01.060</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-anderson2001" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Marti J. Anderson and John Robinson. Permutation tests for linear models. <em>Australian &amp; New Zealand Journal of Statistics</em>, 43(1):75–88, 2001. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-842X.00156">https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-842X.00156</a>, <a class="reference external" href="https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1111/1467-842X.00156">arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1111/1467-842X.00156</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1111/1467-842X.00156">doi:https://doi.org/10.1111/1467-842X.00156</a>.</p>
+</aside>
+</aside>
+</div>
+</div></blockquote>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 15.659 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  950 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-07-advanced-plot-haxby-mass-univariate-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_haxby_mass_univariate.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo7.svg" width="150px" /></a>

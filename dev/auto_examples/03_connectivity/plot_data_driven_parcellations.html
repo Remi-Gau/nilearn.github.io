@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -762,23 +762,12 @@ subsequently be used for statistical analysis or machine learning.</p>
 <p>Also, these methods can be used to learn functional connectomes
 and subsequently for classification tasks or to analyze data at a local
 level.</p>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<p>Which clustering method to use, an empirical comparison can be found in this
-paper:</p>
-<dl class="simple">
-<dt>Bertrand Thirion, Gael Varoquaux, Elvis Dohmatob, Jean-Baptiste Poline.</dt><dd><p><a class="reference external" href="https://doi.org/10.3389/fnins.2014.00167">Which fMRI clustering gives good brain parcellations ?</a> Frontiers in Neuroscience,
-2014.</p>
-</dd>
-</dl>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<p>Which clustering method to use, an empirical comparison can be found
+in Thirion <em>et al.</em><a class="footnote-reference brackets" href="#footcite-thirion2014" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>This <a class="reference internal" href="../../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> may be useful in a supervised learning,
-see for instance:</p>
-<dl class="simple">
-<dt>Vincent Michel, Alexandre Gramfort, Gael Varoquaux, Evelyn Eger,</dt><dd><p>Christine Keribin, Bertrand Thirion. <a class="reference external" href="https://doi.org/10.1016/j.patcog.2011.04.006">A supervised clustering approach
-for fMRI-based inference of brain states.</a>.
-Pattern Recognition, Elsevier, 2011.</p>
-</dd>
-</dl>
+see for instance Michel <em>et al.</em><a class="footnote-reference brackets" href="#footcite-michel2011b" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>The big picture discussion corresponding to this example can be found
 in the documentation section <a class="reference internal" href="../../connectivity/parcellating.html#parcellating-brain"><span class="std std-ref">Clustering to parcellate the brain in regions</span></a>.</p>
 </section>
@@ -877,12 +866,12 @@ ward_tree(array([[-0.002154, ...,  0.007053],
        [ 0.002661, ..., -0.007877]]), connectivity=&lt;24256x24256 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
         with 162682 stored elements in COOrdinate format&gt;, n_clusters=1000, return_distance=False)
 ________________________________________________________ward_tree - 2.1s, 0.0min
-____________________________________________________estimator_fit - 2.2s, 0.0min
+____________________________________________________estimator_fit - 2.3s, 0.0min
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-Ward agglomeration 1000 clusters: 6.37s
+Ward agglomeration 1000 clusters: 6.41s
 [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
 [{self.__class__.__name__}.fit] Computing mask
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
@@ -908,7 +897,7 @@ ward_tree(array([[-0.002154, ...,  0.007053],
        [ 0.002661, ..., -0.007877]]), connectivity=&lt;24256x24256 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
         with 162682 stored elements in COOrdinate format&gt;, n_clusters=2000, return_distance=False)
 ________________________________________________________ward_tree - 1.9s, 0.0min
-____________________________________________________estimator_fit - 2.0s, 0.0min
+____________________________________________________estimator_fit - 2.1s, 0.0min
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
@@ -1006,7 +995,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f4230c13860&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f4255260ce0&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6c45f5aab0&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6c38a55340&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1015,9 +1004,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f4230c13860&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f425504fa40&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c461b4170&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f4230c13920&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c461b7b60&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -1030,9 +1019,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f4230c13860&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Smoothing images
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.2s, 0.0min
+_______________________________________________filter_and_extract - 1.3s, 0.0min
 
-&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f4254fd46e0&gt;
+&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f6c24868e90&gt;
 </pre></div>
 </div>
 </section>
@@ -1081,8 +1070,8 @@ _estimator_fit(array([[ 0.004934, ..., -0.015396],
        ...,
        [-0.003247, ..., -0.001756]]),
 MiniBatchKMeans(n_clusters=50, n_init=3, random_state=0))
-____________________________________________________estimator_fit - 0.3s, 0.0min
-KMeans clusters: 4.38s
+____________________________________________________estimator_fit - 0.4s, 0.0min
+KMeans clusters: 4.47s
 </pre></div>
 </div>
 <section id="visualize-brain-parcellations-kmeans">
@@ -1151,7 +1140,7 @@ _estimator_fit(array([[ 0.004934, ..., -0.015396],
        ...,
        [-0.003247, ..., -0.001756]]),
 HierarchicalKMeans(n_clusters=50))
-____________________________________________________estimator_fit - 1.3s, 0.0min
+____________________________________________________estimator_fit - 1.1s, 0.0min
 /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
 Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
@@ -1643,7 +1632,7 @@ background).</p>
 <a href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.legend" title="matplotlib.figure.Figure.legend" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">fig</span><span class="o">.</span><span class="n">legend</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">handles</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f42311c9430&gt;
+<img src="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_006.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend object at 0x7f6c33c4d3d0&gt;
 </pre></div>
 </div>
 <p>As we can see, half of the 50 KMeans clusters contain less than
@@ -1659,18 +1648,8 @@ is that it is very fast
 for a large number of parcels (notably faster than Ward).
 As before, the <a class="reference internal" href="../../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> is done with a <code class="docutils literal notranslate"><span class="pre">Parcellations</span></code> object.
 The spatial constraints are implemented inside the <code class="docutils literal notranslate"><span class="pre">Parcellations</span></code> object.</p>
-<section id="id1">
-<h3>References<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>More about <a class="reference internal" href="../../glossary.html#term-ReNA"><span class="xref std std-term">ReNA</span></a> clustering algorithm in the original paper</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>A. Hoyos-Idrobo, G. Varoquaux, J. Kahn and B. Thirion, “Recursive
-Nearest Agglomeration (ReNA): Fast Clustering for Approximation of
-Structured Signals,” in IEEE Transactions on Pattern Analysis and
-Machine Intelligence, vol. 41, no. 3, pp. 669-681, 1 March 2019.
-<a class="reference external" href="https://hal.archives-ouvertes.fr/hal-01366651/">https://hal.archives-ouvertes.fr/hal-01366651/</a></p></li>
-</ul>
-</div></blockquote>
+<p>More about <a class="reference internal" href="../../glossary.html#term-ReNA"><span class="xref std std-term">ReNA</span></a> clustering algorithm
+in the original paper (Hoyos-Idrobo <em>et al.</em><a class="footnote-reference brackets" href="#footcite-hoyos2019" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>).</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">start</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/time.html#time.time" title="time.time" class="sphx-glr-backref-module-time sphx-glr-backref-type-py-function"><span class="n">time</span><span class="o">.</span><span class="n">time</span></a><span class="p">()</span>
 <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rena</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-class"><span class="n">Parcellations</span></a><span class="p">(</span>
     <span class="n">method</span><span class="o">=</span><span class="s2">&quot;rena&quot;</span><span class="p">,</span>
@@ -1701,7 +1680,7 @@ ________________________________________________________________________________
 _estimator_fit(array([[-0.002154, ...,  0.002661],
        ...,
        [ 0.007053, ..., -0.007877]]),
-ReNA(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe52c60&gt;,
+ReNA(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f6c461b4d40&gt;,
      memory=Memory(location=nilearn_cache/joblib), n_clusters=5000,
      scaling=True),
 &#39;rena&#39;)
@@ -1710,7 +1689,7 @@ ________________________________________________________________________________
 recursive_neighbor_agglomeration(array([[-0.002154, ...,  0.002661],
        ...,
        [ 0.007053, ..., -0.007877]]),
-&lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe52c60&gt;, 5000, n_iter=10, threshold=1e-07, verbose=0)
+&lt;nibabel.nifti1.Nifti1Image object at 0x7f6c461b4d40&gt;, 5000, n_iter=10, threshold=1e-07, verbose=0)
 _________________________________recursive_neighbor_agglomeration - 0.4s, 0.0min
 ____________________________________________________estimator_fit - 0.6s, 0.0min
 [Parcellations.wrapped] loading data from Nifti1Image(
@@ -1729,7 +1708,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe93590&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f423d780470&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6c4595e900&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6c4595e870&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1738,9 +1717,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe93590&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe530b0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c4595ede0&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe533e0&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c4595f2f0&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -1753,11 +1732,10 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423fe93590&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Smoothing images
 [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 1.3s, 0.0min
-ReNA 5000 clusters: 5.55s
+_______________________________________________filter_and_extract - 1.4s, 0.0min
+ReNA 5000 clusters: 5.45s
 </pre></div>
 </div>
-</section>
 <section id="visualize-brain-parcellations-rena">
 <h3>Visualize: Brain parcellations (ReNA)<a class="headerlink" href="#visualize-brain-parcellations-rena" title="Link to this heading">#</a></h3>
 <p>First, we display the parcellations of the brain image stored in attribute
@@ -1776,7 +1754,7 @@ ReNA 5000 clusters: 5.55s
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f4254c23e60&gt;
+<img src="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" srcset="../../_images/sphx_glr_plot_data_driven_parcellations_007.png" alt="plot data driven parcellations" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f6c2e761160&gt;
 </pre></div>
 </div>
 </section>
@@ -1832,7 +1810,7 @@ affine=array([[   4.,    0.,    0.,  -96.],
 )
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423ce87d40&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f423fbabe30&gt;,
+_filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f6c26148c20&gt;, &lt;nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f6c38816c00&gt;,
 { &#39;background_label&#39;: 0,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: False,
@@ -1841,9 +1819,9 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423ce87d40&gt;,
   &#39;high_variance_confounds&#39;: False,
   &#39;keep_masked_labels&#39;: True,
   &#39;labels&#39;: None,
-  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f423fed3fb0&gt;,
+  &#39;labels_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c4618db80&gt;,
   &#39;low_pass&#39;: None,
-  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f422e46cd40&gt;,
+  &#39;mask_img&#39;: &lt;nibabel.nifti1.Nifti1Image object at 0x7f6c4618d2b0&gt;,
   &#39;reports&#39;: True,
   &#39;smoothing_fwhm&#39;: 2.0,
   &#39;standardize&#39;: False,
@@ -1858,7 +1836,7 @@ _filter_and_extract(&lt;nibabel.nifti1.Nifti1Image object at 0x7f423ce87d40&gt;,
 [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
 _______________________________________________filter_and_extract - 1.4s, 0.0min
 
-&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f422f752bd0&gt;
+&lt;nilearn.plotting.displays._slicers.XZSlicer object at 0x7f6c1dd5fe00&gt;
 </pre></div>
 </div>
 <p>Even if the compressed signal is relatively close
@@ -1867,8 +1845,30 @@ gives a slightly more accurate compressed representation.
 However, as said in the previous section, the computation time is
 reduced which could still make <a class="reference internal" href="../../glossary.html#term-ReNA"><span class="xref std std-term">ReNA</span></a> more relevant than Ward in
 some cases.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 39.557 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2899 MB</p>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><div class="docutils container" id="id4">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-thirion2014" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Bertrand Thirion, Gaël Varoquaux, Elvis Dohmatob, and Jean-Baptiste Poline. Which fmri clustering gives good brain parcellations? <em>Frontiers in Neuroscience</em>, 2014. URL: <a class="reference external" href="https://www.frontiersin.org/articles/10.3389/fnins.2014.00167">https://www.frontiersin.org/articles/10.3389/fnins.2014.00167</a>, <a class="reference external" href="https://doi.org/10.3389/fnins.2014.00167">doi:10.3389/fnins.2014.00167</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-michel2011b" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Vincent Michel, Alexandre Gramfort, Gaël Varoquaux, Evelyn Eger, Christine Keribin, and Bertrand Thirion. A supervised clustering approach for fmri-based inference of brain states. <em>Pattern Recognition</em>, 45(6):2041–2049, 2012. Brain Decoding. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0031320311001439">https://www.sciencedirect.com/science/article/pii/S0031320311001439</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.patcog.2011.04.006">doi:https://doi.org/10.1016/j.patcog.2011.04.006</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-hoyos2019" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Andres Hoyos-Idrobo, Gael Varoquaux, Jonas Kahn, and Bertrand Thirion. Recursive nearest agglomeration (rena): fast clustering for approximation of structured signals. <em>IEEE Trans. Pattern Anal. Mach. Intell.</em>, 41(3):669–681, 3 2019. URL: <a class="reference external" href="https://doi.org/10.1109/TPAMI.2018.2815524">https://doi.org/10.1109/TPAMI.2018.2815524</a>, <a class="reference external" href="https://doi.org/10.1109/TPAMI.2018.2815524">doi:10.1109/TPAMI.2018.2815524</a>.</p>
+</aside>
+</aside>
+</div>
+</div></blockquote>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 40.079 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2955 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-data-driven-parcellations-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_data_driven_parcellations.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1881,7 +1881,6 @@ some cases.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</section>
 </section>
 </section>
 
@@ -1947,7 +1946,7 @@ some cases.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Clustering methods to learn a brain parcellation from fMRI</a><ul>
-<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
 <li><a class="reference internal" href="#download-a-brain-development-fmri-dataset-and-turn-it-to-a-data-matrix">Download a brain development fMRI dataset and turn it to a data matrix</a></li>
 <li><a class="reference internal" href="#brain-parcellations-with-ward-clustering">Brain parcellations with Ward Clustering</a><ul>
 <li><a class="reference internal" href="#visualize-brain-parcellations-ward">Visualize: Brain parcellations (Ward)</a></li>
@@ -1964,11 +1963,11 @@ some cases.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#brain-parcellations-with-rena-clustering">Brain parcellations with <span class="xref std std-term">ReNA</span> Clustering</a><ul>
-<li><a class="reference internal" href="#id1">References</a></li>
 <li><a class="reference internal" href="#visualize-brain-parcellations-rena">Visualize: Brain parcellations (ReNA)</a></li>
 <li><a class="reference internal" href="#compressed-representation-of-rena-clustering">Compressed representation of <span class="xref std std-term">ReNA</span> clustering</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>

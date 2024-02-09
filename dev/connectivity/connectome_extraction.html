@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -759,10 +759,8 @@ interactions between regions.</p>
 <aside class="topic">
 <p class="topic-title"><strong>References</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811910011602">Smith et al, Network modelling methods for FMRI,
-NeuroImage 2011</a></p></li>
-<li><p><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811913003340">Varoquaux and Craddock, Learning and comparing functional
-connectomes across subjects, NeuroImage 2013</a></p></li>
+<li><p>Network modelling methods for FMRI <a class="footnote-reference brackets" href="#footcite-smith2011" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+<li><p>Learning and comparing functional connectomes across subjects <a class="footnote-reference brackets" href="#footcite-varoquaux2013" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p></li>
 </ul>
 </aside>
 <section id="sparse-inverse-covariance-for-functional-connectomes">
@@ -776,10 +774,10 @@ The same information can be represented as a weighted graph,
 reflect direct as well as indirect connections. Covariance matrices form
 very dense brain connectomes, and it is rather difficult to extract from
 them only the direct connections between two regions.</p>
-<p>As shown in <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811910011602">[Smith 2011]</a>,
-<a class="reference external" href="https://hal.inria.fr/inria-00512451">[Varoquaux 2010]</a>, it is more
-interesting to use the inverse covariance matrix, ie the <em>precision
-matrix</em>. It gives <strong>only direct connections between regions</strong>, as it
+<p>As shown in Smith <em>et al.</em><a class="footnote-reference brackets" href="#footcite-smith2011" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, Varoquaux <em>et al.</em><a class="footnote-reference brackets" href="#footcite-varoquaux2010a" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>,
+it is more interesting to use the inverse covariance matrix,
+ie the <em>precision matrix</em>.
+It gives <strong>only direct connections between regions</strong>, as it
 contains <em>partial covariances</em>, which are covariances between two regions
 conditioned on all the others.</p>
 <p>To recover well the interaction structure, a <strong>sparse inverse covariance
@@ -824,7 +822,7 @@ development dataset downloaded with <a class="reference internal" href="../modul
 <aside class="topic">
 <p class="topic-title"><strong>Reference</strong></p>
 <ul class="simple">
-<li><p>The <a class="reference external" href="https://academic.oup.com/biostatistics/article/9/3/432/224260">graph lasso [Friedman et al, Biostatistics 2007]</a> is useful to estimate one
+<li><p>The graph lasso <a class="footnote-reference brackets" href="#footcite-friedman2008" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> is useful to estimate one
 inverse covariance, ie to work on single-subject data or concatenate
 multi-subject data.</p></li>
 </ul>
@@ -879,7 +877,8 @@ adhd.</p>
 <aside class="topic">
 <p class="topic-title"><strong>Reference</strong></p>
 <ul class="simple">
-<li><p>The <a class="reference external" href="https://hal.inria.fr/inria-00512451">group-sparse covariance [Varoquaux et al, NIPS 2010]</a></p></li>
+<li><p>The Brain covariance selection: Better individual functional connectivity models
+using population prior <a class="footnote-reference brackets" href="#footcite-varoquaux2010a" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></li>
 </ul>
 </aside>
 <div class="line-block">
@@ -896,7 +895,7 @@ with different precision matrices, but sharing a common sparsity pattern:
 <p>It is also possible to fit a graph lasso on data from every subject all
 together.</p>
 <p>Finally, we use the
-<a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.GroupSparseCovarianceCV</span></code></a> <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.connectome.GroupSparseCovarianceCV</span></code></a> <a class="footnote-reference brackets" href="#id8" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>.</p>
 <p>The results are the following:</p>
 <a class="reference external image-reference" href="../auto_examples/03_connectivity/plot_simulated_connectome.html"><img alt="../_images/sphx_glr_plot_simulated_connectome_001.png" src="../_images/sphx_glr_plot_simulated_connectome_001.png" style="width: 600.0px; height: 420.0px;" /></a>
 <p>The group-sparse estimation outputs matrices with
@@ -912,8 +911,8 @@ information.</p>
 <a class="reference internal" href="../auto_examples/03_connectivity/plot_simulated_connectome.html#sphx-glr-auto-examples-03-connectivity-plot-simulated-connectome-py"><span class="std std-ref">Connectivity structure estimation on simulated data</span></a></p>
 </aside>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id2" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">5</a><span class="fn-bracket">]</span></span>
 <p>A lot of technical details on the algorithm used for group-sparse
 estimation and its implementation can be found in
 <a class="reference internal" href="../developers/group_sparse_covariance.html"><span class="doc">Group-sparse covariance estimation</span></a>.</p>
@@ -924,7 +923,8 @@ estimation and its implementation can be found in
 <aside class="topic">
 <p class="topic-title"><strong>Reference</strong></p>
 <ul class="simple">
-<li><p>The <a class="reference external" href="https://papers.nips.cc/paper/4080-brain-covariance-selection-better-individual-functional-connectivity-models-using-population-prior">Brain covariance selection using population prior [Varoquaux et al, NIPS 2010]</a></p></li>
+<li><p>The Brain covariance selection: Better individual functional connectivity models
+using population prior <a class="footnote-reference brackets" href="#footcite-varoquaux2010a" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p></li>
 </ul>
 </aside>
 </section>
@@ -958,9 +958,38 @@ dataset downloaded with <a class="reference internal" href="../modules/generated
 <aside class="topic">
 <p class="topic-title"><strong>Reference</strong></p>
 <ul class="simple">
-<li><p>The <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-642-15705-9_25">tangent space for connectivity [Varoquaux et al, MICCAI 2010]</a></p></li>
+<li><p>Detection of brain functional-connectivity difference in post-stroke patients using group-level covariance modeling} <a class="footnote-reference brackets" href="#footcite-varoquaux2010b" id="id10" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p></li>
 </ul>
 </aside>
+<section id="references">
+<h3><span class="section-number">6.2.4.1. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<div class="docutils container" id="id11">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-smith2011" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Stephen M. Smith, Karla L. Miller, Gholamreza Salimi-Khorshidi, Matthew Webster, Christian F. Beckmann, Thomas E. Nichols, Joseph D. Ramsey, and Mark W. Woolrich. Network modelling methods for FMRI. <em>NeuroImage</em>, 54(2):875–891, January 2011. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S1053811910011602">https://linkinghub.elsevier.com/retrieve/pii/S1053811910011602</a> (visited on 2024-02-02), <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2010.08.063">doi:10.1016/j.neuroimage.2010.08.063</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-varoquaux2013" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Gaël Varoquaux and R. Cameron Craddock. Learning and comparing functional connectomes across subjects. <em>NeuroImage</em>, 80:405–415, 2013. Mapping the Connectome. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811913003340">https://www.sciencedirect.com/science/article/pii/S1053811913003340</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.neuroimage.2013.04.007">doi:https://doi.org/10.1016/j.neuroimage.2013.04.007</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-varoquaux2010a" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id9">3</a>)</span>
+<p>Gael Varoquaux, Alexandre Gramfort, Jean Baptiste Poline, and Bertrand Thirion. Brain covariance selection: better individual functional connectivity models using population prior. <em>arXiv:1008.5071 [q-bio, stat]</em>, 11 2010. URL: <a class="reference external" href="https://arxiv.org/abs/1008.5071">https://arxiv.org/abs/1008.5071</a>, <a class="reference external" href="https://arxiv.org/abs/1008.5071">arXiv:1008.5071</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-friedman2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
+<p>J. Friedman, T. Hastie, and R. Tibshirani. Sparse inverse covariance estimation with the graphical lasso. <em>Biostatistics</em>, 9(3):432–441, July 2008. URL: <a class="reference external" href="https://academic.oup.com/biostatistics/article-lookup/doi/10.1093/biostatistics/kxm045">https://academic.oup.com/biostatistics/article-lookup/doi/10.1093/biostatistics/kxm045</a> (visited on 2024-02-02), <a class="reference external" href="https://doi.org/10.1093/biostatistics/kxm045">doi:10.1093/biostatistics/kxm045</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-varoquaux2010b" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">6</a><span class="fn-bracket">]</span></span>
+<p>Gael Varoquaux, Flore Baronnet, Andreas Kleinschmidt, Pierre Fillard, and Bertrand Thirion. Detection of brain functional-connectivity difference in post-stroke patients using group-level covariance modeling. In Tianzi Jiang, Nassir Navab, Josien P. W. Pluim, and Max A. Viergever, editors, <em>Medical image computing and computer-assisted intervention - MICCAI 2010</em>, Lecture notes in computer science, 200–208. Berlin, Heidelberg, 2010. Springer. <a class="reference external" href="https://doi.org/10/cn2h9c">doi:10/cn2h9c</a>.</p>
+</aside>
+</aside>
+</div>
+</section>
 </section>
 </section>
 
@@ -1029,7 +1058,10 @@ dataset downloaded with <a class="reference internal" href="../modules/generated
 <li><a class="reference internal" href="#sparse-inverse-covariance-for-functional-connectomes">6.2.1. Sparse inverse covariance for functional connectomes</a></li>
 <li><a class="reference internal" href="#sparse-inverse-covariance-on-multiple-subjects">6.2.2. Sparse inverse covariance on multiple subjects</a></li>
 <li><a class="reference internal" href="#comparing-the-different-approaches-on-simulated-data">6.2.3. Comparing the different approaches on simulated data</a></li>
-<li><a class="reference internal" href="#linking-total-and-direct-interactions-at-the-group-level">6.2.4. Linking total and direct interactions at the group level</a></li>
+<li><a class="reference internal" href="#linking-total-and-direct-interactions-at-the-group-level">6.2.4. Linking total and direct interactions at the group level</a><ul>
+<li><a class="reference internal" href="#references">6.2.4.1. References</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

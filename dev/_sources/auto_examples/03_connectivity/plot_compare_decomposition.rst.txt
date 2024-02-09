@@ -37,18 +37,16 @@ for group-level analysis of :term:`fMRI` data.
 Compared to other strategies, it brings a well-controlled group model,
 as well as a
 thresholding algorithm controlling for specificity and sensitivity with
-an explicit model of the signal. The reference paper is:
+an explicit model of the signal.
 
-    * G. Varoquaux et al. "A group model for stable multi-subject ICA on
-      fMRI datasets", NeuroImage Vol 51 (2010), p. 288-299
-      `preprint <https://hal.inria.fr/hal-00489507/>`_
+The reference paper is :footcite:t:`Varoquaux2010c`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 Load brain development :term:`fMRI` dataset
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-41
+.. GENERATED FROM PYTHON SOURCE LINES 29-38
 
 .. code-block:: Python
 
@@ -74,7 +72,7 @@ Load brain development :term:`fMRI` dataset
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-47
+.. GENERATED FROM PYTHON SOURCE LINES 39-44
 
 Apply :term:`CanICA` on the data
 --------------------------------
@@ -82,7 +80,7 @@ We use "whole-brain-template" as a strategy to compute the mask,
 as this leads to slightly faster and more reproducible results.
 However, the images need to be in :term:`MNI` template space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-75
+.. GENERATED FROM PYTHON SOURCE LINES 44-72
 
 .. code-block:: Python
 
@@ -155,16 +153,16 @@ However, the images need to be in :term:`MNI` template space.
     [{self.__class__.__name__}.fit] Computing mask
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     Template whole-brain mask computation
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     [MultiNiftiMasker.transform] Resampling mask
     [CanICA] Loading data
@@ -173,21 +171,21 @@ However, the images need to be in :term:`MNI` template space.
     randomized_svd(array([[0.003659, ..., 0.013254],
            ...,
            [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-    ___________________________________________________randomized_svd - 0.6s, 0.0min
+    ___________________________________________________randomized_svd - 0.5s, 0.0min
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    4.1s
-    [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    8.3s
-    [Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   21.1s finished
+    [Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    4.2s
+    [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    8.4s
+    [Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   20.3s finished
     Output will be saved to: /home/runner/work/nilearn/nilearn/examples/03_connectivity/results/plot_compare_decomposition
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 To visualize we plot the outline of all components on one figure
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-83
+.. GENERATED FROM PYTHON SOURCE LINES 74-80
 
 .. code-block:: Python
 
@@ -215,15 +213,15 @@ To visualize we plot the outline of all components on one figure
     linewidths is ignored by contourf
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f4232c4d700>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6c4605c320>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 81-82
 
 Finally, we plot the map for each :term:`ICA` component separately
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-98
+.. GENERATED FROM PYTHON SOURCE LINES 82-95
 
 .. code-block:: Python
 
@@ -390,7 +388,7 @@ Finally, we plot the map for each :term:`ICA` component separately
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-111
+.. GENERATED FROM PYTHON SOURCE LINES 96-105
 
 Compare :term:`CanICA` to dictionary learning
 ---------------------------------------------
@@ -399,17 +397,14 @@ for extracting spatial maps. It extracts maps that are naturally sparse
 and usually cleaner than :term:`ICA`. Here, we will compare networks built
 with :term:`CanICA` to networks built with :term:`Dictionary learning`.
 
-   * Arthur Mensch et al. `Compressed online dictionary
-     learning for fast resting-state fMRI decomposition
-     <https://hal.archives-ouvertes.fr/hal-01271033/>`_,
-     ISBI 2016, Lecture Notes in Computer Science
+For more detailse see :footcite:t:`Mensch2016`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-115
+.. GENERATED FROM PYTHON SOURCE LINES 108-109
 
 Create a dictionary learning estimator
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-141
+.. GENERATED FROM PYTHON SOURCE LINES 109-135
 
 .. code-block:: Python
 
@@ -481,15 +476,15 @@ Create a dictionary learning estimator
     [{self.__class__.__name__}.fit] Computing mask
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     /opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f4250502ac0>, mask_type='whole-brain'), ignore list will not work.
+    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7f6c41c6ede0>, mask_type='whole-brain'), ignore list will not work.
 
     [MultiNiftiMasker.transform] Resampling mask
     [DictLearning] Loading data
@@ -499,7 +494,7 @@ Create a dictionary learning estimator
     randomized_svd(array([[-0.001315, ...,  0.004387],
            ...,
            [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-    ___________________________________________________randomized_svd - 0.5s, 0.0min
+    ___________________________________________________randomized_svd - 0.7s, 0.0min
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
     [DictLearning] Computing initial loadings
     ________________________________________________________________________________
@@ -526,13 +521,13 @@ Create a dictionary learning estimator
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-145
+.. GENERATED FROM PYTHON SOURCE LINES 136-139
 
 Visualize the results
 
 First plot all DictLearning components together
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-150
+.. GENERATED FROM PYTHON SOURCE LINES 139-144
 
 .. code-block:: Python
 
@@ -559,15 +554,15 @@ First plot all DictLearning components together
     linewidths is ignored by contourf
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f423fe40740>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f6c4607c320>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-152
+.. GENERATED FROM PYTHON SOURCE LINES 145-146
 
 One plot of each component
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-162
+.. GENERATED FROM PYTHON SOURCE LINES 146-156
 
 .. code-block:: Python
 
@@ -731,14 +726,14 @@ One plot of each component
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-167
+.. GENERATED FROM PYTHON SOURCE LINES 157-161
 
 Estimate explained variance per component and plot using matplotlib
 
 The fitted object `dict_learning` can be used
 to calculate the score per component
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-185
+.. GENERATED FROM PYTHON SOURCE LINES 161-179
 
 .. code-block:: Python
 
@@ -785,12 +780,12 @@ to calculate the score per component
 
     Persisting input arguments took 1.30s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
 
-    ______________________________________________explained_variance - 15.2s, 0.3min
+    ______________________________________________explained_variance - 16.1s, 0.3min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-192
+.. GENERATED FROM PYTHON SOURCE LINES 180-186
 
 .. note::
 
@@ -799,12 +794,19 @@ to calculate the score per component
     extraction using dictionary learning and functional connectomes
     <sphx_glr_auto_examples_03_connectivity_plot_extract_regions_dictlearning_maps.py>`.
 
+.. GENERATED FROM PYTHON SOURCE LINES 188-192
+
+References
+----------
+
+ .. footbibliography::
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (2 minutes 40.687 seconds)
+   **Total running time of the script:** (2 minutes 43.964 seconds)
 
-**Estimated memory usage:**  2934 MB
+**Estimated memory usage:**  2898 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_compare_decomposition.py:

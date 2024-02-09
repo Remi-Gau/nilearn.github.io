@@ -18,7 +18,6 @@
 .. _sphx_glr_auto_examples_02_decoding_plot_simulated_data.py:
 
 
-================================================
 Example of pattern recognition on simulated data
 ================================================
 
@@ -26,8 +25,8 @@ This example simulates data according to a very simple sketch of brain
 imaging data and applies machine learning techniques to predict output
 values.
 
-We use a very simple generating function to simulate data, as in `Michel
-et al. 2012 <https://doi.org/10.1109/TMI.2011.2113378>`_ , a linear
+We use a very simple generating function to simulate data,
+as in :footcite:t:`Michel2011`, a linear
 model with a random design matrix **X**:
 
 .. math::
@@ -44,7 +43,7 @@ model with a random design matrix **X**:
 
 * **e** is random normal noise.
 
-.. GENERATED FROM PYTHON SOURCE LINES 29-53
+.. GENERATED FROM PYTHON SOURCE LINES 28-52
 
 .. code-block:: Python
 
@@ -79,12 +78,12 @@ model with a random design matrix **X**:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-56
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 A function to generate data
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-100
+.. GENERATED FROM PYTHON SOURCE LINES 55-99
 
 .. code-block:: Python
 
@@ -139,12 +138,12 @@ A function to generate data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-103
+.. GENERATED FROM PYTHON SOURCE LINES 100-102
 
 A simple function to plot slices
 --------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-124
+.. GENERATED FROM PYTHON SOURCE LINES 102-123
 
 .. code-block:: Python
 
@@ -176,12 +175,12 @@ A simple function to plot slices
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 125-127
+.. GENERATED FROM PYTHON SOURCE LINES 124-126
 
 Create data
 -----------
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-145
+.. GENERATED FROM PYTHON SOURCE LINES 126-144
 
 .. code-block:: Python
 
@@ -221,7 +220,7 @@ Create data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-166
+.. GENERATED FROM PYTHON SOURCE LINES 145-165
 
 Run different estimators
 ------------------------
@@ -244,7 +243,7 @@ Note that the `RidgeCV` and the `ElasticNetCV` have names ending in `CV`
 that stands for `cross-validation`: in the list of possible `alpha`
 values that they are given, they choose the best by cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 166-192
+.. GENERATED FROM PYTHON SOURCE LINES 165-191
 
 .. code-block:: Python
 
@@ -281,7 +280,7 @@ values that they are given, they choose the best by cross-validation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 193-200
+.. GENERATED FROM PYTHON SOURCE LINES 192-199
 
 Run the estimators
 ------------------
@@ -291,7 +290,7 @@ a for loop: they all have a `fit` method for fitting the data, a `score`
 method to retrieve the prediction score, and because they are all linear
 models, a `coef_` attribute that stores the coefficients **w** estimated
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-245
+.. GENERATED FROM PYTHON SOURCE LINES 199-244
 
 .. code-block:: Python
 
@@ -349,21 +348,21 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
-         :alt: bayesian_ridge: prediction score 0.114, training time: 0.16s
+         :alt: bayesian_ridge: prediction score 0.114, training time: 0.17s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_002.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
-         :alt: enet_cv: prediction score 0.528, training time: 0.21s
+         :alt: enet_cv: prediction score 0.528, training time: 0.20s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_003.png
          :class: sphx-glr-multi-img
 
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
-         :alt: ridge_cv: prediction score 0.328, training time: 0.05s
+         :alt: ridge_cv: prediction score 0.328, training time: 0.04s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_004.png
          :class: sphx-glr-multi-img
 
@@ -377,7 +376,7 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
     *
 
       .. image-sg:: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
-         :alt: SearchLight: training time: 4.51s
+         :alt: SearchLight: training time: 4.48s
          :srcset: /auto_examples/02_decoding/images/sphx_glr_plot_simulated_data_006.png
          :class: sphx-glr-multi-img
 
@@ -393,18 +392,18 @@ models, a `coef_` attribute that stores the coefficients **w** estimated
 
  .. code-block:: none
 
-    bayesian_ridge: prediction score 0.114, training time: 0.16s
-    enet_cv: prediction score 0.528, training time: 0.21s
-    ridge_cv: prediction score 0.328, training time: 0.05s
+    bayesian_ridge: prediction score 0.114, training time: 0.17s
+    enet_cv: prediction score 0.528, training time: 0.20s
+    ridge_cv: prediction score 0.328, training time: 0.04s
     svr: prediction score 0.345, training time: 0.00s
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
     [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:    3.9s finished
-    SearchLight: training time: 4.51s
+    SearchLight: training time: 4.48s
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 246-256
+.. GENERATED FROM PYTHON SOURCE LINES 245-255
 
 An exercise to go further
 -------------------------
@@ -417,7 +416,7 @@ Read the object's documentation to find out how to use RFE.
 **Performance tip**: increase the `step` parameter, or it will be very
 slow.
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-258
+.. GENERATED FROM PYTHON SOURCE LINES 255-259
 
 .. code-block:: Python
 
@@ -431,9 +430,18 @@ slow.
 
 
 
+
+.. GENERATED FROM PYTHON SOURCE LINES 260-264
+
+References
+----------
+
+ .. footbibliography::
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.992 seconds)
+   **Total running time of the script:** (0 minutes 6.869 seconds)
 
 **Estimated memory usage:**  12 MB
 

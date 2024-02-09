@@ -7,10 +7,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/01_plotting/plot_surf_stat_map.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="The dataset that is a subset of the enhanced NKI Rockland sample ( https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012) Resting state fMRI scans (TR=645ms) of 102 subjects were ..." />
+<meta property="og:description" content="The dataset that is a subset of the enhanced NKI Rockland sample ( https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al. 1) Resting state fMRI scans (TR=645ms) of 102 subjects were pre..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="The dataset that is a subset of the enhanced NKI Rockland sample ( https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al, 2012) Resting state fMRI scans (TR=645ms) of 102 subjects were ..." />
+<meta name="description" content="The dataset that is a subset of the enhanced NKI Rockland sample ( https://fcon_1000.projects.nitrc.org/indi/enhanced/, Nooner et al. 1) Resting state fMRI scans (TR=645ms) of 102 subjects were pre..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Decoding and predicting from brain images" href="../02_decoding/index.html" /><link rel="prev" title="Glass brain plotting in nilearn (all options)" href="plot_demo_glass_brain_extensive.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -754,14 +754,15 @@ to download the full example code or to run this example in your browser via Bin
 <section class="sphx-glr-example-title" id="seed-based-connectivity-on-the-surface">
 <span id="sphx-glr-auto-examples-01-plotting-plot-surf-stat-map-py"></span><h1>Seed-based connectivity on the surface<a class="headerlink" href="#seed-based-connectivity-on-the-surface" title="Link to this heading">#</a></h1>
 <p>The dataset that is a subset of the enhanced NKI Rockland sample
-(<a class="reference external" href="https://fcon_1000.projects.nitrc.org/indi/enhanced/">https://fcon_1000.projects.nitrc.org/indi/enhanced/</a>, Nooner et al, 2012)</p>
+(<a class="reference external" href="https://fcon_1000.projects.nitrc.org/indi/enhanced/">https://fcon_1000.projects.nitrc.org/indi/enhanced/</a>,
+Nooner <em>et al.</em><a class="footnote-reference brackets" href="#footcite-nooner2012" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>)</p>
 <p>Resting state <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> scans (TR=645ms) of 102 subjects were preprocessed
 (<a class="reference external" href="https://github.com/fliem/nki_nilearn">https://github.com/fliem/nki_nilearn</a>) and projected onto the Freesurfer
-fsaverage5 template (Dale et al, 1999, Fischl et al, 1999). For this example
-we use the time series of a single subject’s left hemisphere.</p>
-<p>The Destrieux parcellation (Destrieux et al, 2010) in fsaverage5 space as
-distributed with Freesurfer is used to select a seed region in the posterior
-cingulate cortex.</p>
+fsaverage5 template (Dale <em>et al.</em><a class="footnote-reference brackets" href="#footcite-dale1999" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and  Fischl <em>et al.</em><a class="footnote-reference brackets" href="#footcite-fischl1999b" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>).
+For this example we use the time series of a single subject’s left hemisphere.</p>
+<p>The Destrieux parcellation (Destrieux <em>et al.</em><a class="footnote-reference brackets" href="#footcite-destrieux2010" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>)
+in fsaverage5 space as distributed with Freesurfer
+is used to select a seed region in the posterior cingulate cortex.</p>
 <p>Functional connectivity of the seed region to all other cortical nodes in the
 same hemisphere is calculated using Pearson product-moment correlation
 coefficient.</p>
@@ -769,21 +770,6 @@ coefficient.</p>
 to plot the resulting statistical map on the (inflated) pial surface.</p>
 <p>See also <a class="reference internal" href="../03_connectivity/plot_seed_to_voxel_correlation.html#sphx-glr-auto-examples-03-connectivity-plot-seed-to-voxel-correlation-py"><span class="std std-ref">for a similar example but using volumetric input data</span></a>.</p>
 <p>See <a class="reference internal" href="../../plotting/index.html#plotting"><span class="std std-ref">Plotting brain images</span></a> for more details on plotting tools.</p>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
-<p>Nooner et al, (2012). The NKI-Rockland Sample: A model for accelerating the
-pace of discovery science in psychiatry. Frontiers in neuroscience 6, 152.
-URL <a class="reference external" href="https://doi.org/10.3389/fnins.2012.00152">https://doi.org/10.3389/fnins.2012.00152</a></p>
-<p>Dale et al, (1999). Cortical surface-based analysis.I. Segmentation and
-surface reconstruction. Neuroimage 9.
-URL <a class="reference external" href="https://doi.org/10.1006/nimg.1998.0395">https://doi.org/10.1006/nimg.1998.0395</a></p>
-<p>Fischl et al, (1999). Cortical surface-based analysis. II: Inflation,
-flattening, and a surface-based coordinate system. Neuroimage 9.
-<a class="reference external" href="https://doi.org/10.1006/nimg.1998.0396">https://doi.org/10.1006/nimg.1998.0396</a></p>
-<p>Destrieux et al, (2010). Automatic parcellation of human cortical gyri and
-sulci using standard anatomical nomenclature. NeuroImage, 53, 1.
-URL <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2010.06.010">https://doi.org/10.1016/j.neuroimage.2010.06.010</a>.</p>
-</section>
 <section id="retrieving-the-data">
 <h2>Retrieving the data<a class="headerlink" href="#retrieving-the-data" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NKI resting state data from nilearn</span>
@@ -861,7 +847,7 @@ Fsaverage5 curvature map of left hemisphere is at: /opt/hostedtoolcache/Python/3
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">stat_map</span></a><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.where.html#numpy.where" title="numpy.where" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">where</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean" title="numpy.mean" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">mean</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">timeseries</span></a><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/nilearn/nilearn/examples/01_plotting/plot_surf_stat_map.py:114: ConstantInputWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/nilearn/nilearn/examples/01_plotting/plot_surf_stat_map.py:96: ConstantInputWarning:
 
 An input array is constant; the correlation coefficient is not defined.
 </pre></div>
@@ -964,7 +950,32 @@ creating the figure</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Output will be saved to: /home/runner/work/nilearn/nilearn/examples/01_plotting/results/plot_surf_stat_map
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 18.149 seconds)</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><div class="docutils container" id="id5">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-nooner2012" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Kate Nooner, Stanley Colcombe, Russell Tobe, Maarten Mennes, Melissa Benedict, Alexis Moreno, Laura Panek, Shaquanna Brown, Stephen Zavitz, Qingyang Li, Sharad Sikka, David Gutman, Saroja Bangaru, Rochelle Tziona Schlachter, Stephanie Kamiel, Ayesha Anwar, Caitlin Hinz, Michelle Kaplan, Anna Rachlin, Samantha Adelsberg, Brian Cheung, Ranjit Khanuja, Chaogan Yan, Cameron Craddock, Vincent Calhoun, William Courtney, Margaret King, Dylan Wood, Christine Cox, Clare Kelly, Adriana DiMartino, Eva Petkova, Philip Reiss, Nancy Duan, Dawn Thompsen, Bharat Biswal, Barbara Coffey, Matthew Hoptman, Daniel Javitt, Nunzio Pomara, John Sidtis, Harold Koplewicz, Francisco Castellanos, Bennett Leventhal, and Michael Milham. The nki-rockland sample: a model for accelerating the pace of discovery science in psychiatry. <em>Frontiers in Neuroscience</em>, 6:152, 2012. URL: <a class="reference external" href="https://www.frontiersin.org/article/10.3389/fnins.2012.00152">https://www.frontiersin.org/article/10.3389/fnins.2012.00152</a>, <a class="reference external" href="https://doi.org/10.3389/fnins.2012.00152">doi:10.3389/fnins.2012.00152</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-dale1999" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Anders M. Dale, Bruce Fischl, and Martin I. Sereno. Cortical surface-based analysis: i. segmentation and surface reconstruction. <em>NeuroImage</em>, 9(2):179–194, 1999. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811998903950">https://www.sciencedirect.com/science/article/pii/S1053811998903950</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1006/nimg.1998.0395">doi:https://doi.org/10.1006/nimg.1998.0395</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-fischl1999b" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Bruce Fischl, Martin I. Sereno, and Anders M. Dale. Cortical surface-based analysis: ii: inflation, flattening, and a surface-based coordinate system. <em>NeuroImage</em>, 9(2):195–207, 1999. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811998903962">https://www.sciencedirect.com/science/article/pii/S1053811998903962</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1006/nimg.1998.0396">doi:https://doi.org/10.1006/nimg.1998.0396</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-destrieux2010" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Christophe Destrieux, Bruce Fischl, Anders Dale, and Eric Halgren. Automatic parcellation of human cortical gyri and sulci using standard anatomical nomenclature. <em>NeuroImage</em>, 53(1):1–15, 2010. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S1053811910008542">https://www.sciencedirect.com/science/article/pii/S1053811910008542</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.neuroimage.2010.06.010">doi:https://doi.org/10.1016/j.neuroimage.2010.06.010</a>.</p>
+</aside>
+</aside>
+</div>
+</div></blockquote>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 17.950 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  275 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-01-plotting-plot-surf-stat-map-py">
 <div class="binder-badge docutils container">
@@ -1043,10 +1054,10 @@ creating the figure</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Seed-based connectivity on the surface</a><ul>
-<li><a class="reference internal" href="#references">References</a></li>
 <li><a class="reference internal" href="#retrieving-the-data">Retrieving the data</a></li>
 <li><a class="reference internal" href="#extracting-the-seed-time-series">Extracting the seed time series</a></li>
 <li><a class="reference internal" href="#calculating-seed-based-functional-connectivity">Calculating seed-based functional connectivity</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>

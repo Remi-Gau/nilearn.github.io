@@ -7,10 +7,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/02_decoding/plot_miyawaki_encoding.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="This example partly reproduces the encoding model presented in, Visual image reconstruction from human brain activity using a combination of multiscale local image decoders, Miyawaki, Y., Uchida, H..." />
+<meta property="og:description" content="This example partly reproduces the encoding model presented in Miyawaki et al. 1. Encoding models try to predict neuronal activity using information from presented stimuli, like an image or sound. ..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="This example partly reproduces the encoding model presented in, Visual image reconstruction from human brain activity using a combination of multiscale local image decoders, Miyawaki, Y., Uchida, H..." />
+<meta name="description" content="This example partly reproduces the encoding model presented in Miyawaki et al. 1. Encoding models try to predict neuronal activity using information from presented stimuli, like an image or sound. ..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Reconstruction of visual stimuli from Miyawaki et al. 2008" href="plot_miyawaki_reconstruction.html" /><link rel="prev" title="Example of pattern recognition on simulated data" href="plot_simulated_data.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -753,20 +753,14 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="encoding-models-for-visual-stimuli-from-miyawaki-et-al-2008">
 <span id="sphx-glr-auto-examples-02-decoding-plot-miyawaki-encoding-py"></span><h1>Encoding models for visual stimuli from Miyawaki et al. 2008<a class="headerlink" href="#encoding-models-for-visual-stimuli-from-miyawaki-et-al-2008" title="Link to this heading">#</a></h1>
-<dl class="simple">
-<dt>This example partly reproduces the encoding model presented in</dt><dd><p><a class="reference external" href="https://doi.org/10.1016/j.neuron.2008.11.004">Visual image reconstruction from human brain activity
-using a combination of multiscale local image decoders</a>,
-Miyawaki, Y., Uchida, H., Yamashita, O., Sato, M. A.,
-Morito, Y., Tanabe, H. C., … &amp; Kamitani, Y. (2008).
-Neuron, 60(5), 915-929.</p>
-</dd>
-</dl>
+<p>This example partly reproduces the encoding model presented
+in Miyawaki <em>et al.</em><a class="footnote-reference brackets" href="#footcite-miyawaki2008" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>Encoding models try to predict neuronal activity using information from
 presented stimuli, like an image or sound. Where decoding goes from
 brain data to real-world stimulus, encoding goes the other direction.</p>
-<p>We demonstrate how to build such an <strong>encoding model</strong> in nilearn, predicting
-<strong>fMRI data</strong> from <strong>visual stimuli</strong>, using the dataset from
-<a class="reference external" href="https://doi.org/10.1016/j.neuron.2008.11.004">Miyawaki et al., 2008</a>.</p>
+<p>We demonstrate how to build such an <strong>encoding model</strong> in nilearn,
+predicting <strong>fMRI data</strong> from <strong>visual stimuli</strong>,
+using the dataset from Miyawaki <em>et al.</em><a class="footnote-reference brackets" href="#footcite-miyawaki2008" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>Participants were shown images, which consisted of random 10x10 binary
 (either black or white) pixels, and the corresponding <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> activity
 was recorded. We will try to predict the activity in each <a class="reference internal" href="../../glossary.html#term-voxel"><span class="xref std std-term">voxel</span></a>
@@ -1060,7 +1054,7 @@ set of regression coefficients.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><a href="https://matplotlib.org/stable/api/image_api.html#matplotlib.image.AxesImage" title="matplotlib.image.AxesImage" class="sphx-glr-backref-module-matplotlib-image sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax_im</span></a><span class="p">,</span> <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="o">=</span><a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="matplotlib.axes.Axes" class="sphx-glr-backref-module-matplotlib-axes sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7f4234fcaf30&gt;
+<img src="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" srcset="../../_images/sphx_glr_plot_miyawaki_encoding_003.png" alt="Receptive fields of the marked voxels" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar object at 0x7f6c45e21a00&gt;
 </pre></div>
 </div>
 <p>The receptive fields of the four voxels are not only close to each other,
@@ -1068,8 +1062,22 @@ the relative location of the pixel each voxel is most sensitive to
 roughly maps to the relative location of the voxels to each other.
 We can see a relationship between some voxel’s receptive field and
 its location in the brain.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.960 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  979 MB</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><div class="docutils container" id="id3">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-miyawaki2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Yoichi Miyawaki, Hajime Uchida, Okito Yamashita, Masa-aki Sato, Yusuke Morito, Hiroki C. Tanabe, Norihiro Sadato, and Yukiyasu Kamitani. Visual image reconstruction from human brain activity using a combination of multiscale local image decoders. <em>Neuron</em>, 60(5):915–929, 2008. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0896627308009586">https://www.sciencedirect.com/science/article/pii/S0896627308009586</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.neuron.2008.11.004">doi:https://doi.org/10.1016/j.neuron.2008.11.004</a>.</p>
+</aside>
+</aside>
+</div>
+</div></blockquote>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.729 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  961 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-miyawaki-encoding-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/02_decoding/plot_miyawaki_encoding.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo2.svg" width="150px" /></a>
@@ -1151,6 +1159,7 @@ its location in the brain.</p>
 <li><a class="reference internal" href="#building-the-encoding-models">Building the encoding models</a></li>
 <li><a class="reference internal" href="#mapping-the-encoding-scores-on-the-brain">Mapping the encoding scores on the brain</a></li>
 <li><a class="reference internal" href="#estimating-receptive-fields">Estimating receptive fields</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>

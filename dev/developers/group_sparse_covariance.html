@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -756,12 +756,7 @@ implementation.</p>
 <h2><span class="section-number">6.2.3.1.1. </span>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
 <p><a class="reference internal" href="../modules/generated/nilearn.connectome.group_sparse_covariance.html#nilearn.connectome.group_sparse_covariance" title="nilearn.connectome.group_sparse_covariance"><code class="xref py py-func docutils literal notranslate"><span class="pre">group_sparse_covariance</span></code></a>, and <a class="reference internal" href="../modules/generated/nilearn.connectome.GroupSparseCovariance.html#nilearn.connectome.GroupSparseCovariance" title="nilearn.connectome.GroupSparseCovariance"><code class="xref py py-class docutils literal notranslate"><span class="pre">GroupSparseCovariance</span></code></a> are
 two different interfaces to an implementation of the algorithm described
-in this article:</p>
-<blockquote>
-<div><p>Jean Honorio and Dimitris Samaras.
-“Simultaneous and Group-Sparse Multi-Task Learning of Gaussian Graphical
-Models”. arXiv:1207.4255 (17 July 2012). https://arxiv.org/abs/1207.4255.</p>
-</div></blockquote>
+in Honorio <em>et al.</em><a class="footnote-reference brackets" href="#footcite-honorio2012" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <p>The goal of the algorithm is to take a set of K covariance matrices as
 input, and estimate a set of K sparse precision matrices, using a
 penalized maximum-likelihood criterion. The penalization has been
@@ -1037,12 +1032,7 @@ alpha. Above a critical value, the optimal precision matrices are
 fully sparse (i.e. diagonal). This critical value depends on the input
 covariance matrices, and can be obtained by <code class="docutils literal notranslate"><span class="pre">compute_alpha_max</span></code>.
 The formula for computing this critical value can be obtained with
-techniques presented in:</p>
-<blockquote>
-<div><p>Duchi, John, Stephen Gould, and Daphne Koller. ‘Projected Subgradient
-Methods for Learning Sparse Gaussians’. ArXiv E-prints 1206 (1 June
-2012): 3249.</p>
-</div></blockquote>
+techniques presented in Duchi <em>et al.</em><a class="footnote-reference brackets" href="#footcite-duchi2012" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>This very same method can be also used for determining a lower
 critical value, for which the optimal precision matrices are fully
 dense (no zero values). In practice, this critical value is zero if
@@ -1136,6 +1126,21 @@ to limit the time spent optimizing in any case.</p>
 case, only the two latter criteria are used. This provides a mean to
 test for the validity of the heuristic.</p>
 </section>
+<section id="references">
+<h3><span class="section-number">6.2.3.1.6.6. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<div class="docutils container" id="id3">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-honorio2012" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Jean Honorio, Tommi Jaakkola, and Dimitris Samaras. On the statistical efficiency of $$\backslash $ell_ $\$1, p$\$ $ multi-task learning of gaussian graphical models. <em>arXiv preprint arXiv:1207.4255</em>, 2012. <a class="reference external" href="https://arxiv.org/abs/https://arxiv.org/abs/1207.4255">arXiv:https://arxiv.org/abs/1207.4255</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-duchi2012" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>John Duchi, Stephen Gould, and Daphne Koller. Projected subgradient methods for learning sparse gaussians. <em>arXiv:1206.3249 [cs, stat]</em>, 06 2012. URL: <a class="reference external" href="https://arxiv.org/abs/1206.3249">https://arxiv.org/abs/1206.3249</a>, <a class="reference external" href="https://arxiv.org/abs/1206.3249">arXiv:1206.3249</a>.</p>
+</aside>
+</aside>
+</div>
+</section>
 </section>
 </section>
 
@@ -1219,6 +1224,7 @@ test for the validity of the heuristic.</p>
 <li><a class="reference internal" href="#iterative-grid-search">6.2.3.1.6.3. Iterative grid search</a></li>
 <li><a class="reference internal" href="#warm-restart">6.2.3.1.6.4. Warm restart</a></li>
 <li><a class="reference internal" href="#stopping-criterion">6.2.3.1.6.5. Stopping criterion</a></li>
+<li><a class="reference internal" href="#references">6.2.3.1.6.6. References</a></li>
 </ul>
 </li>
 </ul>

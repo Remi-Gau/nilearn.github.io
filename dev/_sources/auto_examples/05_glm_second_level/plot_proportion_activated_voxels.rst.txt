@@ -21,16 +21,14 @@
 Second-level fMRI model: true positive proportion in clusters
 =============================================================
 
-This script showcases the so-called "All resolution inference" procedure, in
-which the proportion of true discoveries in arbitrary clusters is estimated.
+This script showcases
+the so-called "All resolution inference" procedure
+(:footcite:t:`Rosenblatt2018`),
+in which the proportion of true discoveries in arbitrary clusters is estimated.
 The clusters can be defined from the input image, i.e. in a circular way, as
 the error control accounts for arbitrary cluster selection.
 
-Rosenblatt JD, Finos L, Weeda WD, Solari A, Goeman JJ. All-Resolutions
-Inference for brain imaging. Neuroimage. 2018 Nov 1;181:786-796. doi:
-10.1016/j.neuroimage.2018.07.060
-
-.. GENERATED FROM PYTHON SOURCE LINES 17-23
+.. GENERATED FROM PYTHON SOURCE LINES 14-20
 
 Fetch dataset
 --------------
@@ -39,7 +37,7 @@ localizer dataset. Note that we fetch individual t-maps that represent the
 :term:`BOLD` activity estimate divided
 by the uncertainty about this estimate.
 
-.. GENERATED FROM PYTHON SOURCE LINES 23-31
+.. GENERATED FROM PYTHON SOURCE LINES 20-28
 
 .. code-block:: Python
 
@@ -58,14 +56,14 @@ by the uncertainty about this estimate.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-36
+.. GENERATED FROM PYTHON SOURCE LINES 29-33
 
 Estimate second level model
 ---------------------------
 We define the input maps and the design matrix for the second level model
 and fit it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-43
+.. GENERATED FROM PYTHON SOURCE LINES 33-40
 
 .. code-block:: Python
 
@@ -83,11 +81,11 @@ and fit it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-45
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Model specification and fit
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-52
+.. GENERATED FROM PYTHON SOURCE LINES 42-49
 
 .. code-block:: Python
 
@@ -105,12 +103,12 @@ Model specification and fit
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 50-52
 
 To estimate the :term:`contrast` is very simple.
 We can just provide the column name of the design matrix.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-57
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
 
 .. code-block:: Python
 
@@ -123,12 +121,12 @@ We can just provide the column name of the design matrix.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-60
+.. GENERATED FROM PYTHON SOURCE LINES 55-57
 
 We threshold the second level :term:`contrast`
 at uncorrected p < 0.001 and plot
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-91
+.. GENERATED FROM PYTHON SOURCE LINES 57-89
 
 .. code-block:: Python
 
@@ -166,6 +164,7 @@ at uncorrected p < 0.001 and plot
 
 
 
+
 .. rst-class:: sphx-glr-horizontal
 
 
@@ -187,10 +186,17 @@ at uncorrected p < 0.001 and plot
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 90-94
+
+References
+----------
+
+ .. footbibliography::
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.376 seconds)
+   **Total running time of the script:** (0 minutes 6.354 seconds)
 
 **Estimated memory usage:**  9 MB
 

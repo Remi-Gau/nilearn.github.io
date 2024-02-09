@@ -7,10 +7,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://nilearn.github.io/auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html" />
 <meta property="og:site_name" content="Nilearn" />
-<meta property="og:description" content="This script showcases the so-called “All resolution inference” procedure, in which the proportion of true discoveries in arbitrary clusters is estimated. The clusters can be defined from the input ..." />
+<meta property="og:description" content="This script showcases the so-called “All resolution inference” procedure ( Rosenblatt et al. 1), in which the proportion of true discoveries in arbitrary clusters is estimated. The clusters can be ..." />
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
-<meta name="description" content="This script showcases the so-called “All resolution inference” procedure, in which the proportion of true discoveries in arbitrary clusters is estimated. The clusters can be defined from the input ..." />
+<meta name="description" content="This script showcases the so-called “All resolution inference” procedure ( Rosenblatt et al. 1), in which the proportion of true discoveries in arbitrary clusters is estimated. The clusters can be ..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Statistical testing of a second-level analysis" href="plot_thresholding.html" /><link rel="prev" title="Example of second level design matrix" href="plot_second_level_design_matrix.html" />
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev11+g1c90f3fc) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev12+g0460f444) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -753,13 +753,12 @@ to download the full example code or to run this example in your browser via Bin
 </div>
 <section class="sphx-glr-example-title" id="second-level-fmri-model-true-positive-proportion-in-clusters">
 <span id="sphx-glr-auto-examples-05-glm-second-level-plot-proportion-activated-voxels-py"></span><h1>Second-level fMRI model: true positive proportion in clusters<a class="headerlink" href="#second-level-fmri-model-true-positive-proportion-in-clusters" title="Link to this heading">#</a></h1>
-<p>This script showcases the so-called “All resolution inference” procedure, in
-which the proportion of true discoveries in arbitrary clusters is estimated.
+<p>This script showcases
+the so-called “All resolution inference” procedure
+(Rosenblatt <em>et al.</em><a class="footnote-reference brackets" href="#footcite-rosenblatt2018" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>),
+in which the proportion of true discoveries in arbitrary clusters is estimated.
 The clusters can be defined from the input image, i.e. in a circular way, as
 the error control accounts for arbitrary cluster selection.</p>
-<p>Rosenblatt JD, Finos L, Weeda WD, Solari A, Goeman JJ. All-Resolutions
-Inference for brain imaging. Neuroimage. 2018 Nov 1;181:786-796. doi:
-10.1016/j.neuroimage.2018.07.060</p>
 <section id="fetch-dataset">
 <h2>Fetch dataset<a class="headerlink" href="#fetch-dataset" title="Link to this heading">#</a></h2>
 <p>We download a list of left vs right button press contrasts from a
@@ -842,7 +841,20 @@ at uncorrected p &lt; 0.001 and plot</p>
 <li><img src="../../_images/sphx_glr_plot_proportion_activated_voxels_001.png" srcset="../../_images/sphx_glr_plot_proportion_activated_voxels_001.png" alt="plot proportion activated voxels" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_proportion_activated_voxels_002.png" srcset="../../_images/sphx_glr_plot_proportion_activated_voxels_002.png" alt="plot proportion activated voxels" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.376 seconds)</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><div class="docutils container" id="id2">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-rosenblatt2018" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Jonathan D. Rosenblatt, Livio Finos, Wouter D. Weeda, Aldo Solari, and Jelle J. Goeman. All-resolutions inference for brain imaging. <em>NeuroImage</em>, 181:786–796, November 2018. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2018.07.060">doi:10.1016/j.neuroimage.2018.07.060</a>.</p>
+</aside>
+</aside>
+</div>
+</div></blockquote>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.354 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-proportion-activated-voxels-py">
 <div class="binder-badge docutils container">
@@ -923,6 +935,7 @@ at uncorrected p &lt; 0.001 and plot</p>
 <li><a class="reference internal" href="#">Second-level fMRI model: true positive proportion in clusters</a><ul>
 <li><a class="reference internal" href="#fetch-dataset">Fetch dataset</a></li>
 <li><a class="reference internal" href="#estimate-second-level-model">Estimate second level model</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
