@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev36+g638648ba) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev34+g58f12585) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -768,23 +768,23 @@ extract objects using a function
 utilities</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_neurovault_auditory_computation_task.html#nilearn.datasets.fetch_neurovault_auditory_computation_task" title="nilearn.datasets.fetch_neurovault_auditory_computation_task" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_neurovault_auditory_computation_task</span></a><span class="p">()</span>
-<a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">localizer</span><span class="o">.</span><span class="n">images</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">localizer</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_neurovault_auditory_computation_task</span><span class="p">()</span>
+<span class="n">tmap_filename</span> <span class="o">=</span> <span class="n">localizer</span><span class="o">.</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Threshold the t-statistic image by importing threshold function</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.threshold_img.html#nilearn.image.threshold_img" title="nilearn.image.threshold_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">threshold_img</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">threshold_img</span>
 
 <span class="c1"># Two types of strategies can be used from this threshold function</span>
 <span class="c1"># Type 1: strategy used will be based on scoreatpercentile</span>
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_percentile_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.threshold_img.html#nilearn.image.threshold_img" title="nilearn.image.threshold_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">threshold_img</span></a><span class="p">(</span>
-    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;97%&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">threshold_percentile_img</span> <span class="o">=</span> <span class="n">threshold_img</span><span class="p">(</span>
+    <span class="n">tmap_filename</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="s2">&quot;97%&quot;</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
 
 <span class="c1"># Type 2: threshold strategy used will be based on image intensity</span>
 <span class="c1"># Here, threshold value should be within the limits i.e. less than max value.</span>
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_value_img</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.image.threshold_img.html#nilearn.image.threshold_img" title="nilearn.image.threshold_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">threshold_img</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">threshold_value_img</span> <span class="o">=</span> <span class="n">threshold_img</span><span class="p">(</span><span class="n">tmap_filename</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Visualization
@@ -792,20 +792,20 @@ Showing thresholding results by importing plotting modules and its utilities</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
 
 <span class="c1"># Showing percentile threshold image</span>
-<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_percentile_img</span></a><span class="p">,</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span>
+    <span class="n">threshold_percentile_img</span><span class="p">,</span>
     <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
     <span class="n">cut_coords</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="s2">&quot;Threshold image with string percentile&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Threshold image with string percentile&quot;</span><span class="p">,</span>
     <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># Showing intensity threshold image</span>
-<a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_value_img</span></a><span class="p">,</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_stat_map</span><span class="p">(</span>
+    <span class="n">threshold_value_img</span><span class="p">,</span>
     <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
     <span class="n">cut_coords</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><span class="s2">&quot;Threshold image with intensity value&quot;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Threshold image with intensity value&quot;</span><span class="p">,</span>
     <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -814,44 +814,44 @@ Showing thresholding results by importing plotting modules and its utilities</p>
 <li><img src="../../_images/sphx_glr_plot_extract_rois_statistical_maps_001.png" srcset="../../_images/sphx_glr_plot_extract_rois_statistical_maps_001.png" alt="plot extract rois statistical maps" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_extract_rois_statistical_maps_002.png" srcset="../../_images/sphx_glr_plot_extract_rois_statistical_maps_002.png" alt="plot extract rois statistical maps" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x7d11b217a660&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer object at 0x74b8f5f69e50&gt;
 </pre></div>
 </div>
 <p>Extracting the regions by importing connected regions function</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.regions</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.regions.connected_regions.html#nilearn.regions.connected_regions" title="nilearn.regions.connected_regions" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-function"><span class="n">connected_regions</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.regions</span> <span class="kn">import</span> <span class="n">connected_regions</span>
 
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_percentile_img</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">index</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.connected_regions.html#nilearn.regions.connected_regions" title="nilearn.regions.connected_regions" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-function"><span class="n">connected_regions</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_percentile_img</span></a><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">1500</span>
+<span class="n">regions_percentile_img</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">connected_regions</span><span class="p">(</span>
+    <span class="n">threshold_percentile_img</span><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">1500</span>
 <span class="p">)</span>
 
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_value_img</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">index</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.regions.connected_regions.html#nilearn.regions.connected_regions" title="nilearn.regions.connected_regions" class="sphx-glr-backref-module-nilearn-regions sphx-glr-backref-type-py-function"><span class="n">connected_regions</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">threshold_value_img</span></a><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">1500</span>
+<span class="n">regions_value_img</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">connected_regions</span><span class="p">(</span>
+    <span class="n">threshold_value_img</span><span class="p">,</span> <span class="n">min_region_size</span><span class="o">=</span><span class="mi">1500</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 <p>Visualizing region extraction results</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images</span></a> <span class="o">=</span> <span class="p">[</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_percentile_img</span></a><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">regions_value_img</span></a><span class="p">]</span>
-<span class="k">for</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">strategy</span></a> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">images</span></a><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;image intensity&quot;</span><span class="p">]):</span>
-    <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a> <span class="o">=</span> <span class="p">(</span>
-        <span class="sa">f</span><span class="s2">&quot;ROIs using </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">strategy</span></a><span class="si">}</span><span class="s2"> thresholding. &quot;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">regions_percentile_img</span><span class="p">,</span> <span class="n">regions_value_img</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">image</span><span class="p">,</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;image intensity&quot;</span><span class="p">]):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;ROIs using </span><span class="si">{</span><span class="n">strategy</span><span class="si">}</span><span class="s2"> thresholding. &quot;</span>
         <span class="s2">&quot;Each ROI in same color is an extracted region&quot;</span>
     <span class="p">)</span>
-    <a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">plot_prob_atlas</span></a><span class="p">(</span>
-        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">image</span></a><span class="p">,</span>
-        <span class="n">bg_img</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmap_filename</span></a><span class="p">,</span>
+    <span class="n">plotting</span><span class="o">.</span><span class="n">plot_prob_atlas</span><span class="p">(</span>
+        <span class="n">image</span><span class="p">,</span>
+        <span class="n">bg_img</span><span class="o">=</span><span class="n">tmap_filename</span><span class="p">,</span>
         <span class="n">view_type</span><span class="o">=</span><span class="s2">&quot;contours&quot;</span><span class="p">,</span>
         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
         <span class="n">cut_coords</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-        <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">title</span></a><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
     <span class="p">)</span>
-<a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <ul class="sphx-glr-horizontal">
 <li><img src="../../_images/sphx_glr_plot_extract_rois_statistical_maps_003.png" srcset="../../_images/sphx_glr_plot_extract_rois_statistical_maps_003.png" alt="plot extract rois statistical maps" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_extract_rois_statistical_maps_004.png" srcset="../../_images/sphx_glr_plot_extract_rois_statistical_maps_004.png" alt="plot extract rois statistical maps" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.663 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 9.161 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  9 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-06-manipulating-images-plot-extract-rois-statistical-maps-py">
 <div class="binder-badge docutils container">

@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.4.dev36+g638648ba) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.4.dev34+g58f12585) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.3)</span></a></p> 
   </aside>
 </div>
 
@@ -775,14 +775,118 @@ an explicit model of the signal.</p>
 <h2>Load brain development <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> dataset<a class="headerlink" href="#load-brain-development-fmri-dataset" title="Link to this heading">#</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span></a>  <span class="c1"># list of 4D nifti files for each subject</span>
+<span class="n">rest_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_development_fmri</span><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">func_filenames</span> <span class="o">=</span> <span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span>  <span class="c1"># list of 4D nifti files for each subject</span>
 
 <span class="c1"># print basic information on the dataset</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First functional nifti image (4D) is at: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First functional nifti image (4D) is at: </span><span class="si">{</span><span class="n">rest_dataset</span><span class="o">.</span><span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>First functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading data from https://osf.io/download/5c8ff3e14712b400183b7097/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e32286e80018c3e42c/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e4a743a9001760814f/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e54712b400183b70a5/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e52286e80018c3e439/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e72286e80017c41b3d/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e9a743a90017608158/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3e82286e80018c3e443/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3ea4712b400183b70b7/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3eb2286e80019c3c194/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff37e2286e80016c3c2cb/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3832286e80019c3c10f/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3822286e80018c3e37b/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff382a743a90018606df8/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3814712b4001a3b5561/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3832286e80016c3c2d1/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3842286e80017c419e0/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3854712b4001a3b5568/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb4702f39926900171090ee/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e8b353c58001c9abe98/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3872286e80017c419ea/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3872286e80017c419e9/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3884712b400183b7023/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3884712b400193b5b5c/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff389a743a9001660a016/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38c2286e80016c3c2da/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38ca743a90018606dfe/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38ca743a9001760809e/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb47056353c58001c9ac064/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e5af2be3c001801f799/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb4703bf2be3c001801fa49/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e92a3bc970019f0717f/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38c4712b4001a3b5573/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38da743a900176080a2/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb47016a3bc970017efe44f/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e43f2be3c0017056b8a/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb470413992690018133d8c/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e9a353c58001c9abeac/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff38f2286e80018c3e38d/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3914712b4001a3b5579/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb4702a353c58001b9cb5ae/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e9b39926900190fad5c/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff391a743a900176080a9/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3914712b400173b5329/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb47023353c58001c9ac02b/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46eaa39926900160f69af/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3912286e80018c3e393/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5c8ff3952286e80017c41a1b/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb47045a3bc970019f073a0/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e913992690018133b1c/ ...
+ ...done. (1 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb47052f2be3c0017057069/ ...
+ ...done. (2 seconds, 0 min)
+Downloading data from https://osf.io/download/5cb46e5c353c5800199ac79f/ ...
+ ...done. (1 seconds, 0 min)
+First functional nifti image (4D) is at: /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 </pre></div>
 </div>
 </section>
@@ -791,9 +895,9 @@ an explicit model of the signal.</p>
 <p>We use “whole-brain-template” as a strategy to compute the mask,
 as this leads to slightly faster and more reproducible results.
 However, the images need to be in <a class="reference internal" href="../../glossary.html#term-MNI"><span class="xref std std-term">MNI</span></a> template space.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decomposition</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA" title="nilearn.decomposition.CanICA" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class"><span class="n">CanICA</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decomposition</span> <span class="kn">import</span> <span class="n">CanICA</span>
 
-<a href="../../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA" title="nilearn.decomposition.CanICA" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">canica</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA" title="nilearn.decomposition.CanICA" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class"><span class="n">CanICA</span></a><span class="p">(</span>
+<span class="n">canica</span> <span class="o">=</span> <span class="n">CanICA</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">memory_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -803,19 +907,19 @@ However, the images need to be in <a class="reference internal" href="../../glos
     <span class="n">standardize</span><span class="o">=</span><span class="s2">&quot;zscore_sample&quot;</span><span class="p">,</span>
     <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
-<a href="../../modules/generated/nilearn.decomposition.CanICA.html#nilearn.decomposition.CanICA.fit" title="nilearn.decomposition.CanICA.fit" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-method"><span class="n">canica</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a><span class="p">)</span>
+<span class="n">canica</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">func_filenames</span><span class="p">)</span>
 
 <span class="c1"># Retrieve the independent components in brain space. Directly</span>
 <span class="c1"># accessible through attribute `components_img_`.</span>
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">canica_components_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">canica</span><span class="o">.</span><span class="n">components_img_</span></a>
+<span class="n">canica_components_img</span> <span class="o">=</span> <span class="n">canica</span><span class="o">.</span><span class="n">components_img_</span>
 <span class="c1"># components_img is a Nifti Image object, and can be saved to a file with</span>
 <span class="c1"># the following lines:</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.cwd" title="pathlib.Path.cwd" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span></a><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;results&quot;</span> <span class="o">/</span> <span class="s2">&quot;plot_compare_decomposition&quot;</span>
-<a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.mkdir" title="pathlib.Path.mkdir" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span></a><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output will be saved to: </span><span class="si">{</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a href="https://nipy.org/nibabel/reference/nibabel.filebasedimages.html#nibabel.filebasedimages.FileBasedImage.to_filename" title="nibabel.filebasedimages.FileBasedImage.to_filename" class="sphx-glr-backref-module-nibabel-filebasedimages sphx-glr-backref-type-py-method"><span class="n">canica_components_img</span><span class="o">.</span><span class="n">to_filename</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;canica_resting_state.nii.gz&quot;</span><span class="p">)</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;results&quot;</span> <span class="o">/</span> <span class="s2">&quot;plot_compare_decomposition&quot;</span>
+<span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output will be saved to: </span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">canica_components_img</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="n">output_dir</span> <span class="o">/</span> <span class="s2">&quot;canica_resting_state.nii.gz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
@@ -851,16 +955,16 @@ However, the images need to be in <a class="reference internal" href="../../glos
 [{self.__class__.__name__}.fit] Computing mask
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 Template whole-brain mask computation
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [CanICA] Loading data
@@ -871,17 +975,17 @@ randomized_svd(array([[0.003659, ..., 0.013254],
        [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
 ___________________________________________________randomized_svd - 0.5s, 0.0min
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    3.9s
+[Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:    4.3s
 [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:    8.3s
-[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   20.3s finished
+[Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:   20.6s finished
 Output will be saved to: /home/runner/work/nilearn/nilearn/examples/03_connectivity/results/plot_compare_decomposition
 </pre></div>
 </div>
 <p>To visualize we plot the outline of all components on one figure</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_prob_atlas</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_prob_atlas</span>
 
 <span class="c1"># Plot all ICA components together</span>
-<a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_prob_atlas</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">canica_components_img</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;All ICA components&quot;</span><span class="p">)</span>
+<span class="n">plot_prob_atlas</span><span class="p">(</span><span class="n">canica_components_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;All ICA components&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_compare_decomposition_001.png" srcset="../../_images/sphx_glr_plot_compare_decomposition_001.png" alt="plot compare decomposition" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/numpy/ma/core.py:2820: UserWarning:
@@ -893,18 +997,18 @@ Warning: converting a masked element to nan.
 linewidths is ignored by contourf
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7d11c5d84e60&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x74b917e6a510&gt;
 </pre></div>
 </div>
 <p>Finally, we plot the map for each <a class="reference internal" href="../../glossary.html#term-ICA"><span class="xref std std-term">ICA</span></a> component separately</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.iter_img.html#nilearn.image.iter_img" title="nilearn.image.iter_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">iter_img</span></a>
-<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">,</span> <a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <span class="n">iter_img</span>
+<span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <span class="n">plot_stat_map</span><span class="p">,</span> <span class="n">show</span>
 
-<span class="k">for</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><a href="../../modules/generated/nilearn.image.iter_img.html#nilearn.image.iter_img" title="nilearn.image.iter_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">iter_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">canica_components_img</span></a><span class="p">)):</span>
-    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">(</span>
-        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a><span class="p">,</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cur_img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iter_img</span><span class="p">(</span><span class="n">canica_components_img</span><span class="p">)):</span>
+    <span class="n">plot_stat_map</span><span class="p">(</span>
+        <span class="n">cur_img</span><span class="p">,</span>
         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;IC </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;IC </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
         <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span>
@@ -941,9 +1045,9 @@ and usually cleaner than <a class="reference internal" href="../../glossary.html
 with <a class="reference internal" href="../../glossary.html#term-CanICA"><span class="xref std std-term">CanICA</span></a> to networks built with <a class="reference internal" href="../../glossary.html#term-Dictionary-learning"><span class="xref std std-term">Dictionary learning</span></a>.</p>
 <p>For more detailse see Mensch <em>et al.</em><a class="footnote-reference brackets" href="#footcite-mensch2016" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>Create a dictionary learning estimator</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decomposition</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.decomposition.DictLearning.html#nilearn.decomposition.DictLearning" title="nilearn.decomposition.DictLearning" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class"><span class="n">DictLearning</span></a>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.decomposition</span> <span class="kn">import</span> <span class="n">DictLearning</span>
 
-<a href="../../modules/generated/nilearn.decomposition.DictLearning.html#nilearn.decomposition.DictLearning" title="nilearn.decomposition.DictLearning" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dict_learning</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decomposition.DictLearning.html#nilearn.decomposition.DictLearning" title="nilearn.decomposition.DictLearning" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-class"><span class="n">DictLearning</span></a><span class="p">(</span>
+<span class="n">dict_learning</span> <span class="o">=</span> <span class="n">DictLearning</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">memory</span><span class="o">=</span><span class="s2">&quot;nilearn_cache&quot;</span><span class="p">,</span>
     <span class="n">memory_level</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -956,14 +1060,14 @@ with <a class="reference internal" href="../../glossary.html#term-CanICA"><span 
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Example] Fitting dictionary learning model&quot;</span><span class="p">)</span>
-<a href="../../modules/generated/nilearn.decomposition.DictLearning.html#nilearn.decomposition.DictLearning.fit" title="nilearn.decomposition.DictLearning.fit" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-method"><span class="n">dict_learning</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a><span class="p">)</span>
+<span class="n">dict_learning</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">func_filenames</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[Example] Saving results&quot;</span><span class="p">)</span>
 <span class="c1"># Grab extracted components umasked back to Nifti image.</span>
 <span class="c1"># Note: For older versions, less than 0.4.1. components_img_</span>
 <span class="c1"># is not implemented. See Note section above for details.</span>
-<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dictlearning_components_img</span></a> <span class="o">=</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dict_learning</span><span class="o">.</span><span class="n">components_img_</span></a>
-<a href="https://nipy.org/nibabel/reference/nibabel.filebasedimages.html#nibabel.filebasedimages.FileBasedImage.to_filename" title="nibabel.filebasedimages.FileBasedImage.to_filename" class="sphx-glr-backref-module-nibabel-filebasedimages sphx-glr-backref-type-py-method"><span class="n">dictlearning_components_img</span><span class="o">.</span><span class="n">to_filename</span></a><span class="p">(</span>
-    <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;dictionary_learning_resting_state.nii.gz&quot;</span>
+<span class="n">dictlearning_components_img</span> <span class="o">=</span> <span class="n">dict_learning</span><span class="o">.</span><span class="n">components_img_</span>
+<span class="n">dictlearning_components_img</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span>
+    <span class="n">output_dir</span> <span class="o">/</span> <span class="s2">&quot;dictionary_learning_resting_state.nii.gz&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1001,15 +1105,15 @@ with <a class="reference internal" href="../../glossary.html#term-CanICA"><span 
 [{self.__class__.__name__}.fit] Computing mask
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning:
 
-Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x7d11c1615c60&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
+Cannot inspect object functools.partial(&lt;function compute_multi_brain_mask at 0x74b917e6e5c0&gt;, mask_type=&#39;whole-brain&#39;), ignore list will not work.
 
 [MultiNiftiMasker.transform] Resampling mask
 [DictLearning] Loading data
@@ -1019,7 +1123,7 @@ ________________________________________________________________________________
 randomized_svd(array([[-0.001315, ...,  0.004387],
        ...,
        [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-___________________________________________________randomized_svd - 0.5s, 0.0min
+___________________________________________________randomized_svd - 0.6s, 0.0min
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
 [DictLearning] Computing initial loadings
 ________________________________________________________________________________
@@ -1046,8 +1150,8 @@ _____________________________________________dict_learning_online - 3.1s, 0.1min
 </div>
 <p>Visualize the results</p>
 <p>First plot all DictLearning components together</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.plotting.plot_prob_atlas.html#nilearn.plotting.plot_prob_atlas" title="nilearn.plotting.plot_prob_atlas" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_prob_atlas</span></a><span class="p">(</span>
-    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dictlearning_components_img</span></a><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;All DictLearning components&quot;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">plot_prob_atlas</span><span class="p">(</span>
+    <span class="n">dictlearning_components_img</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;All DictLearning components&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1060,15 +1164,15 @@ linewidths is ignored by contourf
 Warning: converting a masked element to nan.
 
 
-&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7d11b3ea2e40&gt;
+&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x74b90bfe1430&gt;
 </pre></div>
 </div>
 <p>One plot of each component</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><a href="../../modules/generated/nilearn.image.iter_img.html#nilearn.image.iter_img" title="nilearn.image.iter_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">iter_img</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">dictlearning_components_img</span></a><span class="p">)):</span>
-    <a href="../../modules/generated/nilearn.plotting.plot_stat_map.html#nilearn.plotting.plot_stat_map" title="nilearn.plotting.plot_stat_map" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_stat_map</span></a><span class="p">(</span>
-        <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cur_img</span></a><span class="p">,</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cur_img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iter_img</span><span class="p">(</span><span class="n">dictlearning_components_img</span><span class="p">)):</span>
+    <span class="n">plot_stat_map</span><span class="p">(</span>
+        <span class="n">cur_img</span><span class="p">,</span>
         <span class="n">display_mode</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
-        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Comp </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Comp </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
         <span class="n">cut_coords</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span>
@@ -1099,23 +1203,23 @@ Warning: converting a masked element to nan.
 <p>Estimate explained variance per component and plot using matplotlib</p>
 <p>The fitted object <cite>dict_learning</cite> can be used
 to calculate the score per component</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.decomposition.DictLearning.html#nilearn.decomposition.DictLearning.score" title="nilearn.decomposition.DictLearning.score" class="sphx-glr-backref-module-nilearn-decomposition sphx-glr-backref-type-py-method"><span class="n">dict_learning</span><span class="o">.</span><span class="n">score</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">func_filenames</span></a><span class="p">,</span> <span class="n">per_component</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">dict_learning</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">func_filenames</span><span class="p">,</span> <span class="n">per_component</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Plot the scores</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <a href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter" title="matplotlib.ticker.FormatStrFormatter" class="sphx-glr-backref-module-matplotlib-ticker sphx-glr-backref-type-py-class"><span class="n">FormatStrFormatter</span></a>
+<span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="n">FormatStrFormatter</span>
 
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure" title="matplotlib.pyplot.figure" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">positions</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">))</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.barh.html#matplotlib.pyplot.barh" title="matplotlib.pyplot.barh" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">barh</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">positions</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scores</span></a><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel" title="matplotlib.pyplot.ylabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span></a><span class="p">(</span><span class="s2">&quot;Component #&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel" title="matplotlib.pyplot.xlabel" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span></a><span class="p">(</span><span class="s2">&quot;Explained variance&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.yticks.html#matplotlib.pyplot.yticks" title="matplotlib.pyplot.yticks" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="matplotlib.pyplot.gca" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">gca</span></a><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><a href="https://matplotlib.org/stable/api/ticker_api.html#matplotlib.ticker.FormatStrFormatter" title="matplotlib.ticker.FormatStrFormatter" class="sphx-glr-backref-module-matplotlib-ticker sphx-glr-backref-type-py-class"><span class="n">FormatStrFormatter</span></a><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="p">))</span>
-<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Component #&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Explained variance&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">FormatStrFormatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.3f</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
-<a href="../../modules/generated/nilearn.plotting.show.html#nilearn.plotting.show" title="nilearn.plotting.show" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">show</span></a><span class="p">()</span>
+<span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_plot_compare_decomposition_043.png" srcset="../../_images/sphx_glr_plot_compare_decomposition_043.png" alt="plot compare decomposition" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>________________________________________________________________________________
@@ -1130,7 +1234,7 @@ array([[0., ..., 0.],
 
 Persisting input arguments took 1.30s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
 
-______________________________________________explained_variance - 14.8s, 0.2min
+______________________________________________explained_variance - 16.8s, 0.3min
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1156,8 +1260,8 @@ extraction using dictionary learning and functional connectomes</span></a>.</p>
 </aside>
 </div>
 </div></blockquote>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (2 minutes 50.543 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2910 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 15.318 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2932 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-compare-decomposition-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_compare_decomposition.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
