@@ -77,7 +77,7 @@ Let's quickly plot this file:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc04f8e3650>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8d0bccfa70>
 
 
 
@@ -125,7 +125,7 @@ Here we give as inputs the image filename and the smoothing value in mm
  .. code-block:: none
 
 
-    <nibabel.nifti1.Nifti1Image object at 0x7fc0425a2660>
+    <nibabel.nifti1.Nifti1Image object at 0x7f8d0bc9c740>
 
 
 
@@ -154,7 +154,7 @@ instance to look at it
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc04f81eff0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8d0bae9490>
 
 
 
@@ -162,12 +162,13 @@ instance to look at it
 
 We could also pass it to the smoothing function
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-62
+.. GENERATED FROM PYTHON SOURCE LINES 59-63
 
 .. code-block:: Python
 
     more_smooth_anat_img = image.smooth_img(smooth_anat_img, fwhm=3)
     plotting.plot_img(more_smooth_anat_img)
+
 
 
 
@@ -183,27 +184,125 @@ We could also pass it to the smoothing function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fc04fbab8f0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f8d0bc9d880>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-67
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
+
+Globbing over multiple 3D volumes
+---------------------------------
+Nilearn also supports reading multiple volumes at once,
+using glob-style patterns.
+For instance, we can smooth volumes from many subjects
+at once and get a 4D image as output.
+
+.. GENERATED FROM PYTHON SOURCE LINES 72-73
+
+First let's fetch Haxby dataset for subject 1 and 2
+
+.. GENERATED FROM PYTHON SOURCE LINES 73-77
+
+.. code-block:: Python
+
+    from nilearn import datasets
+
+    haxby = datasets.fetch_haxby(subjects=[1, 2])
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Downloading data from http://data.pymvpa.org/datasets/haxby2001/subj1-2010.01.14.tar.gz ...
+    Downloaded 116940800 of 314803244 bytes (37.1%,    1.7s remaining)    Downloaded 257892352 of 314803244 bytes (81.9%,    0.4s remaining) ...done. (3 seconds, 0 min)
+    Extracting data from /home/runner/work/nilearn/nilearn/nilearn_data/haxby2001/b6297e3e4eedbdbfb999e3188d364506/subj1-2010.01.14.tar.gz..... done.
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
+
+Now we can find the anatomical images from both
+subjects using the `*` wildcard
+
+.. GENERATED FROM PYTHON SOURCE LINES 80-86
+
+.. code-block:: Python
+
+    from pathlib import Path
+
+    anats_all_subjects = (
+        Path(datasets.get_data_dirs()[0]) / "haxby2001" / "subj*" / "anat*"
+    )
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 87-88
+
+Now we can smooth all the anatomical images at once
+
+.. GENERATED FROM PYTHON SOURCE LINES 88-90
+
+.. code-block:: Python
+
+    anats_all_subjects_smooth = image.smooth_img(anats_all_subjects, fwhm=5)
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
+
+This is a 4D image containing one volume per subject
+
+.. GENERATED FROM PYTHON SOURCE LINES 92-94
+
+.. code-block:: Python
+
+    print(anats_all_subjects_smooth.shape)
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    (124, 256, 256, 2)
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 95-99
 
 Saving results to a file
 -------------------------
 
 We can save any in-memory object as follows:
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-74
+.. GENERATED FROM PYTHON SOURCE LINES 99-106
 
 .. code-block:: Python
-
-    from pathlib import Path
 
     output_dir = Path.cwd() / "results" / "plot_nilearn_101"
     output_dir.mkdir(exist_ok=True, parents=True)
     print(f"Output will be saved to: {output_dir}")
-    more_smooth_anat_img.to_filename(output_dir / "more_smooth_anat_img.nii.gz")
+    anats_all_subjects_smooth.to_filename(
+        output_dir / "anats_all_subjects_smooth.nii.gz"
+    )
 
 
 
@@ -218,12 +317,12 @@ We can save any in-memory object as follows:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-77
+.. GENERATED FROM PYTHON SOURCE LINES 107-109
 
 Finally, calling plotting.show() is necessary to display the figure
 when running as a script outside IPython
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 109-111
 
 .. code-block:: Python
 
@@ -236,20 +335,21 @@ when running as a script outside IPython
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-87
+.. GENERATED FROM PYTHON SOURCE LINES 112-120
 
 |
 
 ______
 
-To recap, all the nilearn tools can take data as filenames or in-memory
-objects, and return brain volumes as in-memory objects. These can be
+To recap, all the nilearn tools can take data as filenames or
+glob-style patterns or in-memory objects, and return brain
+volumes as in-memory objects. These can be
 passed on to other nilearn tools, or saved to disk.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.875 seconds)
+   **Total running time of the script:** (0 minutes 11.006 seconds)
 
 **Estimated memory usage:**  177 MB
 
