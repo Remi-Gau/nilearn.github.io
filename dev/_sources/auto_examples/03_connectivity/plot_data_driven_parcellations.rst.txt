@@ -173,13 +173,13 @@ all can be done at once using `Parcellations` object.
            ...,
            [ 0.002661, ..., -0.007877]]), connectivity=<24256x24256 sparse matrix of type '<class 'numpy.int64'>'
             with 162682 stored elements in COOrdinate format>, n_clusters=1000, return_distance=False)
-    ________________________________________________________ward_tree - 2.1s, 0.0min
-    ____________________________________________________estimator_fit - 2.2s, 0.0min
+    ________________________________________________________ward_tree - 2.4s, 0.0min
+    ____________________________________________________estimator_fit - 2.6s, 0.0min
     /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    Ward agglomeration 1000 clusters: 6.45s
+    Ward agglomeration 1000 clusters: 6.94s
     [MultiNiftiMasker.fit] Loading data from [/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
     /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/decomposition/_base.py:429: UserWarning:
@@ -204,13 +204,13 @@ all can be done at once using `Parcellations` object.
            ...,
            [ 0.002661, ..., -0.007877]]), connectivity=<24256x24256 sparse matrix of type '<class 'numpy.int64'>'
             with 162682 stored elements in COOrdinate format>, n_clusters=2000, return_distance=False)
-    ________________________________________________________ward_tree - 2.0s, 0.0min
-    ____________________________________________________estimator_fit - 2.1s, 0.0min
+    ________________________________________________________ward_tree - 2.1s, 0.0min
+    ____________________________________________________estimator_fit - 2.3s, 0.0min
     /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
 
-    Ward agglomeration 2000 clusters: 4.79s
+    Ward agglomeration 2000 clusters: 4.93s
 
 
 
@@ -355,7 +355,7 @@ clustering by averaging the signal on each parcel.
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f4aa29003e0>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f4a89b63230>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7fec3cc1b740>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fec26f45580>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -364,9 +364,9 @@ clustering by averaging the signal on each parcel.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f4ab2cd9f10>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7fec271a2000>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f4a9315aa80>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7fec26f47a70>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -379,9 +379,9 @@ clustering by averaging the signal on each parcel.
     [NiftiLabelsMasker.transform_single_imgs] Smoothing images
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.2s, 0.0min
+    _______________________________________________filter_and_extract - 1.3s, 0.0min
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f4a9d230470>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7fec2843d040>
 
 
 
@@ -445,8 +445,8 @@ standardization and smoothing, the clusters will form as regions.
            ...,
            [-0.003247, ..., -0.001756]]), 
     MiniBatchKMeans(n_clusters=50, n_init=3, random_state=0))
-    ____________________________________________________estimator_fit - 0.5s, 0.0min
-    KMeans clusters: 4.68s
+    ____________________________________________________estimator_fit - 0.3s, 0.0min
+    KMeans clusters: 4.43s
 
 
 
@@ -550,7 +550,7 @@ with the previous method.
            ...,
            [-0.003247, ..., -0.001756]]), 
     HierarchicalKMeans(n_clusters=50))
-    ____________________________________________________estimator_fit - 1.3s, 0.0min
+    ____________________________________________________estimator_fit - 1.5s, 0.0min
     /opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/masking.py:980: UserWarning:
 
     Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
@@ -1103,7 +1103,7 @@ You can just skip the plotting code, the important part is the figure
  .. code-block:: none
 
 
-    <matplotlib.legend.Legend object at 0x7f4a9d435d30>
+    <matplotlib.legend.Legend object at 0x7fec1d7b0980>
 
 
 
@@ -1171,7 +1171,7 @@ in the original paper (:footcite:t:`Hoyos2019`).
     _estimator_fit(array([[-0.002154, ...,  0.002661],
            ...,
            [ 0.007053, ..., -0.007877]]), 
-    ReNA(mask_img=<nibabel.nifti1.Nifti1Image object at 0x7f4ab2ff5670>,
+    ReNA(mask_img=<nibabel.nifti1.Nifti1Image object at 0x7fec2c5b88c0>,
          memory=Memory(location=nilearn_cache/joblib), n_clusters=5000,
          scaling=True), 
     'rena')
@@ -1180,7 +1180,7 @@ in the original paper (:footcite:t:`Hoyos2019`).
     recursive_neighbor_agglomeration(array([[-0.002154, ...,  0.002661],
            ...,
            [ 0.007053, ..., -0.007877]]), 
-    <nibabel.nifti1.Nifti1Image object at 0x7f4ab2ff5670>, 5000, n_iter=10, threshold=1e-07, verbose=0)
+    <nibabel.nifti1.Nifti1Image object at 0x7fec2c5b88c0>, 5000, n_iter=10, threshold=1e-07, verbose=0)
     _________________________________recursive_neighbor_agglomeration - 0.4s, 0.0min
     ____________________________________________________estimator_fit - 0.6s, 0.0min
     [Parcellations.wrapped] loading data from Nifti1Image(
@@ -1199,7 +1199,7 @@ in the original paper (:footcite:t:`Hoyos2019`).
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f4aa136fad0>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f4aa136e570>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7fec1255da90>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fec132c3b90>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -1208,9 +1208,9 @@ in the original paper (:footcite:t:`Hoyos2019`).
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f4aa136c1d0>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7fec132c0830>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f4aa136dd30>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7fec132c2e70>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -1224,7 +1224,7 @@ in the original paper (:footcite:t:`Hoyos2019`).
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
     _______________________________________________filter_and_extract - 1.3s, 0.0min
-    ReNA 5000 clusters: 5.34s
+    ReNA 5000 clusters: 5.44s
 
 
 
@@ -1268,7 +1268,7 @@ First, we display the parcellations of the brain image stored in attribute
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f4a8b829130>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7fec26fffa40>
 
 
 
@@ -1354,7 +1354,7 @@ obtained with Ward.
     )
     ________________________________________________________________________________
     [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
-    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7f4a8b828530>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7f4a92e63710>, 
+    _filter_and_extract(<nibabel.nifti1.Nifti1Image object at 0x7fec26ffcb90>, <nilearn.maskers.nifti_labels_masker._ExtractionFunctor object at 0x7fec3d927b30>, 
     { 'background_label': 0,
       'clean_kwargs': {},
       'detrend': False,
@@ -1363,9 +1363,9 @@ obtained with Ward.
       'high_variance_confounds': False,
       'keep_masked_labels': True,
       'labels': None,
-      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7f4aa27257c0>,
+      'labels_img': <nibabel.nifti1.Nifti1Image object at 0x7fec295d8da0>,
       'low_pass': None,
-      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7f4aa2725610>,
+      'mask_img': <nibabel.nifti1.Nifti1Image object at 0x7fec26ffca70>,
       'reports': True,
       'smoothing_fwhm': 2.0,
       'standardize': False,
@@ -1378,9 +1378,9 @@ obtained with Ward.
     [NiftiLabelsMasker.transform_single_imgs] Smoothing images
     [NiftiLabelsMasker.transform_single_imgs] Extracting region signals
     [NiftiLabelsMasker.transform_single_imgs] Cleaning extracted signals
-    _______________________________________________filter_and_extract - 1.3s, 0.0min
+    _______________________________________________filter_and_extract - 1.4s, 0.0min
 
-    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7f4a92e616d0>
+    <nilearn.plotting.displays._slicers.XZSlicer object at 0x7fec2b08b920>
 
 
 
@@ -1403,9 +1403,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 40.868 seconds)
+   **Total running time of the script:** (0 minutes 42.392 seconds)
 
-**Estimated memory usage:**  2922 MB
+**Estimated memory usage:**  2956 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_data_driven_parcellations.py:
