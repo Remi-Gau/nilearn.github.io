@@ -27,14 +27,9 @@ information.
 The protocol described is the so-called "ARCHI Standard" functional localizer
 task.
 
-For details on the task, please see:
+For details on the task, please see :footcite:t:`Pinel2007`.
 
-Pinel, P., Thirion, B., Meriaux, S. et al.
-Fast reproducible identification and large-scale databasing of individual
-functional cognitive networks.
-BMC Neurosci 8, 91 (2007). https://doi.org/10.1186/1471-2202-8-91
-
-.. GENERATED FROM PYTHON SOURCE LINES 18-21
+.. GENERATED FROM PYTHON SOURCE LINES 13-16
 
 .. code-block:: Python
 
@@ -48,13 +43,13 @@ BMC Neurosci 8, 91 (2007). https://doi.org/10.1186/1471-2202-8-91
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-25
+.. GENERATED FROM PYTHON SOURCE LINES 17-20
 
 Define the onset times in seconds. These are typically extracted from
 the stimulation software used, but we will use hardcoded values in this
 example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-39
+.. GENERATED FROM PYTHON SOURCE LINES 20-34
 
 .. code-block:: Python
 
@@ -79,12 +74,12 @@ example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Associated trial types: these are numbered between 0 and 9, hence
 corresponding to 10 different conditions.
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-52
+.. GENERATED FROM PYTHON SOURCE LINES 37-47
 
 .. code-block:: Python
 
@@ -105,12 +100,12 @@ corresponding to 10 different conditions.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-55
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 We may want to map these indices to explicit condition names.
 For that, we define a list of 10 strings.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-70
+.. GENERATED FROM PYTHON SOURCE LINES 50-65
 
 .. code-block:: Python
 
@@ -136,14 +131,14 @@ For that, we define a list of 10 strings.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-75
+.. GENERATED FROM PYTHON SOURCE LINES 66-70
 
 We must also define a duration (required by :term:`BIDS` conventions).
 In this case, all trials lasted one second,
 except for button response
 that are modeled as events with instantaneous duration (0 second).
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-84
+.. GENERATED FROM PYTHON SOURCE LINES 70-79
 
 .. code-block:: Python
 
@@ -163,11 +158,11 @@ that are modeled as events with instantaneous duration (0 second).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-86
+.. GENERATED FROM PYTHON SOURCE LINES 80-81
 
 Form a pandas DataFrame from this information.
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-96
+.. GENERATED FROM PYTHON SOURCE LINES 81-91
 
 .. code-block:: Python
 
@@ -188,11 +183,11 @@ Form a pandas DataFrame from this information.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-98
+.. GENERATED FROM PYTHON SOURCE LINES 92-93
 
 Take a look at the new DataFrame
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-100
+.. GENERATED FROM PYTHON SOURCE LINES 93-95
 
 .. code-block:: Python
 
@@ -304,11 +299,11 @@ Take a look at the new DataFrame
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-102
+.. GENERATED FROM PYTHON SOURCE LINES 96-97
 
 Export them to a tsv file.
 
-.. GENERATED FROM PYTHON SOURCE LINES 102-110
+.. GENERATED FROM PYTHON SOURCE LINES 97-105
 
 .. code-block:: Python
 
@@ -328,17 +323,17 @@ Export them to a tsv file.
 
  .. code-block:: none
 
-    The event information has been saved to /home/remi/github/nilearn/nilearn/examples/04_glm_first_level/results/plot_write_events_file/localizer_events.tsv
+    The event information has been saved to /home/himanshu/Desktop/nilearn_work/nilearn/examples/04_glm_first_level/results/plot_write_events_file/localizer_events.tsv
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-113
+.. GENERATED FROM PYTHON SOURCE LINES 106-108
 
 Optionally, the events can be visualized using the
 :func:`~nilearn.plotting.plot_event` function.
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-117
+.. GENERATED FROM PYTHON SOURCE LINES 108-113
 
 .. code-block:: Python
 
@@ -346,6 +341,7 @@ Optionally, the events can be visualized using the
 
     plot_event(events, figsize=(15, 5))
     plt.show()
+
 
 
 
@@ -359,19 +355,24 @@ Optionally, the events can be visualized using the
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/first_level/experimental_paradigm.py:142: UserWarning:
-
-    The following conditions contain events with null duration:
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/first_level/experimental_paradigm.py:142: UserWarning: The following conditions contain events with null duration:
     right button press, auditory instructions, right button press, visual instructions, left button press, auditory instructions, left button press, visual instructions.
+      warnings.warn(
 
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 114-118
+
+References
+----------
+
+ .. footbibliography::
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 4.345 seconds)
+   **Total running time of the script:** (0 minutes 2.324 seconds)
 
 **Estimated memory usage:**  9 MB
 
@@ -385,7 +386,7 @@ Optionally, the events can be visualized using the
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_write_events_file.ipynb
         :alt: Launch binder
         :width: 150 px
 

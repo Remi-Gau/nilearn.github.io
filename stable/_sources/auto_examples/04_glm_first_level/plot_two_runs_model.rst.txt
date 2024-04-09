@@ -26,7 +26,7 @@ to experimental data and visualizing the results.
 This is done on two runs of one subject of the FIAC dataset.
 
 For more details on the data,
-please see experiment 2 in :footcite:t:`dehaene2006functional`.
+please see experiment 2 in :footcite:t:`Dehaene2006`.
 
 Here are the steps we will go through:
 
@@ -63,7 +63,7 @@ Create an output ``results`` in the current working directory.
 
  .. code-block:: none
 
-    Output will be saved to: /home/remi/github/nilearn/nilearn/examples/04_glm_first_level/results/plot_two_runs_model
+    Output will be saved to: /home/himanshu/Desktop/nilearn_work/nilearn/examples/04_glm_first_level/results/plot_two_runs_model
 
 
 
@@ -222,12 +222,10 @@ Compute the statistics for the first run.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
 
-    t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
-
-
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b2712cd0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214d451ac00>
 
 
 
@@ -268,12 +266,10 @@ Compute the statistics for the second run.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
 
-    t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
-
-
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b2712910>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214f2322c00>
 
 
 
@@ -328,7 +324,7 @@ from the run-specific FirstLevelModel results.
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb383c4bc10>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214c840f110>
 
 
 
@@ -394,10 +390,8 @@ we can again reuse the first run's contrast vector.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
-
-    t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
 
 
 
@@ -471,25 +465,19 @@ Next, we compute and plot the statistics for these new contrasts.
 
     Computing contrasts...
       Contrast 01 out of 8: SStSSp_minus_DStDSp
-    /home/remi/github/nilearn/nilearn/examples/04_glm_first_level/plot_two_runs_model.py:227: UserWarning:
-
-    One contrast given, assuming it for all 2 runs
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/examples/04_glm_first_level/plot_two_runs_model.py:227: UserWarning: One contrast given, assuming it for all 2 runs
+      z_map = fmri_glm.compute_contrast(contrast_val, output_type="z_score")
       Contrast 02 out of 8: DStDSp_minus_SStSSp
       Contrast 03 out of 8: DSt_minus_SSt
       Contrast 04 out of 8: DSp_minus_SSp
       Contrast 05 out of 8: DSt_minus_SSt_for_DSp
       Contrast 06 out of 8: DSp_minus_SSp_for_DSt
       Contrast 07 out of 8: Deactivation
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
-
-    t contrasts should be of length P=13, but it has length 5. The rest of the contrast was padded with zeros.
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 5. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
       Contrast 08 out of 8: Effects_of_interest
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:159: UserWarning:
-
-    Running approximate fixed effects on F statistics.
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:159: UserWarning: Running approximate fixed effects on F statistics.
+      contrast = contrast_ if contrast is None else contrast + contrast_
 
 
 
@@ -520,78 +508,42 @@ we can quickly create a summary report.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 8 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 9 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:384: UserWarning:
-
-    Contrasts will be padded with 8 column(s) of zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/reporting/glm_reporter.py:541: UserWarning:
-
-    One contrast given, assuming it for all 2 runs
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
-
-    t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:108: UserWarning:
-
-    t contrasts should be of length P=13, but it has length 5. The rest of the contrast was padded with zeros.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/glm/contrasts.py:159: UserWarning:
-
-    Running approximate fixed effects on F statistics.
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 8 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 9 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:386: UserWarning: Contrasts will be padded with 8 column(s) of zeros.
+      contrast_plot = plot_contrast_matrix(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/reporting/glm_reporter.py:545: UserWarning: One contrast given, assuming it for all 2 runs
+      contrast_id: model.compute_contrast(
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 4. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:108: UserWarning: t contrasts should be of length P=13, but it has length 5. The rest of the contrast was padded with zeros.
+      reg = regression_result[label_].Tcontrast(con_val)
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/glm/contrasts.py:159: UserWarning: Running approximate fixed effects on F statistics.
+      contrast = contrast_ if contrast is None else contrast + contrast_
 
 
 
@@ -631,9 +583,9 @@ References
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 7.931 seconds)
+   **Total running time of the script:** (0 minutes 55.372 seconds)
 
-**Estimated memory usage:**  626 MB
+**Estimated memory usage:**  725 MB
 
 
 .. _sphx_glr_download_auto_examples_04_glm_first_level_plot_two_runs_model.py:
@@ -645,7 +597,7 @@ References
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_two_runs_model.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_two_runs_model.ipynb
         :alt: Launch binder
         :width: 150 px
 

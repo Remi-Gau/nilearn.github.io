@@ -37,18 +37,16 @@ for group-level analysis of :term:`fMRI` data.
 Compared to other strategies, it brings a well-controlled group model,
 as well as a
 thresholding algorithm controlling for specificity and sensitivity with
-an explicit model of the signal. The reference paper is:
+an explicit model of the signal.
 
-    * G. Varoquaux et al. "A group model for stable multi-subject ICA on
-      fMRI datasets", NeuroImage Vol 51 (2010), p. 288-299
-      `preprint <https://hal.inria.fr/hal-00489507/>`_
+The reference paper is :footcite:t:`Varoquaux2010c`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 30-32
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
 
 Load brain development :term:`fMRI` dataset
 -------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-41
+.. GENERATED FROM PYTHON SOURCE LINES 29-38
 
 .. code-block:: Python
 
@@ -69,12 +67,12 @@ Load brain development :term:`fMRI` dataset
 
  .. code-block:: none
 
-    First functional nifti image (4D) is at: /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
+    First functional nifti image (4D) is at: /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-47
+.. GENERATED FROM PYTHON SOURCE LINES 39-44
 
 Apply :term:`CanICA` on the data
 --------------------------------
@@ -82,7 +80,7 @@ We use "whole-brain-template" as a strategy to compute the mask,
 as this leads to slightly faster and more reproducible results.
 However, the images need to be in :term:`MNI` template space.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-75
+.. GENERATED FROM PYTHON SOURCE LINES 44-72
 
 .. code-block:: Python
 
@@ -122,54 +120,44 @@ However, the images need to be in :term:`MNI` template space.
 
  .. code-block:: none
 
-    [MultiNiftiMasker.fit] Loading data from [/home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
+    [MultiNiftiMasker.fit] Loading data from [/home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:693: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      return hashing.hash(filter_args(self.func, self.ignore, args, kwargs),
     Template whole-brain mask computation
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/masking.py:655: UserWarning:
-
-    Persisting input arguments took 0.74s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:887: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:693: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      argument_dict = filter_args(self.func, self.ignore,
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      return hashing.hash(filter_args(self.func, self.ignore, args, kwargs),
     [MultiNiftiMasker.transform] Resampling mask
     [CanICA] Loading data
     ________________________________________________________________________________
@@ -179,19 +167,19 @@ However, the images need to be in :term:`MNI` template space.
            [0.012477, ..., 0.002881]]), n_components=20, transpose=True, random_state=0, n_iter=3)
     ___________________________________________________randomized_svd - 1.4s, 0.0min
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:   16.6s
-    [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:   33.5s
-    [Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:  1.4min finished
-    Output will be saved to: /home/remi/github/nilearn/nilearn/examples/03_connectivity/results/plot_compare_decomposition
+    [Parallel(n_jobs=2)]: Done   1 tasks      | elapsed:   16.2s
+    [Parallel(n_jobs=2)]: Done   4 tasks      | elapsed:   29.0s
+    [Parallel(n_jobs=2)]: Done  10 out of  10 | elapsed:  1.0min finished
+    Output will be saved to: /home/himanshu/Desktop/nilearn_work/nilearn/examples/03_connectivity/results/plot_compare_decomposition
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-77
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 To visualize we plot the outline of all components on one figure
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-83
+.. GENERATED FROM PYTHON SOURCE LINES 74-80
 
 .. code-block:: Python
 
@@ -214,20 +202,20 @@ To visualize we plot the outline of all components on one figure
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/plotting/displays/_axes.py:74: UserWarning:
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/numpy/ma/core.py:2820: UserWarning: Warning: converting a masked element to nan.
+      _data = np.array(data, dtype=dtype, copy=copy,
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/plotting/displays/_axes.py:74: UserWarning: linewidths is ignored by contourf
+      im = getattr(ax, type)(
 
-    linewidths is ignored by contourf
-
-
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b16d7a90>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214c86c4a70>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-85
+.. GENERATED FROM PYTHON SOURCE LINES 81-82
 
 Finally, we plot the map for each :term:`ICA` component separately
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-98
+.. GENERATED FROM PYTHON SOURCE LINES 82-95
 
 .. code-block:: Python
 
@@ -394,7 +382,7 @@ Finally, we plot the map for each :term:`ICA` component separately
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 99-111
+.. GENERATED FROM PYTHON SOURCE LINES 96-105
 
 Compare :term:`CanICA` to dictionary learning
 ---------------------------------------------
@@ -403,17 +391,14 @@ for extracting spatial maps. It extracts maps that are naturally sparse
 and usually cleaner than :term:`ICA`. Here, we will compare networks built
 with :term:`CanICA` to networks built with :term:`Dictionary learning`.
 
-   * Arthur Mensch et al. `Compressed online dictionary
-     learning for fast resting-state fMRI decomposition
-     <https://hal.archives-ouvertes.fr/hal-01271033/>`_,
-     ISBI 2016, Lecture Notes in Computer Science
+For more detailse see :footcite:t:`Mensch2016`.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 114-115
+.. GENERATED FROM PYTHON SOURCE LINES 108-109
 
 Create a dictionary learning estimator
 
-.. GENERATED FROM PYTHON SOURCE LINES 115-141
+.. GENERATED FROM PYTHON SOURCE LINES 109-135
 
 .. code-block:: Python
 
@@ -452,53 +437,43 @@ Create a dictionary learning estimator
  .. code-block:: none
 
     [Example] Fitting dictionary learning model
-    [MultiNiftiMasker.fit] Loading data from [/home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
-     /home/remi/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
+    [MultiNiftiMasker.fit] Loading data from [/home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar124_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar125_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar126_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar127_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar128_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar004_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar005_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar006_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar007_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar008_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar009_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar010_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar011_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar012_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar013_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar014_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar015_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar016_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar017_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar018_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar019_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar020_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar021_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar022_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar023_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz,
+     /home/himanshu/nilearn_data/development_fmri/development_fmri/sub-pixar024_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz].
     [{self.__class__.__name__}.fit] Computing mask
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:693: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/masking.py:655: UserWarning:
-
-    Persisting input arguments took 0.83s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:887: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:693: UserWarning:
-
-    Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7fb3b2173920>, mask_type='whole-brain'), ignore list will not work.
-
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      return hashing.hash(filter_args(self.func, self.ignore, args, kwargs),
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:887: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      argument_dict = filter_args(self.func, self.ignore,
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:693: UserWarning: Cannot inspect object functools.partial(<function compute_multi_brain_mask at 0x7214d9686f20>, mask_type='whole-brain'), ignore list will not work.
+      return hashing.hash(filter_args(self.func, self.ignore, args, kwargs),
     [MultiNiftiMasker.transform] Resampling mask
     [DictLearning] Loading data
     [DictLearning] Learning initial components
@@ -507,15 +482,14 @@ Create a dictionary learning estimator
     randomized_svd(array([[-0.001315, ...,  0.004387],
            ...,
            [ 0.011243, ...,  0.004194]]), n_components=20, transpose=True, random_state=0, n_iter=3)
-    ___________________________________________________randomized_svd - 1.6s, 0.0min
+    ___________________________________________________randomized_svd - 0.7s, 0.0min
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
     [DictLearning] Computing initial loadings
     ________________________________________________________________________________
     [Memory] Calling nilearn.decomposition.dict_learning._compute_loadings...
-    _compute_loadings(array([[-0.004092, ..., -0.004843],
+    _compute_loadings(array([[0.002488, ..., 0.003911],
            ...,
-           [-0.004233, ..., -0.00101 ]]), 
-    array([[-0.622651, ...,  5.322742],
+           [0.0079  , ..., 0.004339]]), array([[-0.622651, ...,  5.322742],
            ...,
            [ 0.777205, ...,  0.743122]]))
     _________________________________________________compute_loadings - 0.3s, 0.0min
@@ -525,22 +499,22 @@ Create a dictionary learning estimator
     dict_learning_online(array([[-0.622651, ...,  0.777205],
            ...,
            [ 5.322742, ...,  0.743122]]), 
-    20, alpha=10, batch_size=20, method='cd', dict_init=array([[-0.040362, ..., -0.328837],
+    20, alpha=10, batch_size=20, method='cd', dict_init=array([[-0.1227  , ..., -0.136644],
            ...,
-           [-0.06435 , ..., -0.146289]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1, max_iter=1090)
-    _____________________________________________dict_learning_online - 6.7s, 0.1min
+           [-0.074334, ...,  0.035289]]), verbose=0, random_state=0, return_code=True, shuffle=True, n_jobs=1, max_iter=1090)
+    _____________________________________________dict_learning_online - 4.4s, 0.1min
     [Example] Saving results
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-145
+.. GENERATED FROM PYTHON SOURCE LINES 136-139
 
 Visualize the results
 
 First plot all DictLearning components together
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-150
+.. GENERATED FROM PYTHON SOURCE LINES 139-144
 
 .. code-block:: Python
 
@@ -562,20 +536,20 @@ First plot all DictLearning components together
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/plotting/displays/_axes.py:74: UserWarning:
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/plotting/displays/_axes.py:74: UserWarning: linewidths is ignored by contourf
+      im = getattr(ax, type)(
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/numpy/ma/core.py:2820: UserWarning: Warning: converting a masked element to nan.
+      _data = np.array(data, dtype=dtype, copy=copy,
 
-    linewidths is ignored by contourf
-
-
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3922a4810>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214c8bbac00>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 151-152
+.. GENERATED FROM PYTHON SOURCE LINES 145-146
 
 One plot of each component
 
-.. GENERATED FROM PYTHON SOURCE LINES 152-162
+.. GENERATED FROM PYTHON SOURCE LINES 146-156
 
 .. code-block:: Python
 
@@ -739,14 +713,14 @@ One plot of each component
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-167
+.. GENERATED FROM PYTHON SOURCE LINES 157-161
 
 Estimate explained variance per component and plot using matplotlib
 
 The fitted object `dict_learning` can be used
 to calculate the score per component
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-185
+.. GENERATED FROM PYTHON SOURCE LINES 161-179
 
 .. code-block:: Python
 
@@ -785,20 +759,18 @@ to calculate the score per component
     [Memory] Calling nilearn.decomposition._base._explained_variance...
     _explained_variance(array([[-6.227098e-01, ...,  5.322679e+00],
            ...,
-           [-4.017034e-18, ..., -4.986273e-16]]), 
-    array([[-0., ...,  0.],
+           [-1.768479e-16, ...,  2.222713e-16]]), 
+    array([[0., ..., 0.],
            ...,
-           [ 0., ...,  0.]]), per_component=True)
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/decomposition/_base.py:539: UserWarning:
-
-    Persisting input arguments took 1.79s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
-
-    ______________________________________________explained_variance - 33.2s, 0.6min
+           [0., ..., 0.]]), per_component=True)
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/decomposition/_base.py:539: UserWarning: Persisting input arguments took 1.32s to run.If this happens often in your code, it can cause performance problems (results will be correct in all cases). The reason for this is probably some large input arguments for a wrapped function.
+      return self._cache(_explained_variance)(
+    ______________________________________________explained_variance - 97.3s, 1.6min
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-192
+.. GENERATED FROM PYTHON SOURCE LINES 180-186
 
 .. note::
 
@@ -807,12 +779,19 @@ to calculate the score per component
     extraction using dictionary learning and functional connectomes
     <sphx_glr_auto_examples_03_connectivity_plot_extract_regions_dictlearning_maps.py>`.
 
+.. GENERATED FROM PYTHON SOURCE LINES 188-192
+
+References
+----------
+
+ .. footbibliography::
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (6 minutes 32.272 seconds)
+   **Total running time of the script:** (7 minutes 30.450 seconds)
 
-**Estimated memory usage:**  2972 MB
+**Estimated memory usage:**  2967 MB
 
 
 .. _sphx_glr_download_auto_examples_03_connectivity_plot_compare_decomposition.py:
@@ -824,7 +803,7 @@ to calculate the score per component
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_compare_decomposition.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_compare_decomposition.ipynb
         :alt: Launch binder
         :width: 150 px
 

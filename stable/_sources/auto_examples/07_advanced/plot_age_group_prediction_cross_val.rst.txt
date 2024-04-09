@@ -27,13 +27,12 @@ and tangent space embedding.
 
 The resulting connectivity coefficients can be used to
 discriminate children from adults. In general, the tangent space embedding
-**outperforms** the standard correlations: see `Dadi et al 2019
-<https://www.sciencedirect.com/science/article/pii/S1053811919301594>`_
-for a careful study.
+**outperforms** the standard correlations:
+see :footcite:t:`Dadi2019` for a careful study.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 18-24
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
 
@@ -50,13 +49,13 @@ for a careful study.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-28
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
 
 Load brain development :term:`fMRI` dataset and MSDL atlas
 ----------------------------------------------------------
 We study only 60 subjects from the dataset, to save computation time.
 
-.. GENERATED FROM PYTHON SOURCE LINES 28-32
+.. GENERATED FROM PYTHON SOURCE LINES 27-31
 
 .. code-block:: Python
 
@@ -68,139 +67,14 @@ We study only 60 subjects from the dataset, to save computation time.
 
 
 
-.. rst-class:: sphx-glr-script-out
-
- .. code-block:: none
-
-    Downloading data from https://osf.io/download/5c8ff3eb2286e80019c3c198/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3ed2286e80017c41b56/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3ee2286e80016c3c379/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3ee4712b400183b70c3/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3efa743a9001660a0d5/ ...
-     ...done. (4 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f14712b4001a3b560e/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f1a743a90017608164/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f12286e80016c3c37e/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f34712b4001a3b5612/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f7a743a90019606cdf/ ...
-     ...done. (4 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f6a743a90017608171/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f64712b400183b70d8/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f72286e80019c3c1af/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3f92286e80018c3e463/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb47057f2be3c0019030a1f/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e63f2be3c0017056ba9/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4704af2be3c001705703b/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e7a353c58001a9b3324/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3952286e80016c3c2e7/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3954712b400193b5b79/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb47016a3bc970018f1fc88/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e6ba3bc970019f07152/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff395a743a900176080af/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3964712b400193b5b7d/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff399a743a9001660a031/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3982286e80017c41a29/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39aa743a90018606e21/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39aa743a900176080ba/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb470153992690018133d3b/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e793992690017108eb9/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb47038353c5800199ac9a2/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e85a3bc97001aeff750/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4701c3992690018133d49/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e1c3992690018133a9e/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39aa743a900176080bf/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39d4712b400193b5b89/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4703039926900160f6b3e/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e4d353c58001b9cb325/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4700af2be3c0017056f69/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e0cf2be3c001801f757/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4702b39926900171090e4/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e35f2be3c00190305ff/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39ca743a90019606c50/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a2a743a9001660a048/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4701ff2be3c0017056fad/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e0339926900160f6930/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a12286e80017c41a48/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a12286e80016c3c2fc/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff39fa743a90018606e2f/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a34712b4001a3b55a3/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4703439926900160f6b43/ ...
-     ...done. (1 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e40f2be3c001801f77f/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a34712b400193b5b92/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a84712b400183b7048/ ...
-     ...done. (4 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb47020f2be3c0019030968/ ...
-     ...done. (2 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e6f353c58001a9b3311/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a72286e80017c41a54/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5c8ff3a7a743a90018606e42/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb4702639926900190faf1d/ ...
-     ...done. (3 seconds, 0 min)
-    Downloading data from https://osf.io/download/5cb46e3f353c5800199ac787/ ...
-     ...done. (3 seconds, 0 min)
 
 
 
-
-.. GENERATED FROM PYTHON SOURCE LINES 33-34
+.. GENERATED FROM PYTHON SOURCE LINES 32-33
 
 We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-59
+.. GENERATED FROM PYTHON SOURCE LINES 33-58
 
 .. code-block:: Python
 
@@ -236,7 +110,7 @@ We use probabilistic regions of interest (ROIs) from the MSDL atlas.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 What kind of connectivity is most powerful for classification?
 --------------------------------------------------------------
@@ -244,7 +118,7 @@ we will use connectivity matrices as features to distinguish children from
 adults. We use cross-validation and measure classification accuracy to
 compare the different kinds of connectivity matrices.
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-97
+.. GENERATED FROM PYTHON SOURCE LINES 64-96
 
 .. code-block:: Python
 
@@ -287,13 +161,13 @@ compare the different kinds of connectivity matrices.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-101
+.. GENERATED FROM PYTHON SOURCE LINES 97-100
 
 We use random splits of the subjects into training/testing sets.
 StratifiedShuffleSplit allows preserving the proportion of children in the
 test set.
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-121
+.. GENERATED FROM PYTHON SOURCE LINES 100-120
 
 .. code-block:: Python
 
@@ -330,11 +204,11 @@ test set.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 122-123
+.. GENERATED FROM PYTHON SOURCE LINES 121-122
 
 display the results
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-134
+.. GENERATED FROM PYTHON SOURCE LINES 122-133
 
 .. code-block:: Python
 
@@ -361,17 +235,16 @@ display the results
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 135-142
+.. GENERATED FROM PYTHON SOURCE LINES 134-140
 
 This is a small example to showcase nilearn features. In practice such
 comparisons need to be performed on much larger cohorts and several
 datasets.
-`Dadi et al 2019
-<https://www.sciencedirect.com/science/article/pii/S1053811919301594>`_
-Showed that across many cohorts and clinical questions, the tangent
-kind should be preferred.
+:footcite:t:`Dadi2019` showed
+that across many cohorts and clinical questions,
+the tangent kind should be preferred.
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-144
+.. GENERATED FROM PYTHON SOURCE LINES 140-143
 
 .. code-block:: Python
 
@@ -385,11 +258,19 @@ kind should be preferred.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 144-148
+
+References
+----------
+
+ .. footbibliography::
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (4 minutes 16.911 seconds)
+   **Total running time of the script:** (2 minutes 28.122 seconds)
 
-**Estimated memory usage:**  1255 MB
+**Estimated memory usage:**  1143 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_age_group_prediction_cross_val.py:
@@ -401,7 +282,7 @@ kind should be preferred.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_age_group_prediction_cross_val.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_age_group_prediction_cross_val.ipynb
         :alt: Launch binder
         :width: 150 px
 

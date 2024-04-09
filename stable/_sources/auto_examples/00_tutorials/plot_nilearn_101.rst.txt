@@ -43,7 +43,7 @@ basic nilearn functionalities.
 
  .. code-block:: none
 
-    Path to MNI152 template: '/home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/datasets/data/mni_icbm152_t1_tal_nlin_sym_09a_converted.nii.gz'
+    Path to MNI152 template: '/home/himanshu/Desktop/nilearn_work/nilearn/nilearn/datasets/data/mni_icbm152_t1_tal_nlin_sym_09a_converted.nii.gz'
 
 
 
@@ -77,7 +77,7 @@ Let's quickly plot this file:
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b9f7f390>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214d972f830>
 
 
 
@@ -125,7 +125,7 @@ Here we give as inputs the image filename and the smoothing value in mm
  .. code-block:: none
 
 
-    <nibabel.nifti1.Nifti1Image object at 0x7fb3921d1e10>
+    <nibabel.nifti1.Nifti1Image object at 0x7214ddd222a0>
 
 
 
@@ -154,7 +154,7 @@ instance to look at it
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3963ca1d0>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214d934ac00>
 
 
 
@@ -162,12 +162,13 @@ instance to look at it
 
 We could also pass it to the smoothing function
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-62
+.. GENERATED FROM PYTHON SOURCE LINES 59-63
 
 .. code-block:: Python
 
     more_smooth_anat_img = image.smooth_img(smooth_anat_img, fwhm=3)
     plotting.plot_img(more_smooth_anat_img)
+
 
 
 
@@ -183,27 +184,86 @@ We could also pass it to the smoothing function
  .. code-block:: none
 
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb3b1468c50>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214d9383ad0>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-67
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
 
-Saving results to a file
--------------------------
+Globbing over multiple 3D volumes
+---------------------------------
+Nilearn also supports reading multiple volumes at once,
+using glob-style patterns.
+For instance, we can smooth volumes from many subjects
+at once and get a 4D image as output.
 
-We can save any in-memory object as follows:
+.. GENERATED FROM PYTHON SOURCE LINES 72-73
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-74
+First let's fetch Haxby dataset for subject 1 and 2
+
+.. GENERATED FROM PYTHON SOURCE LINES 73-77
+
+.. code-block:: Python
+
+    from nilearn import datasets
+
+    haxby = datasets.fetch_haxby(subjects=[1, 2])
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 78-80
+
+Now we can find the anatomical images from both
+subjects using the `*` wildcard
+
+.. GENERATED FROM PYTHON SOURCE LINES 80-86
 
 .. code-block:: Python
 
     from pathlib import Path
 
-    output_dir = Path.cwd() / "results" / "plot_nilearn_101"
-    output_dir.mkdir(exist_ok=True, parents=True)
-    print(f"Output will be saved to: {output_dir}")
-    more_smooth_anat_img.to_filename(output_dir / "more_smooth_anat_img.nii.gz")
+    anats_all_subjects = (
+        Path(datasets.get_data_dirs()[0]) / "haxby2001" / "subj*" / "anat*"
+    )
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 87-88
+
+Now we can smooth all the anatomical images at once
+
+.. GENERATED FROM PYTHON SOURCE LINES 88-90
+
+.. code-block:: Python
+
+    anats_all_subjects_smooth = image.smooth_img(anats_all_subjects, fwhm=5)
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 91-92
+
+This is a 4D image containing one volume per subject
+
+.. GENERATED FROM PYTHON SOURCE LINES 92-94
+
+.. code-block:: Python
+
+    print(anats_all_subjects_smooth.shape)
 
 
 
@@ -213,17 +273,48 @@ We can save any in-memory object as follows:
 
  .. code-block:: none
 
-    Output will be saved to: /home/remi/github/nilearn/nilearn/examples/00_tutorials/results/plot_nilearn_101
+    (124, 256, 256, 2)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-77
+.. GENERATED FROM PYTHON SOURCE LINES 95-99
+
+Saving results to a file
+-------------------------
+
+We can save any in-memory object as follows:
+
+.. GENERATED FROM PYTHON SOURCE LINES 99-106
+
+.. code-block:: Python
+
+    output_dir = Path.cwd() / "results" / "plot_nilearn_101"
+    output_dir.mkdir(exist_ok=True, parents=True)
+    print(f"Output will be saved to: {output_dir}")
+    anats_all_subjects_smooth.to_filename(
+        output_dir / "anats_all_subjects_smooth.nii.gz"
+    )
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Output will be saved to: /home/himanshu/Desktop/nilearn_work/nilearn/examples/00_tutorials/results/plot_nilearn_101
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 107-109
 
 Finally, calling plotting.show() is necessary to display the figure
 when running as a script outside IPython
 
-.. GENERATED FROM PYTHON SOURCE LINES 77-79
+.. GENERATED FROM PYTHON SOURCE LINES 109-111
 
 .. code-block:: Python
 
@@ -236,22 +327,23 @@ when running as a script outside IPython
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-87
+.. GENERATED FROM PYTHON SOURCE LINES 112-120
 
 |
 
 ______
 
-To recap, all the nilearn tools can take data as filenames or in-memory
-objects, and return brain volumes as in-memory objects. These can be
+To recap, all the nilearn tools can take data as filenames or
+glob-style patterns or in-memory objects, and return brain
+volumes as in-memory objects. These can be
 passed on to other nilearn tools, or saved to disk.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.076 seconds)
+   **Total running time of the script:** (0 minutes 9.033 seconds)
 
-**Estimated memory usage:**  199 MB
+**Estimated memory usage:**  286 MB
 
 
 .. _sphx_glr_download_auto_examples_00_tutorials_plot_nilearn_101.py:
@@ -263,7 +355,7 @@ passed on to other nilearn tools, or saved to disk.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_nilearn_101.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/00_tutorials/plot_nilearn_101.ipynb
         :alt: Launch binder
         :width: 150 px
 

@@ -59,7 +59,7 @@ Fetching data from ADHD dataset
 
  .. code-block:: none
 
-    First subject functional nifti image (4D) is at: /home/remi/nilearn_data/adhd/data/0010042/0010042_rest_tshift_RPI_voreg_mni.nii.gz
+    First subject functional nifti image (4D) is at: /home/himanshu/nilearn_data/adhd/data/0010042/0010042_rest_tshift_RPI_voreg_mni.nii.gz
 
 
 
@@ -90,7 +90,7 @@ Deriving a mask
 Visualizing global patterns over time
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-52
+.. GENERATED FROM PYTHON SOURCE LINES 41-53
 
 .. code-block:: Python
 
@@ -101,6 +101,7 @@ Visualizing global patterns over time
         mask_img,
         t_r=t_r,
         standardize="zscore_sample",
+        title="global patterns over time",
     )
 
     display.show()
@@ -109,7 +110,7 @@ Visualizing global patterns over time
 
 
 .. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_carpet_001.png
-   :alt: plot carpet
+   :alt: global patterns over time
    :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_carpet_001.png
    :class: sphx-glr-single-img
 
@@ -117,14 +118,14 @@ Visualizing global patterns over time
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-57
+.. GENERATED FROM PYTHON SOURCE LINES 54-58
 
 Deriving a label-based mask
 ---------------------------
 Create a gray matter/white matter/cerebrospinal fluid mask from
 ICBM152 tissue probability maps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-71
+.. GENERATED FROM PYTHON SOURCE LINES 58-72
 
 .. code-block:: Python
 
@@ -150,18 +151,18 @@ ICBM152 tissue probability maps.
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/examples/01_plotting/plot_carpet.py:68: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
+    /home/himanshu/Desktop/nilearn_work/nilearn/examples/01_plotting/plot_carpet.py:69: UserWarning: Data array used to create a new image contains 64-bit ints. This is likely due to creating the array with numpy and passing `int` as the `dtype`. Many tools such as FSL and SPM cannot deal with int64 in Nifti images, so for compatibility the data has been converted to int32.
       discrete_atlas_img = image.new_img_like(atlas_img, discrete_version)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-74
+.. GENERATED FROM PYTHON SOURCE LINES 73-75
 
 Visualizing global patterns, separated by tissue type
 -----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-90
+.. GENERATED FROM PYTHON SOURCE LINES 75-92
 
 .. code-block:: Python
 
@@ -177,15 +178,16 @@ Visualizing global patterns, separated by tissue type
         axes=ax,
         cmap="gray",
         standardize="zscore_sample",
+        title="global patterns over time separated by tissue type",
     )
 
-    fig.show()
+    plt.show()
 
 
 
 
 .. image-sg:: /auto_examples/01_plotting/images/sphx_glr_plot_carpet_002.png
-   :alt: plot carpet
+   :alt: global patterns over time separated by tissue type
    :srcset: /auto_examples/01_plotting/images/sphx_glr_plot_carpet_002.png
    :class: sphx-glr-single-img
 
@@ -194,7 +196,7 @@ Visualizing global patterns, separated by tissue type
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/joblib/memory.py:353: UserWarning: Casting data from int32 to float32
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/joblib/memory.py:353: UserWarning: Casting data from int32 to float32
       return self.func(*args, **kwargs)
     Coercing atlas_values to <class 'int'>
 
@@ -204,9 +206,9 @@ Visualizing global patterns, separated by tissue type
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 14.467 seconds)
+   **Total running time of the script:** (0 minutes 8.537 seconds)
 
-**Estimated memory usage:**  980 MB
+**Estimated memory usage:**  913 MB
 
 
 .. _sphx_glr_download_auto_examples_01_plotting_plot_carpet.py:
@@ -218,7 +220,7 @@ Visualizing global patterns, separated by tissue type
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/01_plotting/plot_carpet.ipynb
         :alt: Launch binder
         :width: 150 px
 

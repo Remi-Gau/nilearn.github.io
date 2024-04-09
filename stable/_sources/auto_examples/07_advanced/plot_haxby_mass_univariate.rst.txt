@@ -27,36 +27,27 @@ viewing" condition and a "house viewing" condition.
 We consider the mean image per run and per condition.
 Otherwise, the observations cannot be exchanged at random because
 a time dependence exists between observations within a same run
-(see [1] for more detailed explanations).
+(see :footcite:t:`Winkler2014` for more detailed explanations).
 
 The example shows the small differences that exist between
 Bonferroni-corrected p-values and family-wise corrected p-values obtained
-from a permutation test combined with a max-type procedure [2].
+from a permutation test combined
+with a max-type procedure (:footcite:t:`Anderson2001`).
 Bonferroni correction is a bit conservative, as revealed by the presence of
 a few false negative.
 
 .. include:: ../../../examples/masker_note.rst
-
-References
-----------
-[1] Winkler, A. M. et al. (2014).
-    Permutation inference for the general linear model. Neuroimage.
-
-[2] Anderson, M. J. & Robinson, J. (2001).
-    Permutation tests for linear models.
-    Australian & New Zealand Journal of Statistics, 43(1), 75-88.
-    (https://www.uvm.edu/~statdhtx/fundamentals9/Supplements/RandomizationTestsWithR/permut2.pdf)
 
 ..
     Original authors:
 
     - Virgile Fritsch, Feb. 2014
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-39
+.. GENERATED FROM PYTHON SOURCE LINES 29-30
 
 Load Haxby dataset
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-48
+.. GENERATED FROM PYTHON SOURCE LINES 30-39
 
 .. code-block:: Python
 
@@ -77,17 +68,17 @@ Load Haxby dataset
 
  .. code-block:: none
 
-    Mask nifti image (3D) is located at: /home/remi/nilearn_data/haxby2001/mask.nii.gz
-    Functional nifti image (4D) is located at: /home/remi/nilearn_data/haxby2001/subj2/bold.nii.gz
+    Mask nifti image (3D) is located at: /home/himanshu/nilearn_data/haxby2001/mask.nii.gz
+    Functional nifti image (4D) is located at: /home/himanshu/nilearn_data/haxby2001/subj2/bold.nii.gz
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-50
+.. GENERATED FROM PYTHON SOURCE LINES 40-41
 
 Restrict to faces and houses
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-63
+.. GENERATED FROM PYTHON SOURCE LINES 41-54
 
 .. code-block:: Python
 
@@ -111,11 +102,11 @@ Restrict to faces and houses
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-65
+.. GENERATED FROM PYTHON SOURCE LINES 55-56
 
 Mask data
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-105
+.. GENERATED FROM PYTHON SOURCE LINES 56-96
 
 .. code-block:: Python
 
@@ -166,14 +157,14 @@ Mask data
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 106-110
+.. GENERATED FROM PYTHON SOURCE LINES 97-101
 
 Perform massively univariate analysis with permuted OLS
 
 We use a two-sided t-test to compute p-values, but we keep trace of the
 effect sign to add it back at the end and thus observe the signed effect
 
-.. GENERATED FROM PYTHON SOURCE LINES 110-126
+.. GENERATED FROM PYTHON SOURCE LINES 101-117
 
 .. code-block:: Python
 
@@ -202,18 +193,18 @@ effect sign to add it back at the end and thus observe the signed effect
  .. code-block:: none
 
     [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   33.3s finished
+    [Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   19.1s finished
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-130
+.. GENERATED FROM PYTHON SOURCE LINES 118-121
 
 scikit-learn F-scores for comparison
 
 F-test does not allow to observe the effect sign (pure two-sided test)
 
-.. GENERATED FROM PYTHON SOURCE LINES 130-144
+.. GENERATED FROM PYTHON SOURCE LINES 121-135
 
 .. code-block:: Python
 
@@ -239,19 +230,17 @@ F-test does not allow to observe the effect sign (pure two-sided test)
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/sklearn/utils/validation.py:1229: DataConversionWarning:
-
-    A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-
+    /home/himanshu/.local/miniconda3/envs/nilearnpy/lib/python3.12/site-packages/sklearn/utils/validation.py:1300: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+      y = column_or_1d(y, warn=True)
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-146
+.. GENERATED FROM PYTHON SOURCE LINES 136-137
 
 Visualization
 
-.. GENERATED FROM PYTHON SOURCE LINES 146-202
+.. GENERATED FROM PYTHON SOURCE LINES 137-193
 
 .. code-block:: Python
 
@@ -335,12 +324,19 @@ Visualization
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 194-198
+
+References
+----------
+
+ .. footbibliography::
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 53.577 seconds)
+   **Total running time of the script:** (0 minutes 32.160 seconds)
 
-**Estimated memory usage:**  1014 MB
+**Estimated memory usage:**  980 MB
 
 
 .. _sphx_glr_download_auto_examples_07_advanced_plot_haxby_mass_univariate.py:
@@ -352,7 +348,7 @@ Visualization
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_haxby_mass_univariate.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_haxby_mass_univariate.ipynb
         :alt: Launch binder
         :width: 150 px
 

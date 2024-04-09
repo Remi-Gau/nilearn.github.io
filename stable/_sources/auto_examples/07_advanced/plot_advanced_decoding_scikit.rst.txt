@@ -29,16 +29,13 @@ objects. If some concepts seem unclear,
 please refer to the :ref:`documentation on decoding <decoding_intro>`
 and in particular to the :ref:`advanced section <going_further>`.
 As in many other examples, we perform decoding of the visual category of a
-stimuli on Haxby 2001 dataset, focusing on distinguishing two categories :
+stimuli on :footcite:t:`Haxby2001` dataset,
+focusing on distinguishing two categories:
 face and cat images.
-
-    * J.V. Haxby et al. "Distributed and Overlapping Representations of Faces
-      and Objects in Ventral Temporal Cortex", Science vol 293 (2001), p
-      2425.-2430.
 
 .. include:: ../../../examples/masker_note.rst
 
-.. GENERATED FROM PYTHON SOURCE LINES 25-31
+.. GENERATED FROM PYTHON SOURCE LINES 22-28
 
 Retrieve and load the :term:`fMRI` data from the Haxby study
 ------------------------------------------------------------
@@ -47,7 +44,7 @@ First download the data
 .......................
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-47
+.. GENERATED FROM PYTHON SOURCE LINES 28-44
 
 .. code-block:: Python
 
@@ -161,11 +158,11 @@ First download the data
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
 
 We keep only a images from a pair of conditions(cats versus faces).
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-59
+.. GENERATED FROM PYTHON SOURCE LINES 46-56
 
 .. code-block:: Python
 
@@ -186,12 +183,12 @@ We keep only a images from a pair of conditions(cats versus faces).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-62
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 Performing decoding with scikit-learn
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-75
+.. GENERATED FROM PYTHON SOURCE LINES 59-72
 
 .. code-block:: Python
 
@@ -215,7 +212,7 @@ Performing decoding with scikit-learn
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-83
+.. GENERATED FROM PYTHON SOURCE LINES 73-80
 
 Masking the data
 ................
@@ -225,7 +222,7 @@ voxels inside the mask of interest,
 and transform 4D input :term:`fMRI` data to 2D arrays
 (`shape=(n_timepoints, n_voxels)`) that estimators can work on.
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-95
+.. GENERATED FROM PYTHON SOURCE LINES 80-92
 
 .. code-block:: Python
 
@@ -249,15 +246,13 @@ and transform 4D input :term:`fMRI` data to 2D arrays
 
  .. code-block:: none
 
-    /home/remi/github/nilearn/nilearn/env/lib/python3.11/site-packages/nilearn/image/resampling.py:492: UserWarning:
-
-    The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
-
+    /home/himanshu/Desktop/nilearn_work/nilearn/nilearn/image/resampling.py:492: UserWarning: The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
+      warnings.warn(
 
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 96-101
+.. GENERATED FROM PYTHON SOURCE LINES 93-98
 
 Cross-validation with scikit-learn
 ..................................
@@ -265,7 +260,7 @@ To train and test the model in a meaningful way we use cross-validation with
 the function :func:`sklearn.model_selection.cross_val_score` that computes
 for you the score for the different folds of cross-validation.
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-107
+.. GENERATED FROM PYTHON SOURCE LINES 98-104
 
 .. code-block:: Python
 
@@ -288,7 +283,7 @@ for you the score for the different folds of cross-validation.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 108-119
+.. GENERATED FROM PYTHON SOURCE LINES 105-116
 
 Tuning cross-validation parameters
 ..................................
@@ -302,7 +297,7 @@ You can change many parameters of the cross_validation here, for example:
 * use a different scoring function, as a keyword or imported from
   scikit-learn : scoring = 'roc_auc'
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-133
+.. GENERATED FROM PYTHON SOURCE LINES 116-130
 
 .. code-block:: Python
 
@@ -333,7 +328,7 @@ You can change many parameters of the cross_validation here, for example:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-140
+.. GENERATED FROM PYTHON SOURCE LINES 131-137
 
 Measuring the chance level
 --------------------------
@@ -342,12 +337,12 @@ simplest way to measure prediction performance at chance. A more controlled
 way, but slower, is to do permutation testing on the labels, with
 :func:`sklearn.model_selection.permutation_test_score`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 142-144
+.. GENERATED FROM PYTHON SOURCE LINES 139-141
 
 Dummy estimator
 ...............
 
-.. GENERATED FROM PYTHON SOURCE LINES 144-152
+.. GENERATED FROM PYTHON SOURCE LINES 141-149
 
 .. code-block:: Python
 
@@ -372,12 +367,12 @@ Dummy estimator
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-155
+.. GENERATED FROM PYTHON SOURCE LINES 150-152
 
 Permutation test
 ................
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-162
+.. GENERATED FROM PYTHON SOURCE LINES 152-159
 
 .. code-block:: Python
 
@@ -401,7 +396,7 @@ Permutation test
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-171
+.. GENERATED FROM PYTHON SOURCE LINES 160-168
 
 Decoding without a mask: Anova-SVM in scikit-lean
 -------------------------------------------------
@@ -412,7 +407,7 @@ the :mod:`sklearn.feature_selection` module and use
 based feature selection (a.k.a.
 `Anova <https://en.wikipedia.org/wiki/Analysis_of_variance#The_F-test>`_).
 
-.. GENERATED FROM PYTHON SOURCE LINES 171-196
+.. GENERATED FROM PYTHON SOURCE LINES 168-193
 
 .. code-block:: Python
 
@@ -454,12 +449,12 @@ based feature selection (a.k.a.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 197-199
+.. GENERATED FROM PYTHON SOURCE LINES 194-196
 
 Visualize the :term:`ANOVA` + SVC's discriminating weights
 ..........................................................
 
-.. GENERATED FROM PYTHON SOURCE LINES 199-223
+.. GENERATED FROM PYTHON SOURCE LINES 196-220
 
 .. code-block:: Python
 
@@ -503,16 +498,16 @@ Visualize the :term:`ANOVA` + SVC's discriminating weights
     After feature selection, the SVC is trained only on 47 features
     After inverting feature selection, we have 464 features back
 
-    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fb385763290>
+    <nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7214eb7af110>
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 224-226
+.. GENERATED FROM PYTHON SOURCE LINES 221-223
 
 Going further with scikit-learn
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 228-234
+.. GENERATED FROM PYTHON SOURCE LINES 225-231
 
 Changing the prediction engine
 ..............................
@@ -521,7 +516,7 @@ pipeline instead of the SVC.
 We can try Fisher's
 `Linear Discriminant Analysis (LDA) <https://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_vs_lda.html>`_ # noqa
 
-.. GENERATED FROM PYTHON SOURCE LINES 234-255
+.. GENERATED FROM PYTHON SOURCE LINES 231-252
 
 .. code-block:: Python
 
@@ -559,7 +554,7 @@ We can try Fisher's
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 256-261
+.. GENERATED FROM PYTHON SOURCE LINES 253-258
 
 Changing the feature selection
 ..............................
@@ -567,7 +562,7 @@ Let's say that you want a more sophisticated feature selection, for example a
 Recursive Feature Elimination(RFE) before a svc.
 We follows the same principle.
 
-.. GENERATED FROM PYTHON SOURCE LINES 261-280
+.. GENERATED FROM PYTHON SOURCE LINES 258-278
 
 .. code-block:: Python
 
@@ -598,9 +593,17 @@ We follows the same principle.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 279-283
+
+References
+----------
+
+ .. footbibliography::
+
+
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 31.047 seconds)
+   **Total running time of the script:** (0 minutes 19.913 seconds)
 
 **Estimated memory usage:**  916 MB
 
@@ -614,7 +617,7 @@ We follows the same principle.
     .. container:: binder-badge
 
       .. image:: images/binder_badge_logo.svg
-        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.3?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb
+        :target: https://mybinder.org/v2/gh/nilearn/nilearn/0.10.4?urlpath=lab/tree/notebooks/auto_examples/07_advanced/plot_advanced_decoding_scikit.ipynb
         :alt: Launch binder
         :width: 150 px
 
