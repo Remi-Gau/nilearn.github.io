@@ -11,9 +11,9 @@
 <meta property="og:image" content="https://nilearn.github.io/_static/nilearn-logo.png" />
 <meta property="og:image:alt" content="Nilearn" />
 <meta name="description" content="This example uses voxel-based morphometry ( VBM) to study the relationship between aging, sex, and gray matter density. The data come from the OASIS project. If you use it, you need to agree with t..." />
-<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Second-level fMRI model: two-sample test, unpaired and paired" href="plot_second_level_two_sample_test.html" /><link rel="prev" title="Statistical testing of a second-level analysis" href="plot_thresholding.html" />
+<link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Second-level fMRI model: one sample test" href="plot_second_level_one_sample_test.html" /><link rel="prev" title="Second-level fMRI model: two-sample test, unpaired and paired" href="plot_second_level_two_sample_test.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>Voxel-Based Morphometry on OASIS dataset - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -754,7 +754,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="voxel-based-morphometry-on-oasis-dataset">
-<span id="sphx-glr-auto-examples-05-glm-second-level-plot-oasis-py"></span><h1>Voxel-Based Morphometry on OASIS dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-05-glm-second-level-plot-oasis-py"></span><h1>Voxel-Based Morphometry on OASIS dataset<a class="headerlink" href="#voxel-based-morphometry-on-oasis-dataset" title="Link to this heading">¶</a></h1>
 <p>This example uses voxel-based morphometry (<a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a>) to study the
 relationship between aging, sex, and gray matter density.</p>
 <p>The data come from the <a class="reference external" href="https://www.oasis-brains.org/">OASIS</a> project.
@@ -764,7 +764,7 @@ on the website.</p>
 (using SPM8 and NewSegment)
 to create <a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a> maps, which we study here.</p>
 <section id="vbm-analysis-of-aging">
-<h2>VBM analysis of aging<a class="headerlink" href="#vbm-analysis-of-aging" title="Link to this heading">#</a></h2>
+<h2>VBM analysis of aging<a class="headerlink" href="#vbm-analysis-of-aging" title="Link to this heading">¶</a></h2>
 <p>We run a standard <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> analysis
 to study the association between age and gray matter density
 from the <a class="reference internal" href="../../glossary.html#term-VBM"><span class="xref std std-term">VBM</span></a> data.
@@ -772,7 +772,7 @@ We use only 100 subjects from the OASIS dataset to limit the memory usage.</p>
 <p>Note that more power would be obtained from using a larger sample of subjects.</p>
 </section>
 <section id="load-oasis-dataset">
-<h2>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Link to this heading">#</a></h2>
+<h2>Load Oasis dataset<a class="headerlink" href="#load-oasis-dataset" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">plotting</span>
 
 <a href="https://docs.python.org/3.9/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n_subjects</span></a> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># more subjects requires more memory</span>
@@ -820,7 +820,7 @@ First white-matter anatomy image (3D) is located at: /home/runner/work/nilearn/n
 </div>
 </section>
 <section id="analyse-data">
-<h2>Analyse data<a class="headerlink" href="#analyse-data" title="Link to this heading">#</a></h2>
+<h2>Analyse data<a class="headerlink" href="#analyse-data" title="Link to this heading">¶</a></h2>
 <p>First, we create an adequate design matrix with three columns: ‘age’, ‘sex’,
 and ‘intercept’.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -850,7 +850,7 @@ also smooth a little bit to improve statistical behavior.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.glm.second_level</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class"><span class="n">SecondLevelModel</span></a>
 
 <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">second_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class"><span class="n">SecondLevelModel</span></a><span class="p">(</span>
-    <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_img</span></a><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_img</span></a><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span>
+    <span class="n">smoothing_fwhm</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_img</span></a><span class="o">=</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask_img</span></a><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">minimize_memory</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel.fit" title="nilearn.glm.second_level.SecondLevelModel.fit" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-method"><span class="n">second_level_model</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span>
     <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gray_matter_map_filenames</span></a><span class="p">,</span>
@@ -1263,9 +1263,11 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc07184980&gt;,
-                 n_jobs=2, smoothing_fwhm=2.0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SecondLevelModel<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc07184980&gt;,
-                 n_jobs=2, smoothing_fwhm=2.0)</pre></div> </div></div></div></div>
+</style><div id="sk-container-id-7" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f852ce80080&gt;,
+                 memory=Memory(location=None), minimize_memory=False, n_jobs=2,
+                 smoothing_fwhm=2.0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" checked><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SecondLevelModel<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SecondLevelModel(mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f852ce80080&gt;,
+                 memory=Memory(location=None), minimize_memory=False, n_jobs=2,
+                 smoothing_fwhm=2.0)</pre></div> </div></div></div></div>
 </div>
 <br />
 <br /><p>Estimating the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> is very simple.
@@ -1314,14 +1316,14 @@ it and plot the resulting map.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plot_oasis_003.png" srcset="../../_images/sphx_glr_plot_oasis_003.png" alt="plot oasis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7fdc1532efc0&gt;
+<img src="../../_images/sphx_glr_plot_oasis_003.png" srcset="../../_images/sphx_glr_plot_oasis_003.png" alt="plot oasis" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer object at 0x7f852ce82780&gt;
 </pre></div>
 </div>
 <p>Note that there does not seem to be any significant effect of sex on
 gray matter density on that dataset.</p>
 </section>
 <section id="generating-a-report">
-<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">#</a></h2>
+<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">¶</a></h2>
 <p>It can be useful to quickly generate a portable, ready-to-view report with
 most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
@@ -1336,19 +1338,66 @@ which we do here.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>We have several ways to access the report:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># report  # This report can be viewed in a notebook</span>
-<span class="c1"># report.open_in_browser()</span>
+<p>We have several ways to access the report:
+report  # This report can be viewed in a notebook
+report.open_in_browser()</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># or we can save as an html file</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
-<span class="c1"># or we can save as an html file</span>
-<span class="c1"># from pathlib import Path</span>
-<span class="c1"># output_dir = Path.cwd() / &quot;results&quot; / &quot;plot_oasis&quot;</span>
-<span class="c1"># output_dir.mkdir(exist_ok=True, parents=True)</span>
-<span class="c1"># report.save_as_html(output_dir / &#39;report.html&#39;)</span>
+<a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.cwd" title="pathlib.Path.cwd" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span></a><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;results&quot;</span> <span class="o">/</span> <span class="s2">&quot;plot_oasis&quot;</span>
+<a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.mkdir" title="pathlib.Path.mkdir" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span></a><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a href="../../modules/generated/nilearn.reporting.HTMLReport.html#nilearn.reporting.HTMLReport.save_as_html" title="nilearn.reporting.HTMLReport.save_as_html" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-method"><span class="n">report</span><span class="o">.</span><span class="n">save_as_html</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;report.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 53.410 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1425 MB</p>
+</section>
+<section id="saving-model-outputs-to-disk">
+<h2>Saving model outputs to disk<a class="headerlink" href="#saving-model-outputs-to-disk" title="Link to this heading">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also save the model outputs to disk</span>
+<span class="kn">from</span> <span class="nn">nilearn.interfaces.bids</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.bids.save_glm_to_bids.html#nilearn.interfaces.bids.save_glm_to_bids" title="nilearn.interfaces.bids.save_glm_to_bids" class="sphx-glr-backref-module-nilearn-interfaces-bids sphx-glr-backref-type-py-function"><span class="n">save_glm_to_bids</span></a>
+
+<a href="../../modules/generated/nilearn.interfaces.bids.save_glm_to_bids.html#nilearn.interfaces.bids.save_glm_to_bids" title="nilearn.interfaces.bids.save_glm_to_bids" class="sphx-glr-backref-module-nilearn-interfaces-bids sphx-glr-backref-type-py-function"><span class="n">save_glm_to_bids</span></a><span class="p">(</span>
+    <a href="../../modules/generated/nilearn.glm.second_level.SecondLevelModel.html#nilearn.glm.second_level.SecondLevelModel" title="nilearn.glm.second_level.SecondLevelModel" class="sphx-glr-backref-module-nilearn-glm-second_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">second_level_model</span></a><span class="p">,</span>
+    <span class="n">contrasts</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">],</span>
+    <span class="n">out_dir</span><span class="o">=</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;derivatives&quot;</span> <span class="o">/</span> <span class="s2">&quot;nilearn_glm&quot;</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;ageEffectOnGM&quot;</span><span class="p">,</span>
+    <span class="n">bg_img</span><span class="o">=</span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">icbm152_2009</span></a><span class="p">[</span><span class="s2">&quot;t1&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img src="../../_images/sphx_glr_plot_oasis_004.png" srcset="../../_images/sphx_glr_plot_oasis_004.png" alt="plot oasis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_oasis_005.png" srcset="../../_images/sphx_glr_plot_oasis_005.png" alt="plot oasis" class = "sphx-glr-multi-img"/></li>
+<li><img src="../../_images/sphx_glr_plot_oasis_006.png" srcset="../../_images/sphx_glr_plot_oasis_006.png" alt="plot oasis" class = "sphx-glr-multi-img"/></li>
+</ul>
+<p>View the generated files</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">files</span></a> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;derivatives&quot;</span> <span class="o">/</span> <span class="s2">&quot;nilearn_glm&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">files</span></a><span class="p">]))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>derivatives/nilearn_glm/dataset_description.json
+derivatives/nilearn_glm/group
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_design.svg
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_stat-effect_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_stat-p_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_stat-t_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_stat-variance_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-age_stat-z_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_design.svg
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_stat-effect_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_stat-p_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_stat-t_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_stat-variance_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_contrast-sex_stat-z_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_design.svg
+derivatives/nilearn_glm/group/ageEffectOnGM_design.tsv
+derivatives/nilearn_glm/group/ageEffectOnGM_report.html
+derivatives/nilearn_glm/group/ageEffectOnGM_stat-errorts_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_stat-rsquared_statmap.nii.gz
+derivatives/nilearn_glm/group/ageEffectOnGM_statmap.json
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (4 minutes 12.314 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2616 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-05-glm-second-level-plot-oasis-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/05_glm_second_level/plot_oasis.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo5.svg" width="150px" /></a>
@@ -1369,23 +1418,23 @@ which we do here.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="plot_second_level_two_sample_test.html">
+          <a class="next-page" href="plot_second_level_one_sample_test.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Second-level fMRI model: two-sample test, unpaired and paired</div>
+                <div class="title">Second-level fMRI model: one sample test</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="plot_thresholding.html">
+          <a class="prev-page" href="plot_second_level_two_sample_test.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Statistical testing of a second-level analysis</div>
+                <div class="title">Second-level fMRI model: two-sample test, unpaired and paired</div>
                 
               </div>
             </a>
@@ -1430,6 +1479,7 @@ which we do here.</p>
 <li><a class="reference internal" href="#load-oasis-dataset">Load Oasis dataset</a></li>
 <li><a class="reference internal" href="#analyse-data">Analyse data</a></li>
 <li><a class="reference internal" href="#generating-a-report">Generating a report</a></li>
+<li><a class="reference internal" href="#saving-model-outputs-to-disk">Saving model outputs to disk</a></li>
 </ul>
 </li>
 </ul>
@@ -1442,7 +1492,7 @@ which we do here.</p>
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>

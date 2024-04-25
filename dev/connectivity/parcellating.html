@@ -13,7 +13,7 @@
 <meta name="description" content="This page discusses how clustering can be used to parcellate the brain into homogeneous regions from functional imaging data., Reference: A big-picture reference on the use of clustering for brain ..." />
 <link rel="search" title="Search" href="../search.html" /><link rel="next" title="7. Plotting brain images" href="../plotting/index.html" /><link rel="prev" title="6.4. Region Extraction for better brain parcellations" href="region_extraction.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>6.5. Clustering to parcellate the brain in regions - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -749,7 +749,7 @@
         </div>
         <article role="main">
           <section id="clustering-to-parcellate-the-brain-in-regions">
-<span id="parcellating-brain"></span><h1><span class="section-number">6.5. </span>Clustering to parcellate the brain in regions<a class="headerlink" href="#clustering-to-parcellate-the-brain-in-regions" title="Link to this heading">#</a></h1>
+<span id="parcellating-brain"></span><h1><span class="section-number">6.5. </span>Clustering to parcellate the brain in regions<a class="headerlink" href="#clustering-to-parcellate-the-brain-in-regions" title="Link to this heading">¶</a></h1>
 <p>This page discusses how clustering can be used to parcellate the brain
 into homogeneous regions from functional imaging data.</p>
 <div class="line-block">
@@ -761,7 +761,7 @@ into homogeneous regions from functional imaging data.</p>
 parcellations can be found in Thirion <em>et al.</em><a class="footnote-reference brackets" href="#footcite-thirion2014" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 </aside>
 <section id="data-loading-movie-watching-data">
-<h2><span class="section-number">6.5.1. </span>Data loading: movie-watching data<a class="headerlink" href="#data-loading-movie-watching-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5.1. </span>Data loading: movie-watching data<a class="headerlink" href="#data-loading-movie-watching-data" title="Link to this heading">¶</a></h2>
 <p>Clustering is commonly applied to <a class="reference internal" href="../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> data, but any brain
 functional data will give rise of a functional parcellation, capturing
 intrinsic brain architecture in the case of <a class="reference internal" href="../glossary.html#term-resting-state"><span class="xref std std-term">resting-state</span></a> data.
@@ -770,7 +770,7 @@ brain development data downloaded with the function
 <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_development_fmri</span></code></a> (see <a class="reference internal" href="../manipulating_images/input_output.html#loading-data"><span class="std std-ref">Inputing data: file names or image objects</span></a>).</p>
 </section>
 <section id="applying-clustering">
-<h2><span class="section-number">6.5.2. </span>Applying clustering<a class="headerlink" href="#applying-clustering" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5.2. </span>Applying clustering<a class="headerlink" href="#applying-clustering" title="Link to this heading">¶</a></h2>
 <aside class="topic">
 <p class="topic-title"><strong>Which clustering to use</strong></p>
 <p>The question of which clustering method to use is in itself subject
@@ -838,20 +838,21 @@ spatial connectivity.</p></li>
 </div>
 </section>
 <section id="using-and-visualizing-the-resulting-parcellation">
-<h2><span class="section-number">6.5.3. </span>Using and visualizing the resulting parcellation<a class="headerlink" href="#using-and-visualizing-the-resulting-parcellation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">6.5.3. </span>Using and visualizing the resulting parcellation<a class="headerlink" href="#using-and-visualizing-the-resulting-parcellation" title="Link to this heading">¶</a></h2>
 <section id="visualizing-the-parcellation">
-<h3><span class="section-number">6.5.3.1. </span>Visualizing the parcellation<a class="headerlink" href="#visualizing-the-parcellation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.3.1. </span>Visualizing the parcellation<a class="headerlink" href="#visualizing-the-parcellation" title="Link to this heading">¶</a></h3>
 <p>The labels of the <a class="reference internal" href="../glossary.html#term-parcellation"><span class="xref std std-term">parcellation</span></a> are found in the <code class="docutils literal notranslate"><span class="pre">labels_img_</span></code> attribute of
 the <a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.regions.Parcellations</span></code></a> object after fitting it to the data
 using <em>ward.fit</em>. We directly use the result for visualization.</p>
 <p>To visualize the clusters, we assign random colors to each cluster
 for the labels visualization.</p>
 <figure class="align-center">
-<a class="reference external image-reference" href="../auto_examples/03_connectivity/plot_data_driven_parcellations.html"><img alt="../_images/sphx_glr_plot_data_driven_parcellations_001.png" src="../_images/sphx_glr_plot_data_driven_parcellations_001.png" style="width: 352.0px; height: 280.0px;" /></a>
+<a class="reference external image-reference" href="../auto_examples/03_connectivity/plot_data_driven_parcellations.html"><img alt="../_images/sphx_glr_plot_data_driven_parcellations_001.png" src="../_images/sphx_glr_plot_data_driven_parcellations_001.png" style="width: 352.0px; height: 280.0px;" />
+</a>
 </figure>
 </section>
 <section id="compressed-representation">
-<h3><span class="section-number">6.5.3.2. </span>Compressed representation<a class="headerlink" href="#compressed-representation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.3.2. </span>Compressed representation<a class="headerlink" href="#compressed-representation" title="Link to this heading">¶</a></h3>
 <p>The clustering can be used to transform the data into a smaller
 representation, taking the average on each parcel:</p>
 <ul class="simple">
@@ -873,7 +874,7 @@ approximated.</p>
 </aside>
 </section>
 <section id="references">
-<h3><span class="section-number">6.5.3.3. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">6.5.3.3. </span>References<a class="headerlink" href="#references" title="Link to this heading">¶</a></h3>
 <div class="docutils container" id="id3">
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="footcite-thirion2014" role="doc-footnote">
@@ -969,7 +970,7 @@ approximated.</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

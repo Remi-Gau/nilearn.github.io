@@ -13,7 +13,7 @@
 <meta name="description" content="Released December 2019 HIGHLIGHTS: NEW: API New method for NiftiMasker instances for generating reports viewable in a web browser, Jupyter Notebook, or VSCode (#2019 by Elizabeth DuPre)., API New f..." />
 <link rel="search" title="Search" href="../search.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>0.6.0 - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -749,10 +749,10 @@
         </div>
         <article role="main">
           <section id="id1">
-<h1>0.6.0<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h1>0.6.0<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
 <p><strong>Released December 2019</strong></p>
 <section id="highlights">
-<h2>HIGHLIGHTS<a class="headerlink" href="#highlights" title="Link to this heading">#</a></h2>
+<h2>HIGHLIGHTS<a class="headerlink" href="#highlights" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <div class="line-block">
@@ -771,7 +771,7 @@
 </div>
 </section>
 <section id="new">
-<h2>NEW<a class="headerlink" href="#new" title="Link to this heading">#</a></h2>
+<h2>NEW<a class="headerlink" href="#new" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> New method for <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiMasker</span></code></a> instances for generating reports viewable in a web browser, Jupyter Notebook, or VSCode (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2019">#2019</a> by <a class="reference external" href="https://elizabeth-dupre.com/#/">Elizabeth DuPre</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> New function <a class="reference internal" href="../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data</span></code></a> to replace the deprecated nibabel method <code class="docutils literal notranslate"><span class="pre">Nifti1Image.get_data</span></code>. Now use <code class="docutils literal notranslate"><span class="pre">nilearn.image.get_data(img)</span></code> rather than <code class="docutils literal notranslate"><span class="pre">img.get_data()</span></code>. This is because Nibabel is removing the <code class="docutils literal notranslate"><span class="pre">get_data</span></code> method. You may also consider using the Nibabel method <code class="docutils literal notranslate"><span class="pre">nibabel.nifti1.Nifti1Image.get_fdata</span></code>, which returns the data cast to floating-point. See <a class="reference external" href="https://github.com/nipy/nibabel/wiki/BIAP8">BIAP8</a>. As a benefit, the <a class="reference internal" href="../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data</span></code></a> function works on niimg-like objects such as filenames (see <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">input_output</a>) (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2172">#2172</a> by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
@@ -782,7 +782,7 @@
 </ul>
 </section>
 <section id="enhancements">
-<h2>ENHANCEMENTS<a class="headerlink" href="#enhancements" title="Link to this heading">#</a></h2>
+<h2>ENHANCEMENTS<a class="headerlink" href="#enhancements" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Rework of the standardize-options of function <a class="reference internal" href="../modules/generated/nilearn.signal.clean.html#nilearn.signal.clean" title="nilearn.signal.clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean</span></code></a> and the various Maskers in <a class="reference internal" href="../modules/maskers.html#module-nilearn.maskers" title="nilearn.maskers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.maskers</span></code></a>. You can now set <code class="docutils literal notranslate"><span class="pre">standardize</span></code> to <code class="docutils literal notranslate"><span class="pre">zscore</span></code> or <code class="docutils literal notranslate"><span class="pre">psc</span></code>. <code class="docutils literal notranslate"><span class="pre">psc</span></code> stands for <code class="docutils literal notranslate"><span class="pre">Percent</span> <span class="pre">Signal</span> <span class="pre">Change</span></code>, which can be a meaningful metric for <a class="reference internal" href="../glossary.html#term-BOLD"><span class="xref std std-term">BOLD</span></a> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/1952">#1952</a> by <a class="reference external" href="https://github.com/Gilles86">Gilles de Hollander</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Class <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> now accepts an optional <code class="docutils literal notranslate"><span class="pre">strategy</span></code> parameter which allows it to change the function used to reduce values within each labelled ROI. Available functions include <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_deviation</span></code> and <code class="docutils literal notranslate"><span class="pre">variance</span></code>. This change is also introduced in function <a class="reference internal" href="../modules/generated/nilearn.regions.img_to_signals_labels.html#nilearn.regions.img_to_signals_labels" title="nilearn.regions.img_to_signals_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">img_to_signals_labels</span></code></a> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2221">#2221</a> by <a class="reference external" href="https://github.com/dangom">Daniel Gomez</a>).</p></li>
@@ -791,13 +791,13 @@
 </ul>
 </section>
 <section id="changes">
-<h2>CHANGES<a class="headerlink" href="#changes" title="Link to this heading">#</a></h2>
+<h2>CHANGES<a class="headerlink" href="#changes" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Function <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_img.html#nilearn.plotting.plot_img" title="nilearn.plotting.plot_img"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_img</span></code></a> now has explicit keyword arguments <code class="docutils literal notranslate"><span class="pre">bg_img</span></code>, <code class="docutils literal notranslate"><span class="pre">vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">vmax</span></code> to control the background image and the bounds of the colormap. These arguments were already accepted in <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> but not documented before (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2157">#2157</a> by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
 </ul>
 </section>
 <section id="fixes">
-<h2>FIXES<a class="headerlink" href="#fixes" title="Link to this heading">#</a></h2>
+<h2>FIXES<a class="headerlink" href="#fixes" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Class <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> no longer truncates region means to their integral part when input images are of integer type (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2195">#2195</a> by <a class="reference external" href="https://github.com/kchawla-pi">Kshitij Chawla</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> The argument <code class="docutils literal notranslate"><span class="pre">version='det'</span></code> in function <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_atlas_pauli_2017.html#nilearn.datasets.fetch_atlas_pauli_2017" title="nilearn.datasets.fetch_atlas_pauli_2017"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_atlas_pauli_2017</span></code></a> now works as expected (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2235">#2235</a> by <a class="reference external" href="https://github.com/ryanhammonds">Ryan Hammonds</a>).</p></li>
@@ -807,9 +807,9 @@
 </section>
 </section>
 <section id="rc">
-<h1>0.6.0rc<a class="headerlink" href="#rc" title="Link to this heading">#</a></h1>
+<h1>0.6.0rc<a class="headerlink" href="#rc" title="Link to this heading">¶</a></h1>
 <section id="id2">
-<h2>NEW<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h2>NEW<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
@@ -820,14 +820,14 @@
 </div>
 </section>
 <section id="id3">
-<h2>Changes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<h2>Changes<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Class <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> now accepts an optional <code class="docutils literal notranslate"><span class="pre">strategy</span></code> parameter which allows it to change the function used to reduce values within each labelled ROI. Available functions include <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">median</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum</span></code>, <code class="docutils literal notranslate"><span class="pre">maximum</span></code>, <code class="docutils literal notranslate"><span class="pre">standard_deviation</span></code> and <code class="docutils literal notranslate"><span class="pre">variance</span></code>. This change is also introduced in function <a class="reference internal" href="../modules/generated/nilearn.regions.img_to_signals_labels.html#nilearn.regions.img_to_signals_labels" title="nilearn.regions.img_to_signals_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">img_to_signals_labels</span></code></a> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2221">#2221</a> by <a class="reference external" href="https://github.com/dangom">Daniel Gomez</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Add a warning to <a class="reference internal" href="../modules/generated/nilearn.regions.Parcellations.html#nilearn.regions.Parcellations" title="nilearn.regions.Parcellations"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parcellations</span></code></a> if the generated number of parcels does not match the requested number of parcels (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2240">#2240</a> by <a class="reference external" href="https://elizabeth-dupre.com/#/">Elizabeth DuPre</a>).</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2>Fixes<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
+<h2>Fixes<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Method <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker.inverse_transform" title="nilearn.maskers.NiftiLabelsMasker.inverse_transform"><code class="xref py py-meth docutils literal notranslate"><span class="pre">inverse_transform</span></code></a> now works without the need to call <code class="docutils literal notranslate"><span class="pre">transform</span></code> first (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2248">#2248</a> by <a class="reference external" href="https://gael-varoquaux.info/">Gael Varoquaux</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Class <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiLabelsMasker.html#nilearn.maskers.NiftiLabelsMasker" title="nilearn.maskers.NiftiLabelsMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">NiftiLabelsMasker</span></code></a> no longer truncates region means to their integral part when input images are of integer type (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2195">#2195</a> by <a class="reference external" href="https://github.com/kchawla-pi">Kshitij Chawla</a>).</p></li>
@@ -839,7 +839,7 @@
 </ul>
 </section>
 <section id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">#</a></h2>
+<h2>Contributors<a class="headerlink" href="#contributors" title="Link to this heading">¶</a></h2>
 <p>The following people contributed to this release (in alphabetical order):</p>
 <blockquote>
 <div><ul class="simple">
@@ -861,7 +861,7 @@
 </section>
 </section>
 <section id="b0">
-<h1>0.6.0b0<a class="headerlink" href="#b0" title="Link to this heading">#</a></h1>
+<h1>0.6.0b0<a class="headerlink" href="#b0" title="Link to this heading">¶</a></h1>
 <p><strong>Released November 2019</strong></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -872,13 +872,13 @@
 </div>
 </div>
 <section id="id5">
-<h2>NEW<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h2>NEW<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> New function <a class="reference internal" href="../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data</span></code></a> to replace the deprecated nibabel method <code class="docutils literal notranslate"><span class="pre">Nifti1Image.get_data</span></code>. Now use <code class="docutils literal notranslate"><span class="pre">nilearn.image.get_data(img)</span></code> rather than <code class="docutils literal notranslate"><span class="pre">img.get_data()</span></code>. This is because Nibabel is removing the <code class="docutils literal notranslate"><span class="pre">get_data</span></code> method. You may also consider using the Nibabel method <code class="docutils literal notranslate"><span class="pre">nibabel.nifti1.Nifti1Image.get_fdata</span></code>, which returns the data cast to floating-point. See <a class="reference external" href="https://github.com/nipy/nibabel/wiki/BIAP8">BIAP8</a>. As a benefit, the <a class="reference internal" href="../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data</span></code></a> function works on niimg-like objects such as filenames (see <a class="reference external" href="http://nilearn.github.io/manipulating_images/input_output.html">input_output</a>) (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2172">#2172</a> by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
 </ul>
 </section>
 <section id="id8">
-<h2>Changes<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
+<h2>Changes<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> All functions and examples now use function <a class="reference internal" href="../modules/generated/nilearn.image.get_data.html#nilearn.image.get_data" title="nilearn.image.get_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_data</span></code></a> rather than the deprecated method <code class="docutils literal notranslate"><span class="pre">nibabel.Nifti1Image.get_data</span></code> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2172">#2172</a> by <a class="reference external" href="https://jeromedockes.github.io/">Jerome Dockes</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Users can now specify fetching data for adults, children, or both from <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_development_fmri.html#nilearn.datasets.fetch_development_fmri" title="nilearn.datasets.fetch_development_fmri"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_development_fmri</span></code></a>.</p></li>
@@ -886,13 +886,13 @@
 </ul>
 </section>
 <section id="id9">
-<h2>Fixes<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<h2>Fixes<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-info sd-bg-text-info">Plotting</span> Function <a class="reference internal" href="../modules/generated/nilearn.plotting.plot_connectome.html#nilearn.plotting.plot_connectome" title="nilearn.plotting.plot_connectome"><code class="xref py py-func docutils literal notranslate"><span class="pre">plot_connectome</span></code></a> now correctly displays marker size on ‘l’ and ‘r’ orientations, if an array or a list is passed to the function.</p></li>
 </ul>
 </section>
 <section id="id10">
-<h2>Contributors<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<h2>Contributors<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 <p>The following people contributed to this release (in alphabetical order):</p>
 <blockquote>
 <div><ul class="simple">
@@ -905,10 +905,10 @@
 </section>
 </section>
 <section id="a0">
-<h1>0.6.0a0<a class="headerlink" href="#a0" title="Link to this heading">#</a></h1>
+<h1>0.6.0a0<a class="headerlink" href="#a0" title="Link to this heading">¶</a></h1>
 <p><strong>Released October 2019</strong></p>
 <section id="id11">
-<h2>NEW<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
+<h2>NEW<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <div class="line-block">
@@ -934,7 +934,7 @@
 </ul>
 </section>
 <section id="id12">
-<h2>Changes<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
+<h2>Changes<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Rework of the standardize-options of function <a class="reference internal" href="../modules/generated/nilearn.signal.clean.html#nilearn.signal.clean" title="nilearn.signal.clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">clean</span></code></a> and the various Maskers in <a class="reference internal" href="../modules/maskers.html#module-nilearn.maskers" title="nilearn.maskers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nilearn.maskers</span></code></a>. You can now set <code class="docutils literal notranslate"><span class="pre">standardize</span></code> to <code class="docutils literal notranslate"><span class="pre">zscore</span></code> or <code class="docutils literal notranslate"><span class="pre">psc</span></code>. <code class="docutils literal notranslate"><span class="pre">psc</span></code> stands for <code class="docutils literal notranslate"><span class="pre">Percent</span> <span class="pre">Signal</span> <span class="pre">Change</span></code>, which can be a meaningful metric for <a class="reference internal" href="../glossary.html#term-BOLD"><span class="xref std std-term">BOLD</span></a> (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/1952">#1952</a> by <a class="reference external" href="https://github.com/Gilles86">Gilles de Hollander</a>).</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Doc</span> Examples <code class="docutils literal notranslate"><span class="pre">plot_decoding_tutorial</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_haxby_decoder</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_haxby_different_estimators</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_haxby_full_analysis</span></code>, <code class="docutils literal notranslate"><span class="pre">plot_oasis_vbm</span></code> now use <a class="reference internal" href="../modules/generated/nilearn.decoding.Decoder.html#nilearn.decoding.Decoder" title="nilearn.decoding.Decoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Decoder</span></code></a> and <a class="reference internal" href="../modules/generated/nilearn.decoding.DecoderRegressor.html#nilearn.decoding.DecoderRegressor" title="nilearn.decoding.DecoderRegressor"><code class="xref py py-class docutils literal notranslate"><span class="pre">DecoderRegressor</span></code></a> instead of sklearn SVC and SVR (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2000">#2000</a> by <a class="reference external" href="https://www.imo.universite-paris-saclay.fr/~tbnguyen/">Binh Nguyen</a>).</p></li>
@@ -946,7 +946,7 @@
 </ul>
 </section>
 <section id="id13">
-<h2>Fixes<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
+<h2>Fixes<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">API</span> Function <code class="docutils literal notranslate"><span class="pre">add_contours</span></code> now accepts <code class="docutils literal notranslate"><span class="pre">threshold</span></code> argument for <code class="docutils literal notranslate"><span class="pre">filled=False</span></code>. Now <code class="docutils literal notranslate"><span class="pre">threshold</span></code> is equally applied when asked for fillings in the contours.</p></li>
 <li><p><span class="sd-sphinx-override sd-badge sd-bg-dark sd-bg-text-dark">Code</span> Function <a class="reference internal" href="../modules/generated/nilearn.datasets.fetch_surf_nki_enhanced.html#nilearn.datasets.fetch_surf_nki_enhanced" title="nilearn.datasets.fetch_surf_nki_enhanced"><code class="xref py py-func docutils literal notranslate"><span class="pre">fetch_surf_nki_enhanced</span></code></a> is now downloading the correct left and right functional surface data for each subject (<a class="reference external" href="https://github.com/nilearn/nilearn/issues/2118">#2118</a> by <a class="reference external" href="https://github.com/juhuntenburg">Julia Huntenburg</a>).</p></li>
@@ -963,7 +963,7 @@
 </ul>
 </section>
 <section id="id14">
-<h2>Contributors<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
+<h2>Contributors<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
 <p>The following people contributed to this release (in alphabetical order):</p>
 <blockquote>
 <div><ul class="simple">
@@ -1081,7 +1081,7 @@
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

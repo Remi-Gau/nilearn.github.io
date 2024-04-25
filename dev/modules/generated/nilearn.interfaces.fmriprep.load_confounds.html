@@ -13,7 +13,7 @@
 <meta name="description" content="Examples using nilearn.interfaces.fmriprep.load_confounds: Extracting signals from a brain parcellation Understanding parameters of the first-level model" />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="nilearn.interfaces.fmriprep.load_confounds_strategy" href="nilearn.interfaces.fmriprep.load_confounds_strategy.html" /><link rel="prev" title="nilearn.interfaces.bids.save_glm_to_bids" href="nilearn.interfaces.bids.save_glm_to_bids.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>nilearn.interfaces.fmriprep.load_confounds - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../auto_examples/05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -755,10 +755,10 @@ function signature, and not how to use it. Please refer to the
 <a class="reference internal" href="../../user_guide.html#user-guide"><span class="std std-ref">user guide</span></a> for the big picture.</p>
 </div>
 <section id="nilearn-interfaces-fmriprep-load-confounds">
-<h1>nilearn.interfaces.fmriprep.load_confounds<a class="headerlink" href="#nilearn-interfaces-fmriprep-load-confounds" title="Link to this heading">#</a></h1>
+<h1>nilearn.interfaces.fmriprep.load_confounds<a class="headerlink" href="#nilearn-interfaces-fmriprep-load-confounds" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="nilearn.interfaces.fmriprep.load_confounds">
-<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('motion',</span> <span class="pre">'high_pass',</span> <span class="pre">'wm_csf')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scrub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_dvars_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wm_csf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compcor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'anat_combined'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_compcor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ica_aroma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/fabe2aef/nilearn/interfaces/fmriprep/load_confounds.py#L95"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">nilearn.interfaces.fmriprep.</span></span><span class="sig-name descname"><span class="pre">load_confounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('motion',</span> <span class="pre">'high_pass',</span> <span class="pre">'wm_csf')</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scrub</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_dvars_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wm_csf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_signal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'basic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compcor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'anat_combined'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_compcor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ica_aroma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">demean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nilearn/nilearn/blob/d2ddfb9a2/nilearn/interfaces/fmriprep/load_confounds.py#L95"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#nilearn.interfaces.fmriprep.load_confounds" title="Link to this definition">¶</a></dt>
 <dd><p>Use confounds from <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a>.</p>
 <p>To enable easy confound variables loading from <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> outputs,
 <cite>load_confounds</cite> provides an interface that groups subsets of confound
@@ -769,7 +769,7 @@ function.</p>
 directory from the 1.2.x series. The <cite>compcor</cite> noise component requires
 1.4.x series or above.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 0.9.0.</span></p>
+<p><span class="versionmodified added">Added in version 0.9.0.</span></p>
 </div>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -909,7 +909,7 @@ volumes.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of         <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt><dd><p>A reduced version of <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds based on selected
+<dt><strong>confounds</strong><span class="classifier"><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a>, or <a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></a> of         <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code></a></span></dt><dd><p>A reduced version of <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><span class="xref std std-term">fMRIPrep</span></a> confounds based on selected
 strategy and flags.
 The columns contains the labels of the regressors.</p>
 </dd>
@@ -973,7 +973,7 @@ through <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><
 </dd></dl>
 
 <section id="examples-using-nilearn-interfaces-fmriprep-load-confounds">
-<h2>Examples using <code class="docutils literal notranslate"><span class="pre">nilearn.interfaces.fmriprep.load_confounds</span></code><a class="headerlink" href="#examples-using-nilearn-interfaces-fmriprep-load-confounds" title="Link to this heading">#</a></h2>
+<h2>Examples using <code class="docutils literal notranslate"><span class="pre">nilearn.interfaces.fmriprep.load_confounds</span></code><a class="headerlink" href="#examples-using-nilearn-interfaces-fmriprep-load-confounds" title="Link to this heading">¶</a></h2>
 <div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Here we show how to extract signals from a brain parcellation and compute a correlation matrix."><img alt="" src="../../_images/sphx_glr_plot_signal_extraction_thumb.png" />
 <p><a class="reference internal" href="../../auto_examples/03_connectivity/plot_signal_extraction.html#sphx-glr-auto-examples-03-connectivity-plot-signal-extraction-py"><span class="std std-ref">Extracting signals from a brain parcellation</span></a></p>
   <div class="sphx-glr-thumbnail-title">Extracting signals from a brain parcellation</div>
@@ -1059,7 +1059,7 @@ through <a class="reference internal" href="../../glossary.html#term-fMRIPrep"><
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>

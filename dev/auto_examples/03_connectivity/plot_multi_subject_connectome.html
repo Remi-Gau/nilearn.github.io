@@ -13,7 +13,7 @@
 <meta name="description" content="This example shows how to estimate a connectome on a group of subjects using the group sparse inverse covariance estimate. Fetching datasets: Extracting region signals: Computing group-sparse preci..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Producing single subject maps of seed-to-voxel correlation" href="plot_seed_to_voxel_correlation.html" /><link rel="prev" title="Connectivity structure estimation on simulated data" href="plot_simulated_connectome.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>Group Sparse inverse covariance for multi-subject connectome - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -754,7 +754,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="group-sparse-inverse-covariance-for-multi-subject-connectome">
-<span id="sphx-glr-auto-examples-03-connectivity-plot-multi-subject-connectome-py"></span><h1>Group Sparse inverse covariance for multi-subject connectome<a class="headerlink" href="#group-sparse-inverse-covariance-for-multi-subject-connectome" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-03-connectivity-plot-multi-subject-connectome-py"></span><h1>Group Sparse inverse covariance for multi-subject connectome<a class="headerlink" href="#group-sparse-inverse-covariance-for-multi-subject-connectome" title="Link to this heading">¶</a></h1>
 <p>This example shows how to estimate a connectome on a group of subjects
 using the group sparse inverse covariance estimate.</p>
 <div class="admonition note">
@@ -809,7 +809,7 @@ all occurrences of:</p>
 </pre></div>
 </div>
 <section id="fetching-datasets">
-<h2>Fetching datasets<a class="headerlink" href="#fetching-datasets" title="Link to this heading">#</a></h2>
+<h2>Fetching datasets<a class="headerlink" href="#fetching-datasets" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_atlas_msdl.html#nilearn.datasets.fetch_atlas_msdl" title="nilearn.datasets.fetch_atlas_msdl" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_atlas_msdl</span></a><span class="p">()</span>
@@ -826,7 +826,7 @@ all occurrences of:</p>
 </div>
 </section>
 <section id="extracting-region-signals">
-<h2>Extracting region signals<a class="headerlink" href="#extracting-region-signals" title="Link to this heading">#</a></h2>
+<h2>Extracting region signals<a class="headerlink" href="#extracting-region-signals" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a>
 
 <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiMapsMasker.html#nilearn.maskers.NiftiMapsMasker" title="nilearn.maskers.NiftiMapsMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMapsMasker</span></a><span class="p">(</span>
@@ -862,11 +862,11 @@ Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.6s, 0.0min
+__________________________________________high_variance_confounds - 0.8s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar123_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fdc000aff80&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f851416a6f0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -893,16 +893,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 4.9s, 0.1min
+_______________________________________________filter_and_extract - 5.9s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.5s, 0.0min
+__________________________________________high_variance_confounds - 0.7s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar001_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fdc25286c00&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f853076bb90&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -929,16 +929,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 4.9s, 0.1min
+_______________________________________________filter_and_extract - 5.9s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.5s, 0.0min
+__________________________________________high_variance_confounds - 0.7s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar002_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fdc296a6300&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f853963fcb0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -965,16 +965,16 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 4.9s, 0.1min
+_______________________________________________filter_and_extract - 5.9s, 0.1min
 Processing file /home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz
 ________________________________________________________________________________
 [Memory] Calling nilearn.image.image.high_variance_confounds...
 high_variance_confounds(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;)
-__________________________________________high_variance_confounds - 0.5s, 0.0min
+__________________________________________high_variance_confounds - 0.6s, 0.0min
 ________________________________________________________________________________
 [Memory] Calling nilearn.maskers.base_masker._filter_and_extract...
 _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/development_fmri/development_fmri/sub-pixar003_task-pixar_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz&#39;,
-&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7fdc1bc78dd0&gt;, { &#39;allow_overlap&#39;: True,
+&lt;nilearn.maskers.nifti_maps_masker._ExtractionFunctor object at 0x7f853963fcb0&gt;, { &#39;allow_overlap&#39;: True,
   &#39;clean_kwargs&#39;: {},
   &#39;detrend&#39;: True,
   &#39;dtype&#39;: None,
@@ -1001,12 +1001,12 @@ _filter_and_extract(&#39;/home/runner/work/nilearn/nilearn/nilearn_data/developm
 [NiftiMapsMasker.transform_single_imgs] Resampling images
 [NiftiMapsMasker.transform_single_imgs] Extracting region signals
 [NiftiMapsMasker.transform_single_imgs] Cleaning extracted signals
-_______________________________________________filter_and_extract - 4.9s, 0.1min
+_______________________________________________filter_and_extract - 5.9s, 0.1min
 </pre></div>
 </div>
 </section>
 <section id="computing-group-sparse-precision-matrices">
-<h2>Computing group-sparse precision matrices<a class="headerlink" href="#computing-group-sparse-precision-matrices" title="Link to this heading">#</a></h2>
+<h2>Computing group-sparse precision matrices<a class="headerlink" href="#computing-group-sparse-precision-matrices" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.connectome</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">GroupSparseCovarianceCV</span></a>
 
 <a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gsc</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.connectome.GroupSparseCovarianceCV.html#nilearn.connectome.GroupSparseCovarianceCV" title="nilearn.connectome.GroupSparseCovarianceCV" class="sphx-glr-backref-module-nilearn-connectome sphx-glr-backref-type-py-class"><span class="n">GroupSparseCovarianceCV</span></a><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1489,7 +1489,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <br />
 <br /></section>
 <section id="displaying-results">
-<h2>Displaying results<a class="headerlink" href="#displaying-results" title="Link to this heading">#</a></h2>
+<h2>Displaying results<a class="headerlink" href="#displaying-results" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_img</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">maps</span></a>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_region_coords</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.plotting.find_probabilistic_atlas_cut_coords.html#nilearn.plotting.find_probabilistic_atlas_cut_coords" title="nilearn.plotting.find_probabilistic_atlas_cut_coords" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plotting</span><span class="o">.</span><span class="n">find_probabilistic_atlas_cut_coords</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">atlas_img</span></a><span class="p">)</span>
 <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">labels</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">msdl_atlas_dataset</span><span class="o">.</span><span class="n">labels</span></a>
@@ -1536,8 +1536,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_006.png" alt="GroupSparseCovariance / covariance" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" srcset="../../_images/sphx_glr_plot_multi_subject_connectome_007.png" alt="GroupSparseCovariance / precision" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 27.225 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  474 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (1 minutes 43.679 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  507 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-03-connectivity-plot-multi-subject-connectome-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/03_connectivity/plot_multi_subject_connectome.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo3.svg" width="150px" /></a>
@@ -1631,7 +1631,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>

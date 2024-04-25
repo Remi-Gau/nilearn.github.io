@@ -13,7 +13,7 @@
 <meta name="description" content="Page summary: First level models are, in essence, linear regression models run at the level of a single run or single subject. The model is applied on a voxel-wise basis, either on the whole brain ..." />
 <link rel="search" title="Search" href="../search.html" /><link rel="next" title="8.3. Second level models" href="second_level_model.html" /><link rel="prev" title="8.1. An introduction to GLMs in fMRI statistical analysis" href="glm_intro.html" />
 
-    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>8.2. First level models - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../auto_examples/05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -749,7 +749,7 @@
         </div>
         <article role="main">
           <section id="first-level-models">
-<span id="first-level-model"></span><h1><span class="section-number">8.2. </span>First level models<a class="headerlink" href="#first-level-models" title="Link to this heading">#</a></h1>
+<span id="first-level-model"></span><h1><span class="section-number">8.2. </span>First level models<a class="headerlink" href="#first-level-models" title="Link to this heading">¶</a></h1>
 <aside class="topic">
 <p class="topic-title"><strong>Page summary</strong></p>
 <p>First level models are, in essence, linear regression models run at the level of a single
@@ -759,7 +759,7 @@ predicted <a class="reference internal" href="../glossary.html#term-BOLD"><span 
 a set of predictors defined within the design matrix.</p>
 </aside>
 <section id="hrf-models">
-<h2><span class="section-number">8.2.1. </span>HRF models<a class="headerlink" href="#hrf-models" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2.1. </span>HRF models<a class="headerlink" href="#hrf-models" title="Link to this heading">¶</a></h2>
 <p>Nilearn offers a few different <a class="reference internal" href="../glossary.html#term-HRF"><span class="xref std std-term">HRF</span></a> models including the commonly used double-gamma <a class="reference internal" href="../glossary.html#term-SPM"><span class="xref std std-term">SPM</span></a> model (‘spm’)
 and the model shape proposed by G. Glover (‘glover’), both allowing the option of adding time and
 dispersion derivatives. The addition of these derivatives allows to better model any uncertainty in
@@ -769,9 +769,9 @@ function <a class="reference internal" href="../modules/generated/nilearn.glm.fi
 example <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_hrf.html#sphx-glr-auto-examples-04-glm-first-level-plot-hrf-py"><span class="std std-ref">Example of MRI response functions</span></a>.</p>
 </section>
 <section id="design-matrix-event-based-and-time-series-based">
-<h2><span class="section-number">8.2.2. </span>Design matrix: event-based and time series-based<a class="headerlink" href="#design-matrix-event-based-and-time-series-based" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2.2. </span>Design matrix: event-based and time series-based<a class="headerlink" href="#design-matrix-event-based-and-time-series-based" title="Link to this heading">¶</a></h2>
 <section id="event-based">
-<h3><span class="section-number">8.2.2.1. </span>Event-based<a class="headerlink" href="#event-based" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2.1. </span>Event-based<a class="headerlink" href="#event-based" title="Link to this heading">¶</a></h3>
 <p>To create an event-based design matrix, information about the trial type, onset time and duration of the
 events in the experiment are necessary. This can be provided by the user, or be part of the dataset if
 using a <a class="reference internal" href="../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a>-compatible dataset or one of the nilearn dataset fetcher functions like
@@ -807,10 +807,11 @@ This is generally a good practice to follow before proceeding with the analysis:
 <span class="n">plot_design_matrix</span><span class="p">(</span><span class="n">design_matrices</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_design_matrix.html#sphx-glr-auto-examples-04-glm-first-level-models-plot-design-matrix-py"><img alt="../_images/sphx_glr_plot_design_matrix_001.png" src="../_images/sphx_glr_plot_design_matrix_001.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_design_matrix.html#sphx-glr-auto-examples-04-glm-first-level-models-plot-design-matrix-py"><img alt="../_images/sphx_glr_plot_design_matrix_001.png" src="../_images/sphx_glr_plot_design_matrix_001.png" />
+</a>
 </section>
 <section id="time-series-based">
-<h3><span class="section-number">8.2.2.2. </span>Time series-based<a class="headerlink" href="#time-series-based" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.2.2. </span>Time series-based<a class="headerlink" href="#time-series-based" title="Link to this heading">¶</a></h3>
 <p>The time series of a seed region can also be used as the predictor for a first level model. This approach would help
 identify brain areas co-activating with the seed region. The time series is extracted using
 <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiSpheresMasker</span></code></a>. For instance, if the seed region is the posterior
@@ -825,7 +826,7 @@ above. Code for this approach is in <a class="reference internal" href="../auto_
 </section>
 </section>
 <section id="fitting-a-first-level-model">
-<h2><span class="section-number">8.2.3. </span>Fitting a first level model<a class="headerlink" href="#fitting-a-first-level-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2.3. </span>Fitting a first level model<a class="headerlink" href="#fitting-a-first-level-model" title="Link to this heading">¶</a></h2>
 <p>The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel</span></code></a> class provides the tools to fit the linear model to
 the <a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> data. The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.fit</span></code></a> function takes the fMRI data
 and design matrix as input and fits the GLM. Like other Nilearn functions,
@@ -838,7 +839,7 @@ input formats is available <a class="reference internal" href="../manipulating_i
 </pre></div>
 </div>
 <section id="computing-contrasts">
-<h3><span class="section-number">8.2.3.1. </span>Computing contrasts<a class="headerlink" href="#computing-contrasts" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">8.2.3.1. </span>Computing contrasts<a class="headerlink" href="#computing-contrasts" title="Link to this heading">¶</a></h3>
 <p>To get more interesting results out of the <a class="reference internal" href="../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a> model, contrasts can be computed between regressors of interest.
 The <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.compute_contrast" title="nilearn.glm.first_level.FirstLevelModel.compute_contrast"><code class="xref py py-func docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel.compute_contrast</span></code></a> function can be used for that. First,
 the contrasts of interest must be defined. In the spm_multimodal_fmri dataset referenced above, subjects are
@@ -852,14 +853,17 @@ interesting contrasts like ‘normal faces - scrambled faces’.</p>
 <p>And finally we can compute the contrasts using the compute_contrast function.
 Refer to <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html#sphx-glr-auto-examples-04-glm-first-level-plot-spm-multimodal-faces-py"><span class="std std-ref">Single-subject data (two runs) in native space</span></a> for the full example.</p>
 <p>The activation maps from these 3 contrasts is presented below:</p>
-<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 438.0px; height: 192.0px;" /></a>
-<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 438.0px; height: 192.0px;" /></a>
-<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 438.0px; height: 192.0px;" /></a>
+<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_001.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_001.png" style="width: 438.0px; height: 192.0px;" />
+</a>
+<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_002.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_002.png" style="width: 438.0px; height: 192.0px;" />
+</a>
+<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_spm_multimodal_faces.html"><img alt="../_images/sphx_glr_plot_spm_multimodal_faces_003.png" src="../_images/sphx_glr_plot_spm_multimodal_faces_003.png" style="width: 438.0px; height: 192.0px;" />
+</a>
 <p>Additional example: <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_two_runs_model.html#sphx-glr-auto-examples-04-glm-first-level-plot-two-runs-model-py"><span class="std std-ref">Simple example of two-runs fMRI model fitting</span></a></p>
 </section>
 </section>
 <section id="extracting-predicted-time-series-and-residuals">
-<h2><span class="section-number">8.2.4. </span>Extracting predicted time series and residuals<a class="headerlink" href="#extracting-predicted-time-series-and-residuals" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2.4. </span>Extracting predicted time series and residuals<a class="headerlink" href="#extracting-predicted-time-series-and-residuals" title="Link to this heading">¶</a></h2>
 <p>One way to assess the quality of the fit is to compare the observed and predicted time series of voxels.
 Nilearn makes the predicted time series easily accessible via a parameter called <code class="docutils literal notranslate"><span class="pre">predicted</span></code> that is part
 of the <a class="reference internal" href="../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.glm.first_level.FirstLevelModel</span></code></a>. This parameter is populated when
@@ -870,13 +874,14 @@ FistLevelModel is initialized with the <code class="docutils literal notranslate
 </div>
 <p>Here, masker is an object of <a class="reference internal" href="../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker"><code class="xref py py-class docutils literal notranslate"><span class="pre">nilearn.maskers.NiftiSpheresMasker</span></code></a>. In the figure below,
 predicted (red) and observed (not red) timecourses of 6 voxels are shown.</p>
-<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_predictions_residuals.html"><img alt="../_images/sphx_glr_plot_predictions_residuals_002.png" src="../_images/sphx_glr_plot_predictions_residuals_002.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/04_glm_first_level/plot_predictions_residuals.html"><img alt="../_images/sphx_glr_plot_predictions_residuals_002.png" src="../_images/sphx_glr_plot_predictions_residuals_002.png" />
+</a>
 <p>In addition to the predicted timecourses, this flag also yields the residuals of the GLM. The residuals are
 useful to calculate the F and R-squared statistic. For more information refer to
 <a class="reference internal" href="../auto_examples/04_glm_first_level/plot_predictions_residuals.html#sphx-glr-auto-examples-04-glm-first-level-plot-predictions-residuals-py"><span class="std std-ref">Predicted time series and residuals</span></a></p>
 </section>
 <section id="surface-based-analysis">
-<h2><span class="section-number">8.2.5. </span>Surface-based analysis<a class="headerlink" href="#surface-based-analysis" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">8.2.5. </span>Surface-based analysis<a class="headerlink" href="#surface-based-analysis" title="Link to this heading">¶</a></h2>
 <p><a class="reference internal" href="../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> analyses can also be performed on the cortical surface instead of a volumetric brain. Nilearn
 provides functions to map subject brains on to a cortical mesh, which can be either a standard surface as
 provided by, for e.g. Freesurfer, or a user-defined one. Freesurfer meshes can be accessed using
@@ -973,7 +978,7 @@ and <a class="reference internal" href="../modules/generated/nilearn.plotting.pl
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>

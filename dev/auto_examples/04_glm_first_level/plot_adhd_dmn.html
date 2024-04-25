@@ -13,7 +13,7 @@
 <meta name="description" content="This example shows a full step-by-step workflow of fitting a GLM to signal extracted from a seed on the Posterior Cingulate Cortex and saving the results. More precisely, this example shows how to ..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Analysis of an fMRI dataset with a Finite Impule Response (FIR) model" href="plot_fir_model.html" /><link rel="prev" title="Generate an events.tsv file for the NeuroSpin localizer task" href="plot_write_events_file.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>Default Mode Network extraction of ADHD dataset - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -754,7 +754,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="default-mode-network-extraction-of-adhd-dataset">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-adhd-dmn-py"></span><h1>Default Mode Network extraction of ADHD dataset<a class="headerlink" href="#default-mode-network-extraction-of-adhd-dataset" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-adhd-dmn-py"></span><h1>Default Mode Network extraction of ADHD dataset<a class="headerlink" href="#default-mode-network-extraction-of-adhd-dataset" title="Link to this heading">¶</a></h1>
 <p>This example shows a full step-by-step workflow of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>
 to signal extracted from a seed on the Posterior Cingulate Cortex
 and saving the results.
@@ -795,7 +795,7 @@ all occurrences of:</p>
 </pre></div>
 </div>
 <section id="prepare-data-and-analysis-parameters">
-<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Link to this heading">#</a></h2>
+<h2>Prepare data and analysis parameters<a class="headerlink" href="#prepare-data-and-analysis-parameters" title="Link to this heading">¶</a></h2>
 <p>Prepare the data.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.Bunch.html#sklearn.utils.Bunch" title="sklearn.utils.Bunch" class="sphx-glr-backref-module-sklearn-utils sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">adhd_dataset</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.datasets.fetch_adhd.html#nilearn.datasets.fetch_adhd" title="nilearn.datasets.fetch_adhd" class="sphx-glr-backref-module-nilearn-datasets sphx-glr-backref-type-py-function"><span class="n">datasets</span><span class="o">.</span><span class="n">fetch_adhd</span></a><span class="p">(</span><span class="n">n_subjects</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -810,7 +810,7 @@ all occurrences of:</p>
 </div>
 </section>
 <section id="extract-the-seed-region-s-time-course">
-<h2>Extract the seed region’s time course<a class="headerlink" href="#extract-the-seed-region-s-time-course" title="Link to this heading">#</a></h2>
+<h2>Extract the seed region’s time course<a class="headerlink" href="#extract-the-seed-region-s-time-course" title="Link to this heading">¶</a></h2>
 <p>Extract the time course of the seed region.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">seed_masker</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.maskers.NiftiSpheresMasker.html#nilearn.maskers.NiftiSpheresMasker" title="nilearn.maskers.NiftiSpheresMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiSpheresMasker</span></a><span class="p">(</span>
     <span class="p">[</span><a href="https://docs.python.org/3.9/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pcc_coords</span></a><span class="p">],</span>
@@ -841,7 +841,7 @@ all occurrences of:</p>
 </div>
 <img src="../../_images/sphx_glr_plot_adhd_dmn_001.png" srcset="../../_images/sphx_glr_plot_adhd_dmn_001.png" alt="Time course of the seed region" class = "sphx-glr-single-img"/></section>
 <section id="estimate-contrasts">
-<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Link to this heading">#</a></h2>
+<h2>Estimate contrasts<a class="headerlink" href="#estimate-contrasts" title="Link to this heading">¶</a></h2>
 <p>Specify the contrasts.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.make_first_level_design_matrix.html#nilearn.glm.first_level.make_first_level_design_matrix" title="nilearn.glm.first_level.make_first_level_design_matrix" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-function"><span class="n">make_first_level_design_matrix</span></a><span class="p">(</span>
     <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">frametimes</span></a><span class="p">,</span>
@@ -855,7 +855,7 @@ all occurrences of:</p>
 </div>
 </section>
 <section id="perform-first-level-analysis">
-<h2>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Link to this heading">#</a></h2>
+<h2>Perform first level analysis<a class="headerlink" href="#perform-first-level-analysis" title="Link to this heading">¶</a></h2>
 <p>Setup and fit GLM.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class"><span class="n">FirstLevelModel</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_r</span></a><span class="p">,</span> <a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">slice_time_ref</span></a><span class="o">=</span><a href="https://docs.python.org/3.9/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">slice_time_ref</span></a><span class="p">)</span>
 <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">first_level_model</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-method"><span class="n">first_level_model</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span>
@@ -863,7 +863,7 @@ all occurrences of:</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/glm/first_level/first_level.py:707: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/nilearn/glm/first_level/first_level.py:714: UserWarning:
 
 Mean values of 0 observed. The data have probably been centered.Scaling might not work as expected
 </pre></div>
@@ -892,7 +892,7 @@ Save z-map in &#39;dmn_z_map.png&#39;.
 </div>
 </section>
 <section id="generating-a-report">
-<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">#</a></h2>
+<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">¶</a></h2>
 <p>It can be useful to quickly generate a
 portable, ready-to-view report with most of the pertinent information.
 This is easy to do if you have a fitted model and the list of contrasts,
@@ -920,8 +920,8 @@ which we do here.</p>
 <span class="c1"># report.save_as_html(output_dir / &#39;report.html&#39;)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 17.973 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  754 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 18.630 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  757 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-adhd-dmn-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_adhd_dmn.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
@@ -1016,7 +1016,7 @@ which we do here.</p>
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>

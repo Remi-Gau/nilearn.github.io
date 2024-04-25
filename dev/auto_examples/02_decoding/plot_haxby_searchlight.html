@@ -13,7 +13,7 @@
 <meta name="description" content="Searchlight analysis requires fitting a classifier a large amount of times. As a result, it is an intrinsically slow method. In order to speed up computing, in this example, Searchlight is run only..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Decoding of a dataset after GLM fit for signal extraction" href="plot_haxby_glm_decoding.html" /><link rel="prev" title="The haxby dataset: different multi-class strategies" href="plot_haxby_multiclass.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>Searchlight analysis of face vs house recognition - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -754,7 +754,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="searchlight-analysis-of-face-vs-house-recognition">
-<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-py"></span><h1>Searchlight analysis of face vs house recognition<a class="headerlink" href="#searchlight-analysis-of-face-vs-house-recognition" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-02-decoding-plot-haxby-searchlight-py"></span><h1>Searchlight analysis of face vs house recognition<a class="headerlink" href="#searchlight-analysis-of-face-vs-house-recognition" title="Link to this heading">¶</a></h1>
 <p>Searchlight analysis requires fitting a classifier a large amount of
 times. As a result, it is an intrinsically slow method. In order to speed
 up computing, in this example, Searchlight is run only on one slice on
@@ -775,7 +775,7 @@ all occurrences of:</p>
 </div>
 </div>
 <section id="load-haxby-dataset">
-<h2>Load Haxby dataset<a class="headerlink" href="#load-haxby-dataset" title="Link to this heading">#</a></h2>
+<h2>Load Haxby dataset<a class="headerlink" href="#load-haxby-dataset" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -800,7 +800,7 @@ Functional nifti image (4D) is located at: /home/runner/work/nilearn/nilearn/nil
 </div>
 </section>
 <section id="restrict-to-faces-and-houses">
-<h2>Restrict to faces and houses<a class="headerlink" href="#restrict-to-faces-and-houses" title="Link to this heading">#</a></h2>
+<h2>Restrict to faces and houses<a class="headerlink" href="#restrict-to-faces-and-houses" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.image</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.image.index_img.html#nilearn.image.index_img" title="nilearn.image.index_img" class="sphx-glr-backref-module-nilearn-image sphx-glr-backref-type-py-function"><span class="n">index_img</span></a>
 
 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">condition_mask</span></a> <span class="o">=</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isin.html#pandas.Series.isin" title="pandas.Series.isin" class="sphx-glr-backref-module-pandas sphx-glr-backref-type-py-method"><span class="n">y</span><span class="o">.</span><span class="n">isin</span></a><span class="p">([</span><span class="s2">&quot;face&quot;</span><span class="p">,</span> <span class="s2">&quot;house&quot;</span><span class="p">])</span>
@@ -811,7 +811,7 @@ Functional nifti image (4D) is located at: /home/runner/work/nilearn/nilearn/nil
 </div>
 </section>
 <section id="prepare-masks">
-<h2>Prepare masks<a class="headerlink" href="#prepare-masks" title="Link to this heading">#</a></h2>
+<h2>Prepare masks<a class="headerlink" href="#prepare-masks" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>mask_img is the original mask</p></li>
 <li><p>process_mask_img is a subset of mask_img, it contains the voxels that
@@ -838,7 +838,7 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 </div>
 </section>
 <section id="searchlight-computation">
-<h2>Searchlight computation<a class="headerlink" href="#searchlight-computation" title="Link to this heading">#</a></h2>
+<h2>Searchlight computation<a class="headerlink" href="#searchlight-computation" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make processing parallel</span>
 <span class="c1"># /!\ As each thread will print its progress, n_jobs &gt; 1 could mess up the</span>
 <span class="c1">#     information output.</span>
@@ -866,12 +866,12 @@ Data array used to create a new image contains 64-bit ints. This is likely due t
 <a href="../../modules/generated/nilearn.decoding.SearchLight.html#nilearn.decoding.SearchLight.fit" title="nilearn.decoding.SearchLight.fit" class="sphx-glr-backref-module-nilearn-decoding sphx-glr-backref-type-py-method"><span class="n">searchlight</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fmri_img</span></a><span class="p">,</span> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html#pandas.Series" title="pandas.core.series.Series" class="sphx-glr-backref-module-pandas-core-series sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/nilearn/image/resampling.py:492: UserWarning:
 
 The provided image has no sform in its header. Please check the provided file. Results may not be as expected.
 
 [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
-[Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   14.2s finished
+[Parallel(n_jobs=2)]: Done   2 out of   2 | elapsed:   16.2s finished
 </pre></div>
 </div>
 <div class="output_subarea output_html rendered_html output_result">
@@ -1280,19 +1280,19 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   background-color: var(--sklearn-color-fitted-level-3);
 }
 </style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SearchLight(cv=KFold(n_splits=4, random_state=None, shuffle=False),
-            mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc170c2e10&gt;,
+            mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f853df4dee0&gt;,
             n_jobs=2,
-            process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc170c3020&gt;,
+            process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f853df4d9d0&gt;,
             radius=5.6, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SearchLight<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>SearchLight(cv=KFold(n_splits=4, random_state=None, shuffle=False),
-            mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc170c2e10&gt;,
+            mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f853df4dee0&gt;,
             n_jobs=2,
-            process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7fdc170c3020&gt;,
+            process_mask_img=&lt;nibabel.nifti1.Nifti1Image object at 0x7f853df4d9d0&gt;,
             radius=5.6, verbose=1)</pre></div> </div></div></div></div>
 </div>
 <br />
 <br /></section>
 <section id="f-scores-computation">
-<h2>F-scores computation<a class="headerlink" href="#f-scores-computation" title="Link to this heading">#</a></h2>
+<h2>F-scores computation<a class="headerlink" href="#f-scores-computation" title="Link to this heading">¶</a></h2>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.maskers.NiftiMasker.html#nilearn.maskers.NiftiMasker" title="nilearn.maskers.NiftiMasker" class="sphx-glr-backref-module-nilearn-maskers sphx-glr-backref-type-py-class"><span class="n">NiftiMasker</span></a>
 
 <span class="c1"># For decoding, standardizing is often very important</span>
@@ -1315,7 +1315,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </section>
 <section id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h2>
+<h2>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">¶</a></h2>
 <p>Use the <a class="reference internal" href="../../glossary.html#term-fMRI"><span class="xref std std-term">fMRI</span></a> mean image as a surrogate of anatomical data</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">image</span>
 
@@ -1358,7 +1358,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li><img src="../../_images/sphx_glr_plot_haxby_searchlight_001.png" srcset="../../_images/sphx_glr_plot_haxby_searchlight_001.png" alt="plot haxby searchlight" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_haxby_searchlight_002.png" srcset="../../_images/sphx_glr_plot_haxby_searchlight_002.png" alt="plot haxby searchlight" class = "sphx-glr-multi-img"/></li>
 </ul>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 22.799 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 25.862 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  917 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-02-decoding-plot-haxby-searchlight-py">
 <div class="binder-badge docutils container">
@@ -1455,7 +1455,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>

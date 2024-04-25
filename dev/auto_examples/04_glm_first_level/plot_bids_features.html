@@ -13,7 +13,7 @@
 <meta name="description" content="Full step-by-step example of fitting a GLM to perform a first level analysis in an openneuro BIDS dataset. We demonstrate how BIDS derivatives can be exploited to perform a simple one subject analy..." />
 <link rel="search" title="Search" href="../../search.html" /><link rel="next" title="Example of surface-based first-level analysis" href="plot_localizer_surface_analysis.html" /><link rel="prev" title="Predicted time series and residuals" href="plot_predictions_residuals.html" />
 
-    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.01.29 -->
         <title>First level analysis of a complete BIDS dataset from openneuro - Nilearn</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=045299b1" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=135e06be" />
@@ -143,7 +143,7 @@
 
 <div class="announcement">
   <aside class="announcement-content">
-     <p>This is the development documentation of nilearn (0.10.5.dev1+gfabe2aef) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
+     <p>This is the development documentation of nilearn (0.10.5.dev17+gd2ddfb9a2) <a class="sd-sphinx-override sd-badge sd-text-wrap sd-btn-outline-dark reference external" href="https://nilearn.github.io"><span>Switch to stable version (0.10.4)</span></a></p> 
   </aside>
 </div>
 
@@ -274,8 +274,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_design_matrix.html">Example of second level design matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_proportion_activated_voxels.html">Second-level fMRI model: true positive proportion in clusters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_thresholding.html">Statistical testing of a second-level analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_two_sample_test.html">Second-level fMRI model: two-sample test, unpaired and paired</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_oasis.html">Voxel-Based Morphometry on OASIS dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_one_sample_test.html">Second-level fMRI model: one sample test</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../05_glm_second_level/plot_second_level_association_test.html">Example of generic design in second-level models</a></li>
 </ul>
@@ -754,7 +754,7 @@
 to download the full example code or to run this example in your browser via Binder</p>
 </div>
 <section class="sphx-glr-example-title" id="first-level-analysis-of-a-complete-bids-dataset-from-openneuro">
-<span id="sphx-glr-auto-examples-04-glm-first-level-plot-bids-features-py"></span><h1>First level analysis of a complete BIDS dataset from openneuro<a class="headerlink" href="#first-level-analysis-of-a-complete-bids-dataset-from-openneuro" title="Link to this heading">#</a></h1>
+<span id="sphx-glr-auto-examples-04-glm-first-level-plot-bids-features-py"></span><h1>First level analysis of a complete BIDS dataset from openneuro<a class="headerlink" href="#first-level-analysis-of-a-complete-bids-dataset-from-openneuro" title="Link to this heading">¶</a></h1>
 <p>Full step-by-step example of fitting a <a class="reference internal" href="../../glossary.html#term-GLM"><span class="xref std std-term">GLM</span></a>
 to perform a first level analysis in an openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset.
 We demonstrate how <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a>
@@ -777,7 +777,7 @@ estimation in the openneuro dataset.</p></li>
 </pre></div>
 </div>
 <section id="fetch-openneuro-bids-dataset">
-<h2>Fetch openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-openneuro-bids-dataset" title="Link to this heading">#</a></h2>
+<h2>Fetch openneuro <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset<a class="headerlink" href="#fetch-openneuro-bids-dataset" title="Link to this heading">¶</a></h2>
 <p>We download one subject from the stopsignal task
 in the ds000030 V4 <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset available in openneuro.
 This dataset contains the necessary information to run a statistical analysis
@@ -815,7 +815,7 @@ FSL analysis that we can employ for comparison with the Nilearn estimation.</p>
 </div>
 </section>
 <section id="obtain-firstlevelmodel-objects-automatically-and-fit-arguments">
-<h2>Obtain FirstLevelModel objects automatically and fit arguments<a class="headerlink" href="#obtain-firstlevelmodel-objects-automatically-and-fit-arguments" title="Link to this heading">#</a></h2>
+<h2>Obtain FirstLevelModel objects automatically and fit arguments<a class="headerlink" href="#obtain-firstlevelmodel-objects-automatically-and-fit-arguments" title="Link to this heading">¶</a></h2>
 <p>From the dataset directory we automatically obtain FirstLevelModel objects
 with their subject_id filled from the <a class="reference internal" href="../../glossary.html#term-BIDS"><span class="xref std std-term">BIDS</span></a> dataset.
 Moreover we obtain,
@@ -886,7 +886,7 @@ definition.</p>
 </div>
 </section>
 <section id="first-level-model-estimation-one-subject">
-<h2>First level model estimation (one subject)<a class="headerlink" href="#first-level-model-estimation-one-subject" title="Link to this heading">#</a></h2>
+<h2>First level model estimation (one subject)<a class="headerlink" href="#first-level-model-estimation-one-subject" title="Link to this heading">¶</a></h2>
 <p>We fit the first level model for one subject.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel.fit" title="nilearn.glm.first_level.FirstLevelModel.fit" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-method"><span class="n">model</span><span class="o">.</span><span class="n">fit</span></a><span class="p">(</span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">imgs</span></a><span class="p">,</span> <span class="n">design_matrices</span><span class="o">=</span><span class="p">[</span><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="pandas.core.frame.DataFrame" class="sphx-glr-backref-module-pandas-core-frame sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">design_matrix</span></a><span class="p">])</span>
 </pre></div>
@@ -1296,8 +1296,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>FirstLevelModel(minimize_memory=False, n_jobs=2, smoothing_fwhm=5.0,
-                subject_label=&#x27;10159&#x27;, t_r=2)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;FirstLevelModel<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>FirstLevelModel(minimize_memory=False, n_jobs=2, smoothing_fwhm=5.0,
+</style><div id="sk-container-id-6" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>FirstLevelModel(fir_delays=[0], memory=Memory(location=None),
+                minimize_memory=False, n_jobs=2, smoothing_fwhm=5.0,
+                subject_label=&#x27;10159&#x27;, t_r=2)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" checked><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;FirstLevelModel<span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>FirstLevelModel(fir_delays=[0], memory=Memory(location=None),
+                minimize_memory=False, n_jobs=2, smoothing_fwhm=5.0,
                 subject_label=&#x27;10159&#x27;, t_r=2)</pre></div> </div></div></div></div>
 </div>
 <br />
@@ -1356,7 +1358,7 @@ available in the dataset.</p>
 </ul>
 </section>
 <section id="simple-statistical-report-of-thresholded-contrast">
-<h2>Simple statistical report of thresholded contrast<a class="headerlink" href="#simple-statistical-report-of-thresholded-contrast" title="Link to this heading">#</a></h2>
+<h2>Simple statistical report of thresholded contrast<a class="headerlink" href="#simple-statistical-report-of-thresholded-contrast" title="Link to this heading">¶</a></h2>
 <p>We display the <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> plot and table with cluster information.</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.plotting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.plotting.plot_contrast_matrix.html#nilearn.plotting.plot_contrast_matrix" title="nilearn.plotting.plot_contrast_matrix" class="sphx-glr-backref-module-nilearn-plotting sphx-glr-backref-type-py-function"><span class="n">plot_contrast_matrix</span></a>
 
@@ -1423,34 +1425,16 @@ purposes</p>
 </pre></div>
 </div>
 </section>
-<section id="generating-a-report">
-<h2>Generating a report<a class="headerlink" href="#generating-a-report" title="Link to this heading">#</a></h2>
-<p>Using the computed FirstLevelModel and <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> information,
-we can quickly create a summary report.</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a>
-
-<a href="../../modules/generated/nilearn.reporting.HTMLReport.html#nilearn.reporting.HTMLReport" title="nilearn.reporting.HTMLReport" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">report</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a><span class="p">(</span>
-    <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="o">=</span><a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="p">,</span>
-    <span class="n">contrasts</span><span class="o">=</span><span class="s2">&quot;StopSuccess - Go&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-<p>We have several ways to access the report:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># report  # This report can be viewed in a notebook</span>
-<span class="c1"># report.open_in_browser()</span>
-
-<span class="c1"># or we can save as an html file</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a>
+<section id="saving-model-outputs-to-disk">
+<h2>Saving model outputs to disk<a class="headerlink" href="#saving-model-outputs-to-disk" title="Link to this heading">¶</a></h2>
+<p>We can now easily save the main results,
+the model metadata and an HTML report to the disk.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">Path</span></a>
 
 <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">=</span> <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.cwd" title="pathlib.Path.cwd" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span></a><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;results&quot;</span> <span class="o">/</span> <span class="s2">&quot;plot_bids_features&quot;</span>
 <a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.Path.mkdir" title="pathlib.Path.mkdir" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-method"><span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span></a><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># report.save_as_html(output_dir / &#39;report.html&#39;)</span>
-</pre></div>
-</div>
-</section>
-<section id="saving-model-outputs-to-disk">
-<h2>Saving model outputs to disk<a class="headerlink" href="#saving-model-outputs-to-disk" title="Link to this heading">#</a></h2>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.interfaces.bids</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.bids.save_glm_to_bids.html#nilearn.interfaces.bids.save_glm_to_bids" title="nilearn.interfaces.bids.save_glm_to_bids" class="sphx-glr-backref-module-nilearn-interfaces-bids sphx-glr-backref-type-py-function"><span class="n">save_glm_to_bids</span></a>
+
+<span class="kn">from</span> <span class="nn">nilearn.interfaces.bids</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.interfaces.bids.save_glm_to_bids.html#nilearn.interfaces.bids.save_glm_to_bids" title="nilearn.interfaces.bids.save_glm_to_bids" class="sphx-glr-backref-module-nilearn-interfaces-bids sphx-glr-backref-type-py-function"><span class="n">save_glm_to_bids</span></a>
 
 <a href="../../modules/generated/nilearn.interfaces.bids.save_glm_to_bids.html#nilearn.interfaces.bids.save_glm_to_bids" title="nilearn.interfaces.bids.save_glm_to_bids" class="sphx-glr-backref-module-nilearn-interfaces-bids sphx-glr-backref-type-py-function"><span class="n">save_glm_to_bids</span></a><span class="p">(</span>
     <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="p">,</span>
@@ -1465,39 +1449,60 @@ we can quickly create a summary report.</p>
 <li><img src="../../_images/sphx_glr_plot_bids_features_006.png" srcset="../../_images/sphx_glr_plot_bids_features_006.png" alt="plot bids features" class = "sphx-glr-multi-img"/></li>
 <li><img src="../../_images/sphx_glr_plot_bids_features_007.png" srcset="../../_images/sphx_glr_plot_bids_features_007.png" alt="plot bids features" class = "sphx-glr-multi-img"/></li>
 </ul>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/interfaces/bids/glm.py:52: UserWarning:
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:230: UserWarning:
 
 Contrast name &quot;StopSuccess - Go&quot; changed to &quot;stopsuccessMinusGo&quot;
 
-/opt/hostedtoolcache/Python/3.12.2/x64/lib/python3.12/site-packages/nilearn/interfaces/bids/glm.py:52: UserWarning:
+/home/runner/work/nilearn/nilearn/examples/04_glm_first_level/plot_bids_features.py:230: UserWarning:
 
 Contrast name &quot;StopSuccess - Go&quot; changed to &quot;stopsuccessMinusGo&quot;
-
-Extracting and saving residuals
-Extracting and saving r_square
 </pre></div>
 </div>
 <p>View the generated files</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">files</span></a> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;derivatives&quot;</span> <span class="o">/</span> <span class="s2">&quot;nilearn_glm&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)))</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">files</span></a> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">((</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a> <span class="o">/</span> <span class="s2">&quot;derivatives&quot;</span> <span class="o">/</span> <span class="s2">&quot;nilearn_glm&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><a href="https://docs.python.org/3.9/library/pathlib.html#pathlib.PosixPath" title="pathlib.PosixPath" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">output_dir</span></a><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <a href="https://docs.python.org/3.9/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">files</span></a><span class="p">]))</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>derivatives/nilearn_glm/dataset_description.json
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_design.svg
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-effect_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-p_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-t_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-variance_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-z_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_design.svg
-derivatives/nilearn_glm/sub-10159_task-stopsignal_design.tsv
-derivatives/nilearn_glm/sub-10159_task-stopsignal_stat-errorts_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_stat-rSquare_statmap.nii.gz
-derivatives/nilearn_glm/sub-10159_task-stopsignal_statmap.json
+derivatives/nilearn_glm/sub-10159
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_design.svg
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-effect_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-p_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-t_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-variance_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_contrast-stopsuccessMinusGo_stat-z_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_design.json
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_design.svg
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_design.tsv
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_report.html
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_stat-errorts_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_stat-rsquared_statmap.nii.gz
+derivatives/nilearn_glm/sub-10159/sub-10159_task-stopsignal_statmap.json
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 39.089 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  702 MB</p>
+</section>
+<section id="only-generating-the-html-report">
+<h2>Only generating the HTML report<a class="headerlink" href="#only-generating-the-html-report" title="Link to this heading">¶</a></h2>
+<p>Using the computed FirstLevelModel and <a class="reference internal" href="../../glossary.html#term-contrast"><span class="xref std std-term">contrast</span></a> information,
+we can quickly also also only create a summary report.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nilearn.reporting</span> <span class="kn">import</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a>
+
+<a href="../../modules/generated/nilearn.reporting.HTMLReport.html#nilearn.reporting.HTMLReport" title="nilearn.reporting.HTMLReport" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">report</span></a> <span class="o">=</span> <a href="../../modules/generated/nilearn.reporting.make_glm_report.html#nilearn.reporting.make_glm_report" title="nilearn.reporting.make_glm_report" class="sphx-glr-backref-module-nilearn-reporting sphx-glr-backref-type-py-function"><span class="n">make_glm_report</span></a><span class="p">(</span>
+    <a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="o">=</span><a href="../../modules/generated/nilearn.glm.first_level.FirstLevelModel.html#nilearn.glm.first_level.FirstLevelModel" title="nilearn.glm.first_level.FirstLevelModel" class="sphx-glr-backref-module-nilearn-glm-first_level sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">model</span></a><span class="p">,</span>
+    <span class="n">contrasts</span><span class="o">=</span><span class="s2">&quot;StopSuccess - Go&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We have several ways to access the report:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># report  # This report can be viewed in a notebook</span>
+<span class="c1"># report.open_in_browser()</span>
+
+<span class="c1"># or we can save as an html file</span>
+<span class="c1"># report.save_as_html(output_dir / &#39;report.html&#39;)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 50.753 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  699 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-04-glm-first-level-plot-bids-features-py">
 <div class="binder-badge docutils container">
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/nilearn/nilearn/main?urlpath=lab/tree/notebooks/auto_examples/04_glm_first_level/plot_bids_features.ipynb"><img alt="Launch binder" src="../../_images/binder_badge_logo4.svg" width="150px" /></a>
@@ -1579,8 +1584,8 @@ derivatives/nilearn_glm/sub-10159_task-stopsignal_statmap.json
 <li><a class="reference internal" href="#obtain-firstlevelmodel-objects-automatically-and-fit-arguments">Obtain FirstLevelModel objects automatically and fit arguments</a></li>
 <li><a class="reference internal" href="#first-level-model-estimation-one-subject">First level model estimation (one subject)</a></li>
 <li><a class="reference internal" href="#simple-statistical-report-of-thresholded-contrast">Simple statistical report of thresholded contrast</a></li>
-<li><a class="reference internal" href="#generating-a-report">Generating a report</a></li>
 <li><a class="reference internal" href="#saving-model-outputs-to-disk">Saving model outputs to disk</a></li>
+<li><a class="reference internal" href="#only-generating-the-html-report">Only generating the HTML report</a></li>
 </ul>
 </li>
 </ul>
@@ -1593,7 +1598,7 @@ derivatives/nilearn_glm/sub-10159_task-stopsignal_statmap.json
     </aside>
   </div>
 </div><script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/furo.js?v=32e29ea5"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
